@@ -1,0 +1,133 @@
+
+
+
+import re
+import collections
+
+from enum import Enum
+
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+
+from ydk.errors import YPYError, YPYDataValidationError
+from ydk.models import _yang_ns
+
+_meta_table = {
+    'FcAddressType_Enum' : _MetaInfoEnum('FcAddressType_Enum', 'ydk.models.st.CISCO_ST_TC',
+        {
+            'wwn':'WWN',
+            'fcid':'FCID',
+        }, 'CISCO-ST-TC', _yang_ns._namespaces['CISCO-ST-TC']),
+    'FcIfServiceStateType_Enum' : _MetaInfoEnum('FcIfServiceStateType_Enum', 'ydk.models.st.CISCO_ST_TC',
+        {
+            'inService':'INSERVICE',
+            'outOfService':'OUTOFSERVICE',
+        }, 'CISCO-ST-TC', _yang_ns._namespaces['CISCO-ST-TC']),
+    'FcIfSfpDiagLevelType_Enum' : _MetaInfoEnum('FcIfSfpDiagLevelType_Enum', 'ydk.models.st.CISCO_ST_TC',
+        {
+            'unknown':'UNKNOWN',
+            'normal':'NORMAL',
+            'lowWarning':'LOWWARNING',
+            'lowAlarm':'LOWALARM',
+            'highWarning':'HIGHWARNING',
+            'highAlarm':'HIGHALARM',
+        }, 'CISCO-ST-TC', _yang_ns._namespaces['CISCO-ST-TC']),
+    'FcPortModuleTypes_Enum' : _MetaInfoEnum('FcPortModuleTypes_Enum', 'ydk.models.st.CISCO_ST_TC',
+        {
+            'unknown':'UNKNOWN',
+            'other':'OTHER',
+            'gbic':'GBIC',
+            'embedded':'EMBEDDED',
+            'glm':'GLM',
+            'gbicWithSerialID':'GBICWITHSERIALID',
+            'gbicWithoutSerialID':'GBICWITHOUTSERIALID',
+            'sfpWithSerialID':'SFPWITHSERIALID',
+            'sfpWithoutSerialID':'SFPWITHOUTSERIALID',
+            'xfp':'XFP',
+            'x2Short':'X2SHORT',
+            'x2Medium':'X2MEDIUM',
+            'x2Tall':'X2TALL',
+            'xpakShort':'XPAKSHORT',
+            'xpakMedium':'XPAKMEDIUM',
+            'xpakTall':'XPAKTALL',
+            'xenpak':'XENPAK',
+            'sfpDwdm':'SFPDWDM',
+            'qsfp':'QSFP',
+            'x2Dwdm':'X2DWDM',
+        }, 'CISCO-ST-TC', _yang_ns._namespaces['CISCO-ST-TC']),
+    'FcPortTypes_Enum' : _MetaInfoEnum('FcPortTypes_Enum', 'ydk.models.st.CISCO_ST_TC',
+        {
+            'auto':'AUTO',
+            'fPort':'FPORT',
+            'flPort':'FLPORT',
+            'ePort':'EPORT',
+            'bPort':'BPORT',
+            'fxPort':'FXPORT',
+            'sdPort':'SDPORT',
+            'tlPort':'TLPORT',
+            'nPort':'NPORT',
+            'nlPort':'NLPORT',
+            'nxPort':'NXPORT',
+            'tePort':'TEPORT',
+            'fvPort':'FVPORT',
+            'portOperDown':'PORTOPERDOWN',
+            'stPort':'STPORT',
+            'npPort':'NPPORT',
+            'tfPort':'TFPORT',
+            'tnpPort':'TNPPORT',
+        }, 'CISCO-ST-TC', _yang_ns._namespaces['CISCO-ST-TC']),
+    'FcPortTxTypes_Enum' : _MetaInfoEnum('FcPortTxTypes_Enum', 'ydk.models.st.CISCO_ST_TC',
+        {
+            'unknown':'UNKNOWN',
+            'longWaveLaser':'LONGWAVELASER',
+            'shortWaveLaser':'SHORTWAVELASER',
+            'longWaveLaserCostReduced':'LONGWAVELASERCOSTREDUCED',
+            'electrical':'ELECTRICAL',
+            'tenGigBaseSr':'TENGIGBASESR',
+            'tenGigBaseLr':'TENGIGBASELR',
+            'tenGigBaseEr':'TENGIGBASEER',
+            'tenGigBaseLx4':'TENGIGBASELX4',
+            'tenGigBaseSw':'TENGIGBASESW',
+            'tenGigBaseLw':'TENGIGBASELW',
+            'tenGigBaseEw':'TENGIGBASEEW',
+        }, 'CISCO-ST-TC', _yang_ns._namespaces['CISCO-ST-TC']),
+    'FcIfSpeed_Enum' : _MetaInfoEnum('FcIfSpeed_Enum', 'ydk.models.st.CISCO_ST_TC',
+        {
+            'auto':'AUTO',
+            'oneG':'ONEG',
+            'twoG':'TWOG',
+            'fourG':'FOURG',
+            'autoMaxTwoG':'AUTOMAXTWOG',
+            'eightG':'EIGHTG',
+            'autoMaxFourG':'AUTOMAXFOURG',
+            'tenG':'TENG',
+            'autoMaxEightG':'AUTOMAXEIGHTG',
+            'sixteenG':'SIXTEENG',
+            'autoMaxSixteenG':'AUTOMAXSIXTEENG',
+        }, 'CISCO-ST-TC', _yang_ns._namespaces['CISCO-ST-TC']),
+    'InterfaceOperMode_Enum' : _MetaInfoEnum('InterfaceOperMode_Enum', 'ydk.models.st.CISCO_ST_TC',
+        {
+            'auto':'AUTO',
+            'fPort':'FPORT',
+            'flPort':'FLPORT',
+            'ePort':'EPORT',
+            'bPort':'BPORT',
+            'fxPort':'FXPORT',
+            'sdPort':'SDPORT',
+            'tlPort':'TLPORT',
+            'nPort':'NPORT',
+            'nlPort':'NLPORT',
+            'nxPort':'NXPORT',
+            'tePort':'TEPORT',
+            'fvPort':'FVPORT',
+            'portOperDown':'PORTOPERDOWN',
+            'stPort':'STPORT',
+            'mgmtPort':'MGMTPORT',
+            'ipsPort':'IPSPORT',
+            'evPort':'EVPORT',
+            'npPort':'NPPORT',
+            'tfPort':'TFPORT',
+            'tnpPort':'TNPPORT',
+        }, 'CISCO-ST-TC', _yang_ns._namespaces['CISCO-ST-TC']),
+}

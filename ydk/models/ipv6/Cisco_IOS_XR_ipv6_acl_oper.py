@@ -1,0 +1,3073 @@
+""" Cisco_IOS_XR_ipv6_acl_oper 
+
+This module contains a collection of YANG definitions
+for Cisco IOS\-XR ipv6\-acl package operational data.
+
+This module contains definitions
+for the following management objects\:
+  ipv6\-acl\-and\-prefix\-list\: Root class of IPv6 Oper schema tree
+
+Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+All rights reserved.
+
+"""
+
+
+import re
+import collections
+
+from enum import Enum
+
+from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+
+from ydk.errors import YPYError, YPYDataValidationError
+
+
+from ydk.models.common.Cisco_IOS_XR_common_acl_datatypes import AclUsageAppIdEnum_Enum
+
+class AclAce1_Enum(Enum):
+    """
+    AclAce1_Enum
+
+    ACE Types
+
+    """
+
+    """
+
+    This is Normal ACE
+
+    """
+    NORMAL = 0
+
+    """
+
+    This is Remark ACE
+
+    """
+    REMARK = 1
+
+    """
+
+    This is ABF ACE
+
+    """
+    ABF = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+        return meta._meta_table['AclAce1_Enum']
+
+
+class AclAce1_Enum(Enum):
+    """
+    AclAce1_Enum
+
+    ACE Types
+
+    """
+
+    """
+
+    This is Normal ACE
+
+    """
+    NORMAL = 0
+
+    """
+
+    This is Remark ACE
+
+    """
+    REMARK = 1
+
+    """
+
+    This is ABF ACE
+
+    """
+    ABF = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+        return meta._meta_table['AclAce1_Enum']
+
+
+class AclAction_Enum(Enum):
+    """
+    AclAction_Enum
+
+    Acl action
+
+    """
+
+    """
+
+    Deny
+
+    """
+    DENY = 0
+
+    """
+
+    Permit
+
+    """
+    PERMIT = 1
+
+    """
+
+    Encrypt
+
+    """
+    ENCRYPT = 2
+
+    """
+
+    Bypass
+
+    """
+    BYPASS = 3
+
+    """
+
+    Fallthrough
+
+    """
+    FALLTHROUGH = 4
+
+    """
+
+    Invalid
+
+    """
+    INVALID = 5
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+        return meta._meta_table['AclAction_Enum']
+
+
+class AclLog_Enum(Enum):
+    """
+    AclLog_Enum
+
+    Acl log
+
+    """
+
+    """
+
+    Log None
+
+    """
+    LOG_NONE = 0
+
+    """
+
+    Log Regular
+
+    """
+    LOG = 1
+
+    """
+
+    Log Input
+
+    """
+    LOG_INPUT = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+        return meta._meta_table['AclLog_Enum']
+
+
+class AclPortOperator_Enum(Enum):
+    """
+    AclPortOperator_Enum
+
+    Acl port operator
+
+    """
+
+    """
+
+    None
+
+    """
+    NONE = 0
+
+    """
+
+    Equal
+
+    """
+    EQ = 1
+
+    """
+
+    Greater than
+
+    """
+    GT = 2
+
+    """
+
+    Less than
+
+    """
+    LT = 3
+
+    """
+
+    Not Equal
+
+    """
+    NEQ = 4
+
+    """
+
+    Range
+
+    """
+    RANGE = 5
+
+    """
+
+    One Byte
+
+    """
+    ONEBYTE = 8
+
+    """
+
+    Two Bytes
+
+    """
+    TWOBYTES = 9
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+        return meta._meta_table['AclPortOperator_Enum']
+
+
+class AclPortOperator_Enum(Enum):
+    """
+    AclPortOperator_Enum
+
+    Acl port operator
+
+    """
+
+    """
+
+    None
+
+    """
+    NONE = 0
+
+    """
+
+    Equal
+
+    """
+    EQ = 1
+
+    """
+
+    Greater than
+
+    """
+    GT = 2
+
+    """
+
+    Less than
+
+    """
+    LT = 3
+
+    """
+
+    Not Equal
+
+    """
+    NEQ = 4
+
+    """
+
+    Range
+
+    """
+    RANGE = 5
+
+    """
+
+    One Byte
+
+    """
+    ONEBYTE = 8
+
+    """
+
+    Two Bytes
+
+    """
+    TWOBYTES = 9
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+        return meta._meta_table['AclPortOperator_Enum']
+
+
+class AclPortOperator_Enum(Enum):
+    """
+    AclPortOperator_Enum
+
+    Acl port operator
+
+    """
+
+    """
+
+    None
+
+    """
+    NONE = 0
+
+    """
+
+    Equal
+
+    """
+    EQ = 1
+
+    """
+
+    Greater than
+
+    """
+    GT = 2
+
+    """
+
+    Less than
+
+    """
+    LT = 3
+
+    """
+
+    Not Equal
+
+    """
+    NEQ = 4
+
+    """
+
+    Range
+
+    """
+    RANGE = 5
+
+    """
+
+    One Byte
+
+    """
+    ONEBYTE = 8
+
+    """
+
+    Two Bytes
+
+    """
+    TWOBYTES = 9
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+        return meta._meta_table['AclPortOperator_Enum']
+
+
+class AclTcpflagsOperator_Enum(Enum):
+    """
+    AclTcpflagsOperator_Enum
+
+    Acl tcpflags operator
+
+    """
+
+    """
+
+    Match None
+
+    """
+    MATCH_NONE = 0
+
+    """
+
+    Match All
+
+    """
+    MATCH_ALL = 1
+
+    """
+
+    Match any old
+
+    """
+    MATCH_ANY_OLD = 2
+
+    """
+
+    Match any
+
+    """
+    MATCH_ANY = 3
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+        return meta._meta_table['AclTcpflagsOperator_Enum']
+
+
+class BagAclNhAtStatus_Enum(Enum):
+    """
+    BagAclNhAtStatus_Enum
+
+    Bag acl nh at status
+
+    """
+
+    """
+
+    AT State Unknown
+
+    """
+    UNKNOWN = 0
+
+    """
+
+    AT State UP
+
+    """
+    UP = 1
+
+    """
+
+    AT State DOWN
+
+    """
+    DOWN = 2
+
+    """
+
+    AT State Not Present
+
+    """
+    NOT_PRESENT = 3
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+        return meta._meta_table['BagAclNhAtStatus_Enum']
+
+
+class BagAclNhStatus_Enum(Enum):
+    """
+    BagAclNhStatus_Enum
+
+    Bag acl nh status
+
+    """
+
+    """
+
+    State Not Present
+
+    """
+    NOT_PRESENT = 0
+
+    """
+
+    State Unknown
+
+    """
+    UNKNOWN = 1
+
+    """
+
+    State DOWN
+
+    """
+    DOWN = 2
+
+    """
+
+    State UP
+
+    """
+    UP = 3
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+        return meta._meta_table['BagAclNhStatus_Enum']
+
+
+class BagAclNh_Enum(Enum):
+    """
+    BagAclNh_Enum
+
+    Bag acl nh
+
+    """
+
+    """
+
+    Next Hop None
+
+    """
+    NEXTHOP_NONE = 0
+
+    """
+
+    Nexthop Default
+
+    """
+    NEXTHOP_DEFAULT = 1
+
+    """
+
+    Nexthop
+
+    """
+    NEXTHOP = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+        return meta._meta_table['BagAclNh_Enum']
+
+
+
+class Ipv6AclAndPrefixList(object):
+    """
+    Root class of IPv6 Oper schema tree
+    
+    .. attribute:: access_list_manager
+    
+    	AccessListManager containing ACLs and prefix lists
+    	**type**\: :py:class:`AccessListManager <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager>`
+    
+    .. attribute:: oor
+    
+    	Out Of Resources, Limits to the resources allocatable
+    	**type**\: :py:class:`Oor <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor>`
+    
+    
+
+    """
+
+    _prefix = 'ipv6-acl-oper'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        self.access_list_manager = Ipv6AclAndPrefixList.AccessListManager()
+        self.access_list_manager.parent = self
+        self.oor = Ipv6AclAndPrefixList.Oor()
+        self.oor.parent = self
+
+
+    class AccessListManager(object):
+        """
+        AccessListManager containing ACLs and prefix
+        lists
+        
+        .. attribute:: accesses
+        
+        	ACL class displaying Usage and Entries
+        	**type**\: :py:class:`Accesses <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses>`
+        
+        .. attribute:: prefixes
+        
+        	Table of prefix lists
+        	**type**\: :py:class:`Prefixes <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Prefixes>`
+        
+        .. attribute:: usages
+        
+        	Table of Usage statistics of ACLs at different nodes
+        	**type**\: :py:class:`Usages <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Usages>`
+        
+        
+
+        """
+
+        _prefix = 'ipv6-acl-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.accesses = Ipv6AclAndPrefixList.AccessListManager.Accesses()
+            self.accesses.parent = self
+            self.prefixes = Ipv6AclAndPrefixList.AccessListManager.Prefixes()
+            self.prefixes.parent = self
+            self.usages = Ipv6AclAndPrefixList.AccessListManager.Usages()
+            self.usages.parent = self
+
+
+        class Accesses(object):
+            """
+            ACL class displaying Usage and Entries
+            
+            .. attribute:: access
+            
+            	Name of the Access List
+            	**type**\: list of :py:class:`Access <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses.Access>`
+            
+            
+
+            """
+
+            _prefix = 'ipv6-acl-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.access = YList()
+                self.access.parent = self
+                self.access.name = 'access'
+
+
+            class Access(object):
+                """
+                Name of the Access List
+                
+                .. attribute:: access_list_name
+                
+                	Name of the Access List
+                	**type**\: str
+                
+                	**range:** 0..65
+                
+                .. attribute:: access_list_sequences
+                
+                	Table of all the sequence numbers per ACL
+                	**type**\: :py:class:`AccessListSequences <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences>`
+                
+                
+
+                """
+
+                _prefix = 'ipv6-acl-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.access_list_name = None
+                    self.access_list_sequences = Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences()
+                    self.access_list_sequences.parent = self
+
+
+                class AccessListSequences(object):
+                    """
+                    Table of all the sequence numbers per ACL
+                    
+                    .. attribute:: access_list_sequence
+                    
+                    	Sequence number of an ACL entry
+                    	**type**\: list of :py:class:`AccessListSequence <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-acl-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.access_list_sequence = YList()
+                        self.access_list_sequence.parent = self
+                        self.access_list_sequence.name = 'access_list_sequence'
+
+
+                    class AccessListSequence(object):
+                        """
+                        Sequence number of an ACL entry
+                        
+                        .. attribute:: sequence_number
+                        
+                        	ACL entry sequence number
+                        	**type**\: int
+                        
+                        	**range:** 1..2147483646
+                        
+                        .. attribute:: acl_name
+                        
+                        	ACL Name
+                        	**type**\: str
+                        
+                        .. attribute:: capture
+                        
+                        	Capture option, TRUE if enabled
+                        	**type**\: bool
+                        
+                        .. attribute:: counter_name
+                        
+                        	Counter name
+                        	**type**\: str
+                        
+                        .. attribute:: destination_mask
+                        
+                        	Destination Mask
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: destination_port_group
+                        
+                        	Destination port object\-group
+                        	**type**\: str
+                        
+                        .. attribute:: destination_prefix_group
+                        
+                        	Destination prefix object\-group
+                        	**type**\: str
+                        
+                        .. attribute:: hits
+                        
+                        	hits
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: hw_next_hop_info
+                        
+                        	HW Next hop info
+                        	**type**\: :py:class:`HwNextHopInfo <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo>`
+                        
+                        .. attribute:: is_ace_sequence_number
+                        
+                        	ACLE sequence number
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_ace_type
+                        
+                        	ACE type (acl, remark)
+                        	**type**\: :py:class:`AclAce1_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclAce1_Enum>`
+                        
+                        .. attribute:: is_comment_for_entry
+                        
+                        	IsCommentForEntry
+                        	**type**\: str
+                        
+                        .. attribute:: is_destination_address_in_numbers
+                        
+                        	IsDestinationAddressInNumbers
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: is_destination_address_prefix_length
+                        
+                        	IsDestinationAddressPrefixLength
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_destination_operator
+                        
+                        	eq, ne, lt, etc..
+                        	**type**\: :py:class:`AclPortOperator_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator_Enum>`
+                        
+                        .. attribute:: is_destination_port1
+                        
+                        	IsDestinationPort1
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_destination_port2
+                        
+                        	IsDestinationPort2
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_dscp_present
+                        
+                        	IsDSCPPresent
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_dscp_valu
+                        
+                        	IsDSCPValu
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_flow_id
+                        
+                        	IsFlowId
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_header_matches
+                        
+                        	Match if routing header is presant
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_icmp_message_off
+                        
+                        	Don't generate the icmp message
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_ipv6_protocol_type
+                        
+                        	IsIPV6ProtocolType
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_log_option
+                        
+                        	IsLogOption
+                        	**type**\: :py:class:`AclLog_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclLog_Enum>`
+                        
+                        .. attribute:: is_packet_allow_or_deny
+                        
+                        	Grant value permit/deny 
+                        	**type**\: :py:class:`AclAction_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclAction_Enum>`
+                        
+                        .. attribute:: is_packet_length_end
+                        
+                        	IsPacketLengthEnd
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_packet_length_operator
+                        
+                        	Match if routing header is presant
+                        	**type**\: :py:class:`AclPortOperator_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator_Enum>`
+                        
+                        .. attribute:: is_packet_length_start
+                        
+                        	IsPacketLengthStart
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_precedence_present
+                        
+                        	IsPrecedencePresent
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_precedence_value
+                        
+                        	range from 0 to 7
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_source_address_in_numbers
+                        
+                        	IsSourceAddressInNumbers
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: is_source_address_prefix_length
+                        
+                        	IsSourceAddressPrefixLength
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_source_operator
+                        
+                        	eq, ne, lt, etc..
+                        	**type**\: :py:class:`AclPortOperator_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator_Enum>`
+                        
+                        .. attribute:: is_source_port1
+                        
+                        	IsSourcePort1
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_source_port2
+                        
+                        	IsSourcePort2
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_tcp_bits
+                        
+                        	IsTCPBits
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_tcp_bits_mask
+                        
+                        	IsTCPBitsMask
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_tcp_bits_operator
+                        
+                        	IsTCPBitsOperator
+                        	**type**\: :py:class:`AclTcpflagsOperator_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclTcpflagsOperator_Enum>`
+                        
+                        .. attribute:: is_time_to_live_end
+                        
+                        	IsTimeToLiveEnd
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_time_to_live_operator
+                        
+                        	IsTimeToLiveOperator
+                        	**type**\: :py:class:`AclPortOperator_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator_Enum>`
+                        
+                        .. attribute:: is_time_to_live_start
+                        
+                        	IsTimeToLiveStart
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: next_hop_info
+                        
+                        	Next hop info
+                        	**type**\: list of :py:class:`NextHopInfo <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo>`
+                        
+                        .. attribute:: next_hop_type
+                        
+                        	Next hop type
+                        	**type**\: :py:class:`BagAclNh_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.BagAclNh_Enum>`
+                        
+                        .. attribute:: no_stats
+                        
+                        	no stats
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: source_mask
+                        
+                        	Source Mask
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: source_port_group
+                        
+                        	Source port object\-group
+                        	**type**\: str
+                        
+                        .. attribute:: source_prefix_group
+                        
+                        	Source prefix object\-group
+                        	**type**\: str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-acl-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.sequence_number = None
+                            self.acl_name = None
+                            self.capture = None
+                            self.counter_name = None
+                            self.destination_mask = None
+                            self.destination_port_group = None
+                            self.destination_prefix_group = None
+                            self.hits = None
+                            self.hw_next_hop_info = Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo()
+                            self.hw_next_hop_info.parent = self
+                            self.is_ace_sequence_number = None
+                            self.is_ace_type = None
+                            self.is_comment_for_entry = None
+                            self.is_destination_address_in_numbers = None
+                            self.is_destination_address_prefix_length = None
+                            self.is_destination_operator = None
+                            self.is_destination_port1 = None
+                            self.is_destination_port2 = None
+                            self.is_dscp_present = None
+                            self.is_dscp_valu = None
+                            self.is_flow_id = None
+                            self.is_header_matches = None
+                            self.is_icmp_message_off = None
+                            self.is_ipv6_protocol_type = None
+                            self.is_log_option = None
+                            self.is_packet_allow_or_deny = None
+                            self.is_packet_length_end = None
+                            self.is_packet_length_operator = None
+                            self.is_packet_length_start = None
+                            self.is_precedence_present = None
+                            self.is_precedence_value = None
+                            self.is_source_address_in_numbers = None
+                            self.is_source_address_prefix_length = None
+                            self.is_source_operator = None
+                            self.is_source_port1 = None
+                            self.is_source_port2 = None
+                            self.is_tcp_bits = None
+                            self.is_tcp_bits_mask = None
+                            self.is_tcp_bits_operator = None
+                            self.is_time_to_live_end = None
+                            self.is_time_to_live_operator = None
+                            self.is_time_to_live_start = None
+                            self.next_hop_info = YList()
+                            self.next_hop_info.parent = self
+                            self.next_hop_info.name = 'next_hop_info'
+                            self.next_hop_type = None
+                            self.no_stats = None
+                            self.source_mask = None
+                            self.source_port_group = None
+                            self.source_prefix_group = None
+
+
+                        class HwNextHopInfo(object):
+                            """
+                            HW Next hop info
+                            
+                            .. attribute:: next_hop
+                            
+                            	The Next Hop
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            .. attribute:: table_id
+                            
+                            	Table ID
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: type
+                            
+                            	The next\-hop type
+                            	**type**\: :py:class:`BagAclNh_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.BagAclNh_Enum>`
+                            
+                            .. attribute:: vrf_name
+                            
+                            	Vrf Name
+                            	**type**\: str
+                            
+                            	**range:** 0..32
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv6-acl-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.next_hop = None
+                                self.table_id = None
+                                self.type = None
+                                self.vrf_name = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ipv6-acl-oper:hw-next-hop-info'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.is_presence():
+                                    return True
+                                if self.next_hop is not None:
+                                    return True
+
+                                if self.table_id is not None:
+                                    return True
+
+                                if self.type is not None:
+                                    return True
+
+                                if self.vrf_name is not None:
+                                    return True
+
+                                return False
+
+                            def is_presence(self):
+                                ''' Returns True if this instance represents presence container else returns False '''
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                                return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo']['meta_info']
+
+
+                        class NextHopInfo(object):
+                            """
+                            Next hop info
+                            
+                            .. attribute:: acl_nh_exist
+                            
+                            	The nexthop exist
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: at_status
+                            
+                            	The next hop at status
+                            	**type**\: :py:class:`BagAclNhAtStatus_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.BagAclNhAtStatus_Enum>`
+                            
+                            .. attribute:: next_hop
+                            
+                            	The next hop
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            .. attribute:: status
+                            
+                            	The next hop status
+                            	**type**\: :py:class:`BagAclNhStatus_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.BagAclNhStatus_Enum>`
+                            
+                            .. attribute:: track_name
+                            
+                            	Track name
+                            	**type**\: str
+                            
+                            	**range:** 0..33
+                            
+                            .. attribute:: vrf_name
+                            
+                            	Vrf Name
+                            	**type**\: str
+                            
+                            	**range:** 0..32
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv6-acl-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.acl_nh_exist = None
+                                self.at_status = None
+                                self.next_hop = None
+                                self.status = None
+                                self.track_name = None
+                                self.vrf_name = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ipv6-acl-oper:next-hop-info'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.is_presence():
+                                    return True
+                                if self.acl_nh_exist is not None:
+                                    return True
+
+                                if self.at_status is not None:
+                                    return True
+
+                                if self.next_hop is not None:
+                                    return True
+
+                                if self.status is not None:
+                                    return True
+
+                                if self.track_name is not None:
+                                    return True
+
+                                if self.vrf_name is not None:
+                                    return True
+
+                                return False
+
+                            def is_presence(self):
+                                ''' Returns True if this instance represents presence container else returns False '''
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                                return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            if self.sequence_number is None:
+                                raise YPYDataValidationError('Key property sequence_number is None')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-acl-oper:access-list-sequence[Cisco-IOS-XR-ipv6-acl-oper:sequence-number = ' + str(self.sequence_number) + ']'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.is_presence():
+                                return True
+                            if self.sequence_number is not None:
+                                return True
+
+                            if self.acl_name is not None:
+                                return True
+
+                            if self.capture is not None:
+                                return True
+
+                            if self.counter_name is not None:
+                                return True
+
+                            if self.destination_mask is not None:
+                                return True
+
+                            if self.destination_port_group is not None:
+                                return True
+
+                            if self.destination_prefix_group is not None:
+                                return True
+
+                            if self.hits is not None:
+                                return True
+
+                            if self.hw_next_hop_info is not None and self.hw_next_hop_info._has_data():
+                                return True
+
+                            if self.hw_next_hop_info is not None and self.hw_next_hop_info.is_presence():
+                                return True
+
+                            if self.is_ace_sequence_number is not None:
+                                return True
+
+                            if self.is_ace_type is not None:
+                                return True
+
+                            if self.is_comment_for_entry is not None:
+                                return True
+
+                            if self.is_destination_address_in_numbers is not None:
+                                return True
+
+                            if self.is_destination_address_prefix_length is not None:
+                                return True
+
+                            if self.is_destination_operator is not None:
+                                return True
+
+                            if self.is_destination_port1 is not None:
+                                return True
+
+                            if self.is_destination_port2 is not None:
+                                return True
+
+                            if self.is_dscp_present is not None:
+                                return True
+
+                            if self.is_dscp_valu is not None:
+                                return True
+
+                            if self.is_flow_id is not None:
+                                return True
+
+                            if self.is_header_matches is not None:
+                                return True
+
+                            if self.is_icmp_message_off is not None:
+                                return True
+
+                            if self.is_ipv6_protocol_type is not None:
+                                return True
+
+                            if self.is_log_option is not None:
+                                return True
+
+                            if self.is_packet_allow_or_deny is not None:
+                                return True
+
+                            if self.is_packet_length_end is not None:
+                                return True
+
+                            if self.is_packet_length_operator is not None:
+                                return True
+
+                            if self.is_packet_length_start is not None:
+                                return True
+
+                            if self.is_precedence_present is not None:
+                                return True
+
+                            if self.is_precedence_value is not None:
+                                return True
+
+                            if self.is_source_address_in_numbers is not None:
+                                return True
+
+                            if self.is_source_address_prefix_length is not None:
+                                return True
+
+                            if self.is_source_operator is not None:
+                                return True
+
+                            if self.is_source_port1 is not None:
+                                return True
+
+                            if self.is_source_port2 is not None:
+                                return True
+
+                            if self.is_tcp_bits is not None:
+                                return True
+
+                            if self.is_tcp_bits_mask is not None:
+                                return True
+
+                            if self.is_tcp_bits_operator is not None:
+                                return True
+
+                            if self.is_time_to_live_end is not None:
+                                return True
+
+                            if self.is_time_to_live_operator is not None:
+                                return True
+
+                            if self.is_time_to_live_start is not None:
+                                return True
+
+                            if self.next_hop_info is not None:
+                                for child_ref in self.next_hop_info:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.next_hop_type is not None:
+                                return True
+
+                            if self.no_stats is not None:
+                                return True
+
+                            if self.source_mask is not None:
+                                return True
+
+                            if self.source_port_group is not None:
+                                return True
+
+                            if self.source_prefix_group is not None:
+                                return True
+
+                            return False
+
+                        def is_presence(self):
+                            ''' Returns True if this instance represents presence container else returns False '''
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                            return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-acl-oper:access-list-sequences'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.is_presence():
+                            return True
+                        if self.access_list_sequence is not None:
+                            for child_ref in self.access_list_sequence:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    def is_presence(self):
+                        ''' Returns True if this instance represents presence container else returns False '''
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                        return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.access_list_name is None:
+                        raise YPYDataValidationError('Key property access_list_name is None')
+
+                    return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:access-list-manager/Cisco-IOS-XR-ipv6-acl-oper:accesses/Cisco-IOS-XR-ipv6-acl-oper:access[Cisco-IOS-XR-ipv6-acl-oper:access-list-name = ' + str(self.access_list_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.is_presence():
+                        return True
+                    if self.access_list_name is not None:
+                        return True
+
+                    if self.access_list_sequences is not None and self.access_list_sequences._has_data():
+                        return True
+
+                    if self.access_list_sequences is not None and self.access_list_sequences.is_presence():
+                        return True
+
+                    return False
+
+                def is_presence(self):
+                    ''' Returns True if this instance represents presence container else returns False '''
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                    return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:access-list-manager/Cisco-IOS-XR-ipv6-acl-oper:accesses'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.is_presence():
+                    return True
+                if self.access is not None:
+                    for child_ref in self.access:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            def is_presence(self):
+                ''' Returns True if this instance represents presence container else returns False '''
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses']['meta_info']
+
+
+        class Prefixes(object):
+            """
+            Table of prefix lists
+            
+            .. attribute:: prefix
+            
+            	Name of the prefix list
+            	**type**\: list of :py:class:`Prefix <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix>`
+            
+            
+
+            """
+
+            _prefix = 'ipv6-acl-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.prefix = YList()
+                self.prefix.parent = self
+                self.prefix.name = 'prefix'
+
+
+            class Prefix(object):
+                """
+                Name of the prefix list
+                
+                .. attribute:: prefix_list_name
+                
+                	Name of the prefix list
+                	**type**\: str
+                
+                	**range:** 0..65
+                
+                .. attribute:: prefix_list_sequences
+                
+                	Table of all the SequenceNumbers per prefix list
+                	**type**\: :py:class:`PrefixListSequences <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences>`
+                
+                
+
+                """
+
+                _prefix = 'ipv6-acl-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.prefix_list_name = None
+                    self.prefix_list_sequences = Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences()
+                    self.prefix_list_sequences.parent = self
+
+
+                class PrefixListSequences(object):
+                    """
+                    Table of all the SequenceNumbers per prefix
+                    list
+                    
+                    .. attribute:: prefix_list_sequence
+                    
+                    	Sequence Number of a prefix list entry
+                    	**type**\: list of :py:class:`PrefixListSequence <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-acl-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.prefix_list_sequence = YList()
+                        self.prefix_list_sequence.parent = self
+                        self.prefix_list_sequence.name = 'prefix_list_sequence'
+
+
+                    class PrefixListSequence(object):
+                        """
+                        Sequence Number of a prefix list entry
+                        
+                        .. attribute:: sequence_number
+                        
+                        	Sequence Number of the prefix list entry
+                        	**type**\: int
+                        
+                        	**range:** 1..2147483646
+                        
+                        .. attribute:: acl_name
+                        
+                        	ACL Name
+                        	**type**\: str
+                        
+                        .. attribute:: hits
+                        
+                        	Number of hits
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_ace_sequence_number
+                        
+                        	ACLE sequence number
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_ace_type
+                        
+                        	ACE type (acl, remark)
+                        	**type**\: :py:class:`AclAce1_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclAce1_Enum>`
+                        
+                        .. attribute:: is_address_in_numbers
+                        
+                        	IPv6 prefix
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: is_address_mask_length
+                        
+                        	Prefix length 
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_comment_for_entry
+                        
+                        	Remark String
+                        	**type**\: str
+                        
+                        .. attribute:: is_length_operator
+                        
+                        	Port Operator
+                        	**type**\: :py:class:`AclPortOperator_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator_Enum>`
+                        
+                        .. attribute:: is_packet_allow_or_deny
+                        
+                        	Grant value permit/deny 
+                        	**type**\: :py:class:`AclAction_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.AclAction_Enum>`
+                        
+                        .. attribute:: is_packet_maximum_length
+                        
+                        	Maximum length
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_packet_minimum_length
+                        
+                        	Min length
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-acl-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.sequence_number = None
+                            self.acl_name = None
+                            self.hits = None
+                            self.is_ace_sequence_number = None
+                            self.is_ace_type = None
+                            self.is_address_in_numbers = None
+                            self.is_address_mask_length = None
+                            self.is_comment_for_entry = None
+                            self.is_length_operator = None
+                            self.is_packet_allow_or_deny = None
+                            self.is_packet_maximum_length = None
+                            self.is_packet_minimum_length = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            if self.sequence_number is None:
+                                raise YPYDataValidationError('Key property sequence_number is None')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-acl-oper:prefix-list-sequence[Cisco-IOS-XR-ipv6-acl-oper:sequence-number = ' + str(self.sequence_number) + ']'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.is_presence():
+                                return True
+                            if self.sequence_number is not None:
+                                return True
+
+                            if self.acl_name is not None:
+                                return True
+
+                            if self.hits is not None:
+                                return True
+
+                            if self.is_ace_sequence_number is not None:
+                                return True
+
+                            if self.is_ace_type is not None:
+                                return True
+
+                            if self.is_address_in_numbers is not None:
+                                return True
+
+                            if self.is_address_mask_length is not None:
+                                return True
+
+                            if self.is_comment_for_entry is not None:
+                                return True
+
+                            if self.is_length_operator is not None:
+                                return True
+
+                            if self.is_packet_allow_or_deny is not None:
+                                return True
+
+                            if self.is_packet_maximum_length is not None:
+                                return True
+
+                            if self.is_packet_minimum_length is not None:
+                                return True
+
+                            return False
+
+                        def is_presence(self):
+                            ''' Returns True if this instance represents presence container else returns False '''
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                            return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-acl-oper:prefix-list-sequences'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.is_presence():
+                            return True
+                        if self.prefix_list_sequence is not None:
+                            for child_ref in self.prefix_list_sequence:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    def is_presence(self):
+                        ''' Returns True if this instance represents presence container else returns False '''
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                        return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.prefix_list_name is None:
+                        raise YPYDataValidationError('Key property prefix_list_name is None')
+
+                    return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:access-list-manager/Cisco-IOS-XR-ipv6-acl-oper:prefixes/Cisco-IOS-XR-ipv6-acl-oper:prefix[Cisco-IOS-XR-ipv6-acl-oper:prefix-list-name = ' + str(self.prefix_list_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.is_presence():
+                        return True
+                    if self.prefix_list_name is not None:
+                        return True
+
+                    if self.prefix_list_sequences is not None and self.prefix_list_sequences._has_data():
+                        return True
+
+                    if self.prefix_list_sequences is not None and self.prefix_list_sequences.is_presence():
+                        return True
+
+                    return False
+
+                def is_presence(self):
+                    ''' Returns True if this instance represents presence container else returns False '''
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                    return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:access-list-manager/Cisco-IOS-XR-ipv6-acl-oper:prefixes'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.is_presence():
+                    return True
+                if self.prefix is not None:
+                    for child_ref in self.prefix:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            def is_presence(self):
+                ''' Returns True if this instance represents presence container else returns False '''
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Prefixes']['meta_info']
+
+
+        class Usages(object):
+            """
+            Table of Usage statistics of ACLs at different
+            nodes
+            
+            .. attribute:: usage
+            
+            	Usage statistics of an ACL at a node
+            	**type**\: list of :py:class:`Usage <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Usages.Usage>`
+            
+            
+
+            """
+
+            _prefix = 'ipv6-acl-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.usage = YList()
+                self.usage.parent = self
+                self.usage.name = 'usage'
+
+
+            class Usage(object):
+                """
+                Usage statistics of an ACL at a node
+                
+                .. attribute:: access_list_name
+                
+                	Name of the ACL
+                	**type**\: str
+                
+                	**range:** 0..65
+                
+                .. attribute:: application_id
+                
+                	Application ID
+                	**type**\: :py:class:`AclUsageAppIdEnum_Enum <ydk.models.common.Cisco_IOS_XR_common_acl_datatypes.AclUsageAppIdEnum_Enum>`
+                
+                .. attribute:: node_name
+                
+                	Node where ACL is applied
+                	**type**\: str
+                
+                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                
+                .. attribute:: usage_details
+                
+                	Usage Statistics Details
+                	**type**\: str
+                
+                
+
+                """
+
+                _prefix = 'ipv6-acl-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.access_list_name = None
+                    self.application_id = None
+                    self.node_name = None
+                    self.usage_details = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:access-list-manager/Cisco-IOS-XR-ipv6-acl-oper:usages/Cisco-IOS-XR-ipv6-acl-oper:usage'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.is_presence():
+                        return True
+                    if self.access_list_name is not None:
+                        return True
+
+                    if self.application_id is not None:
+                        return True
+
+                    if self.node_name is not None:
+                        return True
+
+                    if self.usage_details is not None:
+                        return True
+
+                    return False
+
+                def is_presence(self):
+                    ''' Returns True if this instance represents presence container else returns False '''
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                    return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Usages.Usage']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:access-list-manager/Cisco-IOS-XR-ipv6-acl-oper:usages'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.is_presence():
+                    return True
+                if self.usage is not None:
+                    for child_ref in self.usage:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            def is_presence(self):
+                ''' Returns True if this instance represents presence container else returns False '''
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Usages']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:access-list-manager'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.is_presence():
+                return True
+            if self.accesses is not None and self.accesses._has_data():
+                return True
+
+            if self.accesses is not None and self.accesses.is_presence():
+                return True
+
+            if self.prefixes is not None and self.prefixes._has_data():
+                return True
+
+            if self.prefixes is not None and self.prefixes.is_presence():
+                return True
+
+            if self.usages is not None and self.usages._has_data():
+                return True
+
+            if self.usages is not None and self.usages.is_presence():
+                return True
+
+            return False
+
+        def is_presence(self):
+            ''' Returns True if this instance represents presence container else returns False '''
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+            return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager']['meta_info']
+
+
+    class Oor(object):
+        """
+        Out Of Resources, Limits to the resources
+        allocatable
+        
+        .. attribute:: access_list_summary
+        
+        	Resource Limits pertaining to ACLs only
+        	**type**\: :py:class:`AccessListSummary <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.AccessListSummary>`
+        
+        .. attribute:: details
+        
+        	Details of the overall out of resource limit
+        	**type**\: :py:class:`Details <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.Details>`
+        
+        .. attribute:: oor_accesses
+        
+        	Resource occupation details for ACLs
+        	**type**\: :py:class:`OorAccesses <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.OorAccesses>`
+        
+        .. attribute:: oor_prefixes
+        
+        	Resource occupation details for prefix lists
+        	**type**\: :py:class:`OorPrefixes <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.OorPrefixes>`
+        
+        .. attribute:: prefix_list_summary
+        
+        	Summary of the prefix Lists resource utilization
+        	**type**\: :py:class:`PrefixListSummary <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.PrefixListSummary>`
+        
+        
+
+        """
+
+        _prefix = 'ipv6-acl-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.access_list_summary = Ipv6AclAndPrefixList.Oor.AccessListSummary()
+            self.access_list_summary.parent = self
+            self.details = Ipv6AclAndPrefixList.Oor.Details()
+            self.details.parent = self
+            self.oor_accesses = Ipv6AclAndPrefixList.Oor.OorAccesses()
+            self.oor_accesses.parent = self
+            self.oor_prefixes = Ipv6AclAndPrefixList.Oor.OorPrefixes()
+            self.oor_prefixes.parent = self
+            self.prefix_list_summary = Ipv6AclAndPrefixList.Oor.PrefixListSummary()
+            self.prefix_list_summary.parent = self
+
+
+        class AccessListSummary(object):
+            """
+            Resource Limits pertaining to ACLs only
+            
+            .. attribute:: details
+            
+            	Details containing the resource limits of the ACLs
+            	**type**\: :py:class:`Details <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.AccessListSummary.Details>`
+            
+            
+
+            """
+
+            _prefix = 'ipv6-acl-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.details = Ipv6AclAndPrefixList.Oor.AccessListSummary.Details()
+                self.details.parent = self
+
+
+            class Details(object):
+                """
+                Details containing the resource limits of the
+                ACLs
+                
+                .. attribute:: is_current_configured_ac_ls
+                
+                	Current configured acls
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_current_configured_aces
+                
+                	Current configured aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_current_maximum_configurable_aces
+                
+                	Current max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_current_maximum_configurable_acls
+                
+                	Current max configurable acls
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_default_maximum_configurable_ac_es
+                
+                	default max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_default_maximum_configurable_ac_ls
+                
+                	default max configurable acls
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_maximum_configurable_ac_es
+                
+                	max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_maximum_configurable_ac_ls
+                
+                	max configurable acls
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'ipv6-acl-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.is_current_configured_ac_ls = None
+                    self.is_current_configured_aces = None
+                    self.is_current_maximum_configurable_aces = None
+                    self.is_current_maximum_configurable_acls = None
+                    self.is_default_maximum_configurable_ac_es = None
+                    self.is_default_maximum_configurable_ac_ls = None
+                    self.is_maximum_configurable_ac_es = None
+                    self.is_maximum_configurable_ac_ls = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor/Cisco-IOS-XR-ipv6-acl-oper:access-list-summary/Cisco-IOS-XR-ipv6-acl-oper:details'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.is_presence():
+                        return True
+                    if self.is_current_configured_ac_ls is not None:
+                        return True
+
+                    if self.is_current_configured_aces is not None:
+                        return True
+
+                    if self.is_current_maximum_configurable_aces is not None:
+                        return True
+
+                    if self.is_current_maximum_configurable_acls is not None:
+                        return True
+
+                    if self.is_default_maximum_configurable_ac_es is not None:
+                        return True
+
+                    if self.is_default_maximum_configurable_ac_ls is not None:
+                        return True
+
+                    if self.is_maximum_configurable_ac_es is not None:
+                        return True
+
+                    if self.is_maximum_configurable_ac_ls is not None:
+                        return True
+
+                    return False
+
+                def is_presence(self):
+                    ''' Returns True if this instance represents presence container else returns False '''
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                    return meta._meta_table['Ipv6AclAndPrefixList.Oor.AccessListSummary.Details']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor/Cisco-IOS-XR-ipv6-acl-oper:access-list-summary'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.is_presence():
+                    return True
+                if self.details is not None and self.details._has_data():
+                    return True
+
+                if self.details is not None and self.details.is_presence():
+                    return True
+
+                return False
+
+            def is_presence(self):
+                ''' Returns True if this instance represents presence container else returns False '''
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                return meta._meta_table['Ipv6AclAndPrefixList.Oor.AccessListSummary']['meta_info']
+
+
+        class Details(object):
+            """
+            Details of the overall out of resource limit
+            
+            .. attribute:: is_current_configured_ac_ls
+            
+            	Current configured acls
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: is_current_configured_aces
+            
+            	Current configured aces
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: is_current_maximum_configurable_aces
+            
+            	Current max configurable aces
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: is_current_maximum_configurable_acls
+            
+            	Current max configurable acls
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: is_default_maximum_configurable_ac_es
+            
+            	default max configurable aces
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: is_default_maximum_configurable_ac_ls
+            
+            	default max configurable acls
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: is_maximum_configurable_ac_es
+            
+            	max configurable aces
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: is_maximum_configurable_ac_ls
+            
+            	max configurable acls
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'ipv6-acl-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.is_current_configured_ac_ls = None
+                self.is_current_configured_aces = None
+                self.is_current_maximum_configurable_aces = None
+                self.is_current_maximum_configurable_acls = None
+                self.is_default_maximum_configurable_ac_es = None
+                self.is_default_maximum_configurable_ac_ls = None
+                self.is_maximum_configurable_ac_es = None
+                self.is_maximum_configurable_ac_ls = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor/Cisco-IOS-XR-ipv6-acl-oper:details'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.is_presence():
+                    return True
+                if self.is_current_configured_ac_ls is not None:
+                    return True
+
+                if self.is_current_configured_aces is not None:
+                    return True
+
+                if self.is_current_maximum_configurable_aces is not None:
+                    return True
+
+                if self.is_current_maximum_configurable_acls is not None:
+                    return True
+
+                if self.is_default_maximum_configurable_ac_es is not None:
+                    return True
+
+                if self.is_default_maximum_configurable_ac_ls is not None:
+                    return True
+
+                if self.is_maximum_configurable_ac_es is not None:
+                    return True
+
+                if self.is_maximum_configurable_ac_ls is not None:
+                    return True
+
+                return False
+
+            def is_presence(self):
+                ''' Returns True if this instance represents presence container else returns False '''
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                return meta._meta_table['Ipv6AclAndPrefixList.Oor.Details']['meta_info']
+
+
+        class OorAccesses(object):
+            """
+            Resource occupation details for ACLs
+            
+            .. attribute:: oor_access
+            
+            	Resource occupation details for a particular ACL
+            	**type**\: list of :py:class:`OorAccess <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.OorAccesses.OorAccess>`
+            
+            
+
+            """
+
+            _prefix = 'ipv6-acl-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.oor_access = YList()
+                self.oor_access.parent = self
+                self.oor_access.name = 'oor_access'
+
+
+            class OorAccess(object):
+                """
+                Resource occupation details for a particular
+                ACL
+                
+                .. attribute:: access_list_name
+                
+                	Name of the Access List
+                	**type**\: str
+                
+                	**range:** 0..65
+                
+                .. attribute:: is_current_configured_ac_ls
+                
+                	Current configured acls
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_current_configured_aces
+                
+                	Current configured aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_current_maximum_configurable_aces
+                
+                	Current max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_current_maximum_configurable_acls
+                
+                	Current max configurable acls
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_default_maximum_configurable_ac_es
+                
+                	default max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_default_maximum_configurable_ac_ls
+                
+                	default max configurable acls
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_maximum_configurable_ac_es
+                
+                	max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_maximum_configurable_ac_ls
+                
+                	max configurable acls
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'ipv6-acl-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.access_list_name = None
+                    self.is_current_configured_ac_ls = None
+                    self.is_current_configured_aces = None
+                    self.is_current_maximum_configurable_aces = None
+                    self.is_current_maximum_configurable_acls = None
+                    self.is_default_maximum_configurable_ac_es = None
+                    self.is_default_maximum_configurable_ac_ls = None
+                    self.is_maximum_configurable_ac_es = None
+                    self.is_maximum_configurable_ac_ls = None
+
+                @property
+                def _common_path(self):
+                    if self.access_list_name is None:
+                        raise YPYDataValidationError('Key property access_list_name is None')
+
+                    return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor/Cisco-IOS-XR-ipv6-acl-oper:oor-accesses/Cisco-IOS-XR-ipv6-acl-oper:oor-access[Cisco-IOS-XR-ipv6-acl-oper:access-list-name = ' + str(self.access_list_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.is_presence():
+                        return True
+                    if self.access_list_name is not None:
+                        return True
+
+                    if self.is_current_configured_ac_ls is not None:
+                        return True
+
+                    if self.is_current_configured_aces is not None:
+                        return True
+
+                    if self.is_current_maximum_configurable_aces is not None:
+                        return True
+
+                    if self.is_current_maximum_configurable_acls is not None:
+                        return True
+
+                    if self.is_default_maximum_configurable_ac_es is not None:
+                        return True
+
+                    if self.is_default_maximum_configurable_ac_ls is not None:
+                        return True
+
+                    if self.is_maximum_configurable_ac_es is not None:
+                        return True
+
+                    if self.is_maximum_configurable_ac_ls is not None:
+                        return True
+
+                    return False
+
+                def is_presence(self):
+                    ''' Returns True if this instance represents presence container else returns False '''
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                    return meta._meta_table['Ipv6AclAndPrefixList.Oor.OorAccesses.OorAccess']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor/Cisco-IOS-XR-ipv6-acl-oper:oor-accesses'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.is_presence():
+                    return True
+                if self.oor_access is not None:
+                    for child_ref in self.oor_access:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            def is_presence(self):
+                ''' Returns True if this instance represents presence container else returns False '''
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                return meta._meta_table['Ipv6AclAndPrefixList.Oor.OorAccesses']['meta_info']
+
+
+        class OorPrefixes(object):
+            """
+            Resource occupation details for prefix lists
+            
+            .. attribute:: oor_prefix
+            
+            	Resource occupation details for a particular prefix list
+            	**type**\: list of :py:class:`OorPrefix <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.OorPrefixes.OorPrefix>`
+            
+            
+
+            """
+
+            _prefix = 'ipv6-acl-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.oor_prefix = YList()
+                self.oor_prefix.parent = self
+                self.oor_prefix.name = 'oor_prefix'
+
+
+            class OorPrefix(object):
+                """
+                Resource occupation details for a particular
+                prefix list
+                
+                .. attribute:: prefix_list_name
+                
+                	Name of a prefix list
+                	**type**\: str
+                
+                	**range:** 0..65
+                
+                .. attribute:: is_current_configured_ac_ls
+                
+                	Current configured acls
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_current_configured_aces
+                
+                	Current configured aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_current_maximum_configurable_aces
+                
+                	Current max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_current_maximum_configurable_acls
+                
+                	Current max configurable acls
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_default_maximum_configurable_ac_es
+                
+                	default max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_default_maximum_configurable_ac_ls
+                
+                	default max configurable acls
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_maximum_configurable_ac_es
+                
+                	max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_maximum_configurable_ac_ls
+                
+                	max configurable acls
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'ipv6-acl-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.prefix_list_name = None
+                    self.is_current_configured_ac_ls = None
+                    self.is_current_configured_aces = None
+                    self.is_current_maximum_configurable_aces = None
+                    self.is_current_maximum_configurable_acls = None
+                    self.is_default_maximum_configurable_ac_es = None
+                    self.is_default_maximum_configurable_ac_ls = None
+                    self.is_maximum_configurable_ac_es = None
+                    self.is_maximum_configurable_ac_ls = None
+
+                @property
+                def _common_path(self):
+                    if self.prefix_list_name is None:
+                        raise YPYDataValidationError('Key property prefix_list_name is None')
+
+                    return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor/Cisco-IOS-XR-ipv6-acl-oper:oor-prefixes/Cisco-IOS-XR-ipv6-acl-oper:oor-prefix[Cisco-IOS-XR-ipv6-acl-oper:prefix-list-name = ' + str(self.prefix_list_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.is_presence():
+                        return True
+                    if self.prefix_list_name is not None:
+                        return True
+
+                    if self.is_current_configured_ac_ls is not None:
+                        return True
+
+                    if self.is_current_configured_aces is not None:
+                        return True
+
+                    if self.is_current_maximum_configurable_aces is not None:
+                        return True
+
+                    if self.is_current_maximum_configurable_acls is not None:
+                        return True
+
+                    if self.is_default_maximum_configurable_ac_es is not None:
+                        return True
+
+                    if self.is_default_maximum_configurable_ac_ls is not None:
+                        return True
+
+                    if self.is_maximum_configurable_ac_es is not None:
+                        return True
+
+                    if self.is_maximum_configurable_ac_ls is not None:
+                        return True
+
+                    return False
+
+                def is_presence(self):
+                    ''' Returns True if this instance represents presence container else returns False '''
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                    return meta._meta_table['Ipv6AclAndPrefixList.Oor.OorPrefixes.OorPrefix']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor/Cisco-IOS-XR-ipv6-acl-oper:oor-prefixes'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.is_presence():
+                    return True
+                if self.oor_prefix is not None:
+                    for child_ref in self.oor_prefix:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            def is_presence(self):
+                ''' Returns True if this instance represents presence container else returns False '''
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                return meta._meta_table['Ipv6AclAndPrefixList.Oor.OorPrefixes']['meta_info']
+
+
+        class PrefixListSummary(object):
+            """
+            Summary of the prefix Lists resource
+            utilization
+            
+            .. attribute:: details
+            
+            	Summary Detail of the prefix list Resource Utilisation
+            	**type**\: :py:class:`Details <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details>`
+            
+            
+
+            """
+
+            _prefix = 'ipv6-acl-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.details = Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details()
+                self.details.parent = self
+
+
+            class Details(object):
+                """
+                Summary Detail of the prefix list Resource
+                Utilisation
+                
+                .. attribute:: is_current_configured_ac_ls
+                
+                	Current configured acls
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_current_configured_aces
+                
+                	Current configured aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_current_maximum_configurable_aces
+                
+                	Current max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_current_maximum_configurable_acls
+                
+                	Current max configurable acls
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_default_maximum_configurable_ac_es
+                
+                	default max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_default_maximum_configurable_ac_ls
+                
+                	default max configurable acls
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_maximum_configurable_ac_es
+                
+                	max configurable aces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_maximum_configurable_ac_ls
+                
+                	max configurable acls
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'ipv6-acl-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.is_current_configured_ac_ls = None
+                    self.is_current_configured_aces = None
+                    self.is_current_maximum_configurable_aces = None
+                    self.is_current_maximum_configurable_acls = None
+                    self.is_default_maximum_configurable_ac_es = None
+                    self.is_default_maximum_configurable_ac_ls = None
+                    self.is_maximum_configurable_ac_es = None
+                    self.is_maximum_configurable_ac_ls = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor/Cisco-IOS-XR-ipv6-acl-oper:prefix-list-summary/Cisco-IOS-XR-ipv6-acl-oper:details'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.is_presence():
+                        return True
+                    if self.is_current_configured_ac_ls is not None:
+                        return True
+
+                    if self.is_current_configured_aces is not None:
+                        return True
+
+                    if self.is_current_maximum_configurable_aces is not None:
+                        return True
+
+                    if self.is_current_maximum_configurable_acls is not None:
+                        return True
+
+                    if self.is_default_maximum_configurable_ac_es is not None:
+                        return True
+
+                    if self.is_default_maximum_configurable_ac_ls is not None:
+                        return True
+
+                    if self.is_maximum_configurable_ac_es is not None:
+                        return True
+
+                    if self.is_maximum_configurable_ac_ls is not None:
+                        return True
+
+                    return False
+
+                def is_presence(self):
+                    ''' Returns True if this instance represents presence container else returns False '''
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                    return meta._meta_table['Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor/Cisco-IOS-XR-ipv6-acl-oper:prefix-list-summary'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.is_presence():
+                    return True
+                if self.details is not None and self.details._has_data():
+                    return True
+
+                if self.details is not None and self.details.is_presence():
+                    return True
+
+                return False
+
+            def is_presence(self):
+                ''' Returns True if this instance represents presence container else returns False '''
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                return meta._meta_table['Ipv6AclAndPrefixList.Oor.PrefixListSummary']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.is_presence():
+                return True
+            if self.access_list_summary is not None and self.access_list_summary._has_data():
+                return True
+
+            if self.access_list_summary is not None and self.access_list_summary.is_presence():
+                return True
+
+            if self.details is not None and self.details._has_data():
+                return True
+
+            if self.details is not None and self.details.is_presence():
+                return True
+
+            if self.oor_accesses is not None and self.oor_accesses._has_data():
+                return True
+
+            if self.oor_accesses is not None and self.oor_accesses.is_presence():
+                return True
+
+            if self.oor_prefixes is not None and self.oor_prefixes._has_data():
+                return True
+
+            if self.oor_prefixes is not None and self.oor_prefixes.is_presence():
+                return True
+
+            if self.prefix_list_summary is not None and self.prefix_list_summary._has_data():
+                return True
+
+            if self.prefix_list_summary is not None and self.prefix_list_summary.is_presence():
+                return True
+
+            return False
+
+        def is_presence(self):
+            ''' Returns True if this instance represents presence container else returns False '''
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+            return meta._meta_table['Ipv6AclAndPrefixList.Oor']['meta_info']
+
+    @property
+    def _common_path(self):
+
+        return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list'
+
+    def is_config(self):
+        ''' Returns True if this instance represents config data else returns False '''
+        return False
+
+    def _has_data(self):
+        if not self.is_config():
+            return False
+        if self.is_presence():
+            return True
+        if self.access_list_manager is not None and self.access_list_manager._has_data():
+            return True
+
+        if self.access_list_manager is not None and self.access_list_manager.is_presence():
+            return True
+
+        if self.oor is not None and self.oor._has_data():
+            return True
+
+        if self.oor is not None and self.oor.is_presence():
+            return True
+
+        return False
+
+    def is_presence(self):
+        ''' Returns True if this instance represents presence container else returns False '''
+        return False
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+        return meta._meta_table['Ipv6AclAndPrefixList']['meta_info']
+
+

@@ -1,0 +1,7 @@
+ecdsa>=0.13
+enum>=0.4.4
+lxml>=3.4.4
+paramiko>=1.15.2
+pycrypto>=2.6.1
+ncclient>=0.4.7
+

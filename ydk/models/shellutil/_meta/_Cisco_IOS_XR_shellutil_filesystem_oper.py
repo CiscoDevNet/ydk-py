@@ -1,0 +1,100 @@
+
+
+
+import re
+import collections
+
+from enum import Enum
+
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+
+from ydk.errors import YPYError, YPYDataValidationError
+from ydk.models import _yang_ns
+
+_meta_table = {
+    'FileSystem.Node.FileSystem' : {
+        'meta_info' : _MetaInfoClass('FileSystem.Node.FileSystem',
+            False, 
+            [
+            _MetaInfoClassMember('flags', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Flags of file system
+                ''',
+                'flags',
+                'Cisco-IOS-XR-shellutil-filesystem-oper', False),
+            _MetaInfoClassMember('free', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Free space in the file system in bytes
+                ''',
+                'free',
+                'Cisco-IOS-XR-shellutil-filesystem-oper', False),
+            _MetaInfoClassMember('prefixes', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Prefixes of file system
+                ''',
+                'prefixes',
+                'Cisco-IOS-XR-shellutil-filesystem-oper', False),
+            _MetaInfoClassMember('size', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Size of the file system in bytes
+                ''',
+                'size',
+                'Cisco-IOS-XR-shellutil-filesystem-oper', False),
+            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Type of file system
+                ''',
+                'type',
+                'Cisco-IOS-XR-shellutil-filesystem-oper', False),
+            ],
+            'Cisco-IOS-XR-shellutil-filesystem-oper',
+            'file-system',
+            _yang_ns._namespaces['Cisco-IOS-XR-shellutil-filesystem-oper'],
+        'ydk.models.shellutil.Cisco_IOS_XR_shellutil_filesystem_oper'
+        ),
+    },
+    'FileSystem.Node' : {
+        'meta_info' : _MetaInfoClass('FileSystem.Node',
+            False, 
+            [
+            _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                '''                Node name
+                ''',
+                'node_name',
+                'Cisco-IOS-XR-shellutil-filesystem-oper', True),
+            _MetaInfoClassMember('file-system', REFERENCE_LIST, 'FileSystem' , 'ydk.models.shellutil.Cisco_IOS_XR_shellutil_filesystem_oper', 'FileSystem.Node.FileSystem', 
+                [], [], 
+                '''                Available file systems
+                ''',
+                'file_system',
+                'Cisco-IOS-XR-shellutil-filesystem-oper', False),
+            ],
+            'Cisco-IOS-XR-shellutil-filesystem-oper',
+            'node',
+            _yang_ns._namespaces['Cisco-IOS-XR-shellutil-filesystem-oper'],
+        'ydk.models.shellutil.Cisco_IOS_XR_shellutil_filesystem_oper'
+        ),
+    },
+    'FileSystem' : {
+        'meta_info' : _MetaInfoClass('FileSystem',
+            False, 
+            [
+            _MetaInfoClassMember('node', REFERENCE_LIST, 'Node' , 'ydk.models.shellutil.Cisco_IOS_XR_shellutil_filesystem_oper', 'FileSystem.Node', 
+                [], [], 
+                '''                Node ID
+                ''',
+                'node',
+                'Cisco-IOS-XR-shellutil-filesystem-oper', False),
+            ],
+            'Cisco-IOS-XR-shellutil-filesystem-oper',
+            'file-system',
+            _yang_ns._namespaces['Cisco-IOS-XR-shellutil-filesystem-oper'],
+        'ydk.models.shellutil.Cisco_IOS_XR_shellutil_filesystem_oper'
+        ),
+    },
+}
+_meta_table['FileSystem.Node.FileSystem']['meta_info'].parent =_meta_table['FileSystem.Node']['meta_info']
+_meta_table['FileSystem.Node']['meta_info'].parent =_meta_table['FileSystem']['meta_info']
