@@ -64,15 +64,15 @@ session to the machine at ip 171.19.44.58 ::
  
     >> bgp_cfg = bgp.Bgp()
     >> #set the global AS
-    >> bgp_cfg._global.config._as = 65001
+    >> bgp_cfg.global_.config.as_ = 65001
     >>
     >> # Create an AFI SAFI config
-    >> ipv4_afsf = bgp_cfg._global.afi_safis.AfiSafi()
+    >> ipv4_afsf = bgp_cfg.global_.afi_safis.AfiSafi()
     >> ipv4_afsf.afi_safi_name = 'ipv4-unicast'
     >> ipv4_afsf.config.afi_safi_name = 'ipv4-unicast'
     >> ipv4_afsf.config.enabled = True
     >> #Add the AFI SAFI config to the global AFI SAFI list
-    >> bgp_cfg._global.afi_safis.afi_safi.append(ipv4_afsf)
+    >> bgp_cfg.global_.afi_safis.afi_safi.append(ipv4_afsf)
     
  Invoking the CRUDService
  --------------------------
