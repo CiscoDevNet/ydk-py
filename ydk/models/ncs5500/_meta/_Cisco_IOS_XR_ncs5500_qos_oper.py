@@ -2807,7 +2807,7 @@ _meta_table = {
                 '''                Hardware WRED profiles
                 ''',
                 'hw_wred',
-                'Cisco-IOS-XR-ncs5500-qos-oper', False),
+                'Cisco-IOS-XR-ncs5500-qos-oper', False, max_elements=4),
             _MetaInfoClassMember('queue-limit', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Default/Configured queue limit in bytes
@@ -2819,7 +2819,7 @@ _meta_table = {
                 '''                Default/Configured WRED profiles
                 ''',
                 'wred',
-                'Cisco-IOS-XR-ncs5500-qos-oper', False),
+                'Cisco-IOS-XR-ncs5500-qos-oper', False, max_elements=4),
             ],
             'Cisco-IOS-XR-ncs5500-qos-oper',
             'remote-class',

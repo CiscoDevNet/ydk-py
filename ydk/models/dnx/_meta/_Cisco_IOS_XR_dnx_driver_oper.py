@@ -736,7 +736,7 @@ _meta_table = {
                 '''                field info
                 ''',
                 'field_info',
-                'Cisco-IOS-XR-dnx-driver-oper', False),
+                'Cisco-IOS-XR-dnx-driver-oper', False, max_elements=200),
             _MetaInfoClassMember('num-fields', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Num Fields
@@ -759,7 +759,7 @@ _meta_table = {
                 '''                block info
                 ''',
                 'block_info',
-                'Cisco-IOS-XR-dnx-driver-oper', False),
+                'Cisco-IOS-XR-dnx-driver-oper', False, max_elements=15),
             _MetaInfoClassMember('num-blocks', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Num Blocks
@@ -1152,7 +1152,7 @@ _meta_table = {
                 '''                fia oir info
                 ''',
                 'fia_oir_info',
-                'Cisco-IOS-XR-dnx-driver-oper', False),
+                'Cisco-IOS-XR-dnx-driver-oper', False, max_elements=10),
             _MetaInfoClassMember('start', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                start
@@ -1442,7 +1442,7 @@ _meta_table = {
                 '''                card info
                 ''',
                 'card_info',
-                'Cisco-IOS-XR-dnx-driver-oper', False),
+                'Cisco-IOS-XR-dnx-driver-oper', False, max_elements=16),
             _MetaInfoClassMember('coeff-major-rev', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                coeff major rev
@@ -1460,7 +1460,7 @@ _meta_table = {
                 '''                device info
                 ''',
                 'device_info',
-                'Cisco-IOS-XR-dnx-driver-oper', False),
+                'Cisco-IOS-XR-dnx-driver-oper', False, max_elements=40),
             _MetaInfoClassMember('drv-version', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                drv version
@@ -1764,7 +1764,7 @@ _meta_table = {
                 '''                fia oir info
                 ''',
                 'fia_oir_info',
-                'Cisco-IOS-XR-dnx-driver-oper', False),
+                'Cisco-IOS-XR-dnx-driver-oper', False, max_elements=10),
             _MetaInfoClassMember('start', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                start
@@ -2060,7 +2060,7 @@ _meta_table = {
                 '''                card info
                 ''',
                 'card_info',
-                'Cisco-IOS-XR-dnx-driver-oper', False),
+                'Cisco-IOS-XR-dnx-driver-oper', False, max_elements=16),
             _MetaInfoClassMember('coeff-major-rev', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                coeff major rev
@@ -2078,7 +2078,7 @@ _meta_table = {
                 '''                device info
                 ''',
                 'device_info',
-                'Cisco-IOS-XR-dnx-driver-oper', False),
+                'Cisco-IOS-XR-dnx-driver-oper', False, max_elements=40),
             _MetaInfoClassMember('drv-version', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                drv version
@@ -2653,7 +2653,7 @@ _meta_table = {
                 '''                hist
                 ''',
                 'hist',
-                'Cisco-IOS-XR-dnx-driver-oper', False),
+                'Cisco-IOS-XR-dnx-driver-oper', False, max_elements=5),
             _MetaInfoClassMember('histnum', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                histnum
@@ -3137,7 +3137,7 @@ _meta_table = {
                 '''                hist
                 ''',
                 'hist',
-                'Cisco-IOS-XR-dnx-driver-oper', False),
+                'Cisco-IOS-XR-dnx-driver-oper', False, max_elements=5),
             _MetaInfoClassMember('histnum', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                histnum

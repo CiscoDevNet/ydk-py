@@ -5476,7 +5476,7 @@ _meta_table = {
                 '''                peer
                 ''',
                 'peer',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('self', REFERENCE_CLASS, 'Self' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.NsrStatistics.IsisNsrStatsData.Self', 
                 [], [], 
                 '''                self
@@ -5916,7 +5916,7 @@ _meta_table = {
                 '''                notify peer
                 ''',
                 'notify_peer',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=4),
             _MetaInfoClassMember('notify-peer-xr', ATTRIBUTE, 'str' , None, None, 
                 [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                notify peer xr
@@ -6401,13 +6401,13 @@ _meta_table = {
                 '''                ncd
                 ''',
                 'ncd',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=5),
             _MetaInfoClassMember('nii-idb', REFERENCE_LIST, 'NiiIdb' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.NsrStatus.IsisNsrInfra.NiiIdb', 
                 [], [], 
                 '''                nii idb
                 ''',
                 'nii_idb',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('pm', REFERENCE_CLASS, 'Pm' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.NsrStatus.IsisNsrInfra.Pm', 
                 [], [], 
                 '''                pm
@@ -6453,31 +6453,31 @@ _meta_table = {
                 '''                full sync achieved
                 ''',
                 'full_sync_achieved',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('man-sync-count', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                man sync count
                 ''',
                 'man_sync_count',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('nsr-chg-count', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                nsr chg count
                 ''',
                 'nsr_chg_count',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('uptime', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                uptime
                 ''',
                 'uptime',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('uptime-valid', REFERENCE_LIST, 'UptimeValid' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.NsrStatus.IsisNsrPeer.UptimeValid', 
                 [], [], 
                 '''                uptime valid
                 ''',
                 'uptime_valid',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3, min_elements=3),
             ],
             'Cisco-IOS-XR-clns-isis-oper',
             'isis-nsr-peer',
@@ -7828,7 +7828,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -8109,7 +8109,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -8390,7 +8390,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -8583,7 +8583,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -8859,7 +8859,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -9140,7 +9140,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -9421,7 +9421,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -9614,7 +9614,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -10336,7 +10336,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -10617,7 +10617,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -10898,7 +10898,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -11091,7 +11091,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -11367,7 +11367,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -11648,7 +11648,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -11929,7 +11929,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -12122,7 +12122,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -12844,7 +12844,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -13125,7 +13125,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -13406,7 +13406,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -13599,7 +13599,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -13875,7 +13875,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -14156,7 +14156,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -14437,7 +14437,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -14630,7 +14630,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -15352,7 +15352,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -15633,7 +15633,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -15914,7 +15914,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -16107,7 +16107,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -16383,7 +16383,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -16664,7 +16664,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -16945,7 +16945,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -17138,7 +17138,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -17878,7 +17878,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -18094,7 +18094,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -18487,7 +18487,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -18703,7 +18703,7 @@ _meta_table = {
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Distance to the network via this backup path
@@ -20519,7 +20519,7 @@ _meta_table = {
                 '''                TE Extended Admin Group
                 ''',
                 'te_ext_admin_sub',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=8),
             _MetaInfoClassMember('te-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                TE metric
@@ -20573,13 +20573,13 @@ _meta_table = {
                 '''                Bandwidth in use in subpool
                 ''',
                 'te_subpool_transmitted_bandwidth',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=8),
             _MetaInfoClassMember('te-transmitted-bandwidth', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Bandwidth in use in global pool
                 ''',
                 'te_transmitted_bandwidth',
-                'Cisco-IOS-XR-clns-isis-oper', False),
+                'Cisco-IOS-XR-clns-isis-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-clns-isis-oper',
             'te-adv',

@@ -1135,7 +1135,7 @@ _meta_table = {
                 '''                Network SRLG
                 ''',
                 'network_srlg',
-                'Cisco-IOS-XR-controller-otu-oper', False),
+                'Cisco-IOS-XR-controller-otu-oper', False, max_elements=100),
             _MetaInfoClassMember('nv-optical-support', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                NV Optical support

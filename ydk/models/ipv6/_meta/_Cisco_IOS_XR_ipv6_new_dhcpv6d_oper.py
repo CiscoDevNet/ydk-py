@@ -735,7 +735,7 @@ _meta_table = {
                 '''                Interface names
                 ''',
                 'interface_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False, max_elements=8),
             _MetaInfoClassMember('interface-references', REFERENCE_CLASS, 'InterfaceReferences' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences', 
                 [], [], 
                 '''                Interface references
@@ -747,7 +747,7 @@ _meta_table = {
                 '''                Helper addresses
                 ''',
                 'profile_helper_address',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False, max_elements=8),
             _MetaInfoClassMember('profile-link-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Link address
@@ -771,7 +771,7 @@ _meta_table = {
                 '''                VRF names
                 ''',
                 'vrf_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False, max_elements=8),
             _MetaInfoClassMember('vrf-references', REFERENCE_CLASS, 'VrfReferences' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences', 
                 [], [], 
                 '''                VRF references
@@ -3110,7 +3110,7 @@ _meta_table = {
                 '''                DNS addresses
                 ''',
                 'profile_dns_address',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False, max_elements=8),
             _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 65)], [], 
                 '''                Server profile name

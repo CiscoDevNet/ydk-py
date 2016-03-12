@@ -15,7 +15,7 @@ Run Installation instruction under python virtualenv, once you have virtualenv i
     user-machine# source mypython/bin/activate
         ...
     #Now install ydk 
-    user-machine(mypython)# pip install dist/ydk-0.2.0.tar.gz
+    user-machine(mypython)# pip install dist/ydk-0.3.0.tar.gz
 
 
 

@@ -27,7 +27,7 @@ from ydk.types import Empty
 from ydk.services import CRUDService
 import logging
 
-from samples.session_mgr import establish_session
+from samples.session_mgr import establish_session, init_logging
 from ydk.models.bgp import bgp
 from ydk.models.bgp.bgp_types import Ipv4Unicast_Identity
 from ydk.models.bgp.bgp_types import Ipv6Unicast_Identity
@@ -73,19 +73,6 @@ from ydk.errors import YPYError
 #</bgp>
 
 
-def init_logging():
-    """ Initialize the logging infra and add a handler """
-    logger = logging.getLogger('ydk')
-    logger.setLevel(logging.DEBUG)
-    # create file handler
-    fh = logging.FileHandler('bgp.log')
-    fh.setLevel(logging.DEBUG)
-    # create a console logger too
-    ch = logging.StreamHandler()
-    ch.setLevel(logging.ERROR)
-    # add the handlers to the logger
-    logger.addHandler(fh)
-    logger.addHandler(ch)
 
 def bgp_run(crud_service, session):
     
@@ -146,9 +133,9 @@ def bgp_run(crud_service, session):
     nbr_ipv4_afsf.config.enabled = True
 
     # Create afi-safi policy instances
-    nbr_ipv4_afsf.apply_policy.config.import_policy.append('PASS-ALL')
+    #nbr_ipv4_afsf.apply_policy.config.import_policy.append('PASS-ALL')
 
-    nbr_ipv4_afsf.apply_policy.config.export_policy.append('PASS-ALL')
+    #nbr_ipv4_afsf.apply_policy.config.export_policy.append('PASS-ALL')
     
     nbr_ipv4.afi_safis.afi_safi.append(nbr_ipv4_afsf)
     
@@ -162,10 +149,7 @@ def bgp_run(crud_service, session):
     
     bgp_cfg_read = crud_service.read(session, bgp.Bgp())
     
-    #update the as
-    bgp_cfg_read.global_.config.as_ = 65002
-    crud_service.update(session, bgp_cfg_read)
-    
+
     
     #crud on just the neighbor
     
@@ -183,9 +167,9 @@ def bgp_run(crud_service, session):
     nbr_ipv6_afsf.config.enabled = True
 
     # Create afi-safi policy instances
-    nbr_ipv6_afsf.apply_policy.config.import_policy.append('PASS-ALL')
+    #nbr_ipv6_afsf.apply_policy.config.import_policy.append('PASS-ALL')
     
-    nbr_ipv6_afsf.apply_policy.config.export_policy.append('PASS-ALL')
+    #nbr_ipv6_afsf.apply_policy.config.export_policy.append('PASS-ALL')
     
     nbr_ipv6.afi_safis.afi_safi.append(nbr_ipv6_afsf)
     
@@ -200,11 +184,6 @@ def bgp_run(crud_service, session):
     
     nbr_ipv6_read = crud_service.read(session, nbr_ipv6_filter)
     
-    #nbr_ipv6.parent = bgp_cfg.neighbors
-    nbr_ipv6_read.config.peer_as = 65002
-    
-    # IPv6 Neighbor instance config done
-    crud_service.update(session, nbr_ipv6_read)
     
     help(nbr_ipv6_read)
     print nbr_ipv6_read
@@ -214,7 +193,7 @@ def bgp_run(crud_service, session):
     
 if __name__ == "__main__":
     init_logging()
-    session = establish_session()
+    provider = establish_session()
     crud_service = CRUDService()
-    bgp_run(crud_service, session)
+    bgp_run(crud_service, provider)
     exit()

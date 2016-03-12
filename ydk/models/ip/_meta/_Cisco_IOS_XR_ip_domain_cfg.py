@@ -51,7 +51,7 @@ _meta_table = {
                 '''                Host IPv4 addresses
                 ''',
                 'address',
-                'Cisco-IOS-XR-ip-domain-cfg', False),
+                'Cisco-IOS-XR-ip-domain-cfg', False, max_elements=8, min_elements=1),
             ],
             'Cisco-IOS-XR-ip-domain-cfg',
             'ipv4-host',
@@ -91,7 +91,7 @@ _meta_table = {
                 '''                Host IPv6 addresses
                 ''',
                 'address',
-                'Cisco-IOS-XR-ip-domain-cfg', False),
+                'Cisco-IOS-XR-ip-domain-cfg', False, max_elements=4, min_elements=1),
             ],
             'Cisco-IOS-XR-ip-domain-cfg',
             'ipv6-host',

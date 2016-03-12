@@ -543,7 +543,7 @@ _meta_table = {
                 '''                Filter Details
                 ''',
                 'filter_detail',
-                'Cisco-IOS-XR-ip-ntp-admin-oper', False),
+                'Cisco-IOS-XR-ip-ntp-admin-oper', False, max_elements=8),
             _MetaInfoClassMember('filter-index', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Index into filter shift register

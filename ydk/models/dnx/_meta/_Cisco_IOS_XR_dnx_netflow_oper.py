@@ -333,7 +333,7 @@ _meta_table = {
                 monitor
                 ''',
                 'exporter',
-                'Cisco-IOS-XR-dnx-netflow-oper', False),
+                'Cisco-IOS-XR-dnx-netflow-oper', False, max_elements=8),
             _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Unique ID in the global flow monitor ID space

@@ -77,7 +77,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -215,7 +215,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -1556,7 +1556,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -1694,7 +1694,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -2081,7 +2081,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -2219,7 +2219,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -2606,7 +2606,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -2744,7 +2744,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -3131,7 +3131,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -3269,7 +3269,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -3650,7 +3650,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -3788,7 +3788,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -4169,7 +4169,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -4307,7 +4307,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -4803,7 +4803,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -4941,7 +4941,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -5447,7 +5447,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -5585,7 +5585,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -6068,7 +6068,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -6206,7 +6206,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -6712,7 +6712,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -6850,7 +6850,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -7356,7 +7356,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -7494,7 +7494,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -8000,7 +8000,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -8138,7 +8138,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -8638,7 +8638,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -8776,7 +8776,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -9276,7 +9276,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -9414,7 +9414,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -9920,7 +9920,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -10058,7 +10058,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -10564,7 +10564,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -10702,7 +10702,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -11202,7 +11202,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -11340,7 +11340,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -11837,7 +11837,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -11975,7 +11975,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -12362,7 +12362,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -12500,7 +12500,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -13119,7 +13119,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -13257,7 +13257,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -14598,7 +14598,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -14736,7 +14736,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -15123,7 +15123,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -15261,7 +15261,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -15648,7 +15648,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -15786,7 +15786,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -16173,7 +16173,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -16311,7 +16311,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -16692,7 +16692,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -16830,7 +16830,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -17211,7 +17211,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -17349,7 +17349,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -17845,7 +17845,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -17983,7 +17983,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -18489,7 +18489,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -18627,7 +18627,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -19110,7 +19110,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -19248,7 +19248,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -19754,7 +19754,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -19892,7 +19892,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -20398,7 +20398,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -20536,7 +20536,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -21042,7 +21042,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -21180,7 +21180,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -21680,7 +21680,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -21818,7 +21818,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -22318,7 +22318,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -22456,7 +22456,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -22962,7 +22962,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -23100,7 +23100,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -23606,7 +23606,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -23744,7 +23744,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -24244,7 +24244,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -24382,7 +24382,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -24879,7 +24879,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -25017,7 +25017,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path
@@ -25404,7 +25404,7 @@ _meta_table = {
                 '''                Labels for this path
                 ''',
                 'labelstk',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=3),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Load Metrics
@@ -25542,7 +25542,7 @@ _meta_table = {
                 '''                Remote backup node address
                 ''',
                 'remote_backup_addr',
-                'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
+                'Cisco-IOS-XR-ip-rib-ipv6-oper', False, max_elements=2),
             _MetaInfoClassMember('route-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label associated with this path

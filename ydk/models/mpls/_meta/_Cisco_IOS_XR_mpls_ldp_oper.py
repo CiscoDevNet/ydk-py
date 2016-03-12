@@ -236,7 +236,7 @@ _meta_table = {
                 '''                bind af
                 ''',
                 'bind_af',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('binding-local-explicit-null', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of local explicit null bindings
@@ -782,7 +782,7 @@ _meta_table = {
                 '''                bind af
                 ''',
                 'bind_af',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('binding-local-explicit-null', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of local explicit null bindings
@@ -936,7 +936,7 @@ _meta_table = {
                 '''                bind af
                 ''',
                 'bind_af',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('binding-local-explicit-null', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of local explicit null bindings
@@ -1640,7 +1640,7 @@ _meta_table = {
                 '''                LDP hello AF info
                 ''',
                 'discovery_link_af',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('hello-information', REFERENCE_LIST, 'HelloInformation' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MplsLdp.Global.Active.DefaultVrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation', 
                 [], [], 
                 '''                LDP hello info
@@ -4723,7 +4723,7 @@ _meta_table = {
                 '''                Neighbor Brief AF Info
                 ''',
                 'nbr_br_af_info',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('nsr-state', REFERENCE_ENUM_CLASS, 'ShowNsrState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'ShowNsrState_Enum', 
                 [], [], 
                 '''                NSR readiness state
@@ -8891,7 +8891,7 @@ _meta_table = {
                 '''                bind af
                 ''',
                 'bind_af',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('binding-local-explicit-null', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of local explicit null bindings
@@ -9045,7 +9045,7 @@ _meta_table = {
                 '''                bind af
                 ''',
                 'bind_af',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('binding-local-explicit-null', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of local explicit null bindings
@@ -9749,7 +9749,7 @@ _meta_table = {
                 '''                LDP hello AF info
                 ''',
                 'discovery_link_af',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('hello-information', REFERENCE_LIST, 'HelloInformation' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MplsLdp.Global.Active.Vrfs.Vrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation', 
                 [], [], 
                 '''                LDP hello info
@@ -12832,7 +12832,7 @@ _meta_table = {
                 '''                Neighbor Brief AF Info
                 ''',
                 'nbr_br_af_info',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('nsr-state', REFERENCE_ENUM_CLASS, 'ShowNsrState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'ShowNsrState_Enum', 
                 [], [], 
                 '''                NSR readiness state
@@ -15889,7 +15889,7 @@ _meta_table = {
                 '''                bind af
                 ''',
                 'bind_af',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('binding-local-explicit-null', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of local explicit null bindings
@@ -16435,7 +16435,7 @@ _meta_table = {
                 '''                bind af
                 ''',
                 'bind_af',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('binding-local-explicit-null', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of local explicit null bindings
@@ -16589,7 +16589,7 @@ _meta_table = {
                 '''                bind af
                 ''',
                 'bind_af',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('binding-local-explicit-null', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of local explicit null bindings
@@ -17293,7 +17293,7 @@ _meta_table = {
                 '''                LDP hello AF info
                 ''',
                 'discovery_link_af',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('hello-information', REFERENCE_LIST, 'HelloInformation' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MplsLdp.Global.Standby.DefaultVrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation', 
                 [], [], 
                 '''                LDP hello info
@@ -20376,7 +20376,7 @@ _meta_table = {
                 '''                Neighbor Brief AF Info
                 ''',
                 'nbr_br_af_info',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('nsr-state', REFERENCE_ENUM_CLASS, 'ShowNsrState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'ShowNsrState_Enum', 
                 [], [], 
                 '''                NSR readiness state
@@ -24544,7 +24544,7 @@ _meta_table = {
                 '''                bind af
                 ''',
                 'bind_af',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('binding-local-explicit-null', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of local explicit null bindings
@@ -24698,7 +24698,7 @@ _meta_table = {
                 '''                bind af
                 ''',
                 'bind_af',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('binding-local-explicit-null', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of local explicit null bindings
@@ -25402,7 +25402,7 @@ _meta_table = {
                 '''                LDP hello AF info
                 ''',
                 'discovery_link_af',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('hello-information', REFERENCE_LIST, 'HelloInformation' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MplsLdp.Global.Standby.Vrfs.Vrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation', 
                 [], [], 
                 '''                LDP hello info
@@ -28485,7 +28485,7 @@ _meta_table = {
                 '''                Neighbor Brief AF Info
                 ''',
                 'nbr_br_af_info',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('nsr-state', REFERENCE_ENUM_CLASS, 'ShowNsrState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'ShowNsrState_Enum', 
                 [], [], 
                 '''                NSR readiness state
@@ -31565,7 +31565,7 @@ _meta_table = {
                 '''                bind af
                 ''',
                 'bind_af',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('binding-local-explicit-null', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of local explicit null bindings
@@ -32111,7 +32111,7 @@ _meta_table = {
                 '''                bind af
                 ''',
                 'bind_af',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('binding-local-explicit-null', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of local explicit null bindings
@@ -32265,7 +32265,7 @@ _meta_table = {
                 '''                bind af
                 ''',
                 'bind_af',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('binding-local-explicit-null', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of local explicit null bindings
@@ -32969,7 +32969,7 @@ _meta_table = {
                 '''                LDP hello AF info
                 ''',
                 'discovery_link_af',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('hello-information', REFERENCE_LIST, 'HelloInformation' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MplsLdp.Nodes.Node.DefaultVrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation', 
                 [], [], 
                 '''                LDP hello info
@@ -36052,7 +36052,7 @@ _meta_table = {
                 '''                Neighbor Brief AF Info
                 ''',
                 'nbr_br_af_info',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('nsr-state', REFERENCE_ENUM_CLASS, 'ShowNsrState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'ShowNsrState_Enum', 
                 [], [], 
                 '''                NSR readiness state
@@ -40220,7 +40220,7 @@ _meta_table = {
                 '''                bind af
                 ''',
                 'bind_af',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('binding-local-explicit-null', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of local explicit null bindings
@@ -40374,7 +40374,7 @@ _meta_table = {
                 '''                bind af
                 ''',
                 'bind_af',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('binding-local-explicit-null', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of local explicit null bindings
@@ -41078,7 +41078,7 @@ _meta_table = {
                 '''                LDP hello AF info
                 ''',
                 'discovery_link_af',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('hello-information', REFERENCE_LIST, 'HelloInformation' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MplsLdp.Nodes.Node.Vrfs.Vrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation', 
                 [], [], 
                 '''                LDP hello info
@@ -44161,7 +44161,7 @@ _meta_table = {
                 '''                Neighbor Brief AF Info
                 ''',
                 'nbr_br_af_info',
-                'Cisco-IOS-XR-mpls-ldp-oper', False),
+                'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
             _MetaInfoClassMember('nsr-state', REFERENCE_ENUM_CLASS, 'ShowNsrState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'ShowNsrState_Enum', 
                 [], [], 
                 '''                NSR readiness state

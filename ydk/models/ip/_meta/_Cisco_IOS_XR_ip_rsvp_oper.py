@@ -476,7 +476,7 @@ _meta_table = {
                 '''                Sequence window
                 ''',
                 'sequence_window',
-                'Cisco-IOS-XR-ip-rsvp-oper', False),
+                'Cisco-IOS-XR-ip-rsvp-oper', False, max_elements=64),
             _MetaInfoClassMember('sequence-window-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Sequence window count
@@ -1220,7 +1220,7 @@ _meta_table = {
                 '''                List of Neighbor MessageIDs
                 ''',
                 'neighbor_message_id',
-                'Cisco-IOS-XR-ip-rsvp-oper', False),
+                'Cisco-IOS-XR-ip-rsvp-oper', False, max_elements=6),
             _MetaInfoClassMember('outgoing-states', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                Number of outgoing states to the neighbour
@@ -1327,7 +1327,7 @@ _meta_table = {
                 '''                Neighbor array
                 ''',
                 'neighbor_array',
-                'Cisco-IOS-XR-ip-rsvp-oper', False),
+                'Cisco-IOS-XR-ip-rsvp-oper', False, max_elements=6),
             _MetaInfoClassMember('out-of-band-expiry-drops-tolerated', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of out-of-band missed messages tolerated
@@ -5726,7 +5726,7 @@ _meta_table = {
                 '''                List of Neighbor MessageIDs
                 ''',
                 'neighbor_message_id',
-                'Cisco-IOS-XR-ip-rsvp-oper', False),
+                'Cisco-IOS-XR-ip-rsvp-oper', False, max_elements=6),
             _MetaInfoClassMember('outgoing-states', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                Number of outgoing states to the neighbour
@@ -5833,7 +5833,7 @@ _meta_table = {
                 '''                Neighbor array
                 ''',
                 'neighbor_array',
-                'Cisco-IOS-XR-ip-rsvp-oper', False),
+                'Cisco-IOS-XR-ip-rsvp-oper', False, max_elements=6),
             _MetaInfoClassMember('out-of-band-expiry-drops-tolerated', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of out-of-band missed messages tolerated
@@ -16729,7 +16729,7 @@ _meta_table = {
                 '''                Sequence window
                 ''',
                 'sequence_window',
-                'Cisco-IOS-XR-ip-rsvp-oper', False),
+                'Cisco-IOS-XR-ip-rsvp-oper', False, max_elements=64),
             _MetaInfoClassMember('sequence-window-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Sequence window count
@@ -21016,7 +21016,7 @@ _meta_table = {
                 '''                List of Neighbor MessageIDs
                 ''',
                 'neighbor_message_id',
-                'Cisco-IOS-XR-ip-rsvp-oper', False),
+                'Cisco-IOS-XR-ip-rsvp-oper', False, max_elements=6),
             _MetaInfoClassMember('outgoing-states', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
                 '''                Number of outgoing states to the neighbour
@@ -21123,7 +21123,7 @@ _meta_table = {
                 '''                Neighbor array
                 ''',
                 'neighbor_array',
-                'Cisco-IOS-XR-ip-rsvp-oper', False),
+                'Cisco-IOS-XR-ip-rsvp-oper', False, max_elements=6),
             _MetaInfoClassMember('out-of-band-expiry-drops-tolerated', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of out-of-band missed messages tolerated

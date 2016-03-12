@@ -268,7 +268,7 @@ _meta_table = {
                 '''                voq stat
                 ''',
                 'voq_stat',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-fretta-bcm-dpa-oper',
             'all-voq-stats-data-block',
@@ -572,7 +572,7 @@ _meta_table = {
                 '''                voq stat
                 ''',
                 'voq_stat',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-fretta-bcm-dpa-oper',
             'voq-stats-data-block-number',
@@ -750,7 +750,7 @@ _meta_table = {
                 '''                voq stat
                 ''',
                 'voq_stat',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-fretta-bcm-dpa-oper',
             'voq-base-data-block-number',

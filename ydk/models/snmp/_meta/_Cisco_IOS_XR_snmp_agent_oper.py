@@ -970,7 +970,7 @@ _meta_table = {
                 '''                Each Entry Details.
                 ''',
                 'inq_entry',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
+                'Cisco-IOS-XR-snmp-agent-oper', False, max_elements=16),
             _MetaInfoClassMember('queue-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of NMS Queues Exist.
@@ -1388,7 +1388,7 @@ _meta_table = {
                 '''                Network Managment station ipadress
                 ''',
                 'nms',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
+                'Cisco-IOS-XR-snmp-agent-oper', False, max_elements=15),
             _MetaInfoClassMember('nms-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                 Managment station count
@@ -1400,7 +1400,7 @@ _meta_table = {
                 '''                OID request count for each Managment station 
                 ''',
                 'request_count',
-                'Cisco-IOS-XR-snmp-agent-oper', False),
+                'Cisco-IOS-XR-snmp-agent-oper', False, max_elements=15),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',
             'poll-oid',

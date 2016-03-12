@@ -97,7 +97,7 @@ _meta_table = {
                 '''                Method Types
                 ''',
                 'method',
-                'Cisco-IOS-XR-aaa-lib-cfg', False),
+                'Cisco-IOS-XR-aaa-lib-cfg', False, max_elements=4),
             _MetaInfoClassMember('rp-failover', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                rpfailover
@@ -109,7 +109,7 @@ _meta_table = {
                 '''                Server group names
                 ''',
                 'server_group_name',
-                'Cisco-IOS-XR-aaa-lib-cfg', False),
+                'Cisco-IOS-XR-aaa-lib-cfg', False, max_elements=4),
             _MetaInfoClassMember('type-xr', REFERENCE_ENUM_CLASS, 'AaaAccounting_Enum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg', 'AaaAccounting_Enum', 
                 [], [], 
                 '''                Stop only/Start Stop
@@ -162,13 +162,13 @@ _meta_table = {
                 '''                Methods
                 ''',
                 'method',
-                'Cisco-IOS-XR-aaa-lib-cfg', False),
+                'Cisco-IOS-XR-aaa-lib-cfg', False, max_elements=4, min_elements=1),
             _MetaInfoClassMember('server-group-name', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
                 '''                Server group names
                 ''',
                 'server_group_name',
-                'Cisco-IOS-XR-aaa-lib-cfg', False),
+                'Cisco-IOS-XR-aaa-lib-cfg', False, max_elements=4),
             ],
             'Cisco-IOS-XR-aaa-lib-cfg',
             'authentication',
@@ -215,13 +215,13 @@ _meta_table = {
                 '''                Methods
                 ''',
                 'method',
-                'Cisco-IOS-XR-aaa-lib-cfg', False),
+                'Cisco-IOS-XR-aaa-lib-cfg', False, max_elements=4, min_elements=1),
             _MetaInfoClassMember('server-group-name', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
                 '''                Server group names
                 ''',
                 'server_group_name',
-                'Cisco-IOS-XR-aaa-lib-cfg', False),
+                'Cisco-IOS-XR-aaa-lib-cfg', False, max_elements=4),
             ],
             'Cisco-IOS-XR-aaa-lib-cfg',
             'authorization',

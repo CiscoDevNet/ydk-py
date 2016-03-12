@@ -440,7 +440,7 @@ _meta_table = {
                 '''                IMDR state for the protocols
                 ''',
                 'fis_proto_state',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=3),
             _MetaInfoClassMember('imdr-eoc-implicit', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                IMDR End-of-config implicit
@@ -755,7 +755,7 @@ _meta_table = {
                 '''                the number of frees for this proto
                 ''',
                 'fpp_cntr',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=3),
             ],
             'Cisco-IOS-XR-fib-common-oper',
             'mi-idb-purge-cntr',
@@ -909,7 +909,7 @@ _meta_table = {
                 '''                IMDR state for the protocols
                 ''',
                 'fis_proto_state',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=3),
             _MetaInfoClassMember('imdr-eoc-implicit', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                IMDR End-of-config implicit
@@ -1042,19 +1042,19 @@ _meta_table = {
                 '''                LISP Decap over 4
                 ''',
                 'fpc_lisp_decap_over_v4',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=3, min_elements=3),
             _MetaInfoClassMember('fpc-lisp-decap-over-v6', REFERENCE_LIST, 'FpcLispDecapOverV6' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities.FpcLispDecapOverV6', 
                 [], [], 
                 '''                LISP Decap over 6
                 ''',
                 'fpc_lisp_decap_over_v6',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=3, min_elements=3),
             _MetaInfoClassMember('fpc-lisp-ucmp', REFERENCE_LIST, 'FpcLispUcmp' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities.FpcLispUcmp', 
                 [], [], 
                 '''                LISP UCMP support
                 ''',
                 'fpc_lisp_ucmp',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=3, min_elements=3),
             _MetaInfoClassMember('fpc-loadinfo-filter-support', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                loadinfo filter support
@@ -1150,7 +1150,7 @@ _meta_table = {
                 '''                Fallback VRF support
                 ''',
                 'fpc_resolve_via_table',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=3, min_elements=3),
             _MetaInfoClassMember('fpc-stats-support', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Statistics support
@@ -1415,7 +1415,7 @@ _meta_table = {
                 each route source
                 ''',
                 'fpd_gbltbl_src_entry',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=14),
             _MetaInfoClassMember('fpd-gtrie-timing', REFERENCE_CLASS, 'FpdGtrieTiming' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdGtrieTiming', 
                 [], [], 
                 '''                Gtrie timing statistics
@@ -1649,7 +1649,7 @@ _meta_table = {
                 each route source
                 ''',
                 'fpd_vrftbl_src_entry',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=14),
             ],
             'Cisco-IOS-XR-fib-common-oper',
             'mi-proto-dbg-stat',
@@ -1690,7 +1690,7 @@ _meta_table = {
                 '''                list of cpuless line cards
                 ''',
                 'mi_cpuless_node',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=20),
             _MetaInfoClassMember('mi-del', REFERENCE_LIST, 'MiDel' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Misc.MiDel', 
                 [], [], 
                 '''                Timestamps of deleted routes
@@ -1702,28 +1702,28 @@ _meta_table = {
                 '''                FRR statistics
                 ''',
                 'mi_frr_stat',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=3),
             _MetaInfoClassMember('mi-idb-ext-cleanup-failed-count', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of recycled idb extensions that failed
                 cleanup
                 ''',
                 'mi_idb_ext_cleanup_failed_count',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=3),
             _MetaInfoClassMember('mi-idb-lsec-enabled-num', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of interfaces having label security
                 enabled
                 ''',
                 'mi_idb_lsec_enabled_num',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=3),
             _MetaInfoClassMember('mi-idb-purge-cntr', REFERENCE_LIST, 'MiIdbPurgeCntr' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Misc.MiIdbPurgeCntr', 
                 [], [], 
                 '''                the number of counters used for purge counter
                 stats
                 ''',
                 'mi_idb_purge_cntr',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=3),
             _MetaInfoClassMember('mi-idb-recycle-cleanup-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of idb cleaned up after hitting ifh
@@ -1748,32 +1748,32 @@ _meta_table = {
                 '''                Per protocol number of label RPFs
                 ''',
                 'mi_lrpf_num',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=3),
             _MetaInfoClassMember('mi-lrpf-stats-act', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Per protocol actions stats for label RPF
                 ''',
                 'mi_lrpf_stats_act',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=24),
             _MetaInfoClassMember('mi-lrpf-stats-fail', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Per protocol Failure stats for label RPF
                 ''',
                 'mi_lrpf_stats_fail',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=9),
             _MetaInfoClassMember('mi-num-lisp-eid', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                number of LISP EID prefixes
                 ''',
                 'mi_num_lisp_eid',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=3),
             _MetaInfoClassMember('mi-num-lisp-valid-eid', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                number of LISP EID prefixes eligible for
                 forwarding
                 ''',
                 'mi_num_lisp_valid_eid',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=3),
             _MetaInfoClassMember('mi-num-mgmt-list', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of management interfaces
@@ -2538,7 +2538,7 @@ _meta_table = {
                 '''                Does PBTS class fall back to drop or any class
                 ''',
                 'pbts_class_is_fallback_mapped',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=9, min_elements=9),
             _MetaInfoClassMember('pbts-class-num-paths', ATTRIBUTE, 'str' , None, None, 
                 [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                PBTS class num paths
@@ -2562,7 +2562,7 @@ _meta_table = {
                 '''                PBTS class falls back to drop
                 ''',
                 'pbts_fallback_to_drop',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=9, min_elements=9),
             _MetaInfoClassMember('platform-hardware-information', ATTRIBUTE, 'str' , None, None, 
                 [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Platform Hardware info
@@ -2592,7 +2592,7 @@ _meta_table = {
                 '''                Tunnel is forward class
                 ''',
                 'tunnel_is_forward_class',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=128, min_elements=128),
             _MetaInfoClassMember('weights-of-path', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Weights of paths
@@ -3223,7 +3223,7 @@ _meta_table = {
                 '''                lstack
                 ''',
                 'lstack',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=14),
             _MetaInfoClassMember('nh-address', ATTRIBUTE, 'str' , None, None, 
                 [(0, 52)], [], 
                 '''                NHAddress
@@ -3868,7 +3868,7 @@ _meta_table = {
                 '''                Does PBTS class fall back to drop or any class
                 ''',
                 'pbts_class_is_fallback_mapped',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=9, min_elements=9),
             _MetaInfoClassMember('pbts-class-num-paths', ATTRIBUTE, 'str' , None, None, 
                 [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                PBTS class num paths
@@ -3892,7 +3892,7 @@ _meta_table = {
                 '''                PBTS class falls back to drop
                 ''',
                 'pbts_fallback_to_drop',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=9, min_elements=9),
             _MetaInfoClassMember('platform-hardware-information', ATTRIBUTE, 'str' , None, None, 
                 [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Platform Hardware info
@@ -3922,7 +3922,7 @@ _meta_table = {
                 '''                Tunnel is forward class
                 ''',
                 'tunnel_is_forward_class',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=128, min_elements=128),
             _MetaInfoClassMember('weights-of-path', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Weights of paths
@@ -4553,7 +4553,7 @@ _meta_table = {
                 '''                lstack
                 ''',
                 'lstack',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=14),
             _MetaInfoClassMember('nh-address', ATTRIBUTE, 'str' , None, None, 
                 [(0, 52)], [], 
                 '''                NHAddress
@@ -6891,13 +6891,13 @@ _meta_table = {
                 '''                bkup if hdl
                 ''',
                 'bkup_if_hdl',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
             _MetaInfoClassMember('bkup-if-node-id', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                bkup if node id
                 ''',
                 'bkup_if_node_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
             _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                flags
@@ -6909,13 +6909,13 @@ _meta_table = {
                 '''                if hdl
                 ''',
                 'if_hdl',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
             _MetaInfoClassMember('if-node-id', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                if node id
                 ''',
                 'if_node_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
             _MetaInfoClassMember('mcast-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                mcast id
@@ -7890,13 +7890,13 @@ _meta_table = {
                 '''                bkup if hdl
                 ''',
                 'bkup_if_hdl',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
             _MetaInfoClassMember('bkup-if-node-id', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                bkup if node id
                 ''',
                 'bkup_if_node_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
             _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                flags
@@ -7908,13 +7908,13 @@ _meta_table = {
                 '''                if hdl
                 ''',
                 'if_hdl',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
             _MetaInfoClassMember('if-node-id', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                if node id
                 ''',
                 'if_node_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
             _MetaInfoClassMember('mcast-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                mcast id
@@ -8912,13 +8912,13 @@ _meta_table = {
                 '''                bkup if hdl
                 ''',
                 'bkup_if_hdl',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
             _MetaInfoClassMember('bkup-if-node-id', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                bkup if node id
                 ''',
                 'bkup_if_node_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
             _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                flags
@@ -8930,13 +8930,13 @@ _meta_table = {
                 '''                if hdl
                 ''',
                 'if_hdl',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
             _MetaInfoClassMember('if-node-id', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                if node id
                 ''',
                 'if_node_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
             _MetaInfoClassMember('mcast-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                mcast id

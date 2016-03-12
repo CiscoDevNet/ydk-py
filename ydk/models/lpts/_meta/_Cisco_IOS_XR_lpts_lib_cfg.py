@@ -29,14 +29,14 @@ _meta_table = {
                         '''                        Precedence values
                         ''',
                         'precedence',
-                        'Cisco-IOS-XR-lpts-pre-ifib-cfg', False),
+                        'Cisco-IOS-XR-lpts-pre-ifib-cfg', False, max_elements=8),
                     _MetaInfoClassMember('precedence', REFERENCE_LEAFLIST, 'int' , None, None, 
                         [(0, 7)], [], 
                         '''                        Precedence values
                         ''',
                         'precedence',
-                        'Cisco-IOS-XR-lpts-pre-ifib-cfg', False),
-                ]),
+                        'Cisco-IOS-XR-lpts-pre-ifib-cfg', False, max_elements=8),
+                ], max_elements=8),
             ],
             'Cisco-IOS-XR-lpts-pre-ifib-cfg',
             'precedences',

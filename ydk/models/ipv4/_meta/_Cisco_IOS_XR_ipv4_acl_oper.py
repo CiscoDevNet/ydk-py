@@ -305,7 +305,7 @@ _meta_table = {
                 '''                Next hop info
                 ''',
                 'next_hop_info',
-                'Cisco-IOS-XR-ipv4-acl-oper', False),
+                'Cisco-IOS-XR-ipv4-acl-oper', False, max_elements=3),
             _MetaInfoClassMember('next-hop-type', REFERENCE_ENUM_CLASS, 'BagAclNh_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'BagAclNh_Enum', 
                 [], [], 
                 '''                Next hop type

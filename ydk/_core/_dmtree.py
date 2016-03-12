@@ -211,23 +211,53 @@ class DmTree(object):
                 else:
                     identity_mod_name = entity._meta_info().module_name
                     identity_name = rt[0].text
+                py_mod_name = None
+                if not (identity_mod_name, identity_name) in _yang_ns._identity_map:
+                    #this is a hack on some platforms the identity mod_name is not available
+                    sp_logger = logging.getLogger('ydk.providers.NetconfServiceProvider')
+                    sp_logger.error('Could not find identity tuple (%s, %s) in identity_map, trying secondary mechanism', identity_mod_name, identity_name)
+                    identities_with_name = [(x,y) for (x,y) in _yang_ns._identity_map if y == identity_name]
+                    if len(identities_with_name) == 0:
+                        sp_logger.error('Secondary mechanism failed no identity with name %s found', identity_name)
+                    elif len(identities_with_name) > 1:
+                        sp_logger.error('Secondary mechanism failed more than one identity with name %s found', identity_name)
+                    else:
+                        (py_mod_name, identity_clazz_name) = _yang_ns._identity_map[identities_with_name[0]]
+                        sp_logger.debug('Secondary mechanism succeeded identity with name %s found in module %s', identity_name, py_mod_name)
+                    
+                else:
+                    (py_mod_name, identity_clazz_name) = _yang_ns._identity_map[(identity_mod_name, identity_name)]
                 
-                (py_mod_name, identity_clazz_name) = _yang_ns._identity_map[(identity_mod_name, identity_name)]
-                exec_import = 'from ' + py_mod_name + ' import ' + identity_clazz_name
-                exec exec_import
+                if py_mod_name is not None:    
+                    exec_import = 'from ' + py_mod_name + ' import ' + identity_clazz_name
+                    exec exec_import
               
-                
-                eval_getinstance = identity_clazz_name + '()'
-                instance = eval(eval_getinstance)
-                entity.__dict__[member.presentation_name] = instance
+                    eval_getinstance = identity_clazz_name + '()'
+                    instance = eval(eval_getinstance)
+                    entity.__dict__[member.presentation_name] = instance
             elif member.mtype == REFERENCE_ENUM_CLASS:
                 exec_import = 'from ' + member.pmodule_name + ' import ' + member.clazz_name.split('.')[0]
                 exec exec_import
                 #first get the enum_class
                 meta_info = eval('%s._meta_info()'%member.clazz_name)
                 enum_literal_key = rt[0].text
-                enum_literal = meta_info.literal_map[enum_literal_key]
-                entity.__dict__[member.presentation_name] = eval('%s.%s'%(member.clazz_name, enum_literal))
+                if enum_literal_key not in meta_info.literal_map:
+                    sp_logger = logging.getLogger('ydk.providers.NetconfServiceProvider')
+                    values = ','.join(meta_info.literal_map)
+                    sp_logger.error('Cannot find enum literal with name %s in enum clazz %s(%s) trying with different case', 
+                                    enum_literal_key, member.clazz_name, values)
+                    #hack change the case and check
+                    if enum_literal_key.upper() in meta_info.literal_map:
+                        sp_logger.debug('Found literal using secondary mechanism')
+                        enum_literal = meta_info.literal_map[enum_literal_key.upper()]
+                        entity.__dict__[member.presentation_name] = eval('%s.%s'%(member.clazz_name, enum_literal))
+                    elif enum_literal_key.lower() in meta_info.literal_map:
+                        sp_logger.debug('Found literal using secondary mechanism')
+                        enum_literal = meta_info.literal_map[enum_literal_key.lower()]
+                        entity.__dict__[member.presentation_name] = eval('%s.%s'%(member.clazz_name, enum_literal))
+                else:
+                    enum_literal = meta_info.literal_map[enum_literal_key]
+                    entity.__dict__[member.presentation_name] = eval('%s.%s'%(member.clazz_name, enum_literal))
             elif member.mtype == REFERENCE_BITS:
                 exec_import = 'from ' + member.pmodule_name + ' import ' + member.clazz_name.split('.')[0]
                 exec exec_import

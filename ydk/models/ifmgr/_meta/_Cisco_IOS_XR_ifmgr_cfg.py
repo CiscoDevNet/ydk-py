@@ -3866,7 +3866,7 @@ _meta_table = {
                 applied to Inbound packets
                 ''',
                 'acl_name_array',
-                'Cisco-IOS-XR-ip-pfilter-cfg', False),
+                'Cisco-IOS-XR-ip-pfilter-cfg', False, max_elements=5),
             _MetaInfoClassMember('common-acl-name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 65)], [], 
                 '''                Reserved for backward compatibility. IPv4
@@ -3912,7 +3912,7 @@ _meta_table = {
                 interfaces is provided
                 ''',
                 'is_common_array',
-                'Cisco-IOS-XR-ip-pfilter-cfg', False),
+                'Cisco-IOS-XR-ip-pfilter-cfg', False, max_elements=5),
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 65)], [], 
                 '''                Reserved for backward compatibility. IPv4
@@ -3939,7 +3939,7 @@ _meta_table = {
                 applied to Outbound packets
                 ''',
                 'acl_name_array',
-                'Cisco-IOS-XR-ip-pfilter-cfg', False),
+                'Cisco-IOS-XR-ip-pfilter-cfg', False, max_elements=5),
             _MetaInfoClassMember('compression-level', ATTRIBUTE, 'int' , None, None, 
                 [(0, 3)], [], 
                 '''                The level of compression applied to the ACL on
@@ -3977,7 +3977,7 @@ _meta_table = {
                 interfaces is provided
                 ''',
                 'is_common_array',
-                'Cisco-IOS-XR-ip-pfilter-cfg', False),
+                'Cisco-IOS-XR-ip-pfilter-cfg', False, max_elements=5),
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 65)], [], 
                 '''                Reserved for backward compatibility. IPv4
@@ -4856,7 +4856,7 @@ _meta_table = {
                 applied to Inbound packets
                 ''',
                 'acl_name_array',
-                'Cisco-IOS-XR-ip-pfilter-cfg', False),
+                'Cisco-IOS-XR-ip-pfilter-cfg', False, max_elements=5),
             _MetaInfoClassMember('common-acl-name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 65)], [], 
                 '''                Reserved for backward compatibility. IPv6
@@ -4893,7 +4893,7 @@ _meta_table = {
                 interfaces is provided
                 ''',
                 'is_common_array',
-                'Cisco-IOS-XR-ip-pfilter-cfg', False),
+                'Cisco-IOS-XR-ip-pfilter-cfg', False, max_elements=5),
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 65)], [], 
                 '''                Reserved for backward compatibility. IPv6
@@ -4920,7 +4920,7 @@ _meta_table = {
                 applied to Inbound packets
                 ''',
                 'acl_name_array',
-                'Cisco-IOS-XR-ip-pfilter-cfg', False),
+                'Cisco-IOS-XR-ip-pfilter-cfg', False, max_elements=5),
             _MetaInfoClassMember('compression-level', ATTRIBUTE, 'int' , None, None, 
                 [(0, 3)], [], 
                 '''                The level of compression applied to the ACL on
@@ -4950,7 +4950,7 @@ _meta_table = {
                 interfaces is provided
                 ''',
                 'is_common_array',
-                'Cisco-IOS-XR-ip-pfilter-cfg', False),
+                'Cisco-IOS-XR-ip-pfilter-cfg', False, max_elements=5),
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 65)], [], 
                 '''                Reserved for backward compatibility. IPv6
@@ -12398,7 +12398,7 @@ _meta_table = {
                 '''                Array of Policy class
                 ''',
                 'policy_class',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
+                'Cisco-IOS-XR-mpls-te-cfg', False, max_elements=7),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
             'policy-classes',

@@ -8540,7 +8540,7 @@ _meta_table = {
                 '''                Unreserved bandwidth for each priority (bytes/s)
                 ''',
                 'bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'global-unreserve-bw-per-priority',
@@ -8599,7 +8599,7 @@ _meta_table = {
                 (bytes/s)
                 ''',
                 'maximum_lsp_bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('minimum-lsp-bw', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Minimum LSP bandwidth (bytes/s)
@@ -8758,7 +8758,7 @@ _meta_table = {
                 '''                Array of Unres Oduj Prio
                 ''',
                 'unres_oduj_prio',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'fixed-bw-sub-tlv-value',
@@ -8882,13 +8882,13 @@ _meta_table = {
                 '''                Max LSP BW Array
                 ''',
                 'max_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('unres-lspbw', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Array of Unres LSP BW
                 ''',
                 'unres_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'flex-bw-sub-tlv-value',
@@ -9050,7 +9050,7 @@ _meta_table = {
                 '''                Max LSP bandwidth array
                 ''',
                 'max_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('rile-len-code', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Rile LenCode
@@ -9172,7 +9172,7 @@ _meta_table = {
                 '''                Unreserved bandwidth for each priority (bytes/s)
                 ''',
                 'bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'sub-pool-unreserve-bw-per-priority',
@@ -9419,7 +9419,7 @@ _meta_table = {
                 '''                Unreserved bandwidth for each priority (bytes/s)
                 ''',
                 'bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'global-unreserve-bw-per-priority',
@@ -9478,7 +9478,7 @@ _meta_table = {
                 (bytes/s)
                 ''',
                 'maximum_lsp_bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('minimum-lsp-bw', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Minimum LSP bandwidth (bytes/s)
@@ -9637,7 +9637,7 @@ _meta_table = {
                 '''                Array of Unres Oduj Prio
                 ''',
                 'unres_oduj_prio',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'fixed-bw-sub-tlv-value',
@@ -9761,13 +9761,13 @@ _meta_table = {
                 '''                Max LSP BW Array
                 ''',
                 'max_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('unres-lspbw', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Array of Unres LSP BW
                 ''',
                 'unres_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'flex-bw-sub-tlv-value',
@@ -9929,7 +9929,7 @@ _meta_table = {
                 '''                Max LSP bandwidth array
                 ''',
                 'max_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('rile-len-code', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Rile LenCode
@@ -10051,7 +10051,7 @@ _meta_table = {
                 '''                Unreserved bandwidth for each priority (bytes/s)
                 ''',
                 'bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'sub-pool-unreserve-bw-per-priority',
@@ -10351,7 +10351,7 @@ _meta_table = {
                 '''                Unreserved bandwidth for each priority (bytes/s)
                 ''',
                 'bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'global-unreserve-bw-per-priority',
@@ -10410,7 +10410,7 @@ _meta_table = {
                 (bytes/s)
                 ''',
                 'maximum_lsp_bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('minimum-lsp-bw', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Minimum LSP bandwidth (bytes/s)
@@ -10569,7 +10569,7 @@ _meta_table = {
                 '''                Array of Unres Oduj Prio
                 ''',
                 'unres_oduj_prio',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'fixed-bw-sub-tlv-value',
@@ -10693,13 +10693,13 @@ _meta_table = {
                 '''                Max LSP BW Array
                 ''',
                 'max_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('unres-lspbw', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Array of Unres LSP BW
                 ''',
                 'unres_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'flex-bw-sub-tlv-value',
@@ -10861,7 +10861,7 @@ _meta_table = {
                 '''                Max LSP bandwidth array
                 ''',
                 'max_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('rile-len-code', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Rile LenCode
@@ -10983,7 +10983,7 @@ _meta_table = {
                 '''                Unreserved bandwidth for each priority (bytes/s)
                 ''',
                 'bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'sub-pool-unreserve-bw-per-priority',
@@ -11230,7 +11230,7 @@ _meta_table = {
                 '''                Unreserved bandwidth for each priority (bytes/s)
                 ''',
                 'bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'global-unreserve-bw-per-priority',
@@ -11289,7 +11289,7 @@ _meta_table = {
                 (bytes/s)
                 ''',
                 'maximum_lsp_bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('minimum-lsp-bw', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Minimum LSP bandwidth (bytes/s)
@@ -11448,7 +11448,7 @@ _meta_table = {
                 '''                Array of Unres Oduj Prio
                 ''',
                 'unres_oduj_prio',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'fixed-bw-sub-tlv-value',
@@ -11572,13 +11572,13 @@ _meta_table = {
                 '''                Max LSP BW Array
                 ''',
                 'max_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('unres-lspbw', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Array of Unres LSP BW
                 ''',
                 'unres_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'flex-bw-sub-tlv-value',
@@ -11740,7 +11740,7 @@ _meta_table = {
                 '''                Max LSP bandwidth array
                 ''',
                 'max_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('rile-len-code', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Rile LenCode
@@ -11862,7 +11862,7 @@ _meta_table = {
                 '''                Unreserved bandwidth for each priority (bytes/s)
                 ''',
                 'bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'sub-pool-unreserve-bw-per-priority',
@@ -12162,7 +12162,7 @@ _meta_table = {
                 '''                sa lsa count
                 ''',
                 'sa_lsa_count',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=12),
             _MetaInfoClassMember('sa-num-areas', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                sa num areas
@@ -26203,7 +26203,7 @@ _meta_table = {
                 '''                Unreserved bandwidth for each priority (bytes/s)
                 ''',
                 'bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'global-unreserve-bw-per-priority',
@@ -26262,7 +26262,7 @@ _meta_table = {
                 (bytes/s)
                 ''',
                 'maximum_lsp_bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('minimum-lsp-bw', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Minimum LSP bandwidth (bytes/s)
@@ -26421,7 +26421,7 @@ _meta_table = {
                 '''                Array of Unres Oduj Prio
                 ''',
                 'unres_oduj_prio',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'fixed-bw-sub-tlv-value',
@@ -26545,13 +26545,13 @@ _meta_table = {
                 '''                Max LSP BW Array
                 ''',
                 'max_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('unres-lspbw', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Array of Unres LSP BW
                 ''',
                 'unres_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'flex-bw-sub-tlv-value',
@@ -26713,7 +26713,7 @@ _meta_table = {
                 '''                Max LSP bandwidth array
                 ''',
                 'max_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('rile-len-code', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Rile LenCode
@@ -26835,7 +26835,7 @@ _meta_table = {
                 '''                Unreserved bandwidth for each priority (bytes/s)
                 ''',
                 'bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'sub-pool-unreserve-bw-per-priority',
@@ -27082,7 +27082,7 @@ _meta_table = {
                 '''                Unreserved bandwidth for each priority (bytes/s)
                 ''',
                 'bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'global-unreserve-bw-per-priority',
@@ -27141,7 +27141,7 @@ _meta_table = {
                 (bytes/s)
                 ''',
                 'maximum_lsp_bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('minimum-lsp-bw', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Minimum LSP bandwidth (bytes/s)
@@ -27300,7 +27300,7 @@ _meta_table = {
                 '''                Array of Unres Oduj Prio
                 ''',
                 'unres_oduj_prio',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'fixed-bw-sub-tlv-value',
@@ -27424,13 +27424,13 @@ _meta_table = {
                 '''                Max LSP BW Array
                 ''',
                 'max_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('unres-lspbw', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Array of Unres LSP BW
                 ''',
                 'unres_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'flex-bw-sub-tlv-value',
@@ -27592,7 +27592,7 @@ _meta_table = {
                 '''                Max LSP bandwidth array
                 ''',
                 'max_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('rile-len-code', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Rile LenCode
@@ -27714,7 +27714,7 @@ _meta_table = {
                 '''                Unreserved bandwidth for each priority (bytes/s)
                 ''',
                 'bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'sub-pool-unreserve-bw-per-priority',
@@ -28014,7 +28014,7 @@ _meta_table = {
                 '''                Unreserved bandwidth for each priority (bytes/s)
                 ''',
                 'bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'global-unreserve-bw-per-priority',
@@ -28073,7 +28073,7 @@ _meta_table = {
                 (bytes/s)
                 ''',
                 'maximum_lsp_bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('minimum-lsp-bw', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Minimum LSP bandwidth (bytes/s)
@@ -28232,7 +28232,7 @@ _meta_table = {
                 '''                Array of Unres Oduj Prio
                 ''',
                 'unres_oduj_prio',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'fixed-bw-sub-tlv-value',
@@ -28356,13 +28356,13 @@ _meta_table = {
                 '''                Max LSP BW Array
                 ''',
                 'max_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('unres-lspbw', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Array of Unres LSP BW
                 ''',
                 'unres_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'flex-bw-sub-tlv-value',
@@ -28524,7 +28524,7 @@ _meta_table = {
                 '''                Max LSP bandwidth array
                 ''',
                 'max_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('rile-len-code', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Rile LenCode
@@ -28646,7 +28646,7 @@ _meta_table = {
                 '''                Unreserved bandwidth for each priority (bytes/s)
                 ''',
                 'bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'sub-pool-unreserve-bw-per-priority',
@@ -28893,7 +28893,7 @@ _meta_table = {
                 '''                Unreserved bandwidth for each priority (bytes/s)
                 ''',
                 'bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'global-unreserve-bw-per-priority',
@@ -28952,7 +28952,7 @@ _meta_table = {
                 (bytes/s)
                 ''',
                 'maximum_lsp_bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('minimum-lsp-bw', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Minimum LSP bandwidth (bytes/s)
@@ -29111,7 +29111,7 @@ _meta_table = {
                 '''                Array of Unres Oduj Prio
                 ''',
                 'unres_oduj_prio',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'fixed-bw-sub-tlv-value',
@@ -29235,13 +29235,13 @@ _meta_table = {
                 '''                Max LSP BW Array
                 ''',
                 'max_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('unres-lspbw', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Array of Unres LSP BW
                 ''',
                 'unres_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'flex-bw-sub-tlv-value',
@@ -29403,7 +29403,7 @@ _meta_table = {
                 '''                Max LSP bandwidth array
                 ''',
                 'max_lspbw',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             _MetaInfoClassMember('rile-len-code', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Rile LenCode
@@ -29525,7 +29525,7 @@ _meta_table = {
                 '''                Unreserved bandwidth for each priority (bytes/s)
                 ''',
                 'bw_per_priority',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv4-ospf-oper',
             'sub-pool-unreserve-bw-per-priority',
@@ -29825,7 +29825,7 @@ _meta_table = {
                 '''                sa lsa count
                 ''',
                 'sa_lsa_count',
-                'Cisco-IOS-XR-ipv4-ospf-oper', False),
+                'Cisco-IOS-XR-ipv4-ospf-oper', False, max_elements=12),
             _MetaInfoClassMember('sa-num-areas', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                sa num areas

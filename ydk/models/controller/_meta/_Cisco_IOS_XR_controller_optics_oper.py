@@ -196,7 +196,7 @@ _meta_table = {
                 '''                Network Srlg
                 ''',
                 'network_srlg',
-                'Cisco-IOS-XR-controller-optics-oper', False),
+                'Cisco-IOS-XR-controller-optics-oper', False, max_elements=102),
             ],
             'Cisco-IOS-XR-controller-optics-oper',
             'network-srlg-info',

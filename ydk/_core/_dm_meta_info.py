@@ -15,7 +15,7 @@
 # ------------------------------------------------------------------
 
 import re
-from ydk.types import Decimal64, Empty
+from ydk.types import Decimal64, Empty, YList
 import logging
 
 
@@ -34,7 +34,8 @@ class _MetaInfoClassMember(object):
     def __init__(self, name, mtype, ptype,
                  pmodule_name, clazz_name,
                  prange, pattern, doc,
-                 presentation_name, module_name, is_key, members=None):
+                 presentation_name, module_name, is_key,
+                 members=None, max_elements=None, min_elements=None):
         self._name = name
         self._mtype = mtype
         self._ptype = ptype
@@ -49,6 +50,8 @@ class _MetaInfoClassMember(object):
         self._module_name = module_name
         self._is_key = is_key
         self._members = members
+        self._max_elements = max_elements
+        self._min_elements = min_elements
     
     @property
     def members(self):
@@ -85,6 +88,14 @@ class _MetaInfoClassMember(object):
     @property
     def module_name(self):
         return self._module_name
+
+    @property
+    def max_elements(self):
+        return self._max_elements
+
+    @property
+    def min_elements(self):
+        return self._min_elements
 
 
 class _MetaInfoClass(object):
@@ -185,7 +196,7 @@ def _encode_value(member, value):
     
     return encoded
 
-def _dm_validate_value(meta, value, parent, i_errors):
+def _dm_validate_value(meta, value, parent, optype, i_errors):
     #return value#pass
     if value is None:
         return value
@@ -196,12 +207,33 @@ def _dm_validate_value(meta, value, parent, i_errors):
         exec 'from ydk.types import Decimal64'
 
     if meta.mtype in (REFERENCE_IDENTITY_CLASS, 
-        REFERENCE_BITS, REFERENCE_ENUM_CLASS):
+        REFERENCE_BITS, REFERENCE_ENUM_CLASS, REFERENCE_LIST):
         exec_import = 'from %s import %s' \
             % (meta.pmodule_name, meta.clazz_name.split('.')[0])
         exec exec_import
 
-    if isinstance(value, eval(meta._ptype)):
+
+    if isinstance(value, YList) and meta.mtype == REFERENCE_LIST:
+        if optype == 'READ' or meta.max_elements is None:
+            max_elements = float('inf')
+        else:
+            max_elements = meta.max_elements
+
+        if len(value) <= max_elements:
+            for v in value:
+                _dm_validate_value(meta, v, parent, optype, i_errors)
+        else:
+            errmsg = "Invalid list length, length = %d" % len(value)
+            _handle_error(meta, parent, errmsg, i_errors)
+        return value
+
+    elif meta.mtype == REFERENCE_LIST:
+        if not isinstance(value, eval(meta.clazz_name)):
+            errmsg = "Invalid list element type, type = %s" % value
+            _handle_error(meta, parent, errmsg, i_errors)
+        return value            
+
+    elif isinstance(value, eval(meta._ptype)):
         if isinstance(value, int):
             if len(meta._range) > 0:
                 valid = False
@@ -255,11 +287,20 @@ def _dm_validate_value(meta, value, parent, i_errors):
     #check for type(Empty.SET), type(Empty.UNSET). Needs to be refined
     elif meta._ptype is 'int': 
         return value
+
     elif type(value) == list and meta.mtype == REFERENCE_LEAFLIST:
         # A leaf list.
-        if len(value) > 0:
+        min_elements = meta.min_elements if meta.min_elements else 0
+        max_elements = meta.max_elements if meta.max_elements else float('inf')
+
+        value_len = len([v for v in value if v is not None])
+
+        if min_elements <= value_len <= max_elements and value_len == len(value):
             for v in value:
-                _dm_validate_value(meta, v, parent, i_errors)
+                _dm_validate_value(meta, v, parent, optype, i_errors)
+        else:
+            errmsg = "Invalid leaflist length, length = %d" % value_len
+            _handle_error(meta, parent, errmsg, i_errors)
         return value
 
     elif meta.mtype == REFERENCE_UNION:

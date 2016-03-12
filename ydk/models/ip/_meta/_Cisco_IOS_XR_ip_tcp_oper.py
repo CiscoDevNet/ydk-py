@@ -446,7 +446,7 @@ _meta_table = {
                 '''                Foreign address
                 ''',
                 'foreign_address',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=4),
             _MetaInfoClassMember('foreign-port', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Foreign port
@@ -458,7 +458,7 @@ _meta_table = {
                 '''                Local address
                 ''',
                 'local_address',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=4),
             _MetaInfoClassMember('local-pid', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Id of the local process
@@ -1212,13 +1212,13 @@ _meta_table = {
                 '''                Cached Label stack
                 ''',
                 'fib_label_output',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=7),
             _MetaInfoClassMember('fib-pd-ctx', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Cached fib pd context
                 ''',
                 'fib_pd_ctx',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=4),
             _MetaInfoClassMember('fib-pd-ctx-size', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Cached fib pd context size
@@ -1230,7 +1230,7 @@ _meta_table = {
                 '''                Foreign address
                 ''',
                 'foreign_address',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=4),
             _MetaInfoClassMember('foreign-port', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Foreign port
@@ -1278,7 +1278,7 @@ _meta_table = {
                 '''                Local address
                 ''',
                 'local_address',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=4),
             _MetaInfoClassMember('local-pid', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Id of the local process
@@ -1471,7 +1471,7 @@ _meta_table = {
                 '''                Seq nos. of sack blocks
                 ''',
                 'sack_blk',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=6),
             _MetaInfoClassMember('save-queue-size', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Save queue (out-of seq data) size in bytes
@@ -1519,7 +1519,7 @@ _meta_table = {
                 '''                Sorted list of sack holes
                 ''',
                 'send_sack_hole',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=6),
             _MetaInfoClassMember('send-unack-sequence-num', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Sequence number of unacked data
@@ -1633,7 +1633,7 @@ _meta_table = {
                 '''                Timers
                 ''',
                 'timer',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=8),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                VRF Id
@@ -2264,61 +2264,61 @@ _meta_table = {
                 '''                Number of failed control read from XIPC
                 ''',
                 'control_read_error_num',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=5),
             _MetaInfoClassMember('control-read-success-num', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of successful control read to XIPC
                 ''',
                 'control_read_success_num',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=5),
             _MetaInfoClassMember('control-write-error-num', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of failed control write to XIPC
                 ''',
                 'control_write_error_num',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=5),
             _MetaInfoClassMember('control-write-success-num', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of successful control write to XIPC
                 ''',
                 'control_write_success_num',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=5),
             _MetaInfoClassMember('data-read-byte', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of bytes data has been read
                 ''',
                 'data_read_byte',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=2),
             _MetaInfoClassMember('data-read-error-num', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of failed data read from XIPC
                 ''',
                 'data_read_error_num',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=2),
             _MetaInfoClassMember('data-read-success-num', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of successful data read from XIPC
                 ''',
                 'data_read_success_num',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=2),
             _MetaInfoClassMember('data-write-byte', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of bytes data has been written
                 ''',
                 'data_write_byte',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=2),
             _MetaInfoClassMember('data-write-error-num', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of failed data write to XIPC
                 ''',
                 'data_write_error_num',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=2),
             _MetaInfoClassMember('data-write-success-num', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of successful data write to XIPC
                 ''',
                 'data_write_success_num',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=2),
             ],
             'Cisco-IOS-XR-ip-tcp-oper',
             'async-session-stats',
@@ -3412,7 +3412,7 @@ _meta_table = {
                 '''                Foreign address
                 ''',
                 'foreign_address',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=4),
             _MetaInfoClassMember('foreign-port', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Foreign port
@@ -3448,7 +3448,7 @@ _meta_table = {
                 '''                Local address
                 ''',
                 'local_address',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=4),
             _MetaInfoClassMember('local-port', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Local port
@@ -3725,7 +3725,7 @@ _meta_table = {
                 '''                Foreign address
                 ''',
                 'foreign_address',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=4),
             _MetaInfoClassMember('foreign-port', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Foreign port
@@ -3859,7 +3859,7 @@ _meta_table = {
                 '''                Local address
                 ''',
                 'local_address',
-                'Cisco-IOS-XR-ip-tcp-oper', False),
+                'Cisco-IOS-XR-ip-tcp-oper', False, max_elements=4),
             _MetaInfoClassMember('local-port', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Local port

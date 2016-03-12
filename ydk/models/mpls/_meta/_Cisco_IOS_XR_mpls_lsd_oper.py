@@ -215,13 +215,13 @@ _meta_table = {
                 '''                Label context count
                 ''',
                 'label_context_count',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=29),
             _MetaInfoClassMember('label-context-pending-count', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label context pending count
                 ''',
                 'label_context_pending_count',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=29),
             ],
             'Cisco-IOS-XR-mpls-lsd-oper',
             'application-statistics',
@@ -3738,13 +3738,13 @@ _meta_table = {
                 '''                Info related to outgoing labels
                 ''',
                 'label',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=10),
             _MetaInfoClassMember('nexthop', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote nexthop addresses
                 ''',
                 'nexthop',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Depth of inner label stack
@@ -3920,13 +3920,13 @@ _meta_table = {
                 '''                Info related to outgoing labels
                 ''',
                 'label',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('nexthop', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote nexthop addresses
                 ''',
                 'nexthop',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Depth of inner label stack
@@ -6780,13 +6780,13 @@ _meta_table = {
                 '''                Info related to outgoing labels
                 ''',
                 'label',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=10),
             _MetaInfoClassMember('nexthop', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote nexthop addresses
                 ''',
                 'nexthop',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Depth of inner label stack
@@ -6962,13 +6962,13 @@ _meta_table = {
                 '''                Info related to outgoing labels
                 ''',
                 'label',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('nexthop', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote nexthop addresses
                 ''',
                 'nexthop',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Depth of inner label stack
@@ -9804,13 +9804,13 @@ _meta_table = {
                 '''                Info related to outgoing labels
                 ''',
                 'label',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=10),
             _MetaInfoClassMember('nexthop', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote nexthop addresses
                 ''',
                 'nexthop',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Depth of inner label stack
@@ -9986,13 +9986,13 @@ _meta_table = {
                 '''                Info related to outgoing labels
                 ''',
                 'label',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('nexthop', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote nexthop addresses
                 ''',
                 'nexthop',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Depth of inner label stack
@@ -12828,13 +12828,13 @@ _meta_table = {
                 '''                Info related to outgoing labels
                 ''',
                 'label',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=10),
             _MetaInfoClassMember('nexthop', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote nexthop addresses
                 ''',
                 'nexthop',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Depth of inner label stack
@@ -13010,13 +13010,13 @@ _meta_table = {
                 '''                Info related to outgoing labels
                 ''',
                 'label',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('nexthop', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote nexthop addresses
                 ''',
                 'nexthop',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Depth of inner label stack
@@ -15362,13 +15362,13 @@ _meta_table = {
                 '''                Label context count
                 ''',
                 'label_context_count',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=29),
             _MetaInfoClassMember('label-context-pending-count', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Label context pending count
                 ''',
                 'label_context_pending_count',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=29),
             ],
             'Cisco-IOS-XR-mpls-lsd-oper',
             'application-statistics',
@@ -18885,13 +18885,13 @@ _meta_table = {
                 '''                Info related to outgoing labels
                 ''',
                 'label',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=10),
             _MetaInfoClassMember('nexthop', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote nexthop addresses
                 ''',
                 'nexthop',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Depth of inner label stack
@@ -19067,13 +19067,13 @@ _meta_table = {
                 '''                Info related to outgoing labels
                 ''',
                 'label',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('nexthop', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote nexthop addresses
                 ''',
                 'nexthop',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Depth of inner label stack
@@ -21927,13 +21927,13 @@ _meta_table = {
                 '''                Info related to outgoing labels
                 ''',
                 'label',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=10),
             _MetaInfoClassMember('nexthop', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote nexthop addresses
                 ''',
                 'nexthop',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Depth of inner label stack
@@ -22109,13 +22109,13 @@ _meta_table = {
                 '''                Info related to outgoing labels
                 ''',
                 'label',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('nexthop', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote nexthop addresses
                 ''',
                 'nexthop',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Depth of inner label stack
@@ -24951,13 +24951,13 @@ _meta_table = {
                 '''                Info related to outgoing labels
                 ''',
                 'label',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=10),
             _MetaInfoClassMember('nexthop', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote nexthop addresses
                 ''',
                 'nexthop',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Depth of inner label stack
@@ -25133,13 +25133,13 @@ _meta_table = {
                 '''                Info related to outgoing labels
                 ''',
                 'label',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('nexthop', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote nexthop addresses
                 ''',
                 'nexthop',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Depth of inner label stack
@@ -27975,13 +27975,13 @@ _meta_table = {
                 '''                Info related to outgoing labels
                 ''',
                 'label',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=10),
             _MetaInfoClassMember('nexthop', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote nexthop addresses
                 ''',
                 'nexthop',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Depth of inner label stack
@@ -28157,13 +28157,13 @@ _meta_table = {
                 '''                Info related to outgoing labels
                 ''',
                 'label',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('nexthop', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote nexthop addresses
                 ''',
                 'nexthop',
-                'Cisco-IOS-XR-mpls-lsd-oper', False),
+                'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Depth of inner label stack

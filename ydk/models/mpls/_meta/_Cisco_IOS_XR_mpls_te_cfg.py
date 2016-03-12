@@ -562,7 +562,7 @@ _meta_table = {
                 '''                Array of Policy class
                 ''',
                 'policy_class',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
+                'Cisco-IOS-XR-mpls-te-cfg', False, max_elements=7),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
             'policy-classes',
@@ -946,7 +946,7 @@ _meta_table = {
                 '''                Array of Policy class
                 ''',
                 'policy_class',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
+                'Cisco-IOS-XR-mpls-te-cfg', False, max_elements=7),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
             'policy-classes',
@@ -5161,7 +5161,7 @@ _meta_table = {
                 '''                Array of Attribute Names
                 ''',
                 'attribute_name',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
+                'Cisco-IOS-XR-mpls-te-cfg', False, max_elements=32),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
             'attribute-name-xr',
@@ -5184,7 +5184,7 @@ _meta_table = {
                 '''                Array of Attribute Names
                 ''',
                 'value',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
+                'Cisco-IOS-XR-mpls-te-cfg', False, max_elements=32, min_elements=1),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
             'attribute-name',
@@ -5218,7 +5218,7 @@ _meta_table = {
                 '''                Array of down threshold percentage
                 ''',
                 'down_threshold',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
+                'Cisco-IOS-XR-mpls-te-cfg', False, max_elements=14),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
             'down-thresholds',
@@ -5357,7 +5357,7 @@ _meta_table = {
                 '''                Array of up threshold percentage
                 ''',
                 'up_threshold',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
+                'Cisco-IOS-XR-mpls-te-cfg', False, max_elements=14),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
             'up-thresholds',

@@ -20,6 +20,7 @@
 
 from optparse import OptionParser, IndentedHelpFormatter
 from ydk.providers import NetconfServiceProvider
+import logging
 
 class HelpFormatterWithLineBreaks(IndentedHelpFormatter):
     def format_description(self, description):
@@ -29,7 +30,21 @@ class HelpFormatterWithLineBreaks(IndentedHelpFormatter):
             for paragraph in description_paragraphs:
                 result += self._format_text(paragraph) + "\n"
             return result
-        
+
+def init_logging():
+    """ Initialize the logging infra and add a handler """
+    logger = logging.getLogger('ydk')
+    logger.setLevel(logging.DEBUG)
+    # create file handler
+    fh = logging.FileHandler('bgp.log')
+    fh.setLevel(logging.DEBUG)
+    # create a console logger too
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.DEBUG)
+    # add the handlers to the logger
+    logger.addHandler(fh)
+    logger.addHandler(ch)
+       
 def establish_session():
     
     usage = """%prog [-h | --help] [options] """
