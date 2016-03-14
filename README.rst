@@ -1,11 +1,20 @@
 Getting Started
 ===============
 
+Overview:
+----------
+
+YDK or YANG Development Kit is a Software Development Kit that provides API's that are modeled
+in YANG. The main goal of YDK is to reduce the learning curve by expressing the model semantics 
+in API and abstracting protocol/encoding details. The API's are generated from YANG models found 
+in this link `yang.rst` using the ydk-gen tool `https://github.com/CiscoDevNet/ydk-gen` .
+
 
 Install Tips:
 -------------
 
 Run Installation instruction under python virtualenv, once you have virtualenv installed.
+To install virtualenv use pip (pip install virtualenv).
 ::
         
     user-machine# cd <ydk_py_git_root>
@@ -43,10 +52,10 @@ protocol. In the current version of YDK we have one service provider which is th
 ydk.providers.NetconfServiceProvider . It maps the CRUD api's to netconf rpc.
 
 In this example we instantiate an instance of the service provider that creates a netconf
-session to the machine at ip 171.19.44.58 ::
+session to the machine at ip 10.0.0.1 ::
       
       >> from ydk.providers import NetconfServiceProvider
-      >> sp_instance = NetconfServiceProvider(address='171.19.44.58',
+      >> sp_instance = NetconfServiceProvider(address='10.0.0.1',
                                       port=830,
                                       username='test',
                                       password='test',
@@ -63,15 +72,19 @@ session to the machine at ip 171.19.44.58 ::
  Next set the attributes ::
  
     >> bgp_cfg = bgp.Bgp()
-    >> #set the global AS
+    
+    >> # Set the Global AS
     >> bgp_cfg.global_.config.as_ = 65001
-    >>
+    
+    
     >> # Create an AFI SAFI config
     >> ipv4_afsf = bgp_cfg.global_.afi_safis.AfiSafi()
     >> ipv4_afsf.afi_safi_name = 'ipv4-unicast'
     >> ipv4_afsf.config.afi_safi_name = 'ipv4-unicast'
     >> ipv4_afsf.config.enabled = True
-    >> #Add the AFI SAFI config to the global AFI SAFI list
+    
+    
+    >> # Add the AFI SAFI config to the global AFI SAFI list
     >> bgp_cfg.global_.afi_safis.afi_safi.append(ipv4_afsf)
     
  Invoking the CRUDService
@@ -103,11 +116,22 @@ Uses common Python logging.  All modules are based off "ydk" log
     >>> log.setLevel(logging.DEBUG)
     >>> ch = logging.StreamHandler()
     >>> log.addHandler(ch)
-    >>>
+
+Release Notes
+--------------
+Note: ydk-py is licensed under the Apache 2.0 License. 
+The current release is a beta release and the release version is 0.3.0. 
+
+Documentation and Support
+--------------------------
+For queries related to usage of the API please use the mailer ask-ydk.com. 
+Documentation on the API's can be found here `http://ydk.cisco.com/py/docs`.
+Samples can be found under the <git_root>/samples directory.
+Additional samples can be found here `https://github.com/CiscoDevNet/ydk-py-samples`.
 
 Other useful links
 ------------------
-:doc:`read_filter`
-:doc:`presence_class`
-:doc:`types_doc`
+* :doc:`read_filter`
+* :doc:`presence_class`
+* :doc:`types_doc`
 
