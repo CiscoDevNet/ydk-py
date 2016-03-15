@@ -42,7 +42,7 @@ Example Usage
 ========================
 
 In this example we are going to set some configuration on the openconfig bgp model.
-The complete sample is available in samples/bgp.py. The sample can be run with the following options.
+The complete sample is available in samples/bgp.py. The sample can be run with the below steps.
 ::
 
     ~/ydk-py > export PYTHONPATH=$PYTHONPATH:`pwd`
@@ -59,6 +59,8 @@ The complete sample is available in samples/bgp.py. The sample can be run with t
     --proto=PROTO         Which transport protocol to use, one of ssh or tcp
     --host=HOST           NETCONF agent hostname
     --port=PORT           NETCONF agent SSH port
+    
+    ~/ydk-py > python ./samples/bgp.py --host <ip-address-of-netconf-server> -u <username> -p <password> --port <port-number>
 
 
 Service Providers
