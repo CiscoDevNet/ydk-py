@@ -42,7 +42,22 @@ Example Usage
 ========================
 
 In this example we are going to set some configuration on the openconfig bgp model.
-The complete sample is available in samples/bgp.py.
+The complete sample is available in samples/bgp.py. The sample can be run with the following options.
+
+::
+    (myenv) ~/Cisco/003-github/ydk-gen/sdk/python > python ./samples/bgp.py -h
+    Usage: bgp.py [-h | --help] [options] 
+ 
+    Options:
+    -h, --help            show this help message and exit
+    -v VERSION, --version=VERSION
+                        force NETCONF version 1.0 or 1.1
+    -u USERNAME, --user=USERNAME
+    -p PASSWORD, --password=PASSWORD
+                        password
+    --proto=PROTO         Which transport protocol to use, one of ssh or tcp
+    --host=HOST           NETCONF agent hostname
+    --port=PORT           NETCONF agent SSH port
 
 Service Providers
 ------------------------
