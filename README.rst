@@ -124,14 +124,9 @@ The current release is a beta release and the release version is 0.3.0.
 
 Documentation and Support
 --------------------------
-For queries related to usage of the API please use the mailer ask-ydk.cisco.com. 
+For queries related to usage of the API please use the mailer ask-ydk@cisco.com. 
 Documentation on the API's can be found here `http://ydk.cisco.com/py/docs`.
 Samples can be found under the <git_root>/samples directory.
 Additional samples can be found here `https://github.com/CiscoDevNet/ydk-py-samples`.
 
-Other useful links
-------------------
-* :doc:`read_filter`
-* :doc:`presence_class`
-* :doc:`types_doc`
 
