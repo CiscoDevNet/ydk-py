@@ -45,6 +45,7 @@ In this example we are going to set some configuration on the openconfig bgp mod
 The complete sample is available in samples/bgp.py. The sample can be run with the following options.
 ::
 
+    ~/ydk-py > export PYTHONPATH=$PYTHONPATH:`pwd`
     ~/ydk-py > python ./samples/bgp.py -h
     Usage: bgp.py [-h | --help] [options] 
  
