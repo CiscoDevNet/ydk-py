@@ -9,31 +9,43 @@ in YANG. The main goal of YDK is to reduce the learning curve by expressing the 
 in API and abstracting protocol/encoding details. The API's are generated from YANG models found
 in this profile file `https://github.com/CiscoDevNet/ydk-gen/blob/master/profiles/ydk/ydk_0_3_0.json` using the ydk-gen tool `https://github.com/CiscoDevNet/ydk-gen` .
 
+System Requirements:
+--------------------
+Linux
+  Ubuntu (Debian-based) - The following packages must be present in your system before installing YDK-Py::
+
+    $ sudo apt-get install python-pip zlib1g-dev python-lxml libxml2-dev libxslt1-dev python-dev
+
+Mac
+  Recommend to install homebrew (http://brew.sh) on your system before installing YDK-Py::
+
+    $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 Install Tips:
 -------------
+Create a source distribution::
 
-Run Installation instruction under python virtualenv, once you have virtualenv installed.
-To install virtualenv use pip (pip install virtualenv).
-::
+    $ cd <ydk_py_git_root>
+    $ python setup.py sdist
 
-    user-machine# cd <ydk_py_git_root>
-    user-machine# python setup.py sdist
+We recommend that you perform the installation under a Python virtual environment (virtualenv).  To install virtualenv, execute::
 
-    user-machine# virtualenv mypython
-    user-machine# source mypython/bin/activate
-        ...
-    #Now install ydk
-    user-machine(mypython)# pip install dist/ydk-0.3.0.tar.gz
+  $ pip install virtualenv
+
+Create a new virtual environment::
+
+    $ virtualenv -p python2.7 ydk-py
+    $ source ydk-py/bin/activate
+
+Install YDK-Py::
+
+    (mypython)$ pip install dist/ydk-0.3.0.tar.gz
 
 Notes:
 ------
-**YANG Development Kit**
-  - Is a Python SDK that provides an API to access/modify configurational and operational entities
-    that are modelled using YANG.
-  - The modules under the package ydk.models are derived from YANG models
-  - YDK provides a simple CRUD (Create/Read/Update/Delete) api that allows the developer to perform
-    these operations on entities on a server that supports them
+- YANG Development Kit is a Python SDK that provides an API to access/modify configuration and operational entities that are modeled using YANG
+- The modules under the package ydk.models are derived from YANG models
+- YDK provides a simple CRUD (Create/Read/Update/Delete) api that allows the developer to perform these operations on entities on a server that supports them
 
 
 Example Usage
@@ -43,8 +55,8 @@ In this example we are going to set some configuration on the openconfig bgp mod
 The complete sample is available in samples/bgp.py. The sample can be run with the below steps.
 ::
 
-    ~/ydk-py > export PYTHONPATH=$PYTHONPATH:`pwd`
-    ~/ydk-py > python ./samples/bgp.py -h
+    $ export PYTHONPATH=$PYTHONPATH:`pwd`
+    $ python ./samples/bgp.py -h
     Usage: bgp.py [-h | --help] [options]
 
     Options:
@@ -58,7 +70,7 @@ The complete sample is available in samples/bgp.py. The sample can be run with t
     --host=HOST           NETCONF agent hostname
     --port=PORT           NETCONF agent SSH port
 
-    ~/ydk-py > python ./samples/bgp.py --host <ip-address-of-netconf-server> -u <username> -p <password> --port <port-number>
+    $ python ./samples/bgp.py --host <ip-address-of-netconf-server> -u <username> -p <password> --port <port-number>
 
 
 Service Providers
@@ -72,7 +84,7 @@ In this example we instantiate an instance of the service provider that creates 
 session to the machine at ip 10.0.0.1 ::
 
  from ydk.providers import NetconfServiceProvider
- 
+
  sp_instance = NetconfServiceProvider(address='10.0.0.1',
                                       port=830,
                                       username='test',
@@ -139,7 +151,7 @@ The current release version is 0.3.0 (beta). YDK-Py is licensed under the Apache
 
 Documentation and Support
 --------------------------
+- Samples can be found under the <git_root>/samples directory
+- API documentation can be found at http://ydk.cisco.com/py/docs
+- Additional samples can be found at https://github.com/CiscoDevNet/ydk-py-samples
 - For queries related to usage of the API, please join the YDK community at https://communities.cisco.com/community/developer/ydk
-- Documentation on the API's can be found at `http://ydk.cisco.com/py/docs`.
-- Samples can be found under the <git_root>/samples directory.
-- Additional samples can be found at `https://github.com/CiscoDevNet/ydk-py-samples`.
