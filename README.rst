@@ -39,7 +39,7 @@ Create a new virtual environment::
 
 Install YDK-Py::
 
-    (mypython)$ pip install dist/ydk-0.3.0.tar.gz
+    (ydk-py)$ pip install dist/ydk-0.3.0.tar.gz
 
 Notes:
 ------
@@ -55,8 +55,8 @@ In this example we are going to set some configuration on the openconfig bgp mod
 The complete sample is available in samples/bgp.py. The sample can be run with the below steps.
 ::
 
-    $ export PYTHONPATH=$PYTHONPATH:`pwd`
-    $ python ./samples/bgp.py -h
+    (ydk-py)$ export PYTHONPATH=$PYTHONPATH:`pwd`
+    (ydk-py)$ python ./samples/bgp.py -h
     Usage: bgp.py [-h | --help] [options]
 
     Options:
@@ -70,7 +70,7 @@ The complete sample is available in samples/bgp.py. The sample can be run with t
     --host=HOST           NETCONF agent hostname
     --port=PORT           NETCONF agent SSH port
 
-    $ python ./samples/bgp.py --host <ip-address-of-netconf-server> -u <username> -p <password> --port <port-number>
+    (ydk-py)$ python ./samples/bgp.py --host <ip-address-of-netconf-server> -u <username> -p <password> --port <port-number>
 
 
 Service Providers
