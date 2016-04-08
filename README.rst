@@ -17,7 +17,7 @@ Linux
     $ sudo apt-get install python-pip zlib1g-dev python-lxml libxml2-dev libxslt1-dev python-dev
 
 Mac
-  Recommend to install homebrew (http://brew.sh) and Xcode command line tools on your system before installing YDK-Py::
+  It is recommended to install homebrew (http://brew.sh) and Xcode command line tools on your system before installing YDK-Py::
 
     $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     $ xcode-select --install
