@@ -27,1544 +27,1433 @@ from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYDataValidationError
 
 
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes import IsisAddressFamily_Enum
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes import IsisInternalLevel_Enum
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes import IsisSubAddressFamily_Enum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes import IsisAddressFamilyEnum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes import IsisInternalLevelEnum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes import IsisSubAddressFamilyEnum
 
-class IsisAdjCheck_Enum(Enum):
+class IsisAdjCheckEnum(Enum):
     """
-    IsisAdjCheck_Enum
+    IsisAdjCheckEnum
 
     Isis adj check
 
-    """
+    .. data:: DISABLED = 0
+
+    	Disabled
 
     """
 
-    Disabled
-
-    """
     DISABLED = 0
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisAdjCheck_Enum']
+        return meta._meta_table['IsisAdjCheckEnum']
 
 
-class IsisAdvTypeExternal_Enum(Enum):
+class IsisAdvTypeExternalEnum(Enum):
     """
-    IsisAdvTypeExternal_Enum
+    IsisAdvTypeExternalEnum
 
     Isis adv type external
 
-    """
+    .. data:: EXTERNAL = 1
+
+    	External
 
     """
 
-    External
-
-    """
     EXTERNAL = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisAdvTypeExternal_Enum']
+        return meta._meta_table['IsisAdvTypeExternalEnum']
 
 
-class IsisAdvTypeInterLevel_Enum(Enum):
+class IsisAdvTypeInterLevelEnum(Enum):
     """
-    IsisAdvTypeInterLevel_Enum
+    IsisAdvTypeInterLevelEnum
 
     Isis adv type inter level
 
-    """
+    .. data:: INTER_LEVEL = 1
+
+    	InterLevel
 
     """
 
-    InterLevel
-
-    """
     INTER_LEVEL = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisAdvTypeInterLevel_Enum']
+        return meta._meta_table['IsisAdvTypeInterLevelEnum']
 
 
-class IsisApplyWeight_Enum(Enum):
+class IsisApplyWeightEnum(Enum):
     """
-    IsisApplyWeight_Enum
+    IsisApplyWeightEnum
 
     Isis apply weight
 
-    """
+    .. data:: ECMP_ONLY = 1
+
+    	Apply weight to ECMP prefixes
+
+    .. data:: UCMP_ONLY = 2
+
+    	Apply weight to UCMP prefixes
 
     """
 
-    Apply weight to ECMP prefixes
-
-    """
     ECMP_ONLY = 1
 
-    """
-
-    Apply weight to UCMP prefixes
-
-    """
     UCMP_ONLY = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisApplyWeight_Enum']
+        return meta._meta_table['IsisApplyWeightEnum']
 
 
-class IsisAttachedBit_Enum(Enum):
+class IsisAttachedBitEnum(Enum):
     """
-    IsisAttachedBit_Enum
+    IsisAttachedBitEnum
 
     Isis attached bit
 
-    """
+    .. data:: AREA = 0
+
+    	Computed from the attached areas
+
+    .. data:: ON = 1
+
+    	Forced ON
+
+    .. data:: OFF = 2
+
+    	Forced OFF
 
     """
 
-    Computed from the attached areas
-
-    """
     AREA = 0
 
-    """
-
-    Forced ON
-
-    """
     ON = 1
 
-    """
-
-    Forced OFF
-
-    """
     OFF = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisAttachedBit_Enum']
+        return meta._meta_table['IsisAttachedBitEnum']
 
 
-class IsisAuthenticationAlgorithm_Enum(Enum):
+class IsisAuthenticationAlgorithmEnum(Enum):
     """
-    IsisAuthenticationAlgorithm_Enum
+    IsisAuthenticationAlgorithmEnum
 
     Isis authentication algorithm
 
-    """
+    .. data:: CLEARTEXT = 1
+
+    	Cleartext password
+
+    .. data:: HMAC_MD5 = 2
+
+    	HMAC-MD5 checksum
+
+    .. data:: KEYCHAIN = 3
+
+    	Key Chain authentication
 
     """
 
-    Cleartext password
-
-    """
     CLEARTEXT = 1
 
-    """
-
-    HMAC\-MD5 checksum
-
-    """
     HMAC_MD5 = 2
 
-    """
-
-    Key Chain authentication
-
-    """
     KEYCHAIN = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisAuthenticationAlgorithm_Enum']
+        return meta._meta_table['IsisAuthenticationAlgorithmEnum']
 
 
-class IsisAuthenticationFailureMode_Enum(Enum):
+class IsisAuthenticationFailureModeEnum(Enum):
     """
-    IsisAuthenticationFailureMode_Enum
+    IsisAuthenticationFailureModeEnum
 
     Isis authentication failure mode
 
-    """
+    .. data:: DROP = 0
+
+    	Drop non-authenticating PDUs
+
+    .. data:: SEND_ONLY = 1
+
+    	Accept non-authenticating PDUs
 
     """
 
-    Drop non\-authenticating PDUs
-
-    """
     DROP = 0
 
-    """
-
-    Accept non\-authenticating PDUs
-
-    """
     SEND_ONLY = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisAuthenticationFailureMode_Enum']
+        return meta._meta_table['IsisAuthenticationFailureModeEnum']
 
 
-class IsisConfigurableLevels_Enum(Enum):
+class IsisConfigurableLevelsEnum(Enum):
     """
-    IsisConfigurableLevels_Enum
+    IsisConfigurableLevelsEnum
 
     Isis configurable levels
 
-    """
+    .. data:: LEVEL1 = 1
+
+    	Level1
+
+    .. data:: LEVEL2 = 2
+
+    	Level2
+
+    .. data:: LEVEL1_AND2 = 3
+
+    	Both Levels
 
     """
 
-    Level1
-
-    """
     LEVEL1 = 1
 
-    """
-
-    Level2
-
-    """
     LEVEL2 = 2
 
-    """
-
-    Both Levels
-
-    """
     LEVEL1_AND2 = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisConfigurableLevels_Enum']
+        return meta._meta_table['IsisConfigurableLevelsEnum']
 
 
-class IsisHelloPadding_Enum(Enum):
+class IsisHelloPaddingEnum(Enum):
     """
-    IsisHelloPadding_Enum
+    IsisHelloPaddingEnum
 
     Isis hello padding
 
-    """
+    .. data:: NEVER = 0
+
+    	Never pad Hellos
+
+    .. data:: SOMETIMES = 1
+
+    	Pad Hellos during adjacency formation only
 
     """
 
-    Never pad Hellos
-
-    """
     NEVER = 0
 
-    """
-
-    Pad Hellos during adjacency formation only
-
-    """
     SOMETIMES = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisHelloPadding_Enum']
+        return meta._meta_table['IsisHelloPaddingEnum']
 
 
-class IsisInterfaceAfState_Enum(Enum):
+class IsisInterfaceAfStateEnum(Enum):
     """
-    IsisInterfaceAfState_Enum
+    IsisInterfaceAfStateEnum
 
     Isis interface af state
 
-    """
+    .. data:: DISABLE = 0
+
+    	Disable
 
     """
 
-    Disable
-
-    """
     DISABLE = 0
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisInterfaceAfState_Enum']
+        return meta._meta_table['IsisInterfaceAfStateEnum']
 
 
-class IsisInterfaceState_Enum(Enum):
+class IsisInterfaceStateEnum(Enum):
     """
-    IsisInterfaceState_Enum
+    IsisInterfaceStateEnum
 
     Isis interface state
 
-    """
+    .. data:: SHUTDOWN = 0
+
+    	Shutdown
+
+    .. data:: SUPPRESSED = 1
+
+    	Suppressed
+
+    .. data:: PASSIVE = 2
+
+    	Passive
 
     """
 
-    Shutdown
-
-    """
     SHUTDOWN = 0
 
-    """
-
-    Suppressed
-
-    """
     SUPPRESSED = 1
 
-    """
-
-    Passive
-
-    """
     PASSIVE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisInterfaceState_Enum']
+        return meta._meta_table['IsisInterfaceStateEnum']
 
 
-class IsisLabelPreference_Enum(Enum):
+class IsisLabelPreferenceEnum(Enum):
     """
-    IsisLabelPreference_Enum
+    IsisLabelPreferenceEnum
 
     Isis label preference
 
-    """
+    .. data:: LDP = 0
+
+    	Label Distribution Protocol
+
+    .. data:: SEGMENT_ROUTING = 1
+
+    	Segment Routing
 
     """
 
-    Label Distribution Protocol
-
-    """
     LDP = 0
 
-    """
-
-    Segment Routing
-
-    """
     SEGMENT_ROUTING = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisLabelPreference_Enum']
+        return meta._meta_table['IsisLabelPreferenceEnum']
 
 
-class IsisMetricStyleTransition_Enum(Enum):
+class IsisMetricEnum(Enum):
     """
-    IsisMetricStyleTransition_Enum
-
-    Isis metric style transition
-
-    """
-
-    """
-
-    Disabled
-
-    """
-    DISABLED = 0
-
-    """
-
-    Enabled
-
-    """
-    ENABLED = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMetricStyleTransition_Enum']
-
-
-class IsisMetricStyle_Enum(Enum):
-    """
-    IsisMetricStyle_Enum
-
-    Isis metric style
-
-    """
-
-    """
-
-    ISO 10589 metric style (old\-style)
-
-    """
-    OLD_METRIC_STYLE = 0
-
-    """
-
-    32\-bit metric style (new\-style)
-
-    """
-    NEW_METRIC_STYLE = 1
-
-    """
-
-    Both forms of metric style
-
-    """
-    BOTH_METRIC_STYLE = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMetricStyle_Enum']
-
-
-class IsisMetric_Enum(Enum):
-    """
-    IsisMetric_Enum
+    IsisMetricEnum
 
     Isis metric
 
-    """
+    .. data:: INTERNAL = 0
+
+    	Internal metric
+
+    .. data:: EXTERNAL = 1
+
+    	External metric
 
     """
 
-    Internal metric
-
-    """
     INTERNAL = 0
 
-    """
-
-    External metric
-
-    """
     EXTERNAL = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMetric_Enum']
+        return meta._meta_table['IsisMetricEnum']
 
 
-class IsisMibAdjacencyChangeBoolean_Enum(Enum):
+class IsisMetricStyleEnum(Enum):
     """
-    IsisMibAdjacencyChangeBoolean_Enum
+    IsisMetricStyleEnum
 
-    Isis mib adjacency change boolean
+    Isis metric style
 
-    """
+    .. data:: OLD_METRIC_STYLE = 0
 
-    """
+    	ISO 10589 metric style (old-style)
 
-    Disable
+    .. data:: NEW_METRIC_STYLE = 1
 
-    """
-    FALSE = 0
+    	32-bit metric style (new-style)
 
-    """
+    .. data:: BOTH_METRIC_STYLE = 2
 
-    Enable
-
-    """
-    TRUE = 17
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMibAdjacencyChangeBoolean_Enum']
-
-
-class IsisMibAllBoolean_Enum(Enum):
-    """
-    IsisMibAllBoolean_Enum
-
-    Isis mib all boolean
+    	Both forms of metric style
 
     """
 
-    """
+    OLD_METRIC_STYLE = 0
 
-    Disable
+    NEW_METRIC_STYLE = 1
 
-    """
-    FALSE = 0
-
-    """
-
-    Enable
-
-    """
-    TRUE = 19
+    BOTH_METRIC_STYLE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMibAllBoolean_Enum']
+        return meta._meta_table['IsisMetricStyleEnum']
 
 
-class IsisMibAreaMismatchBoolean_Enum(Enum):
+class IsisMetricStyleTransitionEnum(Enum):
     """
-    IsisMibAreaMismatchBoolean_Enum
+    IsisMetricStyleTransitionEnum
 
-    Isis mib area mismatch boolean
+    Isis metric style transition
 
-    """
-
-    """
-
-    Disable
-
-    """
-    FALSE = 0
-
-    """
-
-    Enable
-
-    """
-    TRUE = 12
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMibAreaMismatchBoolean_Enum']
-
-
-class IsisMibAttemptToExceedMaxSequenceBoolean_Enum(Enum):
-    """
-    IsisMibAttemptToExceedMaxSequenceBoolean_Enum
-
-    Isis mib attempt to exceed max sequence boolean
-
-    """
-
-    """
-
-    Disable
-
-    """
-    FALSE = 0
-
-    """
-
-    Enable
-
-    """
-    TRUE = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMibAttemptToExceedMaxSequenceBoolean_Enum']
-
-
-class IsisMibAuthenticationFailureBoolean_Enum(Enum):
-    """
-    IsisMibAuthenticationFailureBoolean_Enum
-
-    Isis mib authentication failure boolean
-
-    """
-
-    """
-
-    Disable
-
-    """
-    FALSE = 0
-
-    """
-
-    Enable
-
-    """
-    TRUE = 10
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMibAuthenticationFailureBoolean_Enum']
-
-
-class IsisMibAuthenticationTypeFailureBoolean_Enum(Enum):
-    """
-    IsisMibAuthenticationTypeFailureBoolean_Enum
-
-    Isis mib authentication type failure boolean
-
-    """
-
-    """
-
-    Disable
-
-    """
-    FALSE = 0
-
-    """
-
-    Enable
-
-    """
-    TRUE = 9
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMibAuthenticationTypeFailureBoolean_Enum']
-
-
-class IsisMibCorruptedLspDetectedBoolean_Enum(Enum):
-    """
-    IsisMibCorruptedLspDetectedBoolean_Enum
-
-    Isis mib corrupted lsp detected boolean
-
-    """
-
-    """
-
-    Disable
-
-    """
-    FALSE = 0
-
-    """
-
-    Enable
-
-    """
-    TRUE = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMibCorruptedLspDetectedBoolean_Enum']
-
-
-class IsisMibDatabaseOverFlowBoolean_Enum(Enum):
-    """
-    IsisMibDatabaseOverFlowBoolean_Enum
-
-    Isis mib database over flow boolean
-
-    """
-
-    """
-
-    Disable
-
-    """
-    FALSE = 0
-
-    """
-
-    Enable
-
-    """
-    TRUE = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMibDatabaseOverFlowBoolean_Enum']
-
-
-class IsisMibIdLengthMismatchBoolean_Enum(Enum):
-    """
-    IsisMibIdLengthMismatchBoolean_Enum
-
-    Isis mib id length mismatch boolean
-
-    """
-
-    """
-
-    Disable
-
-    """
-    FALSE = 0
-
-    """
-
-    Enable
-
-    """
-    TRUE = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMibIdLengthMismatchBoolean_Enum']
-
-
-class IsisMibLspErrorDetectedBoolean_Enum(Enum):
-    """
-    IsisMibLspErrorDetectedBoolean_Enum
-
-    Isis mib lsp error detected boolean
-
-    """
-
-    """
-
-    Disable
-
-    """
-    FALSE = 0
-
-    """
-
-    Enable
-
-    """
-    TRUE = 18
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMibLspErrorDetectedBoolean_Enum']
-
-
-class IsisMibLspTooLargeToPropagateBoolean_Enum(Enum):
-    """
-    IsisMibLspTooLargeToPropagateBoolean_Enum
-
-    Isis mib lsp too large to propagate boolean
-
-    """
-
-    """
-
-    Disable
-
-    """
-    FALSE = 0
-
-    """
-
-    Enable
-
-    """
-    TRUE = 14
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMibLspTooLargeToPropagateBoolean_Enum']
-
-
-class IsisMibManualAddressDropsBoolean_Enum(Enum):
-    """
-    IsisMibManualAddressDropsBoolean_Enum
-
-    Isis mib manual address drops boolean
-
-    """
-
-    """
-
-    Disable
-
-    """
-    FALSE = 0
-
-    """
-
-    Enable
-
-    """
-    TRUE = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMibManualAddressDropsBoolean_Enum']
-
-
-class IsisMibMaxAreaAddressMismatchBoolean_Enum(Enum):
-    """
-    IsisMibMaxAreaAddressMismatchBoolean_Enum
-
-    Isis mib max area address mismatch boolean
-
-    """
-
-    """
-
-    Disable
-
-    """
-    FALSE = 0
-
-    """
-
-    Enable
-
-    """
-    TRUE = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMibMaxAreaAddressMismatchBoolean_Enum']
-
-
-class IsisMibOriginatedLspBufferSizeMismatchBoolean_Enum(Enum):
-    """
-    IsisMibOriginatedLspBufferSizeMismatchBoolean_Enum
-
-    Isis mib originated lsp buffer size mismatch
-    boolean
-
-    """
-
-    """
-
-    Disable
-
-    """
-    FALSE = 0
-
-    """
-
-    Enable
-
-    """
-    TRUE = 15
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMibOriginatedLspBufferSizeMismatchBoolean_Enum']
-
-
-class IsisMibOwnLspPurgeBoolean_Enum(Enum):
-    """
-    IsisMibOwnLspPurgeBoolean_Enum
-
-    Isis mib own lsp purge boolean
-
-    """
-
-    """
-
-    Disable
-
-    """
-    FALSE = 0
-
-    """
-
-    Enable
-
-    """
-    TRUE = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMibOwnLspPurgeBoolean_Enum']
-
-
-class IsisMibProtocolsSupportedMismatchBoolean_Enum(Enum):
-    """
-    IsisMibProtocolsSupportedMismatchBoolean_Enum
-
-    Isis mib protocols supported mismatch boolean
-
-    """
-
-    """
-
-    Disable
-
-    """
-    FALSE = 0
-
-    """
-
-    Enable
-
-    """
-    TRUE = 16
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMibProtocolsSupportedMismatchBoolean_Enum']
-
-
-class IsisMibRejectedAdjacencyBoolean_Enum(Enum):
-    """
-    IsisMibRejectedAdjacencyBoolean_Enum
-
-    Isis mib rejected adjacency boolean
-
-    """
-
-    """
-
-    Disable
-
-    """
-    FALSE = 0
-
-    """
-
-    Enable
-
-    """
-    TRUE = 13
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMibRejectedAdjacencyBoolean_Enum']
-
-
-class IsisMibSequenceNumberSkipBoolean_Enum(Enum):
-    """
-    IsisMibSequenceNumberSkipBoolean_Enum
-
-    Isis mib sequence number skip boolean
-
-    """
-
-    """
-
-    Disable
-
-    """
-    FALSE = 0
-
-    """
-
-    Enable
-
-    """
-    TRUE = 8
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMibSequenceNumberSkipBoolean_Enum']
-
-
-class IsisMibVersionSkewBoolean_Enum(Enum):
-    """
-    IsisMibVersionSkewBoolean_Enum
-
-    Isis mib version skew boolean
-
-    """
-
-    """
-
-    Disable
-
-    """
-    FALSE = 0
-
-    """
-
-    Enable
-
-    """
-    TRUE = 11
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMibVersionSkewBoolean_Enum']
-
-
-class IsisMicroLoopAvoidance_Enum(Enum):
-    """
-    IsisMicroLoopAvoidance_Enum
-
-    Isis micro loop avoidance
-
-    """
-
-    """
-
-    No Avoidance type set
-
-    """
-    NOT_SET = 0
-
-    """
-
-    Provide mirco loop avoidance for all prefixes
-
-    """
-    MICRO_LOOP_AVOIDANCE_ALL = 1
-
-    """
-
-    Provide mirco loop avoidance only for protected
-    prefixes
-
-    """
-    MICRO_LOOP_AVOIDANCE_PROTECTED = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisMicroLoopAvoidance_Enum']
-
-
-class IsisNsfFlavor_Enum(Enum):
-    """
-    IsisNsfFlavor_Enum
-
-    Isis nsf flavor
-
-    """
-
-    """
-
-    Cisco proprietary NSF
-
-    """
-    CISCO_PROPRIETARY_NSF = 1
-
-    """
-
-    IETF standard NSF
-
-    """
-    IETF_STANDARD_NSF = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisNsfFlavor_Enum']
-
-
-class IsisOverloadBitMode_Enum(Enum):
-    """
-    IsisOverloadBitMode_Enum
-
-    Isis overload bit mode
-
-    """
-
-    """
-
-    Set always
-
-    """
-    PERMANENTLY_SET = 1
-
-    """
-
-    Set during the startup period
-
-    """
-    STARTUP_PERIOD = 2
-
-    """
-
-    Set until BGP comverges
-
-    """
-    WAIT_FOR_BGP = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisOverloadBitMode_Enum']
-
-
-class IsisPrefixPriority_Enum(Enum):
-    """
-    IsisPrefixPriority_Enum
-
-    Isis prefix priority
-
-    """
-
-    """
-
-    Critical prefix priority
-
-    """
-    CRITICAL_PRIORITY = 0
-
-    """
-
-    High prefix priority
-
-    """
-    HIGH_PRIORITY = 1
-
-    """
-
-    Medium prefix priority
-
-    """
-    MEDIUM_PRIORITY = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisPrefixPriority_Enum']
-
-
-class IsisRedistProto_Enum(Enum):
-    """
-    IsisRedistProto_Enum
-
-    Isis redist proto
-
-    """
-
-    """
-
-    Connected
-
-    """
-    CONNECTED = 0
-
-    """
-
-    Static
-
-    """
-    STATIC = 1
-
-    """
-
-    OSPF
-
-    """
-    OSPF = 2
-
-    """
-
-    BGP
-
-    """
-    BGP = 3
-
-    """
-
-    ISIS
-
-    """
-    ISIS = 4
-
-    """
-
-    OSPFv3
-
-    """
-    OSPFV3 = 5
-
-    """
-
-    RIP
-
-    """
-    RIP = 6
-
-    """
-
-    EIGRP
-
-    """
-    EIGRP = 7
-
-    """
-
-    Subscriber
-
-    """
-    SUBSCRIBER = 8
-
-    """
-
-    Application
-
-    """
-    APPLICATION = 9
-
-    """
-
-    Mobile
-
-    """
-    MOBILE = 10
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisRedistProto_Enum']
-
-
-class IsisRemoteLfa_Enum(Enum):
-    """
-    IsisRemoteLfa_Enum
+    .. data:: DISABLED = 0
 
-    Isis remote lfa
+    	Disabled
 
-    """
-
-    """
-
-    No remote LFA option set
-
-    """
-    REMOTE_LFA_NONE = 0
-
-    """
-
-    Construct remote LFA tunnel using MPLS LDP
-
-    """
-    REMOTE_LFA_TUNNEL_LDP = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisRemoteLfa_Enum']
-
-
-class IsisSnpAuth_Enum(Enum):
-    """
-    IsisSnpAuth_Enum
-
-    Isis snp auth
-
-    """
-
-    """
-
-    Authenticate SNP send only
-
-    """
-    SEND_ONLY = 0
-
-    """
-
-    Authenticate SNP send and recv
-
-    """
-    FULL = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisSnpAuth_Enum']
-
-
-class IsisexplicitNullFlag_Enum(Enum):
-    """
-    IsisexplicitNullFlag_Enum
-
-    Isisexplicit null flag
-
-    """
-
-    """
-
-    Disable EXPLICITNULL
-
-    """
-    DISABLE = 0
-
-    """
-
-    Enable EXPLICITNULL
-
-    """
-    ENABLE = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisexplicitNullFlag_Enum']
-
-
-class IsisfrrLoadSharing_Enum(Enum):
-    """
-    IsisfrrLoadSharing_Enum
-
-    Isisfrr load sharing
-
-    """
-
-    """
-
-    Disable load sharing of prefixes across
-    multiple backups
-
-    """
-    DISABLE = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisfrrLoadSharing_Enum']
-
-
-class IsisfrrTiebreaker_Enum(Enum):
-    """
-    IsisfrrTiebreaker_Enum
-
-    Isisfrr tiebreaker
-
-    """
-
-    """
-
-    Prefer backup path via downstream node
-
-    """
-    DOWNSTREAM = 0
-
-    """
-
-    Prefer line card disjoint backup path
-
-    """
-    LC_DISJOINT = 1
-
-    """
-
-    Prefer backup path with lowest total metric
-
-    """
-    LOWEST_BACKUP_METRIC = 2
-
-    """
-
-    Prefer node protecting backup path
-
-    """
-    NODE_PROTECTING = 3
-
-    """
-
-    Prefer backup path from ECMP set
-
-    """
-    PRIMARY_PATH = 4
-
-    """
-
-    Prefer non\-ECMP backup path
+    .. data:: ENABLED = 1
 
-    """
-    SECONDARY_PATH = 5
-
-    """
-
-    Prefer SRLG disjoint backup path
-
-    """
-    SRLG_DISJOINT = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisfrrTiebreaker_Enum']
-
-
-class Isisfrr_Enum(Enum):
-    """
-    Isisfrr_Enum
-
-    Isisfrr
-
-    """
-
-    """
+    	Enabled
 
-    Prefix independent per\-link computation
-
-    """
-    PER_LINK = 1
-
-    """
-
-    Prefix dependent computation
-
-    """
-    PER_PREFIX = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['Isisfrr_Enum']
-
-
-class IsisispfState_Enum(Enum):
-    """
-    IsisispfState_Enum
-
-    Isisispf state
-
     """
 
-    """
+    DISABLED = 0
 
-    Enabled
-
-    """
     ENABLED = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisispfState_Enum']
+        return meta._meta_table['IsisMetricStyleTransitionEnum']
 
 
-class IsisphpFlag_Enum(Enum):
+class IsisMibAdjacencyChangeBooleanEnum(Enum):
     """
-    IsisphpFlag_Enum
+    IsisMibAdjacencyChangeBooleanEnum
 
-    Isisphp flag
+    Isis mib adjacency change boolean
 
-    """
+    .. data:: FALSE = 0
 
-    """
+    	Disable
 
-    Enable PHP
+    .. data:: TRUE = 17
 
-    """
-    ENABLE = 0
-
-    """
-
-    Disable PHP
+    	Enable
 
     """
-    DISABLE = 1
+
+    FALSE = 0
+
+    TRUE = 17
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['IsisphpFlag_Enum']
+        return meta._meta_table['IsisMibAdjacencyChangeBooleanEnum']
 
 
-class Isissid_Enum(Enum):
+class IsisMibAllBooleanEnum(Enum):
     """
-    Isissid_Enum
+    IsisMibAllBooleanEnum
 
-    Isissid
+    Isis mib all boolean
 
-    """
+    .. data:: FALSE = 0
 
-    """
+    	Disable
 
-    SID as an index
+    .. data:: TRUE = 19
 
-    """
-    INDEX = 1
-
-    """
-
-    SID as an absolute label
+    	Enable
 
     """
-    ABSOLUTE = 2
+
+    FALSE = 0
+
+    TRUE = 19
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['Isissid_Enum']
+        return meta._meta_table['IsisMibAllBooleanEnum']
 
 
-class NflagClear_Enum(Enum):
+class IsisMibAreaMismatchBooleanEnum(Enum):
     """
-    NflagClear_Enum
+    IsisMibAreaMismatchBooleanEnum
 
-    Nflag clear
+    Isis mib area mismatch boolean
+
+    .. data:: FALSE = 0
+
+    	Disable
+
+    .. data:: TRUE = 12
+
+    	Enable
 
     """
 
+    FALSE = 0
+
+    TRUE = 12
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibAreaMismatchBooleanEnum']
+
+
+class IsisMibAttemptToExceedMaxSequenceBooleanEnum(Enum):
+    """
+    IsisMibAttemptToExceedMaxSequenceBooleanEnum
+
+    Isis mib attempt to exceed max sequence boolean
+
+    .. data:: FALSE = 0
+
+    	Disable
+
+    .. data:: TRUE = 4
+
+    	Enable
+
     """
 
-    Disable N\-flag\-clear
+    FALSE = 0
+
+    TRUE = 4
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibAttemptToExceedMaxSequenceBooleanEnum']
+
+
+class IsisMibAuthenticationFailureBooleanEnum(Enum):
+    """
+    IsisMibAuthenticationFailureBooleanEnum
+
+    Isis mib authentication failure boolean
+
+    .. data:: FALSE = 0
+
+    	Disable
+
+    .. data:: TRUE = 10
+
+    	Enable
 
     """
+
+    FALSE = 0
+
+    TRUE = 10
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibAuthenticationFailureBooleanEnum']
+
+
+class IsisMibAuthenticationTypeFailureBooleanEnum(Enum):
+    """
+    IsisMibAuthenticationTypeFailureBooleanEnum
+
+    Isis mib authentication type failure boolean
+
+    .. data:: FALSE = 0
+
+    	Disable
+
+    .. data:: TRUE = 9
+
+    	Enable
+
+    """
+
+    FALSE = 0
+
+    TRUE = 9
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibAuthenticationTypeFailureBooleanEnum']
+
+
+class IsisMibCorruptedLspDetectedBooleanEnum(Enum):
+    """
+    IsisMibCorruptedLspDetectedBooleanEnum
+
+    Isis mib corrupted lsp detected boolean
+
+    .. data:: FALSE = 0
+
+    	Disable
+
+    .. data:: TRUE = 3
+
+    	Enable
+
+    """
+
+    FALSE = 0
+
+    TRUE = 3
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibCorruptedLspDetectedBooleanEnum']
+
+
+class IsisMibDatabaseOverFlowBooleanEnum(Enum):
+    """
+    IsisMibDatabaseOverFlowBooleanEnum
+
+    Isis mib database over flow boolean
+
+    .. data:: FALSE = 0
+
+    	Disable
+
+    .. data:: TRUE = 1
+
+    	Enable
+
+    """
+
+    FALSE = 0
+
+    TRUE = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibDatabaseOverFlowBooleanEnum']
+
+
+class IsisMibIdLengthMismatchBooleanEnum(Enum):
+    """
+    IsisMibIdLengthMismatchBooleanEnum
+
+    Isis mib id length mismatch boolean
+
+    .. data:: FALSE = 0
+
+    	Disable
+
+    .. data:: TRUE = 5
+
+    	Enable
+
+    """
+
+    FALSE = 0
+
+    TRUE = 5
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibIdLengthMismatchBooleanEnum']
+
+
+class IsisMibLspErrorDetectedBooleanEnum(Enum):
+    """
+    IsisMibLspErrorDetectedBooleanEnum
+
+    Isis mib lsp error detected boolean
+
+    .. data:: FALSE = 0
+
+    	Disable
+
+    .. data:: TRUE = 18
+
+    	Enable
+
+    """
+
+    FALSE = 0
+
+    TRUE = 18
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibLspErrorDetectedBooleanEnum']
+
+
+class IsisMibLspTooLargeToPropagateBooleanEnum(Enum):
+    """
+    IsisMibLspTooLargeToPropagateBooleanEnum
+
+    Isis mib lsp too large to propagate boolean
+
+    .. data:: FALSE = 0
+
+    	Disable
+
+    .. data:: TRUE = 14
+
+    	Enable
+
+    """
+
+    FALSE = 0
+
+    TRUE = 14
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibLspTooLargeToPropagateBooleanEnum']
+
+
+class IsisMibManualAddressDropsBooleanEnum(Enum):
+    """
+    IsisMibManualAddressDropsBooleanEnum
+
+    Isis mib manual address drops boolean
+
+    .. data:: FALSE = 0
+
+    	Disable
+
+    .. data:: TRUE = 2
+
+    	Enable
+
+    """
+
+    FALSE = 0
+
+    TRUE = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibManualAddressDropsBooleanEnum']
+
+
+class IsisMibMaxAreaAddressMismatchBooleanEnum(Enum):
+    """
+    IsisMibMaxAreaAddressMismatchBooleanEnum
+
+    Isis mib max area address mismatch boolean
+
+    .. data:: FALSE = 0
+
+    	Disable
+
+    .. data:: TRUE = 6
+
+    	Enable
+
+    """
+
+    FALSE = 0
+
+    TRUE = 6
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibMaxAreaAddressMismatchBooleanEnum']
+
+
+class IsisMibOriginatedLspBufferSizeMismatchBooleanEnum(Enum):
+    """
+    IsisMibOriginatedLspBufferSizeMismatchBooleanEnum
+
+    Isis mib originated lsp buffer size mismatch
+
+    boolean
+
+    .. data:: FALSE = 0
+
+    	Disable
+
+    .. data:: TRUE = 15
+
+    	Enable
+
+    """
+
+    FALSE = 0
+
+    TRUE = 15
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibOriginatedLspBufferSizeMismatchBooleanEnum']
+
+
+class IsisMibOwnLspPurgeBooleanEnum(Enum):
+    """
+    IsisMibOwnLspPurgeBooleanEnum
+
+    Isis mib own lsp purge boolean
+
+    .. data:: FALSE = 0
+
+    	Disable
+
+    .. data:: TRUE = 7
+
+    	Enable
+
+    """
+
+    FALSE = 0
+
+    TRUE = 7
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibOwnLspPurgeBooleanEnum']
+
+
+class IsisMibProtocolsSupportedMismatchBooleanEnum(Enum):
+    """
+    IsisMibProtocolsSupportedMismatchBooleanEnum
+
+    Isis mib protocols supported mismatch boolean
+
+    .. data:: FALSE = 0
+
+    	Disable
+
+    .. data:: TRUE = 16
+
+    	Enable
+
+    """
+
+    FALSE = 0
+
+    TRUE = 16
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibProtocolsSupportedMismatchBooleanEnum']
+
+
+class IsisMibRejectedAdjacencyBooleanEnum(Enum):
+    """
+    IsisMibRejectedAdjacencyBooleanEnum
+
+    Isis mib rejected adjacency boolean
+
+    .. data:: FALSE = 0
+
+    	Disable
+
+    .. data:: TRUE = 13
+
+    	Enable
+
+    """
+
+    FALSE = 0
+
+    TRUE = 13
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibRejectedAdjacencyBooleanEnum']
+
+
+class IsisMibSequenceNumberSkipBooleanEnum(Enum):
+    """
+    IsisMibSequenceNumberSkipBooleanEnum
+
+    Isis mib sequence number skip boolean
+
+    .. data:: FALSE = 0
+
+    	Disable
+
+    .. data:: TRUE = 8
+
+    	Enable
+
+    """
+
+    FALSE = 0
+
+    TRUE = 8
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibSequenceNumberSkipBooleanEnum']
+
+
+class IsisMibVersionSkewBooleanEnum(Enum):
+    """
+    IsisMibVersionSkewBooleanEnum
+
+    Isis mib version skew boolean
+
+    .. data:: FALSE = 0
+
+    	Disable
+
+    .. data:: TRUE = 11
+
+    	Enable
+
+    """
+
+    FALSE = 0
+
+    TRUE = 11
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMibVersionSkewBooleanEnum']
+
+
+class IsisMicroLoopAvoidanceEnum(Enum):
+    """
+    IsisMicroLoopAvoidanceEnum
+
+    Isis micro loop avoidance
+
+    .. data:: NOT_SET = 0
+
+    	No Avoidance type set
+
+    .. data:: MICRO_LOOP_AVOIDANCE_ALL = 1
+
+    	Provide mirco loop avoidance for all prefixes
+
+    .. data:: MICRO_LOOP_AVOIDANCE_PROTECTED = 2
+
+    	Provide mirco loop avoidance only for protected
+
+    	prefixes
+
+    """
+
+    NOT_SET = 0
+
+    MICRO_LOOP_AVOIDANCE_ALL = 1
+
+    MICRO_LOOP_AVOIDANCE_PROTECTED = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisMicroLoopAvoidanceEnum']
+
+
+class IsisNsfFlavorEnum(Enum):
+    """
+    IsisNsfFlavorEnum
+
+    Isis nsf flavor
+
+    .. data:: CISCO_PROPRIETARY_NSF = 1
+
+    	Cisco proprietary NSF
+
+    .. data:: IETF_STANDARD_NSF = 2
+
+    	IETF standard NSF
+
+    """
+
+    CISCO_PROPRIETARY_NSF = 1
+
+    IETF_STANDARD_NSF = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisNsfFlavorEnum']
+
+
+class IsisOverloadBitModeEnum(Enum):
+    """
+    IsisOverloadBitModeEnum
+
+    Isis overload bit mode
+
+    .. data:: PERMANENTLY_SET = 1
+
+    	Set always
+
+    .. data:: STARTUP_PERIOD = 2
+
+    	Set during the startup period
+
+    .. data:: WAIT_FOR_BGP = 3
+
+    	Set until BGP comverges
+
+    """
+
+    PERMANENTLY_SET = 1
+
+    STARTUP_PERIOD = 2
+
+    WAIT_FOR_BGP = 3
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisOverloadBitModeEnum']
+
+
+class IsisPrefixPriorityEnum(Enum):
+    """
+    IsisPrefixPriorityEnum
+
+    Isis prefix priority
+
+    .. data:: CRITICAL_PRIORITY = 0
+
+    	Critical prefix priority
+
+    .. data:: HIGH_PRIORITY = 1
+
+    	High prefix priority
+
+    .. data:: MEDIUM_PRIORITY = 2
+
+    	Medium prefix priority
+
+    """
+
+    CRITICAL_PRIORITY = 0
+
+    HIGH_PRIORITY = 1
+
+    MEDIUM_PRIORITY = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisPrefixPriorityEnum']
+
+
+class IsisRedistProtoEnum(Enum):
+    """
+    IsisRedistProtoEnum
+
+    Isis redist proto
+
+    .. data:: CONNECTED = 0
+
+    	Connected
+
+    .. data:: STATIC = 1
+
+    	Static
+
+    .. data:: OSPF = 2
+
+    	OSPF
+
+    .. data:: BGP = 3
+
+    	BGP
+
+    .. data:: ISIS = 4
+
+    	ISIS
+
+    .. data:: OSPFV3 = 5
+
+    	OSPFv3
+
+    .. data:: RIP = 6
+
+    	RIP
+
+    .. data:: EIGRP = 7
+
+    	EIGRP
+
+    .. data:: SUBSCRIBER = 8
+
+    	Subscriber
+
+    .. data:: APPLICATION = 9
+
+    	Application
+
+    .. data:: MOBILE = 10
+
+    	Mobile
+
+    """
+
+    CONNECTED = 0
+
+    STATIC = 1
+
+    OSPF = 2
+
+    BGP = 3
+
+    ISIS = 4
+
+    OSPFV3 = 5
+
+    RIP = 6
+
+    EIGRP = 7
+
+    SUBSCRIBER = 8
+
+    APPLICATION = 9
+
+    MOBILE = 10
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisRedistProtoEnum']
+
+
+class IsisRemoteLfaEnum(Enum):
+    """
+    IsisRemoteLfaEnum
+
+    Isis remote lfa
+
+    .. data:: REMOTE_LFA_NONE = 0
+
+    	No remote LFA option set
+
+    .. data:: REMOTE_LFA_TUNNEL_LDP = 1
+
+    	Construct remote LFA tunnel using MPLS LDP
+
+    """
+
+    REMOTE_LFA_NONE = 0
+
+    REMOTE_LFA_TUNNEL_LDP = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisRemoteLfaEnum']
+
+
+class IsisSnpAuthEnum(Enum):
+    """
+    IsisSnpAuthEnum
+
+    Isis snp auth
+
+    .. data:: SEND_ONLY = 0
+
+    	Authenticate SNP send only
+
+    .. data:: FULL = 1
+
+    	Authenticate SNP send and recv
+
+    """
+
+    SEND_ONLY = 0
+
+    FULL = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisSnpAuthEnum']
+
+
+class IsisexplicitNullFlagEnum(Enum):
+    """
+    IsisexplicitNullFlagEnum
+
+    Isisexplicit null flag
+
+    .. data:: DISABLE = 0
+
+    	Disable EXPLICITNULL
+
+    .. data:: ENABLE = 1
+
+    	Enable EXPLICITNULL
+
+    """
+
     DISABLE = 0
 
-    """
-
-    Enable N\-flag\-clear
-
-    """
     ENABLE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-        return meta._meta_table['NflagClear_Enum']
+        return meta._meta_table['IsisexplicitNullFlagEnum']
+
+
+class IsisfrrEnum(Enum):
+    """
+    IsisfrrEnum
+
+    Isisfrr
+
+    .. data:: PER_LINK = 1
+
+    	Prefix independent per-link computation
+
+    .. data:: PER_PREFIX = 2
+
+    	Prefix dependent computation
+
+    """
+
+    PER_LINK = 1
+
+    PER_PREFIX = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisfrrEnum']
+
+
+class IsisfrrLoadSharingEnum(Enum):
+    """
+    IsisfrrLoadSharingEnum
+
+    Isisfrr load sharing
+
+    .. data:: DISABLE = 1
+
+    	Disable load sharing of prefixes across
+
+    	multiple backups
+
+    """
+
+    DISABLE = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisfrrLoadSharingEnum']
+
+
+class IsisfrrTiebreakerEnum(Enum):
+    """
+    IsisfrrTiebreakerEnum
+
+    Isisfrr tiebreaker
+
+    .. data:: DOWNSTREAM = 0
+
+    	Prefer backup path via downstream node
+
+    .. data:: LC_DISJOINT = 1
+
+    	Prefer line card disjoint backup path
+
+    .. data:: LOWEST_BACKUP_METRIC = 2
+
+    	Prefer backup path with lowest total metric
+
+    .. data:: NODE_PROTECTING = 3
+
+    	Prefer node protecting backup path
+
+    .. data:: PRIMARY_PATH = 4
+
+    	Prefer backup path from ECMP set
+
+    .. data:: SECONDARY_PATH = 5
+
+    	Prefer non-ECMP backup path
+
+    .. data:: SRLG_DISJOINT = 6
+
+    	Prefer SRLG disjoint backup path
+
+    """
+
+    DOWNSTREAM = 0
+
+    LC_DISJOINT = 1
+
+    LOWEST_BACKUP_METRIC = 2
+
+    NODE_PROTECTING = 3
+
+    PRIMARY_PATH = 4
+
+    SECONDARY_PATH = 5
+
+    SRLG_DISJOINT = 6
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisfrrTiebreakerEnum']
+
+
+class IsisispfStateEnum(Enum):
+    """
+    IsisispfStateEnum
+
+    Isisispf state
+
+    .. data:: ENABLED = 1
+
+    	Enabled
+
+    """
+
+    ENABLED = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisispfStateEnum']
+
+
+class IsisphpFlagEnum(Enum):
+    """
+    IsisphpFlagEnum
+
+    Isisphp flag
+
+    .. data:: ENABLE = 0
+
+    	Enable PHP
+
+    .. data:: DISABLE = 1
+
+    	Disable PHP
+
+    """
+
+    ENABLE = 0
+
+    DISABLE = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisphpFlagEnum']
+
+
+class IsissidEnum(Enum):
+    """
+    IsissidEnum
+
+    Isissid
+
+    .. data:: INDEX = 1
+
+    	SID as an index
+
+    .. data:: ABSOLUTE = 2
+
+    	SID as an absolute label
+
+    """
+
+    INDEX = 1
+
+    ABSOLUTE = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsissidEnum']
+
+
+class NflagClearEnum(Enum):
+    """
+    NflagClearEnum
+
+    Nflag clear
+
+    .. data:: DISABLE = 0
+
+    	Disable N-flag-clear
+
+    .. data:: ENABLE = 1
+
+    	Enable N-flag-clear
+
+    """
+
+    DISABLE = 0
+
+    ENABLE = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['NflagClearEnum']
 
 
 
@@ -1651,7 +1540,7 @@ class Isis(object):
             .. attribute:: is_type
             
             	IS type of the IS\-IS process
-            	**type**\: :py:class:`IsisConfigurableLevels_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels_Enum>`
+            	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
             
             .. attribute:: link_groups
             
@@ -1833,12 +1722,12 @@ class Isis(object):
                     .. attribute:: af_name
                     
                     	Address family
-                    	**type**\: :py:class:`IsisAddressFamily_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisAddressFamily_Enum>`
+                    	**type**\: :py:class:`IsisAddressFamilyEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisAddressFamilyEnum>`
                     
                     .. attribute:: saf_name
                     
                     	Sub address family
-                    	**type**\: :py:class:`IsisSubAddressFamily_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisSubAddressFamily_Enum>`
+                    	**type**\: :py:class:`IsisSubAddressFamilyEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisSubAddressFamilyEnum>`
                     
                     .. attribute:: af_data
                     
@@ -1874,27 +1763,52 @@ class Isis(object):
                         .. attribute:: adjacency_check
                         
                         	Suppress check for consistent AF support on received IIHs
-                        	**type**\: :py:class:`IsisAdjCheck_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAdjCheck_Enum>`
+                        	**type**\: :py:class:`IsisAdjCheckEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAdjCheckEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: admin_distances
                         
                         	Per\-route administrative distanceconfiguration
                         	**type**\: :py:class:`AdminDistances <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.AdminDistances>`
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: advertise_passive_only
                         
                         	If enabled, advertise prefixes of passive interfaces only
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: apply_weight
                         
                         	Apply weights to UCMP or ECMP only
-                        	**type**\: :py:class:`IsisApplyWeight_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisApplyWeight_Enum>`
+                        	**type**\: :py:class:`IsisApplyWeightEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisApplyWeightEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: attached_bit
                         
                         	Set the attached bit in this router's level 1 System LSP
-                        	**type**\: :py:class:`IsisAttachedBit_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAttachedBit_Enum>`
+                        	**type**\: :py:class:`IsisAttachedBitEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAttachedBitEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: default_admin_distance
                         
@@ -1903,19 +1817,39 @@ class Isis(object):
                         
                         	**range:** 1..255
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: default_information
                         
                         	Control origination of a default route with the option of using a policy.  If no policy is specified the default route is advertised with zero cost in level 2 only
                         	**type**\: :py:class:`DefaultInformation <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.DefaultInformation>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: frr_table
                         
                         	Fast\-ReRoute configuration
                         	**type**\: :py:class:`FrrTable <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.FrrTable>`
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: ignore_attached_bit
                         
                         	If TRUE, Ignore other routers attached bit
+                        	**type**\: bool
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
                         .. attribute:: ispf
@@ -1923,10 +1857,20 @@ class Isis(object):
                         	ISPF configuration
                         	**type**\: :py:class:`Ispf <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Ispf>`
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: max_redist_prefixes
                         
                         	Maximum number of redistributed prefixesconfiguration
                         	**type**\: :py:class:`MaxRedistPrefixes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: maximum_paths
                         
@@ -1935,49 +1879,99 @@ class Isis(object):
                         
                         	**range:** 1..64
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: metric_styles
                         
                         	Metric\-style configuration
                         	**type**\: :py:class:`MetricStyles <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MetricStyles>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: metrics
                         
                         	Metric configuration
                         	**type**\: :py:class:`Metrics <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Metrics>`
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: micro_loop_avoidance
                         
                         	Micro Loop Avoidance configuration
                         	**type**\: :py:class:`MicroLoopAvoidance <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MicroLoopAvoidance>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: monitor_convergence
                         
                         	Enable convergence monitoring
                         	**type**\: :py:class:`MonitorConvergence <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MonitorConvergence>`
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: mpls
                         
                         	MPLS configuration. MPLS configuration will only be applied for the IPv4\-unicast address\-family
                         	**type**\: :py:class:`Mpls <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Mpls>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: mpls_ldp_global
                         
                         	MPLS LDP configuration. MPLS LDP configuration will only be applied for the IPv4\-unicast address\-family
                         	**type**\: :py:class:`MplsLdpGlobal <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.MplsLdpGlobal>`
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: propagations
                         
                         	Route propagation configuration
                         	**type**\: :py:class:`Propagations <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Propagations>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: redistributions
                         
                         	Protocol redistribution configuration
                         	**type**\: :py:class:`Redistributions <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Redistributions>`
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: route_source_first_hop
                         
                         	If TRUE, routes will be installed with the IP address of the first\-hop node as the source instead of the originating node
+                        	**type**\: bool
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
                         .. attribute:: segment_routing
@@ -1985,30 +1979,60 @@ class Isis(object):
                         	Enable Segment Routing configuration
                         	**type**\: :py:class:`SegmentRouting <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting>`
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: single_topology
                         
                         	Run IPv6 Unicast using the standard (IPv4 Unicast) topology
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: spf_intervals
                         
                         	SPF\-interval configuration
                         	**type**\: :py:class:`SpfIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals>`
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: spf_periodic_intervals
                         
                         	Peoridic SPF configuration
                         	**type**\: :py:class:`SpfPeriodicIntervals <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: spf_prefix_priorities
                         
                         	SPF Prefix Priority configuration
                         	**type**\: :py:class:`SpfPrefixPriorities <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities>`
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: summary_prefixes
                         
                         	Summary\-prefix configuration
                         	**type**\: :py:class:`SummaryPrefixes <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: topology_id
                         
@@ -2017,15 +2041,30 @@ class Isis(object):
                         
                         	**range:** 6..4095
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: ucmp
                         
                         	UCMP (UnEqual Cost MultiPath) configuration
                         	**type**\: :py:class:`Ucmp <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Ucmp>`
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: weights
                         
                         	Weight configuration
                         	**type**\: :py:class:`Weights <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.Weights>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -2168,8 +2207,6 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address_prefix is not None:
                                         return True
 
@@ -2179,10 +2216,6 @@ class Isis(object):
                                     if self.prefix_list is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2204,17 +2237,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.admin_distance is not None:
                                     for child_ref in self.admin_distance:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2272,8 +2299,6 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.external is not None:
                                     return True
 
@@ -2283,10 +2308,6 @@ class Isis(object):
                                 if self.use_policy is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2376,12 +2397,12 @@ class Isis(object):
                                     .. attribute:: level
                                     
                                     	Level to which configuration applies
-                                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                     
                                     .. attribute:: load_sharing
                                     
                                     	Load sharing
-                                    	**type**\: :py:class:`IsisfrrLoadSharing_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrLoadSharing_Enum>`
+                                    	**type**\: :py:class:`IsisfrrLoadSharingEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrLoadSharingEnum>`
                                     
                                     
 
@@ -2411,18 +2432,12 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.level is not None:
                                             return True
 
                                         if self.load_sharing is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2444,17 +2459,11 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.frr_load_sharing is not None:
                                         for child_ref in self.frr_load_sharing:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2495,7 +2504,7 @@ class Isis(object):
                                     .. attribute:: level
                                     
                                     	Level to which configuration applies
-                                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                     
                                     .. attribute:: prefix_list_name
                                     
@@ -2530,18 +2539,12 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.level is not None:
                                             return True
 
                                         if self.prefix_list_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2563,17 +2566,11 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.frr_remote_lfa_prefix is not None:
                                         for child_ref in self.frr_remote_lfa_prefix:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2612,12 +2609,12 @@ class Isis(object):
                                     .. attribute:: level
                                     
                                     	Level to which configuration applies
-                                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                     
                                     .. attribute:: tiebreaker
                                     
                                     	Tiebreaker for which configuration applies
-                                    	**type**\: :py:class:`IsisfrrTiebreaker_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrTiebreaker_Enum>`
+                                    	**type**\: :py:class:`IsisfrrTiebreakerEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrTiebreakerEnum>`
                                     
                                     .. attribute:: index
                                     
@@ -2657,8 +2654,6 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.level is not None:
                                             return True
 
@@ -2668,10 +2663,6 @@ class Isis(object):
                                         if self.index is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2693,17 +2684,11 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.frr_tiebreaker is not None:
                                         for child_ref in self.frr_tiebreaker:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2743,12 +2728,12 @@ class Isis(object):
                                     .. attribute:: frr_type
                                     
                                     	Computation Type
-                                    	**type**\: :py:class:`Isisfrr_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isisfrr_Enum>`
+                                    	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                     
                                     .. attribute:: level
                                     
                                     	Level to which configuration applies
-                                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                     
                                     
 
@@ -2780,18 +2765,12 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.frr_type is not None:
                                             return True
 
                                         if self.level is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2813,17 +2792,11 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.frr_use_cand_only is not None:
                                         for child_ref in self.frr_use_cand_only:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2863,17 +2836,17 @@ class Isis(object):
                                     .. attribute:: frr_type
                                     
                                     	Computation Type
-                                    	**type**\: :py:class:`Isisfrr_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isisfrr_Enum>`
+                                    	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                     
                                     .. attribute:: level
                                     
                                     	Level to which configuration applies
-                                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                     
                                     .. attribute:: priority
                                     
                                     	Compute for all prefixes upto the specified priority
-                                    	**type**\: :py:class:`IsisPrefixPriority_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriority_Enum>`
+                                    	**type**\: :py:class:`IsisPrefixPriorityEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriorityEnum>`
                                     
                                     
 
@@ -2906,8 +2879,6 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.frr_type is not None:
                                             return True
 
@@ -2917,10 +2888,6 @@ class Isis(object):
                                         if self.priority is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2942,17 +2909,11 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.priority_limit is not None:
                                         for child_ref in self.priority_limit:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2974,42 +2935,21 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.frr_load_sharings is not None and self.frr_load_sharings._has_data():
-                                    return True
-
-                                if self.frr_load_sharings is not None and self.frr_load_sharings.is_presence():
                                     return True
 
                                 if self.frr_remote_lfa_prefixes is not None and self.frr_remote_lfa_prefixes._has_data():
                                     return True
 
-                                if self.frr_remote_lfa_prefixes is not None and self.frr_remote_lfa_prefixes.is_presence():
-                                    return True
-
                                 if self.frr_tiebreakers is not None and self.frr_tiebreakers._has_data():
-                                    return True
-
-                                if self.frr_tiebreakers is not None and self.frr_tiebreakers.is_presence():
                                     return True
 
                                 if self.frr_use_cand_onlies is not None and self.frr_use_cand_onlies._has_data():
                                     return True
 
-                                if self.frr_use_cand_onlies is not None and self.frr_use_cand_onlies.is_presence():
-                                    return True
-
                                 if self.priority_limits is not None and self.priority_limits._has_data():
                                     return True
 
-                                if self.priority_limits is not None and self.priority_limits.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3070,12 +3010,12 @@ class Isis(object):
                                     .. attribute:: level
                                     
                                     	Level to which configuration applies
-                                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                     
                                     .. attribute:: state
                                     
                                     	State
-                                    	**type**\: :py:class:`IsisispfState_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisispfState_Enum>`
+                                    	**type**\: :py:class:`IsisispfStateEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisispfStateEnum>`
                                     
                                     
 
@@ -3105,18 +3045,12 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.level is not None:
                                             return True
 
                                         if self.state is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3138,17 +3072,11 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.state is not None:
                                         for child_ref in self.state:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3170,18 +3098,9 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.states is not None and self.states._has_data():
                                     return True
 
-                                if self.states is not None and self.states.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3223,7 +3142,7 @@ class Isis(object):
                                 .. attribute:: level
                                 
                                 	Level to which configuration applies
-                                	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: prefix_limit
                                 
@@ -3260,18 +3179,12 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.level is not None:
                                         return True
 
                                     if self.prefix_limit is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3293,17 +3206,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.max_redist_prefix is not None:
                                     for child_ref in self.max_redist_prefix:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3342,17 +3249,17 @@ class Isis(object):
                                 .. attribute:: level
                                 
                                 	Level to which configuration applies
-                                	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: style
                                 
                                 	Metric Style
-                                	**type**\: :py:class:`IsisMetricStyle_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetricStyle_Enum>`
+                                	**type**\: :py:class:`IsisMetricStyleEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetricStyleEnum>`
                                 
                                 .. attribute:: transition_state
                                 
                                 	Transition state
-                                	**type**\: :py:class:`IsisMetricStyleTransition_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetricStyleTransition_Enum>`
+                                	**type**\: :py:class:`IsisMetricStyleTransitionEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetricStyleTransitionEnum>`
                                 
                                 
 
@@ -3383,8 +3290,6 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.level is not None:
                                         return True
 
@@ -3394,10 +3299,6 @@ class Isis(object):
                                     if self.transition_state is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3419,17 +3320,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.metric_style is not None:
                                     for child_ref in self.metric_style:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3475,12 +3370,12 @@ class Isis(object):
                                 .. attribute:: level
                                 
                                 	Level to which configuration applies
-                                	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: metric
                                 
                                 	Allowed metric\: <1\-63> for narrow, <1\-16777215> for wide
-                                	**type**\: one of { :py:class:`Metric_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric_Enum>` | int }
+                                	**type**\: one of { :py:class:`MetricEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.MetricEnum>` | int }
                                 
                                 
 
@@ -3494,28 +3389,29 @@ class Isis(object):
                                     self.level = None
                                     self.metric = None
 
-                                class Metric_Enum(Enum):
+                                class MetricEnum(Enum):
                                     """
-                                    Metric_Enum
+                                    MetricEnum
 
                                     Allowed metric\: <1\-63> for narrow,
+
                                     <1\-16777215> for wide
 
-                                    """
+                                    .. data:: MAXIMUM = 16777215
+
+                                    	Maximum wide metric.  All routers will
+
+                                    	exclude this link from their SPF
 
                                     """
 
-                                    Maximum wide metric.  All routers will
-                                    exclude this link from their SPF
-
-                                    """
                                     MAXIMUM = 16777215
 
 
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Metrics.Metric.Metric_Enum']
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.Metrics.Metric.MetricEnum']
 
 
                                 @property
@@ -3534,18 +3430,12 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.level is not None:
                                         return True
 
                                     if self.metric is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3567,17 +3457,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.metric is not None:
                                     for child_ref in self.metric:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3593,7 +3477,7 @@ class Isis(object):
                             .. attribute:: enable
                             
                             	MicroLoop avoidance enable configuration
-                            	**type**\: :py:class:`IsisMicroLoopAvoidance_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMicroLoopAvoidance_Enum>`
+                            	**type**\: :py:class:`IsisMicroLoopAvoidanceEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMicroLoopAvoidanceEnum>`
                             
                             .. attribute:: rib_update_delay
                             
@@ -3628,18 +3512,12 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.enable is not None:
                                     return True
 
                                 if self.rib_update_delay is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3694,8 +3572,6 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.enable is not None:
                                     return True
 
@@ -3705,10 +3581,6 @@ class Isis(object):
                                 if self.track_ip_frr is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3731,7 +3603,7 @@ class Isis(object):
                             .. attribute:: level
                             
                             	Enable MPLS for an IS\-IS at the given levels
-                            	**type**\: :py:class:`IsisConfigurableLevels_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels_Enum>`
+                            	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
                             
                             .. attribute:: multicast_intact
                             
@@ -3804,18 +3676,12 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address is not None:
                                         return True
 
                                     if self.interface_name is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3837,8 +3703,6 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.igp_intact is not None:
                                     return True
 
@@ -3851,13 +3715,6 @@ class Isis(object):
                                 if self.router_id is not None and self.router_id._has_data():
                                     return True
 
-                                if self.router_id is not None and self.router_id.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3902,15 +3759,9 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.auto_config is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3949,12 +3800,12 @@ class Isis(object):
                                 .. attribute:: destination_level
                                 
                                 	Destination level for routes.  Must differ from SourceLevel
-                                	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: source_level
                                 
                                 	Source level for routes
-                                	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: route_policy_name
                                 
@@ -3992,8 +3843,6 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.destination_level is not None:
                                         return True
 
@@ -4003,10 +3852,6 @@ class Isis(object):
                                     if self.route_policy_name is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -4028,17 +3873,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.propagation is not None:
                                     for child_ref in self.propagation:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4078,7 +3917,7 @@ class Isis(object):
                                 .. attribute:: protocol_name
                                 
                                 	The protocol to be redistributed.  OSPFv3 may not be specified for an IPv4 topology and OSPF may not be specified for an IPv6 topology
-                                	**type**\: :py:class:`IsisRedistProto_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisRedistProto_Enum>`
+                                	**type**\: :py:class:`IsisRedistProtoEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisRedistProtoEnum>`
                                 
                                 .. attribute:: bgp
                                 
@@ -4143,7 +3982,7 @@ class Isis(object):
                                     .. attribute:: levels
                                     
                                     	Levels to redistribute routes into
-                                    	**type**\: :py:class:`IsisConfigurableLevels_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels_Enum>`
+                                    	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
                                     
                                     .. attribute:: metric
                                     
@@ -4155,7 +3994,7 @@ class Isis(object):
                                     .. attribute:: metric_type
                                     
                                     	IS\-IS metric type
-                                    	**type**\: :py:class:`IsisMetric_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetric_Enum>`
+                                    	**type**\: :py:class:`IsisMetricEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetricEnum>`
                                     
                                     .. attribute:: ospf_route_type
                                     
@@ -4204,8 +4043,6 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.as_xx is not None:
                                             return True
 
@@ -4229,10 +4066,6 @@ class Isis(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
@@ -4247,7 +4080,12 @@ class Isis(object):
                                     .. attribute:: levels
                                     
                                     	Levels to redistribute routes into
-                                    	**type**\: :py:class:`IsisConfigurableLevels_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels_Enum>`
+                                    	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     .. attribute:: metric
                                     
@@ -4256,10 +4094,20 @@ class Isis(object):
                                     
                                     	**range:** 0..16777215
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: metric_type
                                     
                                     	IS\-IS metric type
-                                    	**type**\: :py:class:`IsisMetric_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetric_Enum>`
+                                    	**type**\: :py:class:`IsisMetricEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetricEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     .. attribute:: ospf_route_type
                                     
@@ -4268,10 +4116,20 @@ class Isis(object):
                                     
                                     	**range:** \-2147483648..2147483647
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: route_policy_name
                                     
                                     	Route policy to control redistribution
                                     	**type**\: str
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -4304,8 +4162,6 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.levels is not None:
                                             return True
 
@@ -4322,10 +4178,6 @@ class Isis(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -4347,7 +4199,7 @@ class Isis(object):
                                     .. attribute:: levels
                                     
                                     	Levels to redistribute routes into
-                                    	**type**\: :py:class:`IsisConfigurableLevels_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels_Enum>`
+                                    	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
                                     
                                     .. attribute:: metric
                                     
@@ -4359,7 +4211,7 @@ class Isis(object):
                                     .. attribute:: metric_type
                                     
                                     	IS\-IS metric type
-                                    	**type**\: :py:class:`IsisMetric_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetric_Enum>`
+                                    	**type**\: :py:class:`IsisMetricEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetricEnum>`
                                     
                                     .. attribute:: ospf_route_type
                                     
@@ -4405,8 +4257,6 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.as_zz is not None:
                                             return True
 
@@ -4425,10 +4275,6 @@ class Isis(object):
                                         if self.route_policy_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -4451,7 +4297,7 @@ class Isis(object):
                                     .. attribute:: levels
                                     
                                     	Levels to redistribute routes into
-                                    	**type**\: :py:class:`IsisConfigurableLevels_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels_Enum>`
+                                    	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
                                     
                                     .. attribute:: metric
                                     
@@ -4463,7 +4309,7 @@ class Isis(object):
                                     .. attribute:: metric_type
                                     
                                     	IS\-IS metric type
-                                    	**type**\: :py:class:`IsisMetric_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetric_Enum>`
+                                    	**type**\: :py:class:`IsisMetricEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetricEnum>`
                                     
                                     .. attribute:: ospf_route_type
                                     
@@ -4509,8 +4355,6 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.instance_name is not None:
                                             return True
 
@@ -4529,10 +4373,6 @@ class Isis(object):
                                         if self.route_policy_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -4556,8 +4396,6 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.protocol_name is not None:
                                         return True
 
@@ -4567,9 +4405,6 @@ class Isis(object):
                                                 return True
 
                                     if self.connected_or_static_or_rip_or_subscriber_or_mobile is not None and self.connected_or_static_or_rip_or_subscriber_or_mobile._has_data():
-                                        return True
-
-                                    if self.connected_or_static_or_rip_or_subscriber_or_mobile is not None and self.connected_or_static_or_rip_or_subscriber_or_mobile.is_presence():
                                         return True
 
                                     if self.eigrp is not None:
@@ -4582,10 +4417,6 @@ class Isis(object):
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -4607,17 +4438,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.redistribution is not None:
                                     for child_ref in self.redistribution:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4633,7 +4458,7 @@ class Isis(object):
                             .. attribute:: mpls
                             
                             	Prefer segment routing labels over LDP labels
-                            	**type**\: :py:class:`IsisLabelPreference_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisLabelPreference_Enum>`
+                            	**type**\: :py:class:`IsisLabelPreferenceEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisLabelPreferenceEnum>`
                             
                             .. attribute:: prefix_sid_map
                             
@@ -4695,18 +4520,12 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.advertise_local is not None:
                                         return True
 
                                     if self.receive is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -4728,21 +4547,12 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.mpls is not None:
                                     return True
 
                                 if self.prefix_sid_map is not None and self.prefix_sid_map._has_data():
                                     return True
 
-                                if self.prefix_sid_map is not None and self.prefix_sid_map.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4781,7 +4591,7 @@ class Isis(object):
                                 .. attribute:: level
                                 
                                 	Level to which configuration applies
-                                	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: initial_wait
                                 
@@ -4834,8 +4644,6 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.level is not None:
                                         return True
 
@@ -4848,10 +4656,6 @@ class Isis(object):
                                     if self.secondary_wait is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -4873,17 +4677,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.spf_interval is not None:
                                     for child_ref in self.spf_interval:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4922,7 +4720,7 @@ class Isis(object):
                                 .. attribute:: level
                                 
                                 	Level to which configuration applies
-                                	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: periodic_interval
                                 
@@ -4959,18 +4757,12 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.level is not None:
                                         return True
 
                                     if self.periodic_interval is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -4992,17 +4784,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.spf_periodic_interval is not None:
                                     for child_ref in self.spf_periodic_interval:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -5041,12 +4827,12 @@ class Isis(object):
                                 .. attribute:: level
                                 
                                 	SPF Level for prefix prioritization
-                                	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: prefix_priority_type
                                 
                                 	SPF Priority to assign matching prefixes
-                                	**type**\: :py:class:`IsisPrefixPriority_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriority_Enum>`
+                                	**type**\: :py:class:`IsisPrefixPriorityEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriorityEnum>`
                                 
                                 .. attribute:: access_list_name
                                 
@@ -5092,8 +4878,6 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.level is not None:
                                         return True
 
@@ -5106,10 +4890,6 @@ class Isis(object):
                                     if self.admin_tag is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5131,17 +4911,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.spf_prefix_priority is not None:
                                     for child_ref in self.spf_prefix_priority:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -5225,8 +4999,6 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address_prefix is not None:
                                         return True
 
@@ -5236,10 +5008,6 @@ class Isis(object):
                                     if self.tag is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5261,17 +5029,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.summary_prefix is not None:
                                     for child_ref in self.summary_prefix:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -5359,18 +5121,12 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.prefix_list_name is not None:
                                         return True
 
                                     if self.variance is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5442,15 +5198,9 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interface_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -5472,17 +5222,11 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.exclude_interface is not None:
                                         for child_ref in self.exclude_interface:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5504,27 +5248,15 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.delay_interval is not None:
                                     return True
 
                                 if self.enable is not None and self.enable._has_data():
                                     return True
 
-                                if self.enable is not None and self.enable.is_presence():
-                                    return True
-
                                 if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
                                     return True
 
-                                if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -5564,7 +5296,7 @@ class Isis(object):
                                 .. attribute:: level
                                 
                                 	Level to which configuration applies
-                                	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: weight
                                 
@@ -5601,18 +5333,12 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.level is not None:
                                         return True
 
                                     if self.weight is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5634,17 +5360,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.weight is not None:
                                     for child_ref in self.weight:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -5666,15 +5386,10 @@ class Isis(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.adjacency_check is not None:
                                 return True
 
                             if self.admin_distances is not None and self.admin_distances._has_data():
-                                return True
-
-                            if self.admin_distances is not None and self.admin_distances.is_presence():
                                 return True
 
                             if self.advertise_passive_only is not None:
@@ -5692,13 +5407,7 @@ class Isis(object):
                             if self.default_information is not None and self.default_information._has_data():
                                 return True
 
-                            if self.default_information is not None and self.default_information.is_presence():
-                                return True
-
                             if self.frr_table is not None and self.frr_table._has_data():
-                                return True
-
-                            if self.frr_table is not None and self.frr_table.is_presence():
                                 return True
 
                             if self.ignore_attached_bit is not None:
@@ -5707,13 +5416,7 @@ class Isis(object):
                             if self.ispf is not None and self.ispf._has_data():
                                 return True
 
-                            if self.ispf is not None and self.ispf.is_presence():
-                                return True
-
                             if self.max_redist_prefixes is not None and self.max_redist_prefixes._has_data():
-                                return True
-
-                            if self.max_redist_prefixes is not None and self.max_redist_prefixes.is_presence():
                                 return True
 
                             if self.maximum_paths is not None:
@@ -5722,49 +5425,25 @@ class Isis(object):
                             if self.metric_styles is not None and self.metric_styles._has_data():
                                 return True
 
-                            if self.metric_styles is not None and self.metric_styles.is_presence():
-                                return True
-
                             if self.metrics is not None and self.metrics._has_data():
-                                return True
-
-                            if self.metrics is not None and self.metrics.is_presence():
                                 return True
 
                             if self.micro_loop_avoidance is not None and self.micro_loop_avoidance._has_data():
                                 return True
 
-                            if self.micro_loop_avoidance is not None and self.micro_loop_avoidance.is_presence():
-                                return True
-
                             if self.monitor_convergence is not None and self.monitor_convergence._has_data():
-                                return True
-
-                            if self.monitor_convergence is not None and self.monitor_convergence.is_presence():
                                 return True
 
                             if self.mpls is not None and self.mpls._has_data():
                                 return True
 
-                            if self.mpls is not None and self.mpls.is_presence():
-                                return True
-
                             if self.mpls_ldp_global is not None and self.mpls_ldp_global._has_data():
-                                return True
-
-                            if self.mpls_ldp_global is not None and self.mpls_ldp_global.is_presence():
                                 return True
 
                             if self.propagations is not None and self.propagations._has_data():
                                 return True
 
-                            if self.propagations is not None and self.propagations.is_presence():
-                                return True
-
                             if self.redistributions is not None and self.redistributions._has_data():
-                                return True
-
-                            if self.redistributions is not None and self.redistributions.is_presence():
                                 return True
 
                             if self.route_source_first_hop is not None:
@@ -5773,34 +5452,19 @@ class Isis(object):
                             if self.segment_routing is not None and self.segment_routing._has_data():
                                 return True
 
-                            if self.segment_routing is not None and self.segment_routing.is_presence():
-                                return True
-
                             if self.single_topology is not None:
                                 return True
 
                             if self.spf_intervals is not None and self.spf_intervals._has_data():
                                 return True
 
-                            if self.spf_intervals is not None and self.spf_intervals.is_presence():
-                                return True
-
                             if self.spf_periodic_intervals is not None and self.spf_periodic_intervals._has_data():
-                                return True
-
-                            if self.spf_periodic_intervals is not None and self.spf_periodic_intervals.is_presence():
                                 return True
 
                             if self.spf_prefix_priorities is not None and self.spf_prefix_priorities._has_data():
                                 return True
 
-                            if self.spf_prefix_priorities is not None and self.spf_prefix_priorities.is_presence():
-                                return True
-
                             if self.summary_prefixes is not None and self.summary_prefixes._has_data():
-                                return True
-
-                            if self.summary_prefixes is not None and self.summary_prefixes.is_presence():
                                 return True
 
                             if self.topology_id is not None:
@@ -5809,20 +5473,10 @@ class Isis(object):
                             if self.ucmp is not None and self.ucmp._has_data():
                                 return True
 
-                            if self.ucmp is not None and self.ucmp.is_presence():
-                                return True
-
                             if self.weights is not None and self.weights._has_data():
                                 return True
 
-                            if self.weights is not None and self.weights.is_presence():
-                                return True
-
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -5844,7 +5498,7 @@ class Isis(object):
                         .. attribute:: adjacency_check
                         
                         	Suppress check for consistent AF support on received IIHs
-                        	**type**\: :py:class:`IsisAdjCheck_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAdjCheck_Enum>`
+                        	**type**\: :py:class:`IsisAdjCheckEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAdjCheckEnum>`
                         
                         .. attribute:: admin_distances
                         
@@ -5859,12 +5513,12 @@ class Isis(object):
                         .. attribute:: apply_weight
                         
                         	Apply weights to UCMP or ECMP only
-                        	**type**\: :py:class:`IsisApplyWeight_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisApplyWeight_Enum>`
+                        	**type**\: :py:class:`IsisApplyWeightEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisApplyWeightEnum>`
                         
                         .. attribute:: attached_bit
                         
                         	Set the attached bit in this router's level 1 System LSP
-                        	**type**\: :py:class:`IsisAttachedBit_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAttachedBit_Enum>`
+                        	**type**\: :py:class:`IsisAttachedBitEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAttachedBitEnum>`
                         
                         .. attribute:: default_admin_distance
                         
@@ -6137,8 +5791,6 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address_prefix is not None:
                                         return True
 
@@ -6148,10 +5800,6 @@ class Isis(object):
                                     if self.prefix_list is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6173,17 +5821,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.admin_distance is not None:
                                     for child_ref in self.admin_distance:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6241,8 +5883,6 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.external is not None:
                                     return True
 
@@ -6252,10 +5892,6 @@ class Isis(object):
                                 if self.use_policy is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6345,12 +5981,12 @@ class Isis(object):
                                     .. attribute:: level
                                     
                                     	Level to which configuration applies
-                                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                     
                                     .. attribute:: load_sharing
                                     
                                     	Load sharing
-                                    	**type**\: :py:class:`IsisfrrLoadSharing_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrLoadSharing_Enum>`
+                                    	**type**\: :py:class:`IsisfrrLoadSharingEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrLoadSharingEnum>`
                                     
                                     
 
@@ -6380,18 +6016,12 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.level is not None:
                                             return True
 
                                         if self.load_sharing is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6413,17 +6043,11 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.frr_load_sharing is not None:
                                         for child_ref in self.frr_load_sharing:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6464,7 +6088,7 @@ class Isis(object):
                                     .. attribute:: level
                                     
                                     	Level to which configuration applies
-                                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                     
                                     .. attribute:: prefix_list_name
                                     
@@ -6499,18 +6123,12 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.level is not None:
                                             return True
 
                                         if self.prefix_list_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6532,17 +6150,11 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.frr_remote_lfa_prefix is not None:
                                         for child_ref in self.frr_remote_lfa_prefix:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6581,12 +6193,12 @@ class Isis(object):
                                     .. attribute:: level
                                     
                                     	Level to which configuration applies
-                                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                     
                                     .. attribute:: tiebreaker
                                     
                                     	Tiebreaker for which configuration applies
-                                    	**type**\: :py:class:`IsisfrrTiebreaker_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrTiebreaker_Enum>`
+                                    	**type**\: :py:class:`IsisfrrTiebreakerEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrTiebreakerEnum>`
                                     
                                     .. attribute:: index
                                     
@@ -6626,8 +6238,6 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.level is not None:
                                             return True
 
@@ -6637,10 +6247,6 @@ class Isis(object):
                                         if self.index is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6662,17 +6268,11 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.frr_tiebreaker is not None:
                                         for child_ref in self.frr_tiebreaker:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6712,12 +6312,12 @@ class Isis(object):
                                     .. attribute:: frr_type
                                     
                                     	Computation Type
-                                    	**type**\: :py:class:`Isisfrr_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isisfrr_Enum>`
+                                    	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                     
                                     .. attribute:: level
                                     
                                     	Level to which configuration applies
-                                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                     
                                     
 
@@ -6749,18 +6349,12 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.frr_type is not None:
                                             return True
 
                                         if self.level is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6782,17 +6376,11 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.frr_use_cand_only is not None:
                                         for child_ref in self.frr_use_cand_only:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6832,17 +6420,17 @@ class Isis(object):
                                     .. attribute:: frr_type
                                     
                                     	Computation Type
-                                    	**type**\: :py:class:`Isisfrr_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isisfrr_Enum>`
+                                    	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                     
                                     .. attribute:: level
                                     
                                     	Level to which configuration applies
-                                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                     
                                     .. attribute:: priority
                                     
                                     	Compute for all prefixes upto the specified priority
-                                    	**type**\: :py:class:`IsisPrefixPriority_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriority_Enum>`
+                                    	**type**\: :py:class:`IsisPrefixPriorityEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriorityEnum>`
                                     
                                     
 
@@ -6875,8 +6463,6 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.frr_type is not None:
                                             return True
 
@@ -6886,10 +6472,6 @@ class Isis(object):
                                         if self.priority is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6911,17 +6493,11 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.priority_limit is not None:
                                         for child_ref in self.priority_limit:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6943,42 +6519,21 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.frr_load_sharings is not None and self.frr_load_sharings._has_data():
-                                    return True
-
-                                if self.frr_load_sharings is not None and self.frr_load_sharings.is_presence():
                                     return True
 
                                 if self.frr_remote_lfa_prefixes is not None and self.frr_remote_lfa_prefixes._has_data():
                                     return True
 
-                                if self.frr_remote_lfa_prefixes is not None and self.frr_remote_lfa_prefixes.is_presence():
-                                    return True
-
                                 if self.frr_tiebreakers is not None and self.frr_tiebreakers._has_data():
-                                    return True
-
-                                if self.frr_tiebreakers is not None and self.frr_tiebreakers.is_presence():
                                     return True
 
                                 if self.frr_use_cand_onlies is not None and self.frr_use_cand_onlies._has_data():
                                     return True
 
-                                if self.frr_use_cand_onlies is not None and self.frr_use_cand_onlies.is_presence():
-                                    return True
-
                                 if self.priority_limits is not None and self.priority_limits._has_data():
                                     return True
 
-                                if self.priority_limits is not None and self.priority_limits.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7039,12 +6594,12 @@ class Isis(object):
                                     .. attribute:: level
                                     
                                     	Level to which configuration applies
-                                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                     
                                     .. attribute:: state
                                     
                                     	State
-                                    	**type**\: :py:class:`IsisispfState_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisispfState_Enum>`
+                                    	**type**\: :py:class:`IsisispfStateEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisispfStateEnum>`
                                     
                                     
 
@@ -7074,18 +6629,12 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.level is not None:
                                             return True
 
                                         if self.state is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7107,17 +6656,11 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.state is not None:
                                         for child_ref in self.state:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -7139,18 +6682,9 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.states is not None and self.states._has_data():
                                     return True
 
-                                if self.states is not None and self.states.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7192,7 +6726,7 @@ class Isis(object):
                                 .. attribute:: level
                                 
                                 	Level to which configuration applies
-                                	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: prefix_limit
                                 
@@ -7229,18 +6763,12 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.level is not None:
                                         return True
 
                                     if self.prefix_limit is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -7262,17 +6790,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.max_redist_prefix is not None:
                                     for child_ref in self.max_redist_prefix:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7311,17 +6833,17 @@ class Isis(object):
                                 .. attribute:: level
                                 
                                 	Level to which configuration applies
-                                	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: style
                                 
                                 	Metric Style
-                                	**type**\: :py:class:`IsisMetricStyle_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetricStyle_Enum>`
+                                	**type**\: :py:class:`IsisMetricStyleEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetricStyleEnum>`
                                 
                                 .. attribute:: transition_state
                                 
                                 	Transition state
-                                	**type**\: :py:class:`IsisMetricStyleTransition_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetricStyleTransition_Enum>`
+                                	**type**\: :py:class:`IsisMetricStyleTransitionEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetricStyleTransitionEnum>`
                                 
                                 
 
@@ -7352,8 +6874,6 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.level is not None:
                                         return True
 
@@ -7363,10 +6883,6 @@ class Isis(object):
                                     if self.transition_state is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -7388,17 +6904,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.metric_style is not None:
                                     for child_ref in self.metric_style:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7444,12 +6954,12 @@ class Isis(object):
                                 .. attribute:: level
                                 
                                 	Level to which configuration applies
-                                	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: metric
                                 
                                 	Allowed metric\: <1\-63> for narrow, <1\-16777215> for wide
-                                	**type**\: one of { :py:class:`Metric_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric_Enum>` | int }
+                                	**type**\: one of { :py:class:`MetricEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.MetricEnum>` | int }
                                 
                                 
 
@@ -7463,28 +6973,29 @@ class Isis(object):
                                     self.level = None
                                     self.metric = None
 
-                                class Metric_Enum(Enum):
+                                class MetricEnum(Enum):
                                     """
-                                    Metric_Enum
+                                    MetricEnum
 
                                     Allowed metric\: <1\-63> for narrow,
+
                                     <1\-16777215> for wide
 
-                                    """
+                                    .. data:: MAXIMUM = 16777215
+
+                                    	Maximum wide metric.  All routers will
+
+                                    	exclude this link from their SPF
 
                                     """
 
-                                    Maximum wide metric.  All routers will
-                                    exclude this link from their SPF
-
-                                    """
                                     MAXIMUM = 16777215
 
 
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Metrics.Metric.Metric_Enum']
+                                        return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.Metrics.Metric.MetricEnum']
 
 
                                 @property
@@ -7503,18 +7014,12 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.level is not None:
                                         return True
 
                                     if self.metric is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -7536,17 +7041,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.metric is not None:
                                     for child_ref in self.metric:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7562,7 +7061,7 @@ class Isis(object):
                             .. attribute:: enable
                             
                             	MicroLoop avoidance enable configuration
-                            	**type**\: :py:class:`IsisMicroLoopAvoidance_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMicroLoopAvoidance_Enum>`
+                            	**type**\: :py:class:`IsisMicroLoopAvoidanceEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMicroLoopAvoidanceEnum>`
                             
                             .. attribute:: rib_update_delay
                             
@@ -7597,18 +7096,12 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.enable is not None:
                                     return True
 
                                 if self.rib_update_delay is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7663,8 +7156,6 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.enable is not None:
                                     return True
 
@@ -7674,10 +7165,6 @@ class Isis(object):
                                 if self.track_ip_frr is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7700,7 +7187,7 @@ class Isis(object):
                             .. attribute:: level
                             
                             	Enable MPLS for an IS\-IS at the given levels
-                            	**type**\: :py:class:`IsisConfigurableLevels_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels_Enum>`
+                            	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
                             
                             .. attribute:: multicast_intact
                             
@@ -7773,18 +7260,12 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address is not None:
                                         return True
 
                                     if self.interface_name is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -7806,8 +7287,6 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.igp_intact is not None:
                                     return True
 
@@ -7820,13 +7299,6 @@ class Isis(object):
                                 if self.router_id is not None and self.router_id._has_data():
                                     return True
 
-                                if self.router_id is not None and self.router_id.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7871,15 +7343,9 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.auto_config is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7918,12 +7384,12 @@ class Isis(object):
                                 .. attribute:: destination_level
                                 
                                 	Destination level for routes.  Must differ from SourceLevel
-                                	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: source_level
                                 
                                 	Source level for routes
-                                	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: route_policy_name
                                 
@@ -7961,8 +7427,6 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.destination_level is not None:
                                         return True
 
@@ -7972,10 +7436,6 @@ class Isis(object):
                                     if self.route_policy_name is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -7997,17 +7457,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.propagation is not None:
                                     for child_ref in self.propagation:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8047,7 +7501,7 @@ class Isis(object):
                                 .. attribute:: protocol_name
                                 
                                 	The protocol to be redistributed.  OSPFv3 may not be specified for an IPv4 topology and OSPF may not be specified for an IPv6 topology
-                                	**type**\: :py:class:`IsisRedistProto_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisRedistProto_Enum>`
+                                	**type**\: :py:class:`IsisRedistProtoEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisRedistProtoEnum>`
                                 
                                 .. attribute:: bgp
                                 
@@ -8112,7 +7566,7 @@ class Isis(object):
                                     .. attribute:: levels
                                     
                                     	Levels to redistribute routes into
-                                    	**type**\: :py:class:`IsisConfigurableLevels_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels_Enum>`
+                                    	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
                                     
                                     .. attribute:: metric
                                     
@@ -8124,7 +7578,7 @@ class Isis(object):
                                     .. attribute:: metric_type
                                     
                                     	IS\-IS metric type
-                                    	**type**\: :py:class:`IsisMetric_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetric_Enum>`
+                                    	**type**\: :py:class:`IsisMetricEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetricEnum>`
                                     
                                     .. attribute:: ospf_route_type
                                     
@@ -8173,8 +7627,6 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.as_xx is not None:
                                             return True
 
@@ -8198,10 +7650,6 @@ class Isis(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
@@ -8216,7 +7664,12 @@ class Isis(object):
                                     .. attribute:: levels
                                     
                                     	Levels to redistribute routes into
-                                    	**type**\: :py:class:`IsisConfigurableLevels_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels_Enum>`
+                                    	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     .. attribute:: metric
                                     
@@ -8225,10 +7678,20 @@ class Isis(object):
                                     
                                     	**range:** 0..16777215
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: metric_type
                                     
                                     	IS\-IS metric type
-                                    	**type**\: :py:class:`IsisMetric_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetric_Enum>`
+                                    	**type**\: :py:class:`IsisMetricEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetricEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     .. attribute:: ospf_route_type
                                     
@@ -8237,10 +7700,20 @@ class Isis(object):
                                     
                                     	**range:** \-2147483648..2147483647
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: route_policy_name
                                     
                                     	Route policy to control redistribution
                                     	**type**\: str
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -8273,8 +7746,6 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.levels is not None:
                                             return True
 
@@ -8291,10 +7762,6 @@ class Isis(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -8316,7 +7783,7 @@ class Isis(object):
                                     .. attribute:: levels
                                     
                                     	Levels to redistribute routes into
-                                    	**type**\: :py:class:`IsisConfigurableLevels_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels_Enum>`
+                                    	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
                                     
                                     .. attribute:: metric
                                     
@@ -8328,7 +7795,7 @@ class Isis(object):
                                     .. attribute:: metric_type
                                     
                                     	IS\-IS metric type
-                                    	**type**\: :py:class:`IsisMetric_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetric_Enum>`
+                                    	**type**\: :py:class:`IsisMetricEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetricEnum>`
                                     
                                     .. attribute:: ospf_route_type
                                     
@@ -8374,8 +7841,6 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.as_zz is not None:
                                             return True
 
@@ -8394,10 +7859,6 @@ class Isis(object):
                                         if self.route_policy_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -8420,7 +7881,7 @@ class Isis(object):
                                     .. attribute:: levels
                                     
                                     	Levels to redistribute routes into
-                                    	**type**\: :py:class:`IsisConfigurableLevels_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels_Enum>`
+                                    	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
                                     
                                     .. attribute:: metric
                                     
@@ -8432,7 +7893,7 @@ class Isis(object):
                                     .. attribute:: metric_type
                                     
                                     	IS\-IS metric type
-                                    	**type**\: :py:class:`IsisMetric_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetric_Enum>`
+                                    	**type**\: :py:class:`IsisMetricEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMetricEnum>`
                                     
                                     .. attribute:: ospf_route_type
                                     
@@ -8478,8 +7939,6 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.instance_name is not None:
                                             return True
 
@@ -8498,10 +7957,6 @@ class Isis(object):
                                         if self.route_policy_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -8525,8 +7980,6 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.protocol_name is not None:
                                         return True
 
@@ -8536,9 +7989,6 @@ class Isis(object):
                                                 return True
 
                                     if self.connected_or_static_or_rip_or_subscriber_or_mobile is not None and self.connected_or_static_or_rip_or_subscriber_or_mobile._has_data():
-                                        return True
-
-                                    if self.connected_or_static_or_rip_or_subscriber_or_mobile is not None and self.connected_or_static_or_rip_or_subscriber_or_mobile.is_presence():
                                         return True
 
                                     if self.eigrp is not None:
@@ -8551,10 +8001,6 @@ class Isis(object):
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8576,17 +8022,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.redistribution is not None:
                                     for child_ref in self.redistribution:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8602,7 +8042,7 @@ class Isis(object):
                             .. attribute:: mpls
                             
                             	Prefer segment routing labels over LDP labels
-                            	**type**\: :py:class:`IsisLabelPreference_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisLabelPreference_Enum>`
+                            	**type**\: :py:class:`IsisLabelPreferenceEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisLabelPreferenceEnum>`
                             
                             .. attribute:: prefix_sid_map
                             
@@ -8664,18 +8104,12 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.advertise_local is not None:
                                         return True
 
                                     if self.receive is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8697,21 +8131,12 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.mpls is not None:
                                     return True
 
                                 if self.prefix_sid_map is not None and self.prefix_sid_map._has_data():
                                     return True
 
-                                if self.prefix_sid_map is not None and self.prefix_sid_map.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8750,7 +8175,7 @@ class Isis(object):
                                 .. attribute:: level
                                 
                                 	Level to which configuration applies
-                                	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: initial_wait
                                 
@@ -8803,8 +8228,6 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.level is not None:
                                         return True
 
@@ -8817,10 +8240,6 @@ class Isis(object):
                                     if self.secondary_wait is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8842,17 +8261,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.spf_interval is not None:
                                     for child_ref in self.spf_interval:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8891,7 +8304,7 @@ class Isis(object):
                                 .. attribute:: level
                                 
                                 	Level to which configuration applies
-                                	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: periodic_interval
                                 
@@ -8928,18 +8341,12 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.level is not None:
                                         return True
 
                                     if self.periodic_interval is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8961,17 +8368,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.spf_periodic_interval is not None:
                                     for child_ref in self.spf_periodic_interval:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -9010,12 +8411,12 @@ class Isis(object):
                                 .. attribute:: level
                                 
                                 	SPF Level for prefix prioritization
-                                	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: prefix_priority_type
                                 
                                 	SPF Priority to assign matching prefixes
-                                	**type**\: :py:class:`IsisPrefixPriority_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriority_Enum>`
+                                	**type**\: :py:class:`IsisPrefixPriorityEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisPrefixPriorityEnum>`
                                 
                                 .. attribute:: access_list_name
                                 
@@ -9061,8 +8462,6 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.level is not None:
                                         return True
 
@@ -9075,10 +8474,6 @@ class Isis(object):
                                     if self.admin_tag is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9100,17 +8495,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.spf_prefix_priority is not None:
                                     for child_ref in self.spf_prefix_priority:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -9194,8 +8583,6 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address_prefix is not None:
                                         return True
 
@@ -9205,10 +8592,6 @@ class Isis(object):
                                     if self.tag is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9230,17 +8613,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.summary_prefix is not None:
                                     for child_ref in self.summary_prefix:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -9328,18 +8705,12 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.prefix_list_name is not None:
                                         return True
 
                                     if self.variance is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9411,15 +8782,9 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interface_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -9441,17 +8806,11 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.exclude_interface is not None:
                                         for child_ref in self.exclude_interface:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9473,27 +8832,15 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.delay_interval is not None:
                                     return True
 
                                 if self.enable is not None and self.enable._has_data():
                                     return True
 
-                                if self.enable is not None and self.enable.is_presence():
-                                    return True
-
                                 if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
                                     return True
 
-                                if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -9533,7 +8880,7 @@ class Isis(object):
                                 .. attribute:: level
                                 
                                 	Level to which configuration applies
-                                	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: weight
                                 
@@ -9570,18 +8917,12 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.level is not None:
                                         return True
 
                                     if self.weight is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9603,17 +8944,11 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.weight is not None:
                                     for child_ref in self.weight:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -9637,8 +8972,6 @@ class Isis(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.topology_name is not None:
                                 return True
 
@@ -9646,9 +8979,6 @@ class Isis(object):
                                 return True
 
                             if self.admin_distances is not None and self.admin_distances._has_data():
-                                return True
-
-                            if self.admin_distances is not None and self.admin_distances.is_presence():
                                 return True
 
                             if self.advertise_passive_only is not None:
@@ -9666,13 +8996,7 @@ class Isis(object):
                             if self.default_information is not None and self.default_information._has_data():
                                 return True
 
-                            if self.default_information is not None and self.default_information.is_presence():
-                                return True
-
                             if self.frr_table is not None and self.frr_table._has_data():
-                                return True
-
-                            if self.frr_table is not None and self.frr_table.is_presence():
                                 return True
 
                             if self.ignore_attached_bit is not None:
@@ -9681,13 +9005,7 @@ class Isis(object):
                             if self.ispf is not None and self.ispf._has_data():
                                 return True
 
-                            if self.ispf is not None and self.ispf.is_presence():
-                                return True
-
                             if self.max_redist_prefixes is not None and self.max_redist_prefixes._has_data():
-                                return True
-
-                            if self.max_redist_prefixes is not None and self.max_redist_prefixes.is_presence():
                                 return True
 
                             if self.maximum_paths is not None:
@@ -9696,49 +9014,25 @@ class Isis(object):
                             if self.metric_styles is not None and self.metric_styles._has_data():
                                 return True
 
-                            if self.metric_styles is not None and self.metric_styles.is_presence():
-                                return True
-
                             if self.metrics is not None and self.metrics._has_data():
-                                return True
-
-                            if self.metrics is not None and self.metrics.is_presence():
                                 return True
 
                             if self.micro_loop_avoidance is not None and self.micro_loop_avoidance._has_data():
                                 return True
 
-                            if self.micro_loop_avoidance is not None and self.micro_loop_avoidance.is_presence():
-                                return True
-
                             if self.monitor_convergence is not None and self.monitor_convergence._has_data():
-                                return True
-
-                            if self.monitor_convergence is not None and self.monitor_convergence.is_presence():
                                 return True
 
                             if self.mpls is not None and self.mpls._has_data():
                                 return True
 
-                            if self.mpls is not None and self.mpls.is_presence():
-                                return True
-
                             if self.mpls_ldp_global is not None and self.mpls_ldp_global._has_data():
-                                return True
-
-                            if self.mpls_ldp_global is not None and self.mpls_ldp_global.is_presence():
                                 return True
 
                             if self.propagations is not None and self.propagations._has_data():
                                 return True
 
-                            if self.propagations is not None and self.propagations.is_presence():
-                                return True
-
                             if self.redistributions is not None and self.redistributions._has_data():
-                                return True
-
-                            if self.redistributions is not None and self.redistributions.is_presence():
                                 return True
 
                             if self.route_source_first_hop is not None:
@@ -9747,34 +9041,19 @@ class Isis(object):
                             if self.segment_routing is not None and self.segment_routing._has_data():
                                 return True
 
-                            if self.segment_routing is not None and self.segment_routing.is_presence():
-                                return True
-
                             if self.single_topology is not None:
                                 return True
 
                             if self.spf_intervals is not None and self.spf_intervals._has_data():
                                 return True
 
-                            if self.spf_intervals is not None and self.spf_intervals.is_presence():
-                                return True
-
                             if self.spf_periodic_intervals is not None and self.spf_periodic_intervals._has_data():
-                                return True
-
-                            if self.spf_periodic_intervals is not None and self.spf_periodic_intervals.is_presence():
                                 return True
 
                             if self.spf_prefix_priorities is not None and self.spf_prefix_priorities._has_data():
                                 return True
 
-                            if self.spf_prefix_priorities is not None and self.spf_prefix_priorities.is_presence():
-                                return True
-
                             if self.summary_prefixes is not None and self.summary_prefixes._has_data():
-                                return True
-
-                            if self.summary_prefixes is not None and self.summary_prefixes.is_presence():
                                 return True
 
                             if self.topology_id is not None:
@@ -9783,19 +9062,9 @@ class Isis(object):
                             if self.ucmp is not None and self.ucmp._has_data():
                                 return True
 
-                            if self.ucmp is not None and self.ucmp.is_presence():
-                                return True
-
                             if self.weights is not None and self.weights._has_data():
                                 return True
 
-                            if self.weights is not None and self.weights.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -9821,8 +9090,6 @@ class Isis(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.af_name is not None:
                             return True
 
@@ -9832,18 +9099,11 @@ class Isis(object):
                         if self.af_data is not None and self.af_data._has_data():
                             return True
 
-                        if self.af_data is not None and self.af_data.is_presence():
-                            return True
-
                         if self.topology_name is not None:
                             for child_ref in self.topology_name:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9865,17 +9125,11 @@ class Isis(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.af is not None:
                         for child_ref in self.af:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9895,6 +9149,11 @@ class Isis(object):
                 
                 	**range:** 1..65535
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: dist_throttle
                 
                 	Seconds
@@ -9902,10 +9161,20 @@ class Isis(object):
                 
                 	**range:** 5..20
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: level
                 
                 	Level
-                	**type**\: :py:class:`IsisConfigurableLevels_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels_Enum>`
+                	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -9936,8 +9205,6 @@ class Isis(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.dist_inst_id is not None:
                         return True
 
@@ -9948,10 +9215,6 @@ class Isis(object):
                         return True
 
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -10001,7 +9264,7 @@ class Isis(object):
                     .. attribute:: circuit_type
                     
                     	Configure circuit type for interface
-                    	**type**\: :py:class:`IsisConfigurableLevels_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevels_Enum>`
+                    	**type**\: :py:class:`IsisConfigurableLevelsEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisConfigurableLevelsEnum>`
                     
                     .. attribute:: csnp_intervals
                     
@@ -10066,7 +9329,7 @@ class Isis(object):
                     .. attribute:: mesh_group
                     
                     	Mesh\-group configuration
-                    	**type**\: one of { :py:class:`MeshGroup_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.MeshGroup_Enum>` | int }
+                    	**type**\: one of { :py:class:`MeshGroupEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.MeshGroupEnum>` | int }
                     
                     .. attribute:: point_to_point
                     
@@ -10086,7 +9349,7 @@ class Isis(object):
                     .. attribute:: state
                     
                     	Enable/Disable routing
-                    	**type**\: :py:class:`IsisInterfaceState_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceState_Enum>`
+                    	**type**\: :py:class:`IsisInterfaceStateEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceStateEnum>`
                     
                     
 
@@ -10131,27 +9394,27 @@ class Isis(object):
                         self.running = None
                         self.state = None
 
-                    class MeshGroup_Enum(Enum):
+                    class MeshGroupEnum(Enum):
                         """
-                        MeshGroup_Enum
+                        MeshGroupEnum
 
                         Mesh\-group configuration
 
-                        """
+                        .. data:: BLOCKED = 0
+
+                        	Blocked mesh group.  Changed LSPs are not
+
+                        	flooded over blocked interfaces
 
                         """
 
-                        Blocked mesh group.  Changed LSPs are not
-                        flooded over blocked interfaces
-
-                        """
                         BLOCKED = 0
 
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.MeshGroup_Enum']
+                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.MeshGroupEnum']
 
 
 
@@ -10211,8 +9474,6 @@ class Isis(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -10225,10 +9486,6 @@ class Isis(object):
                             if self.interval is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -10269,7 +9526,7 @@ class Isis(object):
                             .. attribute:: level
                             
                             	Level to which configuration applies
-                            	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                            	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                             
                             .. attribute:: interval
                             
@@ -10306,18 +9563,12 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.level is not None:
                                     return True
 
                                 if self.interval is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10339,17 +9590,11 @@ class Isis(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.csnp_interval is not None:
                                 for child_ref in self.csnp_interval:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -10390,7 +9635,7 @@ class Isis(object):
                             .. attribute:: level
                             
                             	Level to which configuration applies
-                            	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                            	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                             
                             .. attribute:: password
                             
@@ -10427,18 +9672,12 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.level is not None:
                                     return True
 
                                 if self.password is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10460,17 +9699,11 @@ class Isis(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.hello_accept_password is not None:
                                 for child_ref in self.hello_accept_password:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -10512,7 +9745,7 @@ class Isis(object):
                             .. attribute:: level
                             
                             	Level to which configuration applies
-                            	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                            	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                             
                             .. attribute:: interval
                             
@@ -10549,18 +9782,12 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.level is not None:
                                     return True
 
                                 if self.interval is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10582,17 +9809,11 @@ class Isis(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.hello_interval is not None:
                                 for child_ref in self.hello_interval:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -10633,7 +9854,7 @@ class Isis(object):
                             .. attribute:: level
                             
                             	Level to which configuration applies
-                            	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                            	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                             
                             .. attribute:: multiplier
                             
@@ -10670,18 +9891,12 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.level is not None:
                                     return True
 
                                 if self.multiplier is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10703,17 +9918,11 @@ class Isis(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.hello_multiplier is not None:
                                 for child_ref in self.hello_multiplier:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -10752,12 +9961,12 @@ class Isis(object):
                             .. attribute:: level
                             
                             	Level to which configuration applies
-                            	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                            	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                             
                             .. attribute:: padding_type
                             
                             	Hello padding type value
-                            	**type**\: :py:class:`IsisHelloPadding_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisHelloPadding_Enum>`
+                            	**type**\: :py:class:`IsisHelloPaddingEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisHelloPaddingEnum>`
                             
                             
 
@@ -10787,18 +9996,12 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.level is not None:
                                     return True
 
                                 if self.padding_type is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10820,17 +10023,11 @@ class Isis(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.hello_padding is not None:
                                 for child_ref in self.hello_padding:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -10871,17 +10068,17 @@ class Isis(object):
                             .. attribute:: level
                             
                             	Level to which configuration applies
-                            	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                            	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                             
                             .. attribute:: algorithm
                             
                             	Algorithm
-                            	**type**\: :py:class:`IsisAuthenticationAlgorithm_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAuthenticationAlgorithm_Enum>`
+                            	**type**\: :py:class:`IsisAuthenticationAlgorithmEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAuthenticationAlgorithmEnum>`
                             
                             .. attribute:: failure_mode
                             
                             	Failure Mode
-                            	**type**\: :py:class:`IsisAuthenticationFailureMode_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAuthenticationFailureMode_Enum>`
+                            	**type**\: :py:class:`IsisAuthenticationFailureModeEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAuthenticationFailureModeEnum>`
                             
                             .. attribute:: password
                             
@@ -10920,8 +10117,6 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.level is not None:
                                     return True
 
@@ -10934,10 +10129,6 @@ class Isis(object):
                                 if self.password is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10959,17 +10150,11 @@ class Isis(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.hello_password is not None:
                                 for child_ref in self.hello_password:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -11013,12 +10198,12 @@ class Isis(object):
                             .. attribute:: af_name
                             
                             	Address family
-                            	**type**\: :py:class:`IsisAddressFamily_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisAddressFamily_Enum>`
+                            	**type**\: :py:class:`IsisAddressFamilyEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisAddressFamilyEnum>`
                             
                             .. attribute:: saf_name
                             
                             	Sub address family
-                            	**type**\: :py:class:`IsisSubAddressFamily_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisSubAddressFamily_Enum>`
+                            	**type**\: :py:class:`IsisSubAddressFamilyEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisSubAddressFamilyEnum>`
                             
                             .. attribute:: interface_af_data
                             
@@ -11065,7 +10250,7 @@ class Isis(object):
                                 .. attribute:: interface_af_state
                                 
                                 	Interface state
-                                	**type**\: :py:class:`IsisInterfaceAfState_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceAfState_Enum>`
+                                	**type**\: :py:class:`IsisInterfaceAfStateEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceAfStateEnum>`
                                 
                                 .. attribute:: interface_frr_table
                                 
@@ -11160,7 +10345,7 @@ class Isis(object):
                                         .. attribute:: level
                                         
                                         	Level to which configuration applies
-                                        	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                        	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                         
                                         .. attribute:: admin_tag
                                         
@@ -11197,18 +10382,12 @@ class Isis(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.level is not None:
                                                 return True
 
                                             if self.admin_tag is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -11230,17 +10409,11 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.admin_tag is not None:
                                             for child_ref in self.admin_tag:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -11287,7 +10460,7 @@ class Isis(object):
                                         .. attribute:: level
                                         
                                         	Level to which configuration applies
-                                        	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                        	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                         
                                         .. attribute:: proactive_protect
                                         
@@ -11324,18 +10497,12 @@ class Isis(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.level is not None:
                                                 return True
 
                                             if self.proactive_protect is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -11357,17 +10524,11 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.auto_metric is not None:
                                             for child_ref in self.auto_metric:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -11463,7 +10624,7 @@ class Isis(object):
                                             .. attribute:: frr_type
                                             
                                             	Computation Type
-                                            	**type**\: :py:class:`Isisfrr_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isisfrr_Enum>`
+                                            	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                             
                                             .. attribute:: interface_name
                                             
@@ -11510,8 +10671,6 @@ class Isis(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.frr_type is not None:
                                                     return True
 
@@ -11521,10 +10680,6 @@ class Isis(object):
                                                 if self.level is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -11546,17 +10701,11 @@ class Isis(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.frr_exclude_interface is not None:
                                                 for child_ref in self.frr_exclude_interface:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -11596,7 +10745,7 @@ class Isis(object):
                                             .. attribute:: level
                                             
                                             	Level to which configuration applies
-                                            	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                            	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                             
                                             .. attribute:: max_metric
                                             
@@ -11633,18 +10782,12 @@ class Isis(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.level is not None:
                                                     return True
 
                                                 if self.max_metric is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -11666,17 +10809,11 @@ class Isis(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.frr_remote_lfa_max_metric is not None:
                                                 for child_ref in self.frr_remote_lfa_max_metric:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -11716,12 +10853,12 @@ class Isis(object):
                                             .. attribute:: level
                                             
                                             	Level to which configuration applies
-                                            	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                            	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                             
                                             .. attribute:: type
                                             
                                             	Remote LFA Type
-                                            	**type**\: :py:class:`IsisRemoteLfa_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisRemoteLfa_Enum>`
+                                            	**type**\: :py:class:`IsisRemoteLfaEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisRemoteLfaEnum>`
                                             
                                             
 
@@ -11751,18 +10888,12 @@ class Isis(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.level is not None:
                                                     return True
 
                                                 if self.type is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -11784,17 +10915,11 @@ class Isis(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.frr_remote_lfa_type is not None:
                                                 for child_ref in self.frr_remote_lfa_type:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -11834,12 +10959,12 @@ class Isis(object):
                                             .. attribute:: level
                                             
                                             	Level to which configuration applies
-                                            	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                            	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                             
                                             .. attribute:: type
                                             
                                             	Computation Type
-                                            	**type**\: :py:class:`Isisfrr_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isisfrr_Enum>`
+                                            	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                             
                                             
 
@@ -11869,18 +10994,12 @@ class Isis(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.level is not None:
                                                     return True
 
                                                 if self.type is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -11902,17 +11021,11 @@ class Isis(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.frr_type is not None:
                                                 for child_ref in self.frr_type:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -11952,7 +11065,7 @@ class Isis(object):
                                             .. attribute:: frr_type
                                             
                                             	Computation Type
-                                            	**type**\: :py:class:`Isisfrr_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isisfrr_Enum>`
+                                            	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                             
                                             .. attribute:: interface_name
                                             
@@ -11999,8 +11112,6 @@ class Isis(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.frr_type is not None:
                                                     return True
 
@@ -12010,10 +11121,6 @@ class Isis(object):
                                                 if self.level is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -12035,17 +11142,11 @@ class Isis(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.frrlfa_candidate_interface is not None:
                                                 for child_ref in self.frrlfa_candidate_interface:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -12084,7 +11185,7 @@ class Isis(object):
                                             .. attribute:: level
                                             
                                             	Level to which configuration applies
-                                            	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                            	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                             
                                             
 
@@ -12113,15 +11214,9 @@ class Isis(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.level is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -12143,17 +11238,11 @@ class Isis(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.frrtilfa_type is not None:
                                                 for child_ref in self.frrtilfa_type:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -12175,48 +11264,24 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.frr_exclude_interfaces is not None and self.frr_exclude_interfaces._has_data():
-                                            return True
-
-                                        if self.frr_exclude_interfaces is not None and self.frr_exclude_interfaces.is_presence():
                                             return True
 
                                         if self.frr_remote_lfa_max_metrics is not None and self.frr_remote_lfa_max_metrics._has_data():
                                             return True
 
-                                        if self.frr_remote_lfa_max_metrics is not None and self.frr_remote_lfa_max_metrics.is_presence():
-                                            return True
-
                                         if self.frr_remote_lfa_types is not None and self.frr_remote_lfa_types._has_data():
-                                            return True
-
-                                        if self.frr_remote_lfa_types is not None and self.frr_remote_lfa_types.is_presence():
                                             return True
 
                                         if self.frr_types is not None and self.frr_types._has_data():
                                             return True
 
-                                        if self.frr_types is not None and self.frr_types.is_presence():
-                                            return True
-
                                         if self.frrlfa_candidate_interfaces is not None and self.frrlfa_candidate_interfaces._has_data():
-                                            return True
-
-                                        if self.frrlfa_candidate_interfaces is not None and self.frrlfa_candidate_interfaces.is_presence():
                                             return True
 
                                         if self.frrtilfa_types is not None and self.frrtilfa_types._has_data():
                                             return True
 
-                                        if self.frrtilfa_types is not None and self.frrtilfa_types.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -12236,12 +11301,22 @@ class Isis(object):
                                     
                                     	**range:** 0..2
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: link_group
                                     
                                     	Link Group
                                     	**type**\: str
                                     
                                     	**range:** 0..40
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -12271,8 +11346,6 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.level is not None:
                                             return True
 
@@ -12280,10 +11353,6 @@ class Isis(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -12328,12 +11397,12 @@ class Isis(object):
                                         .. attribute:: level
                                         
                                         	Level to which configuration applies
-                                        	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                        	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                         
                                         .. attribute:: metric
                                         
                                         	Allowed metric\: <1\-63> for narrow, <1\-16777215> for wide
-                                        	**type**\: one of { :py:class:`Metric_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric_Enum>` | int }
+                                        	**type**\: one of { :py:class:`MetricEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.MetricEnum>` | int }
                                         
                                         
 
@@ -12347,28 +11416,29 @@ class Isis(object):
                                             self.level = None
                                             self.metric = None
 
-                                        class Metric_Enum(Enum):
+                                        class MetricEnum(Enum):
                                             """
-                                            Metric_Enum
+                                            MetricEnum
 
                                             Allowed metric\: <1\-63> for narrow,
+
                                             <1\-16777215> for wide
 
-                                            """
+                                            .. data:: MAXIMUM = 16777215
+
+                                            	Maximum wide metric.  All routers will
+
+                                            	exclude this link from their SPF
 
                                             """
 
-                                            Maximum wide metric.  All routers will
-                                            exclude this link from their SPF
-
-                                            """
                                             MAXIMUM = 16777215
 
 
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics.Metric.Metric_Enum']
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics.Metric.MetricEnum']
 
 
                                         @property
@@ -12387,18 +11457,12 @@ class Isis(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.level is not None:
                                                 return True
 
                                             if self.metric is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -12420,17 +11484,11 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.metric is not None:
                                             for child_ref in self.metric:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -12475,15 +11533,9 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.sync_level is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -12502,22 +11554,42 @@ class Isis(object):
                                     .. attribute:: explicit_null
                                     
                                     	Enable/Disable Explicit\-NULL flag
-                                    	**type**\: :py:class:`IsisexplicitNullFlag_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisexplicitNullFlag_Enum>`
+                                    	**type**\: :py:class:`IsisexplicitNullFlagEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisexplicitNullFlagEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     .. attribute:: nflag_clear
                                     
                                     	Clear N\-flag for the prefix\-SID
-                                    	**type**\: :py:class:`NflagClear_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.NflagClear_Enum>`
+                                    	**type**\: :py:class:`NflagClearEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.NflagClearEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     .. attribute:: php
                                     
                                     	Enable/Disable Penultimate Hop Popping
-                                    	**type**\: :py:class:`IsisphpFlag_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisphpFlag_Enum>`
+                                    	**type**\: :py:class:`IsisphpFlagEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisphpFlagEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     .. attribute:: type
                                     
                                     	SID type for the interface
-                                    	**type**\: :py:class:`Isissid_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isissid_Enum>`
+                                    	**type**\: :py:class:`IsissidEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsissidEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     .. attribute:: value
                                     
@@ -12525,6 +11597,11 @@ class Isis(object):
                                     	**type**\: int
                                     
                                     	**range:** 0..1048575
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -12557,8 +11634,6 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.explicit_null is not None:
                                             return True
 
@@ -12575,10 +11650,6 @@ class Isis(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -12617,7 +11688,7 @@ class Isis(object):
                                         .. attribute:: level
                                         
                                         	Level to which configuration applies
-                                        	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                        	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                         
                                         .. attribute:: weight
                                         
@@ -12654,18 +11725,12 @@ class Isis(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.level is not None:
                                                 return True
 
                                             if self.weight is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -12687,17 +11752,11 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.weight is not None:
                                             for child_ref in self.weight:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -12719,18 +11778,10 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.admin_tags is not None and self.admin_tags._has_data():
                                         return True
 
-                                    if self.admin_tags is not None and self.admin_tags.is_presence():
-                                        return True
-
                                     if self.auto_metrics is not None and self.auto_metrics._has_data():
-                                        return True
-
-                                    if self.auto_metrics is not None and self.auto_metrics.is_presence():
                                         return True
 
                                     if self.interface_af_state is not None:
@@ -12739,31 +11790,16 @@ class Isis(object):
                                     if self.interface_frr_table is not None and self.interface_frr_table._has_data():
                                         return True
 
-                                    if self.interface_frr_table is not None and self.interface_frr_table.is_presence():
-                                        return True
-
                                     if self.interface_link_group is not None and self.interface_link_group._has_data():
-                                        return True
-
-                                    if self.interface_link_group is not None and self.interface_link_group.is_presence():
                                         return True
 
                                     if self.metrics is not None and self.metrics._has_data():
                                         return True
 
-                                    if self.metrics is not None and self.metrics.is_presence():
-                                        return True
-
                                     if self.mpls_ldp is not None and self.mpls_ldp._has_data():
                                         return True
 
-                                    if self.mpls_ldp is not None and self.mpls_ldp.is_presence():
-                                        return True
-
                                     if self.prefix_sid is not None and self.prefix_sid._has_data():
-                                        return True
-
-                                    if self.prefix_sid is not None and self.prefix_sid.is_presence():
                                         return True
 
                                     if self.running is not None:
@@ -12772,13 +11808,6 @@ class Isis(object):
                                     if self.weights is not None and self.weights._has_data():
                                         return True
 
-                                    if self.weights is not None and self.weights.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -12811,7 +11840,7 @@ class Isis(object):
                                 .. attribute:: interface_af_state
                                 
                                 	Interface state
-                                	**type**\: :py:class:`IsisInterfaceAfState_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceAfState_Enum>`
+                                	**type**\: :py:class:`IsisInterfaceAfStateEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceAfStateEnum>`
                                 
                                 .. attribute:: interface_frr_table
                                 
@@ -12907,7 +11936,7 @@ class Isis(object):
                                         .. attribute:: level
                                         
                                         	Level to which configuration applies
-                                        	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                        	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                         
                                         .. attribute:: admin_tag
                                         
@@ -12944,18 +11973,12 @@ class Isis(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.level is not None:
                                                 return True
 
                                             if self.admin_tag is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -12977,17 +12000,11 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.admin_tag is not None:
                                             for child_ref in self.admin_tag:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -13034,7 +12051,7 @@ class Isis(object):
                                         .. attribute:: level
                                         
                                         	Level to which configuration applies
-                                        	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                        	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                         
                                         .. attribute:: proactive_protect
                                         
@@ -13071,18 +12088,12 @@ class Isis(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.level is not None:
                                                 return True
 
                                             if self.proactive_protect is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -13104,17 +12115,11 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.auto_metric is not None:
                                             for child_ref in self.auto_metric:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -13210,7 +12215,7 @@ class Isis(object):
                                             .. attribute:: frr_type
                                             
                                             	Computation Type
-                                            	**type**\: :py:class:`Isisfrr_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isisfrr_Enum>`
+                                            	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                             
                                             .. attribute:: interface_name
                                             
@@ -13257,8 +12262,6 @@ class Isis(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.frr_type is not None:
                                                     return True
 
@@ -13268,10 +12271,6 @@ class Isis(object):
                                                 if self.level is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -13293,17 +12292,11 @@ class Isis(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.frr_exclude_interface is not None:
                                                 for child_ref in self.frr_exclude_interface:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -13343,7 +12336,7 @@ class Isis(object):
                                             .. attribute:: level
                                             
                                             	Level to which configuration applies
-                                            	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                            	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                             
                                             .. attribute:: max_metric
                                             
@@ -13380,18 +12373,12 @@ class Isis(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.level is not None:
                                                     return True
 
                                                 if self.max_metric is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -13413,17 +12400,11 @@ class Isis(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.frr_remote_lfa_max_metric is not None:
                                                 for child_ref in self.frr_remote_lfa_max_metric:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -13463,12 +12444,12 @@ class Isis(object):
                                             .. attribute:: level
                                             
                                             	Level to which configuration applies
-                                            	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                            	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                             
                                             .. attribute:: type
                                             
                                             	Remote LFA Type
-                                            	**type**\: :py:class:`IsisRemoteLfa_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisRemoteLfa_Enum>`
+                                            	**type**\: :py:class:`IsisRemoteLfaEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisRemoteLfaEnum>`
                                             
                                             
 
@@ -13498,18 +12479,12 @@ class Isis(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.level is not None:
                                                     return True
 
                                                 if self.type is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -13531,17 +12506,11 @@ class Isis(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.frr_remote_lfa_type is not None:
                                                 for child_ref in self.frr_remote_lfa_type:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -13581,12 +12550,12 @@ class Isis(object):
                                             .. attribute:: level
                                             
                                             	Level to which configuration applies
-                                            	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                            	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                             
                                             .. attribute:: type
                                             
                                             	Computation Type
-                                            	**type**\: :py:class:`Isisfrr_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isisfrr_Enum>`
+                                            	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                             
                                             
 
@@ -13616,18 +12585,12 @@ class Isis(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.level is not None:
                                                     return True
 
                                                 if self.type is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -13649,17 +12612,11 @@ class Isis(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.frr_type is not None:
                                                 for child_ref in self.frr_type:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -13699,7 +12656,7 @@ class Isis(object):
                                             .. attribute:: frr_type
                                             
                                             	Computation Type
-                                            	**type**\: :py:class:`Isisfrr_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isisfrr_Enum>`
+                                            	**type**\: :py:class:`IsisfrrEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                             
                                             .. attribute:: interface_name
                                             
@@ -13746,8 +12703,6 @@ class Isis(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.frr_type is not None:
                                                     return True
 
@@ -13757,10 +12712,6 @@ class Isis(object):
                                                 if self.level is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -13782,17 +12733,11 @@ class Isis(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.frrlfa_candidate_interface is not None:
                                                 for child_ref in self.frrlfa_candidate_interface:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -13831,7 +12776,7 @@ class Isis(object):
                                             .. attribute:: level
                                             
                                             	Level to which configuration applies
-                                            	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                            	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                             
                                             
 
@@ -13860,15 +12805,9 @@ class Isis(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.level is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -13890,17 +12829,11 @@ class Isis(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.frrtilfa_type is not None:
                                                 for child_ref in self.frrtilfa_type:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -13922,48 +12855,24 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.frr_exclude_interfaces is not None and self.frr_exclude_interfaces._has_data():
-                                            return True
-
-                                        if self.frr_exclude_interfaces is not None and self.frr_exclude_interfaces.is_presence():
                                             return True
 
                                         if self.frr_remote_lfa_max_metrics is not None and self.frr_remote_lfa_max_metrics._has_data():
                                             return True
 
-                                        if self.frr_remote_lfa_max_metrics is not None and self.frr_remote_lfa_max_metrics.is_presence():
-                                            return True
-
                                         if self.frr_remote_lfa_types is not None and self.frr_remote_lfa_types._has_data():
-                                            return True
-
-                                        if self.frr_remote_lfa_types is not None and self.frr_remote_lfa_types.is_presence():
                                             return True
 
                                         if self.frr_types is not None and self.frr_types._has_data():
                                             return True
 
-                                        if self.frr_types is not None and self.frr_types.is_presence():
-                                            return True
-
                                         if self.frrlfa_candidate_interfaces is not None and self.frrlfa_candidate_interfaces._has_data():
-                                            return True
-
-                                        if self.frrlfa_candidate_interfaces is not None and self.frrlfa_candidate_interfaces.is_presence():
                                             return True
 
                                         if self.frrtilfa_types is not None and self.frrtilfa_types._has_data():
                                             return True
 
-                                        if self.frrtilfa_types is not None and self.frrtilfa_types.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -13983,12 +12892,22 @@ class Isis(object):
                                     
                                     	**range:** 0..2
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: link_group
                                     
                                     	Link Group
                                     	**type**\: str
                                     
                                     	**range:** 0..40
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -14018,8 +12937,6 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.level is not None:
                                             return True
 
@@ -14027,10 +12944,6 @@ class Isis(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -14075,12 +12988,12 @@ class Isis(object):
                                         .. attribute:: level
                                         
                                         	Level to which configuration applies
-                                        	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                        	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                         
                                         .. attribute:: metric
                                         
                                         	Allowed metric\: <1\-63> for narrow, <1\-16777215> for wide
-                                        	**type**\: one of { :py:class:`Metric_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric_Enum>` | int }
+                                        	**type**\: one of { :py:class:`MetricEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.MetricEnum>` | int }
                                         
                                         
 
@@ -14094,28 +13007,29 @@ class Isis(object):
                                             self.level = None
                                             self.metric = None
 
-                                        class Metric_Enum(Enum):
+                                        class MetricEnum(Enum):
                                             """
-                                            Metric_Enum
+                                            MetricEnum
 
                                             Allowed metric\: <1\-63> for narrow,
+
                                             <1\-16777215> for wide
 
-                                            """
+                                            .. data:: MAXIMUM = 16777215
+
+                                            	Maximum wide metric.  All routers will
+
+                                            	exclude this link from their SPF
 
                                             """
 
-                                            Maximum wide metric.  All routers will
-                                            exclude this link from their SPF
-
-                                            """
                                             MAXIMUM = 16777215
 
 
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
-                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric_Enum']
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.MetricEnum']
 
 
                                         @property
@@ -14134,18 +13048,12 @@ class Isis(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.level is not None:
                                                 return True
 
                                             if self.metric is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -14167,17 +13075,11 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.metric is not None:
                                             for child_ref in self.metric:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -14222,15 +13124,9 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.sync_level is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -14249,22 +13145,42 @@ class Isis(object):
                                     .. attribute:: explicit_null
                                     
                                     	Enable/Disable Explicit\-NULL flag
-                                    	**type**\: :py:class:`IsisexplicitNullFlag_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisexplicitNullFlag_Enum>`
+                                    	**type**\: :py:class:`IsisexplicitNullFlagEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisexplicitNullFlagEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     .. attribute:: nflag_clear
                                     
                                     	Clear N\-flag for the prefix\-SID
-                                    	**type**\: :py:class:`NflagClear_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.NflagClear_Enum>`
+                                    	**type**\: :py:class:`NflagClearEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.NflagClearEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     .. attribute:: php
                                     
                                     	Enable/Disable Penultimate Hop Popping
-                                    	**type**\: :py:class:`IsisphpFlag_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisphpFlag_Enum>`
+                                    	**type**\: :py:class:`IsisphpFlagEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisphpFlagEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     .. attribute:: type
                                     
                                     	SID type for the interface
-                                    	**type**\: :py:class:`Isissid_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.Isissid_Enum>`
+                                    	**type**\: :py:class:`IsissidEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsissidEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     .. attribute:: value
                                     
@@ -14272,6 +13188,11 @@ class Isis(object):
                                     	**type**\: int
                                     
                                     	**range:** 0..1048575
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -14304,8 +13225,6 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.explicit_null is not None:
                                             return True
 
@@ -14322,10 +13241,6 @@ class Isis(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -14364,7 +13279,7 @@ class Isis(object):
                                         .. attribute:: level
                                         
                                         	Level to which configuration applies
-                                        	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                                        	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                         
                                         .. attribute:: weight
                                         
@@ -14401,18 +13316,12 @@ class Isis(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.level is not None:
                                                 return True
 
                                             if self.weight is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -14434,17 +13343,11 @@ class Isis(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.weight is not None:
                                             for child_ref in self.weight:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -14468,21 +13371,13 @@ class Isis(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.topology_name is not None:
                                         return True
 
                                     if self.admin_tags is not None and self.admin_tags._has_data():
                                         return True
 
-                                    if self.admin_tags is not None and self.admin_tags.is_presence():
-                                        return True
-
                                     if self.auto_metrics is not None and self.auto_metrics._has_data():
-                                        return True
-
-                                    if self.auto_metrics is not None and self.auto_metrics.is_presence():
                                         return True
 
                                     if self.interface_af_state is not None:
@@ -14491,31 +13386,16 @@ class Isis(object):
                                     if self.interface_frr_table is not None and self.interface_frr_table._has_data():
                                         return True
 
-                                    if self.interface_frr_table is not None and self.interface_frr_table.is_presence():
-                                        return True
-
                                     if self.interface_link_group is not None and self.interface_link_group._has_data():
-                                        return True
-
-                                    if self.interface_link_group is not None and self.interface_link_group.is_presence():
                                         return True
 
                                     if self.metrics is not None and self.metrics._has_data():
                                         return True
 
-                                    if self.metrics is not None and self.metrics.is_presence():
-                                        return True
-
                                     if self.mpls_ldp is not None and self.mpls_ldp._has_data():
                                         return True
 
-                                    if self.mpls_ldp is not None and self.mpls_ldp.is_presence():
-                                        return True
-
                                     if self.prefix_sid is not None and self.prefix_sid._has_data():
-                                        return True
-
-                                    if self.prefix_sid is not None and self.prefix_sid.is_presence():
                                         return True
 
                                     if self.running is not None:
@@ -14524,13 +13404,6 @@ class Isis(object):
                                     if self.weights is not None and self.weights._has_data():
                                         return True
 
-                                    if self.weights is not None and self.weights.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -14556,8 +13429,6 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.af_name is not None:
                                     return True
 
@@ -14567,18 +13438,11 @@ class Isis(object):
                                 if self.interface_af_data is not None and self.interface_af_data._has_data():
                                     return True
 
-                                if self.interface_af_data is not None and self.interface_af_data.is_presence():
-                                    return True
-
                                 if self.topology_name is not None:
                                     for child_ref in self.topology_name:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -14600,17 +13464,11 @@ class Isis(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface_af is not None:
                                 for child_ref in self.interface_af:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -14650,7 +13508,7 @@ class Isis(object):
                             .. attribute:: level
                             
                             	Level to which configuration applies
-                            	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                            	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                             
                             .. attribute:: count
                             
@@ -14687,18 +13545,12 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.level is not None:
                                     return True
 
                                 if self.count is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -14720,17 +13572,11 @@ class Isis(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.lsp_fast_flood_threshold is not None:
                                 for child_ref in self.lsp_fast_flood_threshold:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -14770,7 +13616,7 @@ class Isis(object):
                             .. attribute:: level
                             
                             	Level to which configuration applies
-                            	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                            	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                             
                             .. attribute:: interval
                             
@@ -14807,18 +13653,12 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.level is not None:
                                     return True
 
                                 if self.interval is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -14840,17 +13680,11 @@ class Isis(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.lsp_interval is not None:
                                 for child_ref in self.lsp_interval:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -14890,7 +13724,7 @@ class Isis(object):
                             .. attribute:: level
                             
                             	Level to which configuration applies
-                            	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                            	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                             
                             .. attribute:: interval
                             
@@ -14927,18 +13761,12 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.level is not None:
                                     return True
 
                                 if self.interval is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -14960,17 +13788,11 @@ class Isis(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.lsp_retransmit_interval is not None:
                                 for child_ref in self.lsp_retransmit_interval:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -15011,7 +13833,7 @@ class Isis(object):
                             .. attribute:: level
                             
                             	Level to which configuration applies
-                            	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                            	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                             
                             .. attribute:: interval
                             
@@ -15048,18 +13870,12 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.level is not None:
                                     return True
 
                                 if self.interval is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -15081,17 +13897,11 @@ class Isis(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.lsp_retransmit_throttle_interval is not None:
                                 for child_ref in self.lsp_retransmit_throttle_interval:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -15130,7 +13940,7 @@ class Isis(object):
                             .. attribute:: level
                             
                             	Level to which configuration applies
-                            	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                            	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                             
                             .. attribute:: priority_value
                             
@@ -15167,18 +13977,12 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.level is not None:
                                     return True
 
                                 if self.priority_value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -15200,17 +14004,11 @@ class Isis(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.priority is not None:
                                 for child_ref in self.priority:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -15234,15 +14032,10 @@ class Isis(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_name is not None:
                             return True
 
                         if self.bfd is not None and self.bfd._has_data():
-                            return True
-
-                        if self.bfd is not None and self.bfd.is_presence():
                             return True
 
                         if self.circuit_type is not None:
@@ -15251,43 +14044,22 @@ class Isis(object):
                         if self.csnp_intervals is not None and self.csnp_intervals._has_data():
                             return True
 
-                        if self.csnp_intervals is not None and self.csnp_intervals.is_presence():
-                            return True
-
                         if self.hello_accept_passwords is not None and self.hello_accept_passwords._has_data():
-                            return True
-
-                        if self.hello_accept_passwords is not None and self.hello_accept_passwords.is_presence():
                             return True
 
                         if self.hello_intervals is not None and self.hello_intervals._has_data():
                             return True
 
-                        if self.hello_intervals is not None and self.hello_intervals.is_presence():
-                            return True
-
                         if self.hello_multipliers is not None and self.hello_multipliers._has_data():
-                            return True
-
-                        if self.hello_multipliers is not None and self.hello_multipliers.is_presence():
                             return True
 
                         if self.hello_paddings is not None and self.hello_paddings._has_data():
                             return True
 
-                        if self.hello_paddings is not None and self.hello_paddings.is_presence():
-                            return True
-
                         if self.hello_passwords is not None and self.hello_passwords._has_data():
                             return True
 
-                        if self.hello_passwords is not None and self.hello_passwords.is_presence():
-                            return True
-
                         if self.interface_afs is not None and self.interface_afs._has_data():
-                            return True
-
-                        if self.interface_afs is not None and self.interface_afs.is_presence():
                             return True
 
                         if self.link_down_fast_detect is not None:
@@ -15296,25 +14068,13 @@ class Isis(object):
                         if self.lsp_fast_flood_thresholds is not None and self.lsp_fast_flood_thresholds._has_data():
                             return True
 
-                        if self.lsp_fast_flood_thresholds is not None and self.lsp_fast_flood_thresholds.is_presence():
-                            return True
-
                         if self.lsp_intervals is not None and self.lsp_intervals._has_data():
-                            return True
-
-                        if self.lsp_intervals is not None and self.lsp_intervals.is_presence():
                             return True
 
                         if self.lsp_retransmit_intervals is not None and self.lsp_retransmit_intervals._has_data():
                             return True
 
-                        if self.lsp_retransmit_intervals is not None and self.lsp_retransmit_intervals.is_presence():
-                            return True
-
                         if self.lsp_retransmit_throttle_intervals is not None and self.lsp_retransmit_throttle_intervals._has_data():
-                            return True
-
-                        if self.lsp_retransmit_throttle_intervals is not None and self.lsp_retransmit_throttle_intervals.is_presence():
                             return True
 
                         if self.mesh_group is not None:
@@ -15326,19 +14086,12 @@ class Isis(object):
                         if self.priorities is not None and self.priorities._has_data():
                             return True
 
-                        if self.priorities is not None and self.priorities.is_presence():
-                            return True
-
                         if self.running is not None:
                             return True
 
                         if self.state is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -15360,17 +14113,11 @@ class Isis(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -15470,8 +14217,6 @@ class Isis(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.link_group_name is not None:
                             return True
 
@@ -15487,10 +14232,6 @@ class Isis(object):
                         if self.revert_members is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -15512,17 +14253,11 @@ class Isis(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.link_group is not None:
                         for child_ref in self.link_group:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -15563,7 +14298,7 @@ class Isis(object):
                     .. attribute:: level
                     
                     	Level to which configuration applies
-                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                     
                     .. attribute:: password
                     
@@ -15600,18 +14335,12 @@ class Isis(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.level is not None:
                             return True
 
                         if self.password is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -15633,17 +14362,11 @@ class Isis(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.lsp_accept_password is not None:
                         for child_ref in self.lsp_accept_password:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -15682,7 +14405,7 @@ class Isis(object):
                     .. attribute:: level
                     
                     	Level to which configuration applies
-                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                     
                     .. attribute:: initial_wait
                     
@@ -15735,8 +14458,6 @@ class Isis(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.level is not None:
                             return True
 
@@ -15749,10 +14470,6 @@ class Isis(object):
                         if self.secondary_wait is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -15774,17 +14491,11 @@ class Isis(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.lsp_arrival_time is not None:
                         for child_ref in self.lsp_arrival_time:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -15823,7 +14534,7 @@ class Isis(object):
                     .. attribute:: level
                     
                     	Level to which configuration applies
-                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                     
                     .. attribute:: interval
                     
@@ -15860,18 +14571,12 @@ class Isis(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.level is not None:
                             return True
 
                         if self.interval is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -15893,17 +14598,11 @@ class Isis(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.lsp_check_interval is not None:
                         for child_ref in self.lsp_check_interval:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -15942,7 +14641,7 @@ class Isis(object):
                     .. attribute:: level
                     
                     	Level to which configuration applies
-                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                     
                     .. attribute:: initial_wait
                     
@@ -15995,8 +14694,6 @@ class Isis(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.level is not None:
                             return True
 
@@ -16009,10 +14706,6 @@ class Isis(object):
                         if self.secondary_wait is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -16034,17 +14727,11 @@ class Isis(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.lsp_generation_interval is not None:
                         for child_ref in self.lsp_generation_interval:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -16083,7 +14770,7 @@ class Isis(object):
                     .. attribute:: level
                     
                     	Level to which configuration applies
-                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                     
                     .. attribute:: lifetime
                     
@@ -16120,18 +14807,12 @@ class Isis(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.level is not None:
                             return True
 
                         if self.lifetime is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -16153,17 +14834,11 @@ class Isis(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.lsp_lifetime is not None:
                         for child_ref in self.lsp_lifetime:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -16202,7 +14877,7 @@ class Isis(object):
                     .. attribute:: level
                     
                     	Level to which configuration applies
-                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                     
                     .. attribute:: mtu
                     
@@ -16239,18 +14914,12 @@ class Isis(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.level is not None:
                             return True
 
                         if self.mtu is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -16272,17 +14941,11 @@ class Isis(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.lsp_mtu is not None:
                         for child_ref in self.lsp_mtu:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -16322,22 +14985,22 @@ class Isis(object):
                     .. attribute:: level
                     
                     	Level to which configuration applies
-                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                     
                     .. attribute:: algorithm
                     
                     	Algorithm
-                    	**type**\: :py:class:`IsisAuthenticationAlgorithm_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAuthenticationAlgorithm_Enum>`
+                    	**type**\: :py:class:`IsisAuthenticationAlgorithmEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAuthenticationAlgorithmEnum>`
                     
                     .. attribute:: authentication_type
                     
                     	SNP packet authentication mode
-                    	**type**\: :py:class:`IsisSnpAuth_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisSnpAuth_Enum>`
+                    	**type**\: :py:class:`IsisSnpAuthEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisSnpAuthEnum>`
                     
                     .. attribute:: failure_mode
                     
                     	Failure Mode
-                    	**type**\: :py:class:`IsisAuthenticationFailureMode_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAuthenticationFailureMode_Enum>`
+                    	**type**\: :py:class:`IsisAuthenticationFailureModeEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAuthenticationFailureModeEnum>`
                     
                     .. attribute:: password
                     
@@ -16377,8 +15040,6 @@ class Isis(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.level is not None:
                             return True
 
@@ -16394,10 +15055,6 @@ class Isis(object):
                         if self.password is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -16419,17 +15076,11 @@ class Isis(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.lsp_password is not None:
                         for child_ref in self.lsp_password:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -16469,7 +15120,7 @@ class Isis(object):
                     .. attribute:: level
                     
                     	Level to which configuration applies
-                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                     
                     .. attribute:: interval
                     
@@ -16506,18 +15157,12 @@ class Isis(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.level is not None:
                             return True
 
                         if self.interval is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -16539,17 +15184,11 @@ class Isis(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.lsp_refresh_interval is not None:
                         for child_ref in self.lsp_refresh_interval:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -16588,7 +15227,7 @@ class Isis(object):
                     .. attribute:: level
                     
                     	Level to which configuration applies
-                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                     
                     
 
@@ -16617,15 +15256,9 @@ class Isis(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.level is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -16647,17 +15280,11 @@ class Isis(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.max_link_metric is not None:
                         for child_ref in self.max_link_metric:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -16727,15 +15354,9 @@ class Isis(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.net_name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -16757,17 +15378,11 @@ class Isis(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.net is not None:
                         for child_ref in self.net:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -16783,7 +15398,7 @@ class Isis(object):
                 .. attribute:: flavor
                 
                 	NSF not configured if item is deleted
-                	**type**\: :py:class:`IsisNsfFlavor_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisNsfFlavor_Enum>`
+                	**type**\: :py:class:`IsisNsfFlavorEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisNsfFlavorEnum>`
                 
                 .. attribute:: interface_timer
                 
@@ -16834,8 +15449,6 @@ class Isis(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.flavor is not None:
                         return True
 
@@ -16848,10 +15461,6 @@ class Isis(object):
                     if self.max_interface_timer_expiry is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -16897,12 +15506,12 @@ class Isis(object):
                     .. attribute:: level
                     
                     	Level to which configuration applies
-                    	**type**\: :py:class:`IsisInternalLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevel_Enum>`
+                    	**type**\: :py:class:`IsisInternalLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                     
                     .. attribute:: external_adv_type
                     
                     	Advertise prefixes from other protocols
-                    	**type**\: :py:class:`IsisAdvTypeExternal_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAdvTypeExternal_Enum>`
+                    	**type**\: :py:class:`IsisAdvTypeExternalEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAdvTypeExternalEnum>`
                     
                     .. attribute:: hippity_period
                     
@@ -16914,12 +15523,12 @@ class Isis(object):
                     .. attribute:: inter_level_adv_type
                     
                     	Advertise prefixes across ISIS levels
-                    	**type**\: :py:class:`IsisAdvTypeInterLevel_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAdvTypeInterLevel_Enum>`
+                    	**type**\: :py:class:`IsisAdvTypeInterLevelEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisAdvTypeInterLevelEnum>`
                     
                     .. attribute:: overload_bit_mode
                     
                     	Circumstances under which the overload bit is set in the system LSP
-                    	**type**\: :py:class:`IsisOverloadBitMode_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisOverloadBitMode_Enum>`
+                    	**type**\: :py:class:`IsisOverloadBitModeEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisOverloadBitModeEnum>`
                     
                     
 
@@ -16952,8 +15561,6 @@ class Isis(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.level is not None:
                             return True
 
@@ -16969,10 +15576,6 @@ class Isis(object):
                         if self.overload_bit_mode is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -16994,17 +15597,11 @@ class Isis(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.overload_bit is not None:
                         for child_ref in self.overload_bit:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -17024,12 +15621,22 @@ class Isis(object):
                 
                 	**range:** 16000..1048574
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: upper_bound
                 
                 	The upper bound of the SRGB
                 	**type**\: int
                 
                 	**range:** 16001..1048575
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -17059,8 +15666,6 @@ class Isis(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.lower_bound is not None:
                         return True
 
@@ -17068,10 +15673,6 @@ class Isis(object):
                         return True
 
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -17131,8 +15732,6 @@ class Isis(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.detailed is not None:
                         return True
 
@@ -17142,10 +15741,6 @@ class Isis(object):
                     if self.standard is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -17167,21 +15762,13 @@ class Isis(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.instance_name is not None:
                     return True
 
                 if self.afs is not None and self.afs._has_data():
                     return True
 
-                if self.afs is not None and self.afs.is_presence():
-                    return True
-
                 if self.distribute is not None and self.distribute._has_data():
-                    return True
-
-                if self.distribute is not None and self.distribute.is_presence():
                     return True
 
                 if self.dynamic_host_name is not None:
@@ -17193,16 +15780,10 @@ class Isis(object):
                 if self.interfaces is not None and self.interfaces._has_data():
                     return True
 
-                if self.interfaces is not None and self.interfaces.is_presence():
-                    return True
-
                 if self.is_type is not None:
                     return True
 
                 if self.link_groups is not None and self.link_groups._has_data():
-                    return True
-
-                if self.link_groups is not None and self.link_groups.is_presence():
                     return True
 
                 if self.log_adjacency_changes is not None:
@@ -17214,67 +15795,34 @@ class Isis(object):
                 if self.lsp_accept_passwords is not None and self.lsp_accept_passwords._has_data():
                     return True
 
-                if self.lsp_accept_passwords is not None and self.lsp_accept_passwords.is_presence():
-                    return True
-
                 if self.lsp_arrival_times is not None and self.lsp_arrival_times._has_data():
-                    return True
-
-                if self.lsp_arrival_times is not None and self.lsp_arrival_times.is_presence():
                     return True
 
                 if self.lsp_check_intervals is not None and self.lsp_check_intervals._has_data():
                     return True
 
-                if self.lsp_check_intervals is not None and self.lsp_check_intervals.is_presence():
-                    return True
-
                 if self.lsp_generation_intervals is not None and self.lsp_generation_intervals._has_data():
-                    return True
-
-                if self.lsp_generation_intervals is not None and self.lsp_generation_intervals.is_presence():
                     return True
 
                 if self.lsp_lifetimes is not None and self.lsp_lifetimes._has_data():
                     return True
 
-                if self.lsp_lifetimes is not None and self.lsp_lifetimes.is_presence():
-                    return True
-
                 if self.lsp_mtus is not None and self.lsp_mtus._has_data():
-                    return True
-
-                if self.lsp_mtus is not None and self.lsp_mtus.is_presence():
                     return True
 
                 if self.lsp_passwords is not None and self.lsp_passwords._has_data():
                     return True
 
-                if self.lsp_passwords is not None and self.lsp_passwords.is_presence():
-                    return True
-
                 if self.lsp_refresh_intervals is not None and self.lsp_refresh_intervals._has_data():
-                    return True
-
-                if self.lsp_refresh_intervals is not None and self.lsp_refresh_intervals.is_presence():
                     return True
 
                 if self.max_link_metrics is not None and self.max_link_metrics._has_data():
                     return True
 
-                if self.max_link_metrics is not None and self.max_link_metrics.is_presence():
-                    return True
-
                 if self.nets is not None and self.nets._has_data():
                     return True
 
-                if self.nets is not None and self.nets.is_presence():
-                    return True
-
                 if self.nsf is not None and self.nsf._has_data():
-                    return True
-
-                if self.nsf is not None and self.nsf.is_presence():
                     return True
 
                 if self.nsr is not None:
@@ -17283,28 +15831,15 @@ class Isis(object):
                 if self.overload_bits is not None and self.overload_bits._has_data():
                     return True
 
-                if self.overload_bits is not None and self.overload_bits.is_presence():
-                    return True
-
                 if self.running is not None:
                     return True
 
                 if self.srgb is not None and self.srgb._has_data():
                     return True
 
-                if self.srgb is not None and self.srgb.is_presence():
-                    return True
-
                 if self.trace_buffer_size is not None and self.trace_buffer_size._has_data():
                     return True
 
-                if self.trace_buffer_size is not None and self.trace_buffer_size.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -17324,17 +15859,11 @@ class Isis(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.instance is not None:
                 for child_ref in self.instance:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -17354,18 +15883,9 @@ class Isis(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.instances is not None and self.instances._has_data():
             return True
 
-        if self.instances is not None and self.instances.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

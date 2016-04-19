@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'Ipv4Qppb_Enum' : _MetaInfoEnum('Ipv4Qppb_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_cfg',
+    'Ipv4QppbEnum' : _MetaInfoEnum('Ipv4QppbEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_cfg',
         {
             'none':'NONE',
             'ip-prec':'IP_PREC',
@@ -85,13 +85,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv4NetworkGlobal.Qppb',
             False, 
             [
-            _MetaInfoClassMember('destination', REFERENCE_ENUM_CLASS, 'Ipv4Qppb_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_cfg', 'Ipv4Qppb_Enum', 
+            _MetaInfoClassMember('destination', REFERENCE_ENUM_CLASS, 'Ipv4QppbEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_cfg', 'Ipv4QppbEnum', 
                 [], [], 
                 '''                QPPB configuration on destination
                 ''',
                 'destination',
                 'Cisco-IOS-XR-ipv4-ma-cfg', False),
-            _MetaInfoClassMember('source', REFERENCE_ENUM_CLASS, 'Ipv4Qppb_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_cfg', 'Ipv4Qppb_Enum', 
+            _MetaInfoClassMember('source', REFERENCE_ENUM_CLASS, 'Ipv4QppbEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_cfg', 'Ipv4QppbEnum', 
                 [], [], 
                 '''                QPPB configuration on source
                 ''',

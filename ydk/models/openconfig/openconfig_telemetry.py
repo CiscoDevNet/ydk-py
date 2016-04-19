@@ -17,34 +17,33 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class TelemetryStreamProtocol_Enum(Enum):
+class TelemetryStreamProtocolEnum(Enum):
     """
-    TelemetryStreamProtocol_Enum
+    TelemetryStreamProtocolEnum
 
     Selectable protocols for transport
+
     of the telemetry stream
 
-    """
+    .. data:: TCP = 0
+
+    	TCP protocol transport for the stream
+
+    .. data:: UDP = 1
+
+    	UDP protocol transport for the stream
 
     """
 
-    TCP protocol transport for the stream
-
-    """
     TCP = 0
 
-    """
-
-    UDP protocol transport for the stream
-
-    """
     UDP = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_telemetry as meta
-        return meta._meta_table['TelemetryStreamProtocol_Enum']
+        return meta._meta_table['TelemetryStreamProtocolEnum']
 
 
 
@@ -191,15 +190,9 @@ class TelemetrySystem(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.group_id is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -296,7 +289,7 @@ class TelemetrySystem(object):
                         .. attribute:: destination_protocol
                         
                         	Protocol used to transmit telemetry data to the collector
-                        	**type**\: :py:class:`TelemetryStreamProtocol_Enum <ydk.models.openconfig.openconfig_telemetry.TelemetryStreamProtocol_Enum>`
+                        	**type**\: :py:class:`TelemetryStreamProtocolEnum <ydk.models.openconfig.openconfig_telemetry.TelemetryStreamProtocolEnum>`
                         
                         
 
@@ -325,8 +318,6 @@ class TelemetrySystem(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.destination_address is not None:
                                 return True
 
@@ -336,10 +327,6 @@ class TelemetrySystem(object):
                             if self.destination_protocol is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -368,7 +355,7 @@ class TelemetrySystem(object):
                         .. attribute:: destination_protocol
                         
                         	Protocol used to transmit telemetry data to the collector
-                        	**type**\: :py:class:`TelemetryStreamProtocol_Enum <ydk.models.openconfig.openconfig_telemetry.TelemetryStreamProtocol_Enum>`
+                        	**type**\: :py:class:`TelemetryStreamProtocolEnum <ydk.models.openconfig.openconfig_telemetry.TelemetryStreamProtocolEnum>`
                         
                         
 
@@ -397,8 +384,6 @@ class TelemetrySystem(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.destination_address is not None:
                                 return True
 
@@ -408,10 +393,6 @@ class TelemetrySystem(object):
                             if self.destination_protocol is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -437,8 +418,6 @@ class TelemetrySystem(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.destination_address is not None:
                             return True
 
@@ -448,19 +427,9 @@ class TelemetrySystem(object):
                         if self.config is not None and self.config._has_data():
                             return True
 
-                        if self.config is not None and self.config.is_presence():
-                            return True
-
                         if self.state is not None and self.state._has_data():
                             return True
 
-                        if self.state is not None and self.state.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -482,17 +451,11 @@ class TelemetrySystem(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.destination is not None:
                         for child_ref in self.destination:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -535,15 +498,9 @@ class TelemetrySystem(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.group_id is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -565,33 +522,18 @@ class TelemetrySystem(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.group_id is not None:
                     return True
 
                 if self.config is not None and self.config._has_data():
                     return True
 
-                if self.config is not None and self.config.is_presence():
-                    return True
-
                 if self.destinations is not None and self.destinations._has_data():
-                    return True
-
-                if self.destinations is not None and self.destinations.is_presence():
                     return True
 
                 if self.state is not None and self.state._has_data():
                     return True
 
-                if self.state is not None and self.state.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -611,17 +553,11 @@ class TelemetrySystem(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.destination_group is not None:
                 for child_ref in self.destination_group:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -732,15 +668,9 @@ class TelemetrySystem(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.sensor_group_id is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -851,18 +781,12 @@ class TelemetrySystem(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.exclude_filter is not None:
                                 return True
 
                             if self.path is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -912,18 +836,12 @@ class TelemetrySystem(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.exclude_filter is not None:
                                 return True
 
                             if self.path is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -947,27 +865,15 @@ class TelemetrySystem(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.path is not None:
                             return True
 
                         if self.config is not None and self.config._has_data():
                             return True
 
-                        if self.config is not None and self.config.is_presence():
-                            return True
-
                         if self.state is not None and self.state._has_data():
                             return True
 
-                        if self.state is not None and self.state.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -989,17 +895,11 @@ class TelemetrySystem(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.sensor_path is not None:
                         for child_ref in self.sensor_path:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1043,15 +943,9 @@ class TelemetrySystem(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.sensor_group_id is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1073,33 +967,18 @@ class TelemetrySystem(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.sensor_group_id is not None:
                     return True
 
                 if self.config is not None and self.config._has_data():
                     return True
 
-                if self.config is not None and self.config.is_presence():
-                    return True
-
                 if self.sensor_paths is not None and self.sensor_paths._has_data():
-                    return True
-
-                if self.sensor_paths is not None and self.sensor_paths.is_presence():
                     return True
 
                 if self.state is not None and self.state._has_data():
                     return True
 
-                if self.state is not None and self.state.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1119,17 +998,11 @@ class TelemetrySystem(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.sensor_group is not None:
                 for child_ref in self.sensor_group:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1329,18 +1202,12 @@ class TelemetrySystem(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.exclude_filter is not None:
                                     return True
 
                                 if self.path is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1364,21 +1231,12 @@ class TelemetrySystem(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.path is not None:
                                 return True
 
                             if self.state is not None and self.state._has_data():
                                 return True
 
-                            if self.state is not None and self.state.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1400,17 +1258,11 @@ class TelemetrySystem(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.sensor_path is not None:
                             for child_ref in self.sensor_path:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1439,7 +1291,7 @@ class TelemetrySystem(object):
                     .. attribute:: destination_protocol
                     
                     	Protocol used to transmit telemetry data to the collector
-                    	**type**\: :py:class:`TelemetryStreamProtocol_Enum <ydk.models.openconfig.openconfig_telemetry.TelemetryStreamProtocol_Enum>`
+                    	**type**\: :py:class:`TelemetryStreamProtocolEnum <ydk.models.openconfig.openconfig_telemetry.TelemetryStreamProtocolEnum>`
                     
                     .. attribute:: heartbeat_interval
                     
@@ -1506,8 +1358,6 @@ class TelemetrySystem(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.destination_address is not None:
                             return True
 
@@ -1534,10 +1384,6 @@ class TelemetrySystem(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_telemetry as meta
@@ -1557,27 +1403,15 @@ class TelemetrySystem(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.subscription_id is not None:
                         return True
 
                     if self.sensor_paths is not None and self.sensor_paths._has_data():
                         return True
 
-                    if self.sensor_paths is not None and self.sensor_paths.is_presence():
-                        return True
-
                     if self.state is not None and self.state._has_data():
                         return True
 
-                    if self.state is not None and self.state.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1597,17 +1431,11 @@ class TelemetrySystem(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.subscription is not None:
                     for child_ref in self.subscription:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1748,8 +1576,6 @@ class TelemetrySystem(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.local_source_address is not None:
                             return True
 
@@ -1759,10 +1585,6 @@ class TelemetrySystem(object):
                         if self.subscription_id is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1882,15 +1704,9 @@ class TelemetrySystem(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.group_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1934,15 +1750,9 @@ class TelemetrySystem(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.group_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1966,27 +1776,15 @@ class TelemetrySystem(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.group_id is not None:
                                 return True
 
                             if self.config is not None and self.config._has_data():
                                 return True
 
-                            if self.config is not None and self.config.is_presence():
-                                return True
-
                             if self.state is not None and self.state._has_data():
                                 return True
 
-                            if self.state is not None and self.state.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2008,17 +1806,11 @@ class TelemetrySystem(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.destination_group is not None:
                             for child_ref in self.destination_group:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2147,8 +1939,6 @@ class TelemetrySystem(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.heartbeat_interval is not None:
                                     return True
 
@@ -2161,10 +1951,6 @@ class TelemetrySystem(object):
                                 if self.suppress_redundant is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2230,8 +2016,6 @@ class TelemetrySystem(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.heartbeat_interval is not None:
                                     return True
 
@@ -2244,10 +2028,6 @@ class TelemetrySystem(object):
                                 if self.suppress_redundant is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2271,27 +2051,15 @@ class TelemetrySystem(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.sensor_group is not None:
                                 return True
 
                             if self.config is not None and self.config._has_data():
                                 return True
 
-                            if self.config is not None and self.config.is_presence():
-                                return True
-
                             if self.state is not None and self.state._has_data():
                                 return True
 
-                            if self.state is not None and self.state.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2313,17 +2081,11 @@ class TelemetrySystem(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.sensor_profile is not None:
                             for child_ref in self.sensor_profile:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2383,8 +2145,6 @@ class TelemetrySystem(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.local_source_address is not None:
                             return True
 
@@ -2394,10 +2154,6 @@ class TelemetrySystem(object):
                         if self.subscription_id is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2419,39 +2175,21 @@ class TelemetrySystem(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.subscription_id is not None:
                         return True
 
                     if self.config is not None and self.config._has_data():
                         return True
 
-                    if self.config is not None and self.config.is_presence():
-                        return True
-
                     if self.destination_groups is not None and self.destination_groups._has_data():
-                        return True
-
-                    if self.destination_groups is not None and self.destination_groups.is_presence():
                         return True
 
                     if self.sensor_profiles is not None and self.sensor_profiles._has_data():
                         return True
 
-                    if self.sensor_profiles is not None and self.sensor_profiles.is_presence():
-                        return True
-
                     if self.state is not None and self.state._has_data():
                         return True
 
-                    if self.state is not None and self.state.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2471,17 +2209,11 @@ class TelemetrySystem(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.subscription is not None:
                     for child_ref in self.subscription:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2501,24 +2233,12 @@ class TelemetrySystem(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.dynamic is not None and self.dynamic._has_data():
-                return True
-
-            if self.dynamic is not None and self.dynamic.is_presence():
                 return True
 
             if self.persistent is not None and self.persistent._has_data():
                 return True
 
-            if self.persistent is not None and self.persistent.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2538,30 +2258,15 @@ class TelemetrySystem(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.destination_groups is not None and self.destination_groups._has_data():
-            return True
-
-        if self.destination_groups is not None and self.destination_groups.is_presence():
             return True
 
         if self.sensor_groups is not None and self.sensor_groups._has_data():
             return True
 
-        if self.sensor_groups is not None and self.sensor_groups.is_presence():
-            return True
-
         if self.subscriptions is not None and self.subscriptions._has_data():
             return True
 
-        if self.subscriptions is not None and self.subscriptions.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

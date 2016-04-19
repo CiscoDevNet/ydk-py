@@ -28,983 +28,901 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class BfdEnableMode_Enum(Enum):
+class BfdEnableModeEnum(Enum):
     """
-    BfdEnableMode_Enum
+    BfdEnableModeEnum
 
     Bfd enable mode
 
-    """
+    .. data:: DISABLE = 0
+
+    	Disable Mode - Prevent inheritance
+
+    .. data:: DEFAULT = 1
+
+    	Default Mode - Default BFD behavior
+
+    .. data:: STRICT = 2
+
+    	Strict Mode - Hold down adj until BFD sesion up
 
     """
 
-    Disable Mode \- Prevent inheritance
-
-    """
     DISABLE = 0
 
-    """
-
-    Default Mode \- Default BFD behavior
-
-    """
     DEFAULT = 1
 
-    """
-
-    Strict Mode \- Hold down adj until BFD sesion up
-
-    """
     STRICT = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['BfdEnableMode_Enum']
+        return meta._meta_table['BfdEnableModeEnum']
 
 
-class Nsr_Enum(Enum):
+class NsrEnum(Enum):
     """
-    Nsr_Enum
+    NsrEnum
 
     Nsr
 
-    """
+    .. data:: TRUE = 1
+
+    	Enable non-stop routing
+
+    .. data:: FALSE = 2
+
+    	Disable non-stop routing
 
     """
 
-    Enable non\-stop routing
-
-    """
     TRUE = 1
 
-    """
-
-    Disable non\-stop routing
-
-    """
     FALSE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['Nsr_Enum']
+        return meta._meta_table['NsrEnum']
 
 
-class OspfAddressFamily_Enum(Enum):
+class OspfAddressFamilyEnum(Enum):
     """
-    OspfAddressFamily_Enum
+    OspfAddressFamilyEnum
 
     Ospf address family
 
-    """
+    .. data:: IPV4 = 1
+
+    	IPv4
 
     """
 
-    IPv4
-
-    """
     IPV4 = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfAddressFamily_Enum']
+        return meta._meta_table['OspfAddressFamilyEnum']
 
 
-class OspfAuthentication_Enum(Enum):
+class OspfAuthenticationEnum(Enum):
     """
-    OspfAuthentication_Enum
+    OspfAuthenticationEnum
 
     Ospf authentication
 
-    """
+    .. data:: NONE = 0
+
+    	No Authentication
+
+    .. data:: PLAIN = 1
+
+    	Plain Text Authentication
+
+    .. data:: MD5 = 2
+
+    	MD5 Message Digest
 
     """
 
-    No Authentication
-
-    """
     NONE = 0
 
-    """
-
-    Plain Text Authentication
-
-    """
     PLAIN = 1
 
-    """
-
-    MD5 Message Digest
-
-    """
     MD5 = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfAuthentication_Enum']
+        return meta._meta_table['OspfAuthenticationEnum']
 
 
-class OspfCiscoNsf_Enum(Enum):
+class OspfCiscoNsfEnum(Enum):
     """
-    OspfCiscoNsf_Enum
+    OspfCiscoNsfEnum
 
     Ospf cisco nsf
 
-    """
+    .. data:: ALWAYS = 1
+
+    	Do not require all neighbors to run NSF
+
+    .. data:: REQUIRE_NSF_NEIGHBORS = 2
+
+    	Require all neighbors to run NSF
 
     """
 
-    Do not require all neighbors to run NSF
-
-    """
     ALWAYS = 1
 
-    """
-
-    Require all neighbors to run NSF
-
-    """
     REQUIRE_NSF_NEIGHBORS = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfCiscoNsf_Enum']
+        return meta._meta_table['OspfCiscoNsfEnum']
 
 
-class OspfDistListProtocol_Enum(Enum):
+class OspfDistListProtocolEnum(Enum):
     """
-    OspfDistListProtocol_Enum
+    OspfDistListProtocolEnum
 
     Ospf dist list protocol
 
-    """
+    .. data:: ALL = 0
+
+    	Default
+
+    .. data:: CONNECTED = 1
+
+    	Connected Routes
+
+    .. data:: STATIC = 3
+
+    	Static Routes
+
+    .. data:: BGP = 4
+
+    	BGP
+
+    .. data:: OSPF = 7
+
+    	OSPF
+
+    .. data:: DAGR = 9
+
+    	DAGR
 
     """
 
-    Default
-
-    """
     ALL = 0
 
-    """
-
-    Connected Routes
-
-    """
     CONNECTED = 1
 
-    """
-
-    Static Routes
-
-    """
     STATIC = 3
 
-    """
-
-    BGP
-
-    """
     BGP = 4
 
-    """
-
-    OSPF
-
-    """
     OSPF = 7
 
-    """
-
-    DAGR
-
-    """
     DAGR = 9
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfDistListProtocol_Enum']
+        return meta._meta_table['OspfDistListProtocolEnum']
 
 
-class OspfDomainId_Enum(Enum):
+class OspfDomainIdEnum(Enum):
     """
-    OspfDomainId_Enum
+    OspfDomainIdEnum
 
     Ospf domain id
 
-    """
+    .. data:: TYPE0005 = 5
+
+    	Type 0x0005
+
+    .. data:: TYPE0105 = 261
+
+    	Type 0x0105
+
+    .. data:: TYPE0205 = 517
+
+    	Type 0x0205
+
+    .. data:: TYPE8005 = 32773
+
+    	Type 0x8005
 
     """
 
-    Type 0x0005
-
-    """
     TYPE0005 = 5
 
-    """
-
-    Type 0x0105
-
-    """
     TYPE0105 = 261
 
-    """
-
-    Type 0x0205
-
-    """
     TYPE0205 = 517
 
-    """
-
-    Type 0x8005
-
-    """
     TYPE8005 = 32773
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfDomainId_Enum']
+        return meta._meta_table['OspfDomainIdEnum']
 
 
-class OspfEigrpRoute_Enum(Enum):
+class OspfEigrpRouteEnum(Enum):
     """
-    OspfEigrpRoute_Enum
+    OspfEigrpRouteEnum
 
     Ospf eigrp route
 
-    """
+    .. data:: INTERNAL = 0
+
+    	EIGRP Internal Type
+
+    .. data:: EXTERNAL = 1
+
+    	EIGRP External Type
 
     """
 
-    EIGRP Internal Type
-
-    """
     INTERNAL = 0
 
-    """
-
-    EIGRP External Type
-
-    """
     EXTERNAL = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfEigrpRoute_Enum']
+        return meta._meta_table['OspfEigrpRouteEnum']
 
 
-class OspfFastReroutePriority_Enum(Enum):
+class OspfFastRerouteEnum(Enum):
     """
-    OspfFastReroutePriority_Enum
-
-    Ospf fast reroute priority
-
-    """
-
-    """
-
-    Critical
-
-    """
-    CRITICAL = 0
-
-    """
-
-    High
-
-    """
-    HIGH = 2
-
-    """
-
-    Medium
-
-    """
-    MEDIUM = 4
-
-    """
-
-    low
-
-    """
-    LOW = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfFastReroutePriority_Enum']
-
-
-class OspfFastRerouteTiebreakers_Enum(Enum):
-    """
-    OspfFastRerouteTiebreakers_Enum
-
-    Ospf fast reroute tiebreakers
-
-    """
-
-    """
-
-    Downstream
-
-    """
-    DOWNSTREAM = 0
-
-    """
-
-    LC Disjoint
-
-    """
-    LINE_CARD_DISJOINT = 1
-
-    """
-
-    Lowest metric
-
-    """
-    LOWEST_METRIC = 2
-
-    """
-
-    Node protection
-
-    """
-    NODE_PROTECT = 3
-
-    """
-
-    Primary path
-
-    """
-    PRIMARY_PATH = 4
-
-    """
-
-    Secondar path
-
-    """
-    SECONDARY_PATH = 5
-
-    """
-
-    SRLG
-
-    """
-    SRLG_DISJOINT = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfFastRerouteTiebreakers_Enum']
-
-
-class OspfFastReroute_Enum(Enum):
-    """
-    OspfFastReroute_Enum
+    OspfFastRerouteEnum
 
     Ospf fast reroute
 
-    """
+    .. data:: NONE = 0
+
+    	None
+
+    .. data:: PER_LINK = 1
+
+    	Per link
+
+    .. data:: PER_PREFIX = 2
+
+    	Per prefix
 
     """
 
-    None
-
-    """
     NONE = 0
 
-    """
-
-    Per link
-
-    """
     PER_LINK = 1
 
-    """
-
-    Per prefix
-
-    """
     PER_PREFIX = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfFastReroute_Enum']
+        return meta._meta_table['OspfFastRerouteEnum']
 
 
-class OspfFrrRlfaTunnel_Enum(Enum):
+class OspfFastReroutePriorityEnum(Enum):
     """
-    OspfFrrRlfaTunnel_Enum
+    OspfFastReroutePriorityEnum
+
+    Ospf fast reroute priority
+
+    .. data:: CRITICAL = 0
+
+    	Critical
+
+    .. data:: HIGH = 2
+
+    	High
+
+    .. data:: MEDIUM = 4
+
+    	Medium
+
+    .. data:: LOW = 6
+
+    	low
+
+    """
+
+    CRITICAL = 0
+
+    HIGH = 2
+
+    MEDIUM = 4
+
+    LOW = 6
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+        return meta._meta_table['OspfFastReroutePriorityEnum']
+
+
+class OspfFastRerouteTiebreakersEnum(Enum):
+    """
+    OspfFastRerouteTiebreakersEnum
+
+    Ospf fast reroute tiebreakers
+
+    .. data:: DOWNSTREAM = 0
+
+    	Downstream
+
+    .. data:: LINE_CARD_DISJOINT = 1
+
+    	LC Disjoint
+
+    .. data:: LOWEST_METRIC = 2
+
+    	Lowest metric
+
+    .. data:: NODE_PROTECT = 3
+
+    	Node protection
+
+    .. data:: PRIMARY_PATH = 4
+
+    	Primary path
+
+    .. data:: SECONDARY_PATH = 5
+
+    	Secondar path
+
+    .. data:: SRLG_DISJOINT = 6
+
+    	SRLG
+
+    """
+
+    DOWNSTREAM = 0
+
+    LINE_CARD_DISJOINT = 1
+
+    LOWEST_METRIC = 2
+
+    NODE_PROTECT = 3
+
+    PRIMARY_PATH = 4
+
+    SECONDARY_PATH = 5
+
+    SRLG_DISJOINT = 6
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+        return meta._meta_table['OspfFastRerouteTiebreakersEnum']
+
+
+class OspfFrrRlfaTunnelEnum(Enum):
+    """
+    OspfFrrRlfaTunnelEnum
 
     Ospf frr rlfa tunnel
 
-    """
+    .. data:: NONE = 0
+
+    	Disabled
+
+    .. data:: MPLS_LDP = 1
+
+    	MPLS LDP
 
     """
 
-    Disabled
-
-    """
     NONE = 0
 
-    """
-
-    MPLS LDP
-
-    """
     MPLS_LDP = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfFrrRlfaTunnel_Enum']
+        return meta._meta_table['OspfFrrRlfaTunnelEnum']
 
 
-class OspfIetfNsfSupport_Enum(Enum):
+class OspfIetfNsfEnum(Enum):
     """
-    OspfIetfNsfSupport_Enum
-
-    Ospf ietf nsf support
-
-    """
-
-    """
-
-    Do not perform IETF NSF helper role
-
-    """
-    NEVER = 0
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfIetfNsfSupport_Enum']
-
-
-class OspfIetfNsf_Enum(Enum):
-    """
-    OspfIetfNsf_Enum
+    OspfIetfNsfEnum
 
     Ospf ietf nsf
 
-    """
+    .. data:: ALL = 3
+
+    	Use IETF NSF in planned and unplanned cases
 
     """
 
-    Use IETF NSF in planned and unplanned cases
-
-    """
     ALL = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfIetfNsf_Enum']
+        return meta._meta_table['OspfIetfNsfEnum']
 
 
-class OspfKeychainAuth_Enum(Enum):
+class OspfIetfNsfSupportEnum(Enum):
     """
-    OspfKeychainAuth_Enum
+    OspfIetfNsfSupportEnum
+
+    Ospf ietf nsf support
+
+    .. data:: NEVER = 0
+
+    	Do not perform IETF NSF helper role
+
+    """
+
+    NEVER = 0
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+        return meta._meta_table['OspfIetfNsfSupportEnum']
+
+
+class OspfKeychainAuthEnum(Enum):
+    """
+    OspfKeychainAuthEnum
 
     Ospf keychain auth
 
-    """
+    .. data:: NONE = 0
+
+    	No Keychain Authentication
+
+    .. data:: KEYCHAIN = 3
+
+    	Keychain Authentication
 
     """
 
-    No Keychain Authentication
-
-    """
     NONE = 0
 
-    """
-
-    Keychain Authentication
-
-    """
     KEYCHAIN = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfKeychainAuth_Enum']
+        return meta._meta_table['OspfKeychainAuthEnum']
 
 
-class OspfLinkStateMetric_Enum(Enum):
+class OspfLinkStateMetricEnum(Enum):
     """
-    OspfLinkStateMetric_Enum
+    OspfLinkStateMetricEnum
 
     Ospf link state metric
 
-    """
+    .. data:: TYPE1 = 1
+
+    	Type 1 External
+
+    .. data:: TYPE2 = 2
+
+    	Type 2 External
 
     """
 
-    Type 1 External
-
-    """
     TYPE1 = 1
 
-    """
-
-    Type 2 External
-
-    """
     TYPE2 = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfLinkStateMetric_Enum']
+        return meta._meta_table['OspfLinkStateMetricEnum']
 
 
-class OspfLogAdj_Enum(Enum):
+class OspfLogAdjEnum(Enum):
     """
-    OspfLogAdj_Enum
+    OspfLogAdjEnum
 
     Ospf log adj
 
-    """
+    .. data:: BRIEF = 0
+
+    	Limited output
+
+    .. data:: DETAIL = 1
+
+    	Verbose output
+
+    .. data:: SUPPRESS = 2
+
+    	No output
 
     """
 
-    Limited output
-
-    """
     BRIEF = 0
 
-    """
-
-    Verbose output
-
-    """
     DETAIL = 1
 
-    """
-
-    No output
-
-    """
     SUPPRESS = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfLogAdj_Enum']
+        return meta._meta_table['OspfLogAdjEnum']
 
 
-class OspfNetwork_Enum(Enum):
+class OspfNetworkEnum(Enum):
     """
-    OspfNetwork_Enum
+    OspfNetworkEnum
 
     Ospf network
 
-    """
+    .. data:: BROADCAST = 1
+
+    	Broadcast
+
+    .. data:: NON_BROADCAST = 2
+
+    	NonBroadcast
+
+    .. data:: POINT_TO_POINT = 3
+
+    	Point to Point
+
+    .. data:: POINT_TO_MULTIPOINT = 4
+
+    	Point to Multipoint
+
+    .. data:: NON_BROADCAST_POINT_TO_MULTIPOINT = 5
+
+    	NonBroadcast Point to Multipoint
 
     """
 
-    Broadcast
-
-    """
     BROADCAST = 1
 
-    """
-
-    NonBroadcast
-
-    """
     NON_BROADCAST = 2
 
-    """
-
-    Point to Point
-
-    """
     POINT_TO_POINT = 3
 
-    """
-
-    Point to Multipoint
-
-    """
     POINT_TO_MULTIPOINT = 4
 
-    """
-
-    NonBroadcast Point to Multipoint
-
-    """
     NON_BROADCAST_POINT_TO_MULTIPOINT = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfNetwork_Enum']
+        return meta._meta_table['OspfNetworkEnum']
 
 
-class OspfRedistLsa_Enum(Enum):
+class OspfRedistLsaEnum(Enum):
     """
-    OspfRedistLsa_Enum
+    OspfRedistLsaEnum
 
     Ospf redist lsa
 
-    """
+    .. data:: SUMMARY = 3
+
+    	Type 3 (summary) LSA
+
+    .. data:: EXTERNAL = 5
+
+    	Type 5 (external) LSA
 
     """
 
-    Type 3 (summary) LSA
-
-    """
     SUMMARY = 3
 
-    """
-
-    Type 5 (external) LSA
-
-    """
     EXTERNAL = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfRedistLsa_Enum']
+        return meta._meta_table['OspfRedistLsaEnum']
 
 
-class OspfRedistProtocol_Enum(Enum):
+class OspfRedistProtocolEnum(Enum):
     """
-    OspfRedistProtocol_Enum
+    OspfRedistProtocolEnum
 
     Ospf redist protocol
 
-    """
+    .. data:: ALL = 0
+
+    	Default
+
+    .. data:: CONNECTED = 1
+
+    	Connected Routes
+
+    .. data:: STATIC = 3
+
+    	Static Routes
+
+    .. data:: BGP = 4
+
+    	BGP
+
+    .. data:: RIP = 5
+
+    	RIP
+
+    .. data:: ISIS = 6
+
+    	ISIS
+
+    .. data:: OSPF = 7
+
+    	OSPF
+
+    .. data:: EIGRP = 8
+
+    	EIGRP
+
+    .. data:: DAGR = 9
+
+    	DAGR
+
+    .. data:: SUBSCRIBER = 10
+
+    	Subscriber Routes
+
+    .. data:: APPLICATION = 11
+
+    	Application Routes
+
+    .. data:: MOBILE = 12
+
+    	Mobile Routes
 
     """
 
-    Default
-
-    """
     ALL = 0
 
-    """
-
-    Connected Routes
-
-    """
     CONNECTED = 1
 
-    """
-
-    Static Routes
-
-    """
     STATIC = 3
 
-    """
-
-    BGP
-
-    """
     BGP = 4
 
-    """
-
-    RIP
-
-    """
     RIP = 5
 
-    """
-
-    ISIS
-
-    """
     ISIS = 6
 
-    """
-
-    OSPF
-
-    """
     OSPF = 7
 
-    """
-
-    EIGRP
-
-    """
     EIGRP = 8
 
-    """
-
-    DAGR
-
-    """
     DAGR = 9
 
-    """
-
-    Subscriber Routes
-
-    """
     SUBSCRIBER = 10
 
-    """
-
-    Application Routes
-
-    """
     APPLICATION = 11
 
-    """
-
-    Mobile Routes
-
-    """
     MOBILE = 12
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfRedistProtocol_Enum']
+        return meta._meta_table['OspfRedistProtocolEnum']
 
 
-class OspfRouteLevel_Enum(Enum):
+class OspfRouteLevelEnum(Enum):
     """
-    OspfRouteLevel_Enum
+    OspfRouteLevelEnum
 
     Ospf route level
 
-    """
+    .. data:: TYPE1 = 1
+
+    	Type 1 only
+
+    .. data:: TYPE2 = 2
+
+    	Type 2 only
+
+    .. data:: TYPE1_AND2 = 3
+
+    	Both Type 1 and Type 2
 
     """
 
-    Type 1 only
-
-    """
     TYPE1 = 1
 
-    """
-
-    Type 2 only
-
-    """
     TYPE2 = 2
 
-    """
-
-    Both Type 1 and Type 2
-
-    """
     TYPE1_AND2 = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfRouteLevel_Enum']
+        return meta._meta_table['OspfRouteLevelEnum']
 
 
-class OspfSegmentRoutingForwarding_Enum(Enum):
+class OspfSegmentRoutingEnum(Enum):
     """
-    OspfSegmentRoutingForwarding_Enum
-
-    Ospf segment routing forwarding
-
-    """
-
-    """
-
-    Disable
-
-    """
-    DISABLE = 0
-
-    """
-
-    Mpls
-
-    """
-    MPLS = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfSegmentRoutingForwarding_Enum']
-
-
-class OspfSegmentRouting_Enum(Enum):
-    """
-    OspfSegmentRouting_Enum
+    OspfSegmentRoutingEnum
 
     Ospf segment routing
 
-    """
+    .. data:: DISABLE = 0
+
+    	Disable
+
+    .. data:: MPLS = 1
+
+    	Mpls
 
     """
 
-    Disable
-
-    """
     DISABLE = 0
 
-    """
-
-    Mpls
-
-    """
     MPLS = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfSegmentRouting_Enum']
+        return meta._meta_table['OspfSegmentRoutingEnum']
 
 
-class OspfShutdown_Enum(Enum):
+class OspfSegmentRoutingForwardingEnum(Enum):
     """
-    OspfShutdown_Enum
+    OspfSegmentRoutingForwardingEnum
+
+    Ospf segment routing forwarding
+
+    .. data:: DISABLE = 0
+
+    	Disable
+
+    .. data:: MPLS = 1
+
+    	Mpls
+
+    """
+
+    DISABLE = 0
+
+    MPLS = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+        return meta._meta_table['OspfSegmentRoutingForwardingEnum']
+
+
+class OspfShutdownEnum(Enum):
+    """
+    OspfShutdownEnum
 
     Ospf shutdown
 
-    """
+    .. data:: FULL = 1
+
+    	Full graceful shutdown
+
+    .. data:: HOSTMODE = 2
+
+    	Enter host only mode
+
+    .. data:: ONRELOAD = 3
+
+    	Full graceful shutdown post reload
 
     """
 
-    Full graceful shutdown
-
-    """
     FULL = 1
 
-    """
-
-    Enter host only mode
-
-    """
     HOSTMODE = 2
 
-    """
-
-    Full graceful shutdown post reload
-
-    """
     ONRELOAD = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfShutdown_Enum']
+        return meta._meta_table['OspfShutdownEnum']
 
 
-class OspfSid_Enum(Enum):
+class OspfSidEnum(Enum):
     """
-    OspfSid_Enum
+    OspfSidEnum
 
     Ospf sid
 
-    """
+    .. data:: INDEX = 0
+
+    	Index
+
+    .. data:: ABSOLUTE = 1
+
+    	Absolute
 
     """
 
-    Index
-
-    """
     INDEX = 0
 
-    """
-
-    Absolute
-
-    """
     ABSOLUTE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfSid_Enum']
+        return meta._meta_table['OspfSidEnum']
 
 
-class OspfSubAddressFamily_Enum(Enum):
+class OspfSubAddressFamilyEnum(Enum):
     """
-    OspfSubAddressFamily_Enum
+    OspfSubAddressFamilyEnum
 
     Ospf sub address family
 
-    """
+    .. data:: UNICAST = 1
+
+    	Unicast
 
     """
 
-    Unicast
-
-    """
     UNICAST = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfSubAddressFamily_Enum']
+        return meta._meta_table['OspfSubAddressFamilyEnum']
 
 
-class OspfUloopAvoidance_Enum(Enum):
+class OspfUloopAvoidanceEnum(Enum):
     """
-    OspfUloopAvoidance_Enum
+    OspfUloopAvoidanceEnum
 
     Ospf uloop avoidance
 
-    """
+    .. data:: PROTECTED = 1
+
+    	Protected prefixes only
+
+    .. data:: ALL = 2
+
+    	All prefixes
 
     """
 
-    Protected prefixes only
-
-    """
     PROTECTED = 1
 
-    """
-
-    All prefixes
-
-    """
     ALL = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-        return meta._meta_table['OspfUloopAvoidance_Enum']
+        return meta._meta_table['OspfUloopAvoidanceEnum']
 
 
 
@@ -1068,15 +986,9 @@ class Ospf(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.dns_name_lookup is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1133,12 +1045,12 @@ class Ospf(object):
             .. attribute:: nsr
             
             	Enable non\-stop routing
-            	**type**\: :py:class:`Nsr_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.Nsr_Enum>`
+            	**type**\: :py:class:`NsrEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.NsrEnum>`
             
             .. attribute:: protocol_shutdown
             
             	Type of protocol shutdown
-            	**type**\: :py:class:`OspfShutdown_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfShutdown_Enum>`
+            	**type**\: :py:class:`OspfShutdownEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfShutdownEnum>`
             
             .. attribute:: running
             
@@ -1190,7 +1102,7 @@ class Ospf(object):
                 .. attribute:: adjacency_changes
                 
                 	Log changes in adjacency state
-                	**type**\: :py:class:`OspfLogAdj_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLogAdj_Enum>`
+                	**type**\: :py:class:`OspfLogAdjEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLogAdjEnum>`
                 
                 .. attribute:: adjacency_stagger
                 
@@ -1468,8 +1380,6 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.disable is not None:
                             return True
 
@@ -1479,10 +1389,6 @@ class Ospf(object):
                         if self.max_nbr is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1498,12 +1404,22 @@ class Ospf(object):
                     .. attribute:: af_name
                     
                     	Address family
-                    	**type**\: :py:class:`OspfAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAddressFamily_Enum>`
+                    	**type**\: :py:class:`OspfAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAddressFamilyEnum>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: saf_name
                     
                     	Sub\-Address family
-                    	**type**\: :py:class:`OspfSubAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSubAddressFamily_Enum>`
+                    	**type**\: :py:class:`OspfSubAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSubAddressFamilyEnum>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -1533,8 +1449,6 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.af_name is not None:
                             return True
 
@@ -1542,10 +1456,6 @@ class Ospf(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -1655,7 +1565,7 @@ class Ospf(object):
                         .. attribute:: segment_routing
                         
                         	segment\-routing configuration Applicable only in Default VRF
-                        	**type**\: :py:class:`OspfSegmentRouting_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRouting_Enum>`
+                        	**type**\: :py:class:`OspfSegmentRoutingEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingEnum>`
                         
                         .. attribute:: sham_link_scopes
                         
@@ -1790,8 +1700,6 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address is not None:
                                         return True
 
@@ -1801,10 +1709,6 @@ class Ospf(object):
                                     if self.not_advertise is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1826,17 +1730,11 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.area_range is not None:
                                     for child_ref in self.area_range:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1941,7 +1839,7 @@ class Ospf(object):
                             .. attribute:: network_type
                             
                             	Type of attached network
-                            	**type**\: :py:class:`OspfNetwork_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfNetwork_Enum>`
+                            	**type**\: :py:class:`OspfNetworkEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfNetworkEnum>`
                             
                             .. attribute:: packet_size
                             
@@ -1982,7 +1880,7 @@ class Ospf(object):
                             .. attribute:: segment_routing_forwarding
                             
                             	segment\-routing forwarding configuration Applicableonly in Default VRF
-                            	**type**\: :py:class:`OspfSegmentRoutingForwarding_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingForwarding_Enum>`
+                            	**type**\: :py:class:`OspfSegmentRoutingForwardingEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingForwardingEnum>`
                             
                             .. attribute:: transmit_delay
                             
@@ -2142,18 +2040,12 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.key_id is not None:
                                                 return True
 
                                             if self.password is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -2175,17 +2067,11 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.message_digest_key is not None:
                                             for child_ref in self.message_digest_key:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2201,12 +2087,12 @@ class Ospf(object):
                                     .. attribute:: authen_type
                                     
                                     	Authentication type code 
-                                    	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                                    	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                                     
                                     .. attribute:: keychain_authen_type
                                     
                                     	Keychain authentication type
-                                    	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                                    	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                                     
                                     .. attribute:: keychain_name
                                     
@@ -2240,8 +2126,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.authen_type is not None:
                                             return True
 
@@ -2251,10 +2135,6 @@ class Ospf(object):
                                         if self.keychain_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2276,27 +2156,15 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.key is not None:
                                         return True
 
                                     if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                         return True
 
-                                    if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                        return True
-
                                     if self.type is not None and self.type._has_data():
                                         return True
 
-                                    if self.type is not None and self.type.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2319,7 +2187,7 @@ class Ospf(object):
                                 .. attribute:: fast_detect_mode
                                 
                                 	 use of Bidirectional Forwarding Detection
-                                	**type**\: :py:class:`BfdEnableMode_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.BfdEnableMode_Enum>`
+                                	**type**\: :py:class:`BfdEnableModeEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.BfdEnableModeEnum>`
                                 
                                 .. attribute:: interval
                                 
@@ -2355,8 +2223,6 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.detection_multiplier is not None:
                                         return True
 
@@ -2366,10 +2232,6 @@ class Ospf(object):
                                     if self.interval is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2422,18 +2284,12 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.cost is not None:
                                         return True
 
                                     if self.threshold is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2486,18 +2342,12 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interval is not None:
                                         return True
 
                                     if self.multiplier is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2516,10 +2366,20 @@ class Ospf(object):
                                 	Access Control List name
                                 	**type**\: str
                                 
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
                                 .. attribute:: route_policy_name
                                 
                                 	Route Policy name
                                 	**type**\: str
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 
 
@@ -2549,8 +2409,6 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.access_list_name is not None:
                                         return True
 
@@ -2558,10 +2416,6 @@ class Ospf(object):
                                         return True
 
                                     return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return True
 
                                 @staticmethod
                                 def _meta_info():
@@ -2576,7 +2430,7 @@ class Ospf(object):
                                 .. attribute:: fast_reroute_enable
                                 
                                 	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                                	**type**\: :py:class:`OspfFastReroute_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastReroute_Enum>`
+                                	**type**\: :py:class:`OspfFastRerouteEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
                                 
                                 .. attribute:: per_link
                                 
@@ -2701,15 +2555,9 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -2731,17 +2579,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.candidate_interface is not None:
                                                 for child_ref in self.candidate_interface:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -2813,15 +2655,9 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -2843,17 +2679,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.exclude_interface is not None:
                                                 for child_ref in self.exclude_interface:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -2875,27 +2705,15 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                            return True
-
-                                        if self.candidate_interfaces is not None and self.candidate_interfaces.is_presence():
                                             return True
 
                                         if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
                                             return True
 
-                                        if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
-                                            return True
-
                                         if self.fast_reroute_use_candidate_only is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3014,15 +2832,9 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -3044,17 +2856,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.candidate_interface is not None:
                                                 for child_ref in self.candidate_interface:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3126,15 +2932,9 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -3156,17 +2956,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.exclude_interface is not None:
                                                 for child_ref in self.exclude_interface:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3189,7 +2983,7 @@ class Ospf(object):
                                         .. attribute:: tunnel
                                         
                                         	Enable/Disable remote LFA computation
-                                        	**type**\: :py:class:`OspfFrrRlfaTunnel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnel_Enum>`
+                                        	**type**\: :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
                                         
                                         
 
@@ -3217,18 +3011,12 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.maximum_cost is not None:
                                                 return True
 
                                             if self.tunnel is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3250,18 +3038,10 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                             return True
 
-                                        if self.candidate_interfaces is not None and self.candidate_interfaces.is_presence():
-                                            return True
-
                                         if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                            return True
-
-                                        if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
                                             return True
 
                                         if self.fast_reroute_use_candidate_only is not None:
@@ -3270,16 +3050,9 @@ class Ospf(object):
                                         if self.remote_lfa is not None and self.remote_lfa._has_data():
                                             return True
 
-                                        if self.remote_lfa is not None and self.remote_lfa.is_presence():
-                                            return True
-
                                         if self.topology_independent_lfa is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3301,27 +3074,15 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.fast_reroute_enable is not None:
                                         return True
 
                                     if self.per_link is not None and self.per_link._has_data():
                                         return True
 
-                                    if self.per_link is not None and self.per_link.is_presence():
-                                        return True
-
                                     if self.per_prefix is not None and self.per_prefix._has_data():
                                         return True
 
-                                    if self.per_prefix is not None and self.per_prefix.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3395,18 +3156,12 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.enable is not None:
                                             return True
 
                                         if self.hop_count is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3428,18 +3183,9 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ttl is not None and self.ttl._has_data():
                                         return True
 
-                                    if self.ttl is not None and self.ttl.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3461,18 +3207,10 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.authentication is not None and self.authentication._has_data():
                                     return True
 
-                                if self.authentication is not None and self.authentication.is_presence():
-                                    return True
-
                                 if self.bfd is not None and self.bfd._has_data():
-                                    return True
-
-                                if self.bfd is not None and self.bfd.is_presence():
                                     return True
 
                                 if self.cost is not None:
@@ -3481,16 +3219,10 @@ class Ospf(object):
                                 if self.cost_fallback is not None and self.cost_fallback._has_data():
                                     return True
 
-                                if self.cost_fallback is not None and self.cost_fallback.is_presence():
-                                    return True
-
                                 if self.database_filter is not None:
                                     return True
 
                                 if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
-                                    return True
-
-                                if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
                                     return True
 
                                 if self.demand_circuit is not None:
@@ -3499,13 +3231,7 @@ class Ospf(object):
                                 if self.distribute_list is not None and self.distribute_list._has_data():
                                     return True
 
-                                if self.distribute_list is not None and self.distribute_list.is_presence():
-                                    return True
-
                                 if self.fast_reroute is not None and self.fast_reroute._has_data():
-                                    return True
-
-                                if self.fast_reroute is not None and self.fast_reroute.is_presence():
                                     return True
 
                                 if self.flood_reduction is not None:
@@ -3553,19 +3279,12 @@ class Ospf(object):
                                 if self.security is not None and self.security._has_data():
                                     return True
 
-                                if self.security is not None and self.security.is_presence():
-                                    return True
-
                                 if self.segment_routing_forwarding is not None:
                                     return True
 
                                 if self.transmit_delay is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3826,18 +3545,12 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.key_id is not None:
                                                     return True
 
                                                 if self.password is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -3859,17 +3572,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.message_digest_key is not None:
                                                 for child_ref in self.message_digest_key:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3885,12 +3592,12 @@ class Ospf(object):
                                         .. attribute:: authen_type
                                         
                                         	Authentication type code 
-                                        	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                                        	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                                         
                                         .. attribute:: keychain_authen_type
                                         
                                         	Keychain authentication type
-                                        	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                                        	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                                         
                                         .. attribute:: keychain_name
                                         
@@ -3924,8 +3631,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.authen_type is not None:
                                                 return True
 
@@ -3935,10 +3640,6 @@ class Ospf(object):
                                             if self.keychain_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3960,27 +3661,15 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.key is not None:
                                             return True
 
                                         if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                             return True
 
-                                        if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                            return True
-
                                         if self.type is not None and self.type._has_data():
                                             return True
 
-                                        if self.type is not None and self.type.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -4033,18 +3722,12 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.cost is not None:
                                             return True
 
                                         if self.threshold is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -4097,18 +3780,12 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interval is not None:
                                             return True
 
                                         if self.multiplier is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -4127,10 +3804,20 @@ class Ospf(object):
                                     	Access Control List name
                                     	**type**\: str
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: route_policy_name
                                     
                                     	Route Policy name
                                     	**type**\: str
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -4160,8 +3847,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.access_list_name is not None:
                                             return True
 
@@ -4169,10 +3854,6 @@ class Ospf(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -4272,8 +3953,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.neighbor_address is not None:
                                                 return True
 
@@ -4289,10 +3968,6 @@ class Ospf(object):
                                             if self.priority is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -4314,17 +3989,11 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.neighbor is not None:
                                             for child_ref in self.neighbor:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -4348,15 +4017,10 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_name is not None:
                                         return True
 
                                     if self.authentication is not None and self.authentication._has_data():
-                                        return True
-
-                                    if self.authentication is not None and self.authentication.is_presence():
                                         return True
 
                                     if self.cost is not None:
@@ -4365,22 +4029,13 @@ class Ospf(object):
                                     if self.cost_fallback is not None and self.cost_fallback._has_data():
                                         return True
 
-                                    if self.cost_fallback is not None and self.cost_fallback.is_presence():
-                                        return True
-
                                     if self.database_filter is not None:
                                         return True
 
                                     if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
                                         return True
 
-                                    if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
-                                        return True
-
                                     if self.distribute_list is not None and self.distribute_list._has_data():
-                                        return True
-
-                                    if self.distribute_list is not None and self.distribute_list.is_presence():
                                         return True
 
                                     if self.hello_interval is not None:
@@ -4390,9 +4045,6 @@ class Ospf(object):
                                         return True
 
                                     if self.neighbors is not None and self.neighbors._has_data():
-                                        return True
-
-                                    if self.neighbors is not None and self.neighbors.is_presence():
                                         return True
 
                                     if self.packet_size is not None:
@@ -4410,10 +4062,6 @@ class Ospf(object):
                                     if self.transmit_delay is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -4435,17 +4083,11 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.multi_area_interface_scope is not None:
                                     for child_ref in self.multi_area_interface_scope:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4585,7 +4227,7 @@ class Ospf(object):
                                 .. attribute:: network_type
                                 
                                 	Type of attached network
-                                	**type**\: :py:class:`OspfNetwork_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfNetwork_Enum>`
+                                	**type**\: :py:class:`OspfNetworkEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfNetworkEnum>`
                                 
                                 .. attribute:: packet_size
                                 
@@ -4636,7 +4278,7 @@ class Ospf(object):
                                 .. attribute:: segment_routing_forwarding
                                 
                                 	segment\-routing forwarding configuration Applicableonly in Default VRF
-                                	**type**\: :py:class:`OspfSegmentRoutingForwarding_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingForwarding_Enum>`
+                                	**type**\: :py:class:`OspfSegmentRoutingForwardingEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingForwardingEnum>`
                                 
                                 .. attribute:: transmit_delay
                                 
@@ -4801,18 +4443,12 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.key_id is not None:
                                                     return True
 
                                                 if self.password is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -4834,17 +4470,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.message_digest_key is not None:
                                                 for child_ref in self.message_digest_key:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -4860,12 +4490,12 @@ class Ospf(object):
                                         .. attribute:: authen_type
                                         
                                         	Authentication type code 
-                                        	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                                        	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                                         
                                         .. attribute:: keychain_authen_type
                                         
                                         	Keychain authentication type
-                                        	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                                        	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                                         
                                         .. attribute:: keychain_name
                                         
@@ -4899,8 +4529,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.authen_type is not None:
                                                 return True
 
@@ -4910,10 +4538,6 @@ class Ospf(object):
                                             if self.keychain_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -4935,27 +4559,15 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.key is not None:
                                             return True
 
                                         if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                             return True
 
-                                        if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                            return True
-
                                         if self.type is not None and self.type._has_data():
                                             return True
 
-                                        if self.type is not None and self.type.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -4978,7 +4590,7 @@ class Ospf(object):
                                     .. attribute:: fast_detect_mode
                                     
                                     	 use of Bidirectional Forwarding Detection
-                                    	**type**\: :py:class:`BfdEnableMode_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.BfdEnableMode_Enum>`
+                                    	**type**\: :py:class:`BfdEnableModeEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.BfdEnableModeEnum>`
                                     
                                     .. attribute:: interval
                                     
@@ -5014,8 +4626,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.detection_multiplier is not None:
                                             return True
 
@@ -5025,10 +4635,6 @@ class Ospf(object):
                                         if self.interval is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -5081,18 +4687,12 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.cost is not None:
                                             return True
 
                                         if self.threshold is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -5145,18 +4745,12 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interval is not None:
                                             return True
 
                                         if self.multiplier is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -5175,10 +4769,20 @@ class Ospf(object):
                                     	Access Control List name
                                     	**type**\: str
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: route_policy_name
                                     
                                     	Route Policy name
                                     	**type**\: str
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -5208,8 +4812,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.access_list_name is not None:
                                             return True
 
@@ -5217,10 +4819,6 @@ class Ospf(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -5235,7 +4833,7 @@ class Ospf(object):
                                     .. attribute:: fast_reroute_enable
                                     
                                     	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                                    	**type**\: :py:class:`OspfFastReroute_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastReroute_Enum>`
+                                    	**type**\: :py:class:`OspfFastRerouteEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
                                     
                                     .. attribute:: per_link
                                     
@@ -5360,15 +4958,9 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -5390,17 +4982,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -5472,15 +5058,9 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -5502,17 +5082,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -5534,27 +5108,15 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                                return True
-
-                                            if self.candidate_interfaces is not None and self.candidate_interfaces.is_presence():
                                                 return True
 
                                             if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
                                                 return True
 
-                                            if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
-                                                return True
-
                                             if self.fast_reroute_use_candidate_only is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -5673,15 +5235,9 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -5703,17 +5259,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -5785,15 +5335,9 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -5815,17 +5359,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -5848,7 +5386,7 @@ class Ospf(object):
                                             .. attribute:: tunnel
                                             
                                             	Enable/Disable remote LFA computation
-                                            	**type**\: :py:class:`OspfFrrRlfaTunnel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnel_Enum>`
+                                            	**type**\: :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
                                             
                                             
 
@@ -5876,18 +5414,12 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.maximum_cost is not None:
                                                     return True
 
                                                 if self.tunnel is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -5909,18 +5441,10 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
-                                            if self.candidate_interfaces is not None and self.candidate_interfaces.is_presence():
-                                                return True
-
                                             if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                                return True
-
-                                            if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
                                                 return True
 
                                             if self.fast_reroute_use_candidate_only is not None:
@@ -5929,16 +5453,9 @@ class Ospf(object):
                                             if self.remote_lfa is not None and self.remote_lfa._has_data():
                                                 return True
 
-                                            if self.remote_lfa is not None and self.remote_lfa.is_presence():
-                                                return True
-
                                             if self.topology_independent_lfa is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -5960,27 +5477,15 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fast_reroute_enable is not None:
                                             return True
 
                                         if self.per_link is not None and self.per_link._has_data():
                                             return True
 
-                                        if self.per_link is not None and self.per_link.is_presence():
-                                            return True
-
                                         if self.per_prefix is not None and self.per_prefix._has_data():
                                             return True
 
-                                        if self.per_prefix is not None and self.per_prefix.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6081,8 +5586,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.neighbor_address is not None:
                                                 return True
 
@@ -6098,10 +5601,6 @@ class Ospf(object):
                                             if self.priority is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -6123,17 +5622,11 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.neighbor is not None:
                                             for child_ref in self.neighbor:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6151,6 +5644,11 @@ class Ospf(object):
                                     	Force Penultimate Hop To Send Explicit\-Null Label
                                     	**type**\: bool
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: sid_value
                                     
                                     	SID value
@@ -6158,10 +5656,20 @@ class Ospf(object):
                                     
                                     	**range:** 0..1048575
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: type
                                     
                                     	OSPF SID Type
-                                    	**type**\: :py:class:`OspfSid_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSid_Enum>`
+                                    	**type**\: :py:class:`OspfSidEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSidEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -6192,8 +5700,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.explicit_null is not None:
                                             return True
 
@@ -6204,10 +5710,6 @@ class Ospf(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -6280,18 +5782,12 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.enable is not None:
                                                 return True
 
                                             if self.hop_count is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -6313,18 +5809,9 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.ttl is not None and self.ttl._has_data():
                                             return True
 
-                                        if self.ttl is not None and self.ttl.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6348,21 +5835,13 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_name is not None:
                                         return True
 
                                     if self.authentication is not None and self.authentication._has_data():
                                         return True
 
-                                    if self.authentication is not None and self.authentication.is_presence():
-                                        return True
-
                                     if self.bfd is not None and self.bfd._has_data():
-                                        return True
-
-                                    if self.bfd is not None and self.bfd.is_presence():
                                         return True
 
                                     if self.cost is not None:
@@ -6371,16 +5850,10 @@ class Ospf(object):
                                     if self.cost_fallback is not None and self.cost_fallback._has_data():
                                         return True
 
-                                    if self.cost_fallback is not None and self.cost_fallback.is_presence():
-                                        return True
-
                                     if self.database_filter is not None:
                                         return True
 
                                     if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
-                                        return True
-
-                                    if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
                                         return True
 
                                     if self.demand_circuit is not None:
@@ -6389,13 +5862,7 @@ class Ospf(object):
                                     if self.distribute_list is not None and self.distribute_list._has_data():
                                         return True
 
-                                    if self.distribute_list is not None and self.distribute_list.is_presence():
-                                        return True
-
                                     if self.fast_reroute is not None and self.fast_reroute._has_data():
-                                        return True
-
-                                    if self.fast_reroute is not None and self.fast_reroute.is_presence():
                                         return True
 
                                     if self.flood_reduction is not None:
@@ -6425,9 +5892,6 @@ class Ospf(object):
                                     if self.neighbors is not None and self.neighbors._has_data():
                                         return True
 
-                                    if self.neighbors is not None and self.neighbors.is_presence():
-                                        return True
-
                                     if self.network_type is not None:
                                         return True
 
@@ -6438,9 +5902,6 @@ class Ospf(object):
                                         return True
 
                                     if self.prefix_sid is not None and self.prefix_sid._has_data():
-                                        return True
-
-                                    if self.prefix_sid is not None and self.prefix_sid.is_presence():
                                         return True
 
                                     if self.prefix_suppression_secondary is not None:
@@ -6458,19 +5919,12 @@ class Ospf(object):
                                     if self.security is not None and self.security._has_data():
                                         return True
 
-                                    if self.security is not None and self.security.is_presence():
-                                        return True
-
                                     if self.segment_routing_forwarding is not None:
                                         return True
 
                                     if self.transmit_delay is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6492,17 +5946,11 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.name_scope is not None:
                                     for child_ref in self.name_scope:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6523,7 +5971,7 @@ class Ospf(object):
                             .. attribute:: metric_type
                             
                             	OSPF External metric type
-                            	**type**\: :py:class:`OspfLinkStateMetric_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetric_Enum>`
+                            	**type**\: :py:class:`OspfLinkStateMetricEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetricEnum>`
                             
                             .. attribute:: no_redistribution
                             
@@ -6571,8 +6019,6 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.default_info_originate is not None:
                                     return True
 
@@ -6588,10 +6034,6 @@ class Ospf(object):
                                 if self.nssa_def_metric is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6822,18 +6264,12 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.key_id is not None:
                                                     return True
 
                                                 if self.password is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -6855,17 +6291,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.message_digest_key is not None:
                                                 for child_ref in self.message_digest_key:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -6881,12 +6311,12 @@ class Ospf(object):
                                         .. attribute:: authen_type
                                         
                                         	Authentication type code 
-                                        	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                                        	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                                         
                                         .. attribute:: keychain_authen_type
                                         
                                         	Keychain authentication type
-                                        	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                                        	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                                         
                                         .. attribute:: keychain_name
                                         
@@ -6920,8 +6350,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.authen_type is not None:
                                                 return True
 
@@ -6931,10 +6359,6 @@ class Ospf(object):
                                             if self.keychain_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -6956,27 +6380,15 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.key is not None:
                                             return True
 
                                         if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                             return True
 
-                                        if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                            return True
-
                                         if self.type is not None and self.type._has_data():
                                             return True
 
-                                        if self.type is not None and self.type.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7029,18 +6441,12 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interval is not None:
                                             return True
 
                                         if self.multiplier is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7066,8 +6472,6 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.destination_address is not None:
                                         return True
 
@@ -7077,16 +6481,10 @@ class Ospf(object):
                                     if self.authentication is not None and self.authentication._has_data():
                                         return True
 
-                                    if self.authentication is not None and self.authentication.is_presence():
-                                        return True
-
                                     if self.cost is not None:
                                         return True
 
                                     if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
-                                        return True
-
-                                    if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
                                         return True
 
                                     if self.hello_interval is not None:
@@ -7104,10 +6502,6 @@ class Ospf(object):
                                     if self.transmit_delay is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -7129,17 +6523,11 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.sham_link_scope is not None:
                                     for child_ref in self.sham_link_scope:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7346,18 +6734,12 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.key_id is not None:
                                                     return True
 
                                                 if self.password is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -7379,17 +6761,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.message_digest_key is not None:
                                                 for child_ref in self.message_digest_key:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -7405,12 +6781,12 @@ class Ospf(object):
                                         .. attribute:: authen_type
                                         
                                         	Authentication type code 
-                                        	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                                        	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                                         
                                         .. attribute:: keychain_authen_type
                                         
                                         	Keychain authentication type
-                                        	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                                        	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                                         
                                         .. attribute:: keychain_name
                                         
@@ -7444,8 +6820,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.authen_type is not None:
                                                 return True
 
@@ -7455,10 +6829,6 @@ class Ospf(object):
                                             if self.keychain_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -7480,27 +6850,15 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.key is not None:
                                             return True
 
                                         if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                             return True
 
-                                        if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                            return True
-
                                         if self.type is not None and self.type._has_data():
                                             return True
 
-                                        if self.type is not None and self.type.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7553,18 +6911,12 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interval is not None:
                                             return True
 
                                         if self.multiplier is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7588,21 +6940,13 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address is not None:
                                         return True
 
                                     if self.authentication is not None and self.authentication._has_data():
                                         return True
 
-                                    if self.authentication is not None and self.authentication.is_presence():
-                                        return True
-
                                     if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
-                                        return True
-
-                                    if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
                                         return True
 
                                     if self.hello_interval is not None:
@@ -7617,10 +6961,6 @@ class Ospf(object):
                                     if self.transmit_delay is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -7642,17 +6982,11 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.virtual_link_scope is not None:
                                     for child_ref in self.virtual_link_scope:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7676,21 +7010,13 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 return True
 
                             if self.area_ranges is not None and self.area_ranges._has_data():
                                 return True
 
-                            if self.area_ranges is not None and self.area_ranges.is_presence():
-                                return True
-
                             if self.area_scope is not None and self.area_scope._has_data():
-                                return True
-
-                            if self.area_scope is not None and self.area_scope.is_presence():
                                 return True
 
                             if self.default_cost is not None:
@@ -7705,19 +7031,10 @@ class Ospf(object):
                             if self.multi_area_interface_scopes is not None and self.multi_area_interface_scopes._has_data():
                                 return True
 
-                            if self.multi_area_interface_scopes is not None and self.multi_area_interface_scopes.is_presence():
-                                return True
-
                             if self.name_scopes is not None and self.name_scopes._has_data():
                                 return True
 
-                            if self.name_scopes is not None and self.name_scopes.is_presence():
-                                return True
-
                             if self.nssa is not None and self.nssa._has_data():
-                                return True
-
-                            if self.nssa is not None and self.nssa.is_presence():
                                 return True
 
                             if self.route_policy_in is not None:
@@ -7735,9 +7052,6 @@ class Ospf(object):
                             if self.sham_link_scopes is not None and self.sham_link_scopes._has_data():
                                 return True
 
-                            if self.sham_link_scopes is not None and self.sham_link_scopes.is_presence():
-                                return True
-
                             if self.stub is not None:
                                 return True
 
@@ -7747,13 +7061,6 @@ class Ospf(object):
                             if self.virtual_link_scopes is not None and self.virtual_link_scopes._has_data():
                                 return True
 
-                            if self.virtual_link_scopes is not None and self.virtual_link_scopes.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7833,7 +7140,7 @@ class Ospf(object):
                         .. attribute:: segment_routing
                         
                         	segment\-routing configuration Applicable only in Default VRF
-                        	**type**\: :py:class:`OspfSegmentRouting_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRouting_Enum>`
+                        	**type**\: :py:class:`OspfSegmentRoutingEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingEnum>`
                         
                         .. attribute:: sham_link_scopes
                         
@@ -7968,8 +7275,6 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address is not None:
                                         return True
 
@@ -7979,10 +7284,6 @@ class Ospf(object):
                                     if self.not_advertise is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8004,17 +7305,11 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.area_range is not None:
                                     for child_ref in self.area_range:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8119,7 +7414,7 @@ class Ospf(object):
                             .. attribute:: network_type
                             
                             	Type of attached network
-                            	**type**\: :py:class:`OspfNetwork_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfNetwork_Enum>`
+                            	**type**\: :py:class:`OspfNetworkEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfNetworkEnum>`
                             
                             .. attribute:: packet_size
                             
@@ -8160,7 +7455,7 @@ class Ospf(object):
                             .. attribute:: segment_routing_forwarding
                             
                             	segment\-routing forwarding configuration Applicableonly in Default VRF
-                            	**type**\: :py:class:`OspfSegmentRoutingForwarding_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingForwarding_Enum>`
+                            	**type**\: :py:class:`OspfSegmentRoutingForwardingEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingForwardingEnum>`
                             
                             .. attribute:: transmit_delay
                             
@@ -8320,18 +7615,12 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.key_id is not None:
                                                 return True
 
                                             if self.password is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -8353,17 +7642,11 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.message_digest_key is not None:
                                             for child_ref in self.message_digest_key:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -8379,12 +7662,12 @@ class Ospf(object):
                                     .. attribute:: authen_type
                                     
                                     	Authentication type code 
-                                    	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                                    	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                                     
                                     .. attribute:: keychain_authen_type
                                     
                                     	Keychain authentication type
-                                    	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                                    	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                                     
                                     .. attribute:: keychain_name
                                     
@@ -8418,8 +7701,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.authen_type is not None:
                                             return True
 
@@ -8429,10 +7710,6 @@ class Ospf(object):
                                         if self.keychain_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -8454,27 +7731,15 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.key is not None:
                                         return True
 
                                     if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                         return True
 
-                                    if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                        return True
-
                                     if self.type is not None and self.type._has_data():
                                         return True
 
-                                    if self.type is not None and self.type.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8497,7 +7762,7 @@ class Ospf(object):
                                 .. attribute:: fast_detect_mode
                                 
                                 	 use of Bidirectional Forwarding Detection
-                                	**type**\: :py:class:`BfdEnableMode_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.BfdEnableMode_Enum>`
+                                	**type**\: :py:class:`BfdEnableModeEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.BfdEnableModeEnum>`
                                 
                                 .. attribute:: interval
                                 
@@ -8533,8 +7798,6 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.detection_multiplier is not None:
                                         return True
 
@@ -8544,10 +7807,6 @@ class Ospf(object):
                                     if self.interval is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8600,18 +7859,12 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.cost is not None:
                                         return True
 
                                     if self.threshold is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8664,18 +7917,12 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interval is not None:
                                         return True
 
                                     if self.multiplier is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8694,10 +7941,20 @@ class Ospf(object):
                                 	Access Control List name
                                 	**type**\: str
                                 
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
                                 .. attribute:: route_policy_name
                                 
                                 	Route Policy name
                                 	**type**\: str
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 
 
@@ -8727,8 +7984,6 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.access_list_name is not None:
                                         return True
 
@@ -8736,10 +7991,6 @@ class Ospf(object):
                                         return True
 
                                     return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return True
 
                                 @staticmethod
                                 def _meta_info():
@@ -8754,7 +8005,7 @@ class Ospf(object):
                                 .. attribute:: fast_reroute_enable
                                 
                                 	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                                	**type**\: :py:class:`OspfFastReroute_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastReroute_Enum>`
+                                	**type**\: :py:class:`OspfFastRerouteEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
                                 
                                 .. attribute:: per_link
                                 
@@ -8879,15 +8130,9 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -8909,17 +8154,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.candidate_interface is not None:
                                                 for child_ref in self.candidate_interface:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -8991,15 +8230,9 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -9021,17 +8254,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.exclude_interface is not None:
                                                 for child_ref in self.exclude_interface:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -9053,27 +8280,15 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                            return True
-
-                                        if self.candidate_interfaces is not None and self.candidate_interfaces.is_presence():
                                             return True
 
                                         if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
                                             return True
 
-                                        if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
-                                            return True
-
                                         if self.fast_reroute_use_candidate_only is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -9192,15 +8407,9 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -9222,17 +8431,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.candidate_interface is not None:
                                                 for child_ref in self.candidate_interface:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -9304,15 +8507,9 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -9334,17 +8531,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.exclude_interface is not None:
                                                 for child_ref in self.exclude_interface:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -9367,7 +8558,7 @@ class Ospf(object):
                                         .. attribute:: tunnel
                                         
                                         	Enable/Disable remote LFA computation
-                                        	**type**\: :py:class:`OspfFrrRlfaTunnel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnel_Enum>`
+                                        	**type**\: :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
                                         
                                         
 
@@ -9395,18 +8586,12 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.maximum_cost is not None:
                                                 return True
 
                                             if self.tunnel is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -9428,18 +8613,10 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                             return True
 
-                                        if self.candidate_interfaces is not None and self.candidate_interfaces.is_presence():
-                                            return True
-
                                         if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                            return True
-
-                                        if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
                                             return True
 
                                         if self.fast_reroute_use_candidate_only is not None:
@@ -9448,16 +8625,9 @@ class Ospf(object):
                                         if self.remote_lfa is not None and self.remote_lfa._has_data():
                                             return True
 
-                                        if self.remote_lfa is not None and self.remote_lfa.is_presence():
-                                            return True
-
                                         if self.topology_independent_lfa is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -9479,27 +8649,15 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.fast_reroute_enable is not None:
                                         return True
 
                                     if self.per_link is not None and self.per_link._has_data():
                                         return True
 
-                                    if self.per_link is not None and self.per_link.is_presence():
-                                        return True
-
                                     if self.per_prefix is not None and self.per_prefix._has_data():
                                         return True
 
-                                    if self.per_prefix is not None and self.per_prefix.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9573,18 +8731,12 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.enable is not None:
                                             return True
 
                                         if self.hop_count is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -9606,18 +8758,9 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ttl is not None and self.ttl._has_data():
                                         return True
 
-                                    if self.ttl is not None and self.ttl.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9639,18 +8782,10 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.authentication is not None and self.authentication._has_data():
                                     return True
 
-                                if self.authentication is not None and self.authentication.is_presence():
-                                    return True
-
                                 if self.bfd is not None and self.bfd._has_data():
-                                    return True
-
-                                if self.bfd is not None and self.bfd.is_presence():
                                     return True
 
                                 if self.cost is not None:
@@ -9659,16 +8794,10 @@ class Ospf(object):
                                 if self.cost_fallback is not None and self.cost_fallback._has_data():
                                     return True
 
-                                if self.cost_fallback is not None and self.cost_fallback.is_presence():
-                                    return True
-
                                 if self.database_filter is not None:
                                     return True
 
                                 if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
-                                    return True
-
-                                if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
                                     return True
 
                                 if self.demand_circuit is not None:
@@ -9677,13 +8806,7 @@ class Ospf(object):
                                 if self.distribute_list is not None and self.distribute_list._has_data():
                                     return True
 
-                                if self.distribute_list is not None and self.distribute_list.is_presence():
-                                    return True
-
                                 if self.fast_reroute is not None and self.fast_reroute._has_data():
-                                    return True
-
-                                if self.fast_reroute is not None and self.fast_reroute.is_presence():
                                     return True
 
                                 if self.flood_reduction is not None:
@@ -9731,19 +8854,12 @@ class Ospf(object):
                                 if self.security is not None and self.security._has_data():
                                     return True
 
-                                if self.security is not None and self.security.is_presence():
-                                    return True
-
                                 if self.segment_routing_forwarding is not None:
                                     return True
 
                                 if self.transmit_delay is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10004,18 +9120,12 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.key_id is not None:
                                                     return True
 
                                                 if self.password is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -10037,17 +9147,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.message_digest_key is not None:
                                                 for child_ref in self.message_digest_key:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -10063,12 +9167,12 @@ class Ospf(object):
                                         .. attribute:: authen_type
                                         
                                         	Authentication type code 
-                                        	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                                        	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                                         
                                         .. attribute:: keychain_authen_type
                                         
                                         	Keychain authentication type
-                                        	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                                        	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                                         
                                         .. attribute:: keychain_name
                                         
@@ -10102,8 +9206,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.authen_type is not None:
                                                 return True
 
@@ -10113,10 +9215,6 @@ class Ospf(object):
                                             if self.keychain_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -10138,27 +9236,15 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.key is not None:
                                             return True
 
                                         if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                             return True
 
-                                        if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                            return True
-
                                         if self.type is not None and self.type._has_data():
                                             return True
 
-                                        if self.type is not None and self.type.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10211,18 +9297,12 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.cost is not None:
                                             return True
 
                                         if self.threshold is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10275,18 +9355,12 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interval is not None:
                                             return True
 
                                         if self.multiplier is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10305,10 +9379,20 @@ class Ospf(object):
                                     	Access Control List name
                                     	**type**\: str
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: route_policy_name
                                     
                                     	Route Policy name
                                     	**type**\: str
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -10338,8 +9422,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.access_list_name is not None:
                                             return True
 
@@ -10347,10 +9429,6 @@ class Ospf(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -10450,8 +9528,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.neighbor_address is not None:
                                                 return True
 
@@ -10467,10 +9543,6 @@ class Ospf(object):
                                             if self.priority is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -10492,17 +9564,11 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.neighbor is not None:
                                             for child_ref in self.neighbor:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10526,15 +9592,10 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_name is not None:
                                         return True
 
                                     if self.authentication is not None and self.authentication._has_data():
-                                        return True
-
-                                    if self.authentication is not None and self.authentication.is_presence():
                                         return True
 
                                     if self.cost is not None:
@@ -10543,22 +9604,13 @@ class Ospf(object):
                                     if self.cost_fallback is not None and self.cost_fallback._has_data():
                                         return True
 
-                                    if self.cost_fallback is not None and self.cost_fallback.is_presence():
-                                        return True
-
                                     if self.database_filter is not None:
                                         return True
 
                                     if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
                                         return True
 
-                                    if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
-                                        return True
-
                                     if self.distribute_list is not None and self.distribute_list._has_data():
-                                        return True
-
-                                    if self.distribute_list is not None and self.distribute_list.is_presence():
                                         return True
 
                                     if self.hello_interval is not None:
@@ -10568,9 +9620,6 @@ class Ospf(object):
                                         return True
 
                                     if self.neighbors is not None and self.neighbors._has_data():
-                                        return True
-
-                                    if self.neighbors is not None and self.neighbors.is_presence():
                                         return True
 
                                     if self.packet_size is not None:
@@ -10588,10 +9637,6 @@ class Ospf(object):
                                     if self.transmit_delay is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -10613,17 +9658,11 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.multi_area_interface_scope is not None:
                                     for child_ref in self.multi_area_interface_scope:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10763,7 +9802,7 @@ class Ospf(object):
                                 .. attribute:: network_type
                                 
                                 	Type of attached network
-                                	**type**\: :py:class:`OspfNetwork_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfNetwork_Enum>`
+                                	**type**\: :py:class:`OspfNetworkEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfNetworkEnum>`
                                 
                                 .. attribute:: packet_size
                                 
@@ -10814,7 +9853,7 @@ class Ospf(object):
                                 .. attribute:: segment_routing_forwarding
                                 
                                 	segment\-routing forwarding configuration Applicableonly in Default VRF
-                                	**type**\: :py:class:`OspfSegmentRoutingForwarding_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingForwarding_Enum>`
+                                	**type**\: :py:class:`OspfSegmentRoutingForwardingEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingForwardingEnum>`
                                 
                                 .. attribute:: transmit_delay
                                 
@@ -10979,18 +10018,12 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.key_id is not None:
                                                     return True
 
                                                 if self.password is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -11012,17 +10045,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.message_digest_key is not None:
                                                 for child_ref in self.message_digest_key:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -11038,12 +10065,12 @@ class Ospf(object):
                                         .. attribute:: authen_type
                                         
                                         	Authentication type code 
-                                        	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                                        	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                                         
                                         .. attribute:: keychain_authen_type
                                         
                                         	Keychain authentication type
-                                        	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                                        	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                                         
                                         .. attribute:: keychain_name
                                         
@@ -11077,8 +10104,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.authen_type is not None:
                                                 return True
 
@@ -11088,10 +10113,6 @@ class Ospf(object):
                                             if self.keychain_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -11113,27 +10134,15 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.key is not None:
                                             return True
 
                                         if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                             return True
 
-                                        if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                            return True
-
                                         if self.type is not None and self.type._has_data():
                                             return True
 
-                                        if self.type is not None and self.type.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -11156,7 +10165,7 @@ class Ospf(object):
                                     .. attribute:: fast_detect_mode
                                     
                                     	 use of Bidirectional Forwarding Detection
-                                    	**type**\: :py:class:`BfdEnableMode_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.BfdEnableMode_Enum>`
+                                    	**type**\: :py:class:`BfdEnableModeEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.BfdEnableModeEnum>`
                                     
                                     .. attribute:: interval
                                     
@@ -11192,8 +10201,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.detection_multiplier is not None:
                                             return True
 
@@ -11203,10 +10210,6 @@ class Ospf(object):
                                         if self.interval is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -11259,18 +10262,12 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.cost is not None:
                                             return True
 
                                         if self.threshold is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -11323,18 +10320,12 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interval is not None:
                                             return True
 
                                         if self.multiplier is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -11353,10 +10344,20 @@ class Ospf(object):
                                     	Access Control List name
                                     	**type**\: str
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: route_policy_name
                                     
                                     	Route Policy name
                                     	**type**\: str
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -11386,8 +10387,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.access_list_name is not None:
                                             return True
 
@@ -11395,10 +10394,6 @@ class Ospf(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -11413,7 +10408,7 @@ class Ospf(object):
                                     .. attribute:: fast_reroute_enable
                                     
                                     	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                                    	**type**\: :py:class:`OspfFastReroute_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastReroute_Enum>`
+                                    	**type**\: :py:class:`OspfFastRerouteEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
                                     
                                     .. attribute:: per_link
                                     
@@ -11538,15 +10533,9 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -11568,17 +10557,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -11650,15 +10633,9 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -11680,17 +10657,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -11712,27 +10683,15 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                                return True
-
-                                            if self.candidate_interfaces is not None and self.candidate_interfaces.is_presence():
                                                 return True
 
                                             if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
                                                 return True
 
-                                            if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
-                                                return True
-
                                             if self.fast_reroute_use_candidate_only is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -11851,15 +10810,9 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -11881,17 +10834,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -11963,15 +10910,9 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -11993,17 +10934,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -12026,7 +10961,7 @@ class Ospf(object):
                                             .. attribute:: tunnel
                                             
                                             	Enable/Disable remote LFA computation
-                                            	**type**\: :py:class:`OspfFrrRlfaTunnel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnel_Enum>`
+                                            	**type**\: :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
                                             
                                             
 
@@ -12054,18 +10989,12 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.maximum_cost is not None:
                                                     return True
 
                                                 if self.tunnel is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -12087,18 +11016,10 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
-                                            if self.candidate_interfaces is not None and self.candidate_interfaces.is_presence():
-                                                return True
-
                                             if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                                return True
-
-                                            if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
                                                 return True
 
                                             if self.fast_reroute_use_candidate_only is not None:
@@ -12107,16 +11028,9 @@ class Ospf(object):
                                             if self.remote_lfa is not None and self.remote_lfa._has_data():
                                                 return True
 
-                                            if self.remote_lfa is not None and self.remote_lfa.is_presence():
-                                                return True
-
                                             if self.topology_independent_lfa is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -12138,27 +11052,15 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fast_reroute_enable is not None:
                                             return True
 
                                         if self.per_link is not None and self.per_link._has_data():
                                             return True
 
-                                        if self.per_link is not None and self.per_link.is_presence():
-                                            return True
-
                                         if self.per_prefix is not None and self.per_prefix._has_data():
                                             return True
 
-                                        if self.per_prefix is not None and self.per_prefix.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -12259,8 +11161,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.neighbor_address is not None:
                                                 return True
 
@@ -12276,10 +11176,6 @@ class Ospf(object):
                                             if self.priority is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -12301,17 +11197,11 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.neighbor is not None:
                                             for child_ref in self.neighbor:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -12329,6 +11219,11 @@ class Ospf(object):
                                     	Force Penultimate Hop To Send Explicit\-Null Label
                                     	**type**\: bool
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: sid_value
                                     
                                     	SID value
@@ -12336,10 +11231,20 @@ class Ospf(object):
                                     
                                     	**range:** 0..1048575
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: type
                                     
                                     	OSPF SID Type
-                                    	**type**\: :py:class:`OspfSid_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSid_Enum>`
+                                    	**type**\: :py:class:`OspfSidEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSidEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -12370,8 +11275,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.explicit_null is not None:
                                             return True
 
@@ -12382,10 +11285,6 @@ class Ospf(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -12458,18 +11357,12 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.enable is not None:
                                                 return True
 
                                             if self.hop_count is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -12491,18 +11384,9 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.ttl is not None and self.ttl._has_data():
                                             return True
 
-                                        if self.ttl is not None and self.ttl.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -12526,21 +11410,13 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_name is not None:
                                         return True
 
                                     if self.authentication is not None and self.authentication._has_data():
                                         return True
 
-                                    if self.authentication is not None and self.authentication.is_presence():
-                                        return True
-
                                     if self.bfd is not None and self.bfd._has_data():
-                                        return True
-
-                                    if self.bfd is not None and self.bfd.is_presence():
                                         return True
 
                                     if self.cost is not None:
@@ -12549,16 +11425,10 @@ class Ospf(object):
                                     if self.cost_fallback is not None and self.cost_fallback._has_data():
                                         return True
 
-                                    if self.cost_fallback is not None and self.cost_fallback.is_presence():
-                                        return True
-
                                     if self.database_filter is not None:
                                         return True
 
                                     if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
-                                        return True
-
-                                    if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
                                         return True
 
                                     if self.demand_circuit is not None:
@@ -12567,13 +11437,7 @@ class Ospf(object):
                                     if self.distribute_list is not None and self.distribute_list._has_data():
                                         return True
 
-                                    if self.distribute_list is not None and self.distribute_list.is_presence():
-                                        return True
-
                                     if self.fast_reroute is not None and self.fast_reroute._has_data():
-                                        return True
-
-                                    if self.fast_reroute is not None and self.fast_reroute.is_presence():
                                         return True
 
                                     if self.flood_reduction is not None:
@@ -12603,9 +11467,6 @@ class Ospf(object):
                                     if self.neighbors is not None and self.neighbors._has_data():
                                         return True
 
-                                    if self.neighbors is not None and self.neighbors.is_presence():
-                                        return True
-
                                     if self.network_type is not None:
                                         return True
 
@@ -12616,9 +11477,6 @@ class Ospf(object):
                                         return True
 
                                     if self.prefix_sid is not None and self.prefix_sid._has_data():
-                                        return True
-
-                                    if self.prefix_sid is not None and self.prefix_sid.is_presence():
                                         return True
 
                                     if self.prefix_suppression_secondary is not None:
@@ -12636,19 +11494,12 @@ class Ospf(object):
                                     if self.security is not None and self.security._has_data():
                                         return True
 
-                                    if self.security is not None and self.security.is_presence():
-                                        return True
-
                                     if self.segment_routing_forwarding is not None:
                                         return True
 
                                     if self.transmit_delay is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -12670,17 +11521,11 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.name_scope is not None:
                                     for child_ref in self.name_scope:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -12701,7 +11546,7 @@ class Ospf(object):
                             .. attribute:: metric_type
                             
                             	OSPF External metric type
-                            	**type**\: :py:class:`OspfLinkStateMetric_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetric_Enum>`
+                            	**type**\: :py:class:`OspfLinkStateMetricEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetricEnum>`
                             
                             .. attribute:: no_redistribution
                             
@@ -12749,8 +11594,6 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.default_info_originate is not None:
                                     return True
 
@@ -12766,10 +11609,6 @@ class Ospf(object):
                                 if self.nssa_def_metric is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -13000,18 +11839,12 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.key_id is not None:
                                                     return True
 
                                                 if self.password is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -13033,17 +11866,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.message_digest_key is not None:
                                                 for child_ref in self.message_digest_key:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -13059,12 +11886,12 @@ class Ospf(object):
                                         .. attribute:: authen_type
                                         
                                         	Authentication type code 
-                                        	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                                        	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                                         
                                         .. attribute:: keychain_authen_type
                                         
                                         	Keychain authentication type
-                                        	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                                        	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                                         
                                         .. attribute:: keychain_name
                                         
@@ -13098,8 +11925,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.authen_type is not None:
                                                 return True
 
@@ -13109,10 +11934,6 @@ class Ospf(object):
                                             if self.keychain_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -13134,27 +11955,15 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.key is not None:
                                             return True
 
                                         if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                             return True
 
-                                        if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                            return True
-
                                         if self.type is not None and self.type._has_data():
                                             return True
 
-                                        if self.type is not None and self.type.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -13207,18 +12016,12 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interval is not None:
                                             return True
 
                                         if self.multiplier is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -13244,8 +12047,6 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.destination_address is not None:
                                         return True
 
@@ -13255,16 +12056,10 @@ class Ospf(object):
                                     if self.authentication is not None and self.authentication._has_data():
                                         return True
 
-                                    if self.authentication is not None and self.authentication.is_presence():
-                                        return True
-
                                     if self.cost is not None:
                                         return True
 
                                     if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
-                                        return True
-
-                                    if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
                                         return True
 
                                     if self.hello_interval is not None:
@@ -13282,10 +12077,6 @@ class Ospf(object):
                                     if self.transmit_delay is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -13307,17 +12098,11 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.sham_link_scope is not None:
                                     for child_ref in self.sham_link_scope:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -13524,18 +12309,12 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.key_id is not None:
                                                     return True
 
                                                 if self.password is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -13557,17 +12336,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.message_digest_key is not None:
                                                 for child_ref in self.message_digest_key:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -13583,12 +12356,12 @@ class Ospf(object):
                                         .. attribute:: authen_type
                                         
                                         	Authentication type code 
-                                        	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                                        	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                                         
                                         .. attribute:: keychain_authen_type
                                         
                                         	Keychain authentication type
-                                        	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                                        	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                                         
                                         .. attribute:: keychain_name
                                         
@@ -13622,8 +12395,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.authen_type is not None:
                                                 return True
 
@@ -13633,10 +12404,6 @@ class Ospf(object):
                                             if self.keychain_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -13658,27 +12425,15 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.key is not None:
                                             return True
 
                                         if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                             return True
 
-                                        if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                            return True
-
                                         if self.type is not None and self.type._has_data():
                                             return True
 
-                                        if self.type is not None and self.type.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -13731,18 +12486,12 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interval is not None:
                                             return True
 
                                         if self.multiplier is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -13766,21 +12515,13 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address is not None:
                                         return True
 
                                     if self.authentication is not None and self.authentication._has_data():
                                         return True
 
-                                    if self.authentication is not None and self.authentication.is_presence():
-                                        return True
-
                                     if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
-                                        return True
-
-                                    if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
                                         return True
 
                                     if self.hello_interval is not None:
@@ -13795,10 +12536,6 @@ class Ospf(object):
                                     if self.transmit_delay is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -13820,17 +12557,11 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.virtual_link_scope is not None:
                                     for child_ref in self.virtual_link_scope:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -13854,21 +12585,13 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.area_id is not None:
                                 return True
 
                             if self.area_ranges is not None and self.area_ranges._has_data():
                                 return True
 
-                            if self.area_ranges is not None and self.area_ranges.is_presence():
-                                return True
-
                             if self.area_scope is not None and self.area_scope._has_data():
-                                return True
-
-                            if self.area_scope is not None and self.area_scope.is_presence():
                                 return True
 
                             if self.default_cost is not None:
@@ -13883,19 +12606,10 @@ class Ospf(object):
                             if self.multi_area_interface_scopes is not None and self.multi_area_interface_scopes._has_data():
                                 return True
 
-                            if self.multi_area_interface_scopes is not None and self.multi_area_interface_scopes.is_presence():
-                                return True
-
                             if self.name_scopes is not None and self.name_scopes._has_data():
                                 return True
 
-                            if self.name_scopes is not None and self.name_scopes.is_presence():
-                                return True
-
                             if self.nssa is not None and self.nssa._has_data():
-                                return True
-
-                            if self.nssa is not None and self.nssa.is_presence():
                                 return True
 
                             if self.route_policy_in is not None:
@@ -13913,9 +12627,6 @@ class Ospf(object):
                             if self.sham_link_scopes is not None and self.sham_link_scopes._has_data():
                                 return True
 
-                            if self.sham_link_scopes is not None and self.sham_link_scopes.is_presence():
-                                return True
-
                             if self.stub is not None:
                                 return True
 
@@ -13925,13 +12636,6 @@ class Ospf(object):
                             if self.virtual_link_scopes is not None and self.virtual_link_scopes._has_data():
                                 return True
 
-                            if self.virtual_link_scopes is not None and self.virtual_link_scopes.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -13953,8 +12657,6 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.area_address is not None:
                             for child_ref in self.area_address:
                                 if child_ref._has_data():
@@ -13965,10 +12667,6 @@ class Ospf(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -14019,18 +12717,12 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bandwidth is not None:
                             return True
 
                         if self.disable is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -14058,7 +12750,7 @@ class Ospf(object):
                     .. attribute:: metric_type
                     
                     	OSPF External metric type
-                    	**type**\: :py:class:`OspfLinkStateMetric_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetric_Enum>`
+                    	**type**\: :py:class:`OspfLinkStateMetricEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetricEnum>`
                     
                     .. attribute:: route_policy_name
                     
@@ -14093,8 +12785,6 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.always_advertise is not None:
                             return True
 
@@ -14107,10 +12797,6 @@ class Ospf(object):
                         if self.route_policy_name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -14243,8 +12929,6 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.address is not None:
                                     return True
 
@@ -14257,10 +12941,6 @@ class Ospf(object):
                                 if self.distance is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -14282,17 +12962,11 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip_distance is not None:
                                 for child_ref in self.ip_distance:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -14353,8 +13027,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.external_routes is not None:
                                 return True
 
@@ -14364,10 +13036,6 @@ class Ospf(object):
                             if self.intra_area is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -14389,27 +13057,15 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.admin_distance is not None:
                             return True
 
                         if self.ip_distances is not None and self.ip_distances._has_data():
                             return True
 
-                        if self.ip_distances is not None and self.ip_distances.is_presence():
-                            return True
-
                         if self.ospf_distance is not None and self.ospf_distance._has_data():
                             return True
 
-                        if self.ospf_distance is not None and self.ospf_distance.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -14454,7 +13110,7 @@ class Ospf(object):
                         .. attribute:: priority
                         
                         	Fast\-reroute per\-link/per\-prefix priority\-limit command
-                        	**type**\: :py:class:`OspfFastReroutePriority_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastReroutePriority_Enum>`
+                        	**type**\: :py:class:`OspfFastReroutePriorityEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastReroutePriorityEnum>`
                         
                         
 
@@ -14481,15 +13137,9 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.priority is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -14510,7 +13160,7 @@ class Ospf(object):
                         .. attribute:: priority
                         
                         	Fast\-reroute per\-link/per\-prefix priority\-limit command
-                        	**type**\: :py:class:`OspfFastReroutePriority_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastReroutePriority_Enum>`
+                        	**type**\: :py:class:`OspfFastReroutePriorityEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastReroutePriorityEnum>`
                         
                         .. attribute:: tiebreakers
                         
@@ -14562,7 +13212,7 @@ class Ospf(object):
                                 .. attribute:: tiebreaker_type
                                 
                                 	Tiebreaker type
-                                	**type**\: :py:class:`OspfFastRerouteTiebreakers_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteTiebreakers_Enum>`
+                                	**type**\: :py:class:`OspfFastRerouteTiebreakersEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteTiebreakersEnum>`
                                 
                                 .. attribute:: tiebreaker_index
                                 
@@ -14599,18 +13249,12 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.tiebreaker_type is not None:
                                         return True
 
                                     if self.tiebreaker_index is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -14632,17 +13276,11 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.tiebreaker is not None:
                                     for child_ref in self.tiebreaker:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -14664,8 +13302,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.load_sharing_disable is not None:
                                 return True
 
@@ -14675,13 +13311,6 @@ class Ospf(object):
                             if self.tiebreakers is not None and self.tiebreakers._has_data():
                                 return True
 
-                            if self.tiebreakers is not None and self.tiebreakers.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -14703,24 +13332,12 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.per_link is not None and self.per_link._has_data():
-                            return True
-
-                        if self.per_link is not None and self.per_link.is_presence():
                             return True
 
                         if self.per_prefix is not None and self.per_prefix._has_data():
                             return True
 
-                        if self.per_prefix is not None and self.per_prefix.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -14740,12 +13357,22 @@ class Ospf(object):
                     
                     	**range:** 1..4294967294
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: max_lsa_ignore_time
                     
                     	Set time during which all adjacencies are suppressed
                     	**type**\: int
                     
                     	**range:** 1..35791394
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: max_lsa_limit
                     
@@ -14754,12 +13381,22 @@ class Ospf(object):
                     
                     	**range:** 1..4294967294
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: max_lsa_reset_time
                     
                     	Set number of minutes after which ignore\-count is reset to zero
                     	**type**\: int
                     
                     	**range:** 2..71582788
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: max_lsa_threshold
                     
@@ -14768,9 +13405,19 @@ class Ospf(object):
                     
                     	**range:** 1..100
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: max_lsa_warning_only
                     
                     	Only give warning message when limit is exceeded
+                    	**type**\: bool
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
                     
@@ -14805,8 +13452,6 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.max_lsa_ignore_count is not None:
                             return True
 
@@ -14826,10 +13471,6 @@ class Ospf(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -14955,8 +13596,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.external_lsa is not None:
                                 return True
 
@@ -14972,10 +13611,6 @@ class Ospf(object):
                             if self.summary_lsa_maximum_metric is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -15061,8 +13696,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.external_lsa is not None:
                                 return True
 
@@ -15084,10 +13717,6 @@ class Ospf(object):
                             if self.wait_for_bgp is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -15173,8 +13802,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.external_lsa is not None:
                                 return True
 
@@ -15196,10 +13823,6 @@ class Ospf(object):
                             if self.wait_for_bgp is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -15284,8 +13907,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.external_lsa is not None:
                                 return True
 
@@ -15307,10 +13928,6 @@ class Ospf(object):
                             if self.wait_for_bgp is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -15395,8 +14012,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.external_lsa is not None:
                                 return True
 
@@ -15420,10 +14035,6 @@ class Ospf(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
@@ -15443,12 +14054,7 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.max_metric_always is not None and self.max_metric_always._has_data():
-                            return True
-
-                        if self.max_metric_always is not None and self.max_metric_always.is_presence():
                             return True
 
                         if self.max_metric_no_abr_off is not None:
@@ -15457,31 +14063,15 @@ class Ospf(object):
                         if self.max_metric_on_proc_migration is not None and self.max_metric_on_proc_migration._has_data():
                             return True
 
-                        if self.max_metric_on_proc_migration is not None and self.max_metric_on_proc_migration.is_presence():
-                            return True
-
                         if self.max_metric_on_proc_restart is not None and self.max_metric_on_proc_restart._has_data():
-                            return True
-
-                        if self.max_metric_on_proc_restart is not None and self.max_metric_on_proc_restart.is_presence():
                             return True
 
                         if self.max_metric_on_startup is not None and self.max_metric_on_startup._has_data():
                             return True
 
-                        if self.max_metric_on_startup is not None and self.max_metric_on_startup.is_presence():
-                            return True
-
                         if self.max_metric_on_switchover is not None and self.max_metric_on_switchover._has_data():
                             return True
 
-                        if self.max_metric_on_switchover is not None and self.max_metric_on_switchover.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -15541,8 +14131,6 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.number_of_prefixes is not None:
                             return True
 
@@ -15552,10 +14140,6 @@ class Ospf(object):
                         if self.warning_only is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -15593,7 +14177,7 @@ class Ospf(object):
                         .. attribute:: enable
                         
                         	MicroLoop avoidance feature enable configuration
-                        	**type**\: :py:class:`OspfUloopAvoidance_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfUloopAvoidance_Enum>`
+                        	**type**\: :py:class:`OspfUloopAvoidanceEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfUloopAvoidanceEnum>`
                         
                         .. attribute:: rib_update_delay
                         
@@ -15628,18 +14212,12 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.enable is not None:
                                 return True
 
                             if self.rib_update_delay is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -15661,18 +14239,9 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.avoidance is not None and self.avoidance._has_data():
                             return True
 
-                        if self.avoidance is not None and self.avoidance.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -15739,8 +14308,6 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.enable is not None:
                             return True
 
@@ -15756,10 +14323,6 @@ class Ospf(object):
                         if self.track_summary_routes is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -15861,18 +14424,12 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 return True
 
                             if self.interface_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -15894,8 +14451,6 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.autoroute_exclude is not None:
                             return True
 
@@ -15908,16 +14463,9 @@ class Ospf(object):
                         if self.mpls_router_id is not None and self.mpls_router_id._has_data():
                             return True
 
-                        if self.mpls_router_id is not None and self.mpls_router_id.is_presence():
-                            return True
-
                         if self.multicast_intact is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -15933,7 +14481,7 @@ class Ospf(object):
                     .. attribute:: cisco
                     
                     	Enable Cisco Non Stop Forwarding
-                    	**type**\: :py:class:`OspfCiscoNsf_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfCiscoNsf_Enum>`
+                    	**type**\: :py:class:`OspfCiscoNsfEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfCiscoNsfEnum>`
                     
                     .. attribute:: flush_delay_time
                     
@@ -15945,7 +14493,7 @@ class Ospf(object):
                     .. attribute:: ietf
                     
                     	Enable IETF Non Stop Forwarding
-                    	**type**\: :py:class:`OspfIetfNsf_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfIetfNsf_Enum>`
+                    	**type**\: :py:class:`OspfIetfNsfEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfIetfNsfEnum>`
                     
                     .. attribute:: ietf_strict_lsa_checking
                     
@@ -15955,7 +14503,7 @@ class Ospf(object):
                     .. attribute:: ietf_support_role
                     
                     	Disable helper support role for IETF Non Stop Forwarding
-                    	**type**\: :py:class:`OspfIetfNsfSupport_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfIetfNsfSupport_Enum>`
+                    	**type**\: :py:class:`OspfIetfNsfSupportEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfIetfNsfSupportEnum>`
                     
                     .. attribute:: interval
                     
@@ -16002,8 +14550,6 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.cisco is not None:
                             return True
 
@@ -16025,10 +14571,6 @@ class Ospf(object):
                         if self.lifetime is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -16068,7 +14610,7 @@ class Ospf(object):
                         .. attribute:: protocol_name
                         
                         	Distribute list protocol type
-                        	**type**\: :py:class:`OspfDistListProtocol_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfDistListProtocol_Enum>`
+                        	**type**\: :py:class:`OspfDistListProtocolEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfDistListProtocolEnum>`
                         
                         .. attribute:: access_list_name
                         
@@ -16125,8 +14667,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.protocol_name is not None:
                                 return True
 
@@ -16142,10 +14682,6 @@ class Ospf(object):
                             if self.ospf_process_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -16167,17 +14703,11 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.outgoing_route_update is not None:
                             for child_ref in self.outgoing_route_update:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -16287,7 +14817,7 @@ class Ospf(object):
                     .. attribute:: network_type
                     
                     	Type of attached network
-                    	**type**\: :py:class:`OspfNetwork_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfNetwork_Enum>`
+                    	**type**\: :py:class:`OspfNetworkEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfNetworkEnum>`
                     
                     .. attribute:: packet_size
                     
@@ -16328,12 +14858,12 @@ class Ospf(object):
                     .. attribute:: segment_routing
                     
                     	segment\-routing configuration Applicable only in Default VRF
-                    	**type**\: :py:class:`OspfSegmentRouting_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRouting_Enum>`
+                    	**type**\: :py:class:`OspfSegmentRoutingEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingEnum>`
                     
                     .. attribute:: segment_routing_forwarding
                     
                     	segment\-routing forwarding configuration Applicableonly in Default VRF
-                    	**type**\: :py:class:`OspfSegmentRoutingForwarding_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingForwarding_Enum>`
+                    	**type**\: :py:class:`OspfSegmentRoutingForwardingEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingForwardingEnum>`
                     
                     .. attribute:: srgb
                     
@@ -16507,18 +15037,12 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.key_id is not None:
                                         return True
 
                                     if self.password is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -16540,17 +15064,11 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.message_digest_key is not None:
                                     for child_ref in self.message_digest_key:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16566,12 +15084,12 @@ class Ospf(object):
                             .. attribute:: authen_type
                             
                             	Authentication type code 
-                            	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                            	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                             
                             .. attribute:: keychain_authen_type
                             
                             	Keychain authentication type
-                            	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                            	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                             
                             .. attribute:: keychain_name
                             
@@ -16605,8 +15123,6 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.authen_type is not None:
                                     return True
 
@@ -16616,10 +15132,6 @@ class Ospf(object):
                                 if self.keychain_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16641,27 +15153,15 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.key is not None:
                                 return True
 
                             if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                 return True
 
-                            if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                return True
-
                             if self.type is not None and self.type._has_data():
                                 return True
 
-                            if self.type is not None and self.type.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -16684,7 +15184,7 @@ class Ospf(object):
                         .. attribute:: fast_detect_mode
                         
                         	 use of Bidirectional Forwarding Detection
-                        	**type**\: :py:class:`BfdEnableMode_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.BfdEnableMode_Enum>`
+                        	**type**\: :py:class:`BfdEnableModeEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.BfdEnableModeEnum>`
                         
                         .. attribute:: interval
                         
@@ -16720,8 +15220,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -16731,10 +15229,6 @@ class Ospf(object):
                             if self.interval is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -16787,18 +15281,12 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.cost is not None:
                                 return True
 
                             if self.threshold is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -16851,18 +15339,12 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interval is not None:
                                 return True
 
                             if self.multiplier is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -16881,10 +15363,20 @@ class Ospf(object):
                         	Access Control List name
                         	**type**\: str
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: route_policy_name
                         
                         	Route Policy name
                         	**type**\: str
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -16914,8 +15406,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.access_list_name is not None:
                                 return True
 
@@ -16923,10 +15413,6 @@ class Ospf(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -16941,7 +15427,7 @@ class Ospf(object):
                         .. attribute:: fast_reroute_enable
                         
                         	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                        	**type**\: :py:class:`OspfFastReroute_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastReroute_Enum>`
+                        	**type**\: :py:class:`OspfFastRerouteEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
                         
                         .. attribute:: per_link
                         
@@ -17066,15 +15552,9 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interface_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -17096,17 +15576,11 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.candidate_interface is not None:
                                         for child_ref in self.candidate_interface:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -17178,15 +15652,9 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interface_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -17208,17 +15676,11 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.exclude_interface is not None:
                                         for child_ref in self.exclude_interface:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -17240,27 +15702,15 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                    return True
-
-                                if self.candidate_interfaces is not None and self.candidate_interfaces.is_presence():
                                     return True
 
                                 if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
                                     return True
 
-                                if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
-                                    return True
-
                                 if self.fast_reroute_use_candidate_only is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -17379,15 +15829,9 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interface_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -17409,17 +15853,11 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.candidate_interface is not None:
                                         for child_ref in self.candidate_interface:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -17491,15 +15929,9 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interface_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -17521,17 +15953,11 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.exclude_interface is not None:
                                         for child_ref in self.exclude_interface:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -17554,7 +15980,7 @@ class Ospf(object):
                                 .. attribute:: tunnel
                                 
                                 	Enable/Disable remote LFA computation
-                                	**type**\: :py:class:`OspfFrrRlfaTunnel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnel_Enum>`
+                                	**type**\: :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
                                 
                                 
 
@@ -17582,18 +16008,12 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.maximum_cost is not None:
                                         return True
 
                                     if self.tunnel is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -17615,18 +16035,10 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                     return True
 
-                                if self.candidate_interfaces is not None and self.candidate_interfaces.is_presence():
-                                    return True
-
                                 if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                    return True
-
-                                if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
                                     return True
 
                                 if self.fast_reroute_use_candidate_only is not None:
@@ -17635,16 +16047,9 @@ class Ospf(object):
                                 if self.remote_lfa is not None and self.remote_lfa._has_data():
                                     return True
 
-                                if self.remote_lfa is not None and self.remote_lfa.is_presence():
-                                    return True
-
                                 if self.topology_independent_lfa is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -17666,27 +16071,15 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.fast_reroute_enable is not None:
                                 return True
 
                             if self.per_link is not None and self.per_link._has_data():
                                 return True
 
-                            if self.per_link is not None and self.per_link.is_presence():
-                                return True
-
                             if self.per_prefix is not None and self.per_prefix._has_data():
                                 return True
 
-                            if self.per_prefix is not None and self.per_prefix.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -17760,18 +16153,12 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.enable is not None:
                                     return True
 
                                 if self.hop_count is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -17793,18 +16180,9 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ttl is not None and self.ttl._has_data():
                                 return True
 
-                            if self.ttl is not None and self.ttl.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -17824,12 +16202,22 @@ class Ospf(object):
                         
                         	**range:** 16000..1048575
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: upper_bound
                         
                         	The upper bound of the SRGB
                         	**type**\: int
                         
                         	**range:** 16000..1048575
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -17859,8 +16247,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.lower_bound is not None:
                                 return True
 
@@ -17868,10 +16254,6 @@ class Ospf(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -17892,18 +16274,10 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.authentication is not None and self.authentication._has_data():
                             return True
 
-                        if self.authentication is not None and self.authentication.is_presence():
-                            return True
-
                         if self.bfd is not None and self.bfd._has_data():
-                            return True
-
-                        if self.bfd is not None and self.bfd.is_presence():
                             return True
 
                         if self.cost is not None:
@@ -17912,16 +16286,10 @@ class Ospf(object):
                         if self.cost_fallback is not None and self.cost_fallback._has_data():
                             return True
 
-                        if self.cost_fallback is not None and self.cost_fallback.is_presence():
-                            return True
-
                         if self.database_filter is not None:
                             return True
 
                         if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
-                            return True
-
-                        if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
                             return True
 
                         if self.demand_circuit is not None:
@@ -17930,16 +16298,10 @@ class Ospf(object):
                         if self.distribute_list is not None and self.distribute_list._has_data():
                             return True
 
-                        if self.distribute_list is not None and self.distribute_list.is_presence():
-                            return True
-
                         if self.external_out is not None:
                             return True
 
                         if self.fast_reroute is not None and self.fast_reroute._has_data():
-                            return True
-
-                        if self.fast_reroute is not None and self.fast_reroute.is_presence():
                             return True
 
                         if self.flood_reduction is not None:
@@ -17987,9 +16349,6 @@ class Ospf(object):
                         if self.security is not None and self.security._has_data():
                             return True
 
-                        if self.security is not None and self.security.is_presence():
-                            return True
-
                         if self.segment_routing is not None:
                             return True
 
@@ -17999,19 +16358,12 @@ class Ospf(object):
                         if self.srgb is not None and self.srgb._has_data():
                             return True
 
-                        if self.srgb is not None and self.srgb.is_presence():
-                            return True
-
                         if self.summary_in is not None:
                             return True
 
                         if self.transmit_delay is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -18105,8 +16457,6 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.dispatch_incoming is not None:
                             return True
 
@@ -18128,10 +16478,6 @@ class Ospf(object):
                         if self.limit_medium is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -18194,7 +16540,7 @@ class Ospf(object):
                             .. attribute:: protocol_name
                             
                             	Distribute list protocol type
-                            	**type**\: :py:class:`OspfRedistProtocol_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRedistProtocol_Enum>`
+                            	**type**\: :py:class:`OspfRedistProtocolEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRedistProtocolEnum>`
                             
                             .. attribute:: application_or_isis_or_ospf
                             
@@ -18274,22 +16620,22 @@ class Ospf(object):
                                 .. attribute:: eigrp_route_type
                                 
                                 	EIGRP route type
-                                	**type**\: :py:class:`OspfEigrpRoute_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfEigrpRoute_Enum>`
+                                	**type**\: :py:class:`OspfEigrpRouteEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfEigrpRouteEnum>`
                                 
                                 .. attribute:: isis_levels
                                 
                                 	Levels of ISIS routes
-                                	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
                                 
                                 .. attribute:: metric_type
                                 
                                 	Set OSPF External metric type
-                                	**type**\: :py:class:`OspfLinkStateMetric_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetric_Enum>`
+                                	**type**\: :py:class:`OspfLinkStateMetricEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetricEnum>`
                                 
                                 .. attribute:: ospf_external
                                 
                                 	OSPF external route types
-                                	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
                                 
                                 .. attribute:: ospf_internal
                                 
@@ -18299,12 +16645,12 @@ class Ospf(object):
                                 .. attribute:: ospf_nssa_level
                                 
                                 	OSPF NSSA external route types
-                                	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
                                 
                                 .. attribute:: ospf_redist_lsa_type
                                 
                                 	LSA type for redistributed routes
-                                	**type**\: :py:class:`OspfRedistLsa_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRedistLsa_Enum>`
+                                	**type**\: :py:class:`OspfRedistLsaEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRedistLsaEnum>`
                                 
                                 .. attribute:: ospfnssa_only
                                 
@@ -18364,8 +16710,6 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.instance_name is not None:
                                         return True
 
@@ -18411,10 +16755,6 @@ class Ospf(object):
                                     if self.tag is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -18473,22 +16813,22 @@ class Ospf(object):
                                 .. attribute:: eigrp_route_type
                                 
                                 	EIGRP route type
-                                	**type**\: :py:class:`OspfEigrpRoute_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfEigrpRoute_Enum>`
+                                	**type**\: :py:class:`OspfEigrpRouteEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfEigrpRouteEnum>`
                                 
                                 .. attribute:: isis_levels
                                 
                                 	Levels of ISIS routes
-                                	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
                                 
                                 .. attribute:: metric_type
                                 
                                 	Set OSPF External metric type
-                                	**type**\: :py:class:`OspfLinkStateMetric_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetric_Enum>`
+                                	**type**\: :py:class:`OspfLinkStateMetricEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetricEnum>`
                                 
                                 .. attribute:: ospf_external
                                 
                                 	OSPF external route types
-                                	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
                                 
                                 .. attribute:: ospf_internal
                                 
@@ -18498,12 +16838,12 @@ class Ospf(object):
                                 .. attribute:: ospf_nssa_level
                                 
                                 	OSPF NSSA external route types
-                                	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
                                 
                                 .. attribute:: ospf_redist_lsa_type
                                 
                                 	LSA type for redistributed routes
-                                	**type**\: :py:class:`OspfRedistLsa_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRedistLsa_Enum>`
+                                	**type**\: :py:class:`OspfRedistLsaEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRedistLsaEnum>`
                                 
                                 .. attribute:: ospfnssa_only
                                 
@@ -18569,8 +16909,6 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.as_xx is not None:
                                         return True
 
@@ -18624,10 +16962,6 @@ class Ospf(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
@@ -18644,14 +16978,29 @@ class Ospf(object):
                                 	Preserve Metric and Metric Type of BGP Default Route
                                 	**type**\: bool
                                 
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
                                 .. attribute:: bgp_preserve_med
                                 
                                 	Preserve MED of BGP routes
                                 	**type**\: bool
                                 
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
                                 .. attribute:: classful
                                 
                                 	Disallow subnetting
+                                	**type**\: bool
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
                                 	**type**\: bool
                                 
                                 .. attribute:: default_redistributed_route_metric
@@ -18661,44 +17010,89 @@ class Ospf(object):
                                 
                                 	**range:** 1..16777214
                                 
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
                                 .. attribute:: eigrp_route_type
                                 
                                 	EIGRP route type
-                                	**type**\: :py:class:`OspfEigrpRoute_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfEigrpRoute_Enum>`
+                                	**type**\: :py:class:`OspfEigrpRouteEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfEigrpRouteEnum>`
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 .. attribute:: isis_levels
                                 
                                 	Levels of ISIS routes
-                                	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 .. attribute:: metric_type
                                 
                                 	Set OSPF External metric type
-                                	**type**\: :py:class:`OspfLinkStateMetric_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetric_Enum>`
+                                	**type**\: :py:class:`OspfLinkStateMetricEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetricEnum>`
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 .. attribute:: ospf_external
                                 
                                 	OSPF external route types
-                                	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 .. attribute:: ospf_internal
                                 
                                 	OSPF\_Internal route type
                                 	**type**\: bool
                                 
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
                                 .. attribute:: ospf_nssa_level
                                 
                                 	OSPF NSSA external route types
-                                	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 .. attribute:: ospf_redist_lsa_type
                                 
                                 	LSA type for redistributed routes
-                                	**type**\: :py:class:`OspfRedistLsa_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRedistLsa_Enum>`
+                                	**type**\: :py:class:`OspfRedistLsaEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRedistLsaEnum>`
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 .. attribute:: ospfnssa_only
                                 
                                 	Only redistribute to NSSA areas
+                                	**type**\: bool
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
                                 	**type**\: bool
                                 
                                 .. attribute:: route_policy_name
@@ -18706,12 +17100,22 @@ class Ospf(object):
                                 	Routing policy name
                                 	**type**\: str
                                 
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
                                 .. attribute:: tag
                                 
                                 	Set tag for routes redistributed into OSPF
                                 	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 
 
@@ -18753,8 +17157,6 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.bgp_preserve_default_info is not None:
                                         return True
 
@@ -18798,10 +17200,6 @@ class Ospf(object):
                                         return True
 
                                     return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return True
 
                                 @staticmethod
                                 def _meta_info():
@@ -18852,22 +17250,22 @@ class Ospf(object):
                                 .. attribute:: eigrp_route_type
                                 
                                 	EIGRP route type
-                                	**type**\: :py:class:`OspfEigrpRoute_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfEigrpRoute_Enum>`
+                                	**type**\: :py:class:`OspfEigrpRouteEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfEigrpRouteEnum>`
                                 
                                 .. attribute:: isis_levels
                                 
                                 	Levels of ISIS routes
-                                	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
                                 
                                 .. attribute:: metric_type
                                 
                                 	Set OSPF External metric type
-                                	**type**\: :py:class:`OspfLinkStateMetric_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetric_Enum>`
+                                	**type**\: :py:class:`OspfLinkStateMetricEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetricEnum>`
                                 
                                 .. attribute:: ospf_external
                                 
                                 	OSPF external route types
-                                	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
                                 
                                 .. attribute:: ospf_internal
                                 
@@ -18877,12 +17275,12 @@ class Ospf(object):
                                 .. attribute:: ospf_nssa_level
                                 
                                 	OSPF NSSA external route types
-                                	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
                                 
                                 .. attribute:: ospf_redist_lsa_type
                                 
                                 	LSA type for redistributed routes
-                                	**type**\: :py:class:`OspfRedistLsa_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRedistLsa_Enum>`
+                                	**type**\: :py:class:`OspfRedistLsaEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRedistLsaEnum>`
                                 
                                 .. attribute:: ospfnssa_only
                                 
@@ -18945,8 +17343,6 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.as_xx is not None:
                                         return True
 
@@ -18997,10 +17393,6 @@ class Ospf(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
@@ -19022,8 +17414,6 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.protocol_name is not None:
                                     return True
 
@@ -19040,18 +17430,11 @@ class Ospf(object):
                                 if self.connected_or_static_or_dagr_or_subscriber_or_mobile_or_rip is not None and self.connected_or_static_or_dagr_or_subscriber_or_mobile_or_rip._has_data():
                                     return True
 
-                                if self.connected_or_static_or_dagr_or_subscriber_or_mobile_or_rip is not None and self.connected_or_static_or_dagr_or_subscriber_or_mobile_or_rip.is_presence():
-                                    return True
-
                                 if self.eigrp is not None:
                                     for child_ref in self.eigrp:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -19073,17 +17456,11 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.redistribute is not None:
                                 for child_ref in self.redistribute:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -19105,18 +17482,9 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.redistributes is not None and self.redistributes._has_data():
                             return True
 
-                        if self.redistributes is not None and self.redistributes.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -19200,18 +17568,12 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.enable is not None:
                                 return True
 
                             if self.prefix_list_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -19233,8 +17595,6 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.prefix_sid_map_advertise_local is not None:
                             return True
 
@@ -19244,13 +17604,6 @@ class Ospf(object):
                         if self.sr_prefer is not None and self.sr_prefer._has_data():
                             return True
 
-                        if self.sr_prefer is not None and self.sr_prefer.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -19357,8 +17710,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.netmask is not None:
                                 return True
 
@@ -19368,10 +17719,6 @@ class Ospf(object):
                             if self.tag is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -19432,8 +17779,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.prefix is not None:
                                 return True
 
@@ -19443,10 +17788,6 @@ class Ospf(object):
                             if self.tag is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -19517,8 +17858,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.netmask is not None:
                                 return True
 
@@ -19531,10 +17870,6 @@ class Ospf(object):
                             if self.tag is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -19585,18 +17920,12 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.not_advertise is not None:
                                 return True
 
                             if self.tag is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -19618,8 +17947,6 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.netmask is not None:
                             for child_ref in self.netmask:
                                 if child_ref._has_data():
@@ -19638,13 +17965,6 @@ class Ospf(object):
                         if self.summary_prefix_data is not None and self.summary_prefix_data._has_data():
                             return True
 
-                        if self.summary_prefix_data is not None and self.summary_prefix_data.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -19774,8 +18094,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.backoff_increment is not None:
                                 return True
 
@@ -19785,10 +18103,6 @@ class Ospf(object):
                             if self.max_delay is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -19849,8 +18163,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.backoff_increment is not None:
                                 return True
 
@@ -19860,10 +18172,6 @@ class Ospf(object):
                             if self.max_delay is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -19885,15 +18193,10 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.fast_reroute_timer is not None:
                             return True
 
                         if self.lsa_generation_timer is not None and self.lsa_generation_timer._has_data():
-                            return True
-
-                        if self.lsa_generation_timer is not None and self.lsa_generation_timer.is_presence():
                             return True
 
                         if self.lsa_group_pacing is not None:
@@ -19911,13 +18214,6 @@ class Ospf(object):
                         if self.spf_timer is not None and self.spf_timer._has_data():
                             return True
 
-                        if self.spf_timer is not None and self.spf_timer.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -20005,18 +18301,12 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.prefix_list_name is not None:
                                 return True
 
                             if self.variance is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -20088,15 +18378,9 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.interface_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -20118,17 +18402,11 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.exclude_interface is not None:
                                 for child_ref in self.exclude_interface:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -20150,27 +18428,15 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.delay_interval is not None:
                             return True
 
                         if self.enable is not None and self.enable._has_data():
                             return True
 
-                        if self.enable is not None and self.enable.is_presence():
-                            return True
-
                         if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
                             return True
 
-                        if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -20192,39 +18458,22 @@ class Ospf(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.adjacency_changes is not None:
                         return True
 
                     if self.adjacency_stagger is not None and self.adjacency_stagger._has_data():
                         return True
 
-                    if self.adjacency_stagger is not None and self.adjacency_stagger.is_presence():
-                        return True
-
                     if self.af is not None and self.af._has_data():
-                        return True
-
-                    if self.af is not None and self.af.is_presence():
                         return True
 
                     if self.area_addresses is not None and self.area_addresses._has_data():
                         return True
 
-                    if self.area_addresses is not None and self.area_addresses.is_presence():
-                        return True
-
                     if self.auto_cost is not None and self.auto_cost._has_data():
                         return True
 
-                    if self.auto_cost is not None and self.auto_cost.is_presence():
-                        return True
-
                     if self.default_information is not None and self.default_information._has_data():
-                        return True
-
-                    if self.default_information is not None and self.default_information.is_presence():
                         return True
 
                     if self.default_metric is not None:
@@ -20233,13 +18482,7 @@ class Ospf(object):
                     if self.distance is not None and self.distance._has_data():
                         return True
 
-                    if self.distance is not None and self.distance.is_presence():
-                        return True
-
                     if self.fast_reroute is not None and self.fast_reroute._has_data():
-                        return True
-
-                    if self.fast_reroute is not None and self.fast_reroute.is_presence():
                         return True
 
                     if self.ignore_mospf is not None:
@@ -20248,13 +18491,7 @@ class Ospf(object):
                     if self.max_lsa is not None and self.max_lsa._has_data():
                         return True
 
-                    if self.max_lsa is not None and self.max_lsa.is_presence():
-                        return True
-
                     if self.max_metric is not None and self.max_metric._has_data():
-                        return True
-
-                    if self.max_metric is not None and self.max_metric.is_presence():
                         return True
 
                     if self.maximum_interfaces is not None:
@@ -20266,25 +18503,13 @@ class Ospf(object):
                     if self.maximum_redistribute_prefix is not None and self.maximum_redistribute_prefix._has_data():
                         return True
 
-                    if self.maximum_redistribute_prefix is not None and self.maximum_redistribute_prefix.is_presence():
-                        return True
-
                     if self.microloop is not None and self.microloop._has_data():
-                        return True
-
-                    if self.microloop is not None and self.microloop.is_presence():
                         return True
 
                     if self.monitor_convergence is not None and self.monitor_convergence._has_data():
                         return True
 
-                    if self.monitor_convergence is not None and self.monitor_convergence.is_presence():
-                        return True
-
                     if self.mpls is not None and self.mpls._has_data():
-                        return True
-
-                    if self.mpls is not None and self.mpls.is_presence():
                         return True
 
                     if self.no_opaque is not None:
@@ -20293,40 +18518,22 @@ class Ospf(object):
                     if self.nsf is not None and self.nsf._has_data():
                         return True
 
-                    if self.nsf is not None and self.nsf.is_presence():
-                        return True
-
                     if self.outgoing_route_updates is not None and self.outgoing_route_updates._has_data():
-                        return True
-
-                    if self.outgoing_route_updates is not None and self.outgoing_route_updates.is_presence():
                         return True
 
                     if self.process_scope is not None and self.process_scope._has_data():
                         return True
 
-                    if self.process_scope is not None and self.process_scope.is_presence():
-                        return True
-
                     if self.queue is not None and self.queue._has_data():
                         return True
 
-                    if self.queue is not None and self.queue.is_presence():
-                        return True
-
                     if self.redistribution is not None and self.redistribution._has_data():
-                        return True
-
-                    if self.redistribution is not None and self.redistribution.is_presence():
                         return True
 
                     if self.router_id is not None:
                         return True
 
                     if self.segment_routing is not None and self.segment_routing._has_data():
-                        return True
-
-                    if self.segment_routing is not None and self.segment_routing.is_presence():
                         return True
 
                     if self.snmp_context is not None:
@@ -20338,13 +18545,7 @@ class Ospf(object):
                     if self.summary_prefixes is not None and self.summary_prefixes._has_data():
                         return True
 
-                    if self.summary_prefixes is not None and self.summary_prefixes.is_presence():
-                        return True
-
                     if self.timers is not None and self.timers._has_data():
-                        return True
-
-                    if self.timers is not None and self.timers.is_presence():
                         return True
 
                     if self.type7 is not None:
@@ -20353,13 +18554,6 @@ class Ospf(object):
                     if self.ucmp is not None and self.ucmp._has_data():
                         return True
 
-                    if self.ucmp is not None and self.ucmp.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -20379,12 +18573,22 @@ class Ospf(object):
                 
                 	**range:** 1..65535
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: throttle
                 
                 	Seconds
                 	**type**\: int
                 
                 	**range:** 1..3600
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -20414,8 +18618,6 @@ class Ospf(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.instance_id is not None:
                         return True
 
@@ -20423,10 +18625,6 @@ class Ospf(object):
                         return True
 
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -20466,12 +18664,22 @@ class Ospf(object):
                     
                     	**range:** 0..300
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: window_size
                     
                     	Trap rate limit sliding window size
                     	**type**\: int
                     
                     	**range:** 2..60
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -20501,8 +18709,6 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.max_window_traps is not None:
                             return True
 
@@ -20510,10 +18716,6 @@ class Ospf(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -20534,18 +18736,9 @@ class Ospf(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.trap_rate_limit is not None and self.trap_rate_limit._has_data():
                         return True
 
-                    if self.trap_rate_limit is not None and self.trap_rate_limit.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -20591,7 +18784,7 @@ class Ospf(object):
                     .. attribute:: adjacency_changes
                     
                     	Log changes in adjacency state
-                    	**type**\: :py:class:`OspfLogAdj_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLogAdj_Enum>`
+                    	**type**\: :py:class:`OspfLogAdjEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLogAdjEnum>`
                     
                     .. attribute:: adjacency_stagger
                     
@@ -20888,8 +19081,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.disable is not None:
                                 return True
 
@@ -20899,10 +19090,6 @@ class Ospf(object):
                             if self.max_nbr is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -20918,12 +19105,22 @@ class Ospf(object):
                         .. attribute:: af_name
                         
                         	Address family
-                        	**type**\: :py:class:`OspfAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAddressFamily_Enum>`
+                        	**type**\: :py:class:`OspfAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAddressFamilyEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: saf_name
                         
                         	Sub\-Address family
-                        	**type**\: :py:class:`OspfSubAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSubAddressFamily_Enum>`
+                        	**type**\: :py:class:`OspfSubAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSubAddressFamilyEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -20953,8 +19150,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.af_name is not None:
                                 return True
 
@@ -20962,10 +19157,6 @@ class Ospf(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -21075,7 +19266,7 @@ class Ospf(object):
                             .. attribute:: segment_routing
                             
                             	segment\-routing configuration Applicable only in Default VRF
-                            	**type**\: :py:class:`OspfSegmentRouting_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRouting_Enum>`
+                            	**type**\: :py:class:`OspfSegmentRoutingEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingEnum>`
                             
                             .. attribute:: sham_link_scopes
                             
@@ -21210,8 +19401,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
@@ -21221,10 +19410,6 @@ class Ospf(object):
                                         if self.not_advertise is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21246,17 +19431,11 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.area_range is not None:
                                         for child_ref in self.area_range:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -21361,7 +19540,7 @@ class Ospf(object):
                                 .. attribute:: network_type
                                 
                                 	Type of attached network
-                                	**type**\: :py:class:`OspfNetwork_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfNetwork_Enum>`
+                                	**type**\: :py:class:`OspfNetworkEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfNetworkEnum>`
                                 
                                 .. attribute:: packet_size
                                 
@@ -21402,7 +19581,7 @@ class Ospf(object):
                                 .. attribute:: segment_routing_forwarding
                                 
                                 	segment\-routing forwarding configuration Applicableonly in Default VRF
-                                	**type**\: :py:class:`OspfSegmentRoutingForwarding_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingForwarding_Enum>`
+                                	**type**\: :py:class:`OspfSegmentRoutingForwardingEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingForwardingEnum>`
                                 
                                 .. attribute:: transmit_delay
                                 
@@ -21562,18 +19741,12 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.key_id is not None:
                                                     return True
 
                                                 if self.password is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -21595,17 +19768,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.message_digest_key is not None:
                                                 for child_ref in self.message_digest_key:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -21621,12 +19788,12 @@ class Ospf(object):
                                         .. attribute:: authen_type
                                         
                                         	Authentication type code 
-                                        	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                                        	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                                         
                                         .. attribute:: keychain_authen_type
                                         
                                         	Keychain authentication type
-                                        	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                                        	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                                         
                                         .. attribute:: keychain_name
                                         
@@ -21660,8 +19827,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.authen_type is not None:
                                                 return True
 
@@ -21671,10 +19836,6 @@ class Ospf(object):
                                             if self.keychain_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -21696,27 +19857,15 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.key is not None:
                                             return True
 
                                         if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                             return True
 
-                                        if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                            return True
-
                                         if self.type is not None and self.type._has_data():
                                             return True
 
-                                        if self.type is not None and self.type.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21739,7 +19888,7 @@ class Ospf(object):
                                     .. attribute:: fast_detect_mode
                                     
                                     	 use of Bidirectional Forwarding Detection
-                                    	**type**\: :py:class:`BfdEnableMode_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.BfdEnableMode_Enum>`
+                                    	**type**\: :py:class:`BfdEnableModeEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.BfdEnableModeEnum>`
                                     
                                     .. attribute:: interval
                                     
@@ -21775,8 +19924,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.detection_multiplier is not None:
                                             return True
 
@@ -21786,10 +19933,6 @@ class Ospf(object):
                                         if self.interval is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21842,18 +19985,12 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.cost is not None:
                                             return True
 
                                         if self.threshold is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21906,18 +20043,12 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interval is not None:
                                             return True
 
                                         if self.multiplier is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21936,10 +20067,20 @@ class Ospf(object):
                                     	Access Control List name
                                     	**type**\: str
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: route_policy_name
                                     
                                     	Route Policy name
                                     	**type**\: str
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -21969,8 +20110,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.access_list_name is not None:
                                             return True
 
@@ -21978,10 +20117,6 @@ class Ospf(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -21996,7 +20131,7 @@ class Ospf(object):
                                     .. attribute:: fast_reroute_enable
                                     
                                     	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                                    	**type**\: :py:class:`OspfFastReroute_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastReroute_Enum>`
+                                    	**type**\: :py:class:`OspfFastRerouteEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
                                     
                                     .. attribute:: per_link
                                     
@@ -22121,15 +20256,9 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -22151,17 +20280,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -22233,15 +20356,9 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -22263,17 +20380,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -22295,27 +20406,15 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                                return True
-
-                                            if self.candidate_interfaces is not None and self.candidate_interfaces.is_presence():
                                                 return True
 
                                             if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
                                                 return True
 
-                                            if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
-                                                return True
-
                                             if self.fast_reroute_use_candidate_only is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -22434,15 +20533,9 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -22464,17 +20557,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -22546,15 +20633,9 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -22576,17 +20657,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -22609,7 +20684,7 @@ class Ospf(object):
                                             .. attribute:: tunnel
                                             
                                             	Enable/Disable remote LFA computation
-                                            	**type**\: :py:class:`OspfFrrRlfaTunnel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnel_Enum>`
+                                            	**type**\: :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
                                             
                                             
 
@@ -22637,18 +20712,12 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.maximum_cost is not None:
                                                     return True
 
                                                 if self.tunnel is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -22670,18 +20739,10 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
-                                            if self.candidate_interfaces is not None and self.candidate_interfaces.is_presence():
-                                                return True
-
                                             if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                                return True
-
-                                            if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
                                                 return True
 
                                             if self.fast_reroute_use_candidate_only is not None:
@@ -22690,16 +20751,9 @@ class Ospf(object):
                                             if self.remote_lfa is not None and self.remote_lfa._has_data():
                                                 return True
 
-                                            if self.remote_lfa is not None and self.remote_lfa.is_presence():
-                                                return True
-
                                             if self.topology_independent_lfa is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -22721,27 +20775,15 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fast_reroute_enable is not None:
                                             return True
 
                                         if self.per_link is not None and self.per_link._has_data():
                                             return True
 
-                                        if self.per_link is not None and self.per_link.is_presence():
-                                            return True
-
                                         if self.per_prefix is not None and self.per_prefix._has_data():
                                             return True
 
-                                        if self.per_prefix is not None and self.per_prefix.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -22815,18 +20857,12 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.enable is not None:
                                                 return True
 
                                             if self.hop_count is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -22848,18 +20884,9 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.ttl is not None and self.ttl._has_data():
                                             return True
 
-                                        if self.ttl is not None and self.ttl.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -22881,18 +20908,10 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.authentication is not None and self.authentication._has_data():
                                         return True
 
-                                    if self.authentication is not None and self.authentication.is_presence():
-                                        return True
-
                                     if self.bfd is not None and self.bfd._has_data():
-                                        return True
-
-                                    if self.bfd is not None and self.bfd.is_presence():
                                         return True
 
                                     if self.cost is not None:
@@ -22901,16 +20920,10 @@ class Ospf(object):
                                     if self.cost_fallback is not None and self.cost_fallback._has_data():
                                         return True
 
-                                    if self.cost_fallback is not None and self.cost_fallback.is_presence():
-                                        return True
-
                                     if self.database_filter is not None:
                                         return True
 
                                     if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
-                                        return True
-
-                                    if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
                                         return True
 
                                     if self.demand_circuit is not None:
@@ -22919,13 +20932,7 @@ class Ospf(object):
                                     if self.distribute_list is not None and self.distribute_list._has_data():
                                         return True
 
-                                    if self.distribute_list is not None and self.distribute_list.is_presence():
-                                        return True
-
                                     if self.fast_reroute is not None and self.fast_reroute._has_data():
-                                        return True
-
-                                    if self.fast_reroute is not None and self.fast_reroute.is_presence():
                                         return True
 
                                     if self.flood_reduction is not None:
@@ -22973,19 +20980,12 @@ class Ospf(object):
                                     if self.security is not None and self.security._has_data():
                                         return True
 
-                                    if self.security is not None and self.security.is_presence():
-                                        return True
-
                                     if self.segment_routing_forwarding is not None:
                                         return True
 
                                     if self.transmit_delay is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -23246,18 +21246,12 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.key_id is not None:
                                                         return True
 
                                                     if self.password is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -23279,17 +21273,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.message_digest_key is not None:
                                                     for child_ref in self.message_digest_key:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -23305,12 +21293,12 @@ class Ospf(object):
                                             .. attribute:: authen_type
                                             
                                             	Authentication type code 
-                                            	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                                            	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                                             
                                             .. attribute:: keychain_authen_type
                                             
                                             	Keychain authentication type
-                                            	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                                            	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                                             
                                             .. attribute:: keychain_name
                                             
@@ -23344,8 +21332,6 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.authen_type is not None:
                                                     return True
 
@@ -23355,10 +21341,6 @@ class Ospf(object):
                                                 if self.keychain_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -23380,27 +21362,15 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.key is not None:
                                                 return True
 
                                             if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                                 return True
 
-                                            if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                                return True
-
                                             if self.type is not None and self.type._has_data():
                                                 return True
 
-                                            if self.type is not None and self.type.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -23453,18 +21423,12 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.cost is not None:
                                                 return True
 
                                             if self.threshold is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -23517,18 +21481,12 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interval is not None:
                                                 return True
 
                                             if self.multiplier is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -23547,10 +21505,20 @@ class Ospf(object):
                                         	Access Control List name
                                         	**type**\: str
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: route_policy_name
                                         
                                         	Route Policy name
                                         	**type**\: str
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
                                         
                                         
 
@@ -23580,8 +21548,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.access_list_name is not None:
                                                 return True
 
@@ -23589,10 +21555,6 @@ class Ospf(object):
                                                 return True
 
                                             return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return True
 
                                         @staticmethod
                                         def _meta_info():
@@ -23692,8 +21654,6 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.neighbor_address is not None:
                                                     return True
 
@@ -23709,10 +21669,6 @@ class Ospf(object):
                                                 if self.priority is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -23734,17 +21690,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.neighbor is not None:
                                                 for child_ref in self.neighbor:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -23768,15 +21718,10 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interface_name is not None:
                                             return True
 
                                         if self.authentication is not None and self.authentication._has_data():
-                                            return True
-
-                                        if self.authentication is not None and self.authentication.is_presence():
                                             return True
 
                                         if self.cost is not None:
@@ -23785,22 +21730,13 @@ class Ospf(object):
                                         if self.cost_fallback is not None and self.cost_fallback._has_data():
                                             return True
 
-                                        if self.cost_fallback is not None and self.cost_fallback.is_presence():
-                                            return True
-
                                         if self.database_filter is not None:
                                             return True
 
                                         if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
                                             return True
 
-                                        if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
-                                            return True
-
                                         if self.distribute_list is not None and self.distribute_list._has_data():
-                                            return True
-
-                                        if self.distribute_list is not None and self.distribute_list.is_presence():
                                             return True
 
                                         if self.hello_interval is not None:
@@ -23810,9 +21746,6 @@ class Ospf(object):
                                             return True
 
                                         if self.neighbors is not None and self.neighbors._has_data():
-                                            return True
-
-                                        if self.neighbors is not None and self.neighbors.is_presence():
                                             return True
 
                                         if self.packet_size is not None:
@@ -23830,10 +21763,6 @@ class Ospf(object):
                                         if self.transmit_delay is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -23855,17 +21784,11 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.multi_area_interface_scope is not None:
                                         for child_ref in self.multi_area_interface_scope:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -24005,7 +21928,7 @@ class Ospf(object):
                                     .. attribute:: network_type
                                     
                                     	Type of attached network
-                                    	**type**\: :py:class:`OspfNetwork_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfNetwork_Enum>`
+                                    	**type**\: :py:class:`OspfNetworkEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfNetworkEnum>`
                                     
                                     .. attribute:: packet_size
                                     
@@ -24056,7 +21979,7 @@ class Ospf(object):
                                     .. attribute:: segment_routing_forwarding
                                     
                                     	segment\-routing forwarding configuration Applicableonly in Default VRF
-                                    	**type**\: :py:class:`OspfSegmentRoutingForwarding_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingForwarding_Enum>`
+                                    	**type**\: :py:class:`OspfSegmentRoutingForwardingEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingForwardingEnum>`
                                     
                                     .. attribute:: transmit_delay
                                     
@@ -24221,18 +22144,12 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.key_id is not None:
                                                         return True
 
                                                     if self.password is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -24254,17 +22171,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.message_digest_key is not None:
                                                     for child_ref in self.message_digest_key:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -24280,12 +22191,12 @@ class Ospf(object):
                                             .. attribute:: authen_type
                                             
                                             	Authentication type code 
-                                            	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                                            	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                                             
                                             .. attribute:: keychain_authen_type
                                             
                                             	Keychain authentication type
-                                            	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                                            	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                                             
                                             .. attribute:: keychain_name
                                             
@@ -24319,8 +22230,6 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.authen_type is not None:
                                                     return True
 
@@ -24330,10 +22239,6 @@ class Ospf(object):
                                                 if self.keychain_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -24355,27 +22260,15 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.key is not None:
                                                 return True
 
                                             if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                                 return True
 
-                                            if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                                return True
-
                                             if self.type is not None and self.type._has_data():
                                                 return True
 
-                                            if self.type is not None and self.type.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -24398,7 +22291,7 @@ class Ospf(object):
                                         .. attribute:: fast_detect_mode
                                         
                                         	 use of Bidirectional Forwarding Detection
-                                        	**type**\: :py:class:`BfdEnableMode_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.BfdEnableMode_Enum>`
+                                        	**type**\: :py:class:`BfdEnableModeEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.BfdEnableModeEnum>`
                                         
                                         .. attribute:: interval
                                         
@@ -24434,8 +22327,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.detection_multiplier is not None:
                                                 return True
 
@@ -24445,10 +22336,6 @@ class Ospf(object):
                                             if self.interval is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -24501,18 +22388,12 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.cost is not None:
                                                 return True
 
                                             if self.threshold is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -24565,18 +22446,12 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interval is not None:
                                                 return True
 
                                             if self.multiplier is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -24595,10 +22470,20 @@ class Ospf(object):
                                         	Access Control List name
                                         	**type**\: str
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: route_policy_name
                                         
                                         	Route Policy name
                                         	**type**\: str
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
                                         
                                         
 
@@ -24628,8 +22513,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.access_list_name is not None:
                                                 return True
 
@@ -24637,10 +22520,6 @@ class Ospf(object):
                                                 return True
 
                                             return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return True
 
                                         @staticmethod
                                         def _meta_info():
@@ -24655,7 +22534,7 @@ class Ospf(object):
                                         .. attribute:: fast_reroute_enable
                                         
                                         	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                                        	**type**\: :py:class:`OspfFastReroute_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastReroute_Enum>`
+                                        	**type**\: :py:class:`OspfFastRerouteEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
                                         
                                         .. attribute:: per_link
                                         
@@ -24780,15 +22659,9 @@ class Ospf(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -24810,17 +22683,11 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.candidate_interface is not None:
                                                         for child_ref in self.candidate_interface:
                                                             if child_ref._has_data():
                                                                 return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -24892,15 +22759,9 @@ class Ospf(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -24922,17 +22783,11 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.exclude_interface is not None:
                                                         for child_ref in self.exclude_interface:
                                                             if child_ref._has_data():
                                                                 return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -24954,27 +22809,15 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                                    return True
-
-                                                if self.candidate_interfaces is not None and self.candidate_interfaces.is_presence():
                                                     return True
 
                                                 if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
                                                     return True
 
-                                                if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
-                                                    return True
-
                                                 if self.fast_reroute_use_candidate_only is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -25093,15 +22936,9 @@ class Ospf(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -25123,17 +22960,11 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.candidate_interface is not None:
                                                         for child_ref in self.candidate_interface:
                                                             if child_ref._has_data():
                                                                 return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -25205,15 +23036,9 @@ class Ospf(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -25235,17 +23060,11 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.exclude_interface is not None:
                                                         for child_ref in self.exclude_interface:
                                                             if child_ref._has_data():
                                                                 return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -25268,7 +23087,7 @@ class Ospf(object):
                                                 .. attribute:: tunnel
                                                 
                                                 	Enable/Disable remote LFA computation
-                                                	**type**\: :py:class:`OspfFrrRlfaTunnel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnel_Enum>`
+                                                	**type**\: :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
                                                 
                                                 
 
@@ -25296,18 +23115,12 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.maximum_cost is not None:
                                                         return True
 
                                                     if self.tunnel is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -25329,18 +23142,10 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                     return True
 
-                                                if self.candidate_interfaces is not None and self.candidate_interfaces.is_presence():
-                                                    return True
-
                                                 if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                                    return True
-
-                                                if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
                                                     return True
 
                                                 if self.fast_reroute_use_candidate_only is not None:
@@ -25349,16 +23154,9 @@ class Ospf(object):
                                                 if self.remote_lfa is not None and self.remote_lfa._has_data():
                                                     return True
 
-                                                if self.remote_lfa is not None and self.remote_lfa.is_presence():
-                                                    return True
-
                                                 if self.topology_independent_lfa is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -25380,27 +23178,15 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.fast_reroute_enable is not None:
                                                 return True
 
                                             if self.per_link is not None and self.per_link._has_data():
                                                 return True
 
-                                            if self.per_link is not None and self.per_link.is_presence():
-                                                return True
-
                                             if self.per_prefix is not None and self.per_prefix._has_data():
                                                 return True
 
-                                            if self.per_prefix is not None and self.per_prefix.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -25501,8 +23287,6 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.neighbor_address is not None:
                                                     return True
 
@@ -25518,10 +23302,6 @@ class Ospf(object):
                                                 if self.priority is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -25543,17 +23323,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.neighbor is not None:
                                                 for child_ref in self.neighbor:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -25571,6 +23345,11 @@ class Ospf(object):
                                         	Force Penultimate Hop To Send Explicit\-Null Label
                                         	**type**\: bool
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: sid_value
                                         
                                         	SID value
@@ -25578,10 +23357,20 @@ class Ospf(object):
                                         
                                         	**range:** 0..1048575
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: type
                                         
                                         	OSPF SID Type
-                                        	**type**\: :py:class:`OspfSid_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSid_Enum>`
+                                        	**type**\: :py:class:`OspfSidEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSidEnum>`
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
                                         
                                         
 
@@ -25612,8 +23401,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.explicit_null is not None:
                                                 return True
 
@@ -25624,10 +23411,6 @@ class Ospf(object):
                                                 return True
 
                                             return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return True
 
                                         @staticmethod
                                         def _meta_info():
@@ -25700,18 +23483,12 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.enable is not None:
                                                     return True
 
                                                 if self.hop_count is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -25733,18 +23510,9 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.ttl is not None and self.ttl._has_data():
                                                 return True
 
-                                            if self.ttl is not None and self.ttl.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -25768,21 +23536,13 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interface_name is not None:
                                             return True
 
                                         if self.authentication is not None and self.authentication._has_data():
                                             return True
 
-                                        if self.authentication is not None and self.authentication.is_presence():
-                                            return True
-
                                         if self.bfd is not None and self.bfd._has_data():
-                                            return True
-
-                                        if self.bfd is not None and self.bfd.is_presence():
                                             return True
 
                                         if self.cost is not None:
@@ -25791,16 +23551,10 @@ class Ospf(object):
                                         if self.cost_fallback is not None and self.cost_fallback._has_data():
                                             return True
 
-                                        if self.cost_fallback is not None and self.cost_fallback.is_presence():
-                                            return True
-
                                         if self.database_filter is not None:
                                             return True
 
                                         if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
-                                            return True
-
-                                        if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
                                             return True
 
                                         if self.demand_circuit is not None:
@@ -25809,13 +23563,7 @@ class Ospf(object):
                                         if self.distribute_list is not None and self.distribute_list._has_data():
                                             return True
 
-                                        if self.distribute_list is not None and self.distribute_list.is_presence():
-                                            return True
-
                                         if self.fast_reroute is not None and self.fast_reroute._has_data():
-                                            return True
-
-                                        if self.fast_reroute is not None and self.fast_reroute.is_presence():
                                             return True
 
                                         if self.flood_reduction is not None:
@@ -25845,9 +23593,6 @@ class Ospf(object):
                                         if self.neighbors is not None and self.neighbors._has_data():
                                             return True
 
-                                        if self.neighbors is not None and self.neighbors.is_presence():
-                                            return True
-
                                         if self.network_type is not None:
                                             return True
 
@@ -25858,9 +23603,6 @@ class Ospf(object):
                                             return True
 
                                         if self.prefix_sid is not None and self.prefix_sid._has_data():
-                                            return True
-
-                                        if self.prefix_sid is not None and self.prefix_sid.is_presence():
                                             return True
 
                                         if self.prefix_suppression_secondary is not None:
@@ -25878,19 +23620,12 @@ class Ospf(object):
                                         if self.security is not None and self.security._has_data():
                                             return True
 
-                                        if self.security is not None and self.security.is_presence():
-                                            return True
-
                                         if self.segment_routing_forwarding is not None:
                                             return True
 
                                         if self.transmit_delay is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -25912,17 +23647,11 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.name_scope is not None:
                                         for child_ref in self.name_scope:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -25943,7 +23672,7 @@ class Ospf(object):
                                 .. attribute:: metric_type
                                 
                                 	OSPF External metric type
-                                	**type**\: :py:class:`OspfLinkStateMetric_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetric_Enum>`
+                                	**type**\: :py:class:`OspfLinkStateMetricEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetricEnum>`
                                 
                                 .. attribute:: no_redistribution
                                 
@@ -25991,8 +23720,6 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.default_info_originate is not None:
                                         return True
 
@@ -26008,10 +23735,6 @@ class Ospf(object):
                                     if self.nssa_def_metric is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -26242,18 +23965,12 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.key_id is not None:
                                                         return True
 
                                                     if self.password is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -26275,17 +23992,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.message_digest_key is not None:
                                                     for child_ref in self.message_digest_key:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -26301,12 +24012,12 @@ class Ospf(object):
                                             .. attribute:: authen_type
                                             
                                             	Authentication type code 
-                                            	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                                            	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                                             
                                             .. attribute:: keychain_authen_type
                                             
                                             	Keychain authentication type
-                                            	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                                            	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                                             
                                             .. attribute:: keychain_name
                                             
@@ -26340,8 +24051,6 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.authen_type is not None:
                                                     return True
 
@@ -26351,10 +24060,6 @@ class Ospf(object):
                                                 if self.keychain_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -26376,27 +24081,15 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.key is not None:
                                                 return True
 
                                             if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                                 return True
 
-                                            if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                                return True
-
                                             if self.type is not None and self.type._has_data():
                                                 return True
 
-                                            if self.type is not None and self.type.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -26449,18 +24142,12 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interval is not None:
                                                 return True
 
                                             if self.multiplier is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -26486,8 +24173,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.destination_address is not None:
                                             return True
 
@@ -26497,16 +24182,10 @@ class Ospf(object):
                                         if self.authentication is not None and self.authentication._has_data():
                                             return True
 
-                                        if self.authentication is not None and self.authentication.is_presence():
-                                            return True
-
                                         if self.cost is not None:
                                             return True
 
                                         if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
-                                            return True
-
-                                        if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
                                             return True
 
                                         if self.hello_interval is not None:
@@ -26524,10 +24203,6 @@ class Ospf(object):
                                         if self.transmit_delay is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -26549,17 +24224,11 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.sham_link_scope is not None:
                                         for child_ref in self.sham_link_scope:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -26766,18 +24435,12 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.key_id is not None:
                                                         return True
 
                                                     if self.password is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -26799,17 +24462,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.message_digest_key is not None:
                                                     for child_ref in self.message_digest_key:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -26825,12 +24482,12 @@ class Ospf(object):
                                             .. attribute:: authen_type
                                             
                                             	Authentication type code 
-                                            	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                                            	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                                             
                                             .. attribute:: keychain_authen_type
                                             
                                             	Keychain authentication type
-                                            	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                                            	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                                             
                                             .. attribute:: keychain_name
                                             
@@ -26864,8 +24521,6 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.authen_type is not None:
                                                     return True
 
@@ -26875,10 +24530,6 @@ class Ospf(object):
                                                 if self.keychain_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -26900,27 +24551,15 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.key is not None:
                                                 return True
 
                                             if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                                 return True
 
-                                            if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                                return True
-
                                             if self.type is not None and self.type._has_data():
                                                 return True
 
-                                            if self.type is not None and self.type.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -26973,18 +24612,12 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interval is not None:
                                                 return True
 
                                             if self.multiplier is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -27008,21 +24641,13 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
                                         if self.authentication is not None and self.authentication._has_data():
                                             return True
 
-                                        if self.authentication is not None and self.authentication.is_presence():
-                                            return True
-
                                         if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
-                                            return True
-
-                                        if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
                                             return True
 
                                         if self.hello_interval is not None:
@@ -27037,10 +24662,6 @@ class Ospf(object):
                                         if self.transmit_delay is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -27062,17 +24683,11 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.virtual_link_scope is not None:
                                         for child_ref in self.virtual_link_scope:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -27096,21 +24711,13 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.address is not None:
                                     return True
 
                                 if self.area_ranges is not None and self.area_ranges._has_data():
                                     return True
 
-                                if self.area_ranges is not None and self.area_ranges.is_presence():
-                                    return True
-
                                 if self.area_scope is not None and self.area_scope._has_data():
-                                    return True
-
-                                if self.area_scope is not None and self.area_scope.is_presence():
                                     return True
 
                                 if self.default_cost is not None:
@@ -27125,19 +24732,10 @@ class Ospf(object):
                                 if self.multi_area_interface_scopes is not None and self.multi_area_interface_scopes._has_data():
                                     return True
 
-                                if self.multi_area_interface_scopes is not None and self.multi_area_interface_scopes.is_presence():
-                                    return True
-
                                 if self.name_scopes is not None and self.name_scopes._has_data():
                                     return True
 
-                                if self.name_scopes is not None and self.name_scopes.is_presence():
-                                    return True
-
                                 if self.nssa is not None and self.nssa._has_data():
-                                    return True
-
-                                if self.nssa is not None and self.nssa.is_presence():
                                     return True
 
                                 if self.route_policy_in is not None:
@@ -27155,9 +24753,6 @@ class Ospf(object):
                                 if self.sham_link_scopes is not None and self.sham_link_scopes._has_data():
                                     return True
 
-                                if self.sham_link_scopes is not None and self.sham_link_scopes.is_presence():
-                                    return True
-
                                 if self.stub is not None:
                                     return True
 
@@ -27167,13 +24762,6 @@ class Ospf(object):
                                 if self.virtual_link_scopes is not None and self.virtual_link_scopes._has_data():
                                     return True
 
-                                if self.virtual_link_scopes is not None and self.virtual_link_scopes.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -27253,7 +24841,7 @@ class Ospf(object):
                             .. attribute:: segment_routing
                             
                             	segment\-routing configuration Applicable only in Default VRF
-                            	**type**\: :py:class:`OspfSegmentRouting_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRouting_Enum>`
+                            	**type**\: :py:class:`OspfSegmentRoutingEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingEnum>`
                             
                             .. attribute:: sham_link_scopes
                             
@@ -27388,8 +24976,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
@@ -27399,10 +24985,6 @@ class Ospf(object):
                                         if self.not_advertise is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -27424,17 +25006,11 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.area_range is not None:
                                         for child_ref in self.area_range:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -27539,7 +25115,7 @@ class Ospf(object):
                                 .. attribute:: network_type
                                 
                                 	Type of attached network
-                                	**type**\: :py:class:`OspfNetwork_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfNetwork_Enum>`
+                                	**type**\: :py:class:`OspfNetworkEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfNetworkEnum>`
                                 
                                 .. attribute:: packet_size
                                 
@@ -27580,7 +25156,7 @@ class Ospf(object):
                                 .. attribute:: segment_routing_forwarding
                                 
                                 	segment\-routing forwarding configuration Applicableonly in Default VRF
-                                	**type**\: :py:class:`OspfSegmentRoutingForwarding_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingForwarding_Enum>`
+                                	**type**\: :py:class:`OspfSegmentRoutingForwardingEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingForwardingEnum>`
                                 
                                 .. attribute:: transmit_delay
                                 
@@ -27740,18 +25316,12 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.key_id is not None:
                                                     return True
 
                                                 if self.password is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -27773,17 +25343,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.message_digest_key is not None:
                                                 for child_ref in self.message_digest_key:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -27799,12 +25363,12 @@ class Ospf(object):
                                         .. attribute:: authen_type
                                         
                                         	Authentication type code 
-                                        	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                                        	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                                         
                                         .. attribute:: keychain_authen_type
                                         
                                         	Keychain authentication type
-                                        	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                                        	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                                         
                                         .. attribute:: keychain_name
                                         
@@ -27838,8 +25402,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.authen_type is not None:
                                                 return True
 
@@ -27849,10 +25411,6 @@ class Ospf(object):
                                             if self.keychain_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -27874,27 +25432,15 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.key is not None:
                                             return True
 
                                         if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                             return True
 
-                                        if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                            return True
-
                                         if self.type is not None and self.type._has_data():
                                             return True
 
-                                        if self.type is not None and self.type.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -27917,7 +25463,7 @@ class Ospf(object):
                                     .. attribute:: fast_detect_mode
                                     
                                     	 use of Bidirectional Forwarding Detection
-                                    	**type**\: :py:class:`BfdEnableMode_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.BfdEnableMode_Enum>`
+                                    	**type**\: :py:class:`BfdEnableModeEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.BfdEnableModeEnum>`
                                     
                                     .. attribute:: interval
                                     
@@ -27953,8 +25499,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.detection_multiplier is not None:
                                             return True
 
@@ -27964,10 +25508,6 @@ class Ospf(object):
                                         if self.interval is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -28020,18 +25560,12 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.cost is not None:
                                             return True
 
                                         if self.threshold is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -28084,18 +25618,12 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interval is not None:
                                             return True
 
                                         if self.multiplier is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -28114,10 +25642,20 @@ class Ospf(object):
                                     	Access Control List name
                                     	**type**\: str
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: route_policy_name
                                     
                                     	Route Policy name
                                     	**type**\: str
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -28147,8 +25685,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.access_list_name is not None:
                                             return True
 
@@ -28156,10 +25692,6 @@ class Ospf(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -28174,7 +25706,7 @@ class Ospf(object):
                                     .. attribute:: fast_reroute_enable
                                     
                                     	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                                    	**type**\: :py:class:`OspfFastReroute_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastReroute_Enum>`
+                                    	**type**\: :py:class:`OspfFastRerouteEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
                                     
                                     .. attribute:: per_link
                                     
@@ -28299,15 +25831,9 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -28329,17 +25855,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -28411,15 +25931,9 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -28441,17 +25955,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -28473,27 +25981,15 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                                return True
-
-                                            if self.candidate_interfaces is not None and self.candidate_interfaces.is_presence():
                                                 return True
 
                                             if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
                                                 return True
 
-                                            if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
-                                                return True
-
                                             if self.fast_reroute_use_candidate_only is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -28612,15 +26108,9 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -28642,17 +26132,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -28724,15 +26208,9 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -28754,17 +26232,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -28787,7 +26259,7 @@ class Ospf(object):
                                             .. attribute:: tunnel
                                             
                                             	Enable/Disable remote LFA computation
-                                            	**type**\: :py:class:`OspfFrrRlfaTunnel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnel_Enum>`
+                                            	**type**\: :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
                                             
                                             
 
@@ -28815,18 +26287,12 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.maximum_cost is not None:
                                                     return True
 
                                                 if self.tunnel is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -28848,18 +26314,10 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
-                                            if self.candidate_interfaces is not None and self.candidate_interfaces.is_presence():
-                                                return True
-
                                             if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                                return True
-
-                                            if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
                                                 return True
 
                                             if self.fast_reroute_use_candidate_only is not None:
@@ -28868,16 +26326,9 @@ class Ospf(object):
                                             if self.remote_lfa is not None and self.remote_lfa._has_data():
                                                 return True
 
-                                            if self.remote_lfa is not None and self.remote_lfa.is_presence():
-                                                return True
-
                                             if self.topology_independent_lfa is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -28899,27 +26350,15 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fast_reroute_enable is not None:
                                             return True
 
                                         if self.per_link is not None and self.per_link._has_data():
                                             return True
 
-                                        if self.per_link is not None and self.per_link.is_presence():
-                                            return True
-
                                         if self.per_prefix is not None and self.per_prefix._has_data():
                                             return True
 
-                                        if self.per_prefix is not None and self.per_prefix.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -28993,18 +26432,12 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.enable is not None:
                                                 return True
 
                                             if self.hop_count is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -29026,18 +26459,9 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.ttl is not None and self.ttl._has_data():
                                             return True
 
-                                        if self.ttl is not None and self.ttl.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -29059,18 +26483,10 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.authentication is not None and self.authentication._has_data():
                                         return True
 
-                                    if self.authentication is not None and self.authentication.is_presence():
-                                        return True
-
                                     if self.bfd is not None and self.bfd._has_data():
-                                        return True
-
-                                    if self.bfd is not None and self.bfd.is_presence():
                                         return True
 
                                     if self.cost is not None:
@@ -29079,16 +26495,10 @@ class Ospf(object):
                                     if self.cost_fallback is not None and self.cost_fallback._has_data():
                                         return True
 
-                                    if self.cost_fallback is not None and self.cost_fallback.is_presence():
-                                        return True
-
                                     if self.database_filter is not None:
                                         return True
 
                                     if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
-                                        return True
-
-                                    if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
                                         return True
 
                                     if self.demand_circuit is not None:
@@ -29097,13 +26507,7 @@ class Ospf(object):
                                     if self.distribute_list is not None and self.distribute_list._has_data():
                                         return True
 
-                                    if self.distribute_list is not None and self.distribute_list.is_presence():
-                                        return True
-
                                     if self.fast_reroute is not None and self.fast_reroute._has_data():
-                                        return True
-
-                                    if self.fast_reroute is not None and self.fast_reroute.is_presence():
                                         return True
 
                                     if self.flood_reduction is not None:
@@ -29151,19 +26555,12 @@ class Ospf(object):
                                     if self.security is not None and self.security._has_data():
                                         return True
 
-                                    if self.security is not None and self.security.is_presence():
-                                        return True
-
                                     if self.segment_routing_forwarding is not None:
                                         return True
 
                                     if self.transmit_delay is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -29424,18 +26821,12 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.key_id is not None:
                                                         return True
 
                                                     if self.password is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -29457,17 +26848,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.message_digest_key is not None:
                                                     for child_ref in self.message_digest_key:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -29483,12 +26868,12 @@ class Ospf(object):
                                             .. attribute:: authen_type
                                             
                                             	Authentication type code 
-                                            	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                                            	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                                             
                                             .. attribute:: keychain_authen_type
                                             
                                             	Keychain authentication type
-                                            	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                                            	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                                             
                                             .. attribute:: keychain_name
                                             
@@ -29522,8 +26907,6 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.authen_type is not None:
                                                     return True
 
@@ -29533,10 +26916,6 @@ class Ospf(object):
                                                 if self.keychain_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -29558,27 +26937,15 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.key is not None:
                                                 return True
 
                                             if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                                 return True
 
-                                            if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                                return True
-
                                             if self.type is not None and self.type._has_data():
                                                 return True
 
-                                            if self.type is not None and self.type.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -29631,18 +26998,12 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.cost is not None:
                                                 return True
 
                                             if self.threshold is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -29695,18 +27056,12 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interval is not None:
                                                 return True
 
                                             if self.multiplier is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -29725,10 +27080,20 @@ class Ospf(object):
                                         	Access Control List name
                                         	**type**\: str
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: route_policy_name
                                         
                                         	Route Policy name
                                         	**type**\: str
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
                                         
                                         
 
@@ -29758,8 +27123,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.access_list_name is not None:
                                                 return True
 
@@ -29767,10 +27130,6 @@ class Ospf(object):
                                                 return True
 
                                             return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return True
 
                                         @staticmethod
                                         def _meta_info():
@@ -29870,8 +27229,6 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.neighbor_address is not None:
                                                     return True
 
@@ -29887,10 +27244,6 @@ class Ospf(object):
                                                 if self.priority is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -29912,17 +27265,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.neighbor is not None:
                                                 for child_ref in self.neighbor:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -29946,15 +27293,10 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interface_name is not None:
                                             return True
 
                                         if self.authentication is not None and self.authentication._has_data():
-                                            return True
-
-                                        if self.authentication is not None and self.authentication.is_presence():
                                             return True
 
                                         if self.cost is not None:
@@ -29963,22 +27305,13 @@ class Ospf(object):
                                         if self.cost_fallback is not None and self.cost_fallback._has_data():
                                             return True
 
-                                        if self.cost_fallback is not None and self.cost_fallback.is_presence():
-                                            return True
-
                                         if self.database_filter is not None:
                                             return True
 
                                         if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
                                             return True
 
-                                        if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
-                                            return True
-
                                         if self.distribute_list is not None and self.distribute_list._has_data():
-                                            return True
-
-                                        if self.distribute_list is not None and self.distribute_list.is_presence():
                                             return True
 
                                         if self.hello_interval is not None:
@@ -29988,9 +27321,6 @@ class Ospf(object):
                                             return True
 
                                         if self.neighbors is not None and self.neighbors._has_data():
-                                            return True
-
-                                        if self.neighbors is not None and self.neighbors.is_presence():
                                             return True
 
                                         if self.packet_size is not None:
@@ -30008,10 +27338,6 @@ class Ospf(object):
                                         if self.transmit_delay is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -30033,17 +27359,11 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.multi_area_interface_scope is not None:
                                         for child_ref in self.multi_area_interface_scope:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -30183,7 +27503,7 @@ class Ospf(object):
                                     .. attribute:: network_type
                                     
                                     	Type of attached network
-                                    	**type**\: :py:class:`OspfNetwork_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfNetwork_Enum>`
+                                    	**type**\: :py:class:`OspfNetworkEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfNetworkEnum>`
                                     
                                     .. attribute:: packet_size
                                     
@@ -30234,7 +27554,7 @@ class Ospf(object):
                                     .. attribute:: segment_routing_forwarding
                                     
                                     	segment\-routing forwarding configuration Applicableonly in Default VRF
-                                    	**type**\: :py:class:`OspfSegmentRoutingForwarding_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingForwarding_Enum>`
+                                    	**type**\: :py:class:`OspfSegmentRoutingForwardingEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingForwardingEnum>`
                                     
                                     .. attribute:: transmit_delay
                                     
@@ -30399,18 +27719,12 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.key_id is not None:
                                                         return True
 
                                                     if self.password is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -30432,17 +27746,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.message_digest_key is not None:
                                                     for child_ref in self.message_digest_key:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -30458,12 +27766,12 @@ class Ospf(object):
                                             .. attribute:: authen_type
                                             
                                             	Authentication type code 
-                                            	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                                            	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                                             
                                             .. attribute:: keychain_authen_type
                                             
                                             	Keychain authentication type
-                                            	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                                            	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                                             
                                             .. attribute:: keychain_name
                                             
@@ -30497,8 +27805,6 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.authen_type is not None:
                                                     return True
 
@@ -30508,10 +27814,6 @@ class Ospf(object):
                                                 if self.keychain_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -30533,27 +27835,15 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.key is not None:
                                                 return True
 
                                             if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                                 return True
 
-                                            if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                                return True
-
                                             if self.type is not None and self.type._has_data():
                                                 return True
 
-                                            if self.type is not None and self.type.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -30576,7 +27866,7 @@ class Ospf(object):
                                         .. attribute:: fast_detect_mode
                                         
                                         	 use of Bidirectional Forwarding Detection
-                                        	**type**\: :py:class:`BfdEnableMode_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.BfdEnableMode_Enum>`
+                                        	**type**\: :py:class:`BfdEnableModeEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.BfdEnableModeEnum>`
                                         
                                         .. attribute:: interval
                                         
@@ -30612,8 +27902,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.detection_multiplier is not None:
                                                 return True
 
@@ -30623,10 +27911,6 @@ class Ospf(object):
                                             if self.interval is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -30679,18 +27963,12 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.cost is not None:
                                                 return True
 
                                             if self.threshold is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -30743,18 +28021,12 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interval is not None:
                                                 return True
 
                                             if self.multiplier is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -30773,10 +28045,20 @@ class Ospf(object):
                                         	Access Control List name
                                         	**type**\: str
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: route_policy_name
                                         
                                         	Route Policy name
                                         	**type**\: str
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
                                         
                                         
 
@@ -30806,8 +28088,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.access_list_name is not None:
                                                 return True
 
@@ -30815,10 +28095,6 @@ class Ospf(object):
                                                 return True
 
                                             return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return True
 
                                         @staticmethod
                                         def _meta_info():
@@ -30833,7 +28109,7 @@ class Ospf(object):
                                         .. attribute:: fast_reroute_enable
                                         
                                         	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                                        	**type**\: :py:class:`OspfFastReroute_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastReroute_Enum>`
+                                        	**type**\: :py:class:`OspfFastRerouteEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
                                         
                                         .. attribute:: per_link
                                         
@@ -30958,15 +28234,9 @@ class Ospf(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -30988,17 +28258,11 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.candidate_interface is not None:
                                                         for child_ref in self.candidate_interface:
                                                             if child_ref._has_data():
                                                                 return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -31070,15 +28334,9 @@ class Ospf(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -31100,17 +28358,11 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.exclude_interface is not None:
                                                         for child_ref in self.exclude_interface:
                                                             if child_ref._has_data():
                                                                 return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -31132,27 +28384,15 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                                    return True
-
-                                                if self.candidate_interfaces is not None and self.candidate_interfaces.is_presence():
                                                     return True
 
                                                 if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
                                                     return True
 
-                                                if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
-                                                    return True
-
                                                 if self.fast_reroute_use_candidate_only is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -31271,15 +28511,9 @@ class Ospf(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -31301,17 +28535,11 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.candidate_interface is not None:
                                                         for child_ref in self.candidate_interface:
                                                             if child_ref._has_data():
                                                                 return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -31383,15 +28611,9 @@ class Ospf(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -31413,17 +28635,11 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.exclude_interface is not None:
                                                         for child_ref in self.exclude_interface:
                                                             if child_ref._has_data():
                                                                 return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -31446,7 +28662,7 @@ class Ospf(object):
                                                 .. attribute:: tunnel
                                                 
                                                 	Enable/Disable remote LFA computation
-                                                	**type**\: :py:class:`OspfFrrRlfaTunnel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnel_Enum>`
+                                                	**type**\: :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
                                                 
                                                 
 
@@ -31474,18 +28690,12 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.maximum_cost is not None:
                                                         return True
 
                                                     if self.tunnel is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -31507,18 +28717,10 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                     return True
 
-                                                if self.candidate_interfaces is not None and self.candidate_interfaces.is_presence():
-                                                    return True
-
                                                 if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                                    return True
-
-                                                if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
                                                     return True
 
                                                 if self.fast_reroute_use_candidate_only is not None:
@@ -31527,16 +28729,9 @@ class Ospf(object):
                                                 if self.remote_lfa is not None and self.remote_lfa._has_data():
                                                     return True
 
-                                                if self.remote_lfa is not None and self.remote_lfa.is_presence():
-                                                    return True
-
                                                 if self.topology_independent_lfa is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -31558,27 +28753,15 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.fast_reroute_enable is not None:
                                                 return True
 
                                             if self.per_link is not None and self.per_link._has_data():
                                                 return True
 
-                                            if self.per_link is not None and self.per_link.is_presence():
-                                                return True
-
                                             if self.per_prefix is not None and self.per_prefix._has_data():
                                                 return True
 
-                                            if self.per_prefix is not None and self.per_prefix.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -31679,8 +28862,6 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.neighbor_address is not None:
                                                     return True
 
@@ -31696,10 +28877,6 @@ class Ospf(object):
                                                 if self.priority is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -31721,17 +28898,11 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.neighbor is not None:
                                                 for child_ref in self.neighbor:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -31749,6 +28920,11 @@ class Ospf(object):
                                         	Force Penultimate Hop To Send Explicit\-Null Label
                                         	**type**\: bool
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: sid_value
                                         
                                         	SID value
@@ -31756,10 +28932,20 @@ class Ospf(object):
                                         
                                         	**range:** 0..1048575
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: type
                                         
                                         	OSPF SID Type
-                                        	**type**\: :py:class:`OspfSid_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSid_Enum>`
+                                        	**type**\: :py:class:`OspfSidEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSidEnum>`
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
                                         
                                         
 
@@ -31790,8 +28976,6 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.explicit_null is not None:
                                                 return True
 
@@ -31802,10 +28986,6 @@ class Ospf(object):
                                                 return True
 
                                             return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return True
 
                                         @staticmethod
                                         def _meta_info():
@@ -31878,18 +29058,12 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.enable is not None:
                                                     return True
 
                                                 if self.hop_count is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -31911,18 +29085,9 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.ttl is not None and self.ttl._has_data():
                                                 return True
 
-                                            if self.ttl is not None and self.ttl.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -31946,21 +29111,13 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interface_name is not None:
                                             return True
 
                                         if self.authentication is not None and self.authentication._has_data():
                                             return True
 
-                                        if self.authentication is not None and self.authentication.is_presence():
-                                            return True
-
                                         if self.bfd is not None and self.bfd._has_data():
-                                            return True
-
-                                        if self.bfd is not None and self.bfd.is_presence():
                                             return True
 
                                         if self.cost is not None:
@@ -31969,16 +29126,10 @@ class Ospf(object):
                                         if self.cost_fallback is not None and self.cost_fallback._has_data():
                                             return True
 
-                                        if self.cost_fallback is not None and self.cost_fallback.is_presence():
-                                            return True
-
                                         if self.database_filter is not None:
                                             return True
 
                                         if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
-                                            return True
-
-                                        if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
                                             return True
 
                                         if self.demand_circuit is not None:
@@ -31987,13 +29138,7 @@ class Ospf(object):
                                         if self.distribute_list is not None and self.distribute_list._has_data():
                                             return True
 
-                                        if self.distribute_list is not None and self.distribute_list.is_presence():
-                                            return True
-
                                         if self.fast_reroute is not None and self.fast_reroute._has_data():
-                                            return True
-
-                                        if self.fast_reroute is not None and self.fast_reroute.is_presence():
                                             return True
 
                                         if self.flood_reduction is not None:
@@ -32023,9 +29168,6 @@ class Ospf(object):
                                         if self.neighbors is not None and self.neighbors._has_data():
                                             return True
 
-                                        if self.neighbors is not None and self.neighbors.is_presence():
-                                            return True
-
                                         if self.network_type is not None:
                                             return True
 
@@ -32036,9 +29178,6 @@ class Ospf(object):
                                             return True
 
                                         if self.prefix_sid is not None and self.prefix_sid._has_data():
-                                            return True
-
-                                        if self.prefix_sid is not None and self.prefix_sid.is_presence():
                                             return True
 
                                         if self.prefix_suppression_secondary is not None:
@@ -32056,19 +29195,12 @@ class Ospf(object):
                                         if self.security is not None and self.security._has_data():
                                             return True
 
-                                        if self.security is not None and self.security.is_presence():
-                                            return True
-
                                         if self.segment_routing_forwarding is not None:
                                             return True
 
                                         if self.transmit_delay is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -32090,17 +29222,11 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.name_scope is not None:
                                         for child_ref in self.name_scope:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -32121,7 +29247,7 @@ class Ospf(object):
                                 .. attribute:: metric_type
                                 
                                 	OSPF External metric type
-                                	**type**\: :py:class:`OspfLinkStateMetric_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetric_Enum>`
+                                	**type**\: :py:class:`OspfLinkStateMetricEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetricEnum>`
                                 
                                 .. attribute:: no_redistribution
                                 
@@ -32169,8 +29295,6 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.default_info_originate is not None:
                                         return True
 
@@ -32186,10 +29310,6 @@ class Ospf(object):
                                     if self.nssa_def_metric is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -32420,18 +29540,12 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.key_id is not None:
                                                         return True
 
                                                     if self.password is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -32453,17 +29567,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.message_digest_key is not None:
                                                     for child_ref in self.message_digest_key:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -32479,12 +29587,12 @@ class Ospf(object):
                                             .. attribute:: authen_type
                                             
                                             	Authentication type code 
-                                            	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                                            	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                                             
                                             .. attribute:: keychain_authen_type
                                             
                                             	Keychain authentication type
-                                            	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                                            	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                                             
                                             .. attribute:: keychain_name
                                             
@@ -32518,8 +29626,6 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.authen_type is not None:
                                                     return True
 
@@ -32529,10 +29635,6 @@ class Ospf(object):
                                                 if self.keychain_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -32554,27 +29656,15 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.key is not None:
                                                 return True
 
                                             if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                                 return True
 
-                                            if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                                return True
-
                                             if self.type is not None and self.type._has_data():
                                                 return True
 
-                                            if self.type is not None and self.type.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -32627,18 +29717,12 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interval is not None:
                                                 return True
 
                                             if self.multiplier is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -32664,8 +29748,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.destination_address is not None:
                                             return True
 
@@ -32675,16 +29757,10 @@ class Ospf(object):
                                         if self.authentication is not None and self.authentication._has_data():
                                             return True
 
-                                        if self.authentication is not None and self.authentication.is_presence():
-                                            return True
-
                                         if self.cost is not None:
                                             return True
 
                                         if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
-                                            return True
-
-                                        if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
                                             return True
 
                                         if self.hello_interval is not None:
@@ -32702,10 +29778,6 @@ class Ospf(object):
                                         if self.transmit_delay is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -32727,17 +29799,11 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.sham_link_scope is not None:
                                         for child_ref in self.sham_link_scope:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -32944,18 +30010,12 @@ class Ospf(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.key_id is not None:
                                                         return True
 
                                                     if self.password is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -32977,17 +30037,11 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.message_digest_key is not None:
                                                     for child_ref in self.message_digest_key:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -33003,12 +30057,12 @@ class Ospf(object):
                                             .. attribute:: authen_type
                                             
                                             	Authentication type code 
-                                            	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                                            	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                                             
                                             .. attribute:: keychain_authen_type
                                             
                                             	Keychain authentication type
-                                            	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                                            	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                                             
                                             .. attribute:: keychain_name
                                             
@@ -33042,8 +30096,6 @@ class Ospf(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.authen_type is not None:
                                                     return True
 
@@ -33053,10 +30105,6 @@ class Ospf(object):
                                                 if self.keychain_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -33078,27 +30126,15 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.key is not None:
                                                 return True
 
                                             if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                                 return True
 
-                                            if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                                return True
-
                                             if self.type is not None and self.type._has_data():
                                                 return True
 
-                                            if self.type is not None and self.type.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -33151,18 +30187,12 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interval is not None:
                                                 return True
 
                                             if self.multiplier is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -33186,21 +30216,13 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
                                         if self.authentication is not None and self.authentication._has_data():
                                             return True
 
-                                        if self.authentication is not None and self.authentication.is_presence():
-                                            return True
-
                                         if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
-                                            return True
-
-                                        if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
                                             return True
 
                                         if self.hello_interval is not None:
@@ -33215,10 +30237,6 @@ class Ospf(object):
                                         if self.transmit_delay is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -33240,17 +30258,11 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.virtual_link_scope is not None:
                                         for child_ref in self.virtual_link_scope:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -33274,21 +30286,13 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.area_id is not None:
                                     return True
 
                                 if self.area_ranges is not None and self.area_ranges._has_data():
                                     return True
 
-                                if self.area_ranges is not None and self.area_ranges.is_presence():
-                                    return True
-
                                 if self.area_scope is not None and self.area_scope._has_data():
-                                    return True
-
-                                if self.area_scope is not None and self.area_scope.is_presence():
                                     return True
 
                                 if self.default_cost is not None:
@@ -33303,19 +30307,10 @@ class Ospf(object):
                                 if self.multi_area_interface_scopes is not None and self.multi_area_interface_scopes._has_data():
                                     return True
 
-                                if self.multi_area_interface_scopes is not None and self.multi_area_interface_scopes.is_presence():
-                                    return True
-
                                 if self.name_scopes is not None and self.name_scopes._has_data():
                                     return True
 
-                                if self.name_scopes is not None and self.name_scopes.is_presence():
-                                    return True
-
                                 if self.nssa is not None and self.nssa._has_data():
-                                    return True
-
-                                if self.nssa is not None and self.nssa.is_presence():
                                     return True
 
                                 if self.route_policy_in is not None:
@@ -33333,9 +30328,6 @@ class Ospf(object):
                                 if self.sham_link_scopes is not None and self.sham_link_scopes._has_data():
                                     return True
 
-                                if self.sham_link_scopes is not None and self.sham_link_scopes.is_presence():
-                                    return True
-
                                 if self.stub is not None:
                                     return True
 
@@ -33345,13 +30337,6 @@ class Ospf(object):
                                 if self.virtual_link_scopes is not None and self.virtual_link_scopes._has_data():
                                     return True
 
-                                if self.virtual_link_scopes is not None and self.virtual_link_scopes.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -33373,8 +30358,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.area_address is not None:
                                 for child_ref in self.area_address:
                                     if child_ref._has_data():
@@ -33385,10 +30368,6 @@ class Ospf(object):
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -33439,18 +30418,12 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bandwidth is not None:
                                 return True
 
                             if self.disable is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -33478,7 +30451,7 @@ class Ospf(object):
                         .. attribute:: metric_type
                         
                         	OSPF External metric type
-                        	**type**\: :py:class:`OspfLinkStateMetric_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetric_Enum>`
+                        	**type**\: :py:class:`OspfLinkStateMetricEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetricEnum>`
                         
                         .. attribute:: route_policy_name
                         
@@ -33513,8 +30486,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.always_advertise is not None:
                                 return True
 
@@ -33527,10 +30498,6 @@ class Ospf(object):
                             if self.route_policy_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -33663,8 +30630,6 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address is not None:
                                         return True
 
@@ -33677,10 +30642,6 @@ class Ospf(object):
                                     if self.distance is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -33702,17 +30663,11 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ip_distance is not None:
                                     for child_ref in self.ip_distance:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -33773,8 +30728,6 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.external_routes is not None:
                                     return True
 
@@ -33784,10 +30737,6 @@ class Ospf(object):
                                 if self.intra_area is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -33809,27 +30758,15 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.admin_distance is not None:
                                 return True
 
                             if self.ip_distances is not None and self.ip_distances._has_data():
                                 return True
 
-                            if self.ip_distances is not None and self.ip_distances.is_presence():
-                                return True
-
                             if self.ospf_distance is not None and self.ospf_distance._has_data():
                                 return True
 
-                            if self.ospf_distance is not None and self.ospf_distance.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -33879,7 +30816,7 @@ class Ospf(object):
                             .. attribute:: domain_id_type
                             
                             	Primary domain ID type
-                            	**type**\: :py:class:`OspfDomainId_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfDomainId_Enum>`
+                            	**type**\: :py:class:`OspfDomainIdEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfDomainIdEnum>`
                             
                             
 
@@ -33907,18 +30844,12 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.domain_id_name is not None:
                                     return True
 
                                 if self.domain_id_type is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -33964,7 +30895,7 @@ class Ospf(object):
                                 .. attribute:: domain_id_type
                                 
                                 	Secondary domain ID type
-                                	**type**\: :py:class:`OspfDomainId_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfDomainId_Enum>`
+                                	**type**\: :py:class:`OspfDomainIdEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfDomainIdEnum>`
                                 
                                 
 
@@ -33996,18 +30927,12 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.domain_id_name is not None:
                                         return True
 
                                     if self.domain_id_type is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -34029,17 +30954,11 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.secondary_domain_id is not None:
                                     for child_ref in self.secondary_domain_id:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -34061,24 +30980,12 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.primary_domain_id is not None and self.primary_domain_id._has_data():
-                                return True
-
-                            if self.primary_domain_id is not None and self.primary_domain_id.is_presence():
                                 return True
 
                             if self.secondary_domain_ids is not None and self.secondary_domain_ids._has_data():
                                 return True
 
-                            if self.secondary_domain_ids is not None and self.secondary_domain_ids.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -34123,7 +31030,7 @@ class Ospf(object):
                             .. attribute:: priority
                             
                             	Fast\-reroute per\-link/per\-prefix priority\-limit command
-                            	**type**\: :py:class:`OspfFastReroutePriority_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastReroutePriority_Enum>`
+                            	**type**\: :py:class:`OspfFastReroutePriorityEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastReroutePriorityEnum>`
                             
                             
 
@@ -34150,15 +31057,9 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.priority is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -34179,7 +31080,7 @@ class Ospf(object):
                             .. attribute:: priority
                             
                             	Fast\-reroute per\-link/per\-prefix priority\-limit command
-                            	**type**\: :py:class:`OspfFastReroutePriority_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastReroutePriority_Enum>`
+                            	**type**\: :py:class:`OspfFastReroutePriorityEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastReroutePriorityEnum>`
                             
                             .. attribute:: tiebreakers
                             
@@ -34231,7 +31132,7 @@ class Ospf(object):
                                     .. attribute:: tiebreaker_type
                                     
                                     	Tiebreaker type
-                                    	**type**\: :py:class:`OspfFastRerouteTiebreakers_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteTiebreakers_Enum>`
+                                    	**type**\: :py:class:`OspfFastRerouteTiebreakersEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteTiebreakersEnum>`
                                     
                                     .. attribute:: tiebreaker_index
                                     
@@ -34268,18 +31169,12 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.tiebreaker_type is not None:
                                             return True
 
                                         if self.tiebreaker_index is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -34301,17 +31196,11 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.tiebreaker is not None:
                                         for child_ref in self.tiebreaker:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -34333,8 +31222,6 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.load_sharing_disable is not None:
                                     return True
 
@@ -34344,13 +31231,6 @@ class Ospf(object):
                                 if self.tiebreakers is not None and self.tiebreakers._has_data():
                                     return True
 
-                                if self.tiebreakers is not None and self.tiebreakers.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -34372,24 +31252,12 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.per_link is not None and self.per_link._has_data():
-                                return True
-
-                            if self.per_link is not None and self.per_link.is_presence():
                                 return True
 
                             if self.per_prefix is not None and self.per_prefix._has_data():
                                 return True
 
-                            if self.per_prefix is not None and self.per_prefix.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -34409,12 +31277,22 @@ class Ospf(object):
                         
                         	**range:** 1..4294967294
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: max_lsa_ignore_time
                         
                         	Set time during which all adjacencies are suppressed
                         	**type**\: int
                         
                         	**range:** 1..35791394
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: max_lsa_limit
                         
@@ -34423,12 +31301,22 @@ class Ospf(object):
                         
                         	**range:** 1..4294967294
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: max_lsa_reset_time
                         
                         	Set number of minutes after which ignore\-count is reset to zero
                         	**type**\: int
                         
                         	**range:** 2..71582788
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: max_lsa_threshold
                         
@@ -34437,9 +31325,19 @@ class Ospf(object):
                         
                         	**range:** 1..100
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: max_lsa_warning_only
                         
                         	Only give warning message when limit is exceeded
+                        	**type**\: bool
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
                         
@@ -34474,8 +31372,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.max_lsa_ignore_count is not None:
                                 return True
 
@@ -34495,10 +31391,6 @@ class Ospf(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -34624,8 +31516,6 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.external_lsa is not None:
                                     return True
 
@@ -34641,10 +31531,6 @@ class Ospf(object):
                                 if self.summary_lsa_maximum_metric is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -34730,8 +31616,6 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.external_lsa is not None:
                                     return True
 
@@ -34753,10 +31637,6 @@ class Ospf(object):
                                 if self.wait_for_bgp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -34842,8 +31722,6 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.external_lsa is not None:
                                     return True
 
@@ -34865,10 +31743,6 @@ class Ospf(object):
                                 if self.wait_for_bgp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -34953,8 +31827,6 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.external_lsa is not None:
                                     return True
 
@@ -34976,10 +31848,6 @@ class Ospf(object):
                                 if self.wait_for_bgp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -35064,8 +31932,6 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.external_lsa is not None:
                                     return True
 
@@ -35089,10 +31955,6 @@ class Ospf(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
@@ -35112,12 +31974,7 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.max_metric_always is not None and self.max_metric_always._has_data():
-                                return True
-
-                            if self.max_metric_always is not None and self.max_metric_always.is_presence():
                                 return True
 
                             if self.max_metric_no_abr_off is not None:
@@ -35126,31 +31983,15 @@ class Ospf(object):
                             if self.max_metric_on_proc_migration is not None and self.max_metric_on_proc_migration._has_data():
                                 return True
 
-                            if self.max_metric_on_proc_migration is not None and self.max_metric_on_proc_migration.is_presence():
-                                return True
-
                             if self.max_metric_on_proc_restart is not None and self.max_metric_on_proc_restart._has_data():
-                                return True
-
-                            if self.max_metric_on_proc_restart is not None and self.max_metric_on_proc_restart.is_presence():
                                 return True
 
                             if self.max_metric_on_startup is not None and self.max_metric_on_startup._has_data():
                                 return True
 
-                            if self.max_metric_on_startup is not None and self.max_metric_on_startup.is_presence():
-                                return True
-
                             if self.max_metric_on_switchover is not None and self.max_metric_on_switchover._has_data():
                                 return True
 
-                            if self.max_metric_on_switchover is not None and self.max_metric_on_switchover.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -35210,8 +32051,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.number_of_prefixes is not None:
                                 return True
 
@@ -35221,10 +32060,6 @@ class Ospf(object):
                             if self.warning_only is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -35262,7 +32097,7 @@ class Ospf(object):
                             .. attribute:: enable
                             
                             	MicroLoop avoidance feature enable configuration
-                            	**type**\: :py:class:`OspfUloopAvoidance_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfUloopAvoidance_Enum>`
+                            	**type**\: :py:class:`OspfUloopAvoidanceEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfUloopAvoidanceEnum>`
                             
                             .. attribute:: rib_update_delay
                             
@@ -35297,18 +32132,12 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.enable is not None:
                                     return True
 
                                 if self.rib_update_delay is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -35330,18 +32159,9 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.avoidance is not None and self.avoidance._has_data():
                                 return True
 
-                            if self.avoidance is not None and self.avoidance.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -35357,7 +32177,7 @@ class Ospf(object):
                         .. attribute:: cisco
                         
                         	Enable Cisco Non Stop Forwarding
-                        	**type**\: :py:class:`OspfCiscoNsf_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfCiscoNsf_Enum>`
+                        	**type**\: :py:class:`OspfCiscoNsfEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfCiscoNsfEnum>`
                         
                         .. attribute:: flush_delay_time
                         
@@ -35369,7 +32189,7 @@ class Ospf(object):
                         .. attribute:: ietf
                         
                         	Enable IETF Non Stop Forwarding
-                        	**type**\: :py:class:`OspfIetfNsf_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfIetfNsf_Enum>`
+                        	**type**\: :py:class:`OspfIetfNsfEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfIetfNsfEnum>`
                         
                         .. attribute:: ietf_strict_lsa_checking
                         
@@ -35379,7 +32199,7 @@ class Ospf(object):
                         .. attribute:: ietf_support_role
                         
                         	Disable helper support role for IETF Non Stop Forwarding
-                        	**type**\: :py:class:`OspfIetfNsfSupport_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfIetfNsfSupport_Enum>`
+                        	**type**\: :py:class:`OspfIetfNsfSupportEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfIetfNsfSupportEnum>`
                         
                         .. attribute:: interval
                         
@@ -35426,8 +32246,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.cisco is not None:
                                 return True
 
@@ -35449,10 +32267,6 @@ class Ospf(object):
                             if self.lifetime is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -35492,7 +32306,7 @@ class Ospf(object):
                             .. attribute:: protocol_name
                             
                             	Distribute list protocol type
-                            	**type**\: :py:class:`OspfDistListProtocol_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfDistListProtocol_Enum>`
+                            	**type**\: :py:class:`OspfDistListProtocolEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfDistListProtocolEnum>`
                             
                             .. attribute:: access_list_name
                             
@@ -35549,8 +32363,6 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.protocol_name is not None:
                                     return True
 
@@ -35566,10 +32378,6 @@ class Ospf(object):
                                 if self.ospf_process_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -35591,17 +32399,11 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.outgoing_route_update is not None:
                                 for child_ref in self.outgoing_route_update:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -35711,7 +32513,7 @@ class Ospf(object):
                         .. attribute:: network_type
                         
                         	Type of attached network
-                        	**type**\: :py:class:`OspfNetwork_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfNetwork_Enum>`
+                        	**type**\: :py:class:`OspfNetworkEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfNetworkEnum>`
                         
                         .. attribute:: packet_size
                         
@@ -35752,12 +32554,12 @@ class Ospf(object):
                         .. attribute:: segment_routing
                         
                         	segment\-routing configuration Applicable only in Default VRF
-                        	**type**\: :py:class:`OspfSegmentRouting_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRouting_Enum>`
+                        	**type**\: :py:class:`OspfSegmentRoutingEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingEnum>`
                         
                         .. attribute:: segment_routing_forwarding
                         
                         	segment\-routing forwarding configuration Applicableonly in Default VRF
-                        	**type**\: :py:class:`OspfSegmentRoutingForwarding_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingForwarding_Enum>`
+                        	**type**\: :py:class:`OspfSegmentRoutingForwardingEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSegmentRoutingForwardingEnum>`
                         
                         .. attribute:: srgb
                         
@@ -35931,18 +32733,12 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.key_id is not None:
                                             return True
 
                                         if self.password is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -35964,17 +32760,11 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.message_digest_key is not None:
                                         for child_ref in self.message_digest_key:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -35990,12 +32780,12 @@ class Ospf(object):
                                 .. attribute:: authen_type
                                 
                                 	Authentication type code 
-                                	**type**\: :py:class:`OspfAuthentication_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthentication_Enum>`
+                                	**type**\: :py:class:`OspfAuthenticationEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfAuthenticationEnum>`
                                 
                                 .. attribute:: keychain_authen_type
                                 
                                 	Keychain authentication type
-                                	**type**\: :py:class:`OspfKeychainAuth_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuth_Enum>`
+                                	**type**\: :py:class:`OspfKeychainAuthEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfKeychainAuthEnum>`
                                 
                                 .. attribute:: keychain_name
                                 
@@ -36029,8 +32819,6 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.authen_type is not None:
                                         return True
 
@@ -36040,10 +32828,6 @@ class Ospf(object):
                                     if self.keychain_name is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -36065,27 +32849,15 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.key is not None:
                                     return True
 
                                 if self.message_digest_keies is not None and self.message_digest_keies._has_data():
                                     return True
 
-                                if self.message_digest_keies is not None and self.message_digest_keies.is_presence():
-                                    return True
-
                                 if self.type is not None and self.type._has_data():
                                     return True
 
-                                if self.type is not None and self.type.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -36108,7 +32880,7 @@ class Ospf(object):
                             .. attribute:: fast_detect_mode
                             
                             	 use of Bidirectional Forwarding Detection
-                            	**type**\: :py:class:`BfdEnableMode_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.BfdEnableMode_Enum>`
+                            	**type**\: :py:class:`BfdEnableModeEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.BfdEnableModeEnum>`
                             
                             .. attribute:: interval
                             
@@ -36144,8 +32916,6 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.detection_multiplier is not None:
                                     return True
 
@@ -36155,10 +32925,6 @@ class Ospf(object):
                                 if self.interval is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -36211,18 +32977,12 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.cost is not None:
                                     return True
 
                                 if self.threshold is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -36275,18 +33035,12 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.interval is not None:
                                     return True
 
                                 if self.multiplier is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -36305,10 +33059,20 @@ class Ospf(object):
                             	Access Control List name
                             	**type**\: str
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: route_policy_name
                             
                             	Route Policy name
                             	**type**\: str
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -36338,8 +33102,6 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.access_list_name is not None:
                                     return True
 
@@ -36347,10 +33109,6 @@ class Ospf(object):
                                     return True
 
                                 return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
 
                             @staticmethod
                             def _meta_info():
@@ -36365,7 +33123,7 @@ class Ospf(object):
                             .. attribute:: fast_reroute_enable
                             
                             	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                            	**type**\: :py:class:`OspfFastReroute_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastReroute_Enum>`
+                            	**type**\: :py:class:`OspfFastRerouteEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
                             
                             .. attribute:: per_link
                             
@@ -36490,15 +33248,9 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -36520,17 +33272,11 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.candidate_interface is not None:
                                             for child_ref in self.candidate_interface:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -36602,15 +33348,9 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -36632,17 +33372,11 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.exclude_interface is not None:
                                             for child_ref in self.exclude_interface:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -36664,27 +33398,15 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                        return True
-
-                                    if self.candidate_interfaces is not None and self.candidate_interfaces.is_presence():
                                         return True
 
                                     if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
                                         return True
 
-                                    if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
-                                        return True
-
                                     if self.fast_reroute_use_candidate_only is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -36803,15 +33525,9 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -36833,17 +33549,11 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.candidate_interface is not None:
                                             for child_ref in self.candidate_interface:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -36915,15 +33625,9 @@ class Ospf(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -36945,17 +33649,11 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.exclude_interface is not None:
                                             for child_ref in self.exclude_interface:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -36978,7 +33676,7 @@ class Ospf(object):
                                     .. attribute:: tunnel
                                     
                                     	Enable/Disable remote LFA computation
-                                    	**type**\: :py:class:`OspfFrrRlfaTunnel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnel_Enum>`
+                                    	**type**\: :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
                                     
                                     
 
@@ -37006,18 +33704,12 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.maximum_cost is not None:
                                             return True
 
                                         if self.tunnel is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -37039,18 +33731,10 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                         return True
 
-                                    if self.candidate_interfaces is not None and self.candidate_interfaces.is_presence():
-                                        return True
-
                                     if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                        return True
-
-                                    if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
                                         return True
 
                                     if self.fast_reroute_use_candidate_only is not None:
@@ -37059,16 +33743,9 @@ class Ospf(object):
                                     if self.remote_lfa is not None and self.remote_lfa._has_data():
                                         return True
 
-                                    if self.remote_lfa is not None and self.remote_lfa.is_presence():
-                                        return True
-
                                     if self.topology_independent_lfa is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -37090,27 +33767,15 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fast_reroute_enable is not None:
                                     return True
 
                                 if self.per_link is not None and self.per_link._has_data():
                                     return True
 
-                                if self.per_link is not None and self.per_link.is_presence():
-                                    return True
-
                                 if self.per_prefix is not None and self.per_prefix._has_data():
                                     return True
 
-                                if self.per_prefix is not None and self.per_prefix.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -37184,18 +33849,12 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.enable is not None:
                                         return True
 
                                     if self.hop_count is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -37217,18 +33876,9 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ttl is not None and self.ttl._has_data():
                                     return True
 
-                                if self.ttl is not None and self.ttl.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -37248,12 +33898,22 @@ class Ospf(object):
                             
                             	**range:** 16000..1048575
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: upper_bound
                             
                             	The upper bound of the SRGB
                             	**type**\: int
                             
                             	**range:** 16000..1048575
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -37283,8 +33943,6 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.lower_bound is not None:
                                     return True
 
@@ -37292,10 +33950,6 @@ class Ospf(object):
                                     return True
 
                                 return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
 
                             @staticmethod
                             def _meta_info():
@@ -37316,18 +33970,10 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.authentication is not None and self.authentication._has_data():
                                 return True
 
-                            if self.authentication is not None and self.authentication.is_presence():
-                                return True
-
                             if self.bfd is not None and self.bfd._has_data():
-                                return True
-
-                            if self.bfd is not None and self.bfd.is_presence():
                                 return True
 
                             if self.cost is not None:
@@ -37336,16 +33982,10 @@ class Ospf(object):
                             if self.cost_fallback is not None and self.cost_fallback._has_data():
                                 return True
 
-                            if self.cost_fallback is not None and self.cost_fallback.is_presence():
-                                return True
-
                             if self.database_filter is not None:
                                 return True
 
                             if self.dead_interval_minimal is not None and self.dead_interval_minimal._has_data():
-                                return True
-
-                            if self.dead_interval_minimal is not None and self.dead_interval_minimal.is_presence():
                                 return True
 
                             if self.demand_circuit is not None:
@@ -37354,16 +33994,10 @@ class Ospf(object):
                             if self.distribute_list is not None and self.distribute_list._has_data():
                                 return True
 
-                            if self.distribute_list is not None and self.distribute_list.is_presence():
-                                return True
-
                             if self.external_out is not None:
                                 return True
 
                             if self.fast_reroute is not None and self.fast_reroute._has_data():
-                                return True
-
-                            if self.fast_reroute is not None and self.fast_reroute.is_presence():
                                 return True
 
                             if self.flood_reduction is not None:
@@ -37411,9 +34045,6 @@ class Ospf(object):
                             if self.security is not None and self.security._has_data():
                                 return True
 
-                            if self.security is not None and self.security.is_presence():
-                                return True
-
                             if self.segment_routing is not None:
                                 return True
 
@@ -37423,19 +34054,12 @@ class Ospf(object):
                             if self.srgb is not None and self.srgb._has_data():
                                 return True
 
-                            if self.srgb is not None and self.srgb.is_presence():
-                                return True
-
                             if self.summary_in is not None:
                                 return True
 
                             if self.transmit_delay is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -37529,8 +34153,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.dispatch_incoming is not None:
                                 return True
 
@@ -37552,10 +34174,6 @@ class Ospf(object):
                             if self.limit_medium is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -37618,7 +34236,7 @@ class Ospf(object):
                                 .. attribute:: protocol_name
                                 
                                 	Distribute list protocol type
-                                	**type**\: :py:class:`OspfRedistProtocol_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRedistProtocol_Enum>`
+                                	**type**\: :py:class:`OspfRedistProtocolEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRedistProtocolEnum>`
                                 
                                 .. attribute:: application_or_isis_or_ospf
                                 
@@ -37698,22 +34316,22 @@ class Ospf(object):
                                     .. attribute:: eigrp_route_type
                                     
                                     	EIGRP route type
-                                    	**type**\: :py:class:`OspfEigrpRoute_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfEigrpRoute_Enum>`
+                                    	**type**\: :py:class:`OspfEigrpRouteEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfEigrpRouteEnum>`
                                     
                                     .. attribute:: isis_levels
                                     
                                     	Levels of ISIS routes
-                                    	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                    	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
                                     
                                     .. attribute:: metric_type
                                     
                                     	Set OSPF External metric type
-                                    	**type**\: :py:class:`OspfLinkStateMetric_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetric_Enum>`
+                                    	**type**\: :py:class:`OspfLinkStateMetricEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetricEnum>`
                                     
                                     .. attribute:: ospf_external
                                     
                                     	OSPF external route types
-                                    	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                    	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
                                     
                                     .. attribute:: ospf_internal
                                     
@@ -37723,12 +34341,12 @@ class Ospf(object):
                                     .. attribute:: ospf_nssa_level
                                     
                                     	OSPF NSSA external route types
-                                    	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                    	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
                                     
                                     .. attribute:: ospf_redist_lsa_type
                                     
                                     	LSA type for redistributed routes
-                                    	**type**\: :py:class:`OspfRedistLsa_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRedistLsa_Enum>`
+                                    	**type**\: :py:class:`OspfRedistLsaEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRedistLsaEnum>`
                                     
                                     .. attribute:: ospfnssa_only
                                     
@@ -37788,8 +34406,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.instance_name is not None:
                                             return True
 
@@ -37835,10 +34451,6 @@ class Ospf(object):
                                         if self.tag is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -37897,22 +34509,22 @@ class Ospf(object):
                                     .. attribute:: eigrp_route_type
                                     
                                     	EIGRP route type
-                                    	**type**\: :py:class:`OspfEigrpRoute_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfEigrpRoute_Enum>`
+                                    	**type**\: :py:class:`OspfEigrpRouteEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfEigrpRouteEnum>`
                                     
                                     .. attribute:: isis_levels
                                     
                                     	Levels of ISIS routes
-                                    	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                    	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
                                     
                                     .. attribute:: metric_type
                                     
                                     	Set OSPF External metric type
-                                    	**type**\: :py:class:`OspfLinkStateMetric_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetric_Enum>`
+                                    	**type**\: :py:class:`OspfLinkStateMetricEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetricEnum>`
                                     
                                     .. attribute:: ospf_external
                                     
                                     	OSPF external route types
-                                    	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                    	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
                                     
                                     .. attribute:: ospf_internal
                                     
@@ -37922,12 +34534,12 @@ class Ospf(object):
                                     .. attribute:: ospf_nssa_level
                                     
                                     	OSPF NSSA external route types
-                                    	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                    	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
                                     
                                     .. attribute:: ospf_redist_lsa_type
                                     
                                     	LSA type for redistributed routes
-                                    	**type**\: :py:class:`OspfRedistLsa_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRedistLsa_Enum>`
+                                    	**type**\: :py:class:`OspfRedistLsaEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRedistLsaEnum>`
                                     
                                     .. attribute:: ospfnssa_only
                                     
@@ -37993,8 +34605,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.as_xx is not None:
                                             return True
 
@@ -38048,10 +34658,6 @@ class Ospf(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
@@ -38068,14 +34674,29 @@ class Ospf(object):
                                     	Preserve Metric and Metric Type of BGP Default Route
                                     	**type**\: bool
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: bgp_preserve_med
                                     
                                     	Preserve MED of BGP routes
                                     	**type**\: bool
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: classful
                                     
                                     	Disallow subnetting
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
                                     	**type**\: bool
                                     
                                     .. attribute:: default_redistributed_route_metric
@@ -38085,44 +34706,89 @@ class Ospf(object):
                                     
                                     	**range:** 1..16777214
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: eigrp_route_type
                                     
                                     	EIGRP route type
-                                    	**type**\: :py:class:`OspfEigrpRoute_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfEigrpRoute_Enum>`
+                                    	**type**\: :py:class:`OspfEigrpRouteEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfEigrpRouteEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     .. attribute:: isis_levels
                                     
                                     	Levels of ISIS routes
-                                    	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                    	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     .. attribute:: metric_type
                                     
                                     	Set OSPF External metric type
-                                    	**type**\: :py:class:`OspfLinkStateMetric_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetric_Enum>`
+                                    	**type**\: :py:class:`OspfLinkStateMetricEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetricEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     .. attribute:: ospf_external
                                     
                                     	OSPF external route types
-                                    	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                    	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     .. attribute:: ospf_internal
                                     
                                     	OSPF\_Internal route type
                                     	**type**\: bool
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: ospf_nssa_level
                                     
                                     	OSPF NSSA external route types
-                                    	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                    	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     .. attribute:: ospf_redist_lsa_type
                                     
                                     	LSA type for redistributed routes
-                                    	**type**\: :py:class:`OspfRedistLsa_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRedistLsa_Enum>`
+                                    	**type**\: :py:class:`OspfRedistLsaEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRedistLsaEnum>`
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     .. attribute:: ospfnssa_only
                                     
                                     	Only redistribute to NSSA areas
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
                                     	**type**\: bool
                                     
                                     .. attribute:: route_policy_name
@@ -38130,12 +34796,22 @@ class Ospf(object):
                                     	Routing policy name
                                     	**type**\: str
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: tag
                                     
                                     	Set tag for routes redistributed into OSPF
                                     	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -38177,8 +34853,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.bgp_preserve_default_info is not None:
                                             return True
 
@@ -38222,10 +34896,6 @@ class Ospf(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -38276,22 +34946,22 @@ class Ospf(object):
                                     .. attribute:: eigrp_route_type
                                     
                                     	EIGRP route type
-                                    	**type**\: :py:class:`OspfEigrpRoute_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfEigrpRoute_Enum>`
+                                    	**type**\: :py:class:`OspfEigrpRouteEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfEigrpRouteEnum>`
                                     
                                     .. attribute:: isis_levels
                                     
                                     	Levels of ISIS routes
-                                    	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                    	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
                                     
                                     .. attribute:: metric_type
                                     
                                     	Set OSPF External metric type
-                                    	**type**\: :py:class:`OspfLinkStateMetric_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetric_Enum>`
+                                    	**type**\: :py:class:`OspfLinkStateMetricEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfLinkStateMetricEnum>`
                                     
                                     .. attribute:: ospf_external
                                     
                                     	OSPF external route types
-                                    	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                    	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
                                     
                                     .. attribute:: ospf_internal
                                     
@@ -38301,12 +34971,12 @@ class Ospf(object):
                                     .. attribute:: ospf_nssa_level
                                     
                                     	OSPF NSSA external route types
-                                    	**type**\: :py:class:`OspfRouteLevel_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevel_Enum>`
+                                    	**type**\: :py:class:`OspfRouteLevelEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRouteLevelEnum>`
                                     
                                     .. attribute:: ospf_redist_lsa_type
                                     
                                     	LSA type for redistributed routes
-                                    	**type**\: :py:class:`OspfRedistLsa_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRedistLsa_Enum>`
+                                    	**type**\: :py:class:`OspfRedistLsaEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg.OspfRedistLsaEnum>`
                                     
                                     .. attribute:: ospfnssa_only
                                     
@@ -38369,8 +35039,6 @@ class Ospf(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.as_xx is not None:
                                             return True
 
@@ -38421,10 +35089,6 @@ class Ospf(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
@@ -38446,8 +35110,6 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.protocol_name is not None:
                                         return True
 
@@ -38464,18 +35126,11 @@ class Ospf(object):
                                     if self.connected_or_static_or_dagr_or_subscriber_or_mobile_or_rip is not None and self.connected_or_static_or_dagr_or_subscriber_or_mobile_or_rip._has_data():
                                         return True
 
-                                    if self.connected_or_static_or_dagr_or_subscriber_or_mobile_or_rip is not None and self.connected_or_static_or_dagr_or_subscriber_or_mobile_or_rip.is_presence():
-                                        return True
-
                                     if self.eigrp is not None:
                                         for child_ref in self.eigrp:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -38497,17 +35152,11 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.redistribute is not None:
                                     for child_ref in self.redistribute:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -38529,18 +35178,9 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.redistributes is not None and self.redistributes._has_data():
                                 return True
 
-                            if self.redistributes is not None and self.redistributes.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -38647,8 +35287,6 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.netmask is not None:
                                     return True
 
@@ -38658,10 +35296,6 @@ class Ospf(object):
                                 if self.tag is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -38722,8 +35356,6 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.prefix is not None:
                                     return True
 
@@ -38733,10 +35365,6 @@ class Ospf(object):
                                 if self.tag is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -38807,8 +35435,6 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.netmask is not None:
                                     return True
 
@@ -38821,10 +35447,6 @@ class Ospf(object):
                                 if self.tag is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -38875,18 +35497,12 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.not_advertise is not None:
                                     return True
 
                                 if self.tag is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -38908,8 +35524,6 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.netmask is not None:
                                 for child_ref in self.netmask:
                                     if child_ref._has_data():
@@ -38928,13 +35542,6 @@ class Ospf(object):
                             if self.summary_prefix_data is not None and self.summary_prefix_data._has_data():
                                 return True
 
-                            if self.summary_prefix_data is not None and self.summary_prefix_data.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -39064,8 +35671,6 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.backoff_increment is not None:
                                     return True
 
@@ -39075,10 +35680,6 @@ class Ospf(object):
                                 if self.max_delay is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -39139,8 +35740,6 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.backoff_increment is not None:
                                     return True
 
@@ -39150,10 +35749,6 @@ class Ospf(object):
                                 if self.max_delay is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -39175,15 +35770,10 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.fast_reroute_timer is not None:
                                 return True
 
                             if self.lsa_generation_timer is not None and self.lsa_generation_timer._has_data():
-                                return True
-
-                            if self.lsa_generation_timer is not None and self.lsa_generation_timer.is_presence():
                                 return True
 
                             if self.lsa_group_pacing is not None:
@@ -39201,13 +35791,6 @@ class Ospf(object):
                             if self.spf_timer is not None and self.spf_timer._has_data():
                                 return True
 
-                            if self.spf_timer is not None and self.spf_timer.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -39295,18 +35878,12 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.prefix_list_name is not None:
                                     return True
 
                                 if self.variance is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -39378,15 +35955,9 @@ class Ospf(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_name is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -39408,17 +35979,11 @@ class Ospf(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.exclude_interface is not None:
                                     for child_ref in self.exclude_interface:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -39440,27 +36005,15 @@ class Ospf(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.delay_interval is not None:
                                 return True
 
                             if self.enable is not None and self.enable._has_data():
                                 return True
 
-                            if self.enable is not None and self.enable.is_presence():
-                                return True
-
                             if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
                                 return True
 
-                            if self.exclude_interfaces is not None and self.exclude_interfaces.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -39484,8 +36037,6 @@ class Ospf(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.vrf_name is not None:
                             return True
 
@@ -39495,31 +36046,16 @@ class Ospf(object):
                         if self.adjacency_stagger is not None and self.adjacency_stagger._has_data():
                             return True
 
-                        if self.adjacency_stagger is not None and self.adjacency_stagger.is_presence():
-                            return True
-
                         if self.af is not None and self.af._has_data():
-                            return True
-
-                        if self.af is not None and self.af.is_presence():
                             return True
 
                         if self.area_addresses is not None and self.area_addresses._has_data():
                             return True
 
-                        if self.area_addresses is not None and self.area_addresses.is_presence():
-                            return True
-
                         if self.auto_cost is not None and self.auto_cost._has_data():
                             return True
 
-                        if self.auto_cost is not None and self.auto_cost.is_presence():
-                            return True
-
                         if self.default_information is not None and self.default_information._has_data():
-                            return True
-
-                        if self.default_information is not None and self.default_information.is_presence():
                             return True
 
                         if self.default_metric is not None:
@@ -39531,13 +36067,7 @@ class Ospf(object):
                         if self.distance is not None and self.distance._has_data():
                             return True
 
-                        if self.distance is not None and self.distance.is_presence():
-                            return True
-
                         if self.domain_id is not None and self.domain_id._has_data():
-                            return True
-
-                        if self.domain_id is not None and self.domain_id.is_presence():
                             return True
 
                         if self.domain_tag is not None:
@@ -39546,22 +36076,13 @@ class Ospf(object):
                         if self.fast_reroute is not None and self.fast_reroute._has_data():
                             return True
 
-                        if self.fast_reroute is not None and self.fast_reroute.is_presence():
-                            return True
-
                         if self.ignore_mospf is not None:
                             return True
 
                         if self.max_lsa is not None and self.max_lsa._has_data():
                             return True
 
-                        if self.max_lsa is not None and self.max_lsa.is_presence():
-                            return True
-
                         if self.max_metric is not None and self.max_metric._has_data():
-                            return True
-
-                        if self.max_metric is not None and self.max_metric.is_presence():
                             return True
 
                         if self.maximum_interfaces is not None:
@@ -39573,13 +36094,7 @@ class Ospf(object):
                         if self.maximum_redistribute_prefix is not None and self.maximum_redistribute_prefix._has_data():
                             return True
 
-                        if self.maximum_redistribute_prefix is not None and self.maximum_redistribute_prefix.is_presence():
-                            return True
-
                         if self.microloop is not None and self.microloop._has_data():
-                            return True
-
-                        if self.microloop is not None and self.microloop.is_presence():
                             return True
 
                         if self.no_opaque is not None:
@@ -39588,31 +36103,16 @@ class Ospf(object):
                         if self.nsf is not None and self.nsf._has_data():
                             return True
 
-                        if self.nsf is not None and self.nsf.is_presence():
-                            return True
-
                         if self.outgoing_route_updates is not None and self.outgoing_route_updates._has_data():
-                            return True
-
-                        if self.outgoing_route_updates is not None and self.outgoing_route_updates.is_presence():
                             return True
 
                         if self.process_scope is not None and self.process_scope._has_data():
                             return True
 
-                        if self.process_scope is not None and self.process_scope.is_presence():
-                            return True
-
                         if self.queue is not None and self.queue._has_data():
                             return True
 
-                        if self.queue is not None and self.queue.is_presence():
-                            return True
-
                         if self.redistribution is not None and self.redistribution._has_data():
-                            return True
-
-                        if self.redistribution is not None and self.redistribution.is_presence():
                             return True
 
                         if self.router_id is not None:
@@ -39630,13 +36130,7 @@ class Ospf(object):
                         if self.summary_prefixes is not None and self.summary_prefixes._has_data():
                             return True
 
-                        if self.summary_prefixes is not None and self.summary_prefixes.is_presence():
-                            return True
-
                         if self.timers is not None and self.timers._has_data():
-                            return True
-
-                        if self.timers is not None and self.timers.is_presence():
                             return True
 
                         if self.type7 is not None:
@@ -39645,19 +36139,12 @@ class Ospf(object):
                         if self.ucmp is not None and self.ucmp._has_data():
                             return True
 
-                        if self.ucmp is not None and self.ucmp.is_presence():
-                            return True
-
                         if self.vrf_lite is not None:
                             return True
 
                         if self.vrf_start is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -39679,17 +36166,11 @@ class Ospf(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.vrf is not None:
                         for child_ref in self.vrf:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -39711,21 +36192,13 @@ class Ospf(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.process_name is not None:
                     return True
 
                 if self.default_vrf is not None and self.default_vrf._has_data():
                     return True
 
-                if self.default_vrf is not None and self.default_vrf.is_presence():
-                    return True
-
                 if self.distribute is not None and self.distribute._has_data():
-                    return True
-
-                if self.distribute is not None and self.distribute.is_presence():
                     return True
 
                 if self.nsr is not None:
@@ -39740,22 +36213,12 @@ class Ospf(object):
                 if self.snmp is not None and self.snmp._has_data():
                     return True
 
-                if self.snmp is not None and self.snmp.is_presence():
-                    return True
-
                 if self.start is not None:
                     return True
 
                 if self.vrfs is not None and self.vrfs._has_data():
                     return True
 
-                if self.vrfs is not None and self.vrfs.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -39775,17 +36238,11 @@ class Ospf(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.process is not None:
                 for child_ref in self.process:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -39805,24 +36262,12 @@ class Ospf(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.global_ is not None and self.global_._has_data():
-            return True
-
-        if self.global_ is not None and self.global_.is_presence():
             return True
 
         if self.processes is not None and self.processes._has_data():
             return True
 
-        if self.processes is not None and self.processes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

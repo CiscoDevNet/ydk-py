@@ -24,280 +24,256 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class CertificateIssuer_Enum(Enum):
+class CertificateIssuerEnum(Enum):
     """
-    CertificateIssuer_Enum
+    CertificateIssuerEnum
 
     Certificate issuers
 
-    """
+    .. data:: UNKNOWN = 0
+
+    	Issuer is not known
+
+    .. data:: CODE_SIGNING_SERVER_CERTIFICATE_AUTHORITY = 1
+
+    	Issuer is code signing server certificate
+
+    	authority
 
     """
 
-    Issuer is not known
-
-    """
     UNKNOWN = 0
 
-    """
-
-    Issuer is code signing server certificate
-    authority
-
-    """
     CODE_SIGNING_SERVER_CERTIFICATE_AUTHORITY = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
-        return meta._meta_table['CertificateIssuer_Enum']
+        return meta._meta_table['CertificateIssuerEnum']
 
 
-class LogCode_Enum(Enum):
+class LogCodeEnum(Enum):
     """
-    LogCode_Enum
+    LogCodeEnum
 
     Log code types
 
-    """
+    .. data:: UNKNOWN = 0
+
+    	Log code is not known
+
+    .. data:: SAM_SERVER_RESTARED_ROUTER_REBOOT = 1
+
+    	Log code is SAM server restarted through router
+
+    	reboot
+
+    .. data:: SAM_SERVER_RESTARED = 2
+
+    	Log code is SAM server restarted
+
+    .. data:: ADDED_CERTIFICATE_IN_TABLE = 3
+
+    	Log code is Added certificate in table
+
+    .. data:: COPIED_CERTIFICATE_IN_TABLE = 4
+
+    	Log code is Copied certificate in table
+
+    .. data:: CERTIFICATE_FLAG_CHANGED = 5
+
+    	Log code is Certificate flag changed
+
+    .. data:: VALIDATED_CERTIFICATE = 6
+
+    	Log code is validated ceritificate
+
+    .. data:: CERTIFICATE_EXPIRED_DETECTED = 7
+
+    	Log code is Ceritificate expired detected
+
+    .. data:: CERTIFICATE_REVOKED_DETECTED = 8
+
+    	Log code is Ceritificate revoked detected
+
+    .. data:: CA_CERTIFICATE_EXPIRED_DETECTED = 9
+
+    	Log code is CA Ceritificate expired detected
+
+    .. data:: CA_CERTIFICATE_REVOKED_DETECTED = 10
+
+    	Log code is CA Ceritificate revoked detected
+
+    .. data:: DELETED_CERTIFICATE_FROM_TABLE = 11
+
+    	Log code is Deleted certificate from table
+
+    .. data:: CRL_ADDED_UPDATED_IN_TABLE = 12
+
+    	Log code is CRL added/updated in table
+
+    .. data:: CHECKED_MEMORY_DIGEST = 13
+
+    	Log code is Checked memory digest
+
+    .. data:: NVRAM_DIGEST_MISMATCH_DETECTED = 14
+
+    	Log code is NVRAM digest Mistmatch detected
+
+    .. data:: INSECURE_BACKUP_FILE_DETECTED = 15
+
+    	Log code is Insecure backup file detected
+
+    .. data:: ERROR_RESTORE_OPERATION = 16
+
+    	Log code is Error during restore operation,
+
+    	backup file might have not been intact
+
+    .. data:: BACKUP_FILE_ON_NVRAM_DELETED = 17
+
+    	Log code is Found backup file on NVRAM for SAM
+
+    	log had been deleted
+
+    .. data:: SAM_LOG_FILE_RECOVERED_FROM_SYSTEM_DATABASE = 18
+
+    	Log code is SAM log backup file recovered from
+
+    	system database
+
+    .. data:: VALIDATED_ELF = 19
+
+    	Log code is validated ELF
+
+    .. data:: NAMESPACE_DELETED_RECOVERED_BY_SAM = 20
+
+    	Log code is SAM system database name space
+
+    	deleted/recovered by SAM
 
     """
 
-    Log code is not known
-
-    """
     UNKNOWN = 0
 
-    """
-
-    Log code is SAM server restarted through router
-    reboot
-
-    """
     SAM_SERVER_RESTARED_ROUTER_REBOOT = 1
 
-    """
-
-    Log code is SAM server restarted
-
-    """
     SAM_SERVER_RESTARED = 2
 
-    """
-
-    Log code is Added certificate in table
-
-    """
     ADDED_CERTIFICATE_IN_TABLE = 3
 
-    """
-
-    Log code is Copied certificate in table
-
-    """
     COPIED_CERTIFICATE_IN_TABLE = 4
 
-    """
-
-    Log code is Certificate flag changed
-
-    """
     CERTIFICATE_FLAG_CHANGED = 5
 
-    """
-
-    Log code is validated ceritificate
-
-    """
     VALIDATED_CERTIFICATE = 6
 
-    """
-
-    Log code is Ceritificate expired detected
-
-    """
     CERTIFICATE_EXPIRED_DETECTED = 7
 
-    """
-
-    Log code is Ceritificate revoked detected
-
-    """
     CERTIFICATE_REVOKED_DETECTED = 8
 
-    """
-
-    Log code is CA Ceritificate expired detected
-
-    """
     CA_CERTIFICATE_EXPIRED_DETECTED = 9
 
-    """
-
-    Log code is CA Ceritificate revoked detected
-
-    """
     CA_CERTIFICATE_REVOKED_DETECTED = 10
 
-    """
-
-    Log code is Deleted certificate from table
-
-    """
     DELETED_CERTIFICATE_FROM_TABLE = 11
 
-    """
-
-    Log code is CRL added/updated in table
-
-    """
     CRL_ADDED_UPDATED_IN_TABLE = 12
 
-    """
-
-    Log code is Checked memory digest
-
-    """
     CHECKED_MEMORY_DIGEST = 13
 
-    """
-
-    Log code is NVRAM digest Mistmatch detected
-
-    """
     NVRAM_DIGEST_MISMATCH_DETECTED = 14
 
-    """
-
-    Log code is Insecure backup file detected
-
-    """
     INSECURE_BACKUP_FILE_DETECTED = 15
 
-    """
-
-    Log code is Error during restore operation,
-    backup file might have not been intact
-
-    """
     ERROR_RESTORE_OPERATION = 16
 
-    """
-
-    Log code is Found backup file on NVRAM for SAM
-    log had been deleted
-
-    """
     BACKUP_FILE_ON_NVRAM_DELETED = 17
 
-    """
-
-    Log code is SAM log backup file recovered from
-    system database
-
-    """
     SAM_LOG_FILE_RECOVERED_FROM_SYSTEM_DATABASE = 18
 
-    """
-
-    Log code is validated ELF
-
-    """
     VALIDATED_ELF = 19
 
-    """
-
-    Log code is SAM system database name space
-    deleted/recovered by SAM
-
-    """
     NAMESPACE_DELETED_RECOVERED_BY_SAM = 20
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
-        return meta._meta_table['LogCode_Enum']
+        return meta._meta_table['LogCodeEnum']
 
 
-class LogError_Enum(Enum):
+class LogErrorEnum(Enum):
     """
-    LogError_Enum
+    LogErrorEnum
 
     Log errors
 
-    """
+    .. data:: UNKNOWN = 0
+
+    	Log error is not known
+
+    .. data:: LOG_MESSAGE_ERROR = 1
+
+    	Log error is message error
+
+    .. data:: GET_ISSUER_NAME_FAILED = 2
+
+    	Log error is get issuer name failed
 
     """
 
-    Log error is not known
-
-    """
     UNKNOWN = 0
 
-    """
-
-    Log error is message error
-
-    """
     LOG_MESSAGE_ERROR = 1
 
-    """
-
-    Log error is get issuer name failed
-
-    """
     GET_ISSUER_NAME_FAILED = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
-        return meta._meta_table['LogError_Enum']
+        return meta._meta_table['LogErrorEnum']
 
 
-class LogTables_Enum(Enum):
+class LogTablesEnum(Enum):
     """
-    LogTables_Enum
+    LogTablesEnum
 
     Log tables
 
-    """
+    .. data:: UNKOWN = 0
+
+    	Table is not known
+
+    .. data:: MEMORY_DIGEST_TABLE = 1
+
+    	Table is memory digest table
+
+    .. data:: SYSTEM_DATABASE_DIGEST = 2
+
+    	Table is system database digest table
+
+    .. data:: SAM_TABLES = 3
+
+    	Table is SAM table
 
     """
 
-    Table is not known
-
-    """
     UNKOWN = 0
 
-    """
-
-    Table is memory digest table
-
-    """
     MEMORY_DIGEST_TABLE = 1
 
-    """
-
-    Table is system database digest table
-
-    """
     SYSTEM_DATABASE_DIGEST = 2
 
-    """
-
-    Table is SAM table
-
-    """
     SAM_TABLES = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
-        return meta._meta_table['LogTables_Enum']
+        return meta._meta_table['LogTablesEnum']
 
 
 
@@ -438,8 +414,6 @@ class Sam(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.common_name is not None:
                     return True
 
@@ -449,10 +423,6 @@ class Sam(object):
                 if self.organization is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -472,24 +442,15 @@ class Sam(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.crl_index is not None:
                 return True
 
             if self.issuer is not None and self.issuer._has_data():
                 return True
 
-            if self.issuer is not None and self.issuer.is_presence():
-                return True
-
             if self.updates is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -634,8 +595,6 @@ class Sam(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.common_name is not None:
                             return True
 
@@ -645,10 +604,6 @@ class Sam(object):
                         if self.organization is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -670,24 +625,15 @@ class Sam(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.crl_index is not None:
                         return True
 
                     if self.issuer is not None and self.issuer._has_data():
                         return True
 
-                    if self.issuer is not None and self.issuer.is_presence():
-                        return True
-
                     if self.updates is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -709,21 +655,12 @@ class Sam(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.crl_index is not None:
                     return True
 
                 if self.certificate_revocation_list_detail is not None and self.certificate_revocation_list_detail._has_data():
                     return True
 
-                if self.certificate_revocation_list_detail is not None and self.certificate_revocation_list_detail.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -743,17 +680,11 @@ class Sam(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.certificate_revocation is not None:
                 for child_ref in self.certificate_revocation:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -932,8 +863,6 @@ class Sam(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.is_expired is not None:
                                 return True
 
@@ -946,10 +875,6 @@ class Sam(object):
                             if self.is_validated is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -971,12 +896,7 @@ class Sam(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.certificate_flags is not None and self.certificate_flags._has_data():
-                            return True
-
-                        if self.certificate_flags is not None and self.certificate_flags.is_presence():
                             return True
 
                         if self.certificate_index is not None:
@@ -985,10 +905,6 @@ class Sam(object):
                         if self.location is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1138,8 +1054,6 @@ class Sam(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.is_expired is not None:
                                         return True
 
@@ -1152,10 +1066,6 @@ class Sam(object):
                                     if self.is_validated is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1177,12 +1087,7 @@ class Sam(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.certificate_flags is not None and self.certificate_flags._has_data():
-                                    return True
-
-                                if self.certificate_flags is not None and self.certificate_flags.is_presence():
                                     return True
 
                                 if self.certificate_index is not None:
@@ -1191,10 +1096,6 @@ class Sam(object):
                                 if self.location is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1218,21 +1119,12 @@ class Sam(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.index is not None:
                                 return True
 
                             if self.detail is not None and self.detail._has_data():
                                 return True
 
-                            if self.detail is not None and self.detail.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1254,17 +1146,11 @@ class Sam(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.certificate_index is not None:
                             for child_ref in self.certificate_index:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1286,24 +1172,12 @@ class Sam(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.brief is not None and self.brief._has_data():
-                        return True
-
-                    if self.brief is not None and self.brief.is_presence():
                         return True
 
                     if self.certificate_indexes is not None and self.certificate_indexes._has_data():
                         return True
 
-                    if self.certificate_indexes is not None and self.certificate_indexes.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1325,21 +1199,12 @@ class Sam(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.device_name is not None:
                     return True
 
                 if self.certificate is not None and self.certificate._has_data():
                     return True
 
-                if self.certificate is not None and self.certificate.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1359,17 +1224,11 @@ class Sam(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.device is not None:
                 for child_ref in self.device:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1455,12 +1314,12 @@ class Sam(object):
                 .. attribute:: code
                 
                 	Log code
-                	**type**\: :py:class:`LogCode_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.LogCode_Enum>`
+                	**type**\: :py:class:`LogCodeEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.LogCodeEnum>`
                 
                 .. attribute:: error
                 
                 	Log error message
-                	**type**\: :py:class:`LogError_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.LogError_Enum>`
+                	**type**\: :py:class:`LogErrorEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.LogErrorEnum>`
                 
                 .. attribute:: index
                 
@@ -1472,7 +1331,7 @@ class Sam(object):
                 .. attribute:: issuer
                 
                 	Issuer of the certificate
-                	**type**\: :py:class:`CertificateIssuer_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.CertificateIssuer_Enum>`
+                	**type**\: :py:class:`CertificateIssuerEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.CertificateIssuerEnum>`
                 
                 .. attribute:: sam_table_index
                 
@@ -1494,7 +1353,7 @@ class Sam(object):
                 .. attribute:: table
                 
                 	Log table information
-                	**type**\: :py:class:`LogTables_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.LogTables_Enum>`
+                	**type**\: :py:class:`LogTablesEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.LogTablesEnum>`
                 
                 .. attribute:: target_device
                 
@@ -1546,8 +1405,6 @@ class Sam(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.code is not None:
                         return True
 
@@ -1583,10 +1440,6 @@ class Sam(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
@@ -1606,8 +1459,6 @@ class Sam(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.number_of_lines is not None:
                     return True
 
@@ -1622,10 +1473,6 @@ class Sam(object):
                 if self.total_entries is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1645,17 +1492,11 @@ class Sam(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.log_content is not None:
                 for child_ref in self.log_content:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1782,8 +1623,6 @@ class Sam(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.is_expired is not None:
                         return True
 
@@ -1796,10 +1635,6 @@ class Sam(object):
                     if self.is_validated is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1821,15 +1656,10 @@ class Sam(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.package_name is not None:
                     return True
 
                 if self.certificate_flags is not None and self.certificate_flags._has_data():
-                    return True
-
-                if self.certificate_flags is not None and self.certificate_flags.is_presence():
                     return True
 
                 if self.certificate_index is not None:
@@ -1838,10 +1668,6 @@ class Sam(object):
                 if self.location is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1861,17 +1687,11 @@ class Sam(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.package is not None:
                 for child_ref in self.package:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1926,8 +1746,6 @@ class Sam(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.is_default_response is not None:
                 return True
 
@@ -1937,10 +1755,6 @@ class Sam(object):
             if self.prompt_interval is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1960,48 +1774,24 @@ class Sam(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.certificate_revocation_list_summary is not None and self.certificate_revocation_list_summary._has_data():
-            return True
-
-        if self.certificate_revocation_list_summary is not None and self.certificate_revocation_list_summary.is_presence():
             return True
 
         if self.certificate_revocations is not None and self.certificate_revocations._has_data():
             return True
 
-        if self.certificate_revocations is not None and self.certificate_revocations.is_presence():
-            return True
-
         if self.devices is not None and self.devices._has_data():
-            return True
-
-        if self.devices is not None and self.devices.is_presence():
             return True
 
         if self.log_contents is not None and self.log_contents._has_data():
             return True
 
-        if self.log_contents is not None and self.log_contents.is_presence():
-            return True
-
         if self.packages is not None and self.packages._has_data():
-            return True
-
-        if self.packages is not None and self.packages.is_presence():
             return True
 
         if self.system_information is not None and self.system_information._has_data():
             return True
 
-        if self.system_information is not None and self.system_information.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

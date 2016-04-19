@@ -28,302 +28,281 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class BfdMode_Enum(Enum):
+class BfdModeEnum(Enum):
     """
-    BfdMode_Enum
+    BfdModeEnum
 
     Bfd mode
 
-    """
+    .. data:: NO_CFG = 0
+
+    	BFD mode not configured on per-bundle basis
+
+    .. data:: CISCO = 1
+
+    	BFD mode Cisco
+
+    .. data:: IETF = 2
+
+    	BFD mode IETF
 
     """
 
-    BFD mode not configured on per\-bundle basis
-
-    """
     NO_CFG = 0
 
-    """
-
-    BFD mode Cisco
-
-    """
     CISCO = 1
 
-    """
-
-    BFD mode IETF
-
-    """
     IETF = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['BfdMode_Enum']
+        return meta._meta_table['BfdModeEnum']
 
 
-class BundleCiscoExtTypes_Enum(Enum):
+class BundleCiscoExtTypesEnum(Enum):
     """
-    BundleCiscoExtTypes_Enum
+    BundleCiscoExtTypesEnum
 
     Bundle cisco ext types
 
-    """
+    .. data:: LON_SIGNALING_OFF = 0
+
+    	LON signaling disabled
+
+    .. data:: LON_SIGNALING_ON = 1
+
+    	LON signaling enabled
 
     """
 
-    LON signaling disabled
-
-    """
     LON_SIGNALING_OFF = 0
 
-    """
-
-    LON signaling enabled
-
-    """
     LON_SIGNALING_ON = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['BundleCiscoExtTypes_Enum']
+        return meta._meta_table['BundleCiscoExtTypesEnum']
 
 
-class BundleLoadBalance_Enum(Enum):
+class BundleLoadBalanceEnum(Enum):
     """
-    BundleLoadBalance_Enum
+    BundleLoadBalanceEnum
 
     Bundle load balance
 
-    """
+    .. data:: DEFAULT = 0
+
+    	Default hash function used
+
+    .. data:: EFP_AUTO = 1
+
+    	Send all traffic for this EFP over an
+
+    	automatically selected member
+
+    .. data:: EFP_VALUE = 2
+
+    	Send all traffic for this EFP over the member
+
+    	corresponding to the specified hash function
+
+    .. data:: SOURCE_IP = 3
+
+    	Load balance according to source IP address
+
+    .. data:: DESTINATION_IP = 4
+
+    	Load balance according to detination IP address
 
     """
 
-    Default hash function used
-
-    """
     DEFAULT = 0
 
-    """
-
-    Send all traffic for this EFP over an
-    automatically selected member
-
-    """
     EFP_AUTO = 1
 
-    """
-
-    Send all traffic for this EFP over the member
-    corresponding to the specified hash function
-
-    """
     EFP_VALUE = 2
 
-    """
-
-    Load balance according to source IP address
-
-    """
     SOURCE_IP = 3
 
-    """
-
-    Load balance according to detination IP address
-
-    """
     DESTINATION_IP = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['BundleLoadBalance_Enum']
+        return meta._meta_table['BundleLoadBalanceEnum']
 
 
-class BundleMaximumActiveLinksMode_Enum(Enum):
+class BundleMaximumActiveLinksModeEnum(Enum):
     """
-    BundleMaximumActiveLinksMode_Enum
+    BundleMaximumActiveLinksModeEnum
 
     Bundle maximum active links mode
 
-    """
+    .. data:: DEFAULT = 0
+
+    	Default
+
+    .. data:: HOT_STANDBY = 1
+
+    	Hot standby
 
     """
 
-    Default
-
-    """
     DEFAULT = 0
 
-    """
-
-    Hot standby
-
-    """
     HOT_STANDBY = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['BundleMaximumActiveLinksMode_Enum']
+        return meta._meta_table['BundleMaximumActiveLinksModeEnum']
 
 
-class BundlePortActivity_Enum(Enum):
+class BundlePortActivityEnum(Enum):
     """
-    BundlePortActivity_Enum
+    BundlePortActivityEnum
 
     Bundle port activity
 
-    """
+    .. data:: ON = 1
+
+    	On
+
+    .. data:: ACTIVE = 2
+
+    	Active
+
+    .. data:: PASSIVE = 3
+
+    	Passive
 
     """
 
-    On
-
-    """
     ON = 1
 
-    """
-
-    Active
-
-    """
     ACTIVE = 2
 
-    """
-
-    Passive
-
-    """
     PASSIVE = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['BundlePortActivity_Enum']
+        return meta._meta_table['BundlePortActivityEnum']
 
 
-class ChurnLogging_Enum(Enum):
+class ChurnLoggingEnum(Enum):
     """
-    ChurnLogging_Enum
+    ChurnLoggingEnum
 
     Churn logging
 
-    """
+    .. data:: ACTOR = 1
+
+    	Logging for actor churn only
+
+    .. data:: PARTNER = 2
+
+    	Logging for partner churn only
+
+    .. data:: BOTH = 3
+
+    	Logging for actor and partner churn
 
     """
 
-    Logging for actor churn only
-
-    """
     ACTOR = 1
 
-    """
-
-    Logging for partner churn only
-
-    """
     PARTNER = 2
 
-    """
-
-    Logging for actor and partner churn
-
-    """
     BOTH = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['ChurnLogging_Enum']
+        return meta._meta_table['ChurnLoggingEnum']
 
 
-class MlacpMaximizeParameter_Enum(Enum):
+class MlacpMaximizeParameterEnum(Enum):
     """
-    MlacpMaximizeParameter_Enum
+    MlacpMaximizeParameterEnum
 
     Mlacp maximize parameter
 
-    """
+    .. data:: LINKS = 1
+
+    	Maximize the number of operational links
+
+    .. data:: BANDWIDTH = 2
+
+    	Maximize the operational bandwidth
 
     """
 
-    Maximize the number of operational links
-
-    """
     LINKS = 1
 
-    """
-
-    Maximize the operational bandwidth
-
-    """
     BANDWIDTH = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['MlacpMaximizeParameter_Enum']
+        return meta._meta_table['MlacpMaximizeParameterEnum']
 
 
-class MlacpSwitchover_Enum(Enum):
+class MlacpSwitchoverEnum(Enum):
     """
-    MlacpSwitchover_Enum
+    MlacpSwitchoverEnum
 
     Mlacp switchover
 
-    """
+    .. data:: BRUTE_FORCE = 1
+
+    	Brute force shutdown
+
+    .. data:: REVERTIVE = 2
+
+    	Revertive behavior
 
     """
 
-    Brute force shutdown
-
-    """
     BRUTE_FORCE = 1
 
-    """
-
-    Revertive behavior
-
-    """
     REVERTIVE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['MlacpSwitchover_Enum']
+        return meta._meta_table['MlacpSwitchoverEnum']
 
 
-class PeriodShortEnum_Enum(Enum):
+class PeriodShortEnumEnum(Enum):
     """
-    PeriodShortEnum_Enum
+    PeriodShortEnumEnum
 
     Period short enum
 
-    """
+    .. data:: TRUE = 1
+
+    	Use the standard LACP short period (1s)
 
     """
 
-    Use the standard LACP short period (1s)
-
-    """
     TRUE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['PeriodShortEnum_Enum']
+        return meta._meta_table['PeriodShortEnumEnum']
 
 
 
@@ -368,18 +347,12 @@ class Lacp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.system_mac is not None:
             return True
 
         if self.system_priority is not None:
             return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

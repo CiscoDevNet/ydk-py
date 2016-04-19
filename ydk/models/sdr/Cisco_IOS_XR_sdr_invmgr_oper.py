@@ -269,8 +269,6 @@ class SdrInventory(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.card_admin_state is not None:
                                 return True
 
@@ -303,10 +301,6 @@ class SdrInventory(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.sdr._meta import _Cisco_IOS_XR_sdr_invmgr_oper as meta
@@ -328,21 +322,12 @@ class SdrInventory(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.name is not None:
                             return True
 
                         if self.attributes is not None and self.attributes._has_data():
                             return True
 
-                        if self.attributes is not None and self.attributes.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -366,8 +351,6 @@ class SdrInventory(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.name is not None:
                         return True
 
@@ -376,10 +359,6 @@ class SdrInventory(object):
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -401,8 +380,6 @@ class SdrInventory(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
@@ -411,10 +388,6 @@ class SdrInventory(object):
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -434,17 +407,11 @@ class SdrInventory(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.rack is not None:
                 for child_ref in self.rack:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -464,18 +431,9 @@ class SdrInventory(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.racks is not None and self.racks._has_data():
             return True
 
-        if self.racks is not None and self.racks.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

@@ -24,33 +24,31 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class SrmsMiFlag_Enum(Enum):
+class SrmsMiFlagEnum(Enum):
     """
-    SrmsMiFlag_Enum
+    SrmsMiFlagEnum
 
     Srms mi flag
 
-    """
+    .. data:: DISABLE = 0
+
+    	Disable flag
+
+    .. data:: ENABLE = 1
+
+    	Enable flag
 
     """
 
-    Disable flag
-
-    """
     DISABLE = 0
 
-    """
-
-    Enable flag
-
-    """
     ENABLE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.segment._meta import _Cisco_IOS_XR_segment_routing_ms_cfg as meta
-        return meta._meta_table['SrmsMiFlag_Enum']
+        return meta._meta_table['SrmsMiFlagEnum']
 
 
 
@@ -98,12 +96,22 @@ class Sr(object):
         
         	**range:** 16000..1048574
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: upper_bound
         
         	SRGB Upper Bound
         	**type**\: int
         
         	**range:** 16001..1048575
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         
 
@@ -131,8 +139,6 @@ class Sr(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.lower_bound is not None:
                 return True
 
@@ -140,10 +146,6 @@ class Sr(object):
                 return True
 
             return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return True
 
         @staticmethod
         def _meta_info():
@@ -202,7 +204,7 @@ class Sr(object):
             .. attribute:: flag_attached
             
             	Enable/Disable Attached flag
-            	**type**\: :py:class:`SrmsMiFlag_Enum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_cfg.SrmsMiFlag_Enum>`
+            	**type**\: :py:class:`SrmsMiFlagEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_cfg.SrmsMiFlagEnum>`
             
             .. attribute:: sid_range
             
@@ -252,8 +254,6 @@ class Sr(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.af is not None:
                     return True
 
@@ -274,10 +274,6 @@ class Sr(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.segment._meta import _Cisco_IOS_XR_segment_routing_ms_cfg as meta
@@ -295,17 +291,11 @@ class Sr(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.mapping is not None:
                 for child_ref in self.mapping:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -325,27 +315,15 @@ class Sr(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.enable is not None:
             return True
 
         if self.global_block is not None and self.global_block._has_data():
             return True
 
-        if self.global_block is not None and self.global_block.is_presence():
-            return True
-
         if self.mappings is not None and self.mappings._has_data():
             return True
 
-        if self.mappings is not None and self.mappings.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

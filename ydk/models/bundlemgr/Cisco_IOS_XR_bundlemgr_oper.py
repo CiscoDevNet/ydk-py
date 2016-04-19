@@ -29,2410 +29,2185 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class BmAfId_Enum(Enum):
+class BmAfIdEnum(Enum):
     """
-    BmAfId_Enum
+    BmAfIdEnum
 
     Bm af id
 
-    """
+    .. data:: BM_AF_ID_IPV4 = 1136568623
+
+    	IPv4 AFI
+
+    .. data:: BM_AF_ID_IPV6 = 1136568624
+
+    	IPv6 AFI
 
     """
 
-    IPv4 AFI
-
-    """
     BM_AF_ID_IPV4 = 1136568623
 
-    """
-
-    IPv6 AFI
-
-    """
     BM_AF_ID_IPV6 = 1136568624
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmAfId_Enum']
+        return meta._meta_table['BmAfIdEnum']
 
 
-class BmBdlMacSource_Enum(Enum):
+class BmBdlMacSourceEnum(Enum):
     """
-    BmBdlMacSource_Enum
+    BmBdlMacSourceEnum
 
     Bm bdl mac source
 
-    """
+    .. data:: BM_BDL_MAC_SOURCE_UNKNOWN = 0
+
+    	The MAC is currently unknown
+
+    .. data:: BM_BDL_MAC_SOURCE_CHASSIS = 1
+
+    	The MAC was allocated from the chassis pool
+
+    .. data:: BM_BDL_MAC_SOURCE_CONFIGURED = 2
+
+    	The MAC was configured by the user
+
+    .. data:: BM_BDL_MAC_SOURCE_MEMBER = 3
+
+    	The MAC belongs to a member
+
+    .. data:: BM_BDL_MAC_SOURCE_PEER = 4
+
+    	The MAC has come from the peer device
 
     """
 
-    The MAC is currently unknown
-
-    """
     BM_BDL_MAC_SOURCE_UNKNOWN = 0
 
-    """
-
-    The MAC was allocated from the chassis pool
-
-    """
     BM_BDL_MAC_SOURCE_CHASSIS = 1
 
-    """
-
-    The MAC was configured by the user
-
-    """
     BM_BDL_MAC_SOURCE_CONFIGURED = 2
 
-    """
-
-    The MAC belongs to a member
-
-    """
     BM_BDL_MAC_SOURCE_MEMBER = 3
 
-    """
-
-    The MAC has come from the peer device
-
-    """
     BM_BDL_MAC_SOURCE_PEER = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmBdlMacSource_Enum']
+        return meta._meta_table['BmBdlMacSourceEnum']
 
 
-class BmBdlState_Enum(Enum):
+class BmBdlStateEnum(Enum):
     """
-    BmBdlState_Enum
+    BmBdlStateEnum
 
     Bm bdl state
 
-    """
+    .. data:: BM_BDL_STATE_ADMIN_DOWN = 0
+
+    	The bundle has been configured Down
+
+    .. data:: BM_BDL_STATE_DOWN = 1
+
+    	The bundle is Down
+
+    .. data:: BM_BDL_STATE_PTNR_DOWN = 2
+
+    	The bundle is Down on the partner device
+
+    .. data:: BM_BDL_STATE_BUNDLE_SHUTDOWN = 3
+
+    	Bundle shutdown has been configured
+
+    .. data:: BM_BDL_STATE_PE_ISOLATED = 4
+
+    	The bundle cannot contact the core
+
+    .. data:: BM_BDL_STATE_NAK = 5
+
+    	The state is disputed by a peer device
+
+    .. data:: BM_BDL_STATE_UP_ACTIVE = 6
+
+    	The bundle is Up
+
+    .. data:: BM_BDL_STATE_MLACP_HOT_STANDBY = 7
+
+    	The bundle is Up, but is mLACP standby
+
+    .. data:: BM_BDL_STATE_MLACP_COLD_STANDBY = 8
+
+    	The bundle is mLACP standby, but will not
+
+    	eliminate traffic loss
+
+    .. data:: BM_BDL_STATE_UNKNOWN = 9
+
+    	The bundle state has not been determined
+
+    .. data:: BM_BDL_STATE_COLD_STANDBY = 10
+
+    	The bundle is standby, but will not eliminate
+
+    	traffic loss
+
+    .. data:: BM_BDL_STATE_ERROR_DISABLED = 11
+
+    	The bundle has been error-disabled
+
+    .. data:: BM_BDL_STATE_EFD_DISABLED = 12
+
+    	The bundle has been disabled by EFD
 
     """
 
-    The bundle has been configured Down
-
-    """
     BM_BDL_STATE_ADMIN_DOWN = 0
 
-    """
-
-    The bundle is Down
-
-    """
     BM_BDL_STATE_DOWN = 1
 
-    """
-
-    The bundle is Down on the partner device
-
-    """
     BM_BDL_STATE_PTNR_DOWN = 2
 
-    """
-
-    Bundle shutdown has been configured
-
-    """
     BM_BDL_STATE_BUNDLE_SHUTDOWN = 3
 
-    """
-
-    The bundle cannot contact the core
-
-    """
     BM_BDL_STATE_PE_ISOLATED = 4
 
-    """
-
-    The state is disputed by a peer device
-
-    """
     BM_BDL_STATE_NAK = 5
 
-    """
-
-    The bundle is Up
-
-    """
     BM_BDL_STATE_UP_ACTIVE = 6
 
-    """
-
-    The bundle is Up, but is mLACP standby
-
-    """
     BM_BDL_STATE_MLACP_HOT_STANDBY = 7
 
-    """
-
-    The bundle is mLACP standby, but will not
-    eliminate traffic loss
-
-    """
     BM_BDL_STATE_MLACP_COLD_STANDBY = 8
 
-    """
-
-    The bundle state has not been determined
-
-    """
     BM_BDL_STATE_UNKNOWN = 9
 
-    """
-
-    The bundle is standby, but will not eliminate
-    traffic loss
-
-    """
     BM_BDL_STATE_COLD_STANDBY = 10
 
-    """
-
-    The bundle has been error\-disabled
-
-    """
     BM_BDL_STATE_ERROR_DISABLED = 11
 
-    """
-
-    The bundle has been disabled by EFD
-
-    """
     BM_BDL_STATE_EFD_DISABLED = 12
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmBdlState_Enum']
+        return meta._meta_table['BmBdlStateEnum']
 
 
-class BmFeatureStatus_Enum(Enum):
+class BmFeatureStatusEnum(Enum):
     """
-    BmFeatureStatus_Enum
+    BmFeatureStatusEnum
 
     Bm feature status
 
-    """
+    .. data:: BM_FEATURE_NOT_CONFIGURED = 0
+
+    	No configuration is applied for a feature
+
+    .. data:: BM_FEATURE_NOT_OPERATIONAL = 1
+
+    	The feature is currently not operational
+
+    .. data:: BM_FEATURE_OPERATIONAL = 2
+
+    	The feature is currently operational
 
     """
 
-    No configuration is applied for a feature
-
-    """
     BM_FEATURE_NOT_CONFIGURED = 0
 
-    """
-
-    The feature is currently not operational
-
-    """
     BM_FEATURE_NOT_OPERATIONAL = 1
 
-    """
-
-    The feature is currently operational
-
-    """
     BM_FEATURE_OPERATIONAL = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmFeatureStatus_Enum']
+        return meta._meta_table['BmFeatureStatusEnum']
 
 
-class BmMbrStateReason_Enum(Enum):
+class BmMbrStateReasonEnum(Enum):
     """
-    BmMbrStateReason_Enum
+    BmMbrStateReasonEnum
 
     Bm mbr state reason
 
-    """
+    .. data:: BM_MBR_STATE_REASON_UNKNOWN = 0
+
+    	Reason unavailable (diagnostics error)
+
+    .. data:: BM_MBR_STATE_REASON_UNSELECTABLE_UNKNOWN = 1
+
+    	Link cannot be used (unknown reason)
+
+    .. data:: BM_MBR_STATE_REASON_LINK_DOWN = 2
+
+    	Link is down
+
+    .. data:: BM_MBR_STATE_REASON_LINK_DELETING = 3
+
+    	Link is being removed from the bundle
+
+    .. data:: BM_MBR_STATE_REASON_CREATING = 4
+
+    	Link is in the process of being created
+
+    .. data:: BM_MBR_STATE_REASON_BUNDLE_CREATING = 5
+
+    	Bundle is in the process of being created
+
+    .. data:: BM_MBR_STATE_REASON_BUNDLE_DELETING = 6
+
+    	Bundle is in the process of being deleted
+
+    .. data:: BM_MBR_STATE_REASON_BUNDLE_ADMIN_DOWN = 7
+
+    	Bundle has been shut down
+
+    .. data:: BM_MBR_STATE_REASON_REPLICATING = 8
+
+    	Bundle is in the process of being replicated to
+
+    	this location
+
+    .. data:: BM_MBR_STATE_REASON_BANDWIDTH = 9
+
+    	Incompatible with other links in the bundle
+
+    	(bandwidth out of range)
+
+    .. data:: BM_MBR_STATE_REASON_LOOP_BACK = 10
+
+    	Loopback: Actor and Partner have the same
+
+    	System ID and Key
+
+    .. data:: BM_MBR_STATE_REASON_ACTIVITY_TYPE = 11
+
+    	Incompatible with other links in the bundle
+
+    	(LACP vs non-LACP)
+
+    .. data:: BM_MBR_STATE_REASON_BUNDLE_SHUTDOWN = 12
+
+    	Bundle shutdown is configured for the bundle
+
+    .. data:: BM_MBR_STATE_REASON_MIN_SELECTED = 13
+
+    	Not enough links available to meet
+
+    	minimum-active threshold
+
+    .. data:: BM_MBR_STATE_REASON_MAX_SELECTED = 14
+
+    	Link is Standby due to maximum-active links
+
+    	configuration
+
+    .. data:: BM_MBR_STATE_REASON_LINK_LIMIT = 15
+
+    	Bundle has too many member links configured
+
+    .. data:: BM_MBR_STATE_REASON_ACTIVE_LIMIT = 16
+
+    	Bundle has reached maximum supported number of
+
+    	active links
+
+    .. data:: BM_MBR_STATE_REASON_STANDBY_UNKNOWN = 17
+
+    	Link is Standby (unknown reason)
+
+    .. data:: BM_MBR_STATE_REASON_EXPIRED = 18
+
+    	Link is Expired; LACPDUs are not being received
+
+    	from the partner
+
+    .. data:: BM_MBR_STATE_REASON_DEFAULTED = 19
+
+    	Link is Defaulted; LACPDUs are not being
+
+    	received from the partner
+
+    .. data:: BM_MBR_STATE_REASON_ACT_OR_NOT_AGG = 20
+
+    	Link is Not Aggregatable (unknown reason)
+
+    .. data:: BM_MBR_STATE_REASON_PARTNER_NOT_AGG = 21
+
+    	Partner has marked the link as Not Aggregatable
+
+    .. data:: BM_MBR_STATE_REASON_LAGID = 22
+
+    	Partner System ID/Key do not match that of the
+
+    	Selected links
+
+    .. data:: BM_MBR_STATE_REASON_BUNDLE_NOT_CFGD = 23
+
+    	Bundle interface is not present in
+
+    	configuration
+
+    .. data:: BM_MBR_STATE_REASON_BUNDLE_NOT_READY = 24
+
+    	Wait-while timer is running
+
+    .. data:: BM_MBR_STATE_REASON_PARTNER_OOD = 25
+
+    	Partner has not echoed the correct parameters
+
+    	for this link
+
+    .. data:: BM_MBR_STATE_REASON_PARTNER_NOT_IN_SYNC = 26
+
+    	Partner is not Synchronized (Waiting, Standby,
+
+    	or LAG ID mismatch)
+
+    .. data:: BM_MBR_STATE_REASON_FOREIGN_PARTNER_OOS = 27
+
+    	Partner is not Synchronized (Waiting, not
+
+    	Selected, or out-of-date)
+
+    .. data:: BM_MBR_STATE_REASON_ATTACH_UNKNOWN = 28
+
+    	Link is Attached and has not gone Collecting
+
+    	(unknown reason)
+
+    .. data:: BM_MBR_STATE_REASON_PARTNER_NOT_COLLECTING = 29
+
+    	Partner has not advertized that it is
+
+    	Collecting
+
+    .. data:: BM_MBR_STATE_REASON_COLLECT_UNKNOWN = 30
+
+    	Link is Collecting and has not gone
+
+    	Distributing (unknown reason)
+
+    .. data:: BM_MBR_STATE_REASON_STANDBY_FOREIGN = 31
+
+    	Link is marked as Standby by mLACP peer
+
+    .. data:: BM_MBR_STATE_REASON_BFD_STARTING = 32
+
+    	Link is waiting for BFD session to start
+
+    .. data:: BM_MBR_STATE_REASON_BFD_DOWN = 33
+
+    	BFD state of this link is Down
+
+    .. data:: BM_MBR_STATE_REASON_BFD_NBR_UNCONFIG = 34
+
+    	BFD session is unconfigured on the remote end
+
+    .. data:: BM_MBR_STATE_REASON_MLACP = 35
+
+    	Link is not operational as a result of mLACP
+
+    	negotiations
+
+    .. data:: BM_MBR_STATE_REASON_PE_ISOLATED = 36
+
+    	ICCP group is isolated from the core network
+
+    .. data:: BM_MBR_STATE_REASON_FORCED_SWITCHOVER = 37
+
+    	Forced switchover to the mLACP peer
+
+    .. data:: BM_MBR_STATE_REASON_ERRDIS_UNKNOWN = 38
+
+    	Link is error disabled (unknown reason)
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_NO_MBR_STATE_INFO = 39
+
+    	Waiting for member state information from mLACP
+
+    	peer
+
+    .. data:: BM_MBR_STATE_REASON_ACTIVE = 40
+
+    	Link is Active
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_NO_BDL_STATE_INFO = 41
+
+    	Waiting for bundle state information from mLACP
+
+    	peer
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_NO_BDL_CONFIG_INFO = 42
+
+    	Waiting for bundle configuration information
+
+    	from mLACP peer
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_NO_BDL_SYNC = 43
+
+    	Waiting for bundle to complete initial
+
+    	synchronization with mLACP peer
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_BDL_HAS_NO_PEER = 44
+
+    	mLACP bundle does not have a peer device
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_NAK = 45
+
+    	Link is being ignored due to an inconsistency
+
+    	with mLACP peer
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_TRANSPORT_UNAVAILABLE = 46
+
+    	ICCP transport is unavailable
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_NOT_CONFIGURED = 47
+
+    	ICCP Group is not fully configured
+
+    .. data:: BM_MBR_STATE_REASON_RECOVERY_TIMER = 48
+
+    	mLACP recovery delay timer is running
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_STANDBY = 49
+
+    	mLACP peer is active
+
+    .. data:: BM_MBR_STATE_REASON_MAXIMIZED_OUT = 50
+
+    	mLACP peer has more links/bandwidth available
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_PEER_SELECTED = 51
+
+    	mLACP peer has one or more links Selected
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_CONNECT_TIMER_RUNNING = 52
+
+    	mLACP bundle does not have a peer device
+
+    	(connect timer running)
+
+    .. data:: BM_MBR_STATE_REASON_BUNDLE_NOT_MLACP = 53
+
+    	Bundle is not configured to run mLACP
+
+    .. data:: BM_MBR_STATE_REASON_NO_LON = 54
+
+    	Bundle has too many working links configured
+
+    	(more than the maximum-active limit)
+
+    .. data:: BM_MBR_STATE_REASON_CUMUL_REL_BW_LIMIT = 55
+
+    	Additional bandwidth from link would exceed
+
+    	load balancing capabilities
+
+    .. data:: BM_MBR_STATE_REASON_NO_MAC = 56
+
+    	No MAC address available for the bundle
+
+    .. data:: BM_MBR_STATE_REASON_NO_SYSTEM_ID = 57
+
+    	No system ID available for use by this bundle
+
+    .. data:: BM_MBR_STATE_REASON_LINK_SHUTDOWN = 58
+
+    	Link is shutdown
+
+    .. data:: BM_MBR_STATE_REASON_ACTIVITY_MLACP = 59
+
+    	Non-LACP link in mLACP bundle
+
+    .. data:: BM_MBR_STATE_REASON_ACTIVITY_ICCP = 60
+
+    	LACP link in inter-chassis bundle
+
+    .. data:: BM_MBR_STATE_REASON_BUNDLE_ICPE_MLACP = 61
+
+    	Parent bundle is both inter-chassis and
+
+    	configured for mLACP
+
+    .. data:: BM_MBR_STATE_REASON_NO_LINK_NUM = 62
+
+    	Too many bundle members in system; no link
+
+    	number available
+
+    .. data:: BM_MBR_STATE_REASON_STANDBY_PEER_HIGHER_PRIO = 63
+
+    	mLACP peer has a higher priority link
+
+    .. data:: BM_MBR_STATE_REASON_RED_STATE_STANDBY = 64
+
+    	Link is in standby redundancy state
+
+    .. data:: BM_MBR_STATE_REASON_OTHER_RED_STATE_STANDBY = 65
+
+    	One or more links in the bundle are in standby
+
+    	redundancy state
+
+    .. data:: BM_MBR_STATE_REASON_HOLD_ING = 66
+
+    	Holding down temporary to avoid churn after
+
+    	restart
+
+    .. data:: BM_MBR_STATE_REASON_BUNDLE_ERROR_DISABLED = 67
+
+    	Bundle has been error-disabled
+
+    .. data:: BM_MBR_STATE_REASON_BUNDLE_EFD_DISABLED = 68
+
+    	Bundle has been disabled by EFD
+
+    .. data:: BM_MBR_STATE_REASON_SINGLETON_PE_ISOLATED = 69
+
+    	Singleton ICCP group is isolated from the core
+
+    	network
+
+    .. data:: BM_MBR_STATE_REASON_COUNT = 70
+
+    	Enumeration maximum value
 
     """
 
-    Reason unavailable (diagnostics error)
-
-    """
     BM_MBR_STATE_REASON_UNKNOWN = 0
 
-    """
-
-    Link cannot be used (unknown reason)
-
-    """
     BM_MBR_STATE_REASON_UNSELECTABLE_UNKNOWN = 1
 
-    """
-
-    Link is down
-
-    """
     BM_MBR_STATE_REASON_LINK_DOWN = 2
 
-    """
-
-    Link is being removed from the bundle
-
-    """
     BM_MBR_STATE_REASON_LINK_DELETING = 3
 
-    """
-
-    Link is in the process of being created
-
-    """
     BM_MBR_STATE_REASON_CREATING = 4
 
-    """
-
-    Bundle is in the process of being created
-
-    """
     BM_MBR_STATE_REASON_BUNDLE_CREATING = 5
 
-    """
-
-    Bundle is in the process of being deleted
-
-    """
     BM_MBR_STATE_REASON_BUNDLE_DELETING = 6
 
-    """
-
-    Bundle has been shut down
-
-    """
     BM_MBR_STATE_REASON_BUNDLE_ADMIN_DOWN = 7
 
-    """
-
-    Bundle is in the process of being replicated to
-    this location
-
-    """
     BM_MBR_STATE_REASON_REPLICATING = 8
 
-    """
-
-    Incompatible with other links in the bundle
-    (bandwidth out of range)
-
-    """
     BM_MBR_STATE_REASON_BANDWIDTH = 9
 
-    """
-
-    Loopback\: Actor and Partner have the same
-    System ID and Key
-
-    """
     BM_MBR_STATE_REASON_LOOP_BACK = 10
 
-    """
-
-    Incompatible with other links in the bundle
-    (LACP vs non\-LACP)
-
-    """
     BM_MBR_STATE_REASON_ACTIVITY_TYPE = 11
 
-    """
-
-    Bundle shutdown is configured for the bundle
-
-    """
     BM_MBR_STATE_REASON_BUNDLE_SHUTDOWN = 12
 
-    """
-
-    Not enough links available to meet
-    minimum\-active threshold
-
-    """
     BM_MBR_STATE_REASON_MIN_SELECTED = 13
 
-    """
-
-    Link is Standby due to maximum\-active links
-    configuration
-
-    """
     BM_MBR_STATE_REASON_MAX_SELECTED = 14
 
-    """
-
-    Bundle has too many member links configured
-
-    """
     BM_MBR_STATE_REASON_LINK_LIMIT = 15
 
-    """
-
-    Bundle has reached maximum supported number of
-    active links
-
-    """
     BM_MBR_STATE_REASON_ACTIVE_LIMIT = 16
 
-    """
-
-    Link is Standby (unknown reason)
-
-    """
     BM_MBR_STATE_REASON_STANDBY_UNKNOWN = 17
 
-    """
-
-    Link is Expired; LACPDUs are not being received
-    from the partner
-
-    """
     BM_MBR_STATE_REASON_EXPIRED = 18
 
-    """
-
-    Link is Defaulted; LACPDUs are not being
-    received from the partner
-
-    """
     BM_MBR_STATE_REASON_DEFAULTED = 19
 
-    """
-
-    Link is Not Aggregatable (unknown reason)
-
-    """
     BM_MBR_STATE_REASON_ACT_OR_NOT_AGG = 20
 
-    """
-
-    Partner has marked the link as Not Aggregatable
-
-    """
     BM_MBR_STATE_REASON_PARTNER_NOT_AGG = 21
 
-    """
-
-    Partner System ID/Key do not match that of the
-    Selected links
-
-    """
     BM_MBR_STATE_REASON_LAGID = 22
 
-    """
-
-    Bundle interface is not present in
-    configuration
-
-    """
     BM_MBR_STATE_REASON_BUNDLE_NOT_CFGD = 23
 
-    """
-
-    Wait\-while timer is running
-
-    """
     BM_MBR_STATE_REASON_BUNDLE_NOT_READY = 24
 
-    """
-
-    Partner has not echoed the correct parameters
-    for this link
-
-    """
     BM_MBR_STATE_REASON_PARTNER_OOD = 25
 
-    """
-
-    Partner is not Synchronized (Waiting, Standby,
-    or LAG ID mismatch)
-
-    """
     BM_MBR_STATE_REASON_PARTNER_NOT_IN_SYNC = 26
 
-    """
-
-    Partner is not Synchronized (Waiting, not
-    Selected, or out\-of\-date)
-
-    """
     BM_MBR_STATE_REASON_FOREIGN_PARTNER_OOS = 27
 
-    """
-
-    Link is Attached and has not gone Collecting
-    (unknown reason)
-
-    """
     BM_MBR_STATE_REASON_ATTACH_UNKNOWN = 28
 
-    """
-
-    Partner has not advertized that it is
-    Collecting
-
-    """
     BM_MBR_STATE_REASON_PARTNER_NOT_COLLECTING = 29
 
-    """
-
-    Link is Collecting and has not gone
-    Distributing (unknown reason)
-
-    """
     BM_MBR_STATE_REASON_COLLECT_UNKNOWN = 30
 
-    """
-
-    Link is marked as Standby by mLACP peer
-
-    """
     BM_MBR_STATE_REASON_STANDBY_FOREIGN = 31
 
-    """
-
-    Link is waiting for BFD session to start
-
-    """
     BM_MBR_STATE_REASON_BFD_STARTING = 32
 
-    """
-
-    BFD state of this link is Down
-
-    """
     BM_MBR_STATE_REASON_BFD_DOWN = 33
 
-    """
-
-    BFD session is unconfigured on the remote end
-
-    """
     BM_MBR_STATE_REASON_BFD_NBR_UNCONFIG = 34
 
-    """
-
-    Link is not operational as a result of mLACP
-    negotiations
-
-    """
     BM_MBR_STATE_REASON_MLACP = 35
 
-    """
-
-    ICCP group is isolated from the core network
-
-    """
     BM_MBR_STATE_REASON_PE_ISOLATED = 36
 
-    """
-
-    Forced switchover to the mLACP peer
-
-    """
     BM_MBR_STATE_REASON_FORCED_SWITCHOVER = 37
 
-    """
-
-    Link is error disabled (unknown reason)
-
-    """
     BM_MBR_STATE_REASON_ERRDIS_UNKNOWN = 38
 
-    """
-
-    Waiting for member state information from mLACP
-    peer
-
-    """
     BM_MBR_STATE_REASON_MLACP_NO_MBR_STATE_INFO = 39
 
-    """
-
-    Link is Active
-
-    """
     BM_MBR_STATE_REASON_ACTIVE = 40
 
-    """
-
-    Waiting for bundle state information from mLACP
-    peer
-
-    """
     BM_MBR_STATE_REASON_MLACP_NO_BDL_STATE_INFO = 41
 
-    """
-
-    Waiting for bundle configuration information
-    from mLACP peer
-
-    """
     BM_MBR_STATE_REASON_MLACP_NO_BDL_CONFIG_INFO = 42
 
-    """
-
-    Waiting for bundle to complete initial
-    synchronization with mLACP peer
-
-    """
     BM_MBR_STATE_REASON_MLACP_NO_BDL_SYNC = 43
 
-    """
-
-    mLACP bundle does not have a peer device
-
-    """
     BM_MBR_STATE_REASON_MLACP_BDL_HAS_NO_PEER = 44
 
-    """
-
-    Link is being ignored due to an inconsistency
-    with mLACP peer
-
-    """
     BM_MBR_STATE_REASON_MLACP_NAK = 45
 
-    """
-
-    ICCP transport is unavailable
-
-    """
     BM_MBR_STATE_REASON_MLACP_TRANSPORT_UNAVAILABLE = 46
 
-    """
-
-    ICCP Group is not fully configured
-
-    """
     BM_MBR_STATE_REASON_MLACP_NOT_CONFIGURED = 47
 
-    """
-
-    mLACP recovery delay timer is running
-
-    """
     BM_MBR_STATE_REASON_RECOVERY_TIMER = 48
 
-    """
-
-    mLACP peer is active
-
-    """
     BM_MBR_STATE_REASON_MLACP_STANDBY = 49
 
-    """
-
-    mLACP peer has more links/bandwidth available
-
-    """
     BM_MBR_STATE_REASON_MAXIMIZED_OUT = 50
 
-    """
-
-    mLACP peer has one or more links Selected
-
-    """
     BM_MBR_STATE_REASON_MLACP_PEER_SELECTED = 51
 
-    """
-
-    mLACP bundle does not have a peer device
-    (connect timer running)
-
-    """
     BM_MBR_STATE_REASON_MLACP_CONNECT_TIMER_RUNNING = 52
 
-    """
-
-    Bundle is not configured to run mLACP
-
-    """
     BM_MBR_STATE_REASON_BUNDLE_NOT_MLACP = 53
 
-    """
-
-    Bundle has too many working links configured
-    (more than the maximum\-active limit)
-
-    """
     BM_MBR_STATE_REASON_NO_LON = 54
 
-    """
-
-    Additional bandwidth from link would exceed
-    load balancing capabilities
-
-    """
     BM_MBR_STATE_REASON_CUMUL_REL_BW_LIMIT = 55
 
-    """
-
-    No MAC address available for the bundle
-
-    """
     BM_MBR_STATE_REASON_NO_MAC = 56
 
-    """
-
-    No system ID available for use by this bundle
-
-    """
     BM_MBR_STATE_REASON_NO_SYSTEM_ID = 57
 
-    """
-
-    Link is shutdown
-
-    """
     BM_MBR_STATE_REASON_LINK_SHUTDOWN = 58
 
-    """
-
-    Non\-LACP link in mLACP bundle
-
-    """
     BM_MBR_STATE_REASON_ACTIVITY_MLACP = 59
 
-    """
-
-    LACP link in inter\-chassis bundle
-
-    """
     BM_MBR_STATE_REASON_ACTIVITY_ICCP = 60
 
-    """
-
-    Parent bundle is both inter\-chassis and
-    configured for mLACP
-
-    """
     BM_MBR_STATE_REASON_BUNDLE_ICPE_MLACP = 61
 
-    """
-
-    Too many bundle members in system; no link
-    number available
-
-    """
     BM_MBR_STATE_REASON_NO_LINK_NUM = 62
 
-    """
-
-    mLACP peer has a higher priority link
-
-    """
     BM_MBR_STATE_REASON_STANDBY_PEER_HIGHER_PRIO = 63
 
-    """
-
-    Link is in standby redundancy state
-
-    """
     BM_MBR_STATE_REASON_RED_STATE_STANDBY = 64
 
-    """
-
-    One or more links in the bundle are in standby
-    redundancy state
-
-    """
     BM_MBR_STATE_REASON_OTHER_RED_STATE_STANDBY = 65
 
-    """
-
-    Holding down temporary to avoid churn after
-    restart
-
-    """
     BM_MBR_STATE_REASON_HOLD_ING = 66
 
-    """
-
-    Bundle has been error\-disabled
-
-    """
     BM_MBR_STATE_REASON_BUNDLE_ERROR_DISABLED = 67
 
-    """
-
-    Bundle has been disabled by EFD
-
-    """
     BM_MBR_STATE_REASON_BUNDLE_EFD_DISABLED = 68
 
-    """
-
-    Singleton ICCP group is isolated from the core
-    network
-
-    """
     BM_MBR_STATE_REASON_SINGLETON_PE_ISOLATED = 69
 
-    """
-
-    Enumeration maximum value
-
-    """
     BM_MBR_STATE_REASON_COUNT = 70
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmMbrStateReason_Enum']
+        return meta._meta_table['BmMbrStateReasonEnum']
 
 
-class BmMuxreason_Enum(Enum):
+class BmMuxreasonEnum(Enum):
     """
-    BmMuxreason_Enum
+    BmMuxreasonEnum
 
     Bm muxreason
 
-    """
+    .. data:: BM_MUX_REASON_NO_REASON = 0
+
+    	Selection logic has not yet been run for the
+
+    	bundle this link is a member of
+
+    .. data:: BM_MUX_REASON_LINK_DOWN = 1
+
+    	Link is down
+
+    .. data:: BM_MUX_REASON_LINK_DELETED = 2
+
+    	Link is being removed from the bundle
+
+    .. data:: BM_MUX_REASON_DUPLEX = 3
+
+    	Link has wrong duplexity
+
+    .. data:: BM_MUX_REASON_BANDWIDTH = 4
+
+    	Link has wrong bandwidth
+
+    .. data:: BM_MUX_REASON_LOOP_BACK = 5
+
+    	Link is a loopback interface
+
+    .. data:: BM_MUX_REASON_ACTIVITY_TYPE = 6
+
+    	Link has wrong activity type
+
+    .. data:: BM_MUX_REASON_LINK_LIMIT = 7
+
+    	Link's bundle already has maximum number of
+
+    	members allowed
+
+    .. data:: BM_MUX_REASON_SHARED = 8
+
+    	Link is attached to a shared medium
+
+    .. data:: BM_MUX_REASON_LAGID = 9
+
+    	Link has wrong LAG ID
+
+    .. data:: BM_MUX_REASON_NO_BUNDLE = 10
+
+    	Link's bundle does not exist
+
+    .. data:: BM_MUX_REASON_NO_PRIMARY = 11
+
+    	Link's bundle has no primary link
+
+    .. data:: BM_MUX_REASON_BUNDLE_DOWN = 12
+
+    	Link's bundle is shut down
+
+    .. data:: BM_MUX_REASON_INDIVIDUAL = 13
+
+    	Link is marked individual by partner
+
+    .. data:: BM_MUX_REASON_DEFAULTED = 14
+
+    	Link is Defaulted, suggesting it is not
+
+    	receiving LACPDUs from the peer
+
+    .. data:: BM_MUX_REASON_IN_SYNC = 15
+
+    	Link is in InSync state
+
+    .. data:: BM_MUX_REASON_COLLECTING = 16
+
+    	Link is in Collecting state
+
+    .. data:: BM_MUX_REASON_ACTIVE_LINK_LIMIT = 17
+
+    	Link exceeds maximum active limit
+
+    .. data:: BM_MUX_REASON_DISTRIBUTING = 18
+
+    	Link is in Distributing state
+
+    .. data:: BM_MUX_REASON_COUNT = 19
+
+    	Enumeration maximum value
 
     """
 
-    Selection logic has not yet been run for the
-    bundle this link is a member of
-
-    """
     BM_MUX_REASON_NO_REASON = 0
 
-    """
-
-    Link is down
-
-    """
     BM_MUX_REASON_LINK_DOWN = 1
 
-    """
-
-    Link is being removed from the bundle
-
-    """
     BM_MUX_REASON_LINK_DELETED = 2
 
-    """
-
-    Link has wrong duplexity
-
-    """
     BM_MUX_REASON_DUPLEX = 3
 
-    """
-
-    Link has wrong bandwidth
-
-    """
     BM_MUX_REASON_BANDWIDTH = 4
 
-    """
-
-    Link is a loopback interface
-
-    """
     BM_MUX_REASON_LOOP_BACK = 5
 
-    """
-
-    Link has wrong activity type
-
-    """
     BM_MUX_REASON_ACTIVITY_TYPE = 6
 
-    """
-
-    Link's bundle already has maximum number of
-    members allowed
-
-    """
     BM_MUX_REASON_LINK_LIMIT = 7
 
-    """
-
-    Link is attached to a shared medium
-
-    """
     BM_MUX_REASON_SHARED = 8
 
-    """
-
-    Link has wrong LAG ID
-
-    """
     BM_MUX_REASON_LAGID = 9
 
-    """
-
-    Link's bundle does not exist
-
-    """
     BM_MUX_REASON_NO_BUNDLE = 10
 
-    """
-
-    Link's bundle has no primary link
-
-    """
     BM_MUX_REASON_NO_PRIMARY = 11
 
-    """
-
-    Link's bundle is shut down
-
-    """
     BM_MUX_REASON_BUNDLE_DOWN = 12
 
-    """
-
-    Link is marked individual by partner
-
-    """
     BM_MUX_REASON_INDIVIDUAL = 13
 
-    """
-
-    Link is Defaulted, suggesting it is not
-    receiving LACPDUs from the peer
-
-    """
     BM_MUX_REASON_DEFAULTED = 14
 
-    """
-
-    Link is in InSync state
-
-    """
     BM_MUX_REASON_IN_SYNC = 15
 
-    """
-
-    Link is in Collecting state
-
-    """
     BM_MUX_REASON_COLLECTING = 16
 
-    """
-
-    Link exceeds maximum active limit
-
-    """
     BM_MUX_REASON_ACTIVE_LINK_LIMIT = 17
 
-    """
-
-    Link is in Distributing state
-
-    """
     BM_MUX_REASON_DISTRIBUTING = 18
 
-    """
-
-    Enumeration maximum value
-
-    """
     BM_MUX_REASON_COUNT = 19
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmMuxreason_Enum']
+        return meta._meta_table['BmMuxreasonEnum']
 
 
-class BmMuxstate_Enum(Enum):
+class BmMuxstateEnum(Enum):
     """
-    BmMuxstate_Enum
+    BmMuxstateEnum
 
     Bm muxstate
 
-    """
+    .. data:: DETACHED = 1
+
+    	Port is not attached to a bundle
+
+    .. data:: WAITING = 2
+
+    	Port has chosen bundle and is waiting to join
+
+    .. data:: ATTACHED = 3
+
+    	Port is attached to the bundle but not active
+
+    .. data:: COLLECTING = 4
+
+    	Port is ready to receive data
+
+    .. data:: DISTRIBUTING = 5
+
+    	Port is distributing data
+
+    .. data:: COLLECTING_DISTRIBUTING = 6
+
+    	Port is active and can send and receive data
 
     """
 
-    Port is not attached to a bundle
-
-    """
     DETACHED = 1
 
-    """
-
-    Port has chosen bundle and is waiting to join
-
-    """
     WAITING = 2
 
-    """
-
-    Port is attached to the bundle but not active
-
-    """
     ATTACHED = 3
 
-    """
-
-    Port is ready to receive data
-
-    """
     COLLECTING = 4
 
-    """
-
-    Port is distributing data
-
-    """
     DISTRIBUTING = 5
 
-    """
-
-    Port is active and can send and receive data
-
-    """
     COLLECTING_DISTRIBUTING = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmMuxstate_Enum']
+        return meta._meta_table['BmMuxstateEnum']
 
 
-class BmSeverity_Enum(Enum):
+class BmSeverityEnum(Enum):
     """
-    BmSeverity_Enum
+    BmSeverityEnum
 
     Severity of the member state reason
 
-    """
+    .. data:: OK = 0
+
+    	OK
+
+    .. data:: INFORMATION = 1
+
+    	Information
+
+    .. data:: MISCONFIGURATION = 2
+
+    	Misconfiguration
+
+    .. data:: WARNING = 3
+
+    	Warning
+
+    .. data:: ERROR = 5
+
+    	Error
 
     """
 
-    OK
-
-    """
     OK = 0
 
-    """
-
-    Information
-
-    """
     INFORMATION = 1
 
-    """
-
-    Misconfiguration
-
-    """
     MISCONFIGURATION = 2
 
-    """
-
-    Warning
-
-    """
     WARNING = 3
 
-    """
-
-    Error
-
-    """
     ERROR = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmSeverity_Enum']
+        return meta._meta_table['BmSeverityEnum']
 
 
-class BmStateReasonTarget_Enum(Enum):
+class BmStateReasonTargetEnum(Enum):
     """
-    BmStateReasonTarget_Enum
+    BmStateReasonTargetEnum
 
     Scope of the state reason
 
-    """
+    .. data:: MEMBER_REASON = 0
+
+    	Member applicable reason
+
+    .. data:: BUNDLE_REASON = 1
+
+    	Bundle applicable reason
 
     """
 
-    Member applicable reason
-
-    """
     MEMBER_REASON = 0
 
-    """
-
-    Bundle applicable reason
-
-    """
     BUNDLE_REASON = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmStateReasonTarget_Enum']
+        return meta._meta_table['BmStateReasonTargetEnum']
 
 
-class BmWhichSystem_Enum(Enum):
+class BmWhichSystemEnum(Enum):
     """
-    BmWhichSystem_Enum
+    BmWhichSystemEnum
 
     Bm which system
 
-    """
+    .. data:: BM_WHICH_SYSTEM_ACTR = 0
+
+    	Actor
+
+    .. data:: BM_WHICH_SYSTEM_PTNR = 1
+
+    	Partner
 
     """
 
-    Actor
-
-    """
     BM_WHICH_SYSTEM_ACTR = 0
 
-    """
-
-    Partner
-
-    """
     BM_WHICH_SYSTEM_PTNR = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmWhichSystem_Enum']
+        return meta._meta_table['BmWhichSystemEnum']
 
 
-class BmdBagEventBdlItem_Enum(Enum):
+class BmdBagEventBdlItemEnum(Enum):
     """
-    BmdBagEventBdlItem_Enum
+    BmdBagEventBdlItemEnum
 
     Description of an event for a bundle
 
-    """
+    .. data:: BMD_EVENT_BDL_IDB_CREATE = 0
+
+    	Bundle structure created
+
+    .. data:: BMD_EVENT_BDL_CONFIGURED = 1
+
+    	Bundle configured by user
+
+    .. data:: BMD_EVENT_BDL_IM_STATE = 2
+
+    	Bundle's IM state changed
+
+    .. data:: BMD_EVENT_BDL_MBR_ADDED = 3
+
+    	Member added to the bundle
+
+    .. data:: BMD_EVENT_BDL_MBR_DELETED = 4
+
+    	Member removed from the bundle
+
+    .. data:: BMD_EVENT_BDL_MAC_ADDR = 5
+
+    	Bundle's MAC address changed
+
+    .. data:: BMD_EVENT_BDL_FIRST_RETRY = 6
+
+    	First retry
+
+    .. data:: BMD_EVENT_BDL_USER_CONFIG = 7
+
+    	User changed the configuration
+
+    .. data:: BMD_EVENT_BDL_ERROR = 8
+
+    	Last error
+
+    .. data:: BMD_EVENT_BDL_MLACP_TLV = 9
+
+    	mLACP TLV received
+
+    .. data:: BMD_EVENT_BDL_REDUNDANCY_ROLE = 10
+
+    	redundancy role change
+
+    .. data:: BDL_BFD_STATE_CHANGE = 11
+
+    	BFD state change
+
+    .. data:: BMD_EVENT_BDL_ICL = 12
+
+    	Inter-chassis link mode changed
+
+    .. data:: BMD_EVENT_BDL_COUNT = 13
+
+    	Number of bundle events
 
     """
 
-    Bundle structure created
-
-    """
     BMD_EVENT_BDL_IDB_CREATE = 0
 
-    """
-
-    Bundle configured by user
-
-    """
     BMD_EVENT_BDL_CONFIGURED = 1
 
-    """
-
-    Bundle's IM state changed
-
-    """
     BMD_EVENT_BDL_IM_STATE = 2
 
-    """
-
-    Member added to the bundle
-
-    """
     BMD_EVENT_BDL_MBR_ADDED = 3
 
-    """
-
-    Member removed from the bundle
-
-    """
     BMD_EVENT_BDL_MBR_DELETED = 4
 
-    """
-
-    Bundle's MAC address changed
-
-    """
     BMD_EVENT_BDL_MAC_ADDR = 5
 
-    """
-
-    First retry
-
-    """
     BMD_EVENT_BDL_FIRST_RETRY = 6
 
-    """
-
-    User changed the configuration
-
-    """
     BMD_EVENT_BDL_USER_CONFIG = 7
 
-    """
-
-    Last error
-
-    """
     BMD_EVENT_BDL_ERROR = 8
 
-    """
-
-    mLACP TLV received
-
-    """
     BMD_EVENT_BDL_MLACP_TLV = 9
 
-    """
-
-    redundancy role change
-
-    """
     BMD_EVENT_BDL_REDUNDANCY_ROLE = 10
 
-    """
-
-    BFD state change
-
-    """
     BDL_BFD_STATE_CHANGE = 11
 
-    """
-
-    Inter\-chassis link mode changed
-
-    """
     BMD_EVENT_BDL_ICL = 12
 
-    """
-
-    Number of bundle events
-
-    """
     BMD_EVENT_BDL_COUNT = 13
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmdBagEventBdlItem_Enum']
+        return meta._meta_table['BmdBagEventBdlItemEnum']
 
 
-class BmdBagEventData_Enum(Enum):
+class BmdBagEventDataEnum(Enum):
     """
-    BmdBagEventData_Enum
+    BmdBagEventDataEnum
 
     Type of additional info for an event
 
-    """
+    .. data:: BMD_BAG_EVT_DATA_NONE = 0
+
+    	No additional data
+
+    .. data:: BMD_BAG_EVT_DATA_ERROR = 1
+
+    	Additional data is an error code
+
+    .. data:: BMD_BAG_EVT_DATA_STRING = 2
+
+    	Additional data is a string
 
     """
 
-    No additional data
-
-    """
     BMD_BAG_EVT_DATA_NONE = 0
 
-    """
-
-    Additional data is an error code
-
-    """
     BMD_BAG_EVT_DATA_ERROR = 1
 
-    """
-
-    Additional data is a string
-
-    """
     BMD_BAG_EVT_DATA_STRING = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmdBagEventData_Enum']
+        return meta._meta_table['BmdBagEventDataEnum']
 
 
-class BmdBagEventMbrItem_Enum(Enum):
+class BmdBagEventMbrItemEnum(Enum):
     """
-    BmdBagEventMbrItem_Enum
+    BmdBagEventMbrItemEnum
 
     Description of an event for a member
 
-    """
+    .. data:: BMD_EVENT_MBR_IDB_CREATE = 0
+
+    	Member structure created
+
+    .. data:: BMD_EVENT_MBR_BDL_ADD = 1
+
+    	Added to bundle
+
+    .. data:: BMD_EVENT_MBR_IM_STATE = 2
+
+    	Member's IM state changed
+
+    .. data:: BMD_EVENT_MBR_SEL_LOGIC = 3
+
+    	Sel logic state changed
+
+    .. data:: BMD_EVENT_MBR_MUX = 4
+
+    	Mux state changed
+
+    .. data:: BMD_EVENT_MBR_BFD = 5
+
+    	BFD state changed
+
+    .. data:: BMD_EVENT_MBR_EXPIRED = 6
+
+    	Expired
+
+    .. data:: BMD_EVENT_MBR_DEFAULTED = 7
+
+    	Defaulted
+
+    .. data:: BMD_EVENT_MBR_FIRST_RETRY = 8
+
+    	First retry
+
+    .. data:: BMD_EVENT_MBR_MSG = 9
+
+    	Message from BML
+
+    .. data:: BMD_EVENT_MBR_ERROR = 10
+
+    	Last error
+
+    .. data:: BMD_EVENT_MBR_MLACP_TLV = 11
+
+    	mLACP TLV received
+
+    .. data:: BMD_EVENT_MBR_REDUNDANCY_ROLE = 12
+
+    	redundancy role change
+
+    .. data:: BMD_EVENT_MBR_COUNT = 13
+
+    	Number of member events
 
     """
 
-    Member structure created
-
-    """
     BMD_EVENT_MBR_IDB_CREATE = 0
 
-    """
-
-    Added to bundle
-
-    """
     BMD_EVENT_MBR_BDL_ADD = 1
 
-    """
-
-    Member's IM state changed
-
-    """
     BMD_EVENT_MBR_IM_STATE = 2
 
-    """
-
-    Sel logic state changed
-
-    """
     BMD_EVENT_MBR_SEL_LOGIC = 3
 
-    """
-
-    Mux state changed
-
-    """
     BMD_EVENT_MBR_MUX = 4
 
-    """
-
-    BFD state changed
-
-    """
     BMD_EVENT_MBR_BFD = 5
 
-    """
-
-    Expired
-
-    """
     BMD_EVENT_MBR_EXPIRED = 6
 
-    """
-
-    Defaulted
-
-    """
     BMD_EVENT_MBR_DEFAULTED = 7
 
-    """
-
-    First retry
-
-    """
     BMD_EVENT_MBR_FIRST_RETRY = 8
 
-    """
-
-    Message from BML
-
-    """
     BMD_EVENT_MBR_MSG = 9
 
-    """
-
-    Last error
-
-    """
     BMD_EVENT_MBR_ERROR = 10
 
-    """
-
-    mLACP TLV received
-
-    """
     BMD_EVENT_MBR_MLACP_TLV = 11
 
-    """
-
-    redundancy role change
-
-    """
     BMD_EVENT_MBR_REDUNDANCY_ROLE = 12
 
-    """
-
-    Number of member events
-
-    """
     BMD_EVENT_MBR_COUNT = 13
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmdBagEventMbrItem_Enum']
+        return meta._meta_table['BmdBagEventMbrItemEnum']
 
 
-class BmdBagEventRgItem_Enum(Enum):
+class BmdBagEventRgItemEnum(Enum):
     """
-    BmdBagEventRgItem_Enum
+    BmdBagEventRgItemEnum
 
     Description of an event for a RG
 
-    """
+    .. data:: BMD_EVENT_RG_IDB_CREATE = 0
+
+    	RG structure created
+
+    .. data:: BMD_EVENT_RG_CONFIGURED = 1
+
+    	RG configured by user
+
+    .. data:: BMD_EVENT_RG_USER_CONFIG = 2
+
+    	User changed the configuration
+
+    .. data:: BMD_EVENT_RG_CONNECT_ION = 3
+
+    	Connection to peer
+
+    .. data:: BMD_EVENT_RG_DATA = 4
+
+    	Data received
+
+    .. data:: BMD_EVENT_RG_SYNC = 5
+
+    	Sync performed
+
+    .. data:: BMD_EVENT_RG_FIRST_RETRY = 6
+
+    	First retry
+
+    .. data:: BMD_EVENT_RG_ERROR = 7
+
+    	Last error
+
+    .. data:: BMD_EVENT_RG_MLACP_TLV = 8
+
+    	mLACP TLV received
+
+    .. data:: BMD_EVENT_RG_ICCP_EVENT = 9
+
+    	ICCP event received
+
+    .. data:: BMD_EVENT_RG_COUNT = 10
+
+    	Number of RG events
 
     """
 
-    RG structure created
-
-    """
     BMD_EVENT_RG_IDB_CREATE = 0
 
-    """
-
-    RG configured by user
-
-    """
     BMD_EVENT_RG_CONFIGURED = 1
 
-    """
-
-    User changed the configuration
-
-    """
     BMD_EVENT_RG_USER_CONFIG = 2
 
-    """
-
-    Connection to peer
-
-    """
     BMD_EVENT_RG_CONNECT_ION = 3
 
-    """
-
-    Data received
-
-    """
     BMD_EVENT_RG_DATA = 4
 
-    """
-
-    Sync performed
-
-    """
     BMD_EVENT_RG_SYNC = 5
 
-    """
-
-    First retry
-
-    """
     BMD_EVENT_RG_FIRST_RETRY = 6
 
-    """
-
-    Last error
-
-    """
     BMD_EVENT_RG_ERROR = 7
 
-    """
-
-    mLACP TLV received
-
-    """
     BMD_EVENT_RG_MLACP_TLV = 8
 
-    """
-
-    ICCP event received
-
-    """
     BMD_EVENT_RG_ICCP_EVENT = 9
 
-    """
-
-    Number of RG events
-
-    """
     BMD_EVENT_RG_COUNT = 10
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmdBagEventRgItem_Enum']
+        return meta._meta_table['BmdBagEventRgItemEnum']
 
 
-class BmdBagMlacpSchActionItem_Enum(Enum):
+class BmdBagMlacpSchActionItemEnum(Enum):
     """
-    BmdBagMlacpSchActionItem_Enum
+    BmdBagMlacpSchActionItemEnum
 
     Description of scheduled actions for a bundle
 
-    """
+    .. data:: SWITCHOVER = 0
+
+    	mLACP Switchover scheduled
+
+    .. data:: SWITCHBACK = 1
+
+    	mLACP Switchback scheduled
 
     """
 
-    mLACP Switchover scheduled
-
-    """
     SWITCHOVER = 0
 
-    """
-
-    mLACP Switchback scheduled
-
-    """
     SWITCHBACK = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmdBagMlacpSchActionItem_Enum']
+        return meta._meta_table['BmdBagMlacpSchActionItemEnum']
 
 
-class BmdBagTarget_Enum(Enum):
+class BmdBagTargetEnum(Enum):
     """
-    BmdBagTarget_Enum
+    BmdBagTargetEnum
 
     Scope of information
 
-    """
+    .. data:: BM_BAG_TARGET_MBR = 0
+
+    	Information for a member
+
+    .. data:: BM_BAG_TARGET_BDL = 1
+
+    	Information for a bundle
+
+    .. data:: BM_BAG_TARGET_NODE = 2
+
+    	Information for a node
+
+    .. data:: BM_BAG_TARGET_RG = 3
+
+    	Information for an RG
 
     """
 
-    Information for a member
-
-    """
     BM_BAG_TARGET_MBR = 0
 
-    """
-
-    Information for a bundle
-
-    """
     BM_BAG_TARGET_BDL = 1
 
-    """
-
-    Information for a node
-
-    """
     BM_BAG_TARGET_NODE = 2
 
-    """
-
-    Information for an RG
-
-    """
     BM_BAG_TARGET_RG = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmdBagTarget_Enum']
+        return meta._meta_table['BmdBagTargetEnum']
 
 
-class BmdBfdBdlState_Enum(Enum):
+class BmdBfdBdlStateEnum(Enum):
     """
-    BmdBfdBdlState_Enum
+    BmdBfdBdlStateEnum
 
     Bmd bfd bdl state
 
-    """
+    .. data:: BMD_BFD_BDL_DOWN = 0
+
+    	BFD is down on the bundle
+
+    .. data:: BMD_BFD_BDL_UNKNOWN = 1
+
+    	BFD has just started on a bundle, and the state
+
+    	has not been determined
+
+    .. data:: BMD_BFD_BDL_UP = 2
+
+    	BFD is up on the bundle
+
+    .. data:: BMD_BFD_BDL_COUNT = 3
+
+    	Number of BFD states on a bundle
 
     """
 
-    BFD is down on the bundle
-
-    """
     BMD_BFD_BDL_DOWN = 0
 
-    """
-
-    BFD has just started on a bundle, and the state
-    has not been determined
-
-    """
     BMD_BFD_BDL_UNKNOWN = 1
 
-    """
-
-    BFD is up on the bundle
-
-    """
     BMD_BFD_BDL_UP = 2
 
-    """
-
-    Number of BFD states on a bundle
-
-    """
     BMD_BFD_BDL_COUNT = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmdBfdBdlState_Enum']
+        return meta._meta_table['BmdBfdBdlStateEnum']
 
 
-class BmdMemberState_Enum(Enum):
+class BmdMemberStateEnum(Enum):
     """
-    BmdMemberState_Enum
+    BmdMemberStateEnum
 
     Bmd member state
 
-    """
+    .. data:: BMD_MBR_STATE_CONFIGURED = 1
+
+    	Member is configured
+
+    .. data:: BMD_MBR_STATE_STANDBY = 2
+
+    	Member is standby
+
+    .. data:: BMD_MBR_STATE_HOT_STANDBY = 3
+
+    	Member is hot standby
+
+    .. data:: BMD_MBR_STATE_NEGOTIATING = 4
+
+    	Member is negotiating
+
+    .. data:: BMD_MBR_STATE_BFD_RUNNING = 5
+
+    	Member has a BFD session running
+
+    .. data:: BMD_MBR_STATE_ACTIVE = 6
+
+    	Member is active
 
     """
 
-    Member is configured
-
-    """
     BMD_MBR_STATE_CONFIGURED = 1
 
-    """
-
-    Member is standby
-
-    """
     BMD_MBR_STATE_STANDBY = 2
 
-    """
-
-    Member is hot standby
-
-    """
     BMD_MBR_STATE_HOT_STANDBY = 3
 
-    """
-
-    Member is negotiating
-
-    """
     BMD_MBR_STATE_NEGOTIATING = 4
 
-    """
-
-    Member has a BFD session running
-
-    """
     BMD_MBR_STATE_BFD_RUNNING = 5
 
-    """
-
-    Member is active
-
-    """
     BMD_MBR_STATE_ACTIVE = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmdMemberState_Enum']
+        return meta._meta_table['BmdMemberStateEnum']
 
 
-class BmdMemberTypeEnum_Enum(Enum):
+class BmdMemberTypeEnumEnum(Enum):
     """
-    BmdMemberTypeEnum_Enum
+    BmdMemberTypeEnumEnum
 
     Bmd member type enum
 
-    """
+    .. data:: BMD_MBR_LOCAL = 0
+
+    	Member has been configured on the local device
+
+    .. data:: BMD_MBR_FOREIGN = 1
+
+    	Member has been configured on an mLACP peer
+
+    	device
+
+    .. data:: BMD_MBR_UNKNOWN = 2
+
+    	Member's type is unknown
 
     """
 
-    Member has been configured on the local device
-
-    """
     BMD_MBR_LOCAL = 0
 
-    """
-
-    Member has been configured on an mLACP peer
-    device
-
-    """
     BMD_MBR_FOREIGN = 1
 
-    """
-
-    Member's type is unknown
-
-    """
     BMD_MBR_UNKNOWN = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmdMemberTypeEnum_Enum']
+        return meta._meta_table['BmdMemberTypeEnumEnum']
 
 
-class BmdMlacpBdlStateEnum_Enum(Enum):
+class BmdMlacpBdlStateEnumEnum(Enum):
     """
-    BmdMlacpBdlStateEnum_Enum
+    BmdMlacpBdlStateEnumEnum
 
     State of an mLACP device
 
-    """
+    .. data:: BDL_STATE_NAK = 0
+
+    	Bundle info NAK'd
+
+    .. data:: BDL_STATE_UNKNOWN = 1
+
+    	No bundle state TLV received
+
+    .. data:: BDL_STATE_NO_SYNC = 2
+
+    	No bundle config TLV with sync bit set received
+
+    .. data:: BDL_STATE_REC_DELAY = 3
+
+    	Revertive delay timer running
+
+    .. data:: BDL_STATE_UP = 4
+
+    	Bundle is up
+
+    .. data:: BDL_STATE_DOWN = 5
+
+    	Bundle is down
+
+    .. data:: BDL_STATE_ADMIN_DOWN = 6
+
+    	Bundle is admin down
+
+    .. data:: BDL_STATE_TEST = 7
+
+    	Bundle state TLV reported test
+
+    .. data:: BDL_STATE_ERROR = 8
+
+    	Bundle state TLV reported error
 
     """
 
-    Bundle info NAK'd
-
-    """
     BDL_STATE_NAK = 0
 
-    """
-
-    No bundle state TLV received
-
-    """
     BDL_STATE_UNKNOWN = 1
 
-    """
-
-    No bundle config TLV with sync bit set received
-
-    """
     BDL_STATE_NO_SYNC = 2
 
-    """
-
-    Revertive delay timer running
-
-    """
     BDL_STATE_REC_DELAY = 3
 
-    """
-
-    Bundle is up
-
-    """
     BDL_STATE_UP = 4
 
-    """
-
-    Bundle is down
-
-    """
     BDL_STATE_DOWN = 5
 
-    """
-
-    Bundle is admin down
-
-    """
     BDL_STATE_ADMIN_DOWN = 6
 
-    """
-
-    Bundle state TLV reported test
-
-    """
     BDL_STATE_TEST = 7
 
-    """
-
-    Bundle state TLV reported error
-
-    """
     BDL_STATE_ERROR = 8
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmdMlacpBdlStateEnum_Enum']
+        return meta._meta_table['BmdMlacpBdlStateEnumEnum']
 
 
-class BmdMlacpMbrStateEnum_Enum(Enum):
+class BmdMlacpMbrStateEnumEnum(Enum):
     """
-    BmdMlacpMbrStateEnum_Enum
+    BmdMlacpMbrStateEnumEnum
 
     State of an mLACP device
 
-    """
+    .. data:: MBR_STATE_NAK = 0
+
+    	Member info NAK'd
+
+    .. data:: MBR_STATE_UNKNOWN = 1
+
+    	No member state TLV received
+
+    .. data:: MBR_STATE_UP = 2
+
+    	Member is up
+
+    .. data:: MBR_STATE_DOWN = 3
+
+    	Member is down
+
+    .. data:: MBR_STATE_ADMIN_DOWN = 4
+
+    	Member is admin down
+
+    .. data:: MBR_STATE_TEST = 5
+
+    	Member state TLV reported test
+
+    .. data:: MBR_STATE_ERROR = 6
+
+    	Member state TLV reported error
 
     """
 
-    Member info NAK'd
-
-    """
     MBR_STATE_NAK = 0
 
-    """
-
-    No member state TLV received
-
-    """
     MBR_STATE_UNKNOWN = 1
 
-    """
-
-    Member is up
-
-    """
     MBR_STATE_UP = 2
 
-    """
-
-    Member is down
-
-    """
     MBR_STATE_DOWN = 3
 
-    """
-
-    Member is admin down
-
-    """
     MBR_STATE_ADMIN_DOWN = 4
 
-    """
-
-    Member state TLV reported test
-
-    """
     MBR_STATE_TEST = 5
 
-    """
-
-    Member state TLV reported error
-
-    """
     MBR_STATE_ERROR = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmdMlacpMbrStateEnum_Enum']
+        return meta._meta_table['BmdMlacpMbrStateEnumEnum']
 
 
-class BmdMlacpNodeStateEnum_Enum(Enum):
+class BmdMlacpNodeStateEnumEnum(Enum):
     """
-    BmdMlacpNodeStateEnum_Enum
+    BmdMlacpNodeStateEnumEnum
 
     State of an mLACP device
 
-    """
+    .. data:: NODE_STATE_INCOMPLETE = 0
+
+    	Missing some mLACP IG config
+
+    .. data:: NODE_STATE_CONN_REJECTED = 1
+
+    	Connection rejected by peer
+
+    .. data:: NODE_STATE_CONNECT_SENT = 2
+
+    	Connect timer running
+
+    .. data:: NODE_STATE_UNCONFIGURED = 3
+
+    	Missing some ICCP IG config
+
+    .. data:: NODE_STATE_UNREACHABLE = 4
+
+    	ICCP declared peer node unreachable
+
+    .. data:: NODE_STATE_ICCP_DOWN = 5
+
+    	ICCP declared peer node down
+
+    .. data:: NODE_STATE_NAK = 6
+
+    	System info NAK'd
+
+    .. data:: NODE_STATE_UNKNOWN = 7
+
+    	No system state TLV received
+
+    .. data:: NODE_STATE_MLACP_DOWN = 8
+
+    	System state TLV reported down
+
+    .. data:: NODE_STATE_ADMIN_DOWN = 9
+
+    	System state TLV reported admin down
+
+    .. data:: NODE_STATE_PE_ISOLATED = 10
+
+    	System is isolated from core network
+
+    .. data:: NODE_STATE_ERROR = 11
+
+    	System state TLV reported error
+
+    .. data:: NODE_STATE_TEST = 12
+
+    	System state TLV reported test
+
+    .. data:: NODE_STATE_UP = 13
+
+    	System is up
 
     """
 
-    Missing some mLACP IG config
-
-    """
     NODE_STATE_INCOMPLETE = 0
 
-    """
-
-    Connection rejected by peer
-
-    """
     NODE_STATE_CONN_REJECTED = 1
 
-    """
-
-    Connect timer running
-
-    """
     NODE_STATE_CONNECT_SENT = 2
 
-    """
-
-    Missing some ICCP IG config
-
-    """
     NODE_STATE_UNCONFIGURED = 3
 
-    """
-
-    ICCP declared peer node unreachable
-
-    """
     NODE_STATE_UNREACHABLE = 4
 
-    """
-
-    ICCP declared peer node down
-
-    """
     NODE_STATE_ICCP_DOWN = 5
 
-    """
-
-    System info NAK'd
-
-    """
     NODE_STATE_NAK = 6
 
-    """
-
-    No system state TLV received
-
-    """
     NODE_STATE_UNKNOWN = 7
 
-    """
-
-    System state TLV reported down
-
-    """
     NODE_STATE_MLACP_DOWN = 8
 
-    """
-
-    System state TLV reported admin down
-
-    """
     NODE_STATE_ADMIN_DOWN = 9
 
-    """
-
-    System is isolated from core network
-
-    """
     NODE_STATE_PE_ISOLATED = 10
 
-    """
-
-    System state TLV reported error
-
-    """
     NODE_STATE_ERROR = 11
 
-    """
-
-    System state TLV reported test
-
-    """
     NODE_STATE_TEST = 12
 
-    """
-
-    System is up
-
-    """
     NODE_STATE_UP = 13
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmdMlacpNodeStateEnum_Enum']
+        return meta._meta_table['BmdMlacpNodeStateEnumEnum']
 
 
-class BmdMlacpNodeSyncEnum_Enum(Enum):
+class BmdMlacpNodeSyncEnumEnum(Enum):
     """
-    BmdMlacpNodeSyncEnum_Enum
+    BmdMlacpNodeSyncEnumEnum
 
     Synchronization states of an mLACP device
 
-    """
+    .. data:: NODE_SYNC_REQ = 0
+
+    	Sync requested of device
+
+    .. data:: NODE_SYNC_DONE = 1
+
+    	Sync performed by device
+
+    .. data:: NODE_SYNC_START = 2
+
+    	Sync in progress from device
+
+    .. data:: NODE_SYNC_INIT = 3
+
+    	Initial sync pending from device
+
+    .. data:: NODE_SYNC_SINGLETON = 4
+
+    	Sync not required for singleton groups
 
     """
 
-    Sync requested of device
-
-    """
     NODE_SYNC_REQ = 0
 
-    """
-
-    Sync performed by device
-
-    """
     NODE_SYNC_DONE = 1
 
-    """
-
-    Sync in progress from device
-
-    """
     NODE_SYNC_START = 2
 
-    """
-
-    Initial sync pending from device
-
-    """
     NODE_SYNC_INIT = 3
 
-    """
-
-    Sync not required for singleton groups
-
-    """
     NODE_SYNC_SINGLETON = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmdMlacpNodeSyncEnum_Enum']
+        return meta._meta_table['BmdMlacpNodeSyncEnumEnum']
 
 
-class BmdMlacpSwitchover_Enum(Enum):
+class BmdMlacpSwitchoverEnum(Enum):
     """
-    BmdMlacpSwitchover_Enum
+    BmdMlacpSwitchoverEnum
 
     Bmd mlacp switchover
 
-    """
+    .. data:: BMD_MLACP_SWITCHOVER_NONREVERTIVE = 0
+
+    	Non-revertive switchover type
+
+    .. data:: BMD_MLACP_SWITCHOVER_BRUTE_FORCE = 1
+
+    	Brute force switchover type
+
+    .. data:: BMD_MLACP_SWITCHOVER_REVERTIVE = 2
+
+    	Revertive switchover type
+
+    .. data:: BMD_MLACP_SWITCHOVER_COUNT = 3
+
+    	Number of switchover types
 
     """
 
-    Non\-revertive switchover type
-
-    """
     BMD_MLACP_SWITCHOVER_NONREVERTIVE = 0
 
-    """
-
-    Brute force switchover type
-
-    """
     BMD_MLACP_SWITCHOVER_BRUTE_FORCE = 1
 
-    """
-
-    Revertive switchover type
-
-    """
     BMD_MLACP_SWITCHOVER_REVERTIVE = 2
 
-    """
-
-    Number of switchover types
-
-    """
     BMD_MLACP_SWITCHOVER_COUNT = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmdMlacpSwitchover_Enum']
+        return meta._meta_table['BmdMlacpSwitchoverEnum']
 
 
-class BmdSwitchReason_Enum(Enum):
+class BmdSwitchReasonEnum(Enum):
     """
-    BmdSwitchReason_Enum
+    BmdSwitchReasonEnum
 
     Bmd switch reason
 
-    """
+    .. data:: BM_SWITCH_REASON_NONE = 0
+
+    	Switch is permitted
+
+    .. data:: BM_SWITCH_REASON_NOOP = 1
+
+    	Switch has no effect
+
+    .. data:: BM_SWITCH_REASON_NOT_MLACP = 2
+
+    	mLACP not configured
+
+    .. data:: BM_SWITCH_REASON_REVERTIVE = 3
+
+    	Brute-force or revertive switchover is in
+
+    	effect
+
+    .. data:: BM_SWITCH_REASON_BDL_DOWN = 4
+
+    	Would-be active bundle is not ready
+
+    .. data:: BM_SWITCH_REASON_RECOVERY = 5
+
+    	Recovery delay in effect, applications may not
+
+    	be fully synced
+
+    .. data:: BM_SWITCH_REASON_PRECEDING_ERROR = 6
+
+    	Preceding switch action not viable
+
+    .. data:: BM_SWITCH_REASON_WRONG_ORDER = 7
+
+    	Switch actions are scheduled incorrectly
+
+    .. data:: BM_SWITCH_REASON_SINGLETON = 8
+
+    	The ICCP group is operating in singleton mode
 
     """
 
-    Switch is permitted
-
-    """
     BM_SWITCH_REASON_NONE = 0
 
-    """
-
-    Switch has no effect
-
-    """
     BM_SWITCH_REASON_NOOP = 1
 
-    """
-
-    mLACP not configured
-
-    """
     BM_SWITCH_REASON_NOT_MLACP = 2
 
-    """
-
-    Brute\-force or revertive switchover is in
-    effect
-
-    """
     BM_SWITCH_REASON_REVERTIVE = 3
 
-    """
-
-    Would\-be active bundle is not ready
-
-    """
     BM_SWITCH_REASON_BDL_DOWN = 4
 
-    """
-
-    Recovery delay in effect, applications may not
-    be fully synced
-
-    """
     BM_SWITCH_REASON_RECOVERY = 5
 
-    """
-
-    Preceding switch action not viable
-
-    """
     BM_SWITCH_REASON_PRECEDING_ERROR = 6
 
-    """
-
-    Switch actions are scheduled incorrectly
-
-    """
     BM_SWITCH_REASON_WRONG_ORDER = 7
 
-    """
-
-    The ICCP group is operating in singleton mode
-
-    """
     BM_SWITCH_REASON_SINGLETON = 8
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BmdSwitchReason_Enum']
+        return meta._meta_table['BmdSwitchReasonEnum']
 
 
-class BundleMedia1_Enum(Enum):
+class BundleMedia1Enum(Enum):
     """
-    BundleMedia1_Enum
+    BundleMedia1Enum
 
     Bundle media1
 
-    """
+    .. data:: ETHERNET = 0
+
+    	Ethernet
+
+    .. data:: POS = 1
+
+    	POS
 
     """
 
-    Ethernet
-
-    """
     ETHERNET = 0
 
-    """
-
-    POS
-
-    """
     POS = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BundleMedia1_Enum']
+        return meta._meta_table['BundleMedia1Enum']
 
 
-class BundleMedia_Enum(Enum):
+class BundleMediaEnum(Enum):
     """
-    BundleMedia_Enum
+    BundleMediaEnum
 
     Bundle media
 
-    """
+    .. data:: BUNDLE_MEDIA_ETHERNET = 0
+
+    	bundle media ethernet
+
+    .. data:: BUNDLE_MEDIA_POS = 1
+
+    	bundle media pos
+
+    .. data:: BUNDLE_MEDIA_COUNT = 2
+
+    	bundle media count
 
     """
 
-    bundle media ethernet
-
-    """
     BUNDLE_MEDIA_ETHERNET = 0
 
-    """
-
-    bundle media pos
-
-    """
     BUNDLE_MEDIA_POS = 1
 
-    """
-
-    bundle media count
-
-    """
     BUNDLE_MEDIA_COUNT = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BundleMedia_Enum']
+        return meta._meta_table['BundleMediaEnum']
 
 
-class BundleMlacpMode_Enum(Enum):
+class BundleMlacpModeEnum(Enum):
     """
-    BundleMlacpMode_Enum
+    BundleMlacpModeEnum
 
     Bundle mlacp mode
 
-    """
+    .. data:: BUNDLE_MLACP_MODE_STANDBY = 0
+
+    	bundle mlacp mode standby
+
+    .. data:: BUNDLE_MLACP_MODE_ACTIVE = 1
+
+    	bundle mlacp mode active
+
+    .. data:: BUNDLE_MLACP_MODE_COUNT = 2
+
+    	bundle mlacp mode count
 
     """
 
-    bundle mlacp mode standby
-
-    """
     BUNDLE_MLACP_MODE_STANDBY = 0
 
-    """
-
-    bundle mlacp mode active
-
-    """
     BUNDLE_MLACP_MODE_ACTIVE = 1
 
-    """
-
-    bundle mlacp mode count
-
-    """
     BUNDLE_MLACP_MODE_COUNT = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['BundleMlacpMode_Enum']
+        return meta._meta_table['BundleMlacpModeEnum']
 
 
-class LacpChurnstates_Enum(Enum):
+class LacpChurnstatesEnum(Enum):
     """
-    LacpChurnstates_Enum
+    LacpChurnstatesEnum
 
     Lacp churnstates
 
-    """
+    .. data:: NO_CHURN = 1
+
+    	The port is synchronized correctly
+
+    .. data:: CHURN = 2
+
+    	The port is OutOfSync and the churn timer has
+
+    	expired
+
+    .. data:: CHURN_MONITOR = 3
+
+    	The port is OutOfSync but the churn timer has
+
+    	not expired
 
     """
 
-    The port is synchronized correctly
-
-    """
     NO_CHURN = 1
 
-    """
-
-    The port is OutOfSync and the churn timer has
-    expired
-
-    """
     CHURN = 2
 
-    """
-
-    The port is OutOfSync but the churn timer has
-    not expired
-
-    """
     CHURN_MONITOR = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['LacpChurnstates_Enum']
+        return meta._meta_table['LacpChurnstatesEnum']
 
 
-class LacpPeriodState_Enum(Enum):
+class LacpPeriodStateEnum(Enum):
     """
-    LacpPeriodState_Enum
+    LacpPeriodStateEnum
 
     Lacp period state
 
-    """
+    .. data:: PERIOD_S_LOW = 0
+
+    	Packets are being sent using a long period
+
+    .. data:: PERIOD_FAST = 1
+
+    	Packets are being sent using a short period
+
+    .. data:: PERIOD_NONE = 2
+
+    	Packets are not being sent
 
     """
 
-    Packets are being sent using a long period
-
-    """
     PERIOD_S_LOW = 0
 
-    """
-
-    Packets are being sent using a short period
-
-    """
     PERIOD_FAST = 1
 
-    """
-
-    Packets are not being sent
-
-    """
     PERIOD_NONE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['LacpPeriodState_Enum']
+        return meta._meta_table['LacpPeriodStateEnum']
 
 
-class LacpSelState_Enum(Enum):
+class LacpSelStateEnum(Enum):
     """
-    LacpSelState_Enum
+    LacpSelStateEnum
 
     Lacp sel state
 
-    """
+    .. data:: UNSELECTED = 0
+
+    	The link is Unselected
+
+    .. data:: STANDBY = 1
+
+    	The link is Standby
+
+    .. data:: SELECTED = 2
+
+    	The link is Selected
 
     """
 
-    The link is Unselected
-
-    """
     UNSELECTED = 0
 
-    """
-
-    The link is Standby
-
-    """
     STANDBY = 1
 
-    """
-
-    The link is Selected
-
-    """
     SELECTED = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['LacpSelState_Enum']
+        return meta._meta_table['LacpSelStateEnum']
 
 
-class LoadBalance_Enum(Enum):
+class LoadBalanceEnum(Enum):
     """
-    LoadBalance_Enum
+    LoadBalanceEnum
 
     Load balance
 
-    """
+    .. data:: DEFAULT = 0
+
+    	Default
+
+    .. data:: AUTO = 1
+
+    	Auto
+
+    .. data:: VALUE = 2
+
+    	Value
+
+    .. data:: SOURCE_IP = 3
+
+    	Source IP
+
+    .. data:: DESTINATION_IP = 4
+
+    	Destination IP
+
+    .. data:: UNKNOWN = 5
+
+    	Unknown
 
     """
 
-    Default
-
-    """
     DEFAULT = 0
 
-    """
-
-    Auto
-
-    """
     AUTO = 1
 
-    """
-
-    Value
-
-    """
     VALUE = 2
 
-    """
-
-    Source IP
-
-    """
     SOURCE_IP = 3
 
-    """
-
-    Destination IP
-
-    """
     DESTINATION_IP = 4
 
-    """
-
-    Unknown
-
-    """
     UNKNOWN = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['LoadBalance_Enum']
+        return meta._meta_table['LoadBalanceEnum']
 
 
-class Rxstates_Enum(Enum):
+class RxstatesEnum(Enum):
     """
-    Rxstates_Enum
+    RxstatesEnum
 
     Rxstates
 
-    """
+    .. data:: CURRENT_RX = 1
+
+    	current rx
+
+    .. data:: EXPIRED = 2
+
+    	expired
+
+    .. data:: DEFAULTED = 3
+
+    	defaulted
+
+    .. data:: INITIALIZE = 4
+
+    	initialize
+
+    .. data:: LACP_DISABLED = 5
+
+    	lacp disabled
+
+    .. data:: PORT_DISABLED = 6
+
+    	port disabled
 
     """
 
-    current rx
-
-    """
     CURRENT_RX = 1
 
-    """
-
-    expired
-
-    """
     EXPIRED = 2
 
-    """
-
-    defaulted
-
-    """
     DEFAULTED = 3
 
-    """
-
-    initialize
-
-    """
     INITIALIZE = 4
 
-    """
-
-    lacp disabled
-
-    """
     LACP_DISABLED = 5
 
-    """
-
-    port disabled
-
-    """
     PORT_DISABLED = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-        return meta._meta_table['Rxstates_Enum']
+        return meta._meta_table['RxstatesEnum']
 
 
 
@@ -2796,8 +2571,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.member_interface is not None:
                                 return True
 
@@ -2830,10 +2603,6 @@ class BundleInformation(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
@@ -2853,17 +2622,11 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bfd_counters_bundle_children_member is not None:
                             for child_ref in self.bfd_counters_bundle_children_member:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3000,8 +2763,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.down is not None:
                                 return True
 
@@ -3029,10 +2790,6 @@ class BundleInformation(object):
                             if self.up is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3075,15 +2832,9 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.item_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3105,8 +2856,6 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bfd_counter is not None:
                             for child_ref in self.bfd_counter:
                                 if child_ref._has_data():
@@ -3115,13 +2864,6 @@ class BundleInformation(object):
                         if self.bundle_name is not None and self.bundle_name._has_data():
                             return True
 
-                        if self.bundle_name is not None and self.bundle_name.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3164,15 +2906,9 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.item_name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3194,33 +2930,18 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bundle_interface is not None:
                         return True
 
                     if self.bfd_counters_bundle_children_members is not None and self.bfd_counters_bundle_children_members._has_data():
                         return True
 
-                    if self.bfd_counters_bundle_children_members is not None and self.bfd_counters_bundle_children_members.is_presence():
-                        return True
-
                     if self.bfd_counters_bundle_descendant is not None and self.bfd_counters_bundle_descendant._has_data():
-                        return True
-
-                    if self.bfd_counters_bundle_descendant is not None and self.bfd_counters_bundle_descendant.is_presence():
                         return True
 
                     if self.bfd_counters_bundle_item is not None and self.bfd_counters_bundle_item._has_data():
                         return True
 
-                    if self.bfd_counters_bundle_item is not None and self.bfd_counters_bundle_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3240,17 +2961,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.bfd_counters_bundle is not None:
                     for child_ref in self.bfd_counters_bundle:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3408,8 +3123,6 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.down is not None:
                             return True
 
@@ -3439,10 +3152,6 @@ class BundleInformation(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
@@ -3462,21 +3171,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.member_interface is not None:
                         return True
 
                     if self.bfd_counters_member_item is not None and self.bfd_counters_member_item._has_data():
                         return True
 
-                    if self.bfd_counters_member_item is not None and self.bfd_counters_member_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3496,17 +3196,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.bfd_counters_member is not None:
                     for child_ref in self.bfd_counters_member:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3526,24 +3220,12 @@ class BundleInformation(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.bfd_counters_bundles is not None and self.bfd_counters_bundles._has_data():
-                return True
-
-            if self.bfd_counters_bundles is not None and self.bfd_counters_bundles.is_presence():
                 return True
 
             if self.bfd_counters_members is not None and self.bfd_counters_members._has_data():
                 return True
 
-            if self.bfd_counters_members is not None and self.bfd_counters_members.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3729,7 +3411,7 @@ class BundleInformation(object):
                         .. attribute:: member_type
                         
                         	Member's type (local/foreign)
-                        	**type**\: :py:class:`BmdMemberTypeEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnum_Enum>`
+                        	**type**\: :py:class:`BmdMemberTypeEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
                         
                         .. attribute:: port_number
                         
@@ -3813,15 +3495,9 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.address is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3844,7 +3520,7 @@ class BundleInformation(object):
                             .. attribute:: member_mux_state_reason
                             
                             	Reason for last Mux state change
-                            	**type**\: :py:class:`BmMbrStateReason_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReason_Enum>`
+                            	**type**\: :py:class:`BmMbrStateReasonEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReasonEnum>`
                             
                             .. attribute:: member_mux_state_reason_data
                             
@@ -3854,17 +3530,17 @@ class BundleInformation(object):
                             .. attribute:: member_state
                             
                             	Current internal state of this bundle member
-                            	**type**\: :py:class:`BmdMemberState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberState_Enum>`
+                            	**type**\: :py:class:`BmdMemberStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberStateEnum>`
                             
                             .. attribute:: mux_state
                             
                             	Current state of this bundle member
-                            	**type**\: :py:class:`BmMuxstate_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstate_Enum>`
+                            	**type**\: :py:class:`BmMuxstateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
                             
                             .. attribute:: mux_state_reason
                             
                             	Reason for last Mux state change (Deprecated)
-                            	**type**\: :py:class:`BmMuxreason_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreason_Enum>`
+                            	**type**\: :py:class:`BmMuxreasonEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreasonEnum>`
                             
                             
 
@@ -3892,12 +3568,12 @@ class BundleInformation(object):
                                 .. attribute:: reason_type
                                 
                                 	The item the reason applies to
-                                	**type**\: :py:class:`BmStateReasonTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTarget_Enum>`
+                                	**type**\: :py:class:`BmStateReasonTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTargetEnum>`
                                 
                                 .. attribute:: severity
                                 
                                 	The severity of the reason
-                                	**type**\: :py:class:`BmSeverity_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmSeverity_Enum>`
+                                	**type**\: :py:class:`BmSeverityEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmSeverityEnum>`
                                 
                                 
 
@@ -3925,18 +3601,12 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.reason_type is not None:
                                         return True
 
                                     if self.severity is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3958,8 +3628,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.error is not None:
                                     return True
 
@@ -3967,9 +3635,6 @@ class BundleInformation(object):
                                     return True
 
                                 if self.member_mux_state_reason_data is not None and self.member_mux_state_reason_data._has_data():
-                                    return True
-
-                                if self.member_mux_state_reason_data is not None and self.member_mux_state_reason_data.is_presence():
                                     return True
 
                                 if self.member_state is not None:
@@ -3981,10 +3646,6 @@ class BundleInformation(object):
                                 if self.mux_state_reason is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4008,8 +3669,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.member_interface is not None:
                                 return True
 
@@ -4028,13 +3687,7 @@ class BundleInformation(object):
                             if self.mac_address is not None and self.mac_address._has_data():
                                 return True
 
-                            if self.mac_address is not None and self.mac_address.is_presence():
-                                return True
-
                             if self.member_mux_data is not None and self.member_mux_data._has_data():
-                                return True
-
-                            if self.member_mux_data is not None and self.member_mux_data.is_presence():
                                 return True
 
                             if self.member_name is not None:
@@ -4052,10 +3705,6 @@ class BundleInformation(object):
                             if self.underlying_link_id is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4077,17 +3726,11 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bundle_bundle_children_member is not None:
                             for child_ref in self.bundle_bundle_children_member:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4166,7 +3809,7 @@ class BundleInformation(object):
                         .. attribute:: bundle_status
                         
                         	The state of the bundle
-                        	**type**\: :py:class:`BmBdlState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlState_Enum>`
+                        	**type**\: :py:class:`BmBdlStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
                         
                         .. attribute:: cisco_extensions
                         
@@ -4223,7 +3866,7 @@ class BundleInformation(object):
                         .. attribute:: ipv4bfd_status
                         
                         	The status of the BFD (IPv4) feature on the bundle
-                        	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                        	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: is_active
                         
@@ -4238,12 +3881,12 @@ class BundleInformation(object):
                         .. attribute:: lacp_status
                         
                         	The status of the LACP feature on the bundle
-                        	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                        	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: link_order_status
                         
                         	The status of the link order signaling feature on the bundle
-                        	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                        	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: load_balance_locality_threshold
                         
@@ -4267,7 +3910,7 @@ class BundleInformation(object):
                         .. attribute:: mac_source
                         
                         	The source of the MAC Address
-                        	**type**\: :py:class:`BmBdlMacSource_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSource_Enum>`
+                        	**type**\: :py:class:`BmBdlMacSourceEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
                         
                         .. attribute:: mac_source_member
                         
@@ -4300,7 +3943,7 @@ class BundleInformation(object):
                         .. attribute:: maximum_active_links_source
                         
                         	Source of maximum active links value
-                        	**type**\: :py:class:`BmWhichSystem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystem_Enum>`
+                        	**type**\: :py:class:`BmWhichSystemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
                         
                         .. attribute:: minimum_active_links
                         
@@ -4319,12 +3962,12 @@ class BundleInformation(object):
                         .. attribute:: mlacp_mode
                         
                         	Indicates the mode of the device for the bundle
-                        	**type**\: :py:class:`BundleMlacpMode_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpMode_Enum>`
+                        	**type**\: :py:class:`BundleMlacpModeEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
                         
                         .. attribute:: mlacp_status
                         
                         	The status of the mLACP feature on the bundle
-                        	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                        	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: primary_member
                         
@@ -4362,7 +4005,7 @@ class BundleInformation(object):
                         .. attribute:: switchover_type
                         
                         	How a switchover of the bundle from this device will occur
-                        	**type**\: :py:class:`BmdMlacpSwitchover_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchover_Enum>`
+                        	**type**\: :py:class:`BmdMlacpSwitchoverEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
                         
                         .. attribute:: wait_while_timer
                         
@@ -4431,7 +4074,7 @@ class BundleInformation(object):
                             .. attribute:: bundle_status
                             
                             	Status of BFD on the bundle
-                            	**type**\: :py:class:`BmdBfdBdlState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlState_Enum>`
+                            	**type**\: :py:class:`BmdBfdBdlStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
                             
                             .. attribute:: destination_address
                             
@@ -4513,7 +4156,7 @@ class BundleInformation(object):
                                 .. attribute:: af
                                 
                                 	AF
-                                	**type**\: :py:class:`BmAfId_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmAfId_Enum>`
+                                	**type**\: :py:class:`BmAfIdEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
                                 
                                 .. attribute:: ipv4
                                 
@@ -4556,8 +4199,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.af is not None:
                                         return True
 
@@ -4567,10 +4208,6 @@ class BundleInformation(object):
                                     if self.ipv6 is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -4592,15 +4229,10 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_status is not None:
                                     return True
 
                                 if self.destination_address is not None and self.destination_address._has_data():
-                                    return True
-
-                                if self.destination_address is not None and self.destination_address.is_presence():
                                     return True
 
                                 if self.fast_detect is not None:
@@ -4624,10 +4256,6 @@ class BundleInformation(object):
                                 if self.start_timer is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4672,15 +4300,9 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.address is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4702,8 +4324,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_foreign_member_count is not None:
                                 return True
 
@@ -4772,9 +4392,6 @@ class BundleInformation(object):
                             if self.mac_address is not None and self.mac_address._has_data():
                                 return True
 
-                            if self.mac_address is not None and self.mac_address.is_presence():
-                                return True
-
                             if self.mac_source is not None:
                                 return True
 
@@ -4826,10 +4443,6 @@ class BundleInformation(object):
                             if self.wait_while_timer is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4888,7 +4501,7 @@ class BundleInformation(object):
                         .. attribute:: member_type
                         
                         	Member's type (local/foreign)
-                        	**type**\: :py:class:`BmdMemberTypeEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnum_Enum>`
+                        	**type**\: :py:class:`BmdMemberTypeEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
                         
                         .. attribute:: port_number
                         
@@ -4971,15 +4584,9 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.address is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -5002,7 +4609,7 @@ class BundleInformation(object):
                             .. attribute:: member_mux_state_reason
                             
                             	Reason for last Mux state change
-                            	**type**\: :py:class:`BmMbrStateReason_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReason_Enum>`
+                            	**type**\: :py:class:`BmMbrStateReasonEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReasonEnum>`
                             
                             .. attribute:: member_mux_state_reason_data
                             
@@ -5012,17 +4619,17 @@ class BundleInformation(object):
                             .. attribute:: member_state
                             
                             	Current internal state of this bundle member
-                            	**type**\: :py:class:`BmdMemberState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberState_Enum>`
+                            	**type**\: :py:class:`BmdMemberStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberStateEnum>`
                             
                             .. attribute:: mux_state
                             
                             	Current state of this bundle member
-                            	**type**\: :py:class:`BmMuxstate_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstate_Enum>`
+                            	**type**\: :py:class:`BmMuxstateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
                             
                             .. attribute:: mux_state_reason
                             
                             	Reason for last Mux state change (Deprecated)
-                            	**type**\: :py:class:`BmMuxreason_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreason_Enum>`
+                            	**type**\: :py:class:`BmMuxreasonEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreasonEnum>`
                             
                             
 
@@ -5050,12 +4657,12 @@ class BundleInformation(object):
                                 .. attribute:: reason_type
                                 
                                 	The item the reason applies to
-                                	**type**\: :py:class:`BmStateReasonTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTarget_Enum>`
+                                	**type**\: :py:class:`BmStateReasonTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTargetEnum>`
                                 
                                 .. attribute:: severity
                                 
                                 	The severity of the reason
-                                	**type**\: :py:class:`BmSeverity_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmSeverity_Enum>`
+                                	**type**\: :py:class:`BmSeverityEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmSeverityEnum>`
                                 
                                 
 
@@ -5083,18 +4690,12 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.reason_type is not None:
                                         return True
 
                                     if self.severity is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5116,8 +4717,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.error is not None:
                                     return True
 
@@ -5125,9 +4724,6 @@ class BundleInformation(object):
                                     return True
 
                                 if self.member_mux_state_reason_data is not None and self.member_mux_state_reason_data._has_data():
-                                    return True
-
-                                if self.member_mux_state_reason_data is not None and self.member_mux_state_reason_data.is_presence():
                                     return True
 
                                 if self.member_state is not None:
@@ -5139,10 +4735,6 @@ class BundleInformation(object):
                                 if self.mux_state_reason is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -5164,8 +4756,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bandwidth is not None:
                                 return True
 
@@ -5181,13 +4771,7 @@ class BundleInformation(object):
                             if self.mac_address is not None and self.mac_address._has_data():
                                 return True
 
-                            if self.mac_address is not None and self.mac_address.is_presence():
-                                return True
-
                             if self.member_mux_data is not None and self.member_mux_data._has_data():
-                                return True
-
-                            if self.member_mux_data is not None and self.member_mux_data.is_presence():
                                 return True
 
                             if self.member_name is not None:
@@ -5205,10 +4789,6 @@ class BundleInformation(object):
                             if self.underlying_link_id is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5230,12 +4810,7 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bundle_data is not None and self.bundle_data._has_data():
-                            return True
-
-                        if self.bundle_data is not None and self.bundle_data.is_presence():
                             return True
 
                         if self.member_data is not None:
@@ -5243,10 +4818,6 @@ class BundleInformation(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5295,7 +4866,7 @@ class BundleInformation(object):
                     .. attribute:: bundle_status
                     
                     	The state of the bundle
-                    	**type**\: :py:class:`BmBdlState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlState_Enum>`
+                    	**type**\: :py:class:`BmBdlStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
                     
                     .. attribute:: cisco_extensions
                     
@@ -5352,7 +4923,7 @@ class BundleInformation(object):
                     .. attribute:: ipv4bfd_status
                     
                     	The status of the BFD (IPv4) feature on the bundle
-                    	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                    	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
                     .. attribute:: is_active
                     
@@ -5367,12 +4938,12 @@ class BundleInformation(object):
                     .. attribute:: lacp_status
                     
                     	The status of the LACP feature on the bundle
-                    	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                    	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
                     .. attribute:: link_order_status
                     
                     	The status of the link order signaling feature on the bundle
-                    	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                    	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
                     .. attribute:: load_balance_locality_threshold
                     
@@ -5396,7 +4967,7 @@ class BundleInformation(object):
                     .. attribute:: mac_source
                     
                     	The source of the MAC Address
-                    	**type**\: :py:class:`BmBdlMacSource_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSource_Enum>`
+                    	**type**\: :py:class:`BmBdlMacSourceEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
                     
                     .. attribute:: mac_source_member
                     
@@ -5429,7 +5000,7 @@ class BundleInformation(object):
                     .. attribute:: maximum_active_links_source
                     
                     	Source of maximum active links value
-                    	**type**\: :py:class:`BmWhichSystem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystem_Enum>`
+                    	**type**\: :py:class:`BmWhichSystemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
                     
                     .. attribute:: minimum_active_links
                     
@@ -5448,12 +5019,12 @@ class BundleInformation(object):
                     .. attribute:: mlacp_mode
                     
                     	Indicates the mode of the device for the bundle
-                    	**type**\: :py:class:`BundleMlacpMode_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpMode_Enum>`
+                    	**type**\: :py:class:`BundleMlacpModeEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
                     
                     .. attribute:: mlacp_status
                     
                     	The status of the mLACP feature on the bundle
-                    	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                    	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
                     .. attribute:: primary_member
                     
@@ -5491,7 +5062,7 @@ class BundleInformation(object):
                     .. attribute:: switchover_type
                     
                     	How a switchover of the bundle from this device will occur
-                    	**type**\: :py:class:`BmdMlacpSwitchover_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchover_Enum>`
+                    	**type**\: :py:class:`BmdMlacpSwitchoverEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
                     
                     .. attribute:: wait_while_timer
                     
@@ -5560,7 +5131,7 @@ class BundleInformation(object):
                         .. attribute:: bundle_status
                         
                         	Status of BFD on the bundle
-                        	**type**\: :py:class:`BmdBfdBdlState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlState_Enum>`
+                        	**type**\: :py:class:`BmdBfdBdlStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
                         
                         .. attribute:: destination_address
                         
@@ -5642,7 +5213,7 @@ class BundleInformation(object):
                             .. attribute:: af
                             
                             	AF
-                            	**type**\: :py:class:`BmAfId_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmAfId_Enum>`
+                            	**type**\: :py:class:`BmAfIdEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
                             
                             .. attribute:: ipv4
                             
@@ -5685,8 +5256,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.af is not None:
                                     return True
 
@@ -5696,10 +5265,6 @@ class BundleInformation(object):
                                 if self.ipv6 is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -5721,15 +5286,10 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_status is not None:
                                 return True
 
                             if self.destination_address is not None and self.destination_address._has_data():
-                                return True
-
-                            if self.destination_address is not None and self.destination_address.is_presence():
                                 return True
 
                             if self.fast_detect is not None:
@@ -5753,10 +5313,6 @@ class BundleInformation(object):
                             if self.start_timer is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5801,15 +5357,9 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5831,8 +5381,6 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.active_foreign_member_count is not None:
                             return True
 
@@ -5901,9 +5449,6 @@ class BundleInformation(object):
                         if self.mac_address is not None and self.mac_address._has_data():
                             return True
 
-                        if self.mac_address is not None and self.mac_address.is_presence():
-                            return True
-
                         if self.mac_source is not None:
                             return True
 
@@ -5957,10 +5502,6 @@ class BundleInformation(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
@@ -5980,33 +5521,18 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bundle_interface is not None:
                         return True
 
                     if self.bundle_bundle_children_members is not None and self.bundle_bundle_children_members._has_data():
                         return True
 
-                    if self.bundle_bundle_children_members is not None and self.bundle_bundle_children_members.is_presence():
-                        return True
-
                     if self.bundle_bundle_descendant is not None and self.bundle_bundle_descendant._has_data():
-                        return True
-
-                    if self.bundle_bundle_descendant is not None and self.bundle_bundle_descendant.is_presence():
                         return True
 
                     if self.bundle_bundle_item is not None and self.bundle_bundle_item._has_data():
                         return True
 
-                    if self.bundle_bundle_item is not None and self.bundle_bundle_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6026,17 +5552,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.bundle_bundle is not None:
                     for child_ref in self.bundle_bundle:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -6174,7 +5694,7 @@ class BundleInformation(object):
                         .. attribute:: bundle_status
                         
                         	The state of the bundle
-                        	**type**\: :py:class:`BmBdlState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlState_Enum>`
+                        	**type**\: :py:class:`BmBdlStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
                         
                         .. attribute:: cisco_extensions
                         
@@ -6231,7 +5751,7 @@ class BundleInformation(object):
                         .. attribute:: ipv4bfd_status
                         
                         	The status of the BFD (IPv4) feature on the bundle
-                        	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                        	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: is_active
                         
@@ -6246,12 +5766,12 @@ class BundleInformation(object):
                         .. attribute:: lacp_status
                         
                         	The status of the LACP feature on the bundle
-                        	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                        	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: link_order_status
                         
                         	The status of the link order signaling feature on the bundle
-                        	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                        	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: load_balance_locality_threshold
                         
@@ -6275,7 +5795,7 @@ class BundleInformation(object):
                         .. attribute:: mac_source
                         
                         	The source of the MAC Address
-                        	**type**\: :py:class:`BmBdlMacSource_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSource_Enum>`
+                        	**type**\: :py:class:`BmBdlMacSourceEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
                         
                         .. attribute:: mac_source_member
                         
@@ -6308,7 +5828,7 @@ class BundleInformation(object):
                         .. attribute:: maximum_active_links_source
                         
                         	Source of maximum active links value
-                        	**type**\: :py:class:`BmWhichSystem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystem_Enum>`
+                        	**type**\: :py:class:`BmWhichSystemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
                         
                         .. attribute:: minimum_active_links
                         
@@ -6327,12 +5847,12 @@ class BundleInformation(object):
                         .. attribute:: mlacp_mode
                         
                         	Indicates the mode of the device for the bundle
-                        	**type**\: :py:class:`BundleMlacpMode_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpMode_Enum>`
+                        	**type**\: :py:class:`BundleMlacpModeEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
                         
                         .. attribute:: mlacp_status
                         
                         	The status of the mLACP feature on the bundle
-                        	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                        	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: primary_member
                         
@@ -6370,7 +5890,7 @@ class BundleInformation(object):
                         .. attribute:: switchover_type
                         
                         	How a switchover of the bundle from this device will occur
-                        	**type**\: :py:class:`BmdMlacpSwitchover_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchover_Enum>`
+                        	**type**\: :py:class:`BmdMlacpSwitchoverEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
                         
                         .. attribute:: wait_while_timer
                         
@@ -6439,7 +5959,7 @@ class BundleInformation(object):
                             .. attribute:: bundle_status
                             
                             	Status of BFD on the bundle
-                            	**type**\: :py:class:`BmdBfdBdlState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlState_Enum>`
+                            	**type**\: :py:class:`BmdBfdBdlStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
                             
                             .. attribute:: destination_address
                             
@@ -6521,7 +6041,7 @@ class BundleInformation(object):
                                 .. attribute:: af
                                 
                                 	AF
-                                	**type**\: :py:class:`BmAfId_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmAfId_Enum>`
+                                	**type**\: :py:class:`BmAfIdEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
                                 
                                 .. attribute:: ipv4
                                 
@@ -6564,8 +6084,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.af is not None:
                                         return True
 
@@ -6575,10 +6093,6 @@ class BundleInformation(object):
                                     if self.ipv6 is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6600,15 +6114,10 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_status is not None:
                                     return True
 
                                 if self.destination_address is not None and self.destination_address._has_data():
-                                    return True
-
-                                if self.destination_address is not None and self.destination_address.is_presence():
                                     return True
 
                                 if self.fast_detect is not None:
@@ -6632,10 +6141,6 @@ class BundleInformation(object):
                                 if self.start_timer is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6680,15 +6185,9 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.address is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6710,8 +6209,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_foreign_member_count is not None:
                                 return True
 
@@ -6780,9 +6277,6 @@ class BundleInformation(object):
                             if self.mac_address is not None and self.mac_address._has_data():
                                 return True
 
-                            if self.mac_address is not None and self.mac_address.is_presence():
-                                return True
-
                             if self.mac_source is not None:
                                 return True
 
@@ -6834,10 +6328,6 @@ class BundleInformation(object):
                             if self.wait_while_timer is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6896,7 +6386,7 @@ class BundleInformation(object):
                         .. attribute:: member_type
                         
                         	Member's type (local/foreign)
-                        	**type**\: :py:class:`BmdMemberTypeEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnum_Enum>`
+                        	**type**\: :py:class:`BmdMemberTypeEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
                         
                         .. attribute:: port_number
                         
@@ -6979,15 +6469,9 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.address is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7010,7 +6494,7 @@ class BundleInformation(object):
                             .. attribute:: member_mux_state_reason
                             
                             	Reason for last Mux state change
-                            	**type**\: :py:class:`BmMbrStateReason_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReason_Enum>`
+                            	**type**\: :py:class:`BmMbrStateReasonEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReasonEnum>`
                             
                             .. attribute:: member_mux_state_reason_data
                             
@@ -7020,17 +6504,17 @@ class BundleInformation(object):
                             .. attribute:: member_state
                             
                             	Current internal state of this bundle member
-                            	**type**\: :py:class:`BmdMemberState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberState_Enum>`
+                            	**type**\: :py:class:`BmdMemberStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberStateEnum>`
                             
                             .. attribute:: mux_state
                             
                             	Current state of this bundle member
-                            	**type**\: :py:class:`BmMuxstate_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstate_Enum>`
+                            	**type**\: :py:class:`BmMuxstateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
                             
                             .. attribute:: mux_state_reason
                             
                             	Reason for last Mux state change (Deprecated)
-                            	**type**\: :py:class:`BmMuxreason_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreason_Enum>`
+                            	**type**\: :py:class:`BmMuxreasonEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreasonEnum>`
                             
                             
 
@@ -7058,12 +6542,12 @@ class BundleInformation(object):
                                 .. attribute:: reason_type
                                 
                                 	The item the reason applies to
-                                	**type**\: :py:class:`BmStateReasonTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTarget_Enum>`
+                                	**type**\: :py:class:`BmStateReasonTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTargetEnum>`
                                 
                                 .. attribute:: severity
                                 
                                 	The severity of the reason
-                                	**type**\: :py:class:`BmSeverity_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmSeverity_Enum>`
+                                	**type**\: :py:class:`BmSeverityEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmSeverityEnum>`
                                 
                                 
 
@@ -7091,18 +6575,12 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.reason_type is not None:
                                         return True
 
                                     if self.severity is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -7124,8 +6602,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.error is not None:
                                     return True
 
@@ -7133,9 +6609,6 @@ class BundleInformation(object):
                                     return True
 
                                 if self.member_mux_state_reason_data is not None and self.member_mux_state_reason_data._has_data():
-                                    return True
-
-                                if self.member_mux_state_reason_data is not None and self.member_mux_state_reason_data.is_presence():
                                     return True
 
                                 if self.member_state is not None:
@@ -7147,10 +6620,6 @@ class BundleInformation(object):
                                 if self.mux_state_reason is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7172,8 +6641,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bandwidth is not None:
                                 return True
 
@@ -7189,13 +6656,7 @@ class BundleInformation(object):
                             if self.mac_address is not None and self.mac_address._has_data():
                                 return True
 
-                            if self.mac_address is not None and self.mac_address.is_presence():
-                                return True
-
                             if self.member_mux_data is not None and self.member_mux_data._has_data():
-                                return True
-
-                            if self.member_mux_data is not None and self.member_mux_data.is_presence():
                                 return True
 
                             if self.member_name is not None:
@@ -7213,10 +6674,6 @@ class BundleInformation(object):
                             if self.underlying_link_id is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7238,12 +6695,7 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bundle_data is not None and self.bundle_data._has_data():
-                            return True
-
-                        if self.bundle_data is not None and self.bundle_data.is_presence():
                             return True
 
                         if self.member_data is not None:
@@ -7251,10 +6703,6 @@ class BundleInformation(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -7313,7 +6761,7 @@ class BundleInformation(object):
                     .. attribute:: member_type
                     
                     	Member's type (local/foreign)
-                    	**type**\: :py:class:`BmdMemberTypeEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnum_Enum>`
+                    	**type**\: :py:class:`BmdMemberTypeEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
                     
                     .. attribute:: port_number
                     
@@ -7396,15 +6844,9 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7427,7 +6869,7 @@ class BundleInformation(object):
                         .. attribute:: member_mux_state_reason
                         
                         	Reason for last Mux state change
-                        	**type**\: :py:class:`BmMbrStateReason_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReason_Enum>`
+                        	**type**\: :py:class:`BmMbrStateReasonEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReasonEnum>`
                         
                         .. attribute:: member_mux_state_reason_data
                         
@@ -7437,17 +6879,17 @@ class BundleInformation(object):
                         .. attribute:: member_state
                         
                         	Current internal state of this bundle member
-                        	**type**\: :py:class:`BmdMemberState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberState_Enum>`
+                        	**type**\: :py:class:`BmdMemberStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberStateEnum>`
                         
                         .. attribute:: mux_state
                         
                         	Current state of this bundle member
-                        	**type**\: :py:class:`BmMuxstate_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstate_Enum>`
+                        	**type**\: :py:class:`BmMuxstateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
                         
                         .. attribute:: mux_state_reason
                         
                         	Reason for last Mux state change (Deprecated)
-                        	**type**\: :py:class:`BmMuxreason_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreason_Enum>`
+                        	**type**\: :py:class:`BmMuxreasonEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreasonEnum>`
                         
                         
 
@@ -7475,12 +6917,12 @@ class BundleInformation(object):
                             .. attribute:: reason_type
                             
                             	The item the reason applies to
-                            	**type**\: :py:class:`BmStateReasonTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTarget_Enum>`
+                            	**type**\: :py:class:`BmStateReasonTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTargetEnum>`
                             
                             .. attribute:: severity
                             
                             	The severity of the reason
-                            	**type**\: :py:class:`BmSeverity_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmSeverity_Enum>`
+                            	**type**\: :py:class:`BmSeverityEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmSeverityEnum>`
                             
                             
 
@@ -7508,18 +6950,12 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.reason_type is not None:
                                     return True
 
                                 if self.severity is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7541,8 +6977,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.error is not None:
                                 return True
 
@@ -7550,9 +6984,6 @@ class BundleInformation(object):
                                 return True
 
                             if self.member_mux_state_reason_data is not None and self.member_mux_state_reason_data._has_data():
-                                return True
-
-                            if self.member_mux_state_reason_data is not None and self.member_mux_state_reason_data.is_presence():
                                 return True
 
                             if self.member_state is not None:
@@ -7564,10 +6995,6 @@ class BundleInformation(object):
                             if self.mux_state_reason is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7589,8 +7016,6 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bandwidth is not None:
                             return True
 
@@ -7606,13 +7031,7 @@ class BundleInformation(object):
                         if self.mac_address is not None and self.mac_address._has_data():
                             return True
 
-                        if self.mac_address is not None and self.mac_address.is_presence():
-                            return True
-
                         if self.member_mux_data is not None and self.member_mux_data._has_data():
-                            return True
-
-                        if self.member_mux_data is not None and self.member_mux_data.is_presence():
                             return True
 
                         if self.member_name is not None:
@@ -7630,10 +7049,6 @@ class BundleInformation(object):
                         if self.underlying_link_id is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -7655,27 +7070,15 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.member_interface is not None:
                         return True
 
                     if self.bundle_member_ancestor is not None and self.bundle_member_ancestor._has_data():
                         return True
 
-                    if self.bundle_member_ancestor is not None and self.bundle_member_ancestor.is_presence():
-                        return True
-
                     if self.bundle_member_item is not None and self.bundle_member_item._has_data():
                         return True
 
-                    if self.bundle_member_item is not None and self.bundle_member_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7695,17 +7098,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.bundle_member is not None:
                     for child_ref in self.bundle_member:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -7725,24 +7122,12 @@ class BundleInformation(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.bundle_bundles is not None and self.bundle_bundles._has_data():
-                return True
-
-            if self.bundle_bundles is not None and self.bundle_bundles.is_presence():
                 return True
 
             if self.bundle_members is not None and self.bundle_members._has_data():
                 return True
 
-            if self.bundle_members is not None and self.bundle_members.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -7844,7 +7229,7 @@ class BundleInformation(object):
                 .. attribute:: bundle_status
                 
                 	The state of the bundle
-                	**type**\: :py:class:`BmBdlState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlState_Enum>`
+                	**type**\: :py:class:`BmBdlStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
                 
                 .. attribute:: cisco_extensions
                 
@@ -7901,7 +7286,7 @@ class BundleInformation(object):
                 .. attribute:: ipv4bfd_status
                 
                 	The status of the BFD (IPv4) feature on the bundle
-                	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
                 .. attribute:: is_active
                 
@@ -7916,12 +7301,12 @@ class BundleInformation(object):
                 .. attribute:: lacp_status
                 
                 	The status of the LACP feature on the bundle
-                	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
                 .. attribute:: link_order_status
                 
                 	The status of the link order signaling feature on the bundle
-                	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
                 .. attribute:: load_balance_locality_threshold
                 
@@ -7945,7 +7330,7 @@ class BundleInformation(object):
                 .. attribute:: mac_source
                 
                 	The source of the MAC Address
-                	**type**\: :py:class:`BmBdlMacSource_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSource_Enum>`
+                	**type**\: :py:class:`BmBdlMacSourceEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
                 
                 .. attribute:: mac_source_member
                 
@@ -7978,7 +7363,7 @@ class BundleInformation(object):
                 .. attribute:: maximum_active_links_source
                 
                 	Source of maximum active links value
-                	**type**\: :py:class:`BmWhichSystem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystem_Enum>`
+                	**type**\: :py:class:`BmWhichSystemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
                 
                 .. attribute:: minimum_active_links
                 
@@ -7997,12 +7382,12 @@ class BundleInformation(object):
                 .. attribute:: mlacp_mode
                 
                 	Indicates the mode of the device for the bundle
-                	**type**\: :py:class:`BundleMlacpMode_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpMode_Enum>`
+                	**type**\: :py:class:`BundleMlacpModeEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
                 
                 .. attribute:: mlacp_status
                 
                 	The status of the mLACP feature on the bundle
-                	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
                 .. attribute:: primary_member
                 
@@ -8040,7 +7425,7 @@ class BundleInformation(object):
                 .. attribute:: switchover_type
                 
                 	How a switchover of the bundle from this device will occur
-                	**type**\: :py:class:`BmdMlacpSwitchover_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchover_Enum>`
+                	**type**\: :py:class:`BmdMlacpSwitchoverEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
                 
                 .. attribute:: wait_while_timer
                 
@@ -8109,7 +7494,7 @@ class BundleInformation(object):
                     .. attribute:: bundle_status
                     
                     	Status of BFD on the bundle
-                    	**type**\: :py:class:`BmdBfdBdlState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlState_Enum>`
+                    	**type**\: :py:class:`BmdBfdBdlStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
                     
                     .. attribute:: destination_address
                     
@@ -8191,7 +7576,7 @@ class BundleInformation(object):
                         .. attribute:: af
                         
                         	AF
-                        	**type**\: :py:class:`BmAfId_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmAfId_Enum>`
+                        	**type**\: :py:class:`BmAfIdEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
                         
                         .. attribute:: ipv4
                         
@@ -8234,8 +7619,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.af is not None:
                                 return True
 
@@ -8245,10 +7628,6 @@ class BundleInformation(object):
                             if self.ipv6 is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8270,15 +7649,10 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bundle_status is not None:
                             return True
 
                         if self.destination_address is not None and self.destination_address._has_data():
-                            return True
-
-                        if self.destination_address is not None and self.destination_address.is_presence():
                             return True
 
                         if self.fast_detect is not None:
@@ -8302,10 +7676,6 @@ class BundleInformation(object):
                         if self.start_timer is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8350,15 +7720,9 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8380,8 +7744,6 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.active_foreign_member_count is not None:
                         return True
 
@@ -8450,9 +7812,6 @@ class BundleInformation(object):
                     if self.mac_address is not None and self.mac_address._has_data():
                         return True
 
-                    if self.mac_address is not None and self.mac_address.is_presence():
-                        return True
-
                     if self.mac_source is not None:
                         return True
 
@@ -8506,10 +7865,6 @@ class BundleInformation(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
@@ -8529,21 +7884,12 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.bundle_interface is not None:
                     return True
 
                 if self.bundle_brief_item is not None and self.bundle_brief_item._has_data():
                     return True
 
-                if self.bundle_brief_item is not None and self.bundle_brief_item.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -8563,17 +7909,11 @@ class BundleInformation(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.bundle_brief is not None:
                 for child_ref in self.bundle_brief:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -8726,7 +8066,7 @@ class BundleInformation(object):
                         .. attribute:: event_type
                         
                         	EventType
-                        	**type**\: :py:class:`BmdBagTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTarget_Enum>`
+                        	**type**\: :py:class:`BmdBagTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                         
                         .. attribute:: member_evt_info
                         
@@ -8763,7 +8103,7 @@ class BundleInformation(object):
                             .. attribute:: bundle_event_type
                             
                             	Type of event for bundle
-                            	**type**\: :py:class:`BmdBagEventBdlItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventBdlItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                             
                             .. attribute:: data
                             
@@ -8799,7 +8139,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -8848,8 +8188,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -8862,10 +8200,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8887,24 +8221,15 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_event_type is not None:
                                     return True
 
                                 if self.data is not None and self.data._has_data():
                                     return True
 
-                                if self.data is not None and self.data.is_presence():
-                                    return True
-
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8925,7 +8250,7 @@ class BundleInformation(object):
                             .. attribute:: member_event_type
                             
                             	Type of event for member
-                            	**type**\: :py:class:`BmdBagEventMbrItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventMbrItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -8956,7 +8281,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -9005,8 +8330,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -9019,10 +8342,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9044,12 +8363,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data is not None and self.data._has_data():
-                                    return True
-
-                                if self.data is not None and self.data.is_presence():
                                     return True
 
                                 if self.member_event_type is not None:
@@ -9058,10 +8372,6 @@ class BundleInformation(object):
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -9082,7 +8392,7 @@ class BundleInformation(object):
                             .. attribute:: rg_event_type
                             
                             	Type of event for RG
-                            	**type**\: :py:class:`BmdBagEventRgItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventRgItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -9113,7 +8423,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -9162,8 +8472,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -9176,10 +8484,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9201,12 +8505,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data is not None and self.data._has_data():
-                                    return True
-
-                                if self.data is not None and self.data.is_presence():
                                     return True
 
                                 if self.rg_event_type is not None:
@@ -9215,10 +8514,6 @@ class BundleInformation(object):
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -9240,12 +8535,7 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
-                                return True
-
-                            if self.bundle_evt_info is not None and self.bundle_evt_info.is_presence():
                                 return True
 
                             if self.event_type is not None:
@@ -9254,19 +8544,9 @@ class BundleInformation(object):
                             if self.member_evt_info is not None and self.member_evt_info._has_data():
                                 return True
 
-                            if self.member_evt_info is not None and self.member_evt_info.is_presence():
-                                return True
-
                             if self.rg_evt_info is not None and self.rg_evt_info._has_data():
                                 return True
 
-                            if self.rg_evt_info is not None and self.rg_evt_info.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -9288,8 +8568,6 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.item_name is not None:
                             return True
 
@@ -9298,10 +8576,6 @@ class BundleInformation(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9380,7 +8654,7 @@ class BundleInformation(object):
                             .. attribute:: event_type
                             
                             	EventType
-                            	**type**\: :py:class:`BmdBagTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTarget_Enum>`
+                            	**type**\: :py:class:`BmdBagTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                             
                             .. attribute:: member_evt_info
                             
@@ -9417,7 +8691,7 @@ class BundleInformation(object):
                                 .. attribute:: bundle_event_type
                                 
                                 	Type of event for bundle
-                                	**type**\: :py:class:`BmdBagEventBdlItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItem_Enum>`
+                                	**type**\: :py:class:`BmdBagEventBdlItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                                 
                                 .. attribute:: data
                                 
@@ -9453,7 +8727,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                    	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -9502,8 +8776,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.data_type is not None:
                                             return True
 
@@ -9516,10 +8788,6 @@ class BundleInformation(object):
                                         if self.string_data is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -9541,24 +8809,15 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.bundle_event_type is not None:
                                         return True
 
                                     if self.data is not None and self.data._has_data():
                                         return True
 
-                                    if self.data is not None and self.data.is_presence():
-                                        return True
-
                                     if self.time_stamp is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9579,7 +8838,7 @@ class BundleInformation(object):
                                 .. attribute:: member_event_type
                                 
                                 	Type of event for member
-                                	**type**\: :py:class:`BmdBagEventMbrItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItem_Enum>`
+                                	**type**\: :py:class:`BmdBagEventMbrItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -9610,7 +8869,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                    	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -9659,8 +8918,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.data_type is not None:
                                             return True
 
@@ -9673,10 +8930,6 @@ class BundleInformation(object):
                                         if self.string_data is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -9698,12 +8951,7 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data is not None and self.data._has_data():
-                                        return True
-
-                                    if self.data is not None and self.data.is_presence():
                                         return True
 
                                     if self.member_event_type is not None:
@@ -9712,10 +8960,6 @@ class BundleInformation(object):
                                     if self.time_stamp is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9736,7 +8980,7 @@ class BundleInformation(object):
                                 .. attribute:: rg_event_type
                                 
                                 	Type of event for RG
-                                	**type**\: :py:class:`BmdBagEventRgItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItem_Enum>`
+                                	**type**\: :py:class:`BmdBagEventRgItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -9767,7 +9011,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                    	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -9816,8 +9060,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.data_type is not None:
                                             return True
 
@@ -9830,10 +9072,6 @@ class BundleInformation(object):
                                         if self.string_data is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -9855,12 +9093,7 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data is not None and self.data._has_data():
-                                        return True
-
-                                    if self.data is not None and self.data.is_presence():
                                         return True
 
                                     if self.rg_event_type is not None:
@@ -9869,10 +9102,6 @@ class BundleInformation(object):
                                     if self.time_stamp is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9894,12 +9123,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
-                                    return True
-
-                                if self.bundle_evt_info is not None and self.bundle_evt_info.is_presence():
                                     return True
 
                                 if self.event_type is not None:
@@ -9908,19 +9132,9 @@ class BundleInformation(object):
                                 if self.member_evt_info is not None and self.member_evt_info._has_data():
                                     return True
 
-                                if self.member_evt_info is not None and self.member_evt_info.is_presence():
-                                    return True
-
                                 if self.rg_evt_info is not None and self.rg_evt_info._has_data():
                                     return True
 
-                                if self.rg_evt_info is not None and self.rg_evt_info.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -9944,8 +9158,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.member_interface is not None:
                                 return True
 
@@ -9957,10 +9169,6 @@ class BundleInformation(object):
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -9982,17 +9190,11 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.events_bundle_children_member is not None:
                             for child_ref in self.events_bundle_children_member:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -10065,7 +9267,7 @@ class BundleInformation(object):
                             .. attribute:: event_type
                             
                             	EventType
-                            	**type**\: :py:class:`BmdBagTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTarget_Enum>`
+                            	**type**\: :py:class:`BmdBagTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                             
                             .. attribute:: member_evt_info
                             
@@ -10102,7 +9304,7 @@ class BundleInformation(object):
                                 .. attribute:: bundle_event_type
                                 
                                 	Type of event for bundle
-                                	**type**\: :py:class:`BmdBagEventBdlItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItem_Enum>`
+                                	**type**\: :py:class:`BmdBagEventBdlItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                                 
                                 .. attribute:: data
                                 
@@ -10138,7 +9340,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                    	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -10187,8 +9389,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.data_type is not None:
                                             return True
 
@@ -10201,10 +9401,6 @@ class BundleInformation(object):
                                         if self.string_data is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10226,24 +9422,15 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.bundle_event_type is not None:
                                         return True
 
                                     if self.data is not None and self.data._has_data():
                                         return True
 
-                                    if self.data is not None and self.data.is_presence():
-                                        return True
-
                                     if self.time_stamp is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -10264,7 +9451,7 @@ class BundleInformation(object):
                                 .. attribute:: member_event_type
                                 
                                 	Type of event for member
-                                	**type**\: :py:class:`BmdBagEventMbrItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItem_Enum>`
+                                	**type**\: :py:class:`BmdBagEventMbrItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -10295,7 +9482,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                    	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -10344,8 +9531,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.data_type is not None:
                                             return True
 
@@ -10358,10 +9543,6 @@ class BundleInformation(object):
                                         if self.string_data is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10383,12 +9564,7 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data is not None and self.data._has_data():
-                                        return True
-
-                                    if self.data is not None and self.data.is_presence():
                                         return True
 
                                     if self.member_event_type is not None:
@@ -10397,10 +9573,6 @@ class BundleInformation(object):
                                     if self.time_stamp is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -10421,7 +9593,7 @@ class BundleInformation(object):
                                 .. attribute:: rg_event_type
                                 
                                 	Type of event for RG
-                                	**type**\: :py:class:`BmdBagEventRgItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItem_Enum>`
+                                	**type**\: :py:class:`BmdBagEventRgItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -10452,7 +9624,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                    	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -10501,8 +9673,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.data_type is not None:
                                             return True
 
@@ -10515,10 +9685,6 @@ class BundleInformation(object):
                                         if self.string_data is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10540,12 +9706,7 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data is not None and self.data._has_data():
-                                        return True
-
-                                    if self.data is not None and self.data.is_presence():
                                         return True
 
                                     if self.rg_event_type is not None:
@@ -10554,10 +9715,6 @@ class BundleInformation(object):
                                     if self.time_stamp is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -10579,12 +9736,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
-                                    return True
-
-                                if self.bundle_evt_info is not None and self.bundle_evt_info.is_presence():
                                     return True
 
                                 if self.event_type is not None:
@@ -10593,19 +9745,9 @@ class BundleInformation(object):
                                 if self.member_evt_info is not None and self.member_evt_info._has_data():
                                     return True
 
-                                if self.member_evt_info is not None and self.member_evt_info.is_presence():
-                                    return True
-
                                 if self.rg_evt_info is not None and self.rg_evt_info._has_data():
                                     return True
 
-                                if self.rg_evt_info is not None and self.rg_evt_info.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10627,8 +9769,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.item_name is not None:
                                 return True
 
@@ -10637,10 +9777,6 @@ class BundleInformation(object):
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -10662,17 +9798,11 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.events_item is not None:
                             for child_ref in self.events_item:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -10722,7 +9852,7 @@ class BundleInformation(object):
                         .. attribute:: event_type
                         
                         	EventType
-                        	**type**\: :py:class:`BmdBagTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTarget_Enum>`
+                        	**type**\: :py:class:`BmdBagTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                         
                         .. attribute:: member_evt_info
                         
@@ -10759,7 +9889,7 @@ class BundleInformation(object):
                             .. attribute:: bundle_event_type
                             
                             	Type of event for bundle
-                            	**type**\: :py:class:`BmdBagEventBdlItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventBdlItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                             
                             .. attribute:: data
                             
@@ -10795,7 +9925,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -10844,8 +9974,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -10858,10 +9986,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -10883,24 +10007,15 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_event_type is not None:
                                     return True
 
                                 if self.data is not None and self.data._has_data():
                                     return True
 
-                                if self.data is not None and self.data.is_presence():
-                                    return True
-
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10921,7 +10036,7 @@ class BundleInformation(object):
                             .. attribute:: member_event_type
                             
                             	Type of event for member
-                            	**type**\: :py:class:`BmdBagEventMbrItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventMbrItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -10952,7 +10067,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -11001,8 +10116,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -11015,10 +10128,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -11040,12 +10149,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data is not None and self.data._has_data():
-                                    return True
-
-                                if self.data is not None and self.data.is_presence():
                                     return True
 
                                 if self.member_event_type is not None:
@@ -11054,10 +10158,6 @@ class BundleInformation(object):
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11078,7 +10178,7 @@ class BundleInformation(object):
                             .. attribute:: rg_event_type
                             
                             	Type of event for RG
-                            	**type**\: :py:class:`BmdBagEventRgItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventRgItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -11109,7 +10209,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -11158,8 +10258,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -11172,10 +10270,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -11197,12 +10291,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data is not None and self.data._has_data():
-                                    return True
-
-                                if self.data is not None and self.data.is_presence():
                                     return True
 
                                 if self.rg_event_type is not None:
@@ -11211,10 +10300,6 @@ class BundleInformation(object):
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11236,12 +10321,7 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
-                                return True
-
-                            if self.bundle_evt_info is not None and self.bundle_evt_info.is_presence():
                                 return True
 
                             if self.event_type is not None:
@@ -11250,19 +10330,9 @@ class BundleInformation(object):
                             if self.member_evt_info is not None and self.member_evt_info._has_data():
                                 return True
 
-                            if self.member_evt_info is not None and self.member_evt_info.is_presence():
-                                return True
-
                             if self.rg_evt_info is not None and self.rg_evt_info._has_data():
                                 return True
 
-                            if self.rg_evt_info is not None and self.rg_evt_info.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -11284,8 +10354,6 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.item_name is not None:
                             return True
 
@@ -11294,10 +10362,6 @@ class BundleInformation(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -11319,39 +10383,21 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bundle_interface is not None:
                         return True
 
                     if self.events_bundle_ancestor is not None and self.events_bundle_ancestor._has_data():
                         return True
 
-                    if self.events_bundle_ancestor is not None and self.events_bundle_ancestor.is_presence():
-                        return True
-
                     if self.events_bundle_children_members is not None and self.events_bundle_children_members._has_data():
-                        return True
-
-                    if self.events_bundle_children_members is not None and self.events_bundle_children_members.is_presence():
                         return True
 
                     if self.events_bundle_descendant is not None and self.events_bundle_descendant._has_data():
                         return True
 
-                    if self.events_bundle_descendant is not None and self.events_bundle_descendant.is_presence():
-                        return True
-
                     if self.events_bundle_item is not None and self.events_bundle_item._has_data():
                         return True
 
-                    if self.events_bundle_item is not None and self.events_bundle_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -11371,17 +10417,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.events_bundle is not None:
                     for child_ref in self.events_bundle:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -11489,7 +10529,7 @@ class BundleInformation(object):
                         .. attribute:: event_type
                         
                         	EventType
-                        	**type**\: :py:class:`BmdBagTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTarget_Enum>`
+                        	**type**\: :py:class:`BmdBagTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                         
                         .. attribute:: member_evt_info
                         
@@ -11526,7 +10566,7 @@ class BundleInformation(object):
                             .. attribute:: bundle_event_type
                             
                             	Type of event for bundle
-                            	**type**\: :py:class:`BmdBagEventBdlItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventBdlItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                             
                             .. attribute:: data
                             
@@ -11562,7 +10602,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -11611,8 +10651,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -11625,10 +10663,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -11650,24 +10684,15 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_event_type is not None:
                                     return True
 
                                 if self.data is not None and self.data._has_data():
                                     return True
 
-                                if self.data is not None and self.data.is_presence():
-                                    return True
-
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11688,7 +10713,7 @@ class BundleInformation(object):
                             .. attribute:: member_event_type
                             
                             	Type of event for member
-                            	**type**\: :py:class:`BmdBagEventMbrItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventMbrItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -11719,7 +10744,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -11768,8 +10793,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -11782,10 +10805,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -11807,12 +10826,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data is not None and self.data._has_data():
-                                    return True
-
-                                if self.data is not None and self.data.is_presence():
                                     return True
 
                                 if self.member_event_type is not None:
@@ -11821,10 +10835,6 @@ class BundleInformation(object):
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11845,7 +10855,7 @@ class BundleInformation(object):
                             .. attribute:: rg_event_type
                             
                             	Type of event for RG
-                            	**type**\: :py:class:`BmdBagEventRgItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventRgItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -11876,7 +10886,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -11925,8 +10935,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -11939,10 +10947,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -11964,12 +10968,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data is not None and self.data._has_data():
-                                    return True
-
-                                if self.data is not None and self.data.is_presence():
                                     return True
 
                                 if self.rg_event_type is not None:
@@ -11978,10 +10977,6 @@ class BundleInformation(object):
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -12003,12 +10998,7 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
-                                return True
-
-                            if self.bundle_evt_info is not None and self.bundle_evt_info.is_presence():
                                 return True
 
                             if self.event_type is not None:
@@ -12017,19 +11007,9 @@ class BundleInformation(object):
                             if self.member_evt_info is not None and self.member_evt_info._has_data():
                                 return True
 
-                            if self.member_evt_info is not None and self.member_evt_info.is_presence():
-                                return True
-
                             if self.rg_evt_info is not None and self.rg_evt_info._has_data():
                                 return True
 
-                            if self.rg_evt_info is not None and self.rg_evt_info.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -12051,8 +11031,6 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.item_name is not None:
                             return True
 
@@ -12061,10 +11039,6 @@ class BundleInformation(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -12114,7 +11088,7 @@ class BundleInformation(object):
                         .. attribute:: event_type
                         
                         	EventType
-                        	**type**\: :py:class:`BmdBagTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTarget_Enum>`
+                        	**type**\: :py:class:`BmdBagTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                         
                         .. attribute:: member_evt_info
                         
@@ -12151,7 +11125,7 @@ class BundleInformation(object):
                             .. attribute:: bundle_event_type
                             
                             	Type of event for bundle
-                            	**type**\: :py:class:`BmdBagEventBdlItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventBdlItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                             
                             .. attribute:: data
                             
@@ -12187,7 +11161,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -12236,8 +11210,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -12250,10 +11222,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -12275,24 +11243,15 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_event_type is not None:
                                     return True
 
                                 if self.data is not None and self.data._has_data():
                                     return True
 
-                                if self.data is not None and self.data.is_presence():
-                                    return True
-
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -12313,7 +11272,7 @@ class BundleInformation(object):
                             .. attribute:: member_event_type
                             
                             	Type of event for member
-                            	**type**\: :py:class:`BmdBagEventMbrItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventMbrItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -12344,7 +11303,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -12393,8 +11352,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -12407,10 +11364,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -12432,12 +11385,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data is not None and self.data._has_data():
-                                    return True
-
-                                if self.data is not None and self.data.is_presence():
                                     return True
 
                                 if self.member_event_type is not None:
@@ -12446,10 +11394,6 @@ class BundleInformation(object):
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -12470,7 +11414,7 @@ class BundleInformation(object):
                             .. attribute:: rg_event_type
                             
                             	Type of event for RG
-                            	**type**\: :py:class:`BmdBagEventRgItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventRgItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -12501,7 +11445,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -12550,8 +11494,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -12564,10 +11506,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -12589,12 +11527,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data is not None and self.data._has_data():
-                                    return True
-
-                                if self.data is not None and self.data.is_presence():
                                     return True
 
                                 if self.rg_event_type is not None:
@@ -12603,10 +11536,6 @@ class BundleInformation(object):
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -12628,12 +11557,7 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
-                                return True
-
-                            if self.bundle_evt_info is not None and self.bundle_evt_info.is_presence():
                                 return True
 
                             if self.event_type is not None:
@@ -12642,19 +11566,9 @@ class BundleInformation(object):
                             if self.member_evt_info is not None and self.member_evt_info._has_data():
                                 return True
 
-                            if self.member_evt_info is not None and self.member_evt_info.is_presence():
-                                return True
-
                             if self.rg_evt_info is not None and self.rg_evt_info._has_data():
                                 return True
 
-                            if self.rg_evt_info is not None and self.rg_evt_info.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -12676,8 +11590,6 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.item_name is not None:
                             return True
 
@@ -12686,10 +11598,6 @@ class BundleInformation(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -12711,27 +11619,15 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.member_interface is not None:
                         return True
 
                     if self.events_member_ancestor is not None and self.events_member_ancestor._has_data():
                         return True
 
-                    if self.events_member_ancestor is not None and self.events_member_ancestor.is_presence():
-                        return True
-
                     if self.events_member_item is not None and self.events_member_item._has_data():
                         return True
 
-                    if self.events_member_item is not None and self.events_member_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -12751,17 +11647,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.events_member is not None:
                     for child_ref in self.events_member:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -12781,24 +11671,12 @@ class BundleInformation(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.events_bundles is not None and self.events_bundles._has_data():
-                return True
-
-            if self.events_bundles is not None and self.events_bundles.is_presence():
                 return True
 
             if self.events_members is not None and self.events_members._has_data():
                 return True
 
-            if self.events_members is not None and self.events_members.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -12939,7 +11817,7 @@ class BundleInformation(object):
                         .. attribute:: event_type
                         
                         	EventType
-                        	**type**\: :py:class:`BmdBagTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTarget_Enum>`
+                        	**type**\: :py:class:`BmdBagTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                         
                         .. attribute:: member_evt_info
                         
@@ -12976,7 +11854,7 @@ class BundleInformation(object):
                             .. attribute:: bundle_event_type
                             
                             	Type of event for bundle
-                            	**type**\: :py:class:`BmdBagEventBdlItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventBdlItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                             
                             .. attribute:: data
                             
@@ -13012,7 +11890,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -13061,8 +11939,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -13075,10 +11951,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -13100,24 +11972,15 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_event_type is not None:
                                     return True
 
                                 if self.data is not None and self.data._has_data():
                                     return True
 
-                                if self.data is not None and self.data.is_presence():
-                                    return True
-
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -13138,7 +12001,7 @@ class BundleInformation(object):
                             .. attribute:: member_event_type
                             
                             	Type of event for member
-                            	**type**\: :py:class:`BmdBagEventMbrItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventMbrItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -13169,7 +12032,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -13218,8 +12081,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -13232,10 +12093,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -13257,12 +12114,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data is not None and self.data._has_data():
-                                    return True
-
-                                if self.data is not None and self.data.is_presence():
                                     return True
 
                                 if self.member_event_type is not None:
@@ -13271,10 +12123,6 @@ class BundleInformation(object):
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -13295,7 +12143,7 @@ class BundleInformation(object):
                             .. attribute:: rg_event_type
                             
                             	Type of event for RG
-                            	**type**\: :py:class:`BmdBagEventRgItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventRgItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -13326,7 +12174,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -13375,8 +12223,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -13389,10 +12235,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -13414,12 +12256,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data is not None and self.data._has_data():
-                                    return True
-
-                                if self.data is not None and self.data.is_presence():
                                     return True
 
                                 if self.rg_event_type is not None:
@@ -13428,10 +12265,6 @@ class BundleInformation(object):
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -13453,12 +12286,7 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
-                                return True
-
-                            if self.bundle_evt_info is not None and self.bundle_evt_info.is_presence():
                                 return True
 
                             if self.event_type is not None:
@@ -13467,19 +12295,9 @@ class BundleInformation(object):
                             if self.member_evt_info is not None and self.member_evt_info._has_data():
                                 return True
 
-                            if self.member_evt_info is not None and self.member_evt_info.is_presence():
-                                return True
-
                             if self.rg_evt_info is not None and self.rg_evt_info._has_data():
                                 return True
 
-                            if self.rg_evt_info is not None and self.rg_evt_info.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -13501,8 +12319,6 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.item_name is not None:
                             return True
 
@@ -13511,10 +12327,6 @@ class BundleInformation(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -13536,21 +12348,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bundle_interface is not None:
                         return True
 
                     if self.events_bdl_bundle_item is not None and self.events_bdl_bundle_item._has_data():
                         return True
 
-                    if self.events_bdl_bundle_item is not None and self.events_bdl_bundle_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -13570,17 +12373,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.events_bdl_bundle is not None:
                     for child_ref in self.events_bdl_bundle:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -13706,7 +12503,7 @@ class BundleInformation(object):
                             .. attribute:: event_type
                             
                             	EventType
-                            	**type**\: :py:class:`BmdBagTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTarget_Enum>`
+                            	**type**\: :py:class:`BmdBagTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                             
                             .. attribute:: member_evt_info
                             
@@ -13743,7 +12540,7 @@ class BundleInformation(object):
                                 .. attribute:: bundle_event_type
                                 
                                 	Type of event for bundle
-                                	**type**\: :py:class:`BmdBagEventBdlItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItem_Enum>`
+                                	**type**\: :py:class:`BmdBagEventBdlItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                                 
                                 .. attribute:: data
                                 
@@ -13779,7 +12576,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                    	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -13828,8 +12625,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.data_type is not None:
                                             return True
 
@@ -13842,10 +12637,6 @@ class BundleInformation(object):
                                         if self.string_data is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -13867,24 +12658,15 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.bundle_event_type is not None:
                                         return True
 
                                     if self.data is not None and self.data._has_data():
                                         return True
 
-                                    if self.data is not None and self.data.is_presence():
-                                        return True
-
                                     if self.time_stamp is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -13905,7 +12687,7 @@ class BundleInformation(object):
                                 .. attribute:: member_event_type
                                 
                                 	Type of event for member
-                                	**type**\: :py:class:`BmdBagEventMbrItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItem_Enum>`
+                                	**type**\: :py:class:`BmdBagEventMbrItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -13936,7 +12718,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                    	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -13985,8 +12767,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.data_type is not None:
                                             return True
 
@@ -13999,10 +12779,6 @@ class BundleInformation(object):
                                         if self.string_data is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -14024,12 +12800,7 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data is not None and self.data._has_data():
-                                        return True
-
-                                    if self.data is not None and self.data.is_presence():
                                         return True
 
                                     if self.member_event_type is not None:
@@ -14038,10 +12809,6 @@ class BundleInformation(object):
                                     if self.time_stamp is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -14062,7 +12829,7 @@ class BundleInformation(object):
                                 .. attribute:: rg_event_type
                                 
                                 	Type of event for RG
-                                	**type**\: :py:class:`BmdBagEventRgItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItem_Enum>`
+                                	**type**\: :py:class:`BmdBagEventRgItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -14093,7 +12860,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                    	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -14142,8 +12909,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.data_type is not None:
                                             return True
 
@@ -14156,10 +12921,6 @@ class BundleInformation(object):
                                         if self.string_data is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -14181,12 +12942,7 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data is not None and self.data._has_data():
-                                        return True
-
-                                    if self.data is not None and self.data.is_presence():
                                         return True
 
                                     if self.rg_event_type is not None:
@@ -14195,10 +12951,6 @@ class BundleInformation(object):
                                     if self.time_stamp is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -14220,12 +12972,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
-                                    return True
-
-                                if self.bundle_evt_info is not None and self.bundle_evt_info.is_presence():
                                     return True
 
                                 if self.event_type is not None:
@@ -14234,19 +12981,9 @@ class BundleInformation(object):
                                 if self.member_evt_info is not None and self.member_evt_info._has_data():
                                     return True
 
-                                if self.member_evt_info is not None and self.member_evt_info.is_presence():
-                                    return True
-
                                 if self.rg_evt_info is not None and self.rg_evt_info._has_data():
                                     return True
 
-                                if self.rg_evt_info is not None and self.rg_evt_info.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -14268,8 +13005,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.item_name is not None:
                                 return True
 
@@ -14278,10 +13013,6 @@ class BundleInformation(object):
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -14303,17 +13034,11 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.events_item is not None:
                             for child_ref in self.events_item:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -14335,21 +13060,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.iccp_group is not None:
                         return True
 
                     if self.events_bdl_bundle_descendant_iccp_group is not None and self.events_bdl_bundle_descendant_iccp_group._has_data():
                         return True
 
-                    if self.events_bdl_bundle_descendant_iccp_group is not None and self.events_bdl_bundle_descendant_iccp_group.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -14369,17 +13085,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.events_bdl_iccp_group is not None:
                     for child_ref in self.events_bdl_iccp_group:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -14481,7 +13191,7 @@ class BundleInformation(object):
                         .. attribute:: event_type
                         
                         	EventType
-                        	**type**\: :py:class:`BmdBagTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTarget_Enum>`
+                        	**type**\: :py:class:`BmdBagTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                         
                         .. attribute:: member_evt_info
                         
@@ -14518,7 +13228,7 @@ class BundleInformation(object):
                             .. attribute:: bundle_event_type
                             
                             	Type of event for bundle
-                            	**type**\: :py:class:`BmdBagEventBdlItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventBdlItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                             
                             .. attribute:: data
                             
@@ -14554,7 +13264,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -14603,8 +13313,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -14617,10 +13325,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -14642,24 +13346,15 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_event_type is not None:
                                     return True
 
                                 if self.data is not None and self.data._has_data():
                                     return True
 
-                                if self.data is not None and self.data.is_presence():
-                                    return True
-
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -14680,7 +13375,7 @@ class BundleInformation(object):
                             .. attribute:: member_event_type
                             
                             	Type of event for member
-                            	**type**\: :py:class:`BmdBagEventMbrItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventMbrItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -14711,7 +13406,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -14760,8 +13455,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -14774,10 +13467,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -14799,12 +13488,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data is not None and self.data._has_data():
-                                    return True
-
-                                if self.data is not None and self.data.is_presence():
                                     return True
 
                                 if self.member_event_type is not None:
@@ -14813,10 +13497,6 @@ class BundleInformation(object):
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -14837,7 +13517,7 @@ class BundleInformation(object):
                             .. attribute:: rg_event_type
                             
                             	Type of event for RG
-                            	**type**\: :py:class:`BmdBagEventRgItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventRgItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -14868,7 +13548,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -14917,8 +13597,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -14931,10 +13609,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -14956,12 +13630,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data is not None and self.data._has_data():
-                                    return True
-
-                                if self.data is not None and self.data.is_presence():
                                     return True
 
                                 if self.rg_event_type is not None:
@@ -14970,10 +13639,6 @@ class BundleInformation(object):
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -14995,12 +13660,7 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
-                                return True
-
-                            if self.bundle_evt_info is not None and self.bundle_evt_info.is_presence():
                                 return True
 
                             if self.event_type is not None:
@@ -15009,19 +13669,9 @@ class BundleInformation(object):
                             if self.member_evt_info is not None and self.member_evt_info._has_data():
                                 return True
 
-                            if self.member_evt_info is not None and self.member_evt_info.is_presence():
-                                return True
-
                             if self.rg_evt_info is not None and self.rg_evt_info._has_data():
                                 return True
 
-                            if self.rg_evt_info is not None and self.rg_evt_info.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -15043,8 +13693,6 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.item_name is not None:
                             return True
 
@@ -15053,10 +13701,6 @@ class BundleInformation(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -15078,21 +13722,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.member_interface is not None:
                         return True
 
                     if self.events_bdl_member_ancestor is not None and self.events_bdl_member_ancestor._has_data():
                         return True
 
-                    if self.events_bdl_member_ancestor is not None and self.events_bdl_member_ancestor.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -15112,17 +13747,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.events_bdl_member is not None:
                     for child_ref in self.events_bdl_member:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -15142,30 +13771,15 @@ class BundleInformation(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.events_bdl_bundles is not None and self.events_bdl_bundles._has_data():
-                return True
-
-            if self.events_bdl_bundles is not None and self.events_bdl_bundles.is_presence():
                 return True
 
             if self.events_bdl_iccp_groups is not None and self.events_bdl_iccp_groups._has_data():
                 return True
 
-            if self.events_bdl_iccp_groups is not None and self.events_bdl_iccp_groups.is_presence():
-                return True
-
             if self.events_bdl_members is not None and self.events_bdl_members._has_data():
                 return True
 
-            if self.events_bdl_members is not None and self.events_bdl_members.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -15344,7 +13958,7 @@ class BundleInformation(object):
                             .. attribute:: event_type
                             
                             	EventType
-                            	**type**\: :py:class:`BmdBagTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTarget_Enum>`
+                            	**type**\: :py:class:`BmdBagTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                             
                             .. attribute:: member_evt_info
                             
@@ -15381,7 +13995,7 @@ class BundleInformation(object):
                                 .. attribute:: bundle_event_type
                                 
                                 	Type of event for bundle
-                                	**type**\: :py:class:`BmdBagEventBdlItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItem_Enum>`
+                                	**type**\: :py:class:`BmdBagEventBdlItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                                 
                                 .. attribute:: data
                                 
@@ -15417,7 +14031,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                    	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -15466,8 +14080,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.data_type is not None:
                                             return True
 
@@ -15480,10 +14092,6 @@ class BundleInformation(object):
                                         if self.string_data is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -15505,24 +14113,15 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.bundle_event_type is not None:
                                         return True
 
                                     if self.data is not None and self.data._has_data():
                                         return True
 
-                                    if self.data is not None and self.data.is_presence():
-                                        return True
-
                                     if self.time_stamp is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -15543,7 +14142,7 @@ class BundleInformation(object):
                                 .. attribute:: member_event_type
                                 
                                 	Type of event for member
-                                	**type**\: :py:class:`BmdBagEventMbrItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItem_Enum>`
+                                	**type**\: :py:class:`BmdBagEventMbrItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -15574,7 +14173,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                    	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -15623,8 +14222,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.data_type is not None:
                                             return True
 
@@ -15637,10 +14234,6 @@ class BundleInformation(object):
                                         if self.string_data is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -15662,12 +14255,7 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data is not None and self.data._has_data():
-                                        return True
-
-                                    if self.data is not None and self.data.is_presence():
                                         return True
 
                                     if self.member_event_type is not None:
@@ -15676,10 +14264,6 @@ class BundleInformation(object):
                                     if self.time_stamp is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -15700,7 +14284,7 @@ class BundleInformation(object):
                                 .. attribute:: rg_event_type
                                 
                                 	Type of event for RG
-                                	**type**\: :py:class:`BmdBagEventRgItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItem_Enum>`
+                                	**type**\: :py:class:`BmdBagEventRgItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -15731,7 +14315,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                    	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -15780,8 +14364,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.data_type is not None:
                                             return True
 
@@ -15794,10 +14376,6 @@ class BundleInformation(object):
                                         if self.string_data is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -15819,12 +14397,7 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data is not None and self.data._has_data():
-                                        return True
-
-                                    if self.data is not None and self.data.is_presence():
                                         return True
 
                                     if self.rg_event_type is not None:
@@ -15833,10 +14406,6 @@ class BundleInformation(object):
                                     if self.time_stamp is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -15858,12 +14427,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
-                                    return True
-
-                                if self.bundle_evt_info is not None and self.bundle_evt_info.is_presence():
                                     return True
 
                                 if self.event_type is not None:
@@ -15872,19 +14436,9 @@ class BundleInformation(object):
                                 if self.member_evt_info is not None and self.member_evt_info._has_data():
                                     return True
 
-                                if self.member_evt_info is not None and self.member_evt_info.is_presence():
-                                    return True
-
                                 if self.rg_evt_info is not None and self.rg_evt_info._has_data():
                                     return True
 
-                                if self.rg_evt_info is not None and self.rg_evt_info.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -15908,8 +14462,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.member_interface is not None:
                                 return True
 
@@ -15921,10 +14473,6 @@ class BundleInformation(object):
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -15946,17 +14494,11 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.events_mbr_bundle_children_member is not None:
                             for child_ref in self.events_mbr_bundle_children_member:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -16029,7 +14571,7 @@ class BundleInformation(object):
                             .. attribute:: event_type
                             
                             	EventType
-                            	**type**\: :py:class:`BmdBagTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTarget_Enum>`
+                            	**type**\: :py:class:`BmdBagTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                             
                             .. attribute:: member_evt_info
                             
@@ -16066,7 +14608,7 @@ class BundleInformation(object):
                                 .. attribute:: bundle_event_type
                                 
                                 	Type of event for bundle
-                                	**type**\: :py:class:`BmdBagEventBdlItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItem_Enum>`
+                                	**type**\: :py:class:`BmdBagEventBdlItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                                 
                                 .. attribute:: data
                                 
@@ -16102,7 +14644,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                    	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -16151,8 +14693,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.data_type is not None:
                                             return True
 
@@ -16165,10 +14705,6 @@ class BundleInformation(object):
                                         if self.string_data is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -16190,24 +14726,15 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.bundle_event_type is not None:
                                         return True
 
                                     if self.data is not None and self.data._has_data():
                                         return True
 
-                                    if self.data is not None and self.data.is_presence():
-                                        return True
-
                                     if self.time_stamp is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -16228,7 +14755,7 @@ class BundleInformation(object):
                                 .. attribute:: member_event_type
                                 
                                 	Type of event for member
-                                	**type**\: :py:class:`BmdBagEventMbrItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItem_Enum>`
+                                	**type**\: :py:class:`BmdBagEventMbrItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -16259,7 +14786,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                    	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -16308,8 +14835,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.data_type is not None:
                                             return True
 
@@ -16322,10 +14847,6 @@ class BundleInformation(object):
                                         if self.string_data is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -16347,12 +14868,7 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data is not None and self.data._has_data():
-                                        return True
-
-                                    if self.data is not None and self.data.is_presence():
                                         return True
 
                                     if self.member_event_type is not None:
@@ -16361,10 +14877,6 @@ class BundleInformation(object):
                                     if self.time_stamp is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -16385,7 +14897,7 @@ class BundleInformation(object):
                                 .. attribute:: rg_event_type
                                 
                                 	Type of event for RG
-                                	**type**\: :py:class:`BmdBagEventRgItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItem_Enum>`
+                                	**type**\: :py:class:`BmdBagEventRgItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -16416,7 +14928,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                    	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -16465,8 +14977,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.data_type is not None:
                                             return True
 
@@ -16479,10 +14989,6 @@ class BundleInformation(object):
                                         if self.string_data is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -16504,12 +15010,7 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data is not None and self.data._has_data():
-                                        return True
-
-                                    if self.data is not None and self.data.is_presence():
                                         return True
 
                                     if self.rg_event_type is not None:
@@ -16518,10 +15019,6 @@ class BundleInformation(object):
                                     if self.time_stamp is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -16543,12 +15040,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
-                                    return True
-
-                                if self.bundle_evt_info is not None and self.bundle_evt_info.is_presence():
                                     return True
 
                                 if self.event_type is not None:
@@ -16557,19 +15049,9 @@ class BundleInformation(object):
                                 if self.member_evt_info is not None and self.member_evt_info._has_data():
                                     return True
 
-                                if self.member_evt_info is not None and self.member_evt_info.is_presence():
-                                    return True
-
                                 if self.rg_evt_info is not None and self.rg_evt_info._has_data():
                                     return True
 
-                                if self.rg_evt_info is not None and self.rg_evt_info.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16591,8 +15073,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.item_name is not None:
                                 return True
 
@@ -16601,10 +15081,6 @@ class BundleInformation(object):
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -16626,17 +15102,11 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.events_item is not None:
                             for child_ref in self.events_item:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -16658,27 +15128,15 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bundle_interface is not None:
                         return True
 
                     if self.events_mbr_bundle_children_members is not None and self.events_mbr_bundle_children_members._has_data():
                         return True
 
-                    if self.events_mbr_bundle_children_members is not None and self.events_mbr_bundle_children_members.is_presence():
-                        return True
-
                     if self.events_mbr_bundle_descendant is not None and self.events_mbr_bundle_descendant._has_data():
                         return True
 
-                    if self.events_mbr_bundle_descendant is not None and self.events_mbr_bundle_descendant.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -16698,17 +15156,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.events_mbr_bundle is not None:
                     for child_ref in self.events_mbr_bundle:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -16849,7 +15301,7 @@ class BundleInformation(object):
                             .. attribute:: event_type
                             
                             	EventType
-                            	**type**\: :py:class:`BmdBagTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTarget_Enum>`
+                            	**type**\: :py:class:`BmdBagTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                             
                             .. attribute:: member_evt_info
                             
@@ -16886,7 +15338,7 @@ class BundleInformation(object):
                                 .. attribute:: bundle_event_type
                                 
                                 	Type of event for bundle
-                                	**type**\: :py:class:`BmdBagEventBdlItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItem_Enum>`
+                                	**type**\: :py:class:`BmdBagEventBdlItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                                 
                                 .. attribute:: data
                                 
@@ -16922,7 +15374,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                    	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -16971,8 +15423,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.data_type is not None:
                                             return True
 
@@ -16985,10 +15435,6 @@ class BundleInformation(object):
                                         if self.string_data is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -17010,24 +15456,15 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.bundle_event_type is not None:
                                         return True
 
                                     if self.data is not None and self.data._has_data():
                                         return True
 
-                                    if self.data is not None and self.data.is_presence():
-                                        return True
-
                                     if self.time_stamp is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -17048,7 +15485,7 @@ class BundleInformation(object):
                                 .. attribute:: member_event_type
                                 
                                 	Type of event for member
-                                	**type**\: :py:class:`BmdBagEventMbrItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItem_Enum>`
+                                	**type**\: :py:class:`BmdBagEventMbrItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -17079,7 +15516,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                    	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -17128,8 +15565,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.data_type is not None:
                                             return True
 
@@ -17142,10 +15577,6 @@ class BundleInformation(object):
                                         if self.string_data is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -17167,12 +15598,7 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data is not None and self.data._has_data():
-                                        return True
-
-                                    if self.data is not None and self.data.is_presence():
                                         return True
 
                                     if self.member_event_type is not None:
@@ -17181,10 +15607,6 @@ class BundleInformation(object):
                                     if self.time_stamp is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -17205,7 +15627,7 @@ class BundleInformation(object):
                                 .. attribute:: rg_event_type
                                 
                                 	Type of event for RG
-                                	**type**\: :py:class:`BmdBagEventRgItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItem_Enum>`
+                                	**type**\: :py:class:`BmdBagEventRgItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -17236,7 +15658,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                    	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -17285,8 +15707,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.data_type is not None:
                                             return True
 
@@ -17299,10 +15719,6 @@ class BundleInformation(object):
                                         if self.string_data is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -17324,12 +15740,7 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data is not None and self.data._has_data():
-                                        return True
-
-                                    if self.data is not None and self.data.is_presence():
                                         return True
 
                                     if self.rg_event_type is not None:
@@ -17338,10 +15749,6 @@ class BundleInformation(object):
                                     if self.time_stamp is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -17363,12 +15770,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
-                                    return True
-
-                                if self.bundle_evt_info is not None and self.bundle_evt_info.is_presence():
                                     return True
 
                                 if self.event_type is not None:
@@ -17377,19 +15779,9 @@ class BundleInformation(object):
                                 if self.member_evt_info is not None and self.member_evt_info._has_data():
                                     return True
 
-                                if self.member_evt_info is not None and self.member_evt_info.is_presence():
-                                    return True
-
                                 if self.rg_evt_info is not None and self.rg_evt_info._has_data():
                                     return True
 
-                                if self.rg_evt_info is not None and self.rg_evt_info.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -17413,8 +15805,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.member_interface is not None:
                                 return True
 
@@ -17426,10 +15816,6 @@ class BundleInformation(object):
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -17451,17 +15837,11 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.events_mbr_bundle_children_member_iccp_group is not None:
                             for child_ref in self.events_mbr_bundle_children_member_iccp_group:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -17534,7 +15914,7 @@ class BundleInformation(object):
                             .. attribute:: event_type
                             
                             	EventType
-                            	**type**\: :py:class:`BmdBagTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTarget_Enum>`
+                            	**type**\: :py:class:`BmdBagTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                             
                             .. attribute:: member_evt_info
                             
@@ -17571,7 +15951,7 @@ class BundleInformation(object):
                                 .. attribute:: bundle_event_type
                                 
                                 	Type of event for bundle
-                                	**type**\: :py:class:`BmdBagEventBdlItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItem_Enum>`
+                                	**type**\: :py:class:`BmdBagEventBdlItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                                 
                                 .. attribute:: data
                                 
@@ -17607,7 +15987,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                    	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -17656,8 +16036,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.data_type is not None:
                                             return True
 
@@ -17670,10 +16048,6 @@ class BundleInformation(object):
                                         if self.string_data is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -17695,24 +16069,15 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.bundle_event_type is not None:
                                         return True
 
                                     if self.data is not None and self.data._has_data():
                                         return True
 
-                                    if self.data is not None and self.data.is_presence():
-                                        return True
-
                                     if self.time_stamp is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -17733,7 +16098,7 @@ class BundleInformation(object):
                                 .. attribute:: member_event_type
                                 
                                 	Type of event for member
-                                	**type**\: :py:class:`BmdBagEventMbrItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItem_Enum>`
+                                	**type**\: :py:class:`BmdBagEventMbrItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -17764,7 +16129,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                    	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -17813,8 +16178,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.data_type is not None:
                                             return True
 
@@ -17827,10 +16190,6 @@ class BundleInformation(object):
                                         if self.string_data is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -17852,12 +16211,7 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data is not None and self.data._has_data():
-                                        return True
-
-                                    if self.data is not None and self.data.is_presence():
                                         return True
 
                                     if self.member_event_type is not None:
@@ -17866,10 +16220,6 @@ class BundleInformation(object):
                                     if self.time_stamp is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -17890,7 +16240,7 @@ class BundleInformation(object):
                                 .. attribute:: rg_event_type
                                 
                                 	Type of event for RG
-                                	**type**\: :py:class:`BmdBagEventRgItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItem_Enum>`
+                                	**type**\: :py:class:`BmdBagEventRgItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -17921,7 +16271,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                    	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -17970,8 +16320,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.data_type is not None:
                                             return True
 
@@ -17984,10 +16332,6 @@ class BundleInformation(object):
                                         if self.string_data is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -18009,12 +16353,7 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data is not None and self.data._has_data():
-                                        return True
-
-                                    if self.data is not None and self.data.is_presence():
                                         return True
 
                                     if self.rg_event_type is not None:
@@ -18023,10 +16362,6 @@ class BundleInformation(object):
                                     if self.time_stamp is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -18048,12 +16383,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
-                                    return True
-
-                                if self.bundle_evt_info is not None and self.bundle_evt_info.is_presence():
                                     return True
 
                                 if self.event_type is not None:
@@ -18062,19 +16392,9 @@ class BundleInformation(object):
                                 if self.member_evt_info is not None and self.member_evt_info._has_data():
                                     return True
 
-                                if self.member_evt_info is not None and self.member_evt_info.is_presence():
-                                    return True
-
                                 if self.rg_evt_info is not None and self.rg_evt_info._has_data():
                                     return True
 
-                                if self.rg_evt_info is not None and self.rg_evt_info.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -18096,8 +16416,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.item_name is not None:
                                 return True
 
@@ -18106,10 +16424,6 @@ class BundleInformation(object):
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -18131,17 +16445,11 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.events_item is not None:
                             for child_ref in self.events_item:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -18163,27 +16471,15 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.iccp_group is not None:
                         return True
 
                     if self.events_mbr_bundle_children_member_iccp_groups is not None and self.events_mbr_bundle_children_member_iccp_groups._has_data():
                         return True
 
-                    if self.events_mbr_bundle_children_member_iccp_groups is not None and self.events_mbr_bundle_children_member_iccp_groups.is_presence():
-                        return True
-
                     if self.events_mbr_bundle_descendant_iccp_group is not None and self.events_mbr_bundle_descendant_iccp_group._has_data():
                         return True
 
-                    if self.events_mbr_bundle_descendant_iccp_group is not None and self.events_mbr_bundle_descendant_iccp_group.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -18203,17 +16499,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.events_mbr_iccp_group is not None:
                     for child_ref in self.events_mbr_iccp_group:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -18315,7 +16605,7 @@ class BundleInformation(object):
                         .. attribute:: event_type
                         
                         	EventType
-                        	**type**\: :py:class:`BmdBagTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTarget_Enum>`
+                        	**type**\: :py:class:`BmdBagTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                         
                         .. attribute:: member_evt_info
                         
@@ -18352,7 +16642,7 @@ class BundleInformation(object):
                             .. attribute:: bundle_event_type
                             
                             	Type of event for bundle
-                            	**type**\: :py:class:`BmdBagEventBdlItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventBdlItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                             
                             .. attribute:: data
                             
@@ -18388,7 +16678,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -18437,8 +16727,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -18451,10 +16739,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -18476,24 +16760,15 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_event_type is not None:
                                     return True
 
                                 if self.data is not None and self.data._has_data():
                                     return True
 
-                                if self.data is not None and self.data.is_presence():
-                                    return True
-
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -18514,7 +16789,7 @@ class BundleInformation(object):
                             .. attribute:: member_event_type
                             
                             	Type of event for member
-                            	**type**\: :py:class:`BmdBagEventMbrItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventMbrItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -18545,7 +16820,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -18594,8 +16869,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -18608,10 +16881,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -18633,12 +16902,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data is not None and self.data._has_data():
-                                    return True
-
-                                if self.data is not None and self.data.is_presence():
                                     return True
 
                                 if self.member_event_type is not None:
@@ -18647,10 +16911,6 @@ class BundleInformation(object):
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -18671,7 +16931,7 @@ class BundleInformation(object):
                             .. attribute:: rg_event_type
                             
                             	Type of event for RG
-                            	**type**\: :py:class:`BmdBagEventRgItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventRgItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -18702,7 +16962,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -18751,8 +17011,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -18765,10 +17023,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -18790,12 +17044,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data is not None and self.data._has_data():
-                                    return True
-
-                                if self.data is not None and self.data.is_presence():
                                     return True
 
                                 if self.rg_event_type is not None:
@@ -18804,10 +17053,6 @@ class BundleInformation(object):
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -18829,12 +17074,7 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
-                                return True
-
-                            if self.bundle_evt_info is not None and self.bundle_evt_info.is_presence():
                                 return True
 
                             if self.event_type is not None:
@@ -18843,19 +17083,9 @@ class BundleInformation(object):
                             if self.member_evt_info is not None and self.member_evt_info._has_data():
                                 return True
 
-                            if self.member_evt_info is not None and self.member_evt_info.is_presence():
-                                return True
-
                             if self.rg_evt_info is not None and self.rg_evt_info._has_data():
                                 return True
 
-                            if self.rg_evt_info is not None and self.rg_evt_info.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -18877,8 +17107,6 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.item_name is not None:
                             return True
 
@@ -18887,10 +17115,6 @@ class BundleInformation(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -18912,21 +17136,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.member_interface is not None:
                         return True
 
                     if self.events_mbr_member_item is not None and self.events_mbr_member_item._has_data():
                         return True
 
-                    if self.events_mbr_member_item is not None and self.events_mbr_member_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -18946,17 +17161,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.events_mbr_member is not None:
                     for child_ref in self.events_mbr_member:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -18976,30 +17185,15 @@ class BundleInformation(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.events_mbr_bundles is not None and self.events_mbr_bundles._has_data():
-                return True
-
-            if self.events_mbr_bundles is not None and self.events_mbr_bundles.is_presence():
                 return True
 
             if self.events_mbr_iccp_groups is not None and self.events_mbr_iccp_groups._has_data():
                 return True
 
-            if self.events_mbr_iccp_groups is not None and self.events_mbr_iccp_groups.is_presence():
-                return True
-
             if self.events_mbr_members is not None and self.events_mbr_members._has_data():
                 return True
 
-            if self.events_mbr_members is not None and self.events_mbr_members.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -19139,7 +17333,7 @@ class BundleInformation(object):
                         .. attribute:: event_type
                         
                         	EventType
-                        	**type**\: :py:class:`BmdBagTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTarget_Enum>`
+                        	**type**\: :py:class:`BmdBagTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                         
                         .. attribute:: member_evt_info
                         
@@ -19176,7 +17370,7 @@ class BundleInformation(object):
                             .. attribute:: bundle_event_type
                             
                             	Type of event for bundle
-                            	**type**\: :py:class:`BmdBagEventBdlItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventBdlItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                             
                             .. attribute:: data
                             
@@ -19212,7 +17406,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -19261,8 +17455,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -19275,10 +17467,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -19300,24 +17488,15 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_event_type is not None:
                                     return True
 
                                 if self.data is not None and self.data._has_data():
                                     return True
 
-                                if self.data is not None and self.data.is_presence():
-                                    return True
-
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -19338,7 +17517,7 @@ class BundleInformation(object):
                             .. attribute:: member_event_type
                             
                             	Type of event for member
-                            	**type**\: :py:class:`BmdBagEventMbrItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventMbrItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -19369,7 +17548,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -19418,8 +17597,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -19432,10 +17609,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -19457,12 +17630,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data is not None and self.data._has_data():
-                                    return True
-
-                                if self.data is not None and self.data.is_presence():
                                     return True
 
                                 if self.member_event_type is not None:
@@ -19471,10 +17639,6 @@ class BundleInformation(object):
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -19495,7 +17659,7 @@ class BundleInformation(object):
                             .. attribute:: rg_event_type
                             
                             	Type of event for RG
-                            	**type**\: :py:class:`BmdBagEventRgItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventRgItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -19526,7 +17690,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -19575,8 +17739,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -19589,10 +17751,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -19614,12 +17772,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data is not None and self.data._has_data():
-                                    return True
-
-                                if self.data is not None and self.data.is_presence():
                                     return True
 
                                 if self.rg_event_type is not None:
@@ -19628,10 +17781,6 @@ class BundleInformation(object):
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -19653,12 +17802,7 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
-                                return True
-
-                            if self.bundle_evt_info is not None and self.bundle_evt_info.is_presence():
                                 return True
 
                             if self.event_type is not None:
@@ -19667,19 +17811,9 @@ class BundleInformation(object):
                             if self.member_evt_info is not None and self.member_evt_info._has_data():
                                 return True
 
-                            if self.member_evt_info is not None and self.member_evt_info.is_presence():
-                                return True
-
                             if self.rg_evt_info is not None and self.rg_evt_info._has_data():
                                 return True
 
-                            if self.rg_evt_info is not None and self.rg_evt_info.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -19701,8 +17835,6 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.item_name is not None:
                             return True
 
@@ -19711,10 +17843,6 @@ class BundleInformation(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -19736,21 +17864,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bundle_interface is not None:
                         return True
 
                     if self.events_rg_bundle_ancestor is not None and self.events_rg_bundle_ancestor._has_data():
                         return True
 
-                    if self.events_rg_bundle_ancestor is not None and self.events_rg_bundle_ancestor.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -19770,17 +17889,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.events_rg_bundle is not None:
                     for child_ref in self.events_rg_bundle:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -19883,7 +17996,7 @@ class BundleInformation(object):
                         .. attribute:: event_type
                         
                         	EventType
-                        	**type**\: :py:class:`BmdBagTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTarget_Enum>`
+                        	**type**\: :py:class:`BmdBagTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                         
                         .. attribute:: member_evt_info
                         
@@ -19920,7 +18033,7 @@ class BundleInformation(object):
                             .. attribute:: bundle_event_type
                             
                             	Type of event for bundle
-                            	**type**\: :py:class:`BmdBagEventBdlItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventBdlItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                             
                             .. attribute:: data
                             
@@ -19956,7 +18069,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -20005,8 +18118,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -20019,10 +18130,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -20044,24 +18151,15 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_event_type is not None:
                                     return True
 
                                 if self.data is not None and self.data._has_data():
                                     return True
 
-                                if self.data is not None and self.data.is_presence():
-                                    return True
-
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -20082,7 +18180,7 @@ class BundleInformation(object):
                             .. attribute:: member_event_type
                             
                             	Type of event for member
-                            	**type**\: :py:class:`BmdBagEventMbrItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventMbrItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -20113,7 +18211,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -20162,8 +18260,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -20176,10 +18272,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -20201,12 +18293,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data is not None and self.data._has_data():
-                                    return True
-
-                                if self.data is not None and self.data.is_presence():
                                     return True
 
                                 if self.member_event_type is not None:
@@ -20215,10 +18302,6 @@ class BundleInformation(object):
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -20239,7 +18322,7 @@ class BundleInformation(object):
                             .. attribute:: rg_event_type
                             
                             	Type of event for RG
-                            	**type**\: :py:class:`BmdBagEventRgItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventRgItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -20270,7 +18353,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -20319,8 +18402,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -20333,10 +18414,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -20358,12 +18435,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data is not None and self.data._has_data():
-                                    return True
-
-                                if self.data is not None and self.data.is_presence():
                                     return True
 
                                 if self.rg_event_type is not None:
@@ -20372,10 +18444,6 @@ class BundleInformation(object):
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -20397,12 +18465,7 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
-                                return True
-
-                            if self.bundle_evt_info is not None and self.bundle_evt_info.is_presence():
                                 return True
 
                             if self.event_type is not None:
@@ -20411,19 +18474,9 @@ class BundleInformation(object):
                             if self.member_evt_info is not None and self.member_evt_info._has_data():
                                 return True
 
-                            if self.member_evt_info is not None and self.member_evt_info.is_presence():
-                                return True
-
                             if self.rg_evt_info is not None and self.rg_evt_info._has_data():
                                 return True
 
-                            if self.rg_evt_info is not None and self.rg_evt_info.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -20445,8 +18498,6 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.item_name is not None:
                             return True
 
@@ -20455,10 +18506,6 @@ class BundleInformation(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -20480,21 +18527,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.iccp_group is not None:
                         return True
 
                     if self.events_rg_bundle_item_iccp_group is not None and self.events_rg_bundle_item_iccp_group._has_data():
                         return True
 
-                    if self.events_rg_bundle_item_iccp_group is not None and self.events_rg_bundle_item_iccp_group.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -20514,17 +18552,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.events_rg_iccp_group is not None:
                     for child_ref in self.events_rg_iccp_group:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -20626,7 +18658,7 @@ class BundleInformation(object):
                         .. attribute:: event_type
                         
                         	EventType
-                        	**type**\: :py:class:`BmdBagTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTarget_Enum>`
+                        	**type**\: :py:class:`BmdBagTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                         
                         .. attribute:: member_evt_info
                         
@@ -20663,7 +18695,7 @@ class BundleInformation(object):
                             .. attribute:: bundle_event_type
                             
                             	Type of event for bundle
-                            	**type**\: :py:class:`BmdBagEventBdlItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventBdlItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                             
                             .. attribute:: data
                             
@@ -20699,7 +18731,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -20748,8 +18780,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -20762,10 +18792,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -20787,24 +18813,15 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_event_type is not None:
                                     return True
 
                                 if self.data is not None and self.data._has_data():
                                     return True
 
-                                if self.data is not None and self.data.is_presence():
-                                    return True
-
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -20825,7 +18842,7 @@ class BundleInformation(object):
                             .. attribute:: member_event_type
                             
                             	Type of event for member
-                            	**type**\: :py:class:`BmdBagEventMbrItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventMbrItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -20856,7 +18873,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -20905,8 +18922,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -20919,10 +18934,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -20944,12 +18955,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data is not None and self.data._has_data():
-                                    return True
-
-                                if self.data is not None and self.data.is_presence():
                                     return True
 
                                 if self.member_event_type is not None:
@@ -20958,10 +18964,6 @@ class BundleInformation(object):
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -20982,7 +18984,7 @@ class BundleInformation(object):
                             .. attribute:: rg_event_type
                             
                             	Type of event for RG
-                            	**type**\: :py:class:`BmdBagEventRgItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItem_Enum>`
+                            	**type**\: :py:class:`BmdBagEventRgItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -21013,7 +19015,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\: :py:class:`BmdBagEventData_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventData_Enum>`
+                                	**type**\: :py:class:`BmdBagEventDataEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -21062,8 +19064,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.data_type is not None:
                                         return True
 
@@ -21076,10 +19076,6 @@ class BundleInformation(object):
                                     if self.string_data is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -21101,12 +19097,7 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data is not None and self.data._has_data():
-                                    return True
-
-                                if self.data is not None and self.data.is_presence():
                                     return True
 
                                 if self.rg_event_type is not None:
@@ -21115,10 +19106,6 @@ class BundleInformation(object):
                                 if self.time_stamp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -21140,12 +19127,7 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
-                                return True
-
-                            if self.bundle_evt_info is not None and self.bundle_evt_info.is_presence():
                                 return True
 
                             if self.event_type is not None:
@@ -21154,19 +19136,9 @@ class BundleInformation(object):
                             if self.member_evt_info is not None and self.member_evt_info._has_data():
                                 return True
 
-                            if self.member_evt_info is not None and self.member_evt_info.is_presence():
-                                return True
-
                             if self.rg_evt_info is not None and self.rg_evt_info._has_data():
                                 return True
 
-                            if self.rg_evt_info is not None and self.rg_evt_info.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -21188,8 +19160,6 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.item_name is not None:
                             return True
 
@@ -21198,10 +19168,6 @@ class BundleInformation(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -21223,21 +19189,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.member_interface is not None:
                         return True
 
                     if self.events_rg_member_ancestor is not None and self.events_rg_member_ancestor._has_data():
                         return True
 
-                    if self.events_rg_member_ancestor is not None and self.events_rg_member_ancestor.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -21257,17 +19214,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.events_rg_member is not None:
                     for child_ref in self.events_rg_member:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -21287,30 +19238,15 @@ class BundleInformation(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.events_rg_bundles is not None and self.events_rg_bundles._has_data():
-                return True
-
-            if self.events_rg_bundles is not None and self.events_rg_bundles.is_presence():
                 return True
 
             if self.events_rg_iccp_groups is not None and self.events_rg_iccp_groups._has_data():
                 return True
 
-            if self.events_rg_iccp_groups is not None and self.events_rg_iccp_groups.is_presence():
-                return True
-
             if self.events_rg_members is not None and self.events_rg_members._has_data():
                 return True
 
-            if self.events_rg_members is not None and self.events_rg_members.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -21450,7 +19386,7 @@ class BundleInformation(object):
                         .. attribute:: actor_churn_state
                         
                         	State of the Churn state machine for the Actor
-                        	**type**\: :py:class:`LacpChurnstates_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstates_Enum>`
+                        	**type**\: :py:class:`LacpChurnstatesEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
                         
                         .. attribute:: actor_info
                         
@@ -21479,12 +19415,12 @@ class BundleInformation(object):
                         .. attribute:: mux_state
                         
                         	State of the Mux state machine
-                        	**type**\: :py:class:`BmMuxstate_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstate_Enum>`
+                        	**type**\: :py:class:`BmMuxstateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
                         
                         .. attribute:: partner_churn_state
                         
                         	State of the Churn state machine for the Partner
-                        	**type**\: :py:class:`LacpChurnstates_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstates_Enum>`
+                        	**type**\: :py:class:`LacpChurnstatesEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
                         
                         .. attribute:: partner_info
                         
@@ -21494,12 +19430,12 @@ class BundleInformation(object):
                         .. attribute:: period_state
                         
                         	State of the Period state machine
-                        	**type**\: :py:class:`LacpPeriodState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpPeriodState_Enum>`
+                        	**type**\: :py:class:`LacpPeriodStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpPeriodStateEnum>`
                         
                         .. attribute:: receive_machine_state
                         
                         	State of the RX state machine
-                        	**type**\: :py:class:`Rxstates_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.Rxstates_Enum>`
+                        	**type**\: :py:class:`RxstatesEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.RxstatesEnum>`
                         
                         .. attribute:: selected_aggregator_id
                         
@@ -21511,7 +19447,7 @@ class BundleInformation(object):
                         .. attribute:: selection_state
                         
                         	State of the Selection Logic state machine
-                        	**type**\: :py:class:`LacpSelState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpSelState_Enum>`
+                        	**type**\: :py:class:`LacpSelStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpSelStateEnum>`
                         
                         
 
@@ -21659,18 +19595,12 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.link_number is not None:
                                             return True
 
                                         if self.link_priority is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21745,15 +19675,9 @@ class BundleInformation(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.macaddr is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -21775,21 +19699,12 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.system_mac_addr is not None and self.system_mac_addr._has_data():
-                                            return True
-
-                                        if self.system_mac_addr is not None and self.system_mac_addr.is_presence():
                                             return True
 
                                         if self.system_prio is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21811,15 +19726,10 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.key is not None:
                                         return True
 
                                     if self.port is not None and self.port._has_data():
-                                        return True
-
-                                    if self.port is not None and self.port.is_presence():
                                         return True
 
                                     if self.state is not None:
@@ -21828,13 +19738,6 @@ class BundleInformation(object):
                                     if self.system is not None and self.system._has_data():
                                         return True
 
-                                    if self.system is not None and self.system.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -21856,21 +19759,12 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.port_info is not None and self.port_info._has_data():
-                                    return True
-
-                                if self.port_info is not None and self.port_info.is_presence():
                                     return True
 
                                 if self.tx_period is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -21896,7 +19790,7 @@ class BundleInformation(object):
                             .. attribute:: mbr_type
                             
                             	MbrType
-                            	**type**\: :py:class:`BmdMemberTypeEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnum_Enum>`
+                            	**type**\: :py:class:`BmdMemberTypeEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
                             
                             
 
@@ -21956,18 +19850,12 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.member_name is not None:
                                         return True
 
                                     if self.peer_address is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -22012,15 +19900,9 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_handle is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -22042,27 +19924,15 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.foreign is not None and self.foreign._has_data():
-                                    return True
-
-                                if self.foreign is not None and self.foreign.is_presence():
                                     return True
 
                                 if self.local is not None and self.local._has_data():
                                     return True
 
-                                if self.local is not None and self.local.is_presence():
-                                    return True
-
                                 if self.mbr_type is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -22190,18 +20060,12 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.link_number is not None:
                                             return True
 
                                         if self.link_priority is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -22276,15 +20140,9 @@ class BundleInformation(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.macaddr is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -22306,21 +20164,12 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.system_mac_addr is not None and self.system_mac_addr._has_data():
-                                            return True
-
-                                        if self.system_mac_addr is not None and self.system_mac_addr.is_presence():
                                             return True
 
                                         if self.system_prio is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -22342,15 +20191,10 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.key is not None:
                                         return True
 
                                     if self.port is not None and self.port._has_data():
-                                        return True
-
-                                    if self.port is not None and self.port.is_presence():
                                         return True
 
                                     if self.state is not None:
@@ -22359,13 +20203,6 @@ class BundleInformation(object):
                                     if self.system is not None and self.system._has_data():
                                         return True
 
-                                    if self.system is not None and self.system.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -22387,21 +20224,12 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.port_info is not None and self.port_info._has_data():
-                                    return True
-
-                                if self.port_info is not None and self.port_info.is_presence():
                                     return True
 
                                 if self.tx_period is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -22425,8 +20253,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.member_interface is not None:
                                 return True
 
@@ -22436,13 +20262,7 @@ class BundleInformation(object):
                             if self.actor_info is not None and self.actor_info._has_data():
                                 return True
 
-                            if self.actor_info is not None and self.actor_info.is_presence():
-                                return True
-
                             if self.additional_info is not None and self.additional_info._has_data():
-                                return True
-
-                            if self.additional_info is not None and self.additional_info.is_presence():
                                 return True
 
                             if self.attached_aggregator_id is not None:
@@ -22460,9 +20280,6 @@ class BundleInformation(object):
                             if self.partner_info is not None and self.partner_info._has_data():
                                 return True
 
-                            if self.partner_info is not None and self.partner_info.is_presence():
-                                return True
-
                             if self.period_state is not None:
                                 return True
 
@@ -22475,10 +20292,6 @@ class BundleInformation(object):
                             if self.selection_state is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -22500,17 +20313,11 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.lacp_bundle_children_member is not None:
                             for child_ref in self.lacp_bundle_children_member:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -22650,7 +20457,7 @@ class BundleInformation(object):
                             .. attribute:: bundle_status
                             
                             	The state of the bundle
-                            	**type**\: :py:class:`BmBdlState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlState_Enum>`
+                            	**type**\: :py:class:`BmBdlStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
                             
                             .. attribute:: cisco_extensions
                             
@@ -22707,7 +20514,7 @@ class BundleInformation(object):
                             .. attribute:: ipv4bfd_status
                             
                             	The status of the BFD (IPv4) feature on the bundle
-                            	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                            	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
                             .. attribute:: is_active
                             
@@ -22722,12 +20529,12 @@ class BundleInformation(object):
                             .. attribute:: lacp_status
                             
                             	The status of the LACP feature on the bundle
-                            	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                            	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
                             .. attribute:: link_order_status
                             
                             	The status of the link order signaling feature on the bundle
-                            	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                            	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
                             .. attribute:: load_balance_locality_threshold
                             
@@ -22751,7 +20558,7 @@ class BundleInformation(object):
                             .. attribute:: mac_source
                             
                             	The source of the MAC Address
-                            	**type**\: :py:class:`BmBdlMacSource_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSource_Enum>`
+                            	**type**\: :py:class:`BmBdlMacSourceEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
                             
                             .. attribute:: mac_source_member
                             
@@ -22784,7 +20591,7 @@ class BundleInformation(object):
                             .. attribute:: maximum_active_links_source
                             
                             	Source of maximum active links value
-                            	**type**\: :py:class:`BmWhichSystem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystem_Enum>`
+                            	**type**\: :py:class:`BmWhichSystemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
                             
                             .. attribute:: minimum_active_links
                             
@@ -22803,12 +20610,12 @@ class BundleInformation(object):
                             .. attribute:: mlacp_mode
                             
                             	Indicates the mode of the device for the bundle
-                            	**type**\: :py:class:`BundleMlacpMode_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpMode_Enum>`
+                            	**type**\: :py:class:`BundleMlacpModeEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
                             
                             .. attribute:: mlacp_status
                             
                             	The status of the mLACP feature on the bundle
-                            	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                            	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
                             .. attribute:: primary_member
                             
@@ -22846,7 +20653,7 @@ class BundleInformation(object):
                             .. attribute:: switchover_type
                             
                             	How a switchover of the bundle from this device will occur
-                            	**type**\: :py:class:`BmdMlacpSwitchover_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchover_Enum>`
+                            	**type**\: :py:class:`BmdMlacpSwitchoverEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
                             
                             .. attribute:: wait_while_timer
                             
@@ -22915,7 +20722,7 @@ class BundleInformation(object):
                                 .. attribute:: bundle_status
                                 
                                 	Status of BFD on the bundle
-                                	**type**\: :py:class:`BmdBfdBdlState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlState_Enum>`
+                                	**type**\: :py:class:`BmdBfdBdlStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
                                 
                                 .. attribute:: destination_address
                                 
@@ -22997,7 +20804,7 @@ class BundleInformation(object):
                                     .. attribute:: af
                                     
                                     	AF
-                                    	**type**\: :py:class:`BmAfId_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmAfId_Enum>`
+                                    	**type**\: :py:class:`BmAfIdEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
                                     
                                     .. attribute:: ipv4
                                     
@@ -23040,8 +20847,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.af is not None:
                                             return True
 
@@ -23051,10 +20856,6 @@ class BundleInformation(object):
                                         if self.ipv6 is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -23076,15 +20877,10 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.bundle_status is not None:
                                         return True
 
                                     if self.destination_address is not None and self.destination_address._has_data():
-                                        return True
-
-                                    if self.destination_address is not None and self.destination_address.is_presence():
                                         return True
 
                                     if self.fast_detect is not None:
@@ -23108,10 +20904,6 @@ class BundleInformation(object):
                                     if self.start_timer is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -23156,15 +20948,9 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -23186,8 +20972,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.active_foreign_member_count is not None:
                                     return True
 
@@ -23256,9 +21040,6 @@ class BundleInformation(object):
                                 if self.mac_address is not None and self.mac_address._has_data():
                                     return True
 
-                                if self.mac_address is not None and self.mac_address.is_presence():
-                                    return True
-
                                 if self.mac_source is not None:
                                     return True
 
@@ -23310,10 +21091,6 @@ class BundleInformation(object):
                                 if self.wait_while_timer is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -23388,15 +21165,9 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.macaddr is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -23418,21 +21189,12 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.system_mac_addr is not None and self.system_mac_addr._has_data():
-                                    return True
-
-                                if self.system_mac_addr is not None and self.system_mac_addr.is_presence():
                                     return True
 
                                 if self.system_prio is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -23454,21 +21216,13 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.actor_bundle_data is not None and self.actor_bundle_data._has_data():
-                                return True
-
-                            if self.actor_bundle_data is not None and self.actor_bundle_data.is_presence():
                                 return True
 
                             if self.actor_operational_key is not None:
                                 return True
 
                             if self.bundle_system_id is not None and self.bundle_system_id._has_data():
-                                return True
-
-                            if self.bundle_system_id is not None and self.bundle_system_id.is_presence():
                                 return True
 
                             if self.partner_operational_key is not None:
@@ -23480,10 +21234,6 @@ class BundleInformation(object):
                             if self.partner_system_priority is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -23499,7 +21249,7 @@ class BundleInformation(object):
                         .. attribute:: actor_churn_state
                         
                         	State of the Churn state machine for the Actor
-                        	**type**\: :py:class:`LacpChurnstates_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstates_Enum>`
+                        	**type**\: :py:class:`LacpChurnstatesEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
                         
                         .. attribute:: actor_info
                         
@@ -23528,12 +21278,12 @@ class BundleInformation(object):
                         .. attribute:: mux_state
                         
                         	State of the Mux state machine
-                        	**type**\: :py:class:`BmMuxstate_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstate_Enum>`
+                        	**type**\: :py:class:`BmMuxstateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
                         
                         .. attribute:: partner_churn_state
                         
                         	State of the Churn state machine for the Partner
-                        	**type**\: :py:class:`LacpChurnstates_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstates_Enum>`
+                        	**type**\: :py:class:`LacpChurnstatesEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
                         
                         .. attribute:: partner_info
                         
@@ -23543,12 +21293,12 @@ class BundleInformation(object):
                         .. attribute:: period_state
                         
                         	State of the Period state machine
-                        	**type**\: :py:class:`LacpPeriodState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpPeriodState_Enum>`
+                        	**type**\: :py:class:`LacpPeriodStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpPeriodStateEnum>`
                         
                         .. attribute:: receive_machine_state
                         
                         	State of the RX state machine
-                        	**type**\: :py:class:`Rxstates_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.Rxstates_Enum>`
+                        	**type**\: :py:class:`RxstatesEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.RxstatesEnum>`
                         
                         .. attribute:: selected_aggregator_id
                         
@@ -23560,7 +21310,7 @@ class BundleInformation(object):
                         .. attribute:: selection_state
                         
                         	State of the Selection Logic state machine
-                        	**type**\: :py:class:`LacpSelState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpSelState_Enum>`
+                        	**type**\: :py:class:`LacpSelStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpSelStateEnum>`
                         
                         
 
@@ -23707,18 +21457,12 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.link_number is not None:
                                             return True
 
                                         if self.link_priority is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -23793,15 +21537,9 @@ class BundleInformation(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.macaddr is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -23823,21 +21561,12 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.system_mac_addr is not None and self.system_mac_addr._has_data():
-                                            return True
-
-                                        if self.system_mac_addr is not None and self.system_mac_addr.is_presence():
                                             return True
 
                                         if self.system_prio is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -23859,15 +21588,10 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.key is not None:
                                         return True
 
                                     if self.port is not None and self.port._has_data():
-                                        return True
-
-                                    if self.port is not None and self.port.is_presence():
                                         return True
 
                                     if self.state is not None:
@@ -23876,13 +21600,6 @@ class BundleInformation(object):
                                     if self.system is not None and self.system._has_data():
                                         return True
 
-                                    if self.system is not None and self.system.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -23904,21 +21621,12 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.port_info is not None and self.port_info._has_data():
-                                    return True
-
-                                if self.port_info is not None and self.port_info.is_presence():
                                     return True
 
                                 if self.tx_period is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -23944,7 +21652,7 @@ class BundleInformation(object):
                             .. attribute:: mbr_type
                             
                             	MbrType
-                            	**type**\: :py:class:`BmdMemberTypeEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnum_Enum>`
+                            	**type**\: :py:class:`BmdMemberTypeEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
                             
                             
 
@@ -24004,18 +21712,12 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.member_name is not None:
                                         return True
 
                                     if self.peer_address is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -24060,15 +21762,9 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_handle is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -24090,27 +21786,15 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.foreign is not None and self.foreign._has_data():
-                                    return True
-
-                                if self.foreign is not None and self.foreign.is_presence():
                                     return True
 
                                 if self.local is not None and self.local._has_data():
                                     return True
 
-                                if self.local is not None and self.local.is_presence():
-                                    return True
-
                                 if self.mbr_type is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -24238,18 +21922,12 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.link_number is not None:
                                             return True
 
                                         if self.link_priority is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -24324,15 +22002,9 @@ class BundleInformation(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.macaddr is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -24354,21 +22026,12 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.system_mac_addr is not None and self.system_mac_addr._has_data():
-                                            return True
-
-                                        if self.system_mac_addr is not None and self.system_mac_addr.is_presence():
                                             return True
 
                                         if self.system_prio is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -24390,15 +22053,10 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.key is not None:
                                         return True
 
                                     if self.port is not None and self.port._has_data():
-                                        return True
-
-                                    if self.port is not None and self.port.is_presence():
                                         return True
 
                                     if self.state is not None:
@@ -24407,13 +22065,6 @@ class BundleInformation(object):
                                     if self.system is not None and self.system._has_data():
                                         return True
 
-                                    if self.system is not None and self.system.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -24435,21 +22086,12 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.port_info is not None and self.port_info._has_data():
-                                    return True
-
-                                if self.port_info is not None and self.port_info.is_presence():
                                     return True
 
                                 if self.tx_period is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -24471,21 +22113,13 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.actor_churn_state is not None:
                                 return True
 
                             if self.actor_info is not None and self.actor_info._has_data():
                                 return True
 
-                            if self.actor_info is not None and self.actor_info.is_presence():
-                                return True
-
                             if self.additional_info is not None and self.additional_info._has_data():
-                                return True
-
-                            if self.additional_info is not None and self.additional_info.is_presence():
                                 return True
 
                             if self.attached_aggregator_id is not None:
@@ -24503,9 +22137,6 @@ class BundleInformation(object):
                             if self.partner_info is not None and self.partner_info._has_data():
                                 return True
 
-                            if self.partner_info is not None and self.partner_info.is_presence():
-                                return True
-
                             if self.period_state is not None:
                                 return True
 
@@ -24518,10 +22149,6 @@ class BundleInformation(object):
                             if self.selection_state is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -24543,12 +22170,7 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bundle_data is not None and self.bundle_data._has_data():
-                            return True
-
-                        if self.bundle_data is not None and self.bundle_data.is_presence():
                             return True
 
                         if self.member_data is not None:
@@ -24556,10 +22178,6 @@ class BundleInformation(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -24669,7 +22287,7 @@ class BundleInformation(object):
                         .. attribute:: bundle_status
                         
                         	The state of the bundle
-                        	**type**\: :py:class:`BmBdlState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlState_Enum>`
+                        	**type**\: :py:class:`BmBdlStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
                         
                         .. attribute:: cisco_extensions
                         
@@ -24726,7 +22344,7 @@ class BundleInformation(object):
                         .. attribute:: ipv4bfd_status
                         
                         	The status of the BFD (IPv4) feature on the bundle
-                        	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                        	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: is_active
                         
@@ -24741,12 +22359,12 @@ class BundleInformation(object):
                         .. attribute:: lacp_status
                         
                         	The status of the LACP feature on the bundle
-                        	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                        	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: link_order_status
                         
                         	The status of the link order signaling feature on the bundle
-                        	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                        	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: load_balance_locality_threshold
                         
@@ -24770,7 +22388,7 @@ class BundleInformation(object):
                         .. attribute:: mac_source
                         
                         	The source of the MAC Address
-                        	**type**\: :py:class:`BmBdlMacSource_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSource_Enum>`
+                        	**type**\: :py:class:`BmBdlMacSourceEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
                         
                         .. attribute:: mac_source_member
                         
@@ -24803,7 +22421,7 @@ class BundleInformation(object):
                         .. attribute:: maximum_active_links_source
                         
                         	Source of maximum active links value
-                        	**type**\: :py:class:`BmWhichSystem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystem_Enum>`
+                        	**type**\: :py:class:`BmWhichSystemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
                         
                         .. attribute:: minimum_active_links
                         
@@ -24822,12 +22440,12 @@ class BundleInformation(object):
                         .. attribute:: mlacp_mode
                         
                         	Indicates the mode of the device for the bundle
-                        	**type**\: :py:class:`BundleMlacpMode_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpMode_Enum>`
+                        	**type**\: :py:class:`BundleMlacpModeEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
                         
                         .. attribute:: mlacp_status
                         
                         	The status of the mLACP feature on the bundle
-                        	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                        	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: primary_member
                         
@@ -24865,7 +22483,7 @@ class BundleInformation(object):
                         .. attribute:: switchover_type
                         
                         	How a switchover of the bundle from this device will occur
-                        	**type**\: :py:class:`BmdMlacpSwitchover_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchover_Enum>`
+                        	**type**\: :py:class:`BmdMlacpSwitchoverEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
                         
                         .. attribute:: wait_while_timer
                         
@@ -24934,7 +22552,7 @@ class BundleInformation(object):
                             .. attribute:: bundle_status
                             
                             	Status of BFD on the bundle
-                            	**type**\: :py:class:`BmdBfdBdlState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlState_Enum>`
+                            	**type**\: :py:class:`BmdBfdBdlStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
                             
                             .. attribute:: destination_address
                             
@@ -25016,7 +22634,7 @@ class BundleInformation(object):
                                 .. attribute:: af
                                 
                                 	AF
-                                	**type**\: :py:class:`BmAfId_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmAfId_Enum>`
+                                	**type**\: :py:class:`BmAfIdEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
                                 
                                 .. attribute:: ipv4
                                 
@@ -25059,8 +22677,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.af is not None:
                                         return True
 
@@ -25070,10 +22686,6 @@ class BundleInformation(object):
                                     if self.ipv6 is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -25095,15 +22707,10 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_status is not None:
                                     return True
 
                                 if self.destination_address is not None and self.destination_address._has_data():
-                                    return True
-
-                                if self.destination_address is not None and self.destination_address.is_presence():
                                     return True
 
                                 if self.fast_detect is not None:
@@ -25127,10 +22734,6 @@ class BundleInformation(object):
                                 if self.start_timer is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -25175,15 +22778,9 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.address is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -25205,8 +22802,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_foreign_member_count is not None:
                                 return True
 
@@ -25275,9 +22870,6 @@ class BundleInformation(object):
                             if self.mac_address is not None and self.mac_address._has_data():
                                 return True
 
-                            if self.mac_address is not None and self.mac_address.is_presence():
-                                return True
-
                             if self.mac_source is not None:
                                 return True
 
@@ -25329,10 +22921,6 @@ class BundleInformation(object):
                             if self.wait_while_timer is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -25407,15 +22995,9 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.macaddr is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -25437,21 +23019,12 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.system_mac_addr is not None and self.system_mac_addr._has_data():
-                                return True
-
-                            if self.system_mac_addr is not None and self.system_mac_addr.is_presence():
                                 return True
 
                             if self.system_prio is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -25473,21 +23046,13 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.actor_bundle_data is not None and self.actor_bundle_data._has_data():
-                            return True
-
-                        if self.actor_bundle_data is not None and self.actor_bundle_data.is_presence():
                             return True
 
                         if self.actor_operational_key is not None:
                             return True
 
                         if self.bundle_system_id is not None and self.bundle_system_id._has_data():
-                            return True
-
-                        if self.bundle_system_id is not None and self.bundle_system_id.is_presence():
                             return True
 
                         if self.partner_operational_key is not None:
@@ -25499,10 +23064,6 @@ class BundleInformation(object):
                         if self.partner_system_priority is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -25524,33 +23085,18 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bundle_interface is not None:
                         return True
 
                     if self.lacp_bundle_children_members is not None and self.lacp_bundle_children_members._has_data():
                         return True
 
-                    if self.lacp_bundle_children_members is not None and self.lacp_bundle_children_members.is_presence():
-                        return True
-
                     if self.lacp_bundle_descendant is not None and self.lacp_bundle_descendant._has_data():
-                        return True
-
-                    if self.lacp_bundle_descendant is not None and self.lacp_bundle_descendant.is_presence():
                         return True
 
                     if self.lacp_bundle_item is not None and self.lacp_bundle_item._has_data():
                         return True
 
-                    if self.lacp_bundle_item is not None and self.lacp_bundle_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -25570,17 +23116,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.lacp_bundle is not None:
                     for child_ref in self.lacp_bundle:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -25778,7 +23318,7 @@ class BundleInformation(object):
                             .. attribute:: bundle_status
                             
                             	The state of the bundle
-                            	**type**\: :py:class:`BmBdlState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlState_Enum>`
+                            	**type**\: :py:class:`BmBdlStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
                             
                             .. attribute:: cisco_extensions
                             
@@ -25835,7 +23375,7 @@ class BundleInformation(object):
                             .. attribute:: ipv4bfd_status
                             
                             	The status of the BFD (IPv4) feature on the bundle
-                            	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                            	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
                             .. attribute:: is_active
                             
@@ -25850,12 +23390,12 @@ class BundleInformation(object):
                             .. attribute:: lacp_status
                             
                             	The status of the LACP feature on the bundle
-                            	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                            	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
                             .. attribute:: link_order_status
                             
                             	The status of the link order signaling feature on the bundle
-                            	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                            	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
                             .. attribute:: load_balance_locality_threshold
                             
@@ -25879,7 +23419,7 @@ class BundleInformation(object):
                             .. attribute:: mac_source
                             
                             	The source of the MAC Address
-                            	**type**\: :py:class:`BmBdlMacSource_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSource_Enum>`
+                            	**type**\: :py:class:`BmBdlMacSourceEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
                             
                             .. attribute:: mac_source_member
                             
@@ -25912,7 +23452,7 @@ class BundleInformation(object):
                             .. attribute:: maximum_active_links_source
                             
                             	Source of maximum active links value
-                            	**type**\: :py:class:`BmWhichSystem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystem_Enum>`
+                            	**type**\: :py:class:`BmWhichSystemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
                             
                             .. attribute:: minimum_active_links
                             
@@ -25931,12 +23471,12 @@ class BundleInformation(object):
                             .. attribute:: mlacp_mode
                             
                             	Indicates the mode of the device for the bundle
-                            	**type**\: :py:class:`BundleMlacpMode_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpMode_Enum>`
+                            	**type**\: :py:class:`BundleMlacpModeEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
                             
                             .. attribute:: mlacp_status
                             
                             	The status of the mLACP feature on the bundle
-                            	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                            	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
                             .. attribute:: primary_member
                             
@@ -25974,7 +23514,7 @@ class BundleInformation(object):
                             .. attribute:: switchover_type
                             
                             	How a switchover of the bundle from this device will occur
-                            	**type**\: :py:class:`BmdMlacpSwitchover_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchover_Enum>`
+                            	**type**\: :py:class:`BmdMlacpSwitchoverEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
                             
                             .. attribute:: wait_while_timer
                             
@@ -26043,7 +23583,7 @@ class BundleInformation(object):
                                 .. attribute:: bundle_status
                                 
                                 	Status of BFD on the bundle
-                                	**type**\: :py:class:`BmdBfdBdlState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlState_Enum>`
+                                	**type**\: :py:class:`BmdBfdBdlStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
                                 
                                 .. attribute:: destination_address
                                 
@@ -26125,7 +23665,7 @@ class BundleInformation(object):
                                     .. attribute:: af
                                     
                                     	AF
-                                    	**type**\: :py:class:`BmAfId_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmAfId_Enum>`
+                                    	**type**\: :py:class:`BmAfIdEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
                                     
                                     .. attribute:: ipv4
                                     
@@ -26168,8 +23708,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.af is not None:
                                             return True
 
@@ -26179,10 +23717,6 @@ class BundleInformation(object):
                                         if self.ipv6 is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -26204,15 +23738,10 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.bundle_status is not None:
                                         return True
 
                                     if self.destination_address is not None and self.destination_address._has_data():
-                                        return True
-
-                                    if self.destination_address is not None and self.destination_address.is_presence():
                                         return True
 
                                     if self.fast_detect is not None:
@@ -26236,10 +23765,6 @@ class BundleInformation(object):
                                     if self.start_timer is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -26284,15 +23809,9 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -26314,8 +23833,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.active_foreign_member_count is not None:
                                     return True
 
@@ -26384,9 +23901,6 @@ class BundleInformation(object):
                                 if self.mac_address is not None and self.mac_address._has_data():
                                     return True
 
-                                if self.mac_address is not None and self.mac_address.is_presence():
-                                    return True
-
                                 if self.mac_source is not None:
                                     return True
 
@@ -26438,10 +23952,6 @@ class BundleInformation(object):
                                 if self.wait_while_timer is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -26516,15 +24026,9 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.macaddr is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -26546,21 +24050,12 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.system_mac_addr is not None and self.system_mac_addr._has_data():
-                                    return True
-
-                                if self.system_mac_addr is not None and self.system_mac_addr.is_presence():
                                     return True
 
                                 if self.system_prio is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -26582,21 +24077,13 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.actor_bundle_data is not None and self.actor_bundle_data._has_data():
-                                return True
-
-                            if self.actor_bundle_data is not None and self.actor_bundle_data.is_presence():
                                 return True
 
                             if self.actor_operational_key is not None:
                                 return True
 
                             if self.bundle_system_id is not None and self.bundle_system_id._has_data():
-                                return True
-
-                            if self.bundle_system_id is not None and self.bundle_system_id.is_presence():
                                 return True
 
                             if self.partner_operational_key is not None:
@@ -26608,10 +24095,6 @@ class BundleInformation(object):
                             if self.partner_system_priority is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -26627,7 +24110,7 @@ class BundleInformation(object):
                         .. attribute:: actor_churn_state
                         
                         	State of the Churn state machine for the Actor
-                        	**type**\: :py:class:`LacpChurnstates_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstates_Enum>`
+                        	**type**\: :py:class:`LacpChurnstatesEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
                         
                         .. attribute:: actor_info
                         
@@ -26656,12 +24139,12 @@ class BundleInformation(object):
                         .. attribute:: mux_state
                         
                         	State of the Mux state machine
-                        	**type**\: :py:class:`BmMuxstate_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstate_Enum>`
+                        	**type**\: :py:class:`BmMuxstateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
                         
                         .. attribute:: partner_churn_state
                         
                         	State of the Churn state machine for the Partner
-                        	**type**\: :py:class:`LacpChurnstates_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstates_Enum>`
+                        	**type**\: :py:class:`LacpChurnstatesEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
                         
                         .. attribute:: partner_info
                         
@@ -26671,12 +24154,12 @@ class BundleInformation(object):
                         .. attribute:: period_state
                         
                         	State of the Period state machine
-                        	**type**\: :py:class:`LacpPeriodState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpPeriodState_Enum>`
+                        	**type**\: :py:class:`LacpPeriodStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpPeriodStateEnum>`
                         
                         .. attribute:: receive_machine_state
                         
                         	State of the RX state machine
-                        	**type**\: :py:class:`Rxstates_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.Rxstates_Enum>`
+                        	**type**\: :py:class:`RxstatesEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.RxstatesEnum>`
                         
                         .. attribute:: selected_aggregator_id
                         
@@ -26688,7 +24171,7 @@ class BundleInformation(object):
                         .. attribute:: selection_state
                         
                         	State of the Selection Logic state machine
-                        	**type**\: :py:class:`LacpSelState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpSelState_Enum>`
+                        	**type**\: :py:class:`LacpSelStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpSelStateEnum>`
                         
                         
 
@@ -26835,18 +24318,12 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.link_number is not None:
                                             return True
 
                                         if self.link_priority is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -26921,15 +24398,9 @@ class BundleInformation(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.macaddr is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -26951,21 +24422,12 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.system_mac_addr is not None and self.system_mac_addr._has_data():
-                                            return True
-
-                                        if self.system_mac_addr is not None and self.system_mac_addr.is_presence():
                                             return True
 
                                         if self.system_prio is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -26987,15 +24449,10 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.key is not None:
                                         return True
 
                                     if self.port is not None and self.port._has_data():
-                                        return True
-
-                                    if self.port is not None and self.port.is_presence():
                                         return True
 
                                     if self.state is not None:
@@ -27004,13 +24461,6 @@ class BundleInformation(object):
                                     if self.system is not None and self.system._has_data():
                                         return True
 
-                                    if self.system is not None and self.system.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -27032,21 +24482,12 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.port_info is not None and self.port_info._has_data():
-                                    return True
-
-                                if self.port_info is not None and self.port_info.is_presence():
                                     return True
 
                                 if self.tx_period is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -27072,7 +24513,7 @@ class BundleInformation(object):
                             .. attribute:: mbr_type
                             
                             	MbrType
-                            	**type**\: :py:class:`BmdMemberTypeEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnum_Enum>`
+                            	**type**\: :py:class:`BmdMemberTypeEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
                             
                             
 
@@ -27132,18 +24573,12 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.member_name is not None:
                                         return True
 
                                     if self.peer_address is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -27188,15 +24623,9 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_handle is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -27218,27 +24647,15 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.foreign is not None and self.foreign._has_data():
-                                    return True
-
-                                if self.foreign is not None and self.foreign.is_presence():
                                     return True
 
                                 if self.local is not None and self.local._has_data():
                                     return True
 
-                                if self.local is not None and self.local.is_presence():
-                                    return True
-
                                 if self.mbr_type is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -27366,18 +24783,12 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.link_number is not None:
                                             return True
 
                                         if self.link_priority is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -27452,15 +24863,9 @@ class BundleInformation(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.macaddr is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -27482,21 +24887,12 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.system_mac_addr is not None and self.system_mac_addr._has_data():
-                                            return True
-
-                                        if self.system_mac_addr is not None and self.system_mac_addr.is_presence():
                                             return True
 
                                         if self.system_prio is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -27518,15 +24914,10 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.key is not None:
                                         return True
 
                                     if self.port is not None and self.port._has_data():
-                                        return True
-
-                                    if self.port is not None and self.port.is_presence():
                                         return True
 
                                     if self.state is not None:
@@ -27535,13 +24926,6 @@ class BundleInformation(object):
                                     if self.system is not None and self.system._has_data():
                                         return True
 
-                                    if self.system is not None and self.system.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -27563,21 +24947,12 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.port_info is not None and self.port_info._has_data():
-                                    return True
-
-                                if self.port_info is not None and self.port_info.is_presence():
                                     return True
 
                                 if self.tx_period is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -27599,21 +24974,13 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.actor_churn_state is not None:
                                 return True
 
                             if self.actor_info is not None and self.actor_info._has_data():
                                 return True
 
-                            if self.actor_info is not None and self.actor_info.is_presence():
-                                return True
-
                             if self.additional_info is not None and self.additional_info._has_data():
-                                return True
-
-                            if self.additional_info is not None and self.additional_info.is_presence():
                                 return True
 
                             if self.attached_aggregator_id is not None:
@@ -27631,9 +24998,6 @@ class BundleInformation(object):
                             if self.partner_info is not None and self.partner_info._has_data():
                                 return True
 
-                            if self.partner_info is not None and self.partner_info.is_presence():
-                                return True
-
                             if self.period_state is not None:
                                 return True
 
@@ -27646,10 +25010,6 @@ class BundleInformation(object):
                             if self.selection_state is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -27671,12 +25031,7 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bundle_data is not None and self.bundle_data._has_data():
-                            return True
-
-                        if self.bundle_data is not None and self.bundle_data.is_presence():
                             return True
 
                         if self.member_data is not None:
@@ -27684,10 +25039,6 @@ class BundleInformation(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -27703,7 +25054,7 @@ class BundleInformation(object):
                     .. attribute:: actor_churn_state
                     
                     	State of the Churn state machine for the Actor
-                    	**type**\: :py:class:`LacpChurnstates_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstates_Enum>`
+                    	**type**\: :py:class:`LacpChurnstatesEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
                     
                     .. attribute:: actor_info
                     
@@ -27732,12 +25083,12 @@ class BundleInformation(object):
                     .. attribute:: mux_state
                     
                     	State of the Mux state machine
-                    	**type**\: :py:class:`BmMuxstate_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstate_Enum>`
+                    	**type**\: :py:class:`BmMuxstateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
                     
                     .. attribute:: partner_churn_state
                     
                     	State of the Churn state machine for the Partner
-                    	**type**\: :py:class:`LacpChurnstates_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstates_Enum>`
+                    	**type**\: :py:class:`LacpChurnstatesEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
                     
                     .. attribute:: partner_info
                     
@@ -27747,12 +25098,12 @@ class BundleInformation(object):
                     .. attribute:: period_state
                     
                     	State of the Period state machine
-                    	**type**\: :py:class:`LacpPeriodState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpPeriodState_Enum>`
+                    	**type**\: :py:class:`LacpPeriodStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpPeriodStateEnum>`
                     
                     .. attribute:: receive_machine_state
                     
                     	State of the RX state machine
-                    	**type**\: :py:class:`Rxstates_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.Rxstates_Enum>`
+                    	**type**\: :py:class:`RxstatesEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.RxstatesEnum>`
                     
                     .. attribute:: selected_aggregator_id
                     
@@ -27764,7 +25115,7 @@ class BundleInformation(object):
                     .. attribute:: selection_state
                     
                     	State of the Selection Logic state machine
-                    	**type**\: :py:class:`LacpSelState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpSelState_Enum>`
+                    	**type**\: :py:class:`LacpSelStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LacpSelStateEnum>`
                     
                     
 
@@ -27911,18 +25262,12 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.link_number is not None:
                                         return True
 
                                     if self.link_priority is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -27997,15 +25342,9 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.macaddr is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -28027,21 +25366,12 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.system_mac_addr is not None and self.system_mac_addr._has_data():
-                                        return True
-
-                                    if self.system_mac_addr is not None and self.system_mac_addr.is_presence():
                                         return True
 
                                     if self.system_prio is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -28063,15 +25393,10 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.key is not None:
                                     return True
 
                                 if self.port is not None and self.port._has_data():
-                                    return True
-
-                                if self.port is not None and self.port.is_presence():
                                     return True
 
                                 if self.state is not None:
@@ -28080,13 +25405,6 @@ class BundleInformation(object):
                                 if self.system is not None and self.system._has_data():
                                     return True
 
-                                if self.system is not None and self.system.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -28108,21 +25426,12 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.port_info is not None and self.port_info._has_data():
-                                return True
-
-                            if self.port_info is not None and self.port_info.is_presence():
                                 return True
 
                             if self.tx_period is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -28148,7 +25457,7 @@ class BundleInformation(object):
                         .. attribute:: mbr_type
                         
                         	MbrType
-                        	**type**\: :py:class:`BmdMemberTypeEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnum_Enum>`
+                        	**type**\: :py:class:`BmdMemberTypeEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
                         
                         
 
@@ -28208,18 +25517,12 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.member_name is not None:
                                     return True
 
                                 if self.peer_address is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -28264,15 +25567,9 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.interface_handle is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -28294,27 +25591,15 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.foreign is not None and self.foreign._has_data():
-                                return True
-
-                            if self.foreign is not None and self.foreign.is_presence():
                                 return True
 
                             if self.local is not None and self.local._has_data():
                                 return True
 
-                            if self.local is not None and self.local.is_presence():
-                                return True
-
                             if self.mbr_type is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -28442,18 +25727,12 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.link_number is not None:
                                         return True
 
                                     if self.link_priority is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -28528,15 +25807,9 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.macaddr is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -28558,21 +25831,12 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.system_mac_addr is not None and self.system_mac_addr._has_data():
-                                        return True
-
-                                    if self.system_mac_addr is not None and self.system_mac_addr.is_presence():
                                         return True
 
                                     if self.system_prio is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -28594,15 +25858,10 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.key is not None:
                                     return True
 
                                 if self.port is not None and self.port._has_data():
-                                    return True
-
-                                if self.port is not None and self.port.is_presence():
                                     return True
 
                                 if self.state is not None:
@@ -28611,13 +25870,6 @@ class BundleInformation(object):
                                 if self.system is not None and self.system._has_data():
                                     return True
 
-                                if self.system is not None and self.system.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -28639,21 +25891,12 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.port_info is not None and self.port_info._has_data():
-                                return True
-
-                            if self.port_info is not None and self.port_info.is_presence():
                                 return True
 
                             if self.tx_period is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -28675,21 +25918,13 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.actor_churn_state is not None:
                             return True
 
                         if self.actor_info is not None and self.actor_info._has_data():
                             return True
 
-                        if self.actor_info is not None and self.actor_info.is_presence():
-                            return True
-
                         if self.additional_info is not None and self.additional_info._has_data():
-                            return True
-
-                        if self.additional_info is not None and self.additional_info.is_presence():
                             return True
 
                         if self.attached_aggregator_id is not None:
@@ -28707,9 +25942,6 @@ class BundleInformation(object):
                         if self.partner_info is not None and self.partner_info._has_data():
                             return True
 
-                        if self.partner_info is not None and self.partner_info.is_presence():
-                            return True
-
                         if self.period_state is not None:
                             return True
 
@@ -28722,10 +25954,6 @@ class BundleInformation(object):
                         if self.selection_state is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -28747,27 +25975,15 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.member_interface is not None:
                         return True
 
                     if self.lacp_member_ancestor is not None and self.lacp_member_ancestor._has_data():
                         return True
 
-                    if self.lacp_member_ancestor is not None and self.lacp_member_ancestor.is_presence():
-                        return True
-
                     if self.lacp_member_item is not None and self.lacp_member_item._has_data():
                         return True
 
-                    if self.lacp_member_item is not None and self.lacp_member_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -28787,17 +26003,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.lacp_member is not None:
                     for child_ref in self.lacp_member:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -28817,24 +26027,12 @@ class BundleInformation(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.lacp_bundles is not None and self.lacp_bundles._has_data():
-                return True
-
-            if self.lacp_bundles is not None and self.lacp_bundles.is_presence():
                 return True
 
             if self.lacp_members is not None and self.lacp_members._has_data():
                 return True
 
-            if self.lacp_members is not None and self.lacp_members.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -28946,15 +26144,9 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -28974,17 +26166,11 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.mac_address is not None:
                         for child_ref in self.mac_address:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -29004,18 +26190,9 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.mac_allocation_global_item is not None and self.mac_allocation_global_item._has_data():
                     return True
 
-                if self.mac_allocation_global_item is not None and self.mac_allocation_global_item.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -29035,18 +26212,9 @@ class BundleInformation(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.mac_allocation_global is not None and self.mac_allocation_global._has_data():
                 return True
 
-            if self.mac_allocation_global is not None and self.mac_allocation_global.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -29205,7 +26373,7 @@ class BundleInformation(object):
                             .. attribute:: media_type
                             
                             	The media type of the bundle interface
-                            	**type**\: :py:class:`BundleMedia_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMedia_Enum>`
+                            	**type**\: :py:class:`BundleMediaEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMediaEnum>`
                             
                             .. attribute:: mlacp_bundle_data
                             
@@ -29263,7 +26431,7 @@ class BundleInformation(object):
                                 .. attribute:: bundle_state
                                 
                                 	Bundle state
-                                	**type**\: :py:class:`BmdMlacpBdlStateEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpBdlStateEnum_Enum>`
+                                	**type**\: :py:class:`BmdMlacpBdlStateEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpBdlStateEnumEnum>`
                                 
                                 .. attribute:: mac_address
                                 
@@ -29338,15 +26506,9 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -29368,8 +26530,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.aggregator_id is not None:
                                         return True
 
@@ -29382,19 +26542,12 @@ class BundleInformation(object):
                                     if self.mac_address is not None and self.mac_address._has_data():
                                         return True
 
-                                    if self.mac_address is not None and self.mac_address.is_presence():
-                                        return True
-
                                     if self.mlacp_node_id is not None:
                                         return True
 
                                     if self.port_priority is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -29424,7 +26577,7 @@ class BundleInformation(object):
                                 .. attribute:: member_state
                                 
                                 	Member state
-                                	**type**\: :py:class:`BmdMlacpMbrStateEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpMbrStateEnum_Enum>`
+                                	**type**\: :py:class:`BmdMlacpMbrStateEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpMbrStateEnumEnum>`
                                 
                                 .. attribute:: mlacp_node_id
                                 
@@ -29483,8 +26636,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.configured_priority is not None:
                                         return True
 
@@ -29508,10 +26659,6 @@ class BundleInformation(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
@@ -29531,8 +26678,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_interface_key is not None:
                                     return True
 
@@ -29552,10 +26697,6 @@ class BundleInformation(object):
                                 if self.redundancy_object_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -29617,7 +26758,7 @@ class BundleInformation(object):
                                 .. attribute:: iccp_group_state
                                 
                                 	Node synchronization state
-                                	**type**\: :py:class:`BmdMlacpNodeSyncEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeSyncEnum_Enum>`
+                                	**type**\: :py:class:`BmdMlacpNodeSyncEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeSyncEnumEnum>`
                                 
                                 .. attribute:: ldp_id
                                 
@@ -29636,7 +26777,7 @@ class BundleInformation(object):
                                 .. attribute:: node_state
                                 
                                 	Node state
-                                	**type**\: :py:class:`BmdMlacpNodeStateEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeStateEnum_Enum>`
+                                	**type**\: :py:class:`BmdMlacpNodeStateEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeStateEnumEnum>`
                                 
                                 .. attribute:: system_id
                                 
@@ -29734,15 +26875,9 @@ class BundleInformation(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.macaddr is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -29764,21 +26899,12 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.system_mac_addr is not None and self.system_mac_addr._has_data():
-                                            return True
-
-                                        if self.system_mac_addr is not None and self.system_mac_addr.is_presence():
                                             return True
 
                                         if self.system_prio is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -29800,8 +26926,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.iccp_group_state is not None:
                                         return True
 
@@ -29817,16 +26941,9 @@ class BundleInformation(object):
                                     if self.system_id is not None and self.system_id._has_data():
                                         return True
 
-                                    if self.system_id is not None and self.system_id.is_presence():
-                                        return True
-
                                     if self.version_number is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -29848,8 +26965,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.connect_timer_running is not None:
                                     return True
 
@@ -29864,10 +26979,6 @@ class BundleInformation(object):
                                 if self.singleton is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -29889,8 +27000,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_data is not None:
                                 for child_ref in self.bundle_data:
                                     if child_ref._has_data():
@@ -29899,13 +27008,6 @@ class BundleInformation(object):
                             if self.iccp_group_data is not None and self.iccp_group_data._has_data():
                                 return True
 
-                            if self.iccp_group_data is not None and self.iccp_group_data.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -29927,17 +27029,11 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.mlacp_data is not None:
                             for child_ref in self.mlacp_data:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -29959,21 +27055,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bundle_interface is not None:
                         return True
 
                     if self.mlacp_bundle_item is not None and self.mlacp_bundle_item._has_data():
                         return True
 
-                    if self.mlacp_bundle_item is not None and self.mlacp_bundle_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -29993,17 +27080,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.mlacp_bundle is not None:
                     for child_ref in self.mlacp_bundle:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -30109,7 +27190,7 @@ class BundleInformation(object):
                         .. attribute:: media_type
                         
                         	The media type of the bundle interface
-                        	**type**\: :py:class:`BundleMedia_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMedia_Enum>`
+                        	**type**\: :py:class:`BundleMediaEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMediaEnum>`
                         
                         .. attribute:: mlacp_bundle_data
                         
@@ -30167,7 +27248,7 @@ class BundleInformation(object):
                             .. attribute:: bundle_state
                             
                             	Bundle state
-                            	**type**\: :py:class:`BmdMlacpBdlStateEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpBdlStateEnum_Enum>`
+                            	**type**\: :py:class:`BmdMlacpBdlStateEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpBdlStateEnumEnum>`
                             
                             .. attribute:: mac_address
                             
@@ -30242,15 +27323,9 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -30272,8 +27347,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.aggregator_id is not None:
                                     return True
 
@@ -30286,19 +27359,12 @@ class BundleInformation(object):
                                 if self.mac_address is not None and self.mac_address._has_data():
                                     return True
 
-                                if self.mac_address is not None and self.mac_address.is_presence():
-                                    return True
-
                                 if self.mlacp_node_id is not None:
                                     return True
 
                                 if self.port_priority is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -30328,7 +27394,7 @@ class BundleInformation(object):
                             .. attribute:: member_state
                             
                             	Member state
-                            	**type**\: :py:class:`BmdMlacpMbrStateEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpMbrStateEnum_Enum>`
+                            	**type**\: :py:class:`BmdMlacpMbrStateEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpMbrStateEnumEnum>`
                             
                             .. attribute:: mlacp_node_id
                             
@@ -30387,8 +27453,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.configured_priority is not None:
                                     return True
 
@@ -30412,10 +27476,6 @@ class BundleInformation(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
@@ -30435,8 +27495,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_interface_key is not None:
                                 return True
 
@@ -30456,10 +27514,6 @@ class BundleInformation(object):
                             if self.redundancy_object_id is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -30521,7 +27575,7 @@ class BundleInformation(object):
                             .. attribute:: iccp_group_state
                             
                             	Node synchronization state
-                            	**type**\: :py:class:`BmdMlacpNodeSyncEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeSyncEnum_Enum>`
+                            	**type**\: :py:class:`BmdMlacpNodeSyncEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeSyncEnumEnum>`
                             
                             .. attribute:: ldp_id
                             
@@ -30540,7 +27594,7 @@ class BundleInformation(object):
                             .. attribute:: node_state
                             
                             	Node state
-                            	**type**\: :py:class:`BmdMlacpNodeStateEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeStateEnum_Enum>`
+                            	**type**\: :py:class:`BmdMlacpNodeStateEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeStateEnumEnum>`
                             
                             .. attribute:: system_id
                             
@@ -30638,15 +27692,9 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.macaddr is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -30668,21 +27716,12 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.system_mac_addr is not None and self.system_mac_addr._has_data():
-                                        return True
-
-                                    if self.system_mac_addr is not None and self.system_mac_addr.is_presence():
                                         return True
 
                                     if self.system_prio is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -30704,8 +27743,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.iccp_group_state is not None:
                                     return True
 
@@ -30721,16 +27758,9 @@ class BundleInformation(object):
                                 if self.system_id is not None and self.system_id._has_data():
                                     return True
 
-                                if self.system_id is not None and self.system_id.is_presence():
-                                    return True
-
                                 if self.version_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -30752,8 +27782,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.connect_timer_running is not None:
                                 return True
 
@@ -30768,10 +27796,6 @@ class BundleInformation(object):
                             if self.singleton is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -30793,8 +27817,6 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bundle_data is not None:
                             for child_ref in self.bundle_data:
                                 if child_ref._has_data():
@@ -30803,13 +27825,6 @@ class BundleInformation(object):
                         if self.iccp_group_data is not None and self.iccp_group_data._has_data():
                             return True
 
-                        if self.iccp_group_data is not None and self.iccp_group_data.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -30831,21 +27846,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.iccp_group is not None:
                         return True
 
                     if self.mlacp_iccp_group_item is not None and self.mlacp_iccp_group_item._has_data():
                         return True
 
-                    if self.mlacp_iccp_group_item is not None and self.mlacp_iccp_group_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -30865,17 +27871,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.mlacp_iccp_group is not None:
                     for child_ref in self.mlacp_iccp_group:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -30895,24 +27895,12 @@ class BundleInformation(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.mlacp_bundles is not None and self.mlacp_bundles._has_data():
-                return True
-
-            if self.mlacp_bundles is not None and self.mlacp_bundles.is_presence():
                 return True
 
             if self.mlacp_iccp_groups is not None and self.mlacp_iccp_groups._has_data():
                 return True
 
-            if self.mlacp_iccp_groups is not None and self.mlacp_iccp_groups.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -31048,7 +28036,7 @@ class BundleInformation(object):
                         .. attribute:: media_type
                         
                         	The media type of the bundle interface
-                        	**type**\: :py:class:`BundleMedia_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMedia_Enum>`
+                        	**type**\: :py:class:`BundleMediaEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMediaEnum>`
                         
                         .. attribute:: mlacp_bundle_data
                         
@@ -31106,7 +28094,7 @@ class BundleInformation(object):
                             .. attribute:: bundle_state
                             
                             	Bundle state
-                            	**type**\: :py:class:`BmdMlacpBdlStateEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpBdlStateEnum_Enum>`
+                            	**type**\: :py:class:`BmdMlacpBdlStateEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpBdlStateEnumEnum>`
                             
                             .. attribute:: mac_address
                             
@@ -31181,15 +28169,9 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -31211,8 +28193,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.aggregator_id is not None:
                                     return True
 
@@ -31225,19 +28205,12 @@ class BundleInformation(object):
                                 if self.mac_address is not None and self.mac_address._has_data():
                                     return True
 
-                                if self.mac_address is not None and self.mac_address.is_presence():
-                                    return True
-
                                 if self.mlacp_node_id is not None:
                                     return True
 
                                 if self.port_priority is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -31267,7 +28240,7 @@ class BundleInformation(object):
                             .. attribute:: member_state
                             
                             	Member state
-                            	**type**\: :py:class:`BmdMlacpMbrStateEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpMbrStateEnum_Enum>`
+                            	**type**\: :py:class:`BmdMlacpMbrStateEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpMbrStateEnumEnum>`
                             
                             .. attribute:: mlacp_node_id
                             
@@ -31326,8 +28299,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.configured_priority is not None:
                                     return True
 
@@ -31351,10 +28322,6 @@ class BundleInformation(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
@@ -31374,8 +28341,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_interface_key is not None:
                                 return True
 
@@ -31395,10 +28360,6 @@ class BundleInformation(object):
                             if self.redundancy_object_id is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -31460,7 +28421,7 @@ class BundleInformation(object):
                             .. attribute:: iccp_group_state
                             
                             	Node synchronization state
-                            	**type**\: :py:class:`BmdMlacpNodeSyncEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeSyncEnum_Enum>`
+                            	**type**\: :py:class:`BmdMlacpNodeSyncEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeSyncEnumEnum>`
                             
                             .. attribute:: ldp_id
                             
@@ -31479,7 +28440,7 @@ class BundleInformation(object):
                             .. attribute:: node_state
                             
                             	Node state
-                            	**type**\: :py:class:`BmdMlacpNodeStateEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeStateEnum_Enum>`
+                            	**type**\: :py:class:`BmdMlacpNodeStateEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeStateEnumEnum>`
                             
                             .. attribute:: system_id
                             
@@ -31577,15 +28538,9 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.macaddr is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -31607,21 +28562,12 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.system_mac_addr is not None and self.system_mac_addr._has_data():
-                                        return True
-
-                                    if self.system_mac_addr is not None and self.system_mac_addr.is_presence():
                                         return True
 
                                     if self.system_prio is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -31643,8 +28589,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.iccp_group_state is not None:
                                     return True
 
@@ -31660,16 +28604,9 @@ class BundleInformation(object):
                                 if self.system_id is not None and self.system_id._has_data():
                                     return True
 
-                                if self.system_id is not None and self.system_id.is_presence():
-                                    return True
-
                                 if self.version_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -31691,8 +28628,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.connect_timer_running is not None:
                                 return True
 
@@ -31707,10 +28642,6 @@ class BundleInformation(object):
                             if self.singleton is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -31732,8 +28663,6 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bundle_data is not None:
                             for child_ref in self.bundle_data:
                                 if child_ref._has_data():
@@ -31742,13 +28671,6 @@ class BundleInformation(object):
                         if self.iccp_group_data is not None and self.iccp_group_data._has_data():
                             return True
 
-                        if self.iccp_group_data is not None and self.iccp_group_data.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -31770,21 +28692,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.iccp_group is not None:
                         return True
 
                     if self.mlacp_brief_iccp_group_item is not None and self.mlacp_brief_iccp_group_item._has_data():
                         return True
 
-                    if self.mlacp_brief_iccp_group_item is not None and self.mlacp_brief_iccp_group_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -31804,17 +28717,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.mlacp_brief_iccp_group is not None:
                     for child_ref in self.mlacp_brief_iccp_group:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -31943,7 +28850,7 @@ class BundleInformation(object):
                             .. attribute:: media_type
                             
                             	The media type of the bundle interface
-                            	**type**\: :py:class:`BundleMedia_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMedia_Enum>`
+                            	**type**\: :py:class:`BundleMediaEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMediaEnum>`
                             
                             .. attribute:: mlacp_bundle_data
                             
@@ -32001,7 +28908,7 @@ class BundleInformation(object):
                                 .. attribute:: bundle_state
                                 
                                 	Bundle state
-                                	**type**\: :py:class:`BmdMlacpBdlStateEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpBdlStateEnum_Enum>`
+                                	**type**\: :py:class:`BmdMlacpBdlStateEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpBdlStateEnumEnum>`
                                 
                                 .. attribute:: mac_address
                                 
@@ -32076,15 +28983,9 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -32106,8 +29007,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.aggregator_id is not None:
                                         return True
 
@@ -32120,19 +29019,12 @@ class BundleInformation(object):
                                     if self.mac_address is not None and self.mac_address._has_data():
                                         return True
 
-                                    if self.mac_address is not None and self.mac_address.is_presence():
-                                        return True
-
                                     if self.mlacp_node_id is not None:
                                         return True
 
                                     if self.port_priority is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -32162,7 +29054,7 @@ class BundleInformation(object):
                                 .. attribute:: member_state
                                 
                                 	Member state
-                                	**type**\: :py:class:`BmdMlacpMbrStateEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpMbrStateEnum_Enum>`
+                                	**type**\: :py:class:`BmdMlacpMbrStateEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpMbrStateEnumEnum>`
                                 
                                 .. attribute:: mlacp_node_id
                                 
@@ -32221,8 +29113,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.configured_priority is not None:
                                         return True
 
@@ -32246,10 +29136,6 @@ class BundleInformation(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
@@ -32269,8 +29155,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_interface_key is not None:
                                     return True
 
@@ -32290,10 +29174,6 @@ class BundleInformation(object):
                                 if self.redundancy_object_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -32355,7 +29235,7 @@ class BundleInformation(object):
                                 .. attribute:: iccp_group_state
                                 
                                 	Node synchronization state
-                                	**type**\: :py:class:`BmdMlacpNodeSyncEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeSyncEnum_Enum>`
+                                	**type**\: :py:class:`BmdMlacpNodeSyncEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeSyncEnumEnum>`
                                 
                                 .. attribute:: ldp_id
                                 
@@ -32374,7 +29254,7 @@ class BundleInformation(object):
                                 .. attribute:: node_state
                                 
                                 	Node state
-                                	**type**\: :py:class:`BmdMlacpNodeStateEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeStateEnum_Enum>`
+                                	**type**\: :py:class:`BmdMlacpNodeStateEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeStateEnumEnum>`
                                 
                                 .. attribute:: system_id
                                 
@@ -32472,15 +29352,9 @@ class BundleInformation(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.macaddr is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -32502,21 +29376,12 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.system_mac_addr is not None and self.system_mac_addr._has_data():
-                                            return True
-
-                                        if self.system_mac_addr is not None and self.system_mac_addr.is_presence():
                                             return True
 
                                         if self.system_prio is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -32538,8 +29403,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.iccp_group_state is not None:
                                         return True
 
@@ -32555,16 +29418,9 @@ class BundleInformation(object):
                                     if self.system_id is not None and self.system_id._has_data():
                                         return True
 
-                                    if self.system_id is not None and self.system_id.is_presence():
-                                        return True
-
                                     if self.version_number is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -32586,8 +29442,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.connect_timer_running is not None:
                                     return True
 
@@ -32602,10 +29456,6 @@ class BundleInformation(object):
                                 if self.singleton is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -32627,8 +29477,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_data is not None:
                                 for child_ref in self.bundle_data:
                                     if child_ref._has_data():
@@ -32637,13 +29485,6 @@ class BundleInformation(object):
                             if self.iccp_group_data is not None and self.iccp_group_data._has_data():
                                 return True
 
-                            if self.iccp_group_data is not None and self.iccp_group_data.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -32665,17 +29506,11 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.mlacp_data is not None:
                             for child_ref in self.mlacp_data:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -32697,21 +29532,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bundle_interface is not None:
                         return True
 
                     if self.mlacp_bundle_item_brief is not None and self.mlacp_bundle_item_brief._has_data():
                         return True
 
-                    if self.mlacp_bundle_item_brief is not None and self.mlacp_bundle_item_brief.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -32731,17 +29557,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.mlacp_bundle_brief is not None:
                     for child_ref in self.mlacp_bundle_brief:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -32761,24 +29581,12 @@ class BundleInformation(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.mlacp_brief_iccp_groups is not None and self.mlacp_brief_iccp_groups._has_data():
-                return True
-
-            if self.mlacp_brief_iccp_groups is not None and self.mlacp_brief_iccp_groups.is_presence():
                 return True
 
             if self.mlacp_bundle_briefs is not None and self.mlacp_bundle_briefs._has_data():
                 return True
 
-            if self.mlacp_bundle_briefs is not None and self.mlacp_bundle_briefs.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -33140,8 +29948,6 @@ class BundleInformation(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.all_syncs is not None:
                                                 return True
 
@@ -33151,10 +29957,6 @@ class BundleInformation(object):
                                             if self.state_syncs is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -33176,8 +29978,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.last_time_cleared is not None:
                                             return True
 
@@ -33193,9 +29993,6 @@ class BundleInformation(object):
                                         if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                             return True
 
-                                        if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                            return True
-
                                         if self.sent_config_tl_vs is not None:
                                             return True
 
@@ -33208,10 +30005,6 @@ class BundleInformation(object):
                                         if self.time_since_cleared is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -33233,21 +30026,12 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.bundle_name is not None:
                                         return True
 
                                     if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
                                         return True
 
-                                    if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -33346,8 +30130,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all_syncs is not None:
                                             return True
 
@@ -33357,10 +30139,6 @@ class BundleInformation(object):
                                         if self.state_syncs is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -33382,24 +30160,15 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.last_time_cleared is not None:
                                         return True
 
                                     if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                         return True
 
-                                    if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                        return True
-
                                     if self.time_since_cleared is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -33498,8 +30267,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all_syncs is not None:
                                             return True
 
@@ -33509,10 +30276,6 @@ class BundleInformation(object):
                                         if self.state_syncs is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -33534,24 +30297,15 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.last_time_cleared is not None:
                                         return True
 
                                     if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                         return True
 
-                                    if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                        return True
-
                                     if self.time_since_cleared is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -33573,8 +30327,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_data is not None:
                                     for child_ref in self.bundle_data:
                                         if child_ref._has_data():
@@ -33586,19 +30338,9 @@ class BundleInformation(object):
                                 if self.mlacp_sync_requests_on_all_local_bundles is not None and self.mlacp_sync_requests_on_all_local_bundles._has_data():
                                     return True
 
-                                if self.mlacp_sync_requests_on_all_local_bundles is not None and self.mlacp_sync_requests_on_all_local_bundles.is_presence():
-                                    return True
-
                                 if self.mlacp_sync_requests_on_all_local_ports is not None and self.mlacp_sync_requests_on_all_local_ports._has_data():
                                     return True
 
-                                if self.mlacp_sync_requests_on_all_local_ports is not None and self.mlacp_sync_requests_on_all_local_ports.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -33803,8 +30545,6 @@ class BundleInformation(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.all_syncs is not None:
                                                 return True
 
@@ -33814,10 +30554,6 @@ class BundleInformation(object):
                                             if self.state_syncs is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -33839,8 +30575,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.last_time_cleared is not None:
                                             return True
 
@@ -33856,9 +30590,6 @@ class BundleInformation(object):
                                         if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                             return True
 
-                                        if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                            return True
-
                                         if self.sent_config_tl_vs is not None:
                                             return True
 
@@ -33871,10 +30602,6 @@ class BundleInformation(object):
                                         if self.time_since_cleared is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -33896,21 +30623,12 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.bundle_name is not None:
                                         return True
 
                                     if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
                                         return True
 
-                                    if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -34046,8 +30764,6 @@ class BundleInformation(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.all_syncs is not None:
                                                 return True
 
@@ -34057,10 +30773,6 @@ class BundleInformation(object):
                                             if self.state_syncs is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -34082,24 +30794,15 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.last_time_cleared is not None:
                                             return True
 
                                         if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                             return True
 
-                                        if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                            return True
-
                                         if self.time_since_cleared is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -34198,8 +30901,6 @@ class BundleInformation(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.all_syncs is not None:
                                                 return True
 
@@ -34209,10 +30910,6 @@ class BundleInformation(object):
                                             if self.state_syncs is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -34234,24 +30931,15 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.last_time_cleared is not None:
                                             return True
 
                                         if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                             return True
 
-                                        if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                            return True
-
                                         if self.time_since_cleared is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -34273,27 +30961,15 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.mlacp_sync_requests_on_all_foreign_bundles is not None and self.mlacp_sync_requests_on_all_foreign_bundles._has_data():
-                                        return True
-
-                                    if self.mlacp_sync_requests_on_all_foreign_bundles is not None and self.mlacp_sync_requests_on_all_foreign_bundles.is_presence():
                                         return True
 
                                     if self.mlacp_sync_requests_on_all_foreign_ports is not None and self.mlacp_sync_requests_on_all_foreign_ports._has_data():
                                         return True
 
-                                    if self.mlacp_sync_requests_on_all_foreign_ports is not None and self.mlacp_sync_requests_on_all_foreign_ports.is_presence():
-                                        return True
-
                                     if self.node_id is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -34315,8 +30991,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_data is not None:
                                     for child_ref in self.bundle_data:
                                         if child_ref._has_data():
@@ -34325,13 +30999,6 @@ class BundleInformation(object):
                                 if self.node_data is not None and self.node_data._has_data():
                                     return True
 
-                                if self.node_data is not None and self.node_data.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -34353,12 +31020,7 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.iccp_group_data is not None and self.iccp_group_data._has_data():
-                                return True
-
-                            if self.iccp_group_data is not None and self.iccp_group_data.is_presence():
                                 return True
 
                             if self.node_data is not None:
@@ -34366,10 +31028,6 @@ class BundleInformation(object):
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -34391,17 +31049,11 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.iccp_group is not None:
                             for child_ref in self.iccp_group:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -34423,21 +31075,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bundle_interface is not None:
                         return True
 
                     if self.bundle_item is not None and self.bundle_item._has_data():
                         return True
 
-                    if self.bundle_item is not None and self.bundle_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -34457,17 +31100,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.bundle is not None:
                     for child_ref in self.bundle:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -34771,8 +31408,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all_syncs is not None:
                                             return True
 
@@ -34782,10 +31417,6 @@ class BundleInformation(object):
                                         if self.state_syncs is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -34807,8 +31438,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -34824,9 +31453,6 @@ class BundleInformation(object):
                                     if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                         return True
 
-                                    if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                        return True
-
                                     if self.sent_config_tl_vs is not None:
                                         return True
 
@@ -34839,10 +31465,6 @@ class BundleInformation(object):
                                     if self.time_since_cleared is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -34864,21 +31486,12 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_name is not None:
                                     return True
 
                                 if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
                                     return True
 
-                                if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -34977,8 +31590,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.all_syncs is not None:
                                         return True
 
@@ -34988,10 +31599,6 @@ class BundleInformation(object):
                                     if self.state_syncs is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -35013,24 +31620,15 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.last_time_cleared is not None:
                                     return True
 
                                 if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                     return True
 
-                                if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                    return True
-
                                 if self.time_since_cleared is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -35129,8 +31727,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.all_syncs is not None:
                                         return True
 
@@ -35140,10 +31736,6 @@ class BundleInformation(object):
                                     if self.state_syncs is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -35165,24 +31757,15 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.last_time_cleared is not None:
                                     return True
 
                                 if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                     return True
 
-                                if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                    return True
-
                                 if self.time_since_cleared is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -35204,8 +31787,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_data is not None:
                                 for child_ref in self.bundle_data:
                                     if child_ref._has_data():
@@ -35217,19 +31798,9 @@ class BundleInformation(object):
                             if self.mlacp_sync_requests_on_all_local_bundles is not None and self.mlacp_sync_requests_on_all_local_bundles._has_data():
                                 return True
 
-                            if self.mlacp_sync_requests_on_all_local_bundles is not None and self.mlacp_sync_requests_on_all_local_bundles.is_presence():
-                                return True
-
                             if self.mlacp_sync_requests_on_all_local_ports is not None and self.mlacp_sync_requests_on_all_local_ports._has_data():
                                 return True
 
-                            if self.mlacp_sync_requests_on_all_local_ports is not None and self.mlacp_sync_requests_on_all_local_ports.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -35434,8 +32005,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all_syncs is not None:
                                             return True
 
@@ -35445,10 +32014,6 @@ class BundleInformation(object):
                                         if self.state_syncs is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -35470,8 +32035,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -35487,9 +32050,6 @@ class BundleInformation(object):
                                     if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                         return True
 
-                                    if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                        return True
-
                                     if self.sent_config_tl_vs is not None:
                                         return True
 
@@ -35502,10 +32062,6 @@ class BundleInformation(object):
                                     if self.time_since_cleared is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -35527,21 +32083,12 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_name is not None:
                                     return True
 
                                 if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
                                     return True
 
-                                if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -35677,8 +32224,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all_syncs is not None:
                                             return True
 
@@ -35688,10 +32233,6 @@ class BundleInformation(object):
                                         if self.state_syncs is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -35713,24 +32254,15 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.last_time_cleared is not None:
                                         return True
 
                                     if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                         return True
 
-                                    if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                        return True
-
                                     if self.time_since_cleared is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -35829,8 +32361,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all_syncs is not None:
                                             return True
 
@@ -35840,10 +32370,6 @@ class BundleInformation(object):
                                         if self.state_syncs is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -35865,24 +32391,15 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.last_time_cleared is not None:
                                         return True
 
                                     if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                         return True
 
-                                    if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                        return True
-
                                     if self.time_since_cleared is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -35904,27 +32421,15 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.mlacp_sync_requests_on_all_foreign_bundles is not None and self.mlacp_sync_requests_on_all_foreign_bundles._has_data():
-                                    return True
-
-                                if self.mlacp_sync_requests_on_all_foreign_bundles is not None and self.mlacp_sync_requests_on_all_foreign_bundles.is_presence():
                                     return True
 
                                 if self.mlacp_sync_requests_on_all_foreign_ports is not None and self.mlacp_sync_requests_on_all_foreign_ports._has_data():
                                     return True
 
-                                if self.mlacp_sync_requests_on_all_foreign_ports is not None and self.mlacp_sync_requests_on_all_foreign_ports.is_presence():
-                                    return True
-
                                 if self.node_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -35946,8 +32451,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_data is not None:
                                 for child_ref in self.bundle_data:
                                     if child_ref._has_data():
@@ -35956,13 +32459,6 @@ class BundleInformation(object):
                             if self.node_data is not None and self.node_data._has_data():
                                 return True
 
-                            if self.node_data is not None and self.node_data.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -35984,12 +32480,7 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.iccp_group_data is not None and self.iccp_group_data._has_data():
-                            return True
-
-                        if self.iccp_group_data is not None and self.iccp_group_data.is_presence():
                             return True
 
                         if self.node_data is not None:
@@ -35997,10 +32488,6 @@ class BundleInformation(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -36022,21 +32509,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.iccp_group is not None:
                         return True
 
                     if self.iccp_group_item is not None and self.iccp_group_item._has_data():
                         return True
 
-                    if self.iccp_group_item is not None and self.iccp_group_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -36056,17 +32534,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.iccp_group is not None:
                     for child_ref in self.iccp_group:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -36368,8 +32840,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all_syncs is not None:
                                             return True
 
@@ -36379,10 +32849,6 @@ class BundleInformation(object):
                                         if self.state_syncs is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -36404,8 +32870,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -36421,9 +32885,6 @@ class BundleInformation(object):
                                     if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                         return True
 
-                                    if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                        return True
-
                                     if self.sent_config_tl_vs is not None:
                                         return True
 
@@ -36436,10 +32897,6 @@ class BundleInformation(object):
                                     if self.time_since_cleared is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -36461,21 +32918,12 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_name is not None:
                                     return True
 
                                 if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
                                     return True
 
-                                if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -36574,8 +33022,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.all_syncs is not None:
                                         return True
 
@@ -36585,10 +33031,6 @@ class BundleInformation(object):
                                     if self.state_syncs is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -36610,24 +33052,15 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.last_time_cleared is not None:
                                     return True
 
                                 if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                     return True
 
-                                if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                    return True
-
                                 if self.time_since_cleared is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -36726,8 +33159,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.all_syncs is not None:
                                         return True
 
@@ -36737,10 +33168,6 @@ class BundleInformation(object):
                                     if self.state_syncs is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -36762,24 +33189,15 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.last_time_cleared is not None:
                                     return True
 
                                 if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                     return True
 
-                                if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                    return True
-
                                 if self.time_since_cleared is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -36801,8 +33219,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_data is not None:
                                 for child_ref in self.bundle_data:
                                     if child_ref._has_data():
@@ -36814,19 +33230,9 @@ class BundleInformation(object):
                             if self.mlacp_sync_requests_on_all_local_bundles is not None and self.mlacp_sync_requests_on_all_local_bundles._has_data():
                                 return True
 
-                            if self.mlacp_sync_requests_on_all_local_bundles is not None and self.mlacp_sync_requests_on_all_local_bundles.is_presence():
-                                return True
-
                             if self.mlacp_sync_requests_on_all_local_ports is not None and self.mlacp_sync_requests_on_all_local_ports._has_data():
                                 return True
 
-                            if self.mlacp_sync_requests_on_all_local_ports is not None and self.mlacp_sync_requests_on_all_local_ports.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -37031,8 +33437,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all_syncs is not None:
                                             return True
 
@@ -37042,10 +33446,6 @@ class BundleInformation(object):
                                         if self.state_syncs is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -37067,8 +33467,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -37084,9 +33482,6 @@ class BundleInformation(object):
                                     if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                         return True
 
-                                    if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                        return True
-
                                     if self.sent_config_tl_vs is not None:
                                         return True
 
@@ -37099,10 +33494,6 @@ class BundleInformation(object):
                                     if self.time_since_cleared is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -37124,21 +33515,12 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_name is not None:
                                     return True
 
                                 if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
                                     return True
 
-                                if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -37274,8 +33656,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all_syncs is not None:
                                             return True
 
@@ -37285,10 +33665,6 @@ class BundleInformation(object):
                                         if self.state_syncs is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -37310,24 +33686,15 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.last_time_cleared is not None:
                                         return True
 
                                     if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                         return True
 
-                                    if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                        return True
-
                                     if self.time_since_cleared is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -37426,8 +33793,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all_syncs is not None:
                                             return True
 
@@ -37437,10 +33802,6 @@ class BundleInformation(object):
                                         if self.state_syncs is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -37462,24 +33823,15 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.last_time_cleared is not None:
                                         return True
 
                                     if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                         return True
 
-                                    if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                        return True
-
                                     if self.time_since_cleared is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -37501,27 +33853,15 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.mlacp_sync_requests_on_all_foreign_bundles is not None and self.mlacp_sync_requests_on_all_foreign_bundles._has_data():
-                                    return True
-
-                                if self.mlacp_sync_requests_on_all_foreign_bundles is not None and self.mlacp_sync_requests_on_all_foreign_bundles.is_presence():
                                     return True
 
                                 if self.mlacp_sync_requests_on_all_foreign_ports is not None and self.mlacp_sync_requests_on_all_foreign_ports._has_data():
                                     return True
 
-                                if self.mlacp_sync_requests_on_all_foreign_ports is not None and self.mlacp_sync_requests_on_all_foreign_ports.is_presence():
-                                    return True
-
                                 if self.node_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -37543,8 +33883,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_data is not None:
                                 for child_ref in self.bundle_data:
                                     if child_ref._has_data():
@@ -37553,13 +33891,6 @@ class BundleInformation(object):
                             if self.node_data is not None and self.node_data._has_data():
                                 return True
 
-                            if self.node_data is not None and self.node_data.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -37581,12 +33912,7 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.iccp_group_data is not None and self.iccp_group_data._has_data():
-                            return True
-
-                        if self.iccp_group_data is not None and self.iccp_group_data.is_presence():
                             return True
 
                         if self.node_data is not None:
@@ -37594,10 +33920,6 @@ class BundleInformation(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -37619,21 +33941,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.node is not None:
                         return True
 
                     if self.node_item is not None and self.node_item._has_data():
                         return True
 
-                    if self.node_item is not None and self.node_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -37653,17 +33966,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node is not None:
                     for child_ref in self.node:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -37683,30 +33990,15 @@ class BundleInformation(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.bundles is not None and self.bundles._has_data():
-                return True
-
-            if self.bundles is not None and self.bundles.is_presence():
                 return True
 
             if self.iccp_groups is not None and self.iccp_groups._has_data():
                 return True
 
-            if self.iccp_groups is not None and self.iccp_groups.is_presence():
-                return True
-
             if self.nodes is not None and self.nodes._has_data():
                 return True
 
-            if self.nodes is not None and self.nodes.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -38023,8 +34315,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.iccp_config_connect_errors is not None:
                                     return True
 
@@ -38055,10 +34345,6 @@ class BundleInformation(object):
                                 if self.sent_wrong_versions is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -38183,8 +34469,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.configured_clear is not None:
                                     return True
 
@@ -38218,10 +34502,6 @@ class BundleInformation(object):
                                 if self.transport_up is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -38290,8 +34570,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.received_messages is not None:
                                     return True
 
@@ -38304,10 +34582,6 @@ class BundleInformation(object):
                                 if self.transmission_errors is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -38384,8 +34658,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.incorrect_length is not None:
                                     return True
 
@@ -38401,10 +34673,6 @@ class BundleInformation(object):
                                 if self.unknown_port is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -38569,8 +34837,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.received_config is not None:
                                     return True
 
@@ -38621,10 +34887,6 @@ class BundleInformation(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
@@ -38644,30 +34906,16 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.connection is not None and self.connection._has_data():
-                                return True
-
-                            if self.connection is not None and self.connection.is_presence():
                                 return True
 
                             if self.iccp_events is not None and self.iccp_events._has_data():
                                 return True
 
-                            if self.iccp_events is not None and self.iccp_events.is_presence():
-                                return True
-
                             if self.iccp_messages is not None and self.iccp_messages._has_data():
                                 return True
 
-                            if self.iccp_messages is not None and self.iccp_messages.is_presence():
-                                return True
-
                             if self.invalid_tl_vs is not None and self.invalid_tl_vs._has_data():
-                                return True
-
-                            if self.invalid_tl_vs is not None and self.invalid_tl_vs.is_presence():
                                 return True
 
                             if self.last_time_cleared is not None:
@@ -38682,13 +34930,6 @@ class BundleInformation(object):
                             if self.tl_vs is not None and self.tl_vs._has_data():
                                 return True
 
-                            if self.tl_vs is not None and self.tl_vs.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -38710,21 +34951,12 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.iccp_group_counters is not None and self.iccp_group_counters._has_data():
-                            return True
-
-                        if self.iccp_group_counters is not None and self.iccp_group_counters.is_presence():
                             return True
 
                         if self.iccp_group_id is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -38945,8 +35177,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.iccp_config_connect_errors is not None:
                                     return True
 
@@ -38977,10 +35207,6 @@ class BundleInformation(object):
                                 if self.sent_wrong_versions is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -39105,8 +35331,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.configured_clear is not None:
                                     return True
 
@@ -39140,10 +35364,6 @@ class BundleInformation(object):
                                 if self.transport_up is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -39212,8 +35432,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.received_messages is not None:
                                     return True
 
@@ -39226,10 +35444,6 @@ class BundleInformation(object):
                                 if self.transmission_errors is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -39306,8 +35520,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.incorrect_length is not None:
                                     return True
 
@@ -39323,10 +35535,6 @@ class BundleInformation(object):
                                 if self.unknown_port is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -39491,8 +35699,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.received_config is not None:
                                     return True
 
@@ -39543,10 +35749,6 @@ class BundleInformation(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
@@ -39566,30 +35768,16 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.connection is not None and self.connection._has_data():
-                                return True
-
-                            if self.connection is not None and self.connection.is_presence():
                                 return True
 
                             if self.iccp_events is not None and self.iccp_events._has_data():
                                 return True
 
-                            if self.iccp_events is not None and self.iccp_events.is_presence():
-                                return True
-
                             if self.iccp_messages is not None and self.iccp_messages._has_data():
                                 return True
 
-                            if self.iccp_messages is not None and self.iccp_messages.is_presence():
-                                return True
-
                             if self.invalid_tl_vs is not None and self.invalid_tl_vs._has_data():
-                                return True
-
-                            if self.invalid_tl_vs is not None and self.invalid_tl_vs.is_presence():
                                 return True
 
                             if self.last_time_cleared is not None:
@@ -39604,13 +35792,6 @@ class BundleInformation(object):
                             if self.tl_vs is not None and self.tl_vs._has_data():
                                 return True
 
-                            if self.tl_vs is not None and self.tl_vs.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -39632,21 +35813,12 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.iccp_group_counters is not None and self.iccp_group_counters._has_data():
-                            return True
-
-                        if self.iccp_group_counters is not None and self.iccp_group_counters.is_presence():
                             return True
 
                         if self.iccp_group_id is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -39867,8 +36039,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.iccp_config_connect_errors is not None:
                                     return True
 
@@ -39899,10 +36069,6 @@ class BundleInformation(object):
                                 if self.sent_wrong_versions is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -40027,8 +36193,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.configured_clear is not None:
                                     return True
 
@@ -40062,10 +36226,6 @@ class BundleInformation(object):
                                 if self.transport_up is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -40134,8 +36294,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.received_messages is not None:
                                     return True
 
@@ -40148,10 +36306,6 @@ class BundleInformation(object):
                                 if self.transmission_errors is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -40228,8 +36382,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.incorrect_length is not None:
                                     return True
 
@@ -40245,10 +36397,6 @@ class BundleInformation(object):
                                 if self.unknown_port is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -40413,8 +36561,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.received_config is not None:
                                     return True
 
@@ -40465,10 +36611,6 @@ class BundleInformation(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
@@ -40488,30 +36630,16 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.connection is not None and self.connection._has_data():
-                                return True
-
-                            if self.connection is not None and self.connection.is_presence():
                                 return True
 
                             if self.iccp_events is not None and self.iccp_events._has_data():
                                 return True
 
-                            if self.iccp_events is not None and self.iccp_events.is_presence():
-                                return True
-
                             if self.iccp_messages is not None and self.iccp_messages._has_data():
                                 return True
 
-                            if self.iccp_messages is not None and self.iccp_messages.is_presence():
-                                return True
-
                             if self.invalid_tl_vs is not None and self.invalid_tl_vs._has_data():
-                                return True
-
-                            if self.invalid_tl_vs is not None and self.invalid_tl_vs.is_presence():
                                 return True
 
                             if self.last_time_cleared is not None:
@@ -40526,13 +36654,6 @@ class BundleInformation(object):
                             if self.tl_vs is not None and self.tl_vs._has_data():
                                 return True
 
-                            if self.tl_vs is not None and self.tl_vs.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -40554,21 +36675,12 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.iccp_group_counters is not None and self.iccp_group_counters._has_data():
-                            return True
-
-                        if self.iccp_group_counters is not None and self.iccp_group_counters.is_presence():
                             return True
 
                         if self.iccp_group_id is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -40789,8 +36901,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.iccp_config_connect_errors is not None:
                                     return True
 
@@ -40821,10 +36931,6 @@ class BundleInformation(object):
                                 if self.sent_wrong_versions is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -40949,8 +37055,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.configured_clear is not None:
                                     return True
 
@@ -40984,10 +37088,6 @@ class BundleInformation(object):
                                 if self.transport_up is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -41056,8 +37156,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.received_messages is not None:
                                     return True
 
@@ -41070,10 +37168,6 @@ class BundleInformation(object):
                                 if self.transmission_errors is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -41150,8 +37244,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.incorrect_length is not None:
                                     return True
 
@@ -41167,10 +37259,6 @@ class BundleInformation(object):
                                 if self.unknown_port is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -41335,8 +37423,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.received_config is not None:
                                     return True
 
@@ -41387,10 +37473,6 @@ class BundleInformation(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
@@ -41410,30 +37492,16 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.connection is not None and self.connection._has_data():
-                                return True
-
-                            if self.connection is not None and self.connection.is_presence():
                                 return True
 
                             if self.iccp_events is not None and self.iccp_events._has_data():
                                 return True
 
-                            if self.iccp_events is not None and self.iccp_events.is_presence():
-                                return True
-
                             if self.iccp_messages is not None and self.iccp_messages._has_data():
                                 return True
 
-                            if self.iccp_messages is not None and self.iccp_messages.is_presence():
-                                return True
-
                             if self.invalid_tl_vs is not None and self.invalid_tl_vs._has_data():
-                                return True
-
-                            if self.invalid_tl_vs is not None and self.invalid_tl_vs.is_presence():
                                 return True
 
                             if self.last_time_cleared is not None:
@@ -41448,13 +37516,6 @@ class BundleInformation(object):
                             if self.tl_vs is not None and self.tl_vs._has_data():
                                 return True
 
-                            if self.tl_vs is not None and self.tl_vs.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -41476,21 +37537,12 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.iccp_group_counters is not None and self.iccp_group_counters._has_data():
-                            return True
-
-                        if self.iccp_group_counters is not None and self.iccp_group_counters.is_presence():
                             return True
 
                         if self.iccp_group_id is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -41512,39 +37564,21 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.iccp_group is not None:
                         return True
 
                     if self.iccp_group_ancestor_bundle is not None and self.iccp_group_ancestor_bundle._has_data():
                         return True
 
-                    if self.iccp_group_ancestor_bundle is not None and self.iccp_group_ancestor_bundle.is_presence():
-                        return True
-
                     if self.iccp_group_ancestor_member is not None and self.iccp_group_ancestor_member._has_data():
-                        return True
-
-                    if self.iccp_group_ancestor_member is not None and self.iccp_group_ancestor_member.is_presence():
                         return True
 
                     if self.iccp_group_ancestor_node is not None and self.iccp_group_ancestor_node._has_data():
                         return True
 
-                    if self.iccp_group_ancestor_node is not None and self.iccp_group_ancestor_node.is_presence():
-                        return True
-
                     if self.iccp_group_item is not None and self.iccp_group_item._has_data():
                         return True
 
-                    if self.iccp_group_item is not None and self.iccp_group_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -41564,17 +37598,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.iccp_group is not None:
                     for child_ref in self.iccp_group:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -41594,18 +37622,9 @@ class BundleInformation(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.iccp_groups is not None and self.iccp_groups._has_data():
                 return True
 
-            if self.iccp_groups is not None and self.iccp_groups.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -41875,8 +37894,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.all_syncs is not None:
                                         return True
 
@@ -41886,10 +37903,6 @@ class BundleInformation(object):
                                     if self.state_syncs is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -41911,24 +37924,15 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.last_time_cleared is not None:
                                     return True
 
                                 if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                     return True
 
-                                if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                    return True
-
                                 if self.time_since_cleared is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -41950,8 +37954,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_name is not None:
                                 return True
 
@@ -41961,13 +37963,6 @@ class BundleInformation(object):
                             if self.mlacp_sync_requests_on_all_local_ports is not None and self.mlacp_sync_requests_on_all_local_ports._has_data():
                                 return True
 
-                            if self.mlacp_sync_requests_on_all_local_ports is not None and self.mlacp_sync_requests_on_all_local_ports.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -42142,8 +38137,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.all_syncs is not None:
                                         return True
 
@@ -42153,10 +38146,6 @@ class BundleInformation(object):
                                     if self.state_syncs is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -42178,8 +38167,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.last_time_cleared is not None:
                                     return True
 
@@ -42195,9 +38182,6 @@ class BundleInformation(object):
                                 if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                     return True
 
-                                if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                    return True
-
                                 if self.sent_config_tl_vs is not None:
                                     return True
 
@@ -42210,10 +38194,6 @@ class BundleInformation(object):
                                 if self.time_since_cleared is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -42235,21 +38215,12 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
-                                return True
-
-                            if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters.is_presence():
                                 return True
 
                             if self.port_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -42461,8 +38432,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all_syncs is not None:
                                             return True
 
@@ -42472,10 +38441,6 @@ class BundleInformation(object):
                                         if self.state_syncs is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -42497,8 +38462,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -42514,9 +38477,6 @@ class BundleInformation(object):
                                     if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                         return True
 
-                                    if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                        return True
-
                                     if self.sent_config_tl_vs is not None:
                                         return True
 
@@ -42529,10 +38489,6 @@ class BundleInformation(object):
                                     if self.time_since_cleared is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -42554,21 +38510,12 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
-                                    return True
-
-                                if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters.is_presence():
                                     return True
 
                                 if self.port_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -42667,8 +38614,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.all_syncs is not None:
                                         return True
 
@@ -42678,10 +38623,6 @@ class BundleInformation(object):
                                     if self.state_syncs is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -42703,24 +38644,15 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.last_time_cleared is not None:
                                     return True
 
                                 if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                     return True
 
-                                if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                    return True
-
                                 if self.time_since_cleared is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -42773,18 +38705,12 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.iccp_group_id is not None:
                                     return True
 
                                 if self.node_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -42806,8 +38732,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.member_data is not None:
                                 for child_ref in self.member_data:
                                     if child_ref._has_data():
@@ -42816,19 +38740,9 @@ class BundleInformation(object):
                             if self.mlacp_sync_requests_on_all_foreign_ports is not None and self.mlacp_sync_requests_on_all_foreign_ports._has_data():
                                 return True
 
-                            if self.mlacp_sync_requests_on_all_foreign_ports is not None and self.mlacp_sync_requests_on_all_foreign_ports.is_presence():
-                                return True
-
                             if self.node_data is not None and self.node_data._has_data():
                                 return True
 
-                            if self.node_data is not None and self.node_data.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -42850,12 +38764,7 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bundle_data is not None and self.bundle_data._has_data():
-                            return True
-
-                        if self.bundle_data is not None and self.bundle_data.is_presence():
                             return True
 
                         if self.member_data is not None:
@@ -42868,10 +38777,6 @@ class BundleInformation(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -42893,21 +38798,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bundle_interface is not None:
                         return True
 
                     if self.bundle_item is not None and self.bundle_item._has_data():
                         return True
 
-                    if self.bundle_item is not None and self.bundle_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -42927,17 +38823,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.bundle is not None:
                     for child_ref in self.bundle:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -43187,8 +39077,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all_syncs is not None:
                                             return True
 
@@ -43198,10 +39086,6 @@ class BundleInformation(object):
                                         if self.state_syncs is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -43223,24 +39107,15 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.last_time_cleared is not None:
                                         return True
 
                                     if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                         return True
 
-                                    if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                        return True
-
                                     if self.time_since_cleared is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -43262,8 +39137,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_name is not None:
                                     return True
 
@@ -43273,13 +39146,6 @@ class BundleInformation(object):
                                 if self.mlacp_sync_requests_on_all_local_ports is not None and self.mlacp_sync_requests_on_all_local_ports._has_data():
                                     return True
 
-                                if self.mlacp_sync_requests_on_all_local_ports is not None and self.mlacp_sync_requests_on_all_local_ports.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -43454,8 +39320,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all_syncs is not None:
                                             return True
 
@@ -43465,10 +39329,6 @@ class BundleInformation(object):
                                         if self.state_syncs is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -43490,8 +39350,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -43507,9 +39365,6 @@ class BundleInformation(object):
                                     if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                         return True
 
-                                    if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                        return True
-
                                     if self.sent_config_tl_vs is not None:
                                         return True
 
@@ -43522,10 +39377,6 @@ class BundleInformation(object):
                                     if self.time_since_cleared is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -43547,21 +39398,12 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
-                                    return True
-
-                                if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters.is_presence():
                                     return True
 
                                 if self.port_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -43773,8 +39615,6 @@ class BundleInformation(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.all_syncs is not None:
                                                 return True
 
@@ -43784,10 +39624,6 @@ class BundleInformation(object):
                                             if self.state_syncs is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -43809,8 +39645,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.last_time_cleared is not None:
                                             return True
 
@@ -43826,9 +39660,6 @@ class BundleInformation(object):
                                         if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                             return True
 
-                                        if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                            return True
-
                                         if self.sent_config_tl_vs is not None:
                                             return True
 
@@ -43841,10 +39672,6 @@ class BundleInformation(object):
                                         if self.time_since_cleared is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -43866,21 +39693,12 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
-                                        return True
-
-                                    if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters.is_presence():
                                         return True
 
                                     if self.port_name is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -43979,8 +39797,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all_syncs is not None:
                                             return True
 
@@ -43990,10 +39806,6 @@ class BundleInformation(object):
                                         if self.state_syncs is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -44015,24 +39827,15 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.last_time_cleared is not None:
                                         return True
 
                                     if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                         return True
 
-                                    if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                        return True
-
                                     if self.time_since_cleared is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -44085,18 +39888,12 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.iccp_group_id is not None:
                                         return True
 
                                     if self.node_id is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -44118,8 +39915,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.member_data is not None:
                                     for child_ref in self.member_data:
                                         if child_ref._has_data():
@@ -44128,19 +39923,9 @@ class BundleInformation(object):
                                 if self.mlacp_sync_requests_on_all_foreign_ports is not None and self.mlacp_sync_requests_on_all_foreign_ports._has_data():
                                     return True
 
-                                if self.mlacp_sync_requests_on_all_foreign_ports is not None and self.mlacp_sync_requests_on_all_foreign_ports.is_presence():
-                                    return True
-
                                 if self.node_data is not None and self.node_data._has_data():
                                     return True
 
-                                if self.node_data is not None and self.node_data.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -44162,12 +39947,7 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_data is not None and self.bundle_data._has_data():
-                                return True
-
-                            if self.bundle_data is not None and self.bundle_data.is_presence():
                                 return True
 
                             if self.member_data is not None:
@@ -44180,10 +39960,6 @@ class BundleInformation(object):
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -44205,17 +39981,11 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.items is not None:
                             for child_ref in self.items:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -44237,21 +40007,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.iccp_group is not None:
                         return True
 
                     if self.iccp_group_item is not None and self.iccp_group_item._has_data():
                         return True
 
-                    if self.iccp_group_item is not None and self.iccp_group_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -44271,17 +40032,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.iccp_group is not None:
                     for child_ref in self.iccp_group:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -44528,8 +40283,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all_syncs is not None:
                                             return True
 
@@ -44539,10 +40292,6 @@ class BundleInformation(object):
                                         if self.state_syncs is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -44564,24 +40313,15 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.last_time_cleared is not None:
                                         return True
 
                                     if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                         return True
 
-                                    if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                        return True
-
                                     if self.time_since_cleared is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -44603,8 +40343,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_name is not None:
                                     return True
 
@@ -44614,13 +40352,6 @@ class BundleInformation(object):
                                 if self.mlacp_sync_requests_on_all_local_ports is not None and self.mlacp_sync_requests_on_all_local_ports._has_data():
                                     return True
 
-                                if self.mlacp_sync_requests_on_all_local_ports is not None and self.mlacp_sync_requests_on_all_local_ports.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -44795,8 +40526,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all_syncs is not None:
                                             return True
 
@@ -44806,10 +40535,6 @@ class BundleInformation(object):
                                         if self.state_syncs is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -44831,8 +40556,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -44848,9 +40571,6 @@ class BundleInformation(object):
                                     if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                         return True
 
-                                    if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                        return True
-
                                     if self.sent_config_tl_vs is not None:
                                         return True
 
@@ -44863,10 +40583,6 @@ class BundleInformation(object):
                                     if self.time_since_cleared is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -44888,21 +40604,12 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
-                                    return True
-
-                                if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters.is_presence():
                                     return True
 
                                 if self.port_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -45114,8 +40821,6 @@ class BundleInformation(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.all_syncs is not None:
                                                 return True
 
@@ -45125,10 +40830,6 @@ class BundleInformation(object):
                                             if self.state_syncs is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -45150,8 +40851,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.last_time_cleared is not None:
                                             return True
 
@@ -45167,9 +40866,6 @@ class BundleInformation(object):
                                         if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                             return True
 
-                                        if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                            return True
-
                                         if self.sent_config_tl_vs is not None:
                                             return True
 
@@ -45182,10 +40878,6 @@ class BundleInformation(object):
                                         if self.time_since_cleared is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -45207,21 +40899,12 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
-                                        return True
-
-                                    if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters.is_presence():
                                         return True
 
                                     if self.port_name is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -45320,8 +41003,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all_syncs is not None:
                                             return True
 
@@ -45331,10 +41012,6 @@ class BundleInformation(object):
                                         if self.state_syncs is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -45356,24 +41033,15 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.last_time_cleared is not None:
                                         return True
 
                                     if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                         return True
 
-                                    if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                        return True
-
                                     if self.time_since_cleared is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -45426,18 +41094,12 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.iccp_group_id is not None:
                                         return True
 
                                     if self.node_id is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -45459,8 +41121,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.member_data is not None:
                                     for child_ref in self.member_data:
                                         if child_ref._has_data():
@@ -45469,19 +41129,9 @@ class BundleInformation(object):
                                 if self.mlacp_sync_requests_on_all_foreign_ports is not None and self.mlacp_sync_requests_on_all_foreign_ports._has_data():
                                     return True
 
-                                if self.mlacp_sync_requests_on_all_foreign_ports is not None and self.mlacp_sync_requests_on_all_foreign_ports.is_presence():
-                                    return True
-
                                 if self.node_data is not None and self.node_data._has_data():
                                     return True
 
-                                if self.node_data is not None and self.node_data.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -45503,12 +41153,7 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_data is not None and self.bundle_data._has_data():
-                                return True
-
-                            if self.bundle_data is not None and self.bundle_data.is_presence():
                                 return True
 
                             if self.member_data is not None:
@@ -45521,10 +41166,6 @@ class BundleInformation(object):
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -45546,17 +41187,11 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.items is not None:
                             for child_ref in self.items:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -45578,21 +41213,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.member_interface is not None:
                         return True
 
                     if self.member_item is not None and self.member_item._has_data():
                         return True
 
-                    if self.member_item is not None and self.member_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -45612,17 +41238,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.member is not None:
                     for child_ref in self.member:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -45870,8 +41490,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all_syncs is not None:
                                             return True
 
@@ -45881,10 +41499,6 @@ class BundleInformation(object):
                                         if self.state_syncs is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -45906,24 +41520,15 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.last_time_cleared is not None:
                                         return True
 
                                     if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                         return True
 
-                                    if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                        return True
-
                                     if self.time_since_cleared is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -45945,8 +41550,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bundle_name is not None:
                                     return True
 
@@ -45956,13 +41559,6 @@ class BundleInformation(object):
                                 if self.mlacp_sync_requests_on_all_local_ports is not None and self.mlacp_sync_requests_on_all_local_ports._has_data():
                                     return True
 
-                                if self.mlacp_sync_requests_on_all_local_ports is not None and self.mlacp_sync_requests_on_all_local_ports.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -46137,8 +41733,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all_syncs is not None:
                                             return True
 
@@ -46148,10 +41742,6 @@ class BundleInformation(object):
                                         if self.state_syncs is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -46173,8 +41763,6 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -46190,9 +41778,6 @@ class BundleInformation(object):
                                     if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                         return True
 
-                                    if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                        return True
-
                                     if self.sent_config_tl_vs is not None:
                                         return True
 
@@ -46205,10 +41790,6 @@ class BundleInformation(object):
                                     if self.time_since_cleared is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -46230,21 +41811,12 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
-                                    return True
-
-                                if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters.is_presence():
                                     return True
 
                                 if self.port_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -46456,8 +42028,6 @@ class BundleInformation(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.all_syncs is not None:
                                                 return True
 
@@ -46467,10 +42037,6 @@ class BundleInformation(object):
                                             if self.state_syncs is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -46492,8 +42058,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.last_time_cleared is not None:
                                             return True
 
@@ -46509,9 +42073,6 @@ class BundleInformation(object):
                                         if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                             return True
 
-                                        if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                            return True
-
                                         if self.sent_config_tl_vs is not None:
                                             return True
 
@@ -46524,10 +42085,6 @@ class BundleInformation(object):
                                         if self.time_since_cleared is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -46549,21 +42106,12 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
-                                        return True
-
-                                    if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters.is_presence():
                                         return True
 
                                     if self.port_name is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -46662,8 +42210,6 @@ class BundleInformation(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all_syncs is not None:
                                             return True
 
@@ -46673,10 +42219,6 @@ class BundleInformation(object):
                                         if self.state_syncs is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -46698,24 +42240,15 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.last_time_cleared is not None:
                                         return True
 
                                     if self.received_sync_requests is not None and self.received_sync_requests._has_data():
                                         return True
 
-                                    if self.received_sync_requests is not None and self.received_sync_requests.is_presence():
-                                        return True
-
                                     if self.time_since_cleared is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -46768,18 +42301,12 @@ class BundleInformation(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.iccp_group_id is not None:
                                         return True
 
                                     if self.node_id is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -46801,8 +42328,6 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.member_data is not None:
                                     for child_ref in self.member_data:
                                         if child_ref._has_data():
@@ -46811,19 +42336,9 @@ class BundleInformation(object):
                                 if self.mlacp_sync_requests_on_all_foreign_ports is not None and self.mlacp_sync_requests_on_all_foreign_ports._has_data():
                                     return True
 
-                                if self.mlacp_sync_requests_on_all_foreign_ports is not None and self.mlacp_sync_requests_on_all_foreign_ports.is_presence():
-                                    return True
-
                                 if self.node_data is not None and self.node_data._has_data():
                                     return True
 
-                                if self.node_data is not None and self.node_data.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -46845,12 +42360,7 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_data is not None and self.bundle_data._has_data():
-                                return True
-
-                            if self.bundle_data is not None and self.bundle_data.is_presence():
                                 return True
 
                             if self.member_data is not None:
@@ -46863,10 +42373,6 @@ class BundleInformation(object):
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -46888,17 +42394,11 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.items is not None:
                             for child_ref in self.items:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -46920,21 +42420,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.node is not None:
                         return True
 
                     if self.node_item is not None and self.node_item._has_data():
                         return True
 
-                    if self.node_item is not None and self.node_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -46954,17 +42445,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node is not None:
                     for child_ref in self.node:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -46984,36 +42469,18 @@ class BundleInformation(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.bundles is not None and self.bundles._has_data():
-                return True
-
-            if self.bundles is not None and self.bundles.is_presence():
                 return True
 
             if self.iccp_groups is not None and self.iccp_groups._has_data():
                 return True
 
-            if self.iccp_groups is not None and self.iccp_groups.is_presence():
-                return True
-
             if self.members is not None and self.members._has_data():
-                return True
-
-            if self.members is not None and self.members.is_presence():
                 return True
 
             if self.nodes is not None and self.nodes._has_data():
                 return True
 
-            if self.nodes is not None and self.nodes.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -47113,7 +42580,7 @@ class BundleInformation(object):
                     .. attribute:: event_type
                     
                     	Scope of the last event that impacted the bundle
-                    	**type**\: :py:class:`BmdBagTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTarget_Enum>`
+                    	**type**\: :py:class:`BmdBagTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                     
                     .. attribute:: interface_up
                     
@@ -47278,8 +42745,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active is not None:
                                 return True
 
@@ -47309,10 +42774,6 @@ class BundleInformation(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
@@ -47332,8 +42793,6 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bundle_interface_handle is not None:
                             return True
 
@@ -47368,10 +42827,6 @@ class BundleInformation(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
@@ -47391,21 +42846,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bundle_interface is not None:
                         return True
 
                     if self.protect_bundle_item is not None and self.protect_bundle_item._has_data():
                         return True
 
-                    if self.protect_bundle_item is not None and self.protect_bundle_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -47425,17 +42871,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.protect_bundle is not None:
                     for child_ref in self.protect_bundle:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -47455,18 +42895,9 @@ class BundleInformation(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.protect_bundles is not None and self.protect_bundles._has_data():
                 return True
 
-            if self.protect_bundles is not None and self.protect_bundles.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -47586,12 +43017,12 @@ class BundleInformation(object):
                         .. attribute:: action_state
                         
                         	Details whether the switch action is viable
-                        	**type**\: :py:class:`BmdSwitchReason_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdSwitchReason_Enum>`
+                        	**type**\: :py:class:`BmdSwitchReasonEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdSwitchReasonEnum>`
                         
                         .. attribute:: mlacp_action
                         
                         	Type of mLACP scheduled action for a bundle
-                        	**type**\: :py:class:`BmdBagMlacpSchActionItem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagMlacpSchActionItem_Enum>`
+                        	**type**\: :py:class:`BmdBagMlacpSchActionItemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBagMlacpSchActionItemEnum>`
                         
                         .. attribute:: time_remaining
                         
@@ -47627,8 +43058,6 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.action_state is not None:
                                 return True
 
@@ -47638,10 +43067,6 @@ class BundleInformation(object):
                             if self.time_remaining is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -47663,8 +43088,6 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bundle_name is not None:
                             return True
 
@@ -47673,10 +43096,6 @@ class BundleInformation(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -47698,21 +43117,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bundle_interface is not None:
                         return True
 
                     if self.scheduled_actions_bundle_item is not None and self.scheduled_actions_bundle_item._has_data():
                         return True
 
-                    if self.scheduled_actions_bundle_item is not None and self.scheduled_actions_bundle_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -47732,17 +43142,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.scheduled_actions_bundle is not None:
                     for child_ref in self.scheduled_actions_bundle:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -47762,18 +43166,9 @@ class BundleInformation(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.scheduled_actions_bundles is not None and self.scheduled_actions_bundles._has_data():
                 return True
 
-            if self.scheduled_actions_bundles is not None and self.scheduled_actions_bundles.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -47944,15 +43339,9 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.macaddr is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -47972,21 +43361,12 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.system_mac_addr is not None and self.system_mac_addr._has_data():
-                            return True
-
-                        if self.system_mac_addr is not None and self.system_mac_addr.is_presence():
                             return True
 
                         if self.system_prio is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -48006,15 +43386,10 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.iccp_group_id is not None:
                         return True
 
                     if self.system_id is not None and self.system_id._has_data():
-                        return True
-
-                    if self.system_id is not None and self.system_id.is_presence():
                         return True
 
                     if self.system_mac_address is not None:
@@ -48023,10 +43398,6 @@ class BundleInformation(object):
                     if self.system_priority is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -48046,18 +43417,9 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.system_id_global_item is not None and self.system_id_global_item._has_data():
                     return True
 
-                if self.system_id_global_item is not None and self.system_id_global_item.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -48231,15 +43593,9 @@ class BundleInformation(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.macaddr is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -48261,21 +43617,12 @@ class BundleInformation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.system_mac_addr is not None and self.system_mac_addr._has_data():
-                                return True
-
-                            if self.system_mac_addr is not None and self.system_mac_addr.is_presence():
                                 return True
 
                             if self.system_prio is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -48297,15 +43644,10 @@ class BundleInformation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.iccp_group_id is not None:
                             return True
 
                         if self.system_id is not None and self.system_id._has_data():
-                            return True
-
-                        if self.system_id is not None and self.system_id.is_presence():
                             return True
 
                         if self.system_mac_address is not None:
@@ -48314,10 +43656,6 @@ class BundleInformation(object):
                         if self.system_priority is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -48339,21 +43677,12 @@ class BundleInformation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.iccp_group is not None:
                         return True
 
                     if self.system_id_iccp_group_item is not None and self.system_id_iccp_group_item._has_data():
                         return True
 
-                    if self.system_id_iccp_group_item is not None and self.system_id_iccp_group_item.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -48373,17 +43702,11 @@ class BundleInformation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.system_id_iccp_group is not None:
                     for child_ref in self.system_id_iccp_group:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -48403,24 +43726,12 @@ class BundleInformation(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.system_id_global is not None and self.system_id_global._has_data():
-                return True
-
-            if self.system_id_global is not None and self.system_id_global.is_presence():
                 return True
 
             if self.system_id_iccp_groups is not None and self.system_id_iccp_groups._has_data():
                 return True
 
-            if self.system_id_iccp_groups is not None and self.system_id_iccp_groups.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -48440,114 +43751,57 @@ class BundleInformation(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.bfd_counters is not None and self.bfd_counters._has_data():
-            return True
-
-        if self.bfd_counters is not None and self.bfd_counters.is_presence():
             return True
 
         if self.bundle is not None and self.bundle._has_data():
             return True
 
-        if self.bundle is not None and self.bundle.is_presence():
-            return True
-
         if self.bundle_briefs is not None and self.bundle_briefs._has_data():
-            return True
-
-        if self.bundle_briefs is not None and self.bundle_briefs.is_presence():
             return True
 
         if self.events is not None and self.events._has_data():
             return True
 
-        if self.events is not None and self.events.is_presence():
-            return True
-
         if self.events_bdl is not None and self.events_bdl._has_data():
-            return True
-
-        if self.events_bdl is not None and self.events_bdl.is_presence():
             return True
 
         if self.events_mbr is not None and self.events_mbr._has_data():
             return True
 
-        if self.events_mbr is not None and self.events_mbr.is_presence():
-            return True
-
         if self.events_rg is not None and self.events_rg._has_data():
-            return True
-
-        if self.events_rg is not None and self.events_rg.is_presence():
             return True
 
         if self.lacp is not None and self.lacp._has_data():
             return True
 
-        if self.lacp is not None and self.lacp.is_presence():
-            return True
-
         if self.mac_allocation is not None and self.mac_allocation._has_data():
-            return True
-
-        if self.mac_allocation is not None and self.mac_allocation.is_presence():
             return True
 
         if self.mlacp is not None and self.mlacp._has_data():
             return True
 
-        if self.mlacp is not None and self.mlacp.is_presence():
-            return True
-
         if self.mlacp_brief is not None and self.mlacp_brief._has_data():
-            return True
-
-        if self.mlacp_brief is not None and self.mlacp_brief.is_presence():
             return True
 
         if self.mlacp_bundle_counters is not None and self.mlacp_bundle_counters._has_data():
             return True
 
-        if self.mlacp_bundle_counters is not None and self.mlacp_bundle_counters.is_presence():
-            return True
-
         if self.mlacp_iccp_group_counters is not None and self.mlacp_iccp_group_counters._has_data():
-            return True
-
-        if self.mlacp_iccp_group_counters is not None and self.mlacp_iccp_group_counters.is_presence():
             return True
 
         if self.mlacp_member_counters is not None and self.mlacp_member_counters._has_data():
             return True
 
-        if self.mlacp_member_counters is not None and self.mlacp_member_counters.is_presence():
-            return True
-
         if self.protect is not None and self.protect._has_data():
-            return True
-
-        if self.protect is not None and self.protect.is_presence():
             return True
 
         if self.scheduled_actions is not None and self.scheduled_actions._has_data():
             return True
 
-        if self.scheduled_actions is not None and self.scheduled_actions.is_presence():
-            return True
-
         if self.system_id is not None and self.system_id._has_data():
             return True
 
-        if self.system_id is not None and self.system_id.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -48677,7 +43931,7 @@ class Bundles(object):
                 .. attribute:: bundle_status
                 
                 	The state of the bundle
-                	**type**\: :py:class:`BmBdlState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlState_Enum>`
+                	**type**\: :py:class:`BmBdlStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
                 
                 .. attribute:: cisco_extensions
                 
@@ -48734,7 +43988,7 @@ class Bundles(object):
                 .. attribute:: ipv4bfd_status
                 
                 	The status of the BFD (IPv4) feature on the bundle
-                	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
                 .. attribute:: is_active
                 
@@ -48749,12 +44003,12 @@ class Bundles(object):
                 .. attribute:: lacp_status
                 
                 	The status of the LACP feature on the bundle
-                	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
                 .. attribute:: link_order_status
                 
                 	The status of the link order signaling feature on the bundle
-                	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
                 .. attribute:: load_balance_locality_threshold
                 
@@ -48778,7 +44032,7 @@ class Bundles(object):
                 .. attribute:: mac_source
                 
                 	The source of the MAC Address
-                	**type**\: :py:class:`BmBdlMacSource_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSource_Enum>`
+                	**type**\: :py:class:`BmBdlMacSourceEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
                 
                 .. attribute:: mac_source_member
                 
@@ -48811,7 +44065,7 @@ class Bundles(object):
                 .. attribute:: maximum_active_links_source
                 
                 	Source of maximum active links value
-                	**type**\: :py:class:`BmWhichSystem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystem_Enum>`
+                	**type**\: :py:class:`BmWhichSystemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
                 
                 .. attribute:: minimum_active_links
                 
@@ -48830,12 +44084,12 @@ class Bundles(object):
                 .. attribute:: mlacp_mode
                 
                 	Indicates the mode of the device for the bundle
-                	**type**\: :py:class:`BundleMlacpMode_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpMode_Enum>`
+                	**type**\: :py:class:`BundleMlacpModeEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
                 
                 .. attribute:: mlacp_status
                 
                 	The status of the mLACP feature on the bundle
-                	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
                 .. attribute:: primary_member
                 
@@ -48873,7 +44127,7 @@ class Bundles(object):
                 .. attribute:: switchover_type
                 
                 	How a switchover of the bundle from this device will occur
-                	**type**\: :py:class:`BmdMlacpSwitchover_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchover_Enum>`
+                	**type**\: :py:class:`BmdMlacpSwitchoverEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
                 
                 .. attribute:: wait_while_timer
                 
@@ -48942,7 +44196,7 @@ class Bundles(object):
                     .. attribute:: bundle_status
                     
                     	Status of BFD on the bundle
-                    	**type**\: :py:class:`BmdBfdBdlState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlState_Enum>`
+                    	**type**\: :py:class:`BmdBfdBdlStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
                     
                     .. attribute:: destination_address
                     
@@ -49024,7 +44278,7 @@ class Bundles(object):
                         .. attribute:: af
                         
                         	AF
-                        	**type**\: :py:class:`BmAfId_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmAfId_Enum>`
+                        	**type**\: :py:class:`BmAfIdEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
                         
                         .. attribute:: ipv4
                         
@@ -49067,8 +44321,6 @@ class Bundles(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.af is not None:
                                 return True
 
@@ -49078,10 +44330,6 @@ class Bundles(object):
                             if self.ipv6 is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -49103,15 +44351,10 @@ class Bundles(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bundle_status is not None:
                             return True
 
                         if self.destination_address is not None and self.destination_address._has_data():
-                            return True
-
-                        if self.destination_address is not None and self.destination_address.is_presence():
                             return True
 
                         if self.fast_detect is not None:
@@ -49135,10 +44378,6 @@ class Bundles(object):
                         if self.start_timer is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -49183,15 +44422,9 @@ class Bundles(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -49213,8 +44446,6 @@ class Bundles(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.active_foreign_member_count is not None:
                         return True
 
@@ -49283,9 +44514,6 @@ class Bundles(object):
                     if self.mac_address is not None and self.mac_address._has_data():
                         return True
 
-                    if self.mac_address is not None and self.mac_address.is_presence():
-                        return True
-
                     if self.mac_source is not None:
                         return True
 
@@ -49337,10 +44565,6 @@ class Bundles(object):
                     if self.wait_while_timer is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -49429,7 +44653,7 @@ class Bundles(object):
                     .. attribute:: member_type
                     
                     	Member's type (local/foreign)
-                    	**type**\: :py:class:`BmdMemberTypeEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnum_Enum>`
+                    	**type**\: :py:class:`BmdMemberTypeEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
                     
                     .. attribute:: port_number
                     
@@ -49513,15 +44737,9 @@ class Bundles(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -49544,7 +44762,7 @@ class Bundles(object):
                         .. attribute:: member_mux_state_reason
                         
                         	Reason for last Mux state change
-                        	**type**\: :py:class:`BmMbrStateReason_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReason_Enum>`
+                        	**type**\: :py:class:`BmMbrStateReasonEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReasonEnum>`
                         
                         .. attribute:: member_mux_state_reason_data
                         
@@ -49554,17 +44772,17 @@ class Bundles(object):
                         .. attribute:: member_state
                         
                         	Current internal state of this bundle member
-                        	**type**\: :py:class:`BmdMemberState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberState_Enum>`
+                        	**type**\: :py:class:`BmdMemberStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberStateEnum>`
                         
                         .. attribute:: mux_state
                         
                         	Current state of this bundle member
-                        	**type**\: :py:class:`BmMuxstate_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstate_Enum>`
+                        	**type**\: :py:class:`BmMuxstateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
                         
                         .. attribute:: mux_state_reason
                         
                         	Reason for last Mux state change (Deprecated)
-                        	**type**\: :py:class:`BmMuxreason_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreason_Enum>`
+                        	**type**\: :py:class:`BmMuxreasonEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreasonEnum>`
                         
                         
 
@@ -49592,12 +44810,12 @@ class Bundles(object):
                             .. attribute:: reason_type
                             
                             	The item the reason applies to
-                            	**type**\: :py:class:`BmStateReasonTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTarget_Enum>`
+                            	**type**\: :py:class:`BmStateReasonTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTargetEnum>`
                             
                             .. attribute:: severity
                             
                             	The severity of the reason
-                            	**type**\: :py:class:`BmSeverity_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmSeverity_Enum>`
+                            	**type**\: :py:class:`BmSeverityEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmSeverityEnum>`
                             
                             
 
@@ -49625,18 +44843,12 @@ class Bundles(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.reason_type is not None:
                                     return True
 
                                 if self.severity is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -49658,8 +44870,6 @@ class Bundles(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.error is not None:
                                 return True
 
@@ -49667,9 +44877,6 @@ class Bundles(object):
                                 return True
 
                             if self.member_mux_state_reason_data is not None and self.member_mux_state_reason_data._has_data():
-                                return True
-
-                            if self.member_mux_state_reason_data is not None and self.member_mux_state_reason_data.is_presence():
                                 return True
 
                             if self.member_state is not None:
@@ -49681,10 +44888,6 @@ class Bundles(object):
                             if self.mux_state_reason is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -49708,8 +44911,6 @@ class Bundles(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.member_interface is not None:
                             return True
 
@@ -49728,13 +44929,7 @@ class Bundles(object):
                         if self.mac_address is not None and self.mac_address._has_data():
                             return True
 
-                        if self.mac_address is not None and self.mac_address.is_presence():
-                            return True
-
                         if self.member_mux_data is not None and self.member_mux_data._has_data():
-                            return True
-
-                        if self.member_mux_data is not None and self.member_mux_data.is_presence():
                             return True
 
                         if self.member_name is not None:
@@ -49752,10 +44947,6 @@ class Bundles(object):
                         if self.underlying_link_id is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -49777,17 +44968,11 @@ class Bundles(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.member is not None:
                         for child_ref in self.member:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -49809,27 +44994,15 @@ class Bundles(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.bundle_interface is not None:
                     return True
 
                 if self.data is not None and self.data._has_data():
                     return True
 
-                if self.data is not None and self.data.is_presence():
-                    return True
-
                 if self.members is not None and self.members._has_data():
                     return True
 
-                if self.members is not None and self.members.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -49849,17 +45022,11 @@ class Bundles(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.bundle is not None:
                 for child_ref in self.bundle:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -49879,18 +45046,9 @@ class Bundles(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.bundles is not None and self.bundles._has_data():
             return True
 
-        if self.bundles is not None and self.bundles.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -50102,7 +45260,7 @@ class BundlesAdjacency(object):
                             .. attribute:: type
                             
                             	Type of load balancing to use
-                            	**type**\: :py:class:`LoadBalance_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LoadBalance_Enum>`
+                            	**type**\: :py:class:`LoadBalanceEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LoadBalanceEnum>`
                             
                             .. attribute:: value
                             
@@ -50138,8 +45296,6 @@ class BundlesAdjacency(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.local_link_threshold is not None:
                                     return True
 
@@ -50149,10 +45305,6 @@ class BundlesAdjacency(object):
                                 if self.value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -50174,21 +45326,12 @@ class BundlesAdjacency(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface_name is not None:
                                 return True
 
                             if self.load_balance_data is not None and self.load_balance_data._has_data():
                                 return True
 
-                            if self.load_balance_data is not None and self.load_balance_data.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -50210,8 +45353,6 @@ class BundlesAdjacency(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_name is not None:
                             return True
 
@@ -50229,10 +45370,6 @@ class BundlesAdjacency(object):
                         if self.total_weight is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -50254,17 +45391,11 @@ class BundlesAdjacency(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bundle_data is not None:
                         for child_ref in self.bundle_data:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -50355,7 +45486,7 @@ class BundlesAdjacency(object):
                         .. attribute:: media
                         
                         	Media type of bundle
-                        	**type**\: :py:class:`BundleMedia1_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMedia1_Enum>`
+                        	**type**\: :py:class:`BundleMedia1Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMedia1Enum>`
                         
                         .. attribute:: member
                         
@@ -50490,7 +45621,7 @@ class BundlesAdjacency(object):
                                     .. attribute:: type
                                     
                                     	Type of load balancing to use
-                                    	**type**\: :py:class:`LoadBalance_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LoadBalance_Enum>`
+                                    	**type**\: :py:class:`LoadBalanceEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LoadBalanceEnum>`
                                     
                                     .. attribute:: value
                                     
@@ -50526,8 +45657,6 @@ class BundlesAdjacency(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.local_link_threshold is not None:
                                             return True
 
@@ -50537,10 +45666,6 @@ class BundlesAdjacency(object):
                                         if self.value is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -50562,21 +45687,12 @@ class BundlesAdjacency(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_name is not None:
                                         return True
 
                                     if self.load_balance_data is not None and self.load_balance_data._has_data():
                                         return True
 
-                                    if self.load_balance_data is not None and self.load_balance_data.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -50598,8 +45714,6 @@ class BundlesAdjacency(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.interface_name is not None:
                                     return True
 
@@ -50617,10 +45731,6 @@ class BundlesAdjacency(object):
                                 if self.total_weight is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -50643,7 +45753,7 @@ class BundlesAdjacency(object):
                             .. attribute:: type
                             
                             	Type of load balancing to use
-                            	**type**\: :py:class:`LoadBalance_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LoadBalance_Enum>`
+                            	**type**\: :py:class:`LoadBalanceEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LoadBalanceEnum>`
                             
                             .. attribute:: value
                             
@@ -50679,8 +45789,6 @@ class BundlesAdjacency(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.local_link_threshold is not None:
                                     return True
 
@@ -50690,10 +45798,6 @@ class BundlesAdjacency(object):
                                 if self.value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -50762,8 +45866,6 @@ class BundlesAdjacency(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bandwidth is not None:
                                     return True
 
@@ -50776,10 +45878,6 @@ class BundlesAdjacency(object):
                                 if self.link_order_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -50832,7 +45930,7 @@ class BundlesAdjacency(object):
                                 .. attribute:: type
                                 
                                 	Type of load balancing to use
-                                	**type**\: :py:class:`LoadBalance_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LoadBalance_Enum>`
+                                	**type**\: :py:class:`LoadBalanceEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.LoadBalanceEnum>`
                                 
                                 .. attribute:: value
                                 
@@ -50868,8 +45966,6 @@ class BundlesAdjacency(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.local_link_threshold is not None:
                                         return True
 
@@ -50879,10 +45975,6 @@ class BundlesAdjacency(object):
                                     if self.value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -50904,21 +45996,12 @@ class BundlesAdjacency(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.interface_name is not None:
                                     return True
 
                                 if self.load_balance_data is not None and self.load_balance_data._has_data():
                                     return True
 
-                                if self.load_balance_data is not None and self.load_balance_data.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -50940,21 +46023,13 @@ class BundlesAdjacency(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.avoid_rebalance is not None:
                                 return True
 
                             if self.brief is not None and self.brief._has_data():
                                 return True
 
-                            if self.brief is not None and self.brief.is_presence():
-                                return True
-
                             if self.load_balance_data is not None and self.load_balance_data._has_data():
-                                return True
-
-                            if self.load_balance_data is not None and self.load_balance_data.is_presence():
                                 return True
 
                             if self.max_member_count is not None:
@@ -50973,10 +46048,6 @@ class BundlesAdjacency(object):
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -51000,21 +46071,12 @@ class BundlesAdjacency(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bundle_name is not None:
                             return True
 
                         if self.bundle_info is not None and self.bundle_info._has_data():
                             return True
 
-                        if self.bundle_info is not None and self.bundle_info.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -51036,17 +46098,11 @@ class BundlesAdjacency(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bundle is not None:
                         for child_ref in self.bundle:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -51068,27 +46124,15 @@ class BundlesAdjacency(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.brief is not None and self.brief._has_data():
                     return True
 
-                if self.brief is not None and self.brief.is_presence():
-                    return True
-
                 if self.bundles is not None and self.bundles._has_data():
                     return True
 
-                if self.bundles is not None and self.bundles.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -51108,17 +46152,11 @@ class BundlesAdjacency(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -51138,18 +46176,9 @@ class BundlesAdjacency(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -51386,8 +46415,6 @@ class LacpBundleMembers(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.defaulted is not None:
                         return True
 
@@ -51430,10 +46457,6 @@ class LacpBundleMembers(object):
                     if self.time_since_unexpected_event is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -51574,8 +46597,6 @@ class LacpBundleMembers(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.actor_operational_key is not None:
                         return True
 
@@ -51617,10 +46638,6 @@ class LacpBundleMembers(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
@@ -51640,27 +46657,15 @@ class LacpBundleMembers(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.member_interface is not None:
                     return True
 
                 if self.counters is not None and self.counters._has_data():
                     return True
 
-                if self.counters is not None and self.counters.is_presence():
-                    return True
-
                 if self.data is not None and self.data._has_data():
                     return True
 
-                if self.data is not None and self.data.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -51680,17 +46685,11 @@ class LacpBundleMembers(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.member is not None:
                 for child_ref in self.member:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -51835,8 +46834,6 @@ class LacpBundleMembers(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.last_wrong_port is not None:
                         return True
 
@@ -51860,10 +46857,6 @@ class LacpBundleMembers(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.bundlemgr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
@@ -51883,21 +46876,12 @@ class LacpBundleMembers(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node is not None:
                     return True
 
                 if self.counters is not None and self.counters._has_data():
                     return True
 
-                if self.counters is not None and self.counters.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -51917,17 +46901,11 @@ class LacpBundleMembers(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -51947,24 +46925,12 @@ class LacpBundleMembers(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.members is not None and self.members._has_data():
-            return True
-
-        if self.members is not None and self.members.is_presence():
             return True
 
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -52155,7 +47121,7 @@ class LacpBundles(object):
                     .. attribute:: bundle_status
                     
                     	The state of the bundle
-                    	**type**\: :py:class:`BmBdlState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlState_Enum>`
+                    	**type**\: :py:class:`BmBdlStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
                     
                     .. attribute:: cisco_extensions
                     
@@ -52212,7 +47178,7 @@ class LacpBundles(object):
                     .. attribute:: ipv4bfd_status
                     
                     	The status of the BFD (IPv4) feature on the bundle
-                    	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                    	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
                     .. attribute:: is_active
                     
@@ -52227,12 +47193,12 @@ class LacpBundles(object):
                     .. attribute:: lacp_status
                     
                     	The status of the LACP feature on the bundle
-                    	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                    	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
                     .. attribute:: link_order_status
                     
                     	The status of the link order signaling feature on the bundle
-                    	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                    	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
                     .. attribute:: load_balance_locality_threshold
                     
@@ -52256,7 +47222,7 @@ class LacpBundles(object):
                     .. attribute:: mac_source
                     
                     	The source of the MAC Address
-                    	**type**\: :py:class:`BmBdlMacSource_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSource_Enum>`
+                    	**type**\: :py:class:`BmBdlMacSourceEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
                     
                     .. attribute:: mac_source_member
                     
@@ -52289,7 +47255,7 @@ class LacpBundles(object):
                     .. attribute:: maximum_active_links_source
                     
                     	Source of maximum active links value
-                    	**type**\: :py:class:`BmWhichSystem_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystem_Enum>`
+                    	**type**\: :py:class:`BmWhichSystemEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
                     
                     .. attribute:: minimum_active_links
                     
@@ -52308,12 +47274,12 @@ class LacpBundles(object):
                     .. attribute:: mlacp_mode
                     
                     	Indicates the mode of the device for the bundle
-                    	**type**\: :py:class:`BundleMlacpMode_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpMode_Enum>`
+                    	**type**\: :py:class:`BundleMlacpModeEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
                     
                     .. attribute:: mlacp_status
                     
                     	The status of the mLACP feature on the bundle
-                    	**type**\: :py:class:`BmFeatureStatus_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatus_Enum>`
+                    	**type**\: :py:class:`BmFeatureStatusEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
                     .. attribute:: primary_member
                     
@@ -52351,7 +47317,7 @@ class LacpBundles(object):
                     .. attribute:: switchover_type
                     
                     	How a switchover of the bundle from this device will occur
-                    	**type**\: :py:class:`BmdMlacpSwitchover_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchover_Enum>`
+                    	**type**\: :py:class:`BmdMlacpSwitchoverEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
                     
                     .. attribute:: wait_while_timer
                     
@@ -52420,7 +47386,7 @@ class LacpBundles(object):
                         .. attribute:: bundle_status
                         
                         	Status of BFD on the bundle
-                        	**type**\: :py:class:`BmdBfdBdlState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlState_Enum>`
+                        	**type**\: :py:class:`BmdBfdBdlStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
                         
                         .. attribute:: destination_address
                         
@@ -52502,7 +47468,7 @@ class LacpBundles(object):
                             .. attribute:: af
                             
                             	AF
-                            	**type**\: :py:class:`BmAfId_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmAfId_Enum>`
+                            	**type**\: :py:class:`BmAfIdEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
                             
                             .. attribute:: ipv4
                             
@@ -52545,8 +47511,6 @@ class LacpBundles(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.af is not None:
                                     return True
 
@@ -52556,10 +47520,6 @@ class LacpBundles(object):
                                 if self.ipv6 is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -52581,15 +47541,10 @@ class LacpBundles(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bundle_status is not None:
                                 return True
 
                             if self.destination_address is not None and self.destination_address._has_data():
-                                return True
-
-                            if self.destination_address is not None and self.destination_address.is_presence():
                                 return True
 
                             if self.fast_detect is not None:
@@ -52613,10 +47568,6 @@ class LacpBundles(object):
                             if self.start_timer is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -52661,15 +47612,9 @@ class LacpBundles(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -52691,8 +47636,6 @@ class LacpBundles(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.active_foreign_member_count is not None:
                             return True
 
@@ -52761,9 +47704,6 @@ class LacpBundles(object):
                         if self.mac_address is not None and self.mac_address._has_data():
                             return True
 
-                        if self.mac_address is not None and self.mac_address.is_presence():
-                            return True
-
                         if self.mac_source is not None:
                             return True
 
@@ -52815,10 +47755,6 @@ class LacpBundles(object):
                         if self.wait_while_timer is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -52893,15 +47829,9 @@ class LacpBundles(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.macaddr is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -52923,21 +47853,12 @@ class LacpBundles(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.system_mac_addr is not None and self.system_mac_addr._has_data():
-                            return True
-
-                        if self.system_mac_addr is not None and self.system_mac_addr.is_presence():
                             return True
 
                         if self.system_prio is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -52959,21 +47880,13 @@ class LacpBundles(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.actor_bundle_data is not None and self.actor_bundle_data._has_data():
-                        return True
-
-                    if self.actor_bundle_data is not None and self.actor_bundle_data.is_presence():
                         return True
 
                     if self.actor_operational_key is not None:
                         return True
 
                     if self.bundle_system_id is not None and self.bundle_system_id._has_data():
-                        return True
-
-                    if self.bundle_system_id is not None and self.bundle_system_id.is_presence():
                         return True
 
                     if self.partner_operational_key is not None:
@@ -52985,10 +47898,6 @@ class LacpBundles(object):
                     if self.partner_system_priority is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -53077,7 +47986,7 @@ class LacpBundles(object):
                     .. attribute:: member_type
                     
                     	Member's type (local/foreign)
-                    	**type**\: :py:class:`BmdMemberTypeEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnum_Enum>`
+                    	**type**\: :py:class:`BmdMemberTypeEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
                     
                     .. attribute:: port_number
                     
@@ -53161,15 +48070,9 @@ class LacpBundles(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -53192,7 +48095,7 @@ class LacpBundles(object):
                         .. attribute:: member_mux_state_reason
                         
                         	Reason for last Mux state change
-                        	**type**\: :py:class:`BmMbrStateReason_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReason_Enum>`
+                        	**type**\: :py:class:`BmMbrStateReasonEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReasonEnum>`
                         
                         .. attribute:: member_mux_state_reason_data
                         
@@ -53202,17 +48105,17 @@ class LacpBundles(object):
                         .. attribute:: member_state
                         
                         	Current internal state of this bundle member
-                        	**type**\: :py:class:`BmdMemberState_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberState_Enum>`
+                        	**type**\: :py:class:`BmdMemberStateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberStateEnum>`
                         
                         .. attribute:: mux_state
                         
                         	Current state of this bundle member
-                        	**type**\: :py:class:`BmMuxstate_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstate_Enum>`
+                        	**type**\: :py:class:`BmMuxstateEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
                         
                         .. attribute:: mux_state_reason
                         
                         	Reason for last Mux state change (Deprecated)
-                        	**type**\: :py:class:`BmMuxreason_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreason_Enum>`
+                        	**type**\: :py:class:`BmMuxreasonEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreasonEnum>`
                         
                         
 
@@ -53240,12 +48143,12 @@ class LacpBundles(object):
                             .. attribute:: reason_type
                             
                             	The item the reason applies to
-                            	**type**\: :py:class:`BmStateReasonTarget_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTarget_Enum>`
+                            	**type**\: :py:class:`BmStateReasonTargetEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTargetEnum>`
                             
                             .. attribute:: severity
                             
                             	The severity of the reason
-                            	**type**\: :py:class:`BmSeverity_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmSeverity_Enum>`
+                            	**type**\: :py:class:`BmSeverityEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper.BmSeverityEnum>`
                             
                             
 
@@ -53273,18 +48176,12 @@ class LacpBundles(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.reason_type is not None:
                                     return True
 
                                 if self.severity is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -53306,8 +48203,6 @@ class LacpBundles(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.error is not None:
                                 return True
 
@@ -53315,9 +48210,6 @@ class LacpBundles(object):
                                 return True
 
                             if self.member_mux_state_reason_data is not None and self.member_mux_state_reason_data._has_data():
-                                return True
-
-                            if self.member_mux_state_reason_data is not None and self.member_mux_state_reason_data.is_presence():
                                 return True
 
                             if self.member_state is not None:
@@ -53329,10 +48221,6 @@ class LacpBundles(object):
                             if self.mux_state_reason is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -53356,8 +48244,6 @@ class LacpBundles(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.member_interface is not None:
                             return True
 
@@ -53376,13 +48262,7 @@ class LacpBundles(object):
                         if self.mac_address is not None and self.mac_address._has_data():
                             return True
 
-                        if self.mac_address is not None and self.mac_address.is_presence():
-                            return True
-
                         if self.member_mux_data is not None and self.member_mux_data._has_data():
-                            return True
-
-                        if self.member_mux_data is not None and self.member_mux_data.is_presence():
                             return True
 
                         if self.member_name is not None:
@@ -53400,10 +48280,6 @@ class LacpBundles(object):
                         if self.underlying_link_id is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -53425,17 +48301,11 @@ class LacpBundles(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.member is not None:
                         for child_ref in self.member:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -53457,27 +48327,15 @@ class LacpBundles(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.bundle_interface is not None:
                     return True
 
                 if self.data is not None and self.data._has_data():
                     return True
 
-                if self.data is not None and self.data.is_presence():
-                    return True
-
                 if self.members is not None and self.members._has_data():
                     return True
 
-                if self.members is not None and self.members.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -53497,17 +48355,11 @@ class LacpBundles(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.bundle is not None:
                 for child_ref in self.bundle:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -53527,18 +48379,9 @@ class LacpBundles(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.bundles is not None and self.bundles._has_data():
             return True
 
-        if self.bundles is not None and self.bundles.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -53700,15 +48543,9 @@ class LacpData(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.macaddr is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -53728,21 +48565,12 @@ class LacpData(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.system_mac_addr is not None and self.system_mac_addr._has_data():
-                        return True
-
-                    if self.system_mac_addr is not None and self.system_mac_addr.is_presence():
                         return True
 
                     if self.system_prio is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -53762,15 +48590,10 @@ class LacpData(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.iccp_group_id is not None:
                     return True
 
                 if self.system_id is not None and self.system_id._has_data():
-                    return True
-
-                if self.system_id is not None and self.system_id.is_presence():
                     return True
 
                 if self.system_mac_address is not None:
@@ -53779,10 +48602,6 @@ class LacpData(object):
                 if self.system_priority is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -53802,18 +48621,9 @@ class LacpData(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.system_id is not None and self.system_id._has_data():
                 return True
 
-            if self.system_id is not None and self.system_id.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -53833,18 +48643,9 @@ class LacpData(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.global_ is not None and self.global_._has_data():
             return True
 
-        if self.global_ is not None and self.global_.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

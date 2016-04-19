@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'NtpPeerStatus_Enum' : _MetaInfoEnum('NtpPeerStatus_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper',
+    'NtpPeerStatusEnum' : _MetaInfoEnum('NtpPeerStatusEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper',
         {
             'ntp-ctl-pst-sel-reject':'NTP_CTL_PST_SEL_REJECT',
             'ntp-ctl-pst-sel-sane':'NTP_CTL_PST_SEL_SANE',
@@ -25,7 +25,7 @@ _meta_table = {
             'ntp-ctl-pst-sel-sys-peer':'NTP_CTL_PST_SEL_SYS_PEER',
             'ntp-ctl-pst-sel-pps':'NTP_CTL_PST_SEL_PPS',
         }, 'Cisco-IOS-XR-ip-ntp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-ntp-oper']),
-    'NtpMode_Enum' : _MetaInfoEnum('NtpMode_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper',
+    'NtpModeEnum' : _MetaInfoEnum('NtpModeEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper',
         {
             'ntp-mode-unspec':'NTP_MODE_UNSPEC',
             'ntp-mode-symetric-active':'NTP_MODE_SYMETRIC_ACTIVE',
@@ -37,13 +37,13 @@ _meta_table = {
             'ntp-mode-private':'NTP_MODE_PRIVATE',
             'ntp-mode-xcast-client':'NTP_MODE_XCAST_CLIENT',
         }, 'Cisco-IOS-XR-ip-ntp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-ntp-oper']),
-    'ClockUpdateNode_Enum' : _MetaInfoEnum('ClockUpdateNode_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper',
+    'ClockUpdateNodeEnum' : _MetaInfoEnum('ClockUpdateNodeEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper',
         {
             'clk-never-updated':'CLK_NEVER_UPDATED',
             'clk-updated':'CLK_UPDATED',
             'clk-no-update-info':'CLK_NO_UPDATE_INFO',
         }, 'Cisco-IOS-XR-ip-ntp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-ntp-oper']),
-    'NtpLoopFilterState_Enum' : _MetaInfoEnum('NtpLoopFilterState_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper',
+    'NtpLoopFilterStateEnum' : _MetaInfoEnum('NtpLoopFilterStateEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper',
         {
             'ntp-loop-flt-n-set':'NTP_LOOP_FLT_N_SET',
             'ntp-loop-flt-f-set':'NTP_LOOP_FLT_F_SET',
@@ -52,7 +52,7 @@ _meta_table = {
             'ntp-loop-flt-sync':'NTP_LOOP_FLT_SYNC',
             'ntp-loop-flt-unkn':'NTP_LOOP_FLT_UNKN',
         }, 'Cisco-IOS-XR-ip-ntp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-ntp-oper']),
-    'NtpLeap_Enum' : _MetaInfoEnum('NtpLeap_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper',
+    'NtpLeapEnum' : _MetaInfoEnum('NtpLeapEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper',
         {
             'ntp-leap-no-warning':'NTP_LEAP_NO_WARNING',
             'ntp-leap-addse-cond':'NTP_LEAP_ADDSE_COND',
@@ -81,7 +81,7 @@ _meta_table = {
                 ''',
                 'dispersion',
                 'Cisco-IOS-XR-ip-ntp-oper', False),
-            _MetaInfoClassMember('host-mode', REFERENCE_ENUM_CLASS, 'NtpMode_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'NtpMode_Enum', 
+            _MetaInfoClassMember('host-mode', REFERENCE_ENUM_CLASS, 'NtpModeEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'NtpModeEnum', 
                 [], [], 
                 '''                Association mode with this peer
                 ''',
@@ -123,7 +123,7 @@ _meta_table = {
                 ''',
                 'reference_id',
                 'Cisco-IOS-XR-ip-ntp-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'NtpPeerStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'NtpPeerStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'NtpPeerStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'NtpPeerStatusEnum', 
                 [], [], 
                 '''                Peer status
                 ''',
@@ -181,7 +181,7 @@ _meta_table = {
                 ''',
                 'peer_summary_info',
                 'Cisco-IOS-XR-ip-ntp-oper', False),
-            _MetaInfoClassMember('sys-leap', REFERENCE_ENUM_CLASS, 'NtpLeap_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'NtpLeap_Enum', 
+            _MetaInfoClassMember('sys-leap', REFERENCE_ENUM_CLASS, 'NtpLeapEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'NtpLeapEnum', 
                 [], [], 
                 '''                Leap
                 ''',
@@ -302,7 +302,7 @@ _meta_table = {
                 ''',
                 'dispersion',
                 'Cisco-IOS-XR-ip-ntp-oper', False),
-            _MetaInfoClassMember('host-mode', REFERENCE_ENUM_CLASS, 'NtpMode_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'NtpMode_Enum', 
+            _MetaInfoClassMember('host-mode', REFERENCE_ENUM_CLASS, 'NtpModeEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'NtpModeEnum', 
                 [], [], 
                 '''                Association mode with this peer
                 ''',
@@ -344,7 +344,7 @@ _meta_table = {
                 ''',
                 'reference_id',
                 'Cisco-IOS-XR-ip-ntp-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'NtpPeerStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'NtpPeerStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'NtpPeerStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'NtpPeerStatusEnum', 
                 [], [], 
                 '''                Peer status
                 ''',
@@ -562,7 +562,7 @@ _meta_table = {
                 ''',
                 'is_ref_clock',
                 'Cisco-IOS-XR-ip-ntp-oper', False),
-            _MetaInfoClassMember('leap', REFERENCE_ENUM_CLASS, 'NtpLeap_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'NtpLeap_Enum', 
+            _MetaInfoClassMember('leap', REFERENCE_ENUM_CLASS, 'NtpLeapEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'NtpLeapEnum', 
                 [], [], 
                 '''                Leap
                 ''',
@@ -580,7 +580,7 @@ _meta_table = {
                 ''',
                 'peer_info_common',
                 'Cisco-IOS-XR-ip-ntp-oper', False),
-            _MetaInfoClassMember('peer-mode', REFERENCE_ENUM_CLASS, 'NtpMode_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'NtpMode_Enum', 
+            _MetaInfoClassMember('peer-mode', REFERENCE_ENUM_CLASS, 'NtpModeEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'NtpModeEnum', 
                 [], [], 
                 '''                Peer's association mode
                 ''',
@@ -663,7 +663,7 @@ _meta_table = {
                 ''',
                 'peer_detail_info',
                 'Cisco-IOS-XR-ip-ntp-oper', False),
-            _MetaInfoClassMember('sys-leap', REFERENCE_ENUM_CLASS, 'NtpLeap_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'NtpLeap_Enum', 
+            _MetaInfoClassMember('sys-leap', REFERENCE_ENUM_CLASS, 'NtpLeapEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'NtpLeapEnum', 
                 [], [], 
                 '''                Leap
                 ''',
@@ -806,7 +806,7 @@ _meta_table = {
                 ''',
                 'is_ntp_enabled',
                 'Cisco-IOS-XR-ip-ntp-oper', False),
-            _MetaInfoClassMember('is-updated', REFERENCE_ENUM_CLASS, 'ClockUpdateNode_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'ClockUpdateNode_Enum', 
+            _MetaInfoClassMember('is-updated', REFERENCE_ENUM_CLASS, 'ClockUpdateNodeEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'ClockUpdateNodeEnum', 
                 [], [], 
                 '''                Is clock updated
                 ''',
@@ -818,7 +818,7 @@ _meta_table = {
                 ''',
                 'last_update',
                 'Cisco-IOS-XR-ip-ntp-oper', False),
-            _MetaInfoClassMember('loop-filter-state', REFERENCE_ENUM_CLASS, 'NtpLoopFilterState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'NtpLoopFilterState_Enum', 
+            _MetaInfoClassMember('loop-filter-state', REFERENCE_ENUM_CLASS, 'NtpLoopFilterStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'NtpLoopFilterStateEnum', 
                 [], [], 
                 '''                Loop Filter State
                 ''',
@@ -842,7 +842,7 @@ _meta_table = {
                 ''',
                 'sys_drift',
                 'Cisco-IOS-XR-ip-ntp-oper', False),
-            _MetaInfoClassMember('sys-leap', REFERENCE_ENUM_CLASS, 'NtpLeap_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'NtpLeap_Enum', 
+            _MetaInfoClassMember('sys-leap', REFERENCE_ENUM_CLASS, 'NtpLeapEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper', 'NtpLeapEnum', 
                 [], [], 
                 '''                leap
                 ''',

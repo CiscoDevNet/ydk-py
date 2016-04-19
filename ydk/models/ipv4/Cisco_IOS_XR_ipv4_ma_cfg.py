@@ -25,48 +25,45 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class Ipv4Qppb_Enum(Enum):
+class Ipv4QppbEnum(Enum):
     """
-    Ipv4Qppb_Enum
+    Ipv4QppbEnum
 
     Ipv4 qppb
 
-    """
+    .. data:: NONE = 0
+
+    	No QPPB configuration
+
+    .. data:: IP_PREC = 1
+
+    	Enable ip-precedence based QPPB
+
+    .. data:: QOS_GRP = 2
+
+    	Enable qos-group based QPPB
+
+    .. data:: BOTH = 3
+
+    	Enable both ip-precedence and qos-group based
+
+    	QPPB
 
     """
 
-    No QPPB configuration
-
-    """
     NONE = 0
 
-    """
-
-    Enable ip\-precedence based QPPB
-
-    """
     IP_PREC = 1
 
-    """
-
-    Enable qos\-group based QPPB
-
-    """
     QOS_GRP = 2
 
-    """
-
-    Enable both ip\-precedence and qos\-group based
-    QPPB
-
-    """
     BOTH = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ma_cfg as meta
-        return meta._meta_table['Ipv4Qppb_Enum']
+        return meta._meta_table['Ipv4QppbEnum']
 
 
 
@@ -213,18 +210,12 @@ class Ipv4NetworkGlobal(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.df is not None:
                         return True
 
                     if self.rate is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -244,18 +235,9 @@ class Ipv4NetworkGlobal(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.unreachable is not None and self.unreachable._has_data():
                     return True
 
-                if self.unreachable is not None and self.unreachable.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -275,18 +257,9 @@ class Ipv4NetworkGlobal(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.rate_limit is not None and self.rate_limit._has_data():
                 return True
 
-            if self.rate_limit is not None and self.rate_limit.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -302,12 +275,12 @@ class Ipv4NetworkGlobal(object):
         .. attribute:: destination
         
         	QPPB configuration on destination
-        	**type**\: :py:class:`Ipv4Qppb_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4Qppb_Enum>`
+        	**type**\: :py:class:`Ipv4QppbEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4QppbEnum>`
         
         .. attribute:: source
         
         	QPPB configuration on source
-        	**type**\: :py:class:`Ipv4Qppb_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4Qppb_Enum>`
+        	**type**\: :py:class:`Ipv4QppbEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4QppbEnum>`
         
         
 
@@ -333,18 +306,12 @@ class Ipv4NetworkGlobal(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.destination is not None:
                 return True
 
             if self.source is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -430,15 +397,9 @@ class Ipv4NetworkGlobal(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -458,18 +419,9 @@ class Ipv4NetworkGlobal(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.te is not None and self.te._has_data():
                     return True
 
-                if self.te is not None and self.te.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -489,18 +441,9 @@ class Ipv4NetworkGlobal(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.mpls is not None and self.mpls._has_data():
                 return True
 
-            if self.mpls is not None and self.mpls.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -520,18 +463,10 @@ class Ipv4NetworkGlobal(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.icmp is not None and self.icmp._has_data():
             return True
 
-        if self.icmp is not None and self.icmp.is_presence():
-            return True
-
         if self.qppb is not None and self.qppb._has_data():
-            return True
-
-        if self.qppb is not None and self.qppb.is_presence():
             return True
 
         if self.reassemble_max_packets is not None:
@@ -546,13 +481,6 @@ class Ipv4NetworkGlobal(object):
         if self.unnumbered is not None and self.unnumbered._has_data():
             return True
 
-        if self.unnumbered is not None and self.unnumbered.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -594,15 +522,9 @@ class SubscriberPta(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.tcp_mss_adjust is not None:
             return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

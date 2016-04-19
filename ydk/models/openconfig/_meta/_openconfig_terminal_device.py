@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -372,7 +372,7 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_terminal_device'
         ),
     },
-    'TerminalDevice.ClientPorts.Port.Transceiver.State.Present_Enum' : _MetaInfoEnum('Present_Enum', 'ydk.models.openconfig.openconfig_terminal_device',
+    'TerminalDevice.ClientPorts.Port.Transceiver.State.PresentEnum' : _MetaInfoEnum('PresentEnum', 'ydk.models.openconfig.openconfig_terminal_device',
         {
             'PRESENT':'PRESENT',
             'NOT_PRESENT':'NOT_PRESENT',
@@ -433,7 +433,7 @@ _meta_table = {
                 ''',
                 'internal_temp',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('present', REFERENCE_ENUM_CLASS, 'Present_Enum' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.ClientPorts.Port.Transceiver.State.Present_Enum', 
+            _MetaInfoClassMember('present', REFERENCE_ENUM_CLASS, 'PresentEnum' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.ClientPorts.Port.Transceiver.State.PresentEnum', 
                 [], [], 
                 '''                Indicates whether a transceiver is present in
                 the specified client port.
@@ -1079,7 +1079,7 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_terminal_device'
         ),
     },
-    'TerminalDevice.LogicalChannels.Channel.State.LinkState_Enum' : _MetaInfoEnum('LinkState_Enum', 'ydk.models.openconfig.openconfig_terminal_device',
+    'TerminalDevice.LogicalChannels.Channel.State.LinkStateEnum' : _MetaInfoEnum('LinkStateEnum', 'ydk.models.openconfig.openconfig_terminal_device',
         {
             'UP':'UP',
             'DOWN':'DOWN',
@@ -1106,7 +1106,7 @@ _meta_table = {
                 ''',
                 'index',
                 'openconfig-terminal-device', False),
-            _MetaInfoClassMember('link-state', REFERENCE_ENUM_CLASS, 'LinkState_Enum' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.LogicalChannels.Channel.State.LinkState_Enum', 
+            _MetaInfoClassMember('link-state', REFERENCE_ENUM_CLASS, 'LinkStateEnum' , 'ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice.LogicalChannels.Channel.State.LinkStateEnum', 
                 [], [], 
                 '''                Link-state of the Ethernet protocol on the logical channel,
                 SONET / SDH framed signal, etc.

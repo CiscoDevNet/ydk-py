@@ -23,49 +23,46 @@ from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYDataValidationError
 
 
-from ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclGrantEnum_Enum
-from ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclIcmpTypeCodeEnum_Enum
-from ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclLoggingEnum_Enum
-from ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclOperatorEnum_Enum
-from ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclTcpMatchOperatorEnum_Enum
-from ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6PrefixMatchExactLength_Enum
-from ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6PrefixMatchMaxLength_Enum
-from ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6PrefixMatchMinLength_Enum
+from ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclGrantEnumEnum
+from ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclIcmpTypeCodeEnumEnum
+from ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclLoggingEnumEnum
+from ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclOperatorEnumEnum
+from ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclTcpMatchOperatorEnumEnum
+from ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6PrefixMatchExactLengthEnum
+from ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6PrefixMatchMaxLengthEnum
+from ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6PrefixMatchMinLengthEnum
 
-class NextHopType_Enum(Enum):
+class NextHopTypeEnum(Enum):
     """
-    NextHopType_Enum
+    NextHopTypeEnum
 
     Next\-hop type.
 
-    """
+    .. data:: NONE_NEXT_HOP = 0
+
+    	None next-hop.
+
+    .. data:: REGULAR_NEXT_HOP = 1
+
+    	Regular next-hop.
+
+    .. data:: DEFAULT_NEXT_HOP = 2
+
+    	Default next-hop.
 
     """
 
-    None next\-hop.
-
-    """
     NONE_NEXT_HOP = 0
 
-    """
-
-    Regular next\-hop.
-
-    """
     REGULAR_NEXT_HOP = 1
 
-    """
-
-    Default next\-hop.
-
-    """
     DEFAULT_NEXT_HOP = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_cfg as meta
-        return meta._meta_table['NextHopType_Enum']
+        return meta._meta_table['NextHopTypeEnum']
 
 
 
@@ -230,12 +227,12 @@ class Ipv6AclAndPrefixList(object):
                     .. attribute:: dscp
                     
                     	DSCP value to match (if a protocol was specified), leave unspecified if DSCP comparion is not to be performed
-                    	**type**\: one of { :py:class:`Ipv6AclDscpNumber_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclDscpNumber_Enum>` | int }
+                    	**type**\: one of { :py:class:`Ipv6AclDscpNumberEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclDscpNumberEnum>` | int }
                     
                     .. attribute:: grant
                     
                     	Whether to forward or drop packets matching the  ACE
-                    	**type**\: :py:class:`Ipv6AclGrantEnum_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclGrantEnum_Enum>`
+                    	**type**\: :py:class:`Ipv6AclGrantEnumEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclGrantEnumEnum>`
                     
                     .. attribute:: header_flags
                     
@@ -255,7 +252,7 @@ class Ipv6AclAndPrefixList(object):
                     .. attribute:: log_option
                     
                     	Whether and how to log matches against this  entry
-                    	**type**\: :py:class:`Ipv6AclLoggingEnum_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclLoggingEnum_Enum>`
+                    	**type**\: :py:class:`Ipv6AclLoggingEnumEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclLoggingEnumEnum>`
                     
                     .. attribute:: next_hop
                     
@@ -270,12 +267,12 @@ class Ipv6AclAndPrefixList(object):
                     .. attribute:: precedence
                     
                     	Precedence value to match (if a protocol was  specified), leave unspecified if precedence  comparion is not to be performed
-                    	**type**\: one of { :py:class:`Ipv6AclPrecedenceNumber_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclPrecedenceNumber_Enum>` | int }
+                    	**type**\: one of { :py:class:`Ipv6AclPrecedenceNumberEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclPrecedenceNumberEnum>` | int }
                     
                     .. attribute:: protocol
                     
                     	Protocol to match
-                    	**type**\: one of { :py:class:`Ipv6AclProtocolNumber_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclProtocolNumber_Enum>` | int }
+                    	**type**\: one of { :py:class:`Ipv6AclProtocolNumberEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclProtocolNumberEnum>` | int }
                     
                     .. attribute:: remark
                     
@@ -412,8 +409,6 @@ class Ipv6AclAndPrefixList(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.destination_address is not None:
                                 return True
 
@@ -423,10 +418,6 @@ class Ipv6AclAndPrefixList(object):
                             if self.destination_wild_card_bits is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -442,17 +433,17 @@ class Ipv6AclAndPrefixList(object):
                         .. attribute:: destination_operator
                         
                         	Destination comparison operator. Leave  unspecified if no destination port comparison  is to be done
-                        	**type**\: :py:class:`Ipv6AclOperatorEnum_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnum_Enum>`
+                        	**type**\: :py:class:`Ipv6AclOperatorEnumEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnumEnum>`
                         
                         .. attribute:: first_destination_port
                         
                         	First destination port for comparison, leave  unspecified if destination port comparison is not to be performed
-                        	**type**\: one of { :py:class:`Ipv6AclPortNumber_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclPortNumber_Enum>` | int }
+                        	**type**\: one of { :py:class:`Ipv6AclPortNumberEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclPortNumberEnum>` | int }
                         
                         .. attribute:: second_destination_port
                         
                         	Second destination port for comparion, leave  unspecified if destination port comparison is not to be performed
-                        	**type**\: one of { :py:class:`Ipv6AclPortNumber_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclPortNumber_Enum>` | int }
+                        	**type**\: one of { :py:class:`Ipv6AclPortNumberEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclPortNumberEnum>` | int }
                         
                         
 
@@ -481,8 +472,6 @@ class Ipv6AclAndPrefixList(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.destination_operator is not None:
                                 return True
 
@@ -492,10 +481,6 @@ class Ipv6AclAndPrefixList(object):
                             if self.second_destination_port is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -511,7 +496,7 @@ class Ipv6AclAndPrefixList(object):
                         .. attribute:: icmp_type_code
                         
                         	Well known ICMP message code types to match,  leave unspecified if ICMP message code type  comparion is not to be performed
-                        	**type**\: :py:class:`Ipv6AclIcmpTypeCodeEnum_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclIcmpTypeCodeEnum_Enum>`
+                        	**type**\: :py:class:`Ipv6AclIcmpTypeCodeEnumEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclIcmpTypeCodeEnumEnum>`
                         
                         
 
@@ -538,15 +523,9 @@ class Ipv6AclAndPrefixList(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.icmp_type_code is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -577,7 +556,7 @@ class Ipv6AclAndPrefixList(object):
                         .. attribute:: next_hop_type
                         
                         	The nexthop type
-                        	**type**\: :py:class:`NextHopType_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_cfg.NextHopType_Enum>`
+                        	**type**\: :py:class:`NextHopTypeEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_cfg.NextHopTypeEnum>`
                         
                         
 
@@ -645,8 +624,6 @@ class Ipv6AclAndPrefixList(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.next_hop is not None:
                                     return True
 
@@ -656,10 +633,6 @@ class Ipv6AclAndPrefixList(object):
                                 if self.vrf_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -716,8 +689,6 @@ class Ipv6AclAndPrefixList(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.next_hop is not None:
                                     return True
 
@@ -727,10 +698,6 @@ class Ipv6AclAndPrefixList(object):
                                 if self.vrf_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -787,8 +754,6 @@ class Ipv6AclAndPrefixList(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.next_hop is not None:
                                     return True
 
@@ -798,10 +763,6 @@ class Ipv6AclAndPrefixList(object):
                                 if self.vrf_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -823,33 +784,18 @@ class Ipv6AclAndPrefixList(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.next_hop_1 is not None and self.next_hop_1._has_data():
-                                return True
-
-                            if self.next_hop_1 is not None and self.next_hop_1.is_presence():
                                 return True
 
                             if self.next_hop_2 is not None and self.next_hop_2._has_data():
                                 return True
 
-                            if self.next_hop_2 is not None and self.next_hop_2.is_presence():
-                                return True
-
                             if self.next_hop_3 is not None and self.next_hop_3._has_data():
-                                return True
-
-                            if self.next_hop_3 is not None and self.next_hop_3.is_presence():
                                 return True
 
                             if self.next_hop_type is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -879,7 +825,7 @@ class Ipv6AclAndPrefixList(object):
                         .. attribute:: packet_length_operator
                         
                         	Packet length operator applicable if packet  length is to be compared. Leave unspecified if no Packet length comparison is to be done
-                        	**type**\: :py:class:`Ipv6AclOperatorEnum_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnum_Enum>`
+                        	**type**\: :py:class:`Ipv6AclOperatorEnumEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnumEnum>`
                         
                         
 
@@ -908,8 +854,6 @@ class Ipv6AclAndPrefixList(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.packet_length_max is not None:
                                 return True
 
@@ -919,10 +863,6 @@ class Ipv6AclAndPrefixList(object):
                             if self.packet_length_operator is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -983,8 +923,6 @@ class Ipv6AclAndPrefixList(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.source_address is not None:
                                 return True
 
@@ -994,10 +932,6 @@ class Ipv6AclAndPrefixList(object):
                             if self.source_wild_card_bits is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1013,17 +947,17 @@ class Ipv6AclAndPrefixList(object):
                         .. attribute:: first_source_port
                         
                         	First source port for comparison,  leave unspecified if source port comparison is not to be performed
-                        	**type**\: one of { :py:class:`Ipv6AclPortNumber_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclPortNumber_Enum>` | int }
+                        	**type**\: one of { :py:class:`Ipv6AclPortNumberEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclPortNumberEnum>` | int }
                         
                         .. attribute:: second_source_port
                         
                         	Second source port for comparion,  leave unspecified if source port comparison is not to be performed
-                        	**type**\: one of { :py:class:`Ipv6AclPortNumber_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclPortNumber_Enum>` | int }
+                        	**type**\: one of { :py:class:`Ipv6AclPortNumberEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclPortNumberEnum>` | int }
                         
                         .. attribute:: source_operator
                         
                         	Source comparison operator. Leave unspecified if no source port comparison is to be done
-                        	**type**\: :py:class:`Ipv6AclOperatorEnum_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnum_Enum>`
+                        	**type**\: :py:class:`Ipv6AclOperatorEnumEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnumEnum>`
                         
                         
 
@@ -1052,8 +986,6 @@ class Ipv6AclAndPrefixList(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.first_source_port is not None:
                                 return True
 
@@ -1063,10 +995,6 @@ class Ipv6AclAndPrefixList(object):
                             if self.source_operator is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1082,17 +1010,17 @@ class Ipv6AclAndPrefixList(object):
                         .. attribute:: tcp_bits
                         
                         	TCP bits to match. Leave unspecified if  comparison of TCP bits is not required
-                        	**type**\: one of { :py:class:`Ipv6AclTcpBitsNumber_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclTcpBitsNumber_Enum>` | int }
+                        	**type**\: one of { :py:class:`Ipv6AclTcpBitsNumberEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclTcpBitsNumberEnum>` | int }
                         
                         .. attribute:: tcp_bits_mask
                         
                         	TCP bits mask to use for flexible TCP matching. Leave unspecified if it is not required
-                        	**type**\: one of { :py:class:`Ipv6AclTcpBitsNumber_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclTcpBitsNumber_Enum>` | int }
+                        	**type**\: one of { :py:class:`Ipv6AclTcpBitsNumberEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclTcpBitsNumberEnum>` | int }
                         
                         .. attribute:: tcp_bits_match_operator
                         
                         	TCP Bits match operator. Leave unspecified if  flexible comparison of TCP bits is not  required
-                        	**type**\: :py:class:`Ipv6AclTcpMatchOperatorEnum_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclTcpMatchOperatorEnum_Enum>`
+                        	**type**\: :py:class:`Ipv6AclTcpMatchOperatorEnumEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclTcpMatchOperatorEnumEnum>`
                         
                         
 
@@ -1121,8 +1049,6 @@ class Ipv6AclAndPrefixList(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.tcp_bits is not None:
                                 return True
 
@@ -1132,10 +1058,6 @@ class Ipv6AclAndPrefixList(object):
                             if self.tcp_bits_match_operator is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1165,7 +1087,7 @@ class Ipv6AclAndPrefixList(object):
                         .. attribute:: time_to_live_operator
                         
                         	TTL operator is applicable if TTL is to be  compared. Leave unspecified if TTL  classification is not required
-                        	**type**\: :py:class:`Ipv6AclOperatorEnum_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnum_Enum>`
+                        	**type**\: :py:class:`Ipv6AclOperatorEnumEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnumEnum>`
                         
                         
 
@@ -1194,8 +1116,6 @@ class Ipv6AclAndPrefixList(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.time_to_live_max is not None:
                                 return True
 
@@ -1205,10 +1125,6 @@ class Ipv6AclAndPrefixList(object):
                             if self.time_to_live_operator is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1232,8 +1148,6 @@ class Ipv6AclAndPrefixList(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.sequence_number is not None:
                             return True
 
@@ -1246,13 +1160,7 @@ class Ipv6AclAndPrefixList(object):
                         if self.destination_network is not None and self.destination_network._has_data():
                             return True
 
-                        if self.destination_network is not None and self.destination_network.is_presence():
-                            return True
-
                         if self.destination_port is not None and self.destination_port._has_data():
-                            return True
-
-                        if self.destination_port is not None and self.destination_port.is_presence():
                             return True
 
                         if self.destination_port_group is not None:
@@ -1273,9 +1181,6 @@ class Ipv6AclAndPrefixList(object):
                         if self.icmp is not None and self.icmp._has_data():
                             return True
 
-                        if self.icmp is not None and self.icmp.is_presence():
-                            return True
-
                         if self.icmp_off is not None:
                             return True
 
@@ -1285,13 +1190,7 @@ class Ipv6AclAndPrefixList(object):
                         if self.next_hop is not None and self.next_hop._has_data():
                             return True
 
-                        if self.next_hop is not None and self.next_hop.is_presence():
-                            return True
-
                         if self.packet_length is not None and self.packet_length._has_data():
-                            return True
-
-                        if self.packet_length is not None and self.packet_length.is_presence():
                             return True
 
                         if self.precedence is not None:
@@ -1306,13 +1205,7 @@ class Ipv6AclAndPrefixList(object):
                         if self.source_network is not None and self.source_network._has_data():
                             return True
 
-                        if self.source_network is not None and self.source_network.is_presence():
-                            return True
-
                         if self.source_port is not None and self.source_port._has_data():
-                            return True
-
-                        if self.source_port is not None and self.source_port.is_presence():
                             return True
 
                         if self.source_port_group is not None:
@@ -1324,19 +1217,9 @@ class Ipv6AclAndPrefixList(object):
                         if self.tcp is not None and self.tcp._has_data():
                             return True
 
-                        if self.tcp is not None and self.tcp.is_presence():
-                            return True
-
                         if self.time_to_live is not None and self.time_to_live._has_data():
                             return True
 
-                        if self.time_to_live is not None and self.time_to_live.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1358,17 +1241,11 @@ class Ipv6AclAndPrefixList(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.access_list_entry is not None:
                         for child_ref in self.access_list_entry:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1390,21 +1267,12 @@ class Ipv6AclAndPrefixList(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
                 if self.access_list_entries is not None and self.access_list_entries._has_data():
                     return True
 
-                if self.access_list_entries is not None and self.access_list_entries.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1424,17 +1292,11 @@ class Ipv6AclAndPrefixList(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.access is not None:
                 for child_ref in self.access:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1485,18 +1347,12 @@ class Ipv6AclAndPrefixList(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.rate is not None:
                 return True
 
             if self.threshold is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1566,6 +1422,11 @@ class Ipv6AclAndPrefixList(object):
                 	A prefix list entry; either a description (remark) or a prefix to match against
                 	**type**\: list of :py:class:`PrefixListEntry <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Prefixes.Prefix.PrefixListEntries.PrefixListEntry>`
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 
 
                 This class is a :ref:`presence class<presence-class>`
@@ -1604,7 +1465,7 @@ class Ipv6AclAndPrefixList(object):
                     .. attribute:: grant
                     
                     	Whether to forward or drop packets matching the prefix list
-                    	**type**\: :py:class:`Ipv6AclGrantEnum_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclGrantEnum_Enum>`
+                    	**type**\: :py:class:`Ipv6AclGrantEnumEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclGrantEnumEnum>`
                     
                     .. attribute:: ipv6_address_as_string
                     
@@ -1614,17 +1475,17 @@ class Ipv6AclAndPrefixList(object):
                     .. attribute:: match_exact_length
                     
                     	Set to perform an exact prefix length match. Item is mutually exclusive with minimum and maximum length match items
-                    	**type**\: :py:class:`Ipv6PrefixMatchExactLength_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6PrefixMatchExactLength_Enum>`
+                    	**type**\: :py:class:`Ipv6PrefixMatchExactLengthEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6PrefixMatchExactLengthEnum>`
                     
                     .. attribute:: match_max_length
                     
                     	Set to perform a maximum length prefix match .  Item is mutually exclusive with exact length match item
-                    	**type**\: :py:class:`Ipv6PrefixMatchMaxLength_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6PrefixMatchMaxLength_Enum>`
+                    	**type**\: :py:class:`Ipv6PrefixMatchMaxLengthEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6PrefixMatchMaxLengthEnum>`
                     
                     .. attribute:: match_min_length
                     
                     	Set to perform a minimum length prefix match .  Item is mutually exclusive with exact length match item
-                    	**type**\: :py:class:`Ipv6PrefixMatchMinLength_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6PrefixMatchMinLength_Enum>`
+                    	**type**\: :py:class:`Ipv6PrefixMatchMinLengthEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6PrefixMatchMinLengthEnum>`
                     
                     .. attribute:: max_prefix_length
                     
@@ -1703,8 +1564,6 @@ class Ipv6AclAndPrefixList(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.sequence_number is not None:
                             return True
 
@@ -1746,10 +1605,6 @@ class Ipv6AclAndPrefixList(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_cfg as meta
@@ -1769,18 +1624,12 @@ class Ipv6AclAndPrefixList(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.prefix_list_entry is not None:
                         for child_ref in self.prefix_list_entry:
                             if child_ref._has_data():
                                 return True
 
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -1801,21 +1650,12 @@ class Ipv6AclAndPrefixList(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
                 if self.prefix_list_entries is not None and self.prefix_list_entries._has_data():
                     return True
 
-                if self.prefix_list_entries is not None and self.prefix_list_entries.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1835,17 +1675,11 @@ class Ipv6AclAndPrefixList(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.prefix is not None:
                 for child_ref in self.prefix:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1865,30 +1699,15 @@ class Ipv6AclAndPrefixList(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.accesses is not None and self.accesses._has_data():
-            return True
-
-        if self.accesses is not None and self.accesses.is_presence():
             return True
 
         if self.log_update is not None and self.log_update._has_data():
             return True
 
-        if self.log_update is not None and self.log_update.is_presence():
-            return True
-
         if self.prefixes is not None and self.prefixes._has_data():
             return True
 
-        if self.prefixes is not None and self.prefixes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

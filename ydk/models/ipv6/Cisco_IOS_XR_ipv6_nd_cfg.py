@@ -29,168 +29,151 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class Ipv6NdRouterPref_Enum(Enum):
+class Ipv6NdMonthEnum(Enum):
     """
-    Ipv6NdRouterPref_Enum
-
-    Ipv6 nd router pref
-
-    """
-
-    """
-
-    High preference
-
-    """
-    HIGH = 1
-
-    """
-
-    Medium preference
-
-    """
-    MEDIUM = 2
-
-    """
-
-    Low preference
-
-    """
-    LOW = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_nd_cfg as meta
-        return meta._meta_table['Ipv6NdRouterPref_Enum']
-
-
-class Ipv6ndMonth_Enum(Enum):
-    """
-    Ipv6ndMonth_Enum
+    Ipv6NdMonthEnum
 
     Ipv6nd month
 
-    """
+    .. data:: JANUARY = 0
+
+    	January
+
+    .. data:: FEBRUARY = 1
+
+    	February
+
+    .. data:: MARCH = 2
+
+    	March
+
+    .. data:: APRIL = 3
+
+    	April
+
+    .. data:: MAY = 4
+
+    	May
+
+    .. data:: JUNE = 5
+
+    	June
+
+    .. data:: JULY = 6
+
+    	July
+
+    .. data:: AUGUST = 7
+
+    	August
+
+    .. data:: SEPTEMBER = 8
+
+    	September
+
+    .. data:: OCTOBER = 9
+
+    	October
+
+    .. data:: NOVEMBER = 10
+
+    	November
+
+    .. data:: DECEMBER = 11
+
+    	December
 
     """
 
-    January
-
-    """
     JANUARY = 0
 
-    """
-
-    February
-
-    """
     FEBRUARY = 1
 
-    """
-
-    March
-
-    """
     MARCH = 2
 
-    """
-
-    April
-
-    """
     APRIL = 3
 
-    """
-
-    May
-
-    """
     MAY = 4
 
-    """
-
-    June
-
-    """
     JUNE = 5
 
-    """
-
-    July
-
-    """
     JULY = 6
 
-    """
-
-    August
-
-    """
     AUGUST = 7
 
-    """
-
-    September
-
-    """
     SEPTEMBER = 8
 
-    """
-
-    October
-
-    """
     OCTOBER = 9
 
-    """
-
-    November
-
-    """
     NOVEMBER = 10
 
-    """
-
-    December
-
-    """
     DECEMBER = 11
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_nd_cfg as meta
-        return meta._meta_table['Ipv6ndMonth_Enum']
+        return meta._meta_table['Ipv6NdMonthEnum']
 
 
-class Ipv6srpEncapsulation_Enum(Enum):
+class Ipv6NdRouterPrefEnum(Enum):
     """
-    Ipv6srpEncapsulation_Enum
+    Ipv6NdRouterPrefEnum
+
+    Ipv6 nd router pref
+
+    .. data:: HIGH = 1
+
+    	High preference
+
+    .. data:: MEDIUM = 2
+
+    	Medium preference
+
+    .. data:: LOW = 3
+
+    	Low preference
+
+    """
+
+    HIGH = 1
+
+    MEDIUM = 2
+
+    LOW = 3
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_nd_cfg as meta
+        return meta._meta_table['Ipv6NdRouterPrefEnum']
+
+
+class Ipv6SrpEncapsulationEnum(Enum):
+    """
+    Ipv6SrpEncapsulationEnum
 
     Ipv6srp encapsulation
 
-    """
+    .. data:: SRPA = 5
+
+    	Encapsulation type SRP, prefer side A
+
+    .. data:: SRPB = 6
+
+    	Encapsulation type SRP, prefer side B
 
     """
 
-    Encapsulation type SRP, prefer side A
-
-    """
     SRPA = 5
 
-    """
-
-    Encapsulation type SRP, prefer side B
-
-    """
     SRPB = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_nd_cfg as meta
-        return meta._meta_table['Ipv6srpEncapsulation_Enum']
+        return meta._meta_table['Ipv6SrpEncapsulationEnum']
 
 
 
@@ -267,7 +250,7 @@ class Ipv6Neighbor(object):
             .. attribute:: encapsulation
             
             	Encapsulation type only if interface type is SRP
-            	**type**\: :py:class:`Ipv6srpEncapsulation_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6srpEncapsulation_Enum>`
+            	**type**\: :py:class:`Ipv6SrpEncapsulationEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6SrpEncapsulationEnum>`
             
             .. attribute:: mac_address
             
@@ -312,8 +295,6 @@ class Ipv6Neighbor(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.interface_name is not None:
                     return True
 
@@ -329,10 +310,6 @@ class Ipv6Neighbor(object):
                 if self.zone is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -352,17 +329,11 @@ class Ipv6Neighbor(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.neighbor is not None:
                 for child_ref in self.neighbor:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -382,21 +353,12 @@ class Ipv6Neighbor(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.neighbors is not None and self.neighbors._has_data():
-            return True
-
-        if self.neighbors is not None and self.neighbors.is_presence():
             return True
 
         if self.scavenge_timeout is not None:
             return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

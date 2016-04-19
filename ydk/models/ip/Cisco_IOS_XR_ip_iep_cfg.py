@@ -24,112 +24,103 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class IpIepHop_Enum(Enum):
+class IpIepHopEnum(Enum):
     """
-    IpIepHop_Enum
+    IpIepHopEnum
 
     Ip iep hop
 
-    """
+    .. data:: NEXT_STRICT = 2
+
+    	NextStrict
+
+    .. data:: NEXT_LOOSE = 3
+
+    	NextLoose
+
+    .. data:: EXCLUDE = 4
+
+    	Exclude
+
+    .. data:: EXCLUDE_SRLG = 5
+
+    	Exclude Shared Risk Link Group
+
+    .. data:: NEXT_LABEL = 6
+
+    	NextLabel
 
     """
 
-    NextStrict
-
-    """
     NEXT_STRICT = 2
 
-    """
-
-    NextLoose
-
-    """
     NEXT_LOOSE = 3
 
-    """
-
-    Exclude
-
-    """
     EXCLUDE = 4
 
-    """
-
-    Exclude Shared Risk Link Group
-
-    """
     EXCLUDE_SRLG = 5
 
-    """
-
-    NextLabel
-
-    """
     NEXT_LABEL = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
-        return meta._meta_table['IpIepHop_Enum']
+        return meta._meta_table['IpIepHopEnum']
 
 
-class IpIepNum_Enum(Enum):
+class IpIepNumEnum(Enum):
     """
-    IpIepNum_Enum
+    IpIepNumEnum
 
     Ip iep num
 
-    """
+    .. data:: UNNUMBERED = 1
+
+    	Unnumbered
+
+    .. data:: NUMBERED = 2
+
+    	Numbered
 
     """
 
-    Unnumbered
-
-    """
     UNNUMBERED = 1
 
-    """
-
-    Numbered
-
-    """
     NUMBERED = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
-        return meta._meta_table['IpIepNum_Enum']
+        return meta._meta_table['IpIepNumEnum']
 
 
-class IpIepPath_Enum(Enum):
+class IpIepPathEnum(Enum):
     """
-    IpIepPath_Enum
+    IpIepPathEnum
 
     Ip iep path
 
-    """
+    .. data:: IDENTIFIER = 1
+
+    	Identifier
+
+    .. data:: NAME = 2
+
+    	Name
 
     """
 
-    Identifier
-
-    """
     IDENTIFIER = 1
 
-    """
-
-    Name
-
-    """
     NAME = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
-        return meta._meta_table['IpIepPath_Enum']
+        return meta._meta_table['IpIepPathEnum']
 
 
 
@@ -184,7 +175,7 @@ class IpExplicitPaths(object):
             .. attribute:: type
             
             	Path type
-            	**type**\: :py:class:`IpIepPath_Enum <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpIepPath_Enum>`
+            	**type**\: :py:class:`IpIepPathEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpIepPathEnum>`
             
             .. attribute:: identifier
             
@@ -287,7 +278,7 @@ class IpExplicitPaths(object):
                         .. attribute:: hop_type
                         
                         	Include or exclude this hop in the path
-                        	**type**\: :py:class:`IpIepHop_Enum <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpIepHop_Enum>`
+                        	**type**\: :py:class:`IpIepHopEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpIepHopEnum>`
                         
                         .. attribute:: if_index
                         
@@ -313,7 +304,7 @@ class IpExplicitPaths(object):
                         .. attribute:: num_type
                         
                         	Number type Numbered or Unnumbered
-                        	**type**\: :py:class:`IpIepNum_Enum <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpIepNum_Enum>`
+                        	**type**\: :py:class:`IpIepNumEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpIepNumEnum>`
                         
                         
 
@@ -347,8 +338,6 @@ class IpExplicitPaths(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.index_number is not None:
                                 return True
 
@@ -367,10 +356,6 @@ class IpExplicitPaths(object):
                             if self.num_type is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -392,17 +377,11 @@ class IpExplicitPaths(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.hop is not None:
                             for child_ref in self.hop:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -426,8 +405,6 @@ class IpExplicitPaths(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.id is not None:
                         return True
 
@@ -437,13 +414,6 @@ class IpExplicitPaths(object):
                     if self.hops is not None and self.hops._has_data():
                         return True
 
-                    if self.hops is not None and self.hops.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -525,7 +495,7 @@ class IpExplicitPaths(object):
                         .. attribute:: hop_type
                         
                         	Include or exclude this hop in the path
-                        	**type**\: :py:class:`IpIepHop_Enum <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpIepHop_Enum>`
+                        	**type**\: :py:class:`IpIepHopEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpIepHopEnum>`
                         
                         .. attribute:: if_index
                         
@@ -551,7 +521,7 @@ class IpExplicitPaths(object):
                         .. attribute:: num_type
                         
                         	Number type Numbered or Unnumbered
-                        	**type**\: :py:class:`IpIepNum_Enum <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpIepNum_Enum>`
+                        	**type**\: :py:class:`IpIepNumEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg.IpIepNumEnum>`
                         
                         
 
@@ -585,8 +555,6 @@ class IpExplicitPaths(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.index_number is not None:
                                 return True
 
@@ -605,10 +573,6 @@ class IpExplicitPaths(object):
                             if self.num_type is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -630,17 +594,11 @@ class IpExplicitPaths(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.hop is not None:
                             for child_ref in self.hop:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -664,8 +622,6 @@ class IpExplicitPaths(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.name is not None:
                         return True
 
@@ -675,13 +631,6 @@ class IpExplicitPaths(object):
                     if self.hops is not None and self.hops._has_data():
                         return True
 
-                    if self.hops is not None and self.hops.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -703,8 +652,6 @@ class IpExplicitPaths(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.type is not None:
                     return True
 
@@ -718,10 +665,6 @@ class IpExplicitPaths(object):
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -741,17 +684,11 @@ class IpExplicitPaths(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.path is not None:
                 for child_ref in self.path:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -771,18 +708,9 @@ class IpExplicitPaths(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.paths is not None and self.paths._has_data():
             return True
 
-        if self.paths is not None and self.paths.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

@@ -30,44 +30,43 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class IpVersion_Enum(Enum):
+class IpVersionEnum(Enum):
     """
-    IpVersion_Enum
+    IpVersionEnum
 
     This value represents the version of the IP protocol.
-    
+
     In the value set and its semantics, this type is equivalent
+
     to the InetVersion textual convention of the SMIv2.
 
-    """
+    .. data:: UNKNOWN = 0
+
+    	An unknown or unspecified version of the Internet
+
+    	protocol.
+
+    .. data:: IPV4 = 1
+
+    	The IPv4 protocol as defined in RFC 791.
+
+    .. data:: IPV6 = 2
+
+    	The IPv6 protocol as defined in RFC 2460.
 
     """
 
-    An unknown or unspecified version of the Internet
-    protocol.
-
-    """
     UNKNOWN = 0
 
-    """
-
-    The IPv4 protocol as defined in RFC 791.
-
-    """
     IPV4 = 1
 
-    """
-
-    The IPv6 protocol as defined in RFC 2460.
-
-    """
     IPV6 = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ietf._meta import _ietf_inet_types as meta
-        return meta._meta_table['IpVersion_Enum']
+        return meta._meta_table['IpVersionEnum']
 
 
 

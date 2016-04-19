@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,25 +14,25 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'MplsStaticOutLabelTypes_Enum' : _MetaInfoEnum('MplsStaticOutLabelTypes_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg',
+    'MplsStaticOutLabelTypesEnum' : _MetaInfoEnum('MplsStaticOutLabelTypesEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg',
         {
             'none':'NONE',
             'out-label':'OUT_LABEL',
             'pop':'POP',
             'exp-null':'EXP_NULL',
         }, 'Cisco-IOS-XR-mpls-static-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-cfg']),
-    'MplsStaticLabelMode_Enum' : _MetaInfoEnum('MplsStaticLabelMode_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg',
+    'MplsStaticLabelModeEnum' : _MetaInfoEnum('MplsStaticLabelModeEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg',
         {
             'per-vrf':'PER_VRF',
             'per-prefix':'PER_PREFIX',
             'lsp':'LSP',
         }, 'Cisco-IOS-XR-mpls-static-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-cfg']),
-    'MplsStaticPath_Enum' : _MetaInfoEnum('MplsStaticPath_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg',
+    'MplsStaticPathEnum' : _MetaInfoEnum('MplsStaticPathEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg',
         {
             'pop-and-lookup':'POP_AND_LOOKUP',
             'cross-connect':'CROSS_CONNECT',
         }, 'Cisco-IOS-XR-mpls-static-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-cfg']),
-    'MplsStaticAddressFamily_Enum' : _MetaInfoEnum('MplsStaticAddressFamily_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg',
+    'MplsStaticAddressFamilyEnum' : _MetaInfoEnum('MplsStaticAddressFamilyEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg',
         {
             'ipv4-unicast':'IPV4_UNICAST',
         }, 'Cisco-IOS-XR-mpls-static-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-cfg']),
@@ -40,7 +40,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.LabelType',
             False, 
             [
-            _MetaInfoClassMember('label-mode', REFERENCE_ENUM_CLASS, 'MplsStaticLabelMode_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticLabelMode_Enum', 
+            _MetaInfoClassMember('label-mode', REFERENCE_ENUM_CLASS, 'MplsStaticLabelModeEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticLabelModeEnum', 
                 [], [], 
                 '''                Label Mode (PerVRF, PerPrefix or LSP)
                 ''',
@@ -95,7 +95,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
-            _MetaInfoClassMember('label-type', REFERENCE_ENUM_CLASS, 'MplsStaticOutLabelTypes_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypes_Enum', 
+            _MetaInfoClassMember('label-type', REFERENCE_ENUM_CLASS, 'MplsStaticOutLabelTypesEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypesEnum', 
                 [], [], 
                 '''                Type of label (Outlabel, ExpNull or Pop)
                 ''',
@@ -126,7 +126,7 @@ _meta_table = {
                 ''',
                 'next_hop_label',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
-            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsStaticPath_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPath_Enum', 
+            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsStaticPathEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathEnum', 
                 [], [], 
                 '''                Type of Path (PopAndLookup, CrossConnect)
                 ''',
@@ -206,7 +206,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType',
             False, 
             [
-            _MetaInfoClassMember('label-mode', REFERENCE_ENUM_CLASS, 'MplsStaticLabelMode_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticLabelMode_Enum', 
+            _MetaInfoClassMember('label-mode', REFERENCE_ENUM_CLASS, 'MplsStaticLabelModeEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticLabelModeEnum', 
                 [], [], 
                 '''                Label Mode (PerVRF, PerPrefix or LSP)
                 ''',
@@ -261,7 +261,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
-            _MetaInfoClassMember('label-type', REFERENCE_ENUM_CLASS, 'MplsStaticOutLabelTypes_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypes_Enum', 
+            _MetaInfoClassMember('label-type', REFERENCE_ENUM_CLASS, 'MplsStaticOutLabelTypesEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypesEnum', 
                 [], [], 
                 '''                Type of label (Outlabel, ExpNull or Pop)
                 ''',
@@ -292,7 +292,7 @@ _meta_table = {
                 ''',
                 'next_hop_label',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
-            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsStaticPath_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPath_Enum', 
+            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsStaticPathEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathEnum', 
                 [], [], 
                 '''                Type of Path (PopAndLookup, CrossConnect)
                 ''',
@@ -389,7 +389,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsStatic.DefaultVrf.Afs.Af',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'MplsStaticAddressFamily_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticAddressFamily_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'MplsStaticAddressFamilyEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticAddressFamilyEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -498,7 +498,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.LabelType',
             False, 
             [
-            _MetaInfoClassMember('label-mode', REFERENCE_ENUM_CLASS, 'MplsStaticLabelMode_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticLabelMode_Enum', 
+            _MetaInfoClassMember('label-mode', REFERENCE_ENUM_CLASS, 'MplsStaticLabelModeEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticLabelModeEnum', 
                 [], [], 
                 '''                Label Mode (PerVRF, PerPrefix or LSP)
                 ''',
@@ -553,7 +553,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
-            _MetaInfoClassMember('label-type', REFERENCE_ENUM_CLASS, 'MplsStaticOutLabelTypes_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypes_Enum', 
+            _MetaInfoClassMember('label-type', REFERENCE_ENUM_CLASS, 'MplsStaticOutLabelTypesEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypesEnum', 
                 [], [], 
                 '''                Type of label (Outlabel, ExpNull or Pop)
                 ''',
@@ -584,7 +584,7 @@ _meta_table = {
                 ''',
                 'next_hop_label',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
-            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsStaticPath_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPath_Enum', 
+            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsStaticPathEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathEnum', 
                 [], [], 
                 '''                Type of Path (PopAndLookup, CrossConnect)
                 ''',
@@ -664,7 +664,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType',
             False, 
             [
-            _MetaInfoClassMember('label-mode', REFERENCE_ENUM_CLASS, 'MplsStaticLabelMode_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticLabelMode_Enum', 
+            _MetaInfoClassMember('label-mode', REFERENCE_ENUM_CLASS, 'MplsStaticLabelModeEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticLabelModeEnum', 
                 [], [], 
                 '''                Label Mode (PerVRF, PerPrefix or LSP)
                 ''',
@@ -719,7 +719,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
-            _MetaInfoClassMember('label-type', REFERENCE_ENUM_CLASS, 'MplsStaticOutLabelTypes_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypes_Enum', 
+            _MetaInfoClassMember('label-type', REFERENCE_ENUM_CLASS, 'MplsStaticOutLabelTypesEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypesEnum', 
                 [], [], 
                 '''                Type of label (Outlabel, ExpNull or Pop)
                 ''',
@@ -750,7 +750,7 @@ _meta_table = {
                 ''',
                 'next_hop_label',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
-            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsStaticPath_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPath_Enum', 
+            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsStaticPathEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathEnum', 
                 [], [], 
                 '''                Type of Path (PopAndLookup, CrossConnect)
                 ''',
@@ -847,7 +847,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsStatic.Vrfs.Vrf.Afs.Af',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'MplsStaticAddressFamily_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticAddressFamily_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'MplsStaticAddressFamilyEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticAddressFamilyEnum', 
                 [], [], 
                 '''                Address Family
                 ''',

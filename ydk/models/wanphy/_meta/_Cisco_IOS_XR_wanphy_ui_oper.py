@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,12 +14,12 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'WanphyAlarmRepStatus_Enum' : _MetaInfoEnum('WanphyAlarmRepStatus_Enum', 'ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper',
+    'WanphyAlarmRepStatusEnum' : _MetaInfoEnum('WanphyAlarmRepStatusEnum', 'ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper',
         {
             'disable':'DISABLE',
             'enable':'ENABLE',
         }, 'Cisco-IOS-XR-wanphy-ui-oper', _yang_ns._namespaces['Cisco-IOS-XR-wanphy-ui-oper']),
-    'WanphyModeInfo_Enum' : _MetaInfoEnum('WanphyModeInfo_Enum', 'ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper',
+    'WanphyModeInfoEnum' : _MetaInfoEnum('WanphyModeInfoEnum', 'ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper',
         {
             'lan':'LAN',
             'wan':'WAN',
@@ -28,7 +28,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Wanphy.Controllers.Controller.Info',
             False, 
             [
-            _MetaInfoClassMember('admin-mode', REFERENCE_ENUM_CLASS, 'WanphyModeInfo_Enum' , 'ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper', 'WanphyModeInfo_Enum', 
+            _MetaInfoClassMember('admin-mode', REFERENCE_ENUM_CLASS, 'WanphyModeInfoEnum' , 'ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper', 'WanphyModeInfoEnum', 
                 [], [], 
                 '''                Configuration Mode
                 ''',
@@ -58,7 +58,7 @@ _meta_table = {
                 ''',
                 'line_rdi',
                 'Cisco-IOS-XR-wanphy-ui-oper', False),
-            _MetaInfoClassMember('operational-mode', REFERENCE_ENUM_CLASS, 'WanphyModeInfo_Enum' , 'ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper', 'WanphyModeInfo_Enum', 
+            _MetaInfoClassMember('operational-mode', REFERENCE_ENUM_CLASS, 'WanphyModeInfoEnum' , 'ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper', 'WanphyModeInfoEnum', 
                 [], [], 
                 '''                Operational Mode
                 ''',
@@ -202,7 +202,7 @@ _meta_table = {
                 ''',
                 'remote_ip',
                 'Cisco-IOS-XR-wanphy-ui-oper', False),
-            _MetaInfoClassMember('sd-ber-report', REFERENCE_ENUM_CLASS, 'WanphyAlarmRepStatus_Enum' , 'ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper', 'WanphyAlarmRepStatus_Enum', 
+            _MetaInfoClassMember('sd-ber-report', REFERENCE_ENUM_CLASS, 'WanphyAlarmRepStatusEnum' , 'ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper', 'WanphyAlarmRepStatusEnum', 
                 [], [], 
                 '''                SD_BER Report
                 ''',
@@ -232,7 +232,7 @@ _meta_table = {
                 ''',
                 'section_los',
                 'Cisco-IOS-XR-wanphy-ui-oper', False),
-            _MetaInfoClassMember('sf-ber-report', REFERENCE_ENUM_CLASS, 'WanphyAlarmRepStatus_Enum' , 'ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper', 'WanphyAlarmRepStatus_Enum', 
+            _MetaInfoClassMember('sf-ber-report', REFERENCE_ENUM_CLASS, 'WanphyAlarmRepStatusEnum' , 'ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper', 'WanphyAlarmRepStatusEnum', 
                 [], [], 
                 '''                SF_BER Report
                 ''',

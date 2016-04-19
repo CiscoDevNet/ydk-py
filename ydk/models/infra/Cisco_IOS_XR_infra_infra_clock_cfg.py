@@ -24,132 +24,118 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class ClockMonth_Enum(Enum):
+class ClockMonthEnum(Enum):
     """
-    ClockMonth_Enum
+    ClockMonthEnum
 
     Clock month
 
-    """
+    .. data:: JANUARY = 0
+
+    	January
+
+    .. data:: FEBRUARY = 1
+
+    	February
+
+    .. data:: MARCH = 2
+
+    	March
+
+    .. data:: APRIL = 3
+
+    	April
+
+    .. data:: MAY = 4
+
+    	May
+
+    .. data:: JUNE = 5
+
+    	June
+
+    .. data:: JULY = 6
+
+    	July
+
+    .. data:: AUGUST = 7
+
+    	August
+
+    .. data:: SEPTEMBER = 8
+
+    	September
+
+    .. data:: OCTOBER = 9
+
+    	October
+
+    .. data:: NOVEMBER = 10
+
+    	November
+
+    .. data:: DECEMBER = 11
+
+    	December
 
     """
 
-    January
-
-    """
     JANUARY = 0
 
-    """
-
-    February
-
-    """
     FEBRUARY = 1
 
-    """
-
-    March
-
-    """
     MARCH = 2
 
-    """
-
-    April
-
-    """
     APRIL = 3
 
-    """
-
-    May
-
-    """
     MAY = 4
 
-    """
-
-    June
-
-    """
     JUNE = 5
 
-    """
-
-    July
-
-    """
     JULY = 6
 
-    """
-
-    August
-
-    """
     AUGUST = 7
 
-    """
-
-    September
-
-    """
     SEPTEMBER = 8
 
-    """
-
-    October
-
-    """
     OCTOBER = 9
 
-    """
-
-    November
-
-    """
     NOVEMBER = 10
 
-    """
-
-    December
-
-    """
     DECEMBER = 11
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_infra_clock_cfg as meta
-        return meta._meta_table['ClockMonth_Enum']
+        return meta._meta_table['ClockMonthEnum']
 
 
-class ClockSummerTimeMode_Enum(Enum):
+class ClockSummerTimeModeEnum(Enum):
     """
-    ClockSummerTimeMode_Enum
+    ClockSummerTimeModeEnum
 
     Clock summer time mode
 
-    """
+    .. data:: RECURRING = 0
+
+    	Recurring summer time
+
+    .. data:: DATE = 1
+
+    	Absolute summer time
 
     """
 
-    Recurring summer time
-
-    """
     RECURRING = 0
 
-    """
-
-    Absolute summer time
-
-    """
     DATE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_infra_clock_cfg as meta
-        return meta._meta_table['ClockSummerTimeMode_Enum']
+        return meta._meta_table['ClockSummerTimeModeEnum']
 
 
 
@@ -190,6 +176,11 @@ class Clock(object):
         
         	**range:** 0..23
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: end_minute
         
         	Minute to end 
@@ -197,10 +188,20 @@ class Clock(object):
         
         	**range:** 0..59
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: end_month
         
         	 Month to end 
-        	**type**\: :py:class:`ClockMonth_Enum <ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg.ClockMonth_Enum>`
+        	**type**\: :py:class:`ClockMonthEnum <ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg.ClockMonthEnum>`
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         .. attribute:: end_week_number_or_end_date
         
@@ -209,6 +210,11 @@ class Clock(object):
         
         	**range:** 1..31
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: end_weekday_or_end_year
         
         	If Mode is set to 'Recurring' specify Weekday to end , if Mode is set to 'Date' specify Year to end
@@ -216,10 +222,20 @@ class Clock(object):
         
         	**range:** 0..2035
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: mode
         
         	Summer time mode
-        	**type**\: :py:class:`ClockSummerTimeMode_Enum <ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg.ClockSummerTimeMode_Enum>`
+        	**type**\: :py:class:`ClockSummerTimeModeEnum <ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg.ClockSummerTimeModeEnum>`
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         .. attribute:: offset
         
@@ -228,12 +244,22 @@ class Clock(object):
         
         	**range:** 1..1440
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: start_hour
         
         	Hour to start 
         	**type**\: int
         
         	**range:** 0..23
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         .. attribute:: start_minute
         
@@ -242,10 +268,20 @@ class Clock(object):
         
         	**range:** 0..59
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: start_month
         
         	 Month to start 
-        	**type**\: :py:class:`ClockMonth_Enum <ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg.ClockMonth_Enum>`
+        	**type**\: :py:class:`ClockMonthEnum <ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg.ClockMonthEnum>`
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         .. attribute:: start_week_number_or_start_date
         
@@ -254,6 +290,11 @@ class Clock(object):
         
         	**range:** 1..31
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: start_weekday_or_start_year
         
         	 If Mode is set to 'Recurring' specify Weekday to start , if Mode is set to 'Date' specify Year to start 
@@ -261,10 +302,20 @@ class Clock(object):
         
         	**range:** 0..2035
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: time_zone_name
         
         	Name of time zone in summer
         	**type**\: str
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         
 
@@ -303,8 +354,6 @@ class Clock(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.end_hour is not None:
                 return True
 
@@ -346,10 +395,6 @@ class Clock(object):
 
             return False
 
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return True
-
         @staticmethod
         def _meta_info():
             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_infra_clock_cfg as meta
@@ -367,6 +412,11 @@ class Clock(object):
         
         	**range:** \-23..23
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: minute_offset
         
         	Minutes offset from UTC
@@ -374,10 +424,20 @@ class Clock(object):
         
         	**range:** 0..59
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: time_zone_name
         
         	Name of time zone
         	**type**\: str
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         
 
@@ -406,8 +466,6 @@ class Clock(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.hour_offset is not None:
                 return True
 
@@ -418,10 +476,6 @@ class Clock(object):
                 return True
 
             return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return True
 
         @staticmethod
         def _meta_info():
@@ -440,24 +494,12 @@ class Clock(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.summer_time is not None and self.summer_time._has_data():
-            return True
-
-        if self.summer_time is not None and self.summer_time.is_presence():
             return True
 
         if self.time_zone is not None and self.time_zone._has_data():
             return True
 
-        if self.time_zone is not None and self.time_zone.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

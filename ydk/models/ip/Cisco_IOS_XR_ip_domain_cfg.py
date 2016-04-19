@@ -73,7 +73,6 @@ class IpDomain(object):
 
         def __init__(self):
             self.parent = None
-            pass
 
         @property
         def _common_path(self):
@@ -87,12 +86,6 @@ class IpDomain(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -114,7 +107,6 @@ class IpDomain(object):
 
         def __init__(self):
             self.parent = None
-            pass
 
         @property
         def _common_path(self):
@@ -128,12 +120,6 @@ class IpDomain(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -309,8 +295,6 @@ class IpDomain(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.host_name is not None:
                             return True
 
@@ -319,10 +303,6 @@ class IpDomain(object):
                                 if child is not None:
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -344,17 +324,11 @@ class IpDomain(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ipv4_host is not None:
                         for child_ref in self.ipv4_host:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -430,8 +404,6 @@ class IpDomain(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.host_name is not None:
                             return True
 
@@ -440,10 +412,6 @@ class IpDomain(object):
                                 if child is not None:
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -465,17 +433,11 @@ class IpDomain(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ipv6_host is not None:
                         for child_ref in self.ipv6_host:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -557,18 +519,12 @@ class IpDomain(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.list_name is not None:
                             return True
 
                         if self.order is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -590,17 +546,11 @@ class IpDomain(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.list is not None:
                         for child_ref in self.list:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -678,18 +628,12 @@ class IpDomain(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.order is not None:
                             return True
 
                         if self.server_address is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -711,17 +655,11 @@ class IpDomain(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.server is not None:
                         for child_ref in self.server:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -743,27 +681,16 @@ class IpDomain(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.vrf_name is not None:
                     return True
 
                 if self.ipv4_hosts is not None and self.ipv4_hosts._has_data():
                     return True
 
-                if self.ipv4_hosts is not None and self.ipv4_hosts.is_presence():
-                    return True
-
                 if self.ipv6_hosts is not None and self.ipv6_hosts._has_data():
                     return True
 
-                if self.ipv6_hosts is not None and self.ipv6_hosts.is_presence():
-                    return True
-
                 if self.lists is not None and self.lists._has_data():
-                    return True
-
-                if self.lists is not None and self.lists.is_presence():
                     return True
 
                 if self.lookup is not None:
@@ -778,16 +705,9 @@ class IpDomain(object):
                 if self.servers is not None and self.servers._has_data():
                     return True
 
-                if self.servers is not None and self.servers.is_presence():
-                    return True
-
                 if self.source_interface is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -807,17 +727,11 @@ class IpDomain(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -837,30 +751,15 @@ class IpDomain(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.ipv4_host_table is not None and self.ipv4_host_table._has_data():
-            return True
-
-        if self.ipv4_host_table is not None and self.ipv4_host_table.is_presence():
             return True
 
         if self.ipv6_host_table is not None and self.ipv6_host_table._has_data():
             return True
 
-        if self.ipv6_host_table is not None and self.ipv6_host_table.is_presence():
-            return True
-
         if self.vrfs is not None and self.vrfs._has_data():
             return True
 
-        if self.vrfs is not None and self.vrfs.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

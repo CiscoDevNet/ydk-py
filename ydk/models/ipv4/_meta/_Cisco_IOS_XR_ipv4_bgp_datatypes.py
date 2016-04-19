@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'BgpSubsequentAddressFamily_Enum' : _MetaInfoEnum('BgpSubsequentAddressFamily_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes',
+    'BgpSubsequentAddressFamilyEnum' : _MetaInfoEnum('BgpSubsequentAddressFamilyEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes',
         {
             'unicast':'UNICAST',
             'multicast':'MULTICAST',
@@ -34,12 +34,12 @@ _meta_table = {
             'vpn-flowspec':'VPN_FLOWSPEC',
             'all':'ALL',
         }, 'Cisco-IOS-XR-ipv4-bgp-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-datatypes']),
-    'BgpNbrCapAdditionalPathsCfg_Enum' : _MetaInfoEnum('BgpNbrCapAdditionalPathsCfg_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes',
+    'BgpNbrCapAdditionalPathsCfgEnum' : _MetaInfoEnum('BgpNbrCapAdditionalPathsCfgEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes',
         {
             'enable':'ENABLE',
             'disable':'DISABLE',
         }, 'Cisco-IOS-XR-ipv4-bgp-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-datatypes']),
-    'BgpOfficialAddressFamily_Enum' : _MetaInfoEnum('BgpOfficialAddressFamily_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes',
+    'BgpOfficialAddressFamilyEnum' : _MetaInfoEnum('BgpOfficialAddressFamilyEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes',
         {
             'ipv4':'IPV4',
             'ipv6':'IPV6',
@@ -47,17 +47,17 @@ _meta_table = {
             'ls':'LS',
             'all':'ALL',
         }, 'Cisco-IOS-XR-ipv4-bgp-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-datatypes']),
-    'BgpafAdditionalPathsCfg_Enum' : _MetaInfoEnum('BgpafAdditionalPathsCfg_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes',
+    'BgpafAdditionalPathsCfgEnum' : _MetaInfoEnum('BgpafAdditionalPathsCfgEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes',
         {
             'enable':'ENABLE',
             'disable':'DISABLE',
         }, 'Cisco-IOS-XR-ipv4-bgp-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-datatypes']),
-    'BgpTos_Enum' : _MetaInfoEnum('BgpTos_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes',
+    'BgpTosEnum' : _MetaInfoEnum('BgpTosEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes',
         {
             'precedence':'PRECEDENCE',
             'dscp':'DSCP',
         }, 'Cisco-IOS-XR-ipv4-bgp-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-datatypes']),
-    'BgpAddressFamily_Enum' : _MetaInfoEnum('BgpAddressFamily_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes',
+    'BgpAddressFamilyEnum' : _MetaInfoEnum('BgpAddressFamilyEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes',
         {
             'ipv4-unicast':'IPV4_UNICAST',
             'ipv4-multicast':'IPV4_MULTICAST',
@@ -84,7 +84,7 @@ _meta_table = {
             'l2vpnmspw':'L2VPNMSPW',
             'all-address-family':'ALL_ADDRESS_FAMILY',
         }, 'Cisco-IOS-XR-ipv4-bgp-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-datatypes']),
-    'BgpPrecedenceDscp_Enum' : _MetaInfoEnum('BgpPrecedenceDscp_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes',
+    'BgpPrecedenceDscpEnum' : _MetaInfoEnum('BgpPrecedenceDscpEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes',
         {
             'af11':'AF11',
             'af12':'AF12',
@@ -115,7 +115,7 @@ _meta_table = {
             'priority':'PRIORITY',
             'default-or-routine':'DEFAULT_OR_ROUTINE',
         }, 'Cisco-IOS-XR-ipv4-bgp-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-datatypes']),
-    'BgpUpdateFilterAction_Enum' : _MetaInfoEnum('BgpUpdateFilterAction_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes',
+    'BgpUpdateFilterActionEnum' : _MetaInfoEnum('BgpUpdateFilterActionEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes',
         {
             'treat-as-withdraw':'TREAT_AS_WITHDRAW',
             'discard-attibute':'DISCARD_ATTIBUTE',

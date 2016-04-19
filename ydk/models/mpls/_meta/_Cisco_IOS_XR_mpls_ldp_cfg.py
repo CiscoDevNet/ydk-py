@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,52 +14,52 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'MplsLdpAdvertiseBgpacl_Enum' : _MetaInfoEnum('MplsLdpAdvertiseBgpacl_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg',
+    'MplsLdpAdvertiseBgpaclEnum' : _MetaInfoEnum('MplsLdpAdvertiseBgpaclEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg',
         {
             'peer-acl':'PEER_ACL',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
-    'MplsLdpLabelAdvertise_Enum' : _MetaInfoEnum('MplsLdpLabelAdvertise_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg',
+    'MplsLdpLabelAdvertiseEnum' : _MetaInfoEnum('MplsLdpLabelAdvertiseEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg',
         {
             'for':'FOR',
             'for-to':'FOR_TO',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
-    'MplsLdpLabelAllocation_Enum' : _MetaInfoEnum('MplsLdpLabelAllocation_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg',
+    'MplsLdpLabelAllocationEnum' : _MetaInfoEnum('MplsLdpLabelAllocationEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg',
         {
             'acl':'ACL',
             'host':'HOST',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
-    'MplsLdpTargetedAccept_Enum' : _MetaInfoEnum('MplsLdpTargetedAccept_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg',
+    'MplsLdpTargetedAcceptEnum' : _MetaInfoEnum('MplsLdpTargetedAcceptEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg',
         {
             'all':'ALL',
             'from':'FROM',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
-    'MplsLdpNbrPassword_Enum' : _MetaInfoEnum('MplsLdpNbrPassword_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg',
+    'MplsLdpNbrPasswordEnum' : _MetaInfoEnum('MplsLdpNbrPasswordEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg',
         {
             'disable':'DISABLE',
             'specified':'SPECIFIED',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
-    'MplsLdpDownstreamOnDemand_Enum' : _MetaInfoEnum('MplsLdpDownstreamOnDemand_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg',
+    'MplsLdpDownstreamOnDemandEnum' : _MetaInfoEnum('MplsLdpDownstreamOnDemandEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg',
         {
             'peer-acl':'PEER_ACL',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
-    'MplsLdpExpNull_Enum' : _MetaInfoEnum('MplsLdpExpNull_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg',
+    'MplsLdpExpNullEnum' : _MetaInfoEnum('MplsLdpExpNullEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg',
         {
             'all':'ALL',
             'for':'FOR',
             'to':'TO',
             'for-to':'FOR_TO',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
-    'MplsLdpafName_Enum' : _MetaInfoEnum('MplsLdpafName_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg',
+    'MplsLdpafNameEnum' : _MetaInfoEnum('MplsLdpafNameEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg',
         {
             'ipv4':'IPV4',
             'ipv6':'IPV6',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
-    'MplsLdpTransportAddress_Enum' : _MetaInfoEnum('MplsLdpTransportAddress_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg',
+    'MplsLdpTransportAddressEnum' : _MetaInfoEnum('MplsLdpTransportAddressEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg',
         {
             'interface':'INTERFACE',
             'address':'ADDRESS',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
-    'MplsLdpSessionProtection_Enum' : _MetaInfoEnum('MplsLdpSessionProtection_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg',
+    'MplsLdpSessionProtectionEnum' : _MetaInfoEnum('MplsLdpSessionProtectionEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg',
         {
             'all':'ALL',
             'for':'FOR',
@@ -72,7 +72,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Afs.Af.Discovery.TargetedHelloAccept',
             False, 
             [
-            _MetaInfoClassMember('accept-type', REFERENCE_ENUM_CLASS, 'MplsLdpTargetedAccept_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpTargetedAccept_Enum', 
+            _MetaInfoClassMember('accept-type', REFERENCE_ENUM_CLASS, 'MplsLdpTargetedAcceptEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpTargetedAcceptEnum', 
                 [], [], 
                 '''                Type of acceptance
                 ''',
@@ -135,7 +135,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.ExplicitNull',
             False, 
             [
-            _MetaInfoClassMember('explicit-null-type', REFERENCE_ENUM_CLASS, 'MplsLdpExpNull_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpExpNull_Enum', 
+            _MetaInfoClassMember('explicit-null-type', REFERENCE_ENUM_CLASS, 'MplsLdpExpNullEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpExpNullEnum', 
                 [], [], 
                 '''                Explicit Null command variant
                 ''',
@@ -252,7 +252,7 @@ _meta_table = {
                 ''',
                 'prefix_acl_name',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True),
-            _MetaInfoClassMember('advertise-type', REFERENCE_ENUM_CLASS, 'MplsLdpLabelAdvertise_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpLabelAdvertise_Enum', 
+            _MetaInfoClassMember('advertise-type', REFERENCE_ENUM_CLASS, 'MplsLdpLabelAdvertiseEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpLabelAdvertiseEnum', 
                 [], [], 
                 '''                Label advertise type
                 ''',
@@ -338,7 +338,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Afs.Af.Label.Local.Allocate',
             False, 
             [
-            _MetaInfoClassMember('allocation-type', REFERENCE_ENUM_CLASS, 'MplsLdpLabelAllocation_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpLabelAllocation_Enum', 
+            _MetaInfoClassMember('allocation-type', REFERENCE_ENUM_CLASS, 'MplsLdpLabelAllocationEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpLabelAllocationEnum', 
                 [], [], 
                 '''                Label allocation type
                 ''',
@@ -583,7 +583,7 @@ _meta_table = {
                 ''',
                 'peer_acl_name',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'MplsLdpAdvertiseBgpacl_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpAdvertiseBgpacl_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'MplsLdpAdvertiseBgpaclEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpAdvertiseBgpaclEnum', 
                 [], [], 
                 '''                advertise to peer acl type
                 ''',
@@ -747,7 +747,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Afs.Af',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpafName_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpafName_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpafNameEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpafNameEnum', 
                 [], [], 
                 '''                Address Family type
                 ''',
@@ -922,7 +922,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId.Password',
             False, 
             [
-            _MetaInfoClassMember('command-type', REFERENCE_ENUM_CLASS, 'MplsLdpNbrPassword_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpNbrPassword_Enum', 
+            _MetaInfoClassMember('command-type', REFERENCE_ENUM_CLASS, 'MplsLdpNbrPasswordEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpNbrPasswordEnum', 
                 [], [], 
                 '''                Command type for password configuration
                 ''',
@@ -1029,7 +1029,7 @@ _meta_table = {
                 ''',
                 'peer_acl_name',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'MplsLdpDownstreamOnDemand_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpDownstreamOnDemand_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'MplsLdpDownstreamOnDemandEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpDownstreamOnDemandEnum', 
                 [], [], 
                 '''                Downstream on demand type
                 ''',
@@ -1058,7 +1058,7 @@ _meta_table = {
                 ''',
                 'peer_acl_name',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('protection-type', REFERENCE_ENUM_CLASS, 'MplsLdpSessionProtection_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpSessionProtection_Enum', 
+            _MetaInfoClassMember('protection-type', REFERENCE_ENUM_CLASS, 'MplsLdpSessionProtectionEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpSessionProtectionEnum', 
                 [], [], 
                 '''                Session protection type
                 ''',
@@ -1154,7 +1154,7 @@ _meta_table = {
                         'address',
                         'Cisco-IOS-XR-mpls-ldp-cfg', False),
                 ]),
-            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'MplsLdpTransportAddress_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpTransportAddress_Enum', 
+            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'MplsLdpTransportAddressEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpTransportAddressEnum', 
                 [], [], 
                 '''                Transport address option
                 ''',
@@ -1223,7 +1223,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpafName_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpafName_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpafNameEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpafNameEnum', 
                 [], [], 
                 '''                Address Family name
                 ''',
@@ -1281,7 +1281,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello',
             False, 
             [
-            _MetaInfoClassMember('dual-stack', REFERENCE_ENUM_CLASS, 'MplsLdpafName_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpafName_Enum', 
+            _MetaInfoClassMember('dual-stack', REFERENCE_ENUM_CLASS, 'MplsLdpafNameEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpafNameEnum', 
                 [], [], 
                 '''                Dual Stack Address Family Preference
                 ''',
@@ -1836,7 +1836,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.DefaultVrf.Afs.Af',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpafName_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpafName_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpafNameEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpafNameEnum', 
                 [], [], 
                 '''                Address Family name
                 ''',
@@ -2050,7 +2050,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpafName_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpafName_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpafNameEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpafNameEnum', 
                 [], [], 
                 '''                Address Family name
                 ''',
@@ -2369,7 +2369,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.ExplicitNull',
             False, 
             [
-            _MetaInfoClassMember('explicit-null-type', REFERENCE_ENUM_CLASS, 'MplsLdpExpNull_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpExpNull_Enum', 
+            _MetaInfoClassMember('explicit-null-type', REFERENCE_ENUM_CLASS, 'MplsLdpExpNullEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpExpNullEnum', 
                 [], [], 
                 '''                Explicit Null command variant
                 ''',
@@ -2558,7 +2558,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Allocate',
             False, 
             [
-            _MetaInfoClassMember('allocation-type', REFERENCE_ENUM_CLASS, 'MplsLdpLabelAllocation_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpLabelAllocation_Enum', 
+            _MetaInfoClassMember('allocation-type', REFERENCE_ENUM_CLASS, 'MplsLdpLabelAllocationEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpLabelAllocationEnum', 
                 [], [], 
                 '''                Label allocation type
                 ''',
@@ -2764,7 +2764,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Afs.Af',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpafName_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpafName_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpafNameEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpafNameEnum', 
                 [], [], 
                 '''                Address Family name
                 ''',
@@ -2852,7 +2852,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId.Password',
             False, 
             [
-            _MetaInfoClassMember('command-type', REFERENCE_ENUM_CLASS, 'MplsLdpNbrPassword_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpNbrPassword_Enum', 
+            _MetaInfoClassMember('command-type', REFERENCE_ENUM_CLASS, 'MplsLdpNbrPasswordEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpNbrPasswordEnum', 
                 [], [], 
                 '''                Command type for password configuration
                 ''',
@@ -2953,7 +2953,7 @@ _meta_table = {
                 ''',
                 'peer_acl_name',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'MplsLdpDownstreamOnDemand_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpDownstreamOnDemand_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'MplsLdpDownstreamOnDemandEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpDownstreamOnDemandEnum', 
                 [], [], 
                 '''                Downstream on demand type
                 ''',
@@ -3043,7 +3043,7 @@ _meta_table = {
                         'address',
                         'Cisco-IOS-XR-mpls-ldp-cfg', False),
                 ]),
-            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'MplsLdpTransportAddress_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpTransportAddress_Enum', 
+            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'MplsLdpTransportAddressEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpTransportAddressEnum', 
                 [], [], 
                 '''                Transport address option
                 ''',
@@ -3078,7 +3078,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpafName_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpafName_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpafNameEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpafNameEnum', 
                 [], [], 
                 '''                Address Family name
                 ''',

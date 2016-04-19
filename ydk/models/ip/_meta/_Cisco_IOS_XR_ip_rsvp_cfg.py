@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,23 +14,23 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'RsvpBwCfg_Enum' : _MetaInfoEnum('RsvpBwCfg_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg',
+    'RsvpBwCfgEnum' : _MetaInfoEnum('RsvpBwCfgEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg',
         {
             'absolute':'ABSOLUTE',
             'percentage':'PERCENTAGE',
         }, 'Cisco-IOS-XR-ip-rsvp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-cfg']),
-    'RsvpBc0_Enum' : _MetaInfoEnum('RsvpBc0_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg',
+    'RsvpBc0Enum' : _MetaInfoEnum('RsvpBc0Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg',
         {
             'bc0':'BC0',
             'global-pool':'GLOBAL_POOL',
             'not-specified':'NOT_SPECIFIED',
         }, 'Cisco-IOS-XR-ip-rsvp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-cfg']),
-    'RsvpBc1_Enum' : _MetaInfoEnum('RsvpBc1_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg',
+    'RsvpBc1Enum' : _MetaInfoEnum('RsvpBc1Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg',
         {
             'bc1':'BC1',
             'sub-pool':'SUB_POOL',
         }, 'Cisco-IOS-XR-ip-rsvp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-cfg']),
-    'RsvpRdm_Enum' : _MetaInfoEnum('RsvpRdm_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg',
+    'RsvpRdmEnum' : _MetaInfoEnum('RsvpRdmEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg',
         {
             'rdm':'RDM',
             'not-specified':'NOT_SPECIFIED',
@@ -310,7 +310,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.Interfaces.Interface.Bandwidth.Mam',
             False, 
             [
-            _MetaInfoClassMember('bandwidth-mode', REFERENCE_ENUM_CLASS, 'RsvpBwCfg_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpBwCfg_Enum', 
+            _MetaInfoClassMember('bandwidth-mode', REFERENCE_ENUM_CLASS, 'RsvpBwCfgEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpBwCfgEnum', 
                 [], [], 
                 '''                Absolute or Percentage bandwidth mode
                 ''',
@@ -355,7 +355,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.Interfaces.Interface.Bandwidth.Rdm',
             False, 
             [
-            _MetaInfoClassMember('bandwidth-mode', REFERENCE_ENUM_CLASS, 'RsvpBwCfg_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpBwCfg_Enum', 
+            _MetaInfoClassMember('bandwidth-mode', REFERENCE_ENUM_CLASS, 'RsvpBwCfgEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpBwCfgEnum', 
                 [], [], 
                 '''                Absolute or Percentage bandwidth mode
                 ''',
@@ -368,7 +368,7 @@ _meta_table = {
                 ''',
                 'bc0_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('bc0-keyword', REFERENCE_ENUM_CLASS, 'RsvpBc0_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpBc0_Enum', 
+            _MetaInfoClassMember('bc0-keyword', REFERENCE_ENUM_CLASS, 'RsvpBc0Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpBc0Enum', 
                 [], [], 
                 '''                Set requests should always use BC0
                 ''',
@@ -381,7 +381,7 @@ _meta_table = {
                 ''',
                 'bc1_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('bc1-keyword', REFERENCE_ENUM_CLASS, 'RsvpBc1_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpBc1_Enum', 
+            _MetaInfoClassMember('bc1-keyword', REFERENCE_ENUM_CLASS, 'RsvpBc1Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpBc1Enum', 
                 [], [], 
                 '''                Set requests should always use BC1
                 ''',
@@ -394,7 +394,7 @@ _meta_table = {
                 ''',
                 'max_resv_flow',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('rdm-keyword', REFERENCE_ENUM_CLASS, 'RsvpRdm_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpRdm_Enum', 
+            _MetaInfoClassMember('rdm-keyword', REFERENCE_ENUM_CLASS, 'RsvpRdmEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpRdmEnum', 
                 [], [], 
                 '''                Set requests should always use RDM
                 ''',

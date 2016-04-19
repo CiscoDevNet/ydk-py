@@ -23,7 +23,7 @@ from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYDataValidationError
 
 
-from ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg import LptsFlow_Enum
+from ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg import LptsFlowEnum
 
 
 class Lpts(object):
@@ -55,15 +55,30 @@ class Lpts(object):
         	Enabled
         	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: flows
         
         	Table for Flows
         	**type**\: :py:class:`Flows <ydk.models.lpts.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Flows>`
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: ipv4acls
         
         	Table for ACLs
-        	**type**\: :py:class:`Ipv4acls <ydk.models.lpts.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Ipv4acls>`
+        	**type**\: :py:class:`Ipv4Acls <ydk.models.lpts.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Ipv4Acls>`
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         
 
@@ -79,7 +94,7 @@ class Lpts(object):
             self.enable = None
             self.flows = Lpts.Ipolicer.Flows()
             self.flows.parent = self
-            self.ipv4acls = Lpts.Ipolicer.Ipv4acls()
+            self.ipv4acls = Lpts.Ipolicer.Ipv4Acls()
             self.ipv4acls.parent = self
 
 
@@ -113,7 +128,7 @@ class Lpts(object):
                 .. attribute:: flow_type
                 
                 	LPTS Flow Type
-                	**type**\: :py:class:`LptsFlow_Enum <ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlow_Enum>`
+                	**type**\: :py:class:`LptsFlowEnum <ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlowEnum>`
                 
                 .. attribute:: precedences
                 
@@ -149,7 +164,7 @@ class Lpts(object):
                     .. attribute:: precedence
                     
                     	Precedence values
-                    	**type**\: list of one of { list of :py:class:`LptsPreIFibPrecedenceNumber_Enum <ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsPreIFibPrecedenceNumber_Enum>` | list of int }
+                    	**type**\: list of one of { list of :py:class:`LptsPreIFibPrecedenceNumberEnum <ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsPreIFibPrecedenceNumberEnum>` | list of int }
                     
                     
 
@@ -176,17 +191,11 @@ class Lpts(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.precedence is not None:
                             for child in self.precedence:
                                 if child is not None:
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -208,24 +217,15 @@ class Lpts(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.flow_type is not None:
                         return True
 
                     if self.precedences is not None and self.precedences._has_data():
                         return True
 
-                    if self.precedences is not None and self.precedences.is_presence():
-                        return True
-
                     if self.rate is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -245,17 +245,11 @@ class Lpts(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.flow is not None:
                     for child_ref in self.flow:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -264,14 +258,14 @@ class Lpts(object):
                 return meta._meta_table['Lpts.Ipolicer.Flows']['meta_info']
 
 
-        class Ipv4acls(object):
+        class Ipv4Acls(object):
             """
             Table for ACLs
             
             .. attribute:: ipv4acl
             
             	ACL name
-            	**type**\: list of :py:class:`Ipv4acl <ydk.models.lpts.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Ipv4acls.Ipv4acl>`
+            	**type**\: list of :py:class:`Ipv4Acl <ydk.models.lpts.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer.Ipv4Acls.Ipv4Acl>`
             
             
 
@@ -287,7 +281,7 @@ class Lpts(object):
                 self.ipv4acl.name = 'ipv4acl'
 
 
-            class Ipv4acl(object):
+            class Ipv4Acl(object):
                 """
                 ACL name
                 
@@ -331,8 +325,6 @@ class Lpts(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.acl_name is not None:
                         return True
 
@@ -341,14 +333,10 @@ class Lpts(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.lpts._meta import _Cisco_IOS_XR_lpts_lib_cfg as meta
-                    return meta._meta_table['Lpts.Ipolicer.Ipv4acls.Ipv4acl']['meta_info']
+                    return meta._meta_table['Lpts.Ipolicer.Ipv4Acls.Ipv4Acl']['meta_info']
 
             @property
             def _common_path(self):
@@ -362,8 +350,6 @@ class Lpts(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.ipv4acl is not None:
                     for child_ref in self.ipv4acl:
                         if child_ref._has_data():
@@ -371,14 +357,10 @@ class Lpts(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.lpts._meta import _Cisco_IOS_XR_lpts_lib_cfg as meta
-                return meta._meta_table['Lpts.Ipolicer.Ipv4acls']['meta_info']
+                return meta._meta_table['Lpts.Ipolicer.Ipv4Acls']['meta_info']
 
         @property
         def _common_path(self):
@@ -392,28 +374,16 @@ class Lpts(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.enable is not None:
                 return True
 
             if self.flows is not None and self.flows._has_data():
                 return True
 
-            if self.flows is not None and self.flows.is_presence():
-                return True
-
             if self.ipv4acls is not None and self.ipv4acls._has_data():
                 return True
 
-            if self.ipv4acls is not None and self.ipv4acls.is_presence():
-                return True
-
             return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return True
 
         @staticmethod
         def _meta_info():
@@ -432,18 +402,9 @@ class Lpts(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.ipolicer is not None and self.ipolicer._has_data():
             return True
 
-        if self.ipolicer is not None and self.ipolicer.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

@@ -113,18 +113,12 @@ class LldpSnoopData(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
                 if self.lldp_neighbor is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -144,17 +138,11 @@ class LldpSnoopData(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.ethernet_controller_name is not None:
                 for child_ref in self.ethernet_controller_name:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -174,18 +162,9 @@ class LldpSnoopData(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.ethernet_controller_names is not None and self.ethernet_controller_names._has_data():
             return True
 
-        if self.ethernet_controller_names is not None and self.ethernet_controller_names.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

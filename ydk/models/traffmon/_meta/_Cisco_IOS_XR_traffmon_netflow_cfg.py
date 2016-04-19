@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,11 +14,11 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'NfSamplingMode_Enum' : _MetaInfoEnum('NfSamplingMode_Enum', 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg',
+    'NfSamplingModeEnum' : _MetaInfoEnum('NfSamplingModeEnum', 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg',
         {
             'random':'RANDOM',
         }, 'Cisco-IOS-XR-traffmon-netflow-cfg', _yang_ns._namespaces['Cisco-IOS-XR-traffmon-netflow-cfg']),
-    'NfCacheAgingMode_Enum' : _MetaInfoEnum('NfCacheAgingMode_Enum', 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg',
+    'NfCacheAgingModeEnum' : _MetaInfoEnum('NfCacheAgingModeEnum', 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg',
         {
             'normal':'NORMAL',
             'permanent':'PERMANENT',
@@ -321,7 +321,7 @@ _meta_table = {
                 ''',
                 'cache_active_aging_timeout',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
-            _MetaInfoClassMember('cache-aging-mode', REFERENCE_ENUM_CLASS, 'NfCacheAgingMode_Enum' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NfCacheAgingMode_Enum', 
+            _MetaInfoClassMember('cache-aging-mode', REFERENCE_ENUM_CLASS, 'NfCacheAgingModeEnum' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NfCacheAgingModeEnum', 
                 [], [], 
                 '''                Specify the flow cache aging mode
                 ''',
@@ -495,7 +495,7 @@ _meta_table = {
                 ''',
                 'cache_active_aging_timeout',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
-            _MetaInfoClassMember('cache-aging-mode', REFERENCE_ENUM_CLASS, 'NfCacheAgingMode_Enum' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NfCacheAgingMode_Enum', 
+            _MetaInfoClassMember('cache-aging-mode', REFERENCE_ENUM_CLASS, 'NfCacheAgingModeEnum' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NfCacheAgingModeEnum', 
                 [], [], 
                 '''                Specify the flow cache aging mode
                 ''',
@@ -573,7 +573,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes.SamplingMode',
             False, 
             [
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'NfSamplingMode_Enum' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NfSamplingMode_Enum', 
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'NfSamplingModeEnum' , 'ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg', 'NfSamplingModeEnum', 
                 [], [], 
                 '''                Sampling mode
                 ''',

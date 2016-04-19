@@ -24,134 +24,124 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class OpticsDwdmCarrierGrid_Enum(Enum):
+class OpticsDwdmCarrierGridEnum(Enum):
     """
-    OpticsDwdmCarrierGrid_Enum
+    OpticsDwdmCarrierGridEnum
 
     Optics dwdm carrier grid
 
-    """
+    .. data:: Y_50G_HZ_GRID = 0
+
+    	50GHz Grid
+
+    .. data:: Y_100MHZ_GRID = 1
+
+    	100MHz Grid
 
     """
 
-    50GHz Grid
-
-    """
     Y_50G_HZ_GRID = 0
 
-    """
-
-    100MHz Grid
-
-    """
     Y_100MHZ_GRID = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_cfg as meta
-        return meta._meta_table['OpticsDwdmCarrierGrid_Enum']
+        return meta._meta_table['OpticsDwdmCarrierGridEnum']
 
 
-class OpticsDwdmCarrierParam_Enum(Enum):
+class OpticsDwdmCarrierParamEnum(Enum):
     """
-    OpticsDwdmCarrierParam_Enum
+    OpticsDwdmCarrierParamEnum
 
     Optics dwdm carrier param
 
-    """
+    .. data:: ITU_CH = 0
+
+    	ITU Wave Channel Number
+
+    .. data:: WAVELENGTH = 1
+
+    	Wavelength in nm
+
+    .. data:: FREQUENCY = 2
+
+    	Frequency in Hertz
 
     """
 
-    ITU Wave Channel Number
-
-    """
     ITU_CH = 0
 
-    """
-
-    Wavelength in nm
-
-    """
     WAVELENGTH = 1
 
-    """
-
-    Frequency in Hertz
-
-    """
     FREQUENCY = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_cfg as meta
-        return meta._meta_table['OpticsDwdmCarrierParam_Enum']
+        return meta._meta_table['OpticsDwdmCarrierParamEnum']
 
 
-class OpticsLoopback_Enum(Enum):
+class OpticsLoopbackEnum(Enum):
     """
-    OpticsLoopback_Enum
+    OpticsLoopbackEnum
 
     Optics loopback
 
-    """
+    .. data:: NONE = 0
+
+    	No Loopback
+
+    .. data:: INTERNAL = 1
+
+    	Internal Loopback
+
+    .. data:: LINE = 2
+
+    	Line Loopback
 
     """
 
-    No Loopback
-
-    """
     NONE = 0
 
-    """
-
-    Internal Loopback
-
-    """
     INTERNAL = 1
 
-    """
-
-    Line Loopback
-
-    """
     LINE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_cfg as meta
-        return meta._meta_table['OpticsLoopback_Enum']
+        return meta._meta_table['OpticsLoopbackEnum']
 
 
-class Threshold_Enum(Enum):
+class ThresholdEnum(Enum):
     """
-    Threshold_Enum
+    ThresholdEnum
 
     Threshold
 
-    """
+    .. data:: LOW = 1
+
+    	Low Threshold
+
+    .. data:: HIGH = 2
+
+    	High Threshold
 
     """
 
-    Low Threshold
-
-    """
     LOW = 1
 
-    """
-
-    High Threshold
-
-    """
     HIGH = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_cfg as meta
-        return meta._meta_table['Threshold_Enum']
+        return meta._meta_table['ThresholdEnum']
 
 
 

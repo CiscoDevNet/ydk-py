@@ -168,8 +168,6 @@ class SystemMonitoring(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.process_cpu_fifteen_minute is not None:
                     return True
 
@@ -185,10 +183,6 @@ class SystemMonitoring(object):
                 if self.process_name is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -210,8 +204,6 @@ class SystemMonitoring(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node_name is not None:
                 return True
 
@@ -231,10 +223,6 @@ class SystemMonitoring(object):
 
             return False
 
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return False
-
         @staticmethod
         def _meta_info():
             from ydk.models.ha._meta import _Cisco_IOS_XR_ha_eem_oper as meta
@@ -252,17 +240,11 @@ class SystemMonitoring(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.cpu_utilization is not None:
             for child_ref in self.cpu_utilization:
                 if child_ref._has_data():
                     return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

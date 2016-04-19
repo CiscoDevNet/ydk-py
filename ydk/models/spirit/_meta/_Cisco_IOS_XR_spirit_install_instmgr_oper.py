@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'IsdErrorEt_Enum' : _MetaInfoEnum('IsdErrorEt_Enum', 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper',
+    'IsdErrorEtEnum' : _MetaInfoEnum('IsdErrorEtEnum', 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper',
         {
             'none':'NONE',
             'not-compatible':'NOT_COMPATIBLE',
@@ -39,14 +39,14 @@ _meta_table = {
             'err-post-issu':'ERR_POST_ISSU',
             'err-issu-dir-restart':'ERR_ISSU_DIR_RESTART',
         }, 'Cisco-IOS-XR-spirit-install-instmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-spirit-install-instmgr-oper']),
-    'NodeRoleEt_Enum' : _MetaInfoEnum('NodeRoleEt_Enum', 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper',
+    'NodeRoleEtEnum' : _MetaInfoEnum('NodeRoleEtEnum', 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper',
         {
             'node-unknown':'NODE_UNKNOWN',
             'node-active':'NODE_ACTIVE',
             'node-standby':'NODE_STANDBY',
             'node-unusable':'NODE_UNUSABLE',
         }, 'Cisco-IOS-XR-spirit-install-instmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-spirit-install-instmgr-oper']),
-    'IsdStateEt_Enum' : _MetaInfoEnum('IsdStateEt_Enum', 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper',
+    'IsdStateEtEnum' : _MetaInfoEnum('IsdStateEtEnum', 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper',
         {
             'none':'NONE',
             'idle':'IDLE',
@@ -64,7 +64,7 @@ _meta_table = {
             'abort':'ABORT',
             'unknow-state':'UNKNOW_STATE',
         }, 'Cisco-IOS-XR-spirit-install-instmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-spirit-install-instmgr-oper']),
-    'IsdIssuStatusEt_Enum' : _MetaInfoEnum('IsdIssuStatusEt_Enum', 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper',
+    'IsdIssuStatusEtEnum' : _MetaInfoEnum('IsdIssuStatusEtEnum', 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper',
         {
             'ok':'OK',
             'prep-done':'PREP_DONE',
@@ -74,21 +74,21 @@ _meta_table = {
             'cmd-reject':'CMD_REJECT',
             'unknown':'UNKNOWN',
         }, 'Cisco-IOS-XR-spirit-install-instmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-spirit-install-instmgr-oper']),
-    'IssudirNodeStatusEt_Enum' : _MetaInfoEnum('IssudirNodeStatusEt_Enum', 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper',
+    'IssudirNodeStatusEtEnum' : _MetaInfoEnum('IssudirNodeStatusEtEnum', 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper',
         {
             'not-issu-ready':'NOT_ISSU_READY',
             'issu-ready':'ISSU_READY',
             'isus-go':'ISUS_GO',
             'node-fail':'NODE_FAIL',
         }, 'Cisco-IOS-XR-spirit-install-instmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-spirit-install-instmgr-oper']),
-    'IssuNodeRoleEt_Enum' : _MetaInfoEnum('IssuNodeRoleEt_Enum', 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper',
+    'IssuNodeRoleEtEnum' : _MetaInfoEnum('IssuNodeRoleEtEnum', 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper',
         {
             'unknown-role':'UNKNOWN_ROLE',
             'primary-role':'PRIMARY_ROLE',
             'secondary-role':'SECONDARY_ROLE',
             'tertiary-role':'TERTIARY_ROLE',
         }, 'Cisco-IOS-XR-spirit-install-instmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-spirit-install-instmgr-oper']),
-    'CardTypeEt_Enum' : _MetaInfoEnum('CardTypeEt_Enum', 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper',
+    'CardTypeEtEnum' : _MetaInfoEnum('CardTypeEtEnum', 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper',
         {
             'card-rp':'CARD_RP',
             'card-drp':'CARD_DRP',
@@ -384,7 +384,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SoftwareInstall.Issu.Inventory.Invinfo',
             False, 
             [
-            _MetaInfoClassMember('issu-node-role', REFERENCE_ENUM_CLASS, 'IssuNodeRoleEt_Enum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IssuNodeRoleEt_Enum', 
+            _MetaInfoClassMember('issu-node-role', REFERENCE_ENUM_CLASS, 'IssuNodeRoleEtEnum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IssuNodeRoleEtEnum', 
                 [], [], 
                 '''                ISSU Node Role
                 ''',
@@ -396,19 +396,19 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('node-role', REFERENCE_ENUM_CLASS, 'NodeRoleEt_Enum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'NodeRoleEt_Enum', 
+            _MetaInfoClassMember('node-role', REFERENCE_ENUM_CLASS, 'NodeRoleEtEnum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'NodeRoleEtEnum', 
                 [], [], 
                 '''                Node role
                 ''',
                 'node_role',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('node-state', REFERENCE_ENUM_CLASS, 'IssudirNodeStatusEt_Enum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IssudirNodeStatusEt_Enum', 
+            _MetaInfoClassMember('node-state', REFERENCE_ENUM_CLASS, 'IssudirNodeStatusEtEnum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IssudirNodeStatusEtEnum', 
                 [], [], 
                 '''                Node State
                 ''',
                 'node_state',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('node-type', REFERENCE_ENUM_CLASS, 'CardTypeEt_Enum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'CardTypeEt_Enum', 
+            _MetaInfoClassMember('node-type', REFERENCE_ENUM_CLASS, 'CardTypeEtEnum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'CardTypeEtEnum', 
                 [], [], 
                 '''                Node Type
                 ''',
@@ -442,7 +442,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SoftwareInstall.Issu.Stage',
             False, 
             [
-            _MetaInfoClassMember('issu-error', REFERENCE_ENUM_CLASS, 'IsdErrorEt_Enum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IsdErrorEt_Enum', 
+            _MetaInfoClassMember('issu-error', REFERENCE_ENUM_CLASS, 'IsdErrorEtEnum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IsdErrorEtEnum', 
                 [], [], 
                 '''                ISSU Error
                 ''',
@@ -460,7 +460,7 @@ _meta_table = {
                 ''',
                 'issu_ready_node_cnt',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('issu-status', REFERENCE_ENUM_CLASS, 'IsdIssuStatusEt_Enum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IsdIssuStatusEt_Enum', 
+            _MetaInfoClassMember('issu-status', REFERENCE_ENUM_CLASS, 'IsdIssuStatusEtEnum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IsdIssuStatusEtEnum', 
                 [], [], 
                 '''                Abort Status
                 ''',
@@ -472,7 +472,7 @@ _meta_table = {
                 ''',
                 'percentage',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'IsdStateEt_Enum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IsdStateEt_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'IsdStateEtEnum' , 'ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IsdStateEtEnum', 
                 [], [], 
                 '''                State
                 ''',

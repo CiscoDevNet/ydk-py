@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'Insert_Enum' : _MetaInfoEnum('Insert_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg',
+    'InsertEnum' : _MetaInfoEnum('InsertEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg',
         {
             'local':'LOCAL',
             'received':'RECEIVED',
@@ -333,7 +333,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Dhcpv6.Profiles.Profile.Proxy.Relay.Option.InterfaceId',
             False, 
             [
-            _MetaInfoClassMember('insert', REFERENCE_ENUM_CLASS, 'Insert_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'Insert_Enum', 
+            _MetaInfoClassMember('insert', REFERENCE_ENUM_CLASS, 'InsertEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'InsertEnum', 
                 [], [], 
                 '''                Configure InterfaceID insert type
                 ''',

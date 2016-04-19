@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -24,7 +24,7 @@ _meta_table = {
                 ''',
                 'precedence',
                 'Cisco-IOS-XR-lpts-pre-ifib-cfg', False, [
-                    _MetaInfoClassMember('precedence', REFERENCE_LEAFLIST, 'LptsPreIFibPrecedenceNumber_Enum' , 'ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg', 'LptsPreIFibPrecedenceNumber_Enum', 
+                    _MetaInfoClassMember('precedence', REFERENCE_LEAFLIST, 'LptsPreIFibPrecedenceNumberEnum' , 'ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg', 'LptsPreIFibPrecedenceNumberEnum', 
                         [], [], 
                         '''                        Precedence values
                         ''',
@@ -48,7 +48,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Lpts.Ipolicer.Flows.Flow',
             False, 
             [
-            _MetaInfoClassMember('flow-type', REFERENCE_ENUM_CLASS, 'LptsFlow_Enum' , 'ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg', 'LptsFlow_Enum', 
+            _MetaInfoClassMember('flow-type', REFERENCE_ENUM_CLASS, 'LptsFlowEnum' , 'ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg', 'LptsFlowEnum', 
                 [], [], 
                 '''                LPTS Flow Type
                 ''',
@@ -90,8 +90,8 @@ _meta_table = {
         'ydk.models.lpts.Cisco_IOS_XR_lpts_lib_cfg'
         ),
     },
-    'Lpts.Ipolicer.Ipv4acls.Ipv4acl' : {
-        'meta_info' : _MetaInfoClass('Lpts.Ipolicer.Ipv4acls.Ipv4acl',
+    'Lpts.Ipolicer.Ipv4Acls.Ipv4Acl' : {
+        'meta_info' : _MetaInfoClass('Lpts.Ipolicer.Ipv4Acls.Ipv4Acl',
             False, 
             [
             _MetaInfoClassMember('acl-name', ATTRIBUTE, 'str' , None, None, 
@@ -113,11 +113,11 @@ _meta_table = {
         'ydk.models.lpts.Cisco_IOS_XR_lpts_lib_cfg'
         ),
     },
-    'Lpts.Ipolicer.Ipv4acls' : {
-        'meta_info' : _MetaInfoClass('Lpts.Ipolicer.Ipv4acls',
+    'Lpts.Ipolicer.Ipv4Acls' : {
+        'meta_info' : _MetaInfoClass('Lpts.Ipolicer.Ipv4Acls',
             False, 
             [
-            _MetaInfoClassMember('ipv4acl', REFERENCE_LIST, 'Ipv4acl' , 'ydk.models.lpts.Cisco_IOS_XR_lpts_lib_cfg', 'Lpts.Ipolicer.Ipv4acls.Ipv4acl', 
+            _MetaInfoClassMember('ipv4acl', REFERENCE_LIST, 'Ipv4Acl' , 'ydk.models.lpts.Cisco_IOS_XR_lpts_lib_cfg', 'Lpts.Ipolicer.Ipv4Acls.Ipv4Acl', 
                 [], [], 
                 '''                ACL name
                 ''',
@@ -146,7 +146,7 @@ _meta_table = {
                 ''',
                 'flows',
                 'Cisco-IOS-XR-lpts-pre-ifib-cfg', False),
-            _MetaInfoClassMember('ipv4acls', REFERENCE_CLASS, 'Ipv4acls' , 'ydk.models.lpts.Cisco_IOS_XR_lpts_lib_cfg', 'Lpts.Ipolicer.Ipv4acls', 
+            _MetaInfoClassMember('ipv4acls', REFERENCE_CLASS, 'Ipv4Acls' , 'ydk.models.lpts.Cisco_IOS_XR_lpts_lib_cfg', 'Lpts.Ipolicer.Ipv4Acls', 
                 [], [], 
                 '''                Table for ACLs
                 ''',
@@ -179,7 +179,7 @@ _meta_table = {
 }
 _meta_table['Lpts.Ipolicer.Flows.Flow.Precedences']['meta_info'].parent =_meta_table['Lpts.Ipolicer.Flows.Flow']['meta_info']
 _meta_table['Lpts.Ipolicer.Flows.Flow']['meta_info'].parent =_meta_table['Lpts.Ipolicer.Flows']['meta_info']
-_meta_table['Lpts.Ipolicer.Ipv4acls.Ipv4acl']['meta_info'].parent =_meta_table['Lpts.Ipolicer.Ipv4acls']['meta_info']
+_meta_table['Lpts.Ipolicer.Ipv4Acls.Ipv4Acl']['meta_info'].parent =_meta_table['Lpts.Ipolicer.Ipv4Acls']['meta_info']
 _meta_table['Lpts.Ipolicer.Flows']['meta_info'].parent =_meta_table['Lpts.Ipolicer']['meta_info']
-_meta_table['Lpts.Ipolicer.Ipv4acls']['meta_info'].parent =_meta_table['Lpts.Ipolicer']['meta_info']
+_meta_table['Lpts.Ipolicer.Ipv4Acls']['meta_info'].parent =_meta_table['Lpts.Ipolicer']['meta_info']
 _meta_table['Lpts.Ipolicer']['meta_info'].parent =_meta_table['Lpts']['meta_info']

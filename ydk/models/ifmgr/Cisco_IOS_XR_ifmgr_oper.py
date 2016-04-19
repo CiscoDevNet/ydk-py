@@ -25,152 +25,133 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class ImStateEnum_Enum(Enum):
+class ImStateEnumEnum(Enum):
     """
-    ImStateEnum_Enum
+    ImStateEnumEnum
 
     Im state enum
 
-    """
+    .. data:: IM_STATE_NOT_READY = 0
+
+    	im state not ready
+
+    .. data:: IM_STATE_ADMIN_DOWN = 1
+
+    	im state admin down
+
+    .. data:: IM_STATE_DOWN = 2
+
+    	im state down
+
+    .. data:: IM_STATE_UP = 3
+
+    	im state up
+
+    .. data:: IM_STATE_SHUTDOWN = 4
+
+    	im state shutdown
+
+    .. data:: IM_STATE_ERR_DISABLE = 5
+
+    	im state err disable
+
+    .. data:: IM_STATE_DOWN_IMMEDIATE = 6
+
+    	im state down immediate
+
+    .. data:: IM_STATE_DOWN_IMMEDIATE_ADMIN = 7
+
+    	im state down immediate admin
+
+    .. data:: IM_STATE_DOWN_GRACEFUL = 8
+
+    	im state down graceful
+
+    .. data:: IM_STATE_BEGIN_SHUTDOWN = 9
+
+    	im state begin shutdown
+
+    .. data:: IM_STATE_END_SHUTDOWN = 10
+
+    	im state end shutdown
+
+    .. data:: IM_STATE_BEGIN_ERROR_DISABLE = 11
+
+    	im state begin error disable
+
+    .. data:: IM_STATE_END_ERROR_DISABLE = 12
+
+    	im state end error disable
+
+    .. data:: IM_STATE_BEGIN_DOWN_GRACEFUL = 13
+
+    	im state begin down graceful
+
+    .. data:: IM_STATE_RESET = 14
+
+    	im state reset
+
+    .. data:: IM_STATE_OPERATIONAL = 15
+
+    	im state operational
+
+    .. data:: IM_STATE_NOT_OPERATIONAL = 16
+
+    	im state not operational
+
+    .. data:: IM_STATE_UNKNOWN = 17
+
+    	im state unknown
+
+    .. data:: IM_STATE_LAST = 18
+
+    	im state last
 
     """
 
-    im state not ready
-
-    """
     IM_STATE_NOT_READY = 0
 
-    """
-
-    im state admin down
-
-    """
     IM_STATE_ADMIN_DOWN = 1
 
-    """
-
-    im state down
-
-    """
     IM_STATE_DOWN = 2
 
-    """
-
-    im state up
-
-    """
     IM_STATE_UP = 3
 
-    """
-
-    im state shutdown
-
-    """
     IM_STATE_SHUTDOWN = 4
 
-    """
-
-    im state err disable
-
-    """
     IM_STATE_ERR_DISABLE = 5
 
-    """
-
-    im state down immediate
-
-    """
     IM_STATE_DOWN_IMMEDIATE = 6
 
-    """
-
-    im state down immediate admin
-
-    """
     IM_STATE_DOWN_IMMEDIATE_ADMIN = 7
 
-    """
-
-    im state down graceful
-
-    """
     IM_STATE_DOWN_GRACEFUL = 8
 
-    """
-
-    im state begin shutdown
-
-    """
     IM_STATE_BEGIN_SHUTDOWN = 9
 
-    """
-
-    im state end shutdown
-
-    """
     IM_STATE_END_SHUTDOWN = 10
 
-    """
-
-    im state begin error disable
-
-    """
     IM_STATE_BEGIN_ERROR_DISABLE = 11
 
-    """
-
-    im state end error disable
-
-    """
     IM_STATE_END_ERROR_DISABLE = 12
 
-    """
-
-    im state begin down graceful
-
-    """
     IM_STATE_BEGIN_DOWN_GRACEFUL = 13
 
-    """
-
-    im state reset
-
-    """
     IM_STATE_RESET = 14
 
-    """
-
-    im state operational
-
-    """
     IM_STATE_OPERATIONAL = 15
 
-    """
-
-    im state not operational
-
-    """
     IM_STATE_NOT_OPERATIONAL = 16
 
-    """
-
-    im state unknown
-
-    """
     IM_STATE_UNKNOWN = 17
 
-    """
-
-    im state last
-
-    """
     IM_STATE_LAST = 18
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
-        return meta._meta_table['ImStateEnum_Enum']
+        return meta._meta_table['ImStateEnumEnum']
 
 
 
@@ -410,7 +391,7 @@ class InterfaceDampening(object):
                         .. attribute:: state
                         
                         	Underlying state of the node
-                        	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum_Enum>`
+                        	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                         
                         
 
@@ -441,8 +422,6 @@ class InterfaceDampening(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.flaps is not None:
                                 return True
 
@@ -458,10 +437,6 @@ class InterfaceDampening(object):
                             if self.state is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -483,21 +458,12 @@ class InterfaceDampening(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.capsulation_dampening is not None and self.capsulation_dampening._has_data():
-                            return True
-
-                        if self.capsulation_dampening is not None and self.capsulation_dampening.is_presence():
                             return True
 
                         if self.capsulation_number is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -539,7 +505,7 @@ class InterfaceDampening(object):
                     .. attribute:: state
                     
                     	Underlying state of the node
-                    	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum_Enum>`
+                    	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                     
                     
 
@@ -570,8 +536,6 @@ class InterfaceDampening(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.flaps is not None:
                             return True
 
@@ -587,10 +551,6 @@ class InterfaceDampening(object):
                         if self.state is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -612,8 +572,6 @@ class InterfaceDampening(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.capsulation is not None:
                         for child_ref in self.capsulation:
                             if child_ref._has_data():
@@ -623,9 +581,6 @@ class InterfaceDampening(object):
                         return True
 
                     if self.interface_dampening is not None and self.interface_dampening._has_data():
-                        return True
-
-                    if self.interface_dampening is not None and self.interface_dampening.is_presence():
                         return True
 
                     if self.is_dampening_enabled is not None:
@@ -651,10 +606,6 @@ class InterfaceDampening(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
@@ -674,21 +625,12 @@ class InterfaceDampening(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.interface_name is not None:
                     return True
 
                 if self.if_dampening is not None and self.if_dampening._has_data():
                     return True
 
-                if self.if_dampening is not None and self.if_dampening.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -708,17 +650,11 @@ class InterfaceDampening(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1017,7 +953,7 @@ class InterfaceDampening(object):
                                     .. attribute:: state
                                     
                                     	Underlying state of the node
-                                    	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum_Enum>`
+                                    	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                                     
                                     
 
@@ -1048,8 +984,6 @@ class InterfaceDampening(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.flaps is not None:
                                             return True
 
@@ -1065,10 +999,6 @@ class InterfaceDampening(object):
                                         if self.state is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -1090,21 +1020,12 @@ class InterfaceDampening(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.capsulation_dampening is not None and self.capsulation_dampening._has_data():
-                                        return True
-
-                                    if self.capsulation_dampening is not None and self.capsulation_dampening.is_presence():
                                         return True
 
                                     if self.capsulation_number is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1146,7 +1067,7 @@ class InterfaceDampening(object):
                                 .. attribute:: state
                                 
                                 	Underlying state of the node
-                                	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum_Enum>`
+                                	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                                 
                                 
 
@@ -1177,8 +1098,6 @@ class InterfaceDampening(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.flaps is not None:
                                         return True
 
@@ -1194,10 +1113,6 @@ class InterfaceDampening(object):
                                     if self.state is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1221,8 +1136,6 @@ class InterfaceDampening(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.interface_handle_name is not None:
                                     return True
 
@@ -1235,9 +1148,6 @@ class InterfaceDampening(object):
                                     return True
 
                                 if self.interface_dampening is not None and self.interface_dampening._has_data():
-                                    return True
-
-                                if self.interface_dampening is not None and self.interface_dampening.is_presence():
                                     return True
 
                                 if self.is_dampening_enabled is not None:
@@ -1263,10 +1173,6 @@ class InterfaceDampening(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
@@ -1286,17 +1192,11 @@ class InterfaceDampening(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.if_handle is not None:
                                 for child_ref in self.if_handle:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1490,7 +1390,7 @@ class InterfaceDampening(object):
                                     .. attribute:: state
                                     
                                     	Underlying state of the node
-                                    	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum_Enum>`
+                                    	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                                     
                                     
 
@@ -1521,8 +1421,6 @@ class InterfaceDampening(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.flaps is not None:
                                             return True
 
@@ -1538,10 +1436,6 @@ class InterfaceDampening(object):
                                         if self.state is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -1563,21 +1457,12 @@ class InterfaceDampening(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.capsulation_dampening is not None and self.capsulation_dampening._has_data():
-                                        return True
-
-                                    if self.capsulation_dampening is not None and self.capsulation_dampening.is_presence():
                                         return True
 
                                     if self.capsulation_number is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1619,7 +1504,7 @@ class InterfaceDampening(object):
                                 .. attribute:: state
                                 
                                 	Underlying state of the node
-                                	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum_Enum>`
+                                	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                                 
                                 
 
@@ -1650,8 +1535,6 @@ class InterfaceDampening(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.flaps is not None:
                                         return True
 
@@ -1667,10 +1550,6 @@ class InterfaceDampening(object):
                                     if self.state is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1694,8 +1573,6 @@ class InterfaceDampening(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.interface_name is not None:
                                     return True
 
@@ -1708,9 +1585,6 @@ class InterfaceDampening(object):
                                     return True
 
                                 if self.interface_dampening is not None and self.interface_dampening._has_data():
-                                    return True
-
-                                if self.interface_dampening is not None and self.interface_dampening.is_presence():
                                     return True
 
                                 if self.is_dampening_enabled is not None:
@@ -1736,10 +1610,6 @@ class InterfaceDampening(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
@@ -1759,17 +1629,11 @@ class InterfaceDampening(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface is not None:
                                 for child_ref in self.interface:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1791,24 +1655,12 @@ class InterfaceDampening(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.if_handles is not None and self.if_handles._has_data():
-                            return True
-
-                        if self.if_handles is not None and self.if_handles.is_presence():
                             return True
 
                         if self.interfaces is not None and self.interfaces._has_data():
                             return True
 
-                        if self.interfaces is not None and self.interfaces.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1830,18 +1682,9 @@ class InterfaceDampening(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.dampening is not None and self.dampening._has_data():
                         return True
 
-                    if self.dampening is not None and self.dampening.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1863,21 +1706,12 @@ class InterfaceDampening(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.show is not None and self.show._has_data():
                     return True
 
-                if self.show is not None and self.show.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1897,17 +1731,11 @@ class InterfaceDampening(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1927,24 +1755,12 @@ class InterfaceDampening(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.interfaces is not None and self.interfaces._has_data():
-            return True
-
-        if self.interfaces is not None and self.interfaces.is_presence():
             return True
 
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -2136,12 +1952,12 @@ class InterfaceProperties(object):
                             .. attribute:: actual_line_state
                             
                             	Line protocol state with no translation of error disable or shutdown
-                            	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum_Enum>`
+                            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                             
                             .. attribute:: actual_state
                             
                             	Operational state with no translation of error disable or shutdown
-                            	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum_Enum>`
+                            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                             
                             .. attribute:: bandwidth
                             
@@ -2177,7 +1993,7 @@ class InterfaceProperties(object):
                             .. attribute:: line_state
                             
                             	Line protocol state
-                            	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum_Enum>`
+                            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                             
                             .. attribute:: mtu
                             
@@ -2196,7 +2012,7 @@ class InterfaceProperties(object):
                             .. attribute:: state
                             
                             	Operational state
-                            	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum_Enum>`
+                            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                             
                             .. attribute:: sub_interface_mtu_overhead
                             
@@ -2250,8 +2066,6 @@ class InterfaceProperties(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.interface_name is not None:
                                     return True
 
@@ -2296,10 +2110,6 @@ class InterfaceProperties(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
@@ -2319,17 +2129,11 @@ class InterfaceProperties(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface is not None:
                                 for child_ref in self.interface:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2353,21 +2157,12 @@ class InterfaceProperties(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.locationview_name is not None:
                             return True
 
                         if self.interfaces is not None and self.interfaces._has_data():
                             return True
 
-                        if self.interfaces is not None and self.interfaces.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2389,17 +2184,11 @@ class InterfaceProperties(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.locationview is not None:
                         for child_ref in self.locationview:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2502,12 +2291,12 @@ class InterfaceProperties(object):
                             .. attribute:: actual_line_state
                             
                             	Line protocol state with no translation of error disable or shutdown
-                            	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum_Enum>`
+                            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                             
                             .. attribute:: actual_state
                             
                             	Operational state with no translation of error disable or shutdown
-                            	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum_Enum>`
+                            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                             
                             .. attribute:: bandwidth
                             
@@ -2543,7 +2332,7 @@ class InterfaceProperties(object):
                             .. attribute:: line_state
                             
                             	Line protocol state
-                            	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum_Enum>`
+                            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                             
                             .. attribute:: mtu
                             
@@ -2562,7 +2351,7 @@ class InterfaceProperties(object):
                             .. attribute:: state
                             
                             	Operational state
-                            	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum_Enum>`
+                            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                             
                             .. attribute:: sub_interface_mtu_overhead
                             
@@ -2616,8 +2405,6 @@ class InterfaceProperties(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.interface_name is not None:
                                     return True
 
@@ -2662,10 +2449,6 @@ class InterfaceProperties(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
@@ -2685,17 +2468,11 @@ class InterfaceProperties(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface is not None:
                                 for child_ref in self.interface:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2719,21 +2496,12 @@ class InterfaceProperties(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.pq_node_name is not None:
                             return True
 
                         if self.interfaces is not None and self.interfaces._has_data():
                             return True
 
-                        if self.interfaces is not None and self.interfaces.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2755,17 +2523,11 @@ class InterfaceProperties(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.pq_node_location is not None:
                         for child_ref in self.pq_node_location:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2835,12 +2597,12 @@ class InterfaceProperties(object):
                         .. attribute:: actual_line_state
                         
                         	Line protocol state with no translation of error disable or shutdown
-                        	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum_Enum>`
+                        	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                         
                         .. attribute:: actual_state
                         
                         	Operational state with no translation of error disable or shutdown
-                        	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum_Enum>`
+                        	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                         
                         .. attribute:: bandwidth
                         
@@ -2876,7 +2638,7 @@ class InterfaceProperties(object):
                         .. attribute:: line_state
                         
                         	Line protocol state
-                        	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum_Enum>`
+                        	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                         
                         .. attribute:: mtu
                         
@@ -2895,7 +2657,7 @@ class InterfaceProperties(object):
                         .. attribute:: state
                         
                         	Operational state
-                        	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum_Enum>`
+                        	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper.ImStateEnumEnum>`
                         
                         .. attribute:: sub_interface_mtu_overhead
                         
@@ -2949,8 +2711,6 @@ class InterfaceProperties(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface_name is not None:
                                 return True
 
@@ -2995,10 +2755,6 @@ class InterfaceProperties(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_oper as meta
@@ -3018,17 +2774,11 @@ class InterfaceProperties(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3050,18 +2800,9 @@ class InterfaceProperties(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interfaces is not None and self.interfaces._has_data():
                         return True
 
-                    if self.interfaces is not None and self.interfaces.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3083,33 +2824,18 @@ class InterfaceProperties(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.data_node_name is not None:
                     return True
 
                 if self.locationviews is not None and self.locationviews._has_data():
                     return True
 
-                if self.locationviews is not None and self.locationviews.is_presence():
-                    return True
-
                 if self.pq_node_locations is not None and self.pq_node_locations._has_data():
-                    return True
-
-                if self.pq_node_locations is not None and self.pq_node_locations.is_presence():
                     return True
 
                 if self.system_view is not None and self.system_view._has_data():
                     return True
 
-                if self.system_view is not None and self.system_view.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3129,17 +2855,11 @@ class InterfaceProperties(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.data_node is not None:
                 for child_ref in self.data_node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3159,18 +2879,9 @@ class InterfaceProperties(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.data_nodes is not None and self.data_nodes._has_data():
             return True
 
-        if self.data_nodes is not None and self.data_nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

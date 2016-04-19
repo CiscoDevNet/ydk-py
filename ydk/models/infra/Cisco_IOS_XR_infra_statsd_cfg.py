@@ -113,18 +113,12 @@ class Statistics(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.polling_disable is not None:
                     return True
 
                 if self.polling_period is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -144,18 +138,9 @@ class Statistics(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.service_accounting is not None and self.service_accounting._has_data():
                 return True
 
-            if self.service_accounting is not None and self.service_accounting.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -175,18 +160,9 @@ class Statistics(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.period is not None and self.period._has_data():
             return True
 
-        if self.period is not None and self.period.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,14 +14,14 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'LptsPcbQuery_Enum' : _MetaInfoEnum('LptsPcbQuery_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper',
+    'LptsPcbQueryEnum' : _MetaInfoEnum('LptsPcbQueryEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper',
         {
             'all':'ALL',
             'static-policy':'STATIC_POLICY',
             'interface':'INTERFACE',
             'packet':'PACKET',
         }, 'Cisco-IOS-XR-ip-udp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-udp-oper']),
-    'MessageTypeIcmpv6_Enum' : _MetaInfoEnum('MessageTypeIcmpv6_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper',
+    'MessageTypeIcmpv6Enum' : _MetaInfoEnum('MessageTypeIcmpv6Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper',
         {
             'destination-unreachable':'DESTINATION_UNREACHABLE',
             'packet-too-big':'PACKET_TOO_BIG',
@@ -55,7 +55,7 @@ _meta_table = {
             'multicast-router-termination':'MULTICAST_ROUTER_TERMINATION',
             'fmipv6-messages':'FMIPV6_MESSAGES',
         }, 'Cisco-IOS-XR-ip-udp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-udp-oper']),
-    'MessageTypeIcmp_Enum' : _MetaInfoEnum('MessageTypeIcmp_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper',
+    'MessageTypeIcmpEnum' : _MetaInfoEnum('MessageTypeIcmpEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper',
         {
             'echo-reply':'ECHO_REPLY',
             'destination-unreachable':'DESTINATION_UNREACHABLE',
@@ -82,7 +82,7 @@ _meta_table = {
             'mobile-registration-reply':'MOBILE_REGISTRATION_REPLY',
             'domain-name-request':'DOMAIN_NAME_REQUEST',
         }, 'Cisco-IOS-XR-ip-udp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-udp-oper']),
-    'MessageTypeIgmp_Enum' : _MetaInfoEnum('MessageTypeIgmp_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper',
+    'MessageTypeIgmpEnum' : _MetaInfoEnum('MessageTypeIgmpEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper',
         {
             'membership-query':'MEMBERSHIP_QUERY',
             'v1-membership-report':'V1_MEMBERSHIP_REPORT',
@@ -98,7 +98,7 @@ _meta_table = {
             'multicast-router-solicitation':'MULTICAST_ROUTER_SOLICITATION',
             'multicast-router-termination':'MULTICAST_ROUTER_TERMINATION',
         }, 'Cisco-IOS-XR-ip-udp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-udp-oper']),
-    'MessageTypeIgmp_Enum' : _MetaInfoEnum('MessageTypeIgmp_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper',
+    'MessageTypeIgmpEnum' : _MetaInfoEnum('MessageTypeIgmpEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper',
         {
             'membership-query':'MEMBERSHIP_QUERY',
             'v1-membership-report':'V1_MEMBERSHIP_REPORT',
@@ -114,14 +114,14 @@ _meta_table = {
             'multicast-router-solicitation':'MULTICAST_ROUTER_SOLICITATION',
             'multicast-router-termination':'MULTICAST_ROUTER_TERMINATION',
         }, 'Cisco-IOS-XR-ip-udp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-udp-oper']),
-    'Packet_Enum' : _MetaInfoEnum('Packet_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper',
+    'PacketEnum' : _MetaInfoEnum('PacketEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper',
         {
             'icmp':'ICMP',
             'icm-pv6':'ICM_PV6',
             'igmp':'IGMP',
             'unknown':'UNKNOWN',
         }, 'Cisco-IOS-XR-ip-udp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-udp-oper']),
-    'MessageTypeIcmp_Enum' : _MetaInfoEnum('MessageTypeIcmp_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper',
+    'MessageTypeIcmpEnum' : _MetaInfoEnum('MessageTypeIcmpEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper',
         {
             'echo-reply':'ECHO_REPLY',
             'destination-unreachable':'DESTINATION_UNREACHABLE',
@@ -148,7 +148,7 @@ _meta_table = {
             'mobile-registration-reply':'MOBILE_REGISTRATION_REPLY',
             'domain-name-request':'DOMAIN_NAME_REQUEST',
         }, 'Cisco-IOS-XR-ip-udp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-udp-oper']),
-    'AddrFamily_Enum' : _MetaInfoEnum('AddrFamily_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper',
+    'AddrFamilyEnum' : _MetaInfoEnum('AddrFamilyEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper',
         {
             'unspecified':'UNSPECIFIED',
             'local':'LOCAL',
@@ -193,12 +193,12 @@ _meta_table = {
             'ether':'ETHER',
             'srp':'SRP',
         }, 'Cisco-IOS-XR-ip-udp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-udp-oper']),
-    'UdpAddressFamily_Enum' : _MetaInfoEnum('UdpAddressFamily_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper',
+    'UdpAddressFamilyEnum' : _MetaInfoEnum('UdpAddressFamilyEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper',
         {
             'ipv4':'IPV4',
             'ipv6':'IPV6',
         }, 'Cisco-IOS-XR-ip-udp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-udp-oper']),
-    'MessageTypeIcmpv6_Enum' : _MetaInfoEnum('MessageTypeIcmpv6_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper',
+    'MessageTypeIcmpv6Enum' : _MetaInfoEnum('MessageTypeIcmpv6Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper',
         {
             'destination-unreachable':'DESTINATION_UNREACHABLE',
             'packet-too-big':'PACKET_TOO_BIG',
@@ -457,7 +457,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddrFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'AddrFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddrFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'AddrFamilyEnum', 
                 [], [], 
                 '''                AFName
                 ''',
@@ -486,19 +486,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType',
             False, 
             [
-            _MetaInfoClassMember('icm-pv6-message-type', REFERENCE_ENUM_CLASS, 'MessageTypeIcmpv6_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'MessageTypeIcmpv6_Enum', 
+            _MetaInfoClassMember('icm-pv6-message-type', REFERENCE_ENUM_CLASS, 'MessageTypeIcmpv6Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'MessageTypeIcmpv6Enum', 
                 [], [], 
                 '''                ICMPv6 message type
                 ''',
                 'icm_pv6_message_type',
                 'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('icmp-message-type', REFERENCE_ENUM_CLASS, 'MessageTypeIcmp_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'MessageTypeIcmp_Enum', 
+            _MetaInfoClassMember('icmp-message-type', REFERENCE_ENUM_CLASS, 'MessageTypeIcmpEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'MessageTypeIcmpEnum', 
                 [], [], 
                 '''                ICMP message type
                 ''',
                 'icmp_message_type',
                 'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('igmp-message-type', REFERENCE_ENUM_CLASS, 'MessageTypeIgmp_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'MessageTypeIgmp_Enum', 
+            _MetaInfoClassMember('igmp-message-type', REFERENCE_ENUM_CLASS, 'MessageTypeIgmpEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'MessageTypeIgmpEnum', 
                 [], [], 
                 '''                IGMP message type
                 ''',
@@ -510,7 +510,7 @@ _meta_table = {
                 ''',
                 'message_id',
                 'Cisco-IOS-XR-ip-udp-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'Packet_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'Packet_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'PacketEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'PacketEnum', 
                 [], [], 
                 '''                Type
                 ''',
@@ -527,7 +527,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddrFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'AddrFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddrFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'AddrFamilyEnum', 
                 [], [], 
                 '''                AFName
                 ''',
@@ -732,7 +732,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddrFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'AddrFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddrFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'AddrFamilyEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -755,7 +755,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddrFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'AddrFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddrFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'AddrFamilyEnum', 
                 [], [], 
                 '''                AFName
                 ''',
@@ -784,7 +784,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddrFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'AddrFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddrFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'AddrFamilyEnum', 
                 [], [], 
                 '''                AFName
                 ''',
@@ -883,7 +883,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('UdpConnection.Nodes.Node.Lpts.Queries.Query',
             False, 
             [
-            _MetaInfoClassMember('query-name', REFERENCE_ENUM_CLASS, 'LptsPcbQuery_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'LptsPcbQuery_Enum', 
+            _MetaInfoClassMember('query-name', REFERENCE_ENUM_CLASS, 'LptsPcbQueryEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'LptsPcbQueryEnum', 
                 [], [], 
                 '''                Query option
                 ''',
@@ -940,7 +940,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'UdpAddressFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'UdpAddressFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpAddressFamilyEnum', 
                 [], [], 
                 '''                AFName
                 ''',
@@ -969,7 +969,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'UdpAddressFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'UdpAddressFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpAddressFamilyEnum', 
                 [], [], 
                 '''                AFName
                 ''',
@@ -1004,7 +1004,7 @@ _meta_table = {
                 ''',
                 'pcb_address',
                 'Cisco-IOS-XR-ip-udp-oper', True),
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'UdpAddressFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'UdpAddressFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
@@ -1074,7 +1074,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'UdpAddressFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'UdpAddressFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpAddressFamilyEnum', 
                 [], [], 
                 '''                AFName
                 ''',
@@ -1103,7 +1103,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'UdpAddressFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'UdpAddressFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpAddressFamilyEnum', 
                 [], [], 
                 '''                AFName
                 ''',
@@ -1138,7 +1138,7 @@ _meta_table = {
                 ''',
                 'pcb_address',
                 'Cisco-IOS-XR-ip-udp-oper', True),
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'UdpAddressFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'UdpAddressFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_udp_oper', 'UdpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',

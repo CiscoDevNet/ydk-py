@@ -24,98 +24,91 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class IepAddress_Enum(Enum):
+class IepAddressEnum(Enum):
     """
-    IepAddress_Enum
+    IepAddressEnum
 
     Address types
 
-    """
+    .. data:: NEXT = 0
+
+    	Address type is next
+
+    .. data:: EXCLUDE = 1
+
+    	Address type is exclude
+
+    .. data:: EXCLUDE_SRLG = 2
+
+    	Address type is exclude SRLG
 
     """
 
-    Address type is next
-
-    """
     NEXT = 0
 
-    """
-
-    Address type is exclude
-
-    """
     EXCLUDE = 1
 
-    """
-
-    Address type is exclude SRLG
-
-    """
     EXCLUDE_SRLG = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_iep_oper as meta
-        return meta._meta_table['IepAddress_Enum']
+        return meta._meta_table['IepAddressEnum']
 
 
-class IepHop_Enum(Enum):
+class IepHopEnum(Enum):
     """
-    IepHop_Enum
+    IepHopEnum
 
     Hop types of the next\-address configured
 
-    """
+    .. data:: STRICT = 0
+
+    	Hop type is strict
+
+    .. data:: LOOSE = 1
+
+    	Hop type is loose
 
     """
 
-    Hop type is strict
-
-    """
     STRICT = 0
 
-    """
-
-    Hop type is loose
-
-    """
     LOOSE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_iep_oper as meta
-        return meta._meta_table['IepHop_Enum']
+        return meta._meta_table['IepHopEnum']
 
 
-class IepStatus_Enum(Enum):
+class IepStatusEnum(Enum):
     """
-    IepStatus_Enum
+    IepStatusEnum
 
     Status of the path
 
-    """
+    .. data:: ENABLED = 0
+
+    	Status is enabled
+
+    .. data:: DISABLED = 1
+
+    	Status is disabled
 
     """
 
-    Status is enabled
-
-    """
     ENABLED = 0
 
-    """
-
-    Status is disabled
-
-    """
     DISABLED = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_iep_oper as meta
-        return meta._meta_table['IepStatus_Enum']
+        return meta._meta_table['IepStatusEnum']
 
 
 
@@ -190,7 +183,7 @@ class ExplicitPaths(object):
             .. attribute:: status
             
             	Status of the path
-            	**type**\: :py:class:`IepStatus_Enum <ydk.models.ip.Cisco_IOS_XR_ip_iep_oper.IepStatus_Enum>`
+            	**type**\: :py:class:`IepStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_oper.IepStatusEnum>`
             
             
 
@@ -223,12 +216,12 @@ class ExplicitPaths(object):
                 .. attribute:: address_type
                 
                 	Specifies the address type
-                	**type**\: :py:class:`IepAddress_Enum <ydk.models.ip.Cisco_IOS_XR_ip_iep_oper.IepAddress_Enum>`
+                	**type**\: :py:class:`IepAddressEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_oper.IepAddressEnum>`
                 
                 .. attribute:: hop_type
                 
                 	Specifies the next unicast address in the path as a strict or loose hop
-                	**type**\: :py:class:`IepHop_Enum <ydk.models.ip.Cisco_IOS_XR_ip_iep_oper.IepHop_Enum>`
+                	**type**\: :py:class:`IepHopEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_oper.IepHopEnum>`
                 
                 .. attribute:: if_index
                 
@@ -273,8 +266,6 @@ class ExplicitPaths(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.address is not None:
                         return True
 
@@ -290,10 +281,6 @@ class ExplicitPaths(object):
                     if self.index is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -315,8 +302,6 @@ class ExplicitPaths(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.identifier_id is not None:
                     return True
 
@@ -328,10 +313,6 @@ class ExplicitPaths(object):
                 if self.status is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -351,17 +332,11 @@ class ExplicitPaths(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.identifier is not None:
                 for child_ref in self.identifier:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -413,7 +388,7 @@ class ExplicitPaths(object):
             .. attribute:: status
             
             	Status of the path
-            	**type**\: :py:class:`IepStatus_Enum <ydk.models.ip.Cisco_IOS_XR_ip_iep_oper.IepStatus_Enum>`
+            	**type**\: :py:class:`IepStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_oper.IepStatusEnum>`
             
             
 
@@ -446,12 +421,12 @@ class ExplicitPaths(object):
                 .. attribute:: address_type
                 
                 	Specifies the address type
-                	**type**\: :py:class:`IepAddress_Enum <ydk.models.ip.Cisco_IOS_XR_ip_iep_oper.IepAddress_Enum>`
+                	**type**\: :py:class:`IepAddressEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_oper.IepAddressEnum>`
                 
                 .. attribute:: hop_type
                 
                 	Specifies the next unicast address in the path as a strict or loose hop
-                	**type**\: :py:class:`IepHop_Enum <ydk.models.ip.Cisco_IOS_XR_ip_iep_oper.IepHop_Enum>`
+                	**type**\: :py:class:`IepHopEnum <ydk.models.ip.Cisco_IOS_XR_ip_iep_oper.IepHopEnum>`
                 
                 .. attribute:: if_index
                 
@@ -496,8 +471,6 @@ class ExplicitPaths(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.address is not None:
                         return True
 
@@ -513,10 +486,6 @@ class ExplicitPaths(object):
                     if self.index is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -538,8 +507,6 @@ class ExplicitPaths(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.path_name is not None:
                     return True
 
@@ -551,10 +518,6 @@ class ExplicitPaths(object):
                 if self.status is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -574,17 +537,11 @@ class ExplicitPaths(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.name is not None:
                 for child_ref in self.name:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -604,24 +561,12 @@ class ExplicitPaths(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.identifiers is not None and self.identifiers._has_data():
-            return True
-
-        if self.identifiers is not None and self.identifiers.is_presence():
             return True
 
         if self.names is not None and self.names._has_data():
             return True
 
-        if self.names is not None and self.names.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

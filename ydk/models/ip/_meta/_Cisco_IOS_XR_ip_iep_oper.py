@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,18 +14,18 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'IepStatus_Enum' : _MetaInfoEnum('IepStatus_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper',
+    'IepStatusEnum' : _MetaInfoEnum('IepStatusEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper',
         {
             'enabled':'ENABLED',
             'disabled':'DISABLED',
         }, 'Cisco-IOS-XR-ip-iep-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-iep-oper']),
-    'IepAddress_Enum' : _MetaInfoEnum('IepAddress_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper',
+    'IepAddressEnum' : _MetaInfoEnum('IepAddressEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper',
         {
             'next':'NEXT',
             'exclude':'EXCLUDE',
             'exclude-srlg':'EXCLUDE_SRLG',
         }, 'Cisco-IOS-XR-ip-iep-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-iep-oper']),
-    'IepHop_Enum' : _MetaInfoEnum('IepHop_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper',
+    'IepHopEnum' : _MetaInfoEnum('IepHopEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper',
         {
             'strict':'STRICT',
             'loose':'LOOSE',
@@ -40,13 +40,13 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ip-iep-oper', False),
-            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'IepAddress_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper', 'IepAddress_Enum', 
+            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'IepAddressEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper', 'IepAddressEnum', 
                 [], [], 
                 '''                Specifies the address type
                 ''',
                 'address_type',
                 'Cisco-IOS-XR-ip-iep-oper', False),
-            _MetaInfoClassMember('hop-type', REFERENCE_ENUM_CLASS, 'IepHop_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper', 'IepHop_Enum', 
+            _MetaInfoClassMember('hop-type', REFERENCE_ENUM_CLASS, 'IepHopEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper', 'IepHopEnum', 
                 [], [], 
                 '''                Specifies the next unicast address in the path
                 as a strict or loose hop
@@ -90,7 +90,7 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ip-iep-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'IepStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper', 'IepStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'IepStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper', 'IepStatusEnum', 
                 [], [], 
                 '''                Status of the path
                 ''',
@@ -131,13 +131,13 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ip-iep-oper', False),
-            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'IepAddress_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper', 'IepAddress_Enum', 
+            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'IepAddressEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper', 'IepAddressEnum', 
                 [], [], 
                 '''                Specifies the address type
                 ''',
                 'address_type',
                 'Cisco-IOS-XR-ip-iep-oper', False),
-            _MetaInfoClassMember('hop-type', REFERENCE_ENUM_CLASS, 'IepHop_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper', 'IepHop_Enum', 
+            _MetaInfoClassMember('hop-type', REFERENCE_ENUM_CLASS, 'IepHopEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper', 'IepHopEnum', 
                 [], [], 
                 '''                Specifies the next unicast address in the path
                 as a strict or loose hop
@@ -181,7 +181,7 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ip-iep-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'IepStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper', 'IepStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'IepStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_oper', 'IepStatusEnum', 
                 [], [], 
                 '''                Status of the path
                 ''',

@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'EventType_Enum' : _MetaInfoEnum('EventType_Enum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg',
+    'EventTypeEnum' : _MetaInfoEnum('EventTypeEnum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg',
         {
             'account-logoff':'ACCOUNT_LOGOFF',
             'account-logon':'ACCOUNT_LOGON',
@@ -33,13 +33,13 @@ _meta_table = {
             'session-stop':'SESSION_STOP',
             'timer-expiry':'TIMER_EXPIRY',
         }, 'Cisco-IOS-XR-ncs5500-policymgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-policymgr-cfg']),
-    'ClassMapType_Enum' : _MetaInfoEnum('ClassMapType_Enum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg',
+    'ClassMapTypeEnum' : _MetaInfoEnum('ClassMapTypeEnum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg',
         {
             'qos':'QOS',
             'pbr':'PBR',
             'traffic':'TRAFFIC',
         }, 'Cisco-IOS-XR-ncs5500-policymgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-policymgr-cfg']),
-    'AuthorizeIdentifier_Enum' : _MetaInfoEnum('AuthorizeIdentifier_Enum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg',
+    'AuthorizeIdentifierEnum' : _MetaInfoEnum('AuthorizeIdentifierEnum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg',
         {
             'circuit-id':'CIRCUIT_ID',
             'remote-id':'REMOTE_ID',
@@ -48,19 +48,19 @@ _meta_table = {
             'source-address-mac':'SOURCE_ADDRESS_MAC',
             'username':'USERNAME',
         }, 'Cisco-IOS-XR-ncs5500-policymgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-policymgr-cfg']),
-    'ExecutionStrategy_Enum' : _MetaInfoEnum('ExecutionStrategy_Enum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg',
+    'ExecutionStrategyEnum' : _MetaInfoEnum('ExecutionStrategyEnum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg',
         {
             'do-all':'DO_ALL',
             'do-until-failure':'DO_UNTIL_FAILURE',
             'do-until-success':'DO_UNTIL_SUCCESS',
         }, 'Cisco-IOS-XR-ncs5500-policymgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-policymgr-cfg']),
-    'PmapClassMapType_Enum' : _MetaInfoEnum('PmapClassMapType_Enum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg',
+    'PmapClassMapTypeEnum' : _MetaInfoEnum('PmapClassMapTypeEnum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg',
         {
             'qos':'QOS',
             'traffic':'TRAFFIC',
             'subscriber-control':'SUBSCRIBER_CONTROL',
         }, 'Cisco-IOS-XR-ncs5500-policymgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-policymgr-cfg']),
-    'PolicyMapType_Enum' : _MetaInfoEnum('PolicyMapType_Enum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg',
+    'PolicyMapTypeEnum' : _MetaInfoEnum('PolicyMapTypeEnum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg',
         {
             'qos':'QOS',
             'pbr':'PBR',
@@ -1047,7 +1047,7 @@ _meta_table = {
                 ''',
                 'name',
                 'Cisco-IOS-XR-ncs5500-policymgr-cfg', True),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'ClassMapType_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg', 'ClassMapType_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'ClassMapTypeEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg', 'ClassMapTypeEnum', 
                 [], [], 
                 '''                Type of class-map.
                 ''',
@@ -1163,7 +1163,7 @@ _meta_table = {
                 ''',
                 'format',
                 'Cisco-IOS-XR-ncs5500-policymgr-cfg', False),
-            _MetaInfoClassMember('identifier', REFERENCE_ENUM_CLASS, 'AuthorizeIdentifier_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg', 'AuthorizeIdentifier_Enum', 
+            _MetaInfoClassMember('identifier', REFERENCE_ENUM_CLASS, 'AuthorizeIdentifierEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg', 'AuthorizeIdentifierEnum', 
                 [], [], 
                 '''                Specify an Authorize format name.
                 ''',
@@ -1322,7 +1322,7 @@ _meta_table = {
                 ''',
                 'class_name',
                 'Cisco-IOS-XR-ncs5500-policymgr-cfg', True),
-            _MetaInfoClassMember('class-type', REFERENCE_ENUM_CLASS, 'PmapClassMapType_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg', 'PmapClassMapType_Enum', 
+            _MetaInfoClassMember('class-type', REFERENCE_ENUM_CLASS, 'PmapClassMapTypeEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg', 'PmapClassMapTypeEnum', 
                 [], [], 
                 '''                Type of class.
                 ''',
@@ -1334,7 +1334,7 @@ _meta_table = {
                 ''',
                 'action_rule',
                 'Cisco-IOS-XR-ncs5500-policymgr-cfg', False),
-            _MetaInfoClassMember('class-execution-strategy', REFERENCE_ENUM_CLASS, 'ExecutionStrategy_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg', 'ExecutionStrategy_Enum', 
+            _MetaInfoClassMember('class-execution-strategy', REFERENCE_ENUM_CLASS, 'ExecutionStrategyEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg', 'ExecutionStrategyEnum', 
                 [], [], 
                 '''                Class execution strategy.
                 ''',
@@ -1351,7 +1351,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.Event',
             False, 
             [
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'EventType_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg', 'EventType_Enum', 
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'EventTypeEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg', 'EventTypeEnum', 
                 [], [], 
                 '''                Event type.
                 ''',
@@ -2688,7 +2688,7 @@ _meta_table = {
                 ''',
                 'class_name',
                 'Cisco-IOS-XR-ncs5500-policymgr-cfg', True),
-            _MetaInfoClassMember('class-type', REFERENCE_ENUM_CLASS, 'PmapClassMapType_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg', 'PmapClassMapType_Enum', 
+            _MetaInfoClassMember('class-type', REFERENCE_ENUM_CLASS, 'PmapClassMapTypeEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg', 'PmapClassMapTypeEnum', 
                 [], [], 
                 '''                Type of class-map.
                 ''',
@@ -2841,7 +2841,7 @@ _meta_table = {
                 ''',
                 'name',
                 'Cisco-IOS-XR-ncs5500-policymgr-cfg', True),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'PolicyMapType_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg', 'PolicyMapType_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'PolicyMapTypeEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_policymgr_cfg', 'PolicyMapTypeEnum', 
                 [], [], 
                 '''                Type of policy-map.
                 ''',

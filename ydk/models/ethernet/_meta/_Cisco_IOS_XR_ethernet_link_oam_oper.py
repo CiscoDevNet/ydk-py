@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'Log_Enum' : _MetaInfoEnum('Log_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper',
+    'LogEnum' : _MetaInfoEnum('LogEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper',
         {
             'log-type-symbol-event':'LOG_TYPE_SYMBOL_EVENT',
             'log-type-period-event':'LOG_TYPE_PERIOD_EVENT',
@@ -24,12 +24,12 @@ _meta_table = {
             'log-type-dying-gasp':'LOG_TYPE_DYING_GASP',
             'log-type-critical-event':'LOG_TYPE_CRITICAL_EVENT',
         }, 'Cisco-IOS-XR-ethernet-link-oam-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-oper']),
-    'LogLocation_Enum' : _MetaInfoEnum('LogLocation_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper',
+    'LogLocationEnum' : _MetaInfoEnum('LogLocationEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper',
         {
             'log-location-local':'LOG_LOCATION_LOCAL',
             'log-location-remote':'LOG_LOCATION_REMOTE',
         }, 'Cisco-IOS-XR-ethernet-link-oam-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-oper']),
-    'LoopbackStatus_Enum' : _MetaInfoEnum('LoopbackStatus_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper',
+    'LoopbackStatusEnum' : _MetaInfoEnum('LoopbackStatusEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper',
         {
             'none':'NONE',
             'initiating':'INITIATING',
@@ -38,7 +38,7 @@ _meta_table = {
             'local-loopback':'LOCAL_LOOPBACK',
             'unknown':'UNKNOWN',
         }, 'Cisco-IOS-XR-ethernet-link-oam-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-oper']),
-    'OperationalState_Enum' : _MetaInfoEnum('OperationalState_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper',
+    'OperationalStateEnum' : _MetaInfoEnum('OperationalStateEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper',
         {
             'disabled':'DISABLED',
             'link-fault':'LINK_FAULT',
@@ -51,20 +51,20 @@ _meta_table = {
             'operational':'OPERATIONAL',
             'operational-half-duplex':'OPERATIONAL_HALF_DUPLEX',
         }, 'Cisco-IOS-XR-ethernet-link-oam-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-oper']),
-    'Mode_Enum' : _MetaInfoEnum('Mode_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper',
+    'ModeEnum' : _MetaInfoEnum('ModeEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper',
         {
             'passive':'PASSIVE',
             'active':'ACTIVE',
             'dont-care':'DONT_CARE',
         }, 'Cisco-IOS-XR-ethernet-link-oam-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-oper']),
-    'Action_Enum' : _MetaInfoEnum('Action_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper',
+    'ActionEnum' : _MetaInfoEnum('ActionEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper',
         {
             'no-action':'NO_ACTION',
             'disable-interface':'DISABLE_INTERFACE',
             'log':'LOG',
             'efd':'EFD',
         }, 'Cisco-IOS-XR-ethernet-link-oam-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-oper']),
-    'ProtocolState_Enum' : _MetaInfoEnum('ProtocolState_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper',
+    'ProtocolStateEnum' : _MetaInfoEnum('ProtocolStateEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper',
         {
             'protocol-state-inactive':'PROTOCOL_STATE_INACTIVE',
             'protocol-state-fault':'PROTOCOL_STATE_FAULT',
@@ -138,7 +138,7 @@ _meta_table = {
                 ''',
                 'local_functionvariable_valid',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('local-mode', REFERENCE_ENUM_CLASS, 'Mode_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'Mode_Enum', 
+            _MetaInfoClassMember('local-mode', REFERENCE_ENUM_CLASS, 'ModeEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'ModeEnum', 
                 [], [], 
                 '''                Local Mode (passive/active)
                 ''',
@@ -192,7 +192,7 @@ _meta_table = {
                 ''',
                 'local_revisionvalid',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('loopback-mode', REFERENCE_ENUM_CLASS, 'LoopbackStatus_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'LoopbackStatus_Enum', 
+            _MetaInfoClassMember('loopback-mode', REFERENCE_ENUM_CLASS, 'LoopbackStatusEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'LoopbackStatusEnum', 
                 [], [], 
                 '''                The loopback mode the interface is in
                 ''',
@@ -222,7 +222,7 @@ _meta_table = {
                 ''',
                 'name',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('operational-status', REFERENCE_ENUM_CLASS, 'OperationalState_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'OperationalState_Enum', 
+            _MetaInfoClassMember('operational-status', REFERENCE_ENUM_CLASS, 'OperationalStateEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'OperationalStateEnum', 
                 [], [], 
                 '''                Operational status
                 ''',
@@ -270,7 +270,7 @@ _meta_table = {
                 ''',
                 'remote_mac_address_valid',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('remote-mode', REFERENCE_ENUM_CLASS, 'Mode_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'Mode_Enum', 
+            _MetaInfoClassMember('remote-mode', REFERENCE_ENUM_CLASS, 'ModeEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'ModeEnum', 
                 [], [], 
                 '''                Remote Mode (passive/active)
                 ''',
@@ -401,7 +401,7 @@ _meta_table = {
                 ''',
                 'event_log_entry_index',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', True),
-            _MetaInfoClassMember('action-taken', REFERENCE_ENUM_CLASS, 'Action_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action_Enum', 
+            _MetaInfoClassMember('action-taken', REFERENCE_ENUM_CLASS, 'ActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'ActionEnum', 
                 [], [], 
                 '''                Local action taken (If applicable)
                 ''',
@@ -435,7 +435,7 @@ _meta_table = {
                 ''',
                 'local_high_threshold',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('location', REFERENCE_ENUM_CLASS, 'LogLocation_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'LogLocation_Enum', 
+            _MetaInfoClassMember('location', REFERENCE_ENUM_CLASS, 'LogLocationEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'LogLocationEnum', 
                 [], [], 
                 '''                Where the event occurred
                 ''',
@@ -467,7 +467,7 @@ _meta_table = {
                 ''',
                 'timestamp',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'Log_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'Log_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LogEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'LogEnum', 
                 [], [], 
                 '''                Type of event that this entry describes
                 ''',
@@ -693,7 +693,7 @@ _meta_table = {
                 ''',
                 'local_mwd_key',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('protocol-code', REFERENCE_ENUM_CLASS, 'ProtocolState_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'ProtocolState_Enum', 
+            _MetaInfoClassMember('protocol-code', REFERENCE_ENUM_CLASS, 'ProtocolStateEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'ProtocolStateEnum', 
                 [], [], 
                 '''                The state the protocol is in
                 ''',
@@ -941,7 +941,7 @@ _meta_table = {
                 ''',
                 'member_interface',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', True),
-            _MetaInfoClassMember('capabilities-conflict-action', REFERENCE_ENUM_CLASS, 'Action_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action_Enum', 
+            _MetaInfoClassMember('capabilities-conflict-action', REFERENCE_ENUM_CLASS, 'ActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'ActionEnum', 
                 [], [], 
                 '''                Action to perform when a capabilities conflict
                 occurs
@@ -968,7 +968,7 @@ _meta_table = {
                 ''',
                 'connection_timeout_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('critical-event-action', REFERENCE_ENUM_CLASS, 'Action_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action_Enum', 
+            _MetaInfoClassMember('critical-event-action', REFERENCE_ENUM_CLASS, 'ActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'ActionEnum', 
                 [], [], 
                 '''                Action to perform when a critical event occurs
                 ''',
@@ -981,7 +981,7 @@ _meta_table = {
                 ''',
                 'critical_event_action_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('discovery-timeout-action', REFERENCE_ENUM_CLASS, 'Action_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action_Enum', 
+            _MetaInfoClassMember('discovery-timeout-action', REFERENCE_ENUM_CLASS, 'ActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'ActionEnum', 
                 [], [], 
                 '''                Action to perform when a discovery timeout
                 occurs
@@ -995,7 +995,7 @@ _meta_table = {
                 ''',
                 'discovery_timeout_action_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('dying-gasp-action', REFERENCE_ENUM_CLASS, 'Action_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action_Enum', 
+            _MetaInfoClassMember('dying-gasp-action', REFERENCE_ENUM_CLASS, 'ActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'ActionEnum', 
                 [], [], 
                 '''                Action to perform when a dying gasp occurs
                 ''',
@@ -1138,7 +1138,7 @@ _meta_table = {
                 ''',
                 'frame_window_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('high-threshold-action', REFERENCE_ENUM_CLASS, 'Action_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action_Enum', 
+            _MetaInfoClassMember('high-threshold-action', REFERENCE_ENUM_CLASS, 'ActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'ActionEnum', 
                 [], [], 
                 '''                Action to perform when a high threshold is
                 breached
@@ -1152,7 +1152,7 @@ _meta_table = {
                 ''',
                 'high_threshold_action_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('link-fault-action', REFERENCE_ENUM_CLASS, 'Action_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action_Enum', 
+            _MetaInfoClassMember('link-fault-action', REFERENCE_ENUM_CLASS, 'ActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'ActionEnum', 
                 [], [], 
                 '''                Action to perform when a link fault occurs
                 ''',
@@ -1191,7 +1191,7 @@ _meta_table = {
                 ''',
                 'mib_retrieval_enabled_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'Mode_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'Mode_Enum', 
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'ModeEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'ModeEnum', 
                 [], [], 
                 '''                Configured mode
                 ''',
@@ -1204,7 +1204,7 @@ _meta_table = {
                 ''',
                 'mode_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('remote-loopback-action', REFERENCE_ENUM_CLASS, 'Action_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action_Enum', 
+            _MetaInfoClassMember('remote-loopback-action', REFERENCE_ENUM_CLASS, 'ActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'ActionEnum', 
                 [], [], 
                 '''                Action to perform when a session enters or exits
                 remote loopback
@@ -1278,13 +1278,13 @@ _meta_table = {
                 ''',
                 'require_remote_mib_retrieval',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('require-remote-mode', REFERENCE_ENUM_CLASS, 'Mode_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'Mode_Enum', 
+            _MetaInfoClassMember('require-remote-mode', REFERENCE_ENUM_CLASS, 'ModeEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'ModeEnum', 
                 [], [], 
                 '''                The mode that is required of the remote peer
                 ''',
                 'require_remote_mode',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('session-down-action', REFERENCE_ENUM_CLASS, 'Action_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action_Enum', 
+            _MetaInfoClassMember('session-down-action', REFERENCE_ENUM_CLASS, 'ActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'ActionEnum', 
                 [], [], 
                 '''                Action to perform when a session comes down
                 ''',
@@ -1297,7 +1297,7 @@ _meta_table = {
                 ''',
                 'session_down_action_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('session-up-action', REFERENCE_ENUM_CLASS, 'Action_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action_Enum', 
+            _MetaInfoClassMember('session-up-action', REFERENCE_ENUM_CLASS, 'ActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'ActionEnum', 
                 [], [], 
                 '''                Action to perform when a session comes up
                 ''',
@@ -1362,7 +1362,7 @@ _meta_table = {
                 ''',
                 'udlf_enabled_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('wiring-conflict-action', REFERENCE_ENUM_CLASS, 'Action_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action_Enum', 
+            _MetaInfoClassMember('wiring-conflict-action', REFERENCE_ENUM_CLASS, 'ActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper', 'ActionEnum', 
                 [], [], 
                 '''                Action to perform when a wiring conflict occurs
                 ''',

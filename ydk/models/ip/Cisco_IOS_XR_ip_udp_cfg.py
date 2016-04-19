@@ -72,6 +72,11 @@ class IpUdp(object):
         	Directory name
         	**type**\: str
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: max_file_size_files
         
         	Set size of debug files in bytes
@@ -79,12 +84,22 @@ class IpUdp(object):
         
         	**range:** 1024..4294967295
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: max_udp_debug_files
         
         	Set number of Debug files
         	**type**\: int
         
         	**range:** 1..5000
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         
 
@@ -113,8 +128,6 @@ class IpUdp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.directoryname is not None:
                 return True
 
@@ -125,10 +138,6 @@ class IpUdp(object):
                 return True
 
             return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return True
 
         @staticmethod
         def _meta_info():
@@ -147,12 +156,22 @@ class IpUdp(object):
         
         	**range:** 1..16
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: udp_out_q_threads
         
         	OutQ Threads
         	**type**\: int
         
         	**range:** 1..16
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         
 
@@ -180,8 +199,6 @@ class IpUdp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.udp_in_q_threads is not None:
                 return True
 
@@ -189,10 +206,6 @@ class IpUdp(object):
                 return True
 
             return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return True
 
         @staticmethod
         def _meta_info():
@@ -211,27 +224,15 @@ class IpUdp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.directory is not None and self.directory._has_data():
-            return True
-
-        if self.directory is not None and self.directory.is_presence():
             return True
 
         if self.num_thread is not None and self.num_thread._has_data():
             return True
 
-        if self.num_thread is not None and self.num_thread.is_presence():
-            return True
-
         if self.receive_q is not None:
             return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

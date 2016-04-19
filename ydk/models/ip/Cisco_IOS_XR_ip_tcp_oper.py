@@ -26,1572 +26,1418 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class AddrFamily_Enum(Enum):
+class AddrFamilyEnum(Enum):
     """
-    AddrFamily_Enum
+    AddrFamilyEnum
 
     Address Family Types
 
-    """
+    .. data:: INTERNETWORK = 2
+
+    	Internetwork: UDP, TCP, etc.
+
+    .. data:: IP_VERSION6 = 26
+
+    	IP version 6
 
     """
 
-    Internetwork\: UDP, TCP, etc.
-
-    """
     INTERNETWORK = 2
 
-    """
-
-    IP version 6
-
-    """
     IP_VERSION6 = 26
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
-        return meta._meta_table['AddrFamily_Enum']
+        return meta._meta_table['AddrFamilyEnum']
 
 
-class MessageTypeIcmp_Enum(Enum):
+class MessageTypeIcmpEnum(Enum):
     """
-    MessageTypeIcmp_Enum
+    MessageTypeIcmpEnum
 
     LPTS ICMP message types
 
-    """
+    .. data:: ECHO_REPLY = 0
+
+    	ICMP Packet type: Echo reply
+
+    .. data:: DESTINATION_UNREACHABLE = 3
+
+    	ICMP Packet type: Destination unreachable
+
+    .. data:: SOURCE_QUENCH = 4
+
+    	ICMP Packet type: Source quench
+
+    .. data:: REDIRECT = 5
+
+    	ICMP Packet type: Redirect
+
+    .. data:: ALTERNATE_HOST_ADDRESS = 6
+
+    	ICMP Packet type: Alternate host address
+
+    .. data:: ECHO = 8
+
+    	ICMP Packet type: Echo
+
+    .. data:: ROUTER_ADVERTISEMENT = 9
+
+    	ICMP Packet type: Router advertisement
+
+    .. data:: ROUTER_SELECTION = 10
+
+    	ICMP Packet type: Router selection
+
+    .. data:: TIME_EXCEEDED = 11
+
+    	ICMP Packet type: Time exceeded
+
+    .. data:: PARAMETER_PROBLEM = 12
+
+    	ICMP Packet type: Parameter problem
+
+    .. data:: TIME_STAMP = 13
+
+    	ICMP Packet type: Time stamp
+
+    .. data:: TIME_STAMP_REPLY = 14
+
+    	ICMP Packet type: Time stamp reply
+
+    .. data:: INFORMATION_REQUEST = 15
+
+    	ICMP Packet type: Information request
+
+    .. data:: INFORMATION_REPLY = 16
+
+    	ICMP Packet type: Information reply
+
+    .. data:: ADDRESS_MASK_REQUEST = 17
+
+    	ICMP Packet type: Address mask request
+
+    .. data:: ADDRESS_MASK_REPLY = 18
+
+    	ICMP Packet type: Address mask reply
+
+    .. data:: TRACE_ROUTE = 30
+
+    	ICMP Packet type: Trace route
+
+    .. data:: DATAGRAM_CONVERSION_ERROR = 31
+
+    	ICMP Packet type: Datagram Conversion error
+
+    .. data:: MOBILE_HOST_REDIRECT = 32
+
+    	ICMP Packet type: Mobile host redirect
+
+    .. data:: WHERE_ARE_YOU = 33
+
+    	ICMP Packet type: IPv6 where-are-you
+
+    .. data:: IAM_HERE = 34
+
+    	ICMP Packet type: IPv6 i-am-here
+
+    .. data:: MOBILE_REGISTRATION_REQUEST = 35
+
+    	ICMP Packet type: Mobile registration request
+
+    .. data:: MOBILE_REGISTRATION_REPLY = 36
+
+    	ICMP Packet type: Mobile registration reply
+
+    .. data:: DOMAIN_NAME_REQUEST = 37
+
+    	ICMP Packet type: Domain name request
 
     """
 
-    ICMP Packet type\: Echo reply
-
-    """
     ECHO_REPLY = 0
 
-    """
-
-    ICMP Packet type\: Destination unreachable
-
-    """
     DESTINATION_UNREACHABLE = 3
 
-    """
-
-    ICMP Packet type\: Source quench
-
-    """
     SOURCE_QUENCH = 4
 
-    """
-
-    ICMP Packet type\: Redirect
-
-    """
     REDIRECT = 5
 
-    """
-
-    ICMP Packet type\: Alternate host address
-
-    """
     ALTERNATE_HOST_ADDRESS = 6
 
-    """
-
-    ICMP Packet type\: Echo
-
-    """
     ECHO = 8
 
-    """
-
-    ICMP Packet type\: Router advertisement
-
-    """
     ROUTER_ADVERTISEMENT = 9
 
-    """
-
-    ICMP Packet type\: Router selection
-
-    """
     ROUTER_SELECTION = 10
 
-    """
-
-    ICMP Packet type\: Time exceeded
-
-    """
     TIME_EXCEEDED = 11
 
-    """
-
-    ICMP Packet type\: Parameter problem
-
-    """
     PARAMETER_PROBLEM = 12
 
-    """
-
-    ICMP Packet type\: Time stamp
-
-    """
     TIME_STAMP = 13
 
-    """
-
-    ICMP Packet type\: Time stamp reply
-
-    """
     TIME_STAMP_REPLY = 14
 
-    """
-
-    ICMP Packet type\: Information request
-
-    """
     INFORMATION_REQUEST = 15
 
-    """
-
-    ICMP Packet type\: Information reply
-
-    """
     INFORMATION_REPLY = 16
 
-    """
-
-    ICMP Packet type\: Address mask request
-
-    """
     ADDRESS_MASK_REQUEST = 17
 
-    """
-
-    ICMP Packet type\: Address mask reply
-
-    """
     ADDRESS_MASK_REPLY = 18
 
-    """
-
-    ICMP Packet type\: Trace route
-
-    """
     TRACE_ROUTE = 30
 
-    """
-
-    ICMP Packet type\: Datagram Conversion error
-
-    """
     DATAGRAM_CONVERSION_ERROR = 31
 
-    """
-
-    ICMP Packet type\: Mobile host redirect
-
-    """
     MOBILE_HOST_REDIRECT = 32
 
-    """
-
-    ICMP Packet type\: IPv6 where\-are\-you
-
-    """
     WHERE_ARE_YOU = 33
 
-    """
-
-    ICMP Packet type\: IPv6 i\-am\-here
-
-    """
     IAM_HERE = 34
 
-    """
-
-    ICMP Packet type\: Mobile registration request
-
-    """
     MOBILE_REGISTRATION_REQUEST = 35
 
-    """
-
-    ICMP Packet type\: Mobile registration reply
-
-    """
     MOBILE_REGISTRATION_REPLY = 36
 
-    """
-
-    ICMP Packet type\: Domain name request
-
-    """
     DOMAIN_NAME_REQUEST = 37
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
-        return meta._meta_table['MessageTypeIcmp_Enum']
+        return meta._meta_table['MessageTypeIcmpEnum']
 
 
-class MessageTypeIcmp_Enum(Enum):
+class MessageTypeIcmpEnum(Enum):
     """
-    MessageTypeIcmp_Enum
+    MessageTypeIcmpEnum
 
     LPTS ICMP message types
 
-    """
+    .. data:: ECHO_REPLY = 0
+
+    	ICMP Packet type: Echo reply
+
+    .. data:: DESTINATION_UNREACHABLE = 3
+
+    	ICMP Packet type: Destination unreachable
+
+    .. data:: SOURCE_QUENCH = 4
+
+    	ICMP Packet type: Source quench
+
+    .. data:: REDIRECT = 5
+
+    	ICMP Packet type: Redirect
+
+    .. data:: ALTERNATE_HOST_ADDRESS = 6
+
+    	ICMP Packet type: Alternate host address
+
+    .. data:: ECHO = 8
+
+    	ICMP Packet type: Echo
+
+    .. data:: ROUTER_ADVERTISEMENT = 9
+
+    	ICMP Packet type: Router advertisement
+
+    .. data:: ROUTER_SELECTION = 10
+
+    	ICMP Packet type: Router selection
+
+    .. data:: TIME_EXCEEDED = 11
+
+    	ICMP Packet type: Time exceeded
+
+    .. data:: PARAMETER_PROBLEM = 12
+
+    	ICMP Packet type: Parameter problem
+
+    .. data:: TIME_STAMP = 13
+
+    	ICMP Packet type: Time stamp
+
+    .. data:: TIME_STAMP_REPLY = 14
+
+    	ICMP Packet type: Time stamp reply
+
+    .. data:: INFORMATION_REQUEST = 15
+
+    	ICMP Packet type: Information request
+
+    .. data:: INFORMATION_REPLY = 16
+
+    	ICMP Packet type: Information reply
+
+    .. data:: ADDRESS_MASK_REQUEST = 17
+
+    	ICMP Packet type: Address mask request
+
+    .. data:: ADDRESS_MASK_REPLY = 18
+
+    	ICMP Packet type: Address mask reply
+
+    .. data:: TRACE_ROUTE = 30
+
+    	ICMP Packet type: Trace route
+
+    .. data:: DATAGRAM_CONVERSION_ERROR = 31
+
+    	ICMP Packet type: Datagram Conversion error
+
+    .. data:: MOBILE_HOST_REDIRECT = 32
+
+    	ICMP Packet type: Mobile host redirect
+
+    .. data:: WHERE_ARE_YOU = 33
+
+    	ICMP Packet type: IPv6 where-are-you
+
+    .. data:: IAM_HERE = 34
+
+    	ICMP Packet type: IPv6 i-am-here
+
+    .. data:: MOBILE_REGISTRATION_REQUEST = 35
+
+    	ICMP Packet type: Mobile registration request
+
+    .. data:: MOBILE_REGISTRATION_REPLY = 36
+
+    	ICMP Packet type: Mobile registration reply
+
+    .. data:: DOMAIN_NAME_REQUEST = 37
+
+    	ICMP Packet type: Domain name request
 
     """
 
-    ICMP Packet type\: Echo reply
-
-    """
     ECHO_REPLY = 0
 
-    """
-
-    ICMP Packet type\: Destination unreachable
-
-    """
     DESTINATION_UNREACHABLE = 3
 
-    """
-
-    ICMP Packet type\: Source quench
-
-    """
     SOURCE_QUENCH = 4
 
-    """
-
-    ICMP Packet type\: Redirect
-
-    """
     REDIRECT = 5
 
-    """
-
-    ICMP Packet type\: Alternate host address
-
-    """
     ALTERNATE_HOST_ADDRESS = 6
 
-    """
-
-    ICMP Packet type\: Echo
-
-    """
     ECHO = 8
 
-    """
-
-    ICMP Packet type\: Router advertisement
-
-    """
     ROUTER_ADVERTISEMENT = 9
 
-    """
-
-    ICMP Packet type\: Router selection
-
-    """
     ROUTER_SELECTION = 10
 
-    """
-
-    ICMP Packet type\: Time exceeded
-
-    """
     TIME_EXCEEDED = 11
 
-    """
-
-    ICMP Packet type\: Parameter problem
-
-    """
     PARAMETER_PROBLEM = 12
 
-    """
-
-    ICMP Packet type\: Time stamp
-
-    """
     TIME_STAMP = 13
 
-    """
-
-    ICMP Packet type\: Time stamp reply
-
-    """
     TIME_STAMP_REPLY = 14
 
-    """
-
-    ICMP Packet type\: Information request
-
-    """
     INFORMATION_REQUEST = 15
 
-    """
-
-    ICMP Packet type\: Information reply
-
-    """
     INFORMATION_REPLY = 16
 
-    """
-
-    ICMP Packet type\: Address mask request
-
-    """
     ADDRESS_MASK_REQUEST = 17
 
-    """
-
-    ICMP Packet type\: Address mask reply
-
-    """
     ADDRESS_MASK_REPLY = 18
 
-    """
-
-    ICMP Packet type\: Trace route
-
-    """
     TRACE_ROUTE = 30
 
-    """
-
-    ICMP Packet type\: Datagram Conversion error
-
-    """
     DATAGRAM_CONVERSION_ERROR = 31
 
-    """
-
-    ICMP Packet type\: Mobile host redirect
-
-    """
     MOBILE_HOST_REDIRECT = 32
 
-    """
-
-    ICMP Packet type\: IPv6 where\-are\-you
-
-    """
     WHERE_ARE_YOU = 33
 
-    """
-
-    ICMP Packet type\: IPv6 i\-am\-here
-
-    """
     IAM_HERE = 34
 
-    """
-
-    ICMP Packet type\: Mobile registration request
-
-    """
     MOBILE_REGISTRATION_REQUEST = 35
 
-    """
-
-    ICMP Packet type\: Mobile registration reply
-
-    """
     MOBILE_REGISTRATION_REPLY = 36
 
-    """
-
-    ICMP Packet type\: Domain name request
-
-    """
     DOMAIN_NAME_REQUEST = 37
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
-        return meta._meta_table['MessageTypeIcmp_Enum']
+        return meta._meta_table['MessageTypeIcmpEnum']
 
 
-class MessageTypeIcmpv6_Enum(Enum):
+class MessageTypeIcmpv6Enum(Enum):
     """
-    MessageTypeIcmpv6_Enum
+    MessageTypeIcmpv6Enum
 
     LPTS ICMPv6 message types
 
-    """
+    .. data:: DESTINATION_UNREACHABLE = 1
+
+    	ICMPv6 Packet type: Destination unreachable
+
+    .. data:: PACKET_TOO_BIG = 2
+
+    	ICMPv6 Packet type: packet too big
+
+    .. data:: TIME_EXCEEDED = 3
+
+    	ICMPv6 Packet type: Time exceeded
+
+    .. data:: PARAMETER_PROBLEM = 4
+
+    	ICMPv6 Packet type: Parameter problem
+
+    .. data:: ECHO_REQUEST = 128
+
+    	ICMPv6 Packet type: Echo request
+
+    .. data:: ECHO_REPLY = 129
+
+    	ICMPv6 Packet type: Echo reply
+
+    .. data:: MULTICAST_LISTENER_QUERY = 130
+
+    	ICMPv6 Packet type: Multicast listener query
+
+    .. data:: MULTICAST_LISTENER_REPORT = 131
+
+    	ICMPv6 Packet type: Multicast listener report
+
+    .. data:: MULTICAST_LISTENER_DONE = 132
+
+    	ICMPv6 Packet type: Multicast listener done
+
+    .. data:: ROUTER_SOLICITATION = 133
+
+    	ICMPv6 Packet type: Router solicitation
+
+    .. data:: ROUTER_ADVERTISEMENT = 134
+
+    	ICMPv6 Packet type: Router advertisement
+
+    .. data:: NEIGHBOR_SOLICITATION = 135
+
+    	ICMPv6 Packet type: Neighbor solicitation
+
+    .. data:: NEIGHBOR_ADVERTISEMENT = 136
+
+    	ICMPv6 Packet type: Neighbor advertisement
+
+    .. data:: REDIRECT_MESSAGE = 137
+
+    	ICMPv6 Packet type: Redirect message
+
+    .. data:: ROUTER_RENUMBERING = 138
+
+    	ICMPv6 Packet type: Router renumbering
+
+    .. data:: NODE_INFORMATION_QUERY = 139
+
+    	ICMPv6 Packet type: Node information query
+
+    .. data:: NODE_INFORMATION_REPLY = 140
+
+    	ICMPv6 Packet type: Node information reply
+
+    .. data:: INVERSE_NEIGHBOR_DISCOVERY_SOLICITAION = 141
+
+    	ICMPv6 Packet type: Inverse neighbor discovery
+
+    	solicitation message
+
+    .. data:: INVERSE_NEIGHBOR_DISCOVER_ADVERTISEMENT = 142
+
+    	ICMPv6 Packet type: Inverse neighbor discovery
+
+    	advertisement message
+
+    .. data:: V2_MULTICAST_LISTENER_REPORT = 143
+
+    	ICMPv6 Packet type: Version 2 multicast
+
+    	listener report
+
+    .. data:: HOME_AGENT_ADDRESS_DISCOVERY_REQUEST = 144
+
+    	ICMPv6 Packet type: Home agent address
+
+    	discovery request message
+
+    .. data:: HOME_AGENT_ADDRESS_DISCOVERY_REPLY = 145
+
+    	ICMPv6 Packet type: Home agent address
+
+    	discovery reply message
+
+    .. data:: MOBILE_PREFIX_SOLICITATION = 146
+
+    	ICMPv6 Packet type: Mobile prefix solicitation
+
+    .. data:: MOBILE_PREFIX_ADVERTISEMENT = 147
+
+    	ICMPv6 Packet type: Mobile prefix advertisement
+
+    .. data:: CERTIFICATION_PATH_SOLICITATION_MESSAGE = 148
+
+    	ICMPv6 Packet type: Certification path
+
+    	solicitation message
+
+    .. data:: CERTIFICATION_PATH_ADVERTISEMENT_MESSAGE = 149
+
+    	ICMPv6 Packet type: Certification path
+
+    	advertisement message
+
+    .. data:: EXPERIMENTAL_MOBILITY_PROTOCOLS = 150
+
+    	ICMPv6 Packet type: ICMP messages utilized by
+
+    	experimental mobility  protocols such as
+
+    	seamoby
+
+    .. data:: MULTICAST_ROUTER_ADVERTISEMENT = 151
+
+    	ICMPv6 Packet type: Multicast router
+
+    	advertisement
+
+    .. data:: MULTICAST_ROUTER_SOLICITATION = 152
+
+    	ICMPv6 Packet type: Multicast router
+
+    	solicitation
+
+    .. data:: MULTICAST_ROUTER_TERMINATION = 153
+
+    	ICMPv6 Packet type: Multicast router
+
+    	termination
+
+    .. data:: FMIPV6_MESSAGES = 154
+
+    	ICMPv6 Packet type: FMIPv6 messages
 
     """
 
-    ICMPv6 Packet type\: Destination unreachable
-
-    """
     DESTINATION_UNREACHABLE = 1
 
-    """
-
-    ICMPv6 Packet type\: packet too big
-
-    """
     PACKET_TOO_BIG = 2
 
-    """
-
-    ICMPv6 Packet type\: Time exceeded
-
-    """
     TIME_EXCEEDED = 3
 
-    """
-
-    ICMPv6 Packet type\: Parameter problem
-
-    """
     PARAMETER_PROBLEM = 4
 
-    """
-
-    ICMPv6 Packet type\: Echo request
-
-    """
     ECHO_REQUEST = 128
 
-    """
-
-    ICMPv6 Packet type\: Echo reply
-
-    """
     ECHO_REPLY = 129
 
-    """
-
-    ICMPv6 Packet type\: Multicast listener query
-
-    """
     MULTICAST_LISTENER_QUERY = 130
 
-    """
-
-    ICMPv6 Packet type\: Multicast listener report
-
-    """
     MULTICAST_LISTENER_REPORT = 131
 
-    """
-
-    ICMPv6 Packet type\: Multicast listener done
-
-    """
     MULTICAST_LISTENER_DONE = 132
 
-    """
-
-    ICMPv6 Packet type\: Router solicitation
-
-    """
     ROUTER_SOLICITATION = 133
 
-    """
-
-    ICMPv6 Packet type\: Router advertisement
-
-    """
     ROUTER_ADVERTISEMENT = 134
 
-    """
-
-    ICMPv6 Packet type\: Neighbor solicitation
-
-    """
     NEIGHBOR_SOLICITATION = 135
 
-    """
-
-    ICMPv6 Packet type\: Neighbor advertisement
-
-    """
     NEIGHBOR_ADVERTISEMENT = 136
 
-    """
-
-    ICMPv6 Packet type\: Redirect message
-
-    """
     REDIRECT_MESSAGE = 137
 
-    """
-
-    ICMPv6 Packet type\: Router renumbering
-
-    """
     ROUTER_RENUMBERING = 138
 
-    """
-
-    ICMPv6 Packet type\: Node information query
-
-    """
     NODE_INFORMATION_QUERY = 139
 
-    """
-
-    ICMPv6 Packet type\: Node information reply
-
-    """
     NODE_INFORMATION_REPLY = 140
 
-    """
-
-    ICMPv6 Packet type\: Inverse neighbor discovery
-    solicitation message
-
-    """
     INVERSE_NEIGHBOR_DISCOVERY_SOLICITAION = 141
 
-    """
-
-    ICMPv6 Packet type\: Inverse neighbor discovery
-    advertisement message
-
-    """
     INVERSE_NEIGHBOR_DISCOVER_ADVERTISEMENT = 142
 
-    """
-
-    ICMPv6 Packet type\: Version 2 multicast
-    listener report
-
-    """
     V2_MULTICAST_LISTENER_REPORT = 143
 
-    """
-
-    ICMPv6 Packet type\: Home agent address
-    discovery request message
-
-    """
     HOME_AGENT_ADDRESS_DISCOVERY_REQUEST = 144
 
-    """
-
-    ICMPv6 Packet type\: Home agent address
-    discovery reply message
-
-    """
     HOME_AGENT_ADDRESS_DISCOVERY_REPLY = 145
 
-    """
-
-    ICMPv6 Packet type\: Mobile prefix solicitation
-
-    """
     MOBILE_PREFIX_SOLICITATION = 146
 
-    """
-
-    ICMPv6 Packet type\: Mobile prefix advertisement
-
-    """
     MOBILE_PREFIX_ADVERTISEMENT = 147
 
-    """
-
-    ICMPv6 Packet type\: Certification path
-    solicitation message
-
-    """
     CERTIFICATION_PATH_SOLICITATION_MESSAGE = 148
 
-    """
-
-    ICMPv6 Packet type\: Certification path
-    advertisement message
-
-    """
     CERTIFICATION_PATH_ADVERTISEMENT_MESSAGE = 149
 
-    """
-
-    ICMPv6 Packet type\: ICMP messages utilized by
-    experimental mobility  protocols such as
-    seamoby
-
-    """
     EXPERIMENTAL_MOBILITY_PROTOCOLS = 150
 
-    """
-
-    ICMPv6 Packet type\: Multicast router
-    advertisement
-
-    """
     MULTICAST_ROUTER_ADVERTISEMENT = 151
 
-    """
-
-    ICMPv6 Packet type\: Multicast router
-    solicitation
-
-    """
     MULTICAST_ROUTER_SOLICITATION = 152
 
-    """
-
-    ICMPv6 Packet type\: Multicast router
-    termination
-
-    """
     MULTICAST_ROUTER_TERMINATION = 153
 
-    """
-
-    ICMPv6 Packet type\: FMIPv6 messages
-
-    """
     FMIPV6_MESSAGES = 154
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
-        return meta._meta_table['MessageTypeIcmpv6_Enum']
+        return meta._meta_table['MessageTypeIcmpv6Enum']
 
 
-class MessageTypeIcmpv6_Enum(Enum):
+class MessageTypeIcmpv6Enum(Enum):
     """
-    MessageTypeIcmpv6_Enum
+    MessageTypeIcmpv6Enum
 
     LPTS ICMPv6 message types
 
-    """
+    .. data:: DESTINATION_UNREACHABLE = 1
+
+    	ICMPv6 Packet type: Destination unreachable
+
+    .. data:: PACKET_TOO_BIG = 2
+
+    	ICMPv6 Packet type: packet too big
+
+    .. data:: TIME_EXCEEDED = 3
+
+    	ICMPv6 Packet type: Time exceeded
+
+    .. data:: PARAMETER_PROBLEM = 4
+
+    	ICMPv6 Packet type: Parameter problem
+
+    .. data:: ECHO_REQUEST = 128
+
+    	ICMPv6 Packet type: Echo request
+
+    .. data:: ECHO_REPLY = 129
+
+    	ICMPv6 Packet type: Echo reply
+
+    .. data:: MULTICAST_LISTENER_QUERY = 130
+
+    	ICMPv6 Packet type: Multicast listener query
+
+    .. data:: MULTICAST_LISTENER_REPORT = 131
+
+    	ICMPv6 Packet type: Multicast listener report
+
+    .. data:: MULTICAST_LISTENER_DONE = 132
+
+    	ICMPv6 Packet type: Multicast listener done
+
+    .. data:: ROUTER_SOLICITATION = 133
+
+    	ICMPv6 Packet type: Router solicitation
+
+    .. data:: ROUTER_ADVERTISEMENT = 134
+
+    	ICMPv6 Packet type: Router advertisement
+
+    .. data:: NEIGHBOR_SOLICITATION = 135
+
+    	ICMPv6 Packet type: Neighbor solicitation
+
+    .. data:: NEIGHBOR_ADVERTISEMENT = 136
+
+    	ICMPv6 Packet type: Neighbor advertisement
+
+    .. data:: REDIRECT_MESSAGE = 137
+
+    	ICMPv6 Packet type: Redirect message
+
+    .. data:: ROUTER_RENUMBERING = 138
+
+    	ICMPv6 Packet type: Router renumbering
+
+    .. data:: NODE_INFORMATION_QUERY = 139
+
+    	ICMPv6 Packet type: Node information query
+
+    .. data:: NODE_INFORMATION_REPLY = 140
+
+    	ICMPv6 Packet type: Node information reply
+
+    .. data:: INVERSE_NEIGHBOR_DISCOVERY_SOLICITAION = 141
+
+    	ICMPv6 Packet type: Inverse neighbor discovery
+
+    	solicitation message
+
+    .. data:: INVERSE_NEIGHBOR_DISCOVER_ADVERTISEMENT = 142
+
+    	ICMPv6 Packet type: Inverse neighbor discovery
+
+    	advertisement message
+
+    .. data:: V2_MULTICAST_LISTENER_REPORT = 143
+
+    	ICMPv6 Packet type: Version 2 multicast
+
+    	listener report
+
+    .. data:: HOME_AGENT_ADDRESS_DISCOVERY_REQUEST = 144
+
+    	ICMPv6 Packet type: Home agent address
+
+    	discovery request message
+
+    .. data:: HOME_AGENT_ADDRESS_DISCOVERY_REPLY = 145
+
+    	ICMPv6 Packet type: Home agent address
+
+    	discovery reply message
+
+    .. data:: MOBILE_PREFIX_SOLICITATION = 146
+
+    	ICMPv6 Packet type: Mobile prefix solicitation
+
+    .. data:: MOBILE_PREFIX_ADVERTISEMENT = 147
+
+    	ICMPv6 Packet type: Mobile prefix advertisement
+
+    .. data:: CERTIFICATION_PATH_SOLICITATION_MESSAGE = 148
+
+    	ICMPv6 Packet type: Certification path
+
+    	solicitation message
+
+    .. data:: CERTIFICATION_PATH_ADVERTISEMENT_MESSAGE = 149
+
+    	ICMPv6 Packet type: Certification path
+
+    	advertisement message
+
+    .. data:: EXPERIMENTAL_MOBILITY_PROTOCOLS = 150
+
+    	ICMPv6 Packet type: ICMP messages utilized by
+
+    	experimental mobility  protocols such as
+
+    	seamoby
+
+    .. data:: MULTICAST_ROUTER_ADVERTISEMENT = 151
+
+    	ICMPv6 Packet type: Multicast router
+
+    	advertisement
+
+    .. data:: MULTICAST_ROUTER_SOLICITATION = 152
+
+    	ICMPv6 Packet type: Multicast router
+
+    	solicitation
+
+    .. data:: MULTICAST_ROUTER_TERMINATION = 153
+
+    	ICMPv6 Packet type: Multicast router
+
+    	termination
+
+    .. data:: FMIPV6_MESSAGES = 154
+
+    	ICMPv6 Packet type: FMIPv6 messages
 
     """
 
-    ICMPv6 Packet type\: Destination unreachable
-
-    """
     DESTINATION_UNREACHABLE = 1
 
-    """
-
-    ICMPv6 Packet type\: packet too big
-
-    """
     PACKET_TOO_BIG = 2
 
-    """
-
-    ICMPv6 Packet type\: Time exceeded
-
-    """
     TIME_EXCEEDED = 3
 
-    """
-
-    ICMPv6 Packet type\: Parameter problem
-
-    """
     PARAMETER_PROBLEM = 4
 
-    """
-
-    ICMPv6 Packet type\: Echo request
-
-    """
     ECHO_REQUEST = 128
 
-    """
-
-    ICMPv6 Packet type\: Echo reply
-
-    """
     ECHO_REPLY = 129
 
-    """
-
-    ICMPv6 Packet type\: Multicast listener query
-
-    """
     MULTICAST_LISTENER_QUERY = 130
 
-    """
-
-    ICMPv6 Packet type\: Multicast listener report
-
-    """
     MULTICAST_LISTENER_REPORT = 131
 
-    """
-
-    ICMPv6 Packet type\: Multicast listener done
-
-    """
     MULTICAST_LISTENER_DONE = 132
 
-    """
-
-    ICMPv6 Packet type\: Router solicitation
-
-    """
     ROUTER_SOLICITATION = 133
 
-    """
-
-    ICMPv6 Packet type\: Router advertisement
-
-    """
     ROUTER_ADVERTISEMENT = 134
 
-    """
-
-    ICMPv6 Packet type\: Neighbor solicitation
-
-    """
     NEIGHBOR_SOLICITATION = 135
 
-    """
-
-    ICMPv6 Packet type\: Neighbor advertisement
-
-    """
     NEIGHBOR_ADVERTISEMENT = 136
 
-    """
-
-    ICMPv6 Packet type\: Redirect message
-
-    """
     REDIRECT_MESSAGE = 137
 
-    """
-
-    ICMPv6 Packet type\: Router renumbering
-
-    """
     ROUTER_RENUMBERING = 138
 
-    """
-
-    ICMPv6 Packet type\: Node information query
-
-    """
     NODE_INFORMATION_QUERY = 139
 
-    """
-
-    ICMPv6 Packet type\: Node information reply
-
-    """
     NODE_INFORMATION_REPLY = 140
 
-    """
-
-    ICMPv6 Packet type\: Inverse neighbor discovery
-    solicitation message
-
-    """
     INVERSE_NEIGHBOR_DISCOVERY_SOLICITAION = 141
 
-    """
-
-    ICMPv6 Packet type\: Inverse neighbor discovery
-    advertisement message
-
-    """
     INVERSE_NEIGHBOR_DISCOVER_ADVERTISEMENT = 142
 
-    """
-
-    ICMPv6 Packet type\: Version 2 multicast
-    listener report
-
-    """
     V2_MULTICAST_LISTENER_REPORT = 143
 
-    """
-
-    ICMPv6 Packet type\: Home agent address
-    discovery request message
-
-    """
     HOME_AGENT_ADDRESS_DISCOVERY_REQUEST = 144
 
-    """
-
-    ICMPv6 Packet type\: Home agent address
-    discovery reply message
-
-    """
     HOME_AGENT_ADDRESS_DISCOVERY_REPLY = 145
 
-    """
-
-    ICMPv6 Packet type\: Mobile prefix solicitation
-
-    """
     MOBILE_PREFIX_SOLICITATION = 146
 
-    """
-
-    ICMPv6 Packet type\: Mobile prefix advertisement
-
-    """
     MOBILE_PREFIX_ADVERTISEMENT = 147
 
-    """
-
-    ICMPv6 Packet type\: Certification path
-    solicitation message
-
-    """
     CERTIFICATION_PATH_SOLICITATION_MESSAGE = 148
 
-    """
-
-    ICMPv6 Packet type\: Certification path
-    advertisement message
-
-    """
     CERTIFICATION_PATH_ADVERTISEMENT_MESSAGE = 149
 
-    """
-
-    ICMPv6 Packet type\: ICMP messages utilized by
-    experimental mobility  protocols such as
-    seamoby
-
-    """
     EXPERIMENTAL_MOBILITY_PROTOCOLS = 150
 
-    """
-
-    ICMPv6 Packet type\: Multicast router
-    advertisement
-
-    """
     MULTICAST_ROUTER_ADVERTISEMENT = 151
 
-    """
-
-    ICMPv6 Packet type\: Multicast router
-    solicitation
-
-    """
     MULTICAST_ROUTER_SOLICITATION = 152
 
-    """
-
-    ICMPv6 Packet type\: Multicast router
-    termination
-
-    """
     MULTICAST_ROUTER_TERMINATION = 153
 
-    """
-
-    ICMPv6 Packet type\: FMIPv6 messages
-
-    """
     FMIPV6_MESSAGES = 154
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
-        return meta._meta_table['MessageTypeIcmpv6_Enum']
+        return meta._meta_table['MessageTypeIcmpv6Enum']
 
 
-class MessageTypeIgmp_Enum(Enum):
+class MessageTypeIgmpEnum(Enum):
     """
-    MessageTypeIgmp_Enum
+    MessageTypeIgmpEnum
 
     LPTS IGMP message types
 
-    """
+    .. data:: MEMBERSHIP_QUERY = 17
+
+    	IGMP Packet type: Membership query
+
+    .. data:: V1_MEMBERSHIP_REPORT = 18
+
+    	IGMP Packet type: V1 membership report
+
+    .. data:: DVMRP = 19
+
+    	IGMP Packet type: DVMRP
+
+    .. data:: PI_MV1 = 20
+
+    	IGMP Packet type: PIM version 1
+
+    .. data:: CISCO_TRACE_MESSAGES = 21
+
+    	IGMP Packet type: Cisco Trace Messages
+
+    .. data:: V2_MEMBERSHIP_REPORT = 22
+
+    	IGMP Packet type: V2 membership report
+
+    .. data:: V2_LEAVE_GROUP = 23
+
+    	IGMP Packet type: V2 leave group
+
+    .. data:: MULTICAST_TRACEROUTE_RESPONSE = 30
+
+    	IGMP Packet type: Multicast traceroute response
+
+    .. data:: MULTICAST_TRACEROUTE = 31
+
+    	IGMP Packet type: MulticastTraceroute
+
+    .. data:: V3_MEMBERSHIP_REPORT = 34
+
+    	IGMP Packet type: V3 membership report
+
+    .. data:: MULTICAST_ROUTER_ADVERTISEMENT = 48
+
+    	IGMP Packet type: Multicast router
+
+    	advertisement
+
+    .. data:: MULTICAST_ROUTER_SOLICITATION = 49
+
+    	IGMP Packet type: Multicast router solicitation
+
+    .. data:: MULTICAST_ROUTER_TERMINATION = 50
+
+    	IGMP Packet type: Multicast router termination
 
     """
 
-    IGMP Packet type\: Membership query
-
-    """
     MEMBERSHIP_QUERY = 17
 
-    """
-
-    IGMP Packet type\: V1 membership report
-
-    """
     V1_MEMBERSHIP_REPORT = 18
 
-    """
-
-    IGMP Packet type\: DVMRP
-
-    """
     DVMRP = 19
 
-    """
-
-    IGMP Packet type\: PIM version 1
-
-    """
     PI_MV1 = 20
 
-    """
-
-    IGMP Packet type\: Cisco Trace Messages
-
-    """
     CISCO_TRACE_MESSAGES = 21
 
-    """
-
-    IGMP Packet type\: V2 membership report
-
-    """
     V2_MEMBERSHIP_REPORT = 22
 
-    """
-
-    IGMP Packet type\: V2 leave group
-
-    """
     V2_LEAVE_GROUP = 23
 
-    """
-
-    IGMP Packet type\: Multicast traceroute response
-
-    """
     MULTICAST_TRACEROUTE_RESPONSE = 30
 
-    """
-
-    IGMP Packet type\: MulticastTraceroute
-
-    """
     MULTICAST_TRACEROUTE = 31
 
-    """
-
-    IGMP Packet type\: V3 membership report
-
-    """
     V3_MEMBERSHIP_REPORT = 34
 
-    """
-
-    IGMP Packet type\: Multicast router
-    advertisement
-
-    """
     MULTICAST_ROUTER_ADVERTISEMENT = 48
 
-    """
-
-    IGMP Packet type\: Multicast router solicitation
-
-    """
     MULTICAST_ROUTER_SOLICITATION = 49
 
-    """
-
-    IGMP Packet type\: Multicast router termination
-
-    """
     MULTICAST_ROUTER_TERMINATION = 50
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
-        return meta._meta_table['MessageTypeIgmp_Enum']
+        return meta._meta_table['MessageTypeIgmpEnum']
 
 
-class MessageTypeIgmp_Enum(Enum):
+class MessageTypeIgmpEnum(Enum):
     """
-    MessageTypeIgmp_Enum
+    MessageTypeIgmpEnum
 
     LPTS IGMP message types
 
-    """
+    .. data:: MEMBERSHIP_QUERY = 17
+
+    	IGMP Packet type: Membership query
+
+    .. data:: V1_MEMBERSHIP_REPORT = 18
+
+    	IGMP Packet type: V1 membership report
+
+    .. data:: DVMRP = 19
+
+    	IGMP Packet type: DVMRP
+
+    .. data:: PI_MV1 = 20
+
+    	IGMP Packet type: PIM version 1
+
+    .. data:: CISCO_TRACE_MESSAGES = 21
+
+    	IGMP Packet type: Cisco Trace Messages
+
+    .. data:: V2_MEMBERSHIP_REPORT = 22
+
+    	IGMP Packet type: V2 membership report
+
+    .. data:: V2_LEAVE_GROUP = 23
+
+    	IGMP Packet type: V2 leave group
+
+    .. data:: MULTICAST_TRACEROUTE_RESPONSE = 30
+
+    	IGMP Packet type: Multicast traceroute response
+
+    .. data:: MULTICAST_TRACEROUTE = 31
+
+    	IGMP Packet type: MulticastTraceroute
+
+    .. data:: V3_MEMBERSHIP_REPORT = 34
+
+    	IGMP Packet type: V3 membership report
+
+    .. data:: MULTICAST_ROUTER_ADVERTISEMENT = 48
+
+    	IGMP Packet type: Multicast router
+
+    	advertisement
+
+    .. data:: MULTICAST_ROUTER_SOLICITATION = 49
+
+    	IGMP Packet type: Multicast router solicitation
+
+    .. data:: MULTICAST_ROUTER_TERMINATION = 50
+
+    	IGMP Packet type: Multicast router termination
 
     """
 
-    IGMP Packet type\: Membership query
-
-    """
     MEMBERSHIP_QUERY = 17
 
-    """
-
-    IGMP Packet type\: V1 membership report
-
-    """
     V1_MEMBERSHIP_REPORT = 18
 
-    """
-
-    IGMP Packet type\: DVMRP
-
-    """
     DVMRP = 19
 
-    """
-
-    IGMP Packet type\: PIM version 1
-
-    """
     PI_MV1 = 20
 
-    """
-
-    IGMP Packet type\: Cisco Trace Messages
-
-    """
     CISCO_TRACE_MESSAGES = 21
 
-    """
-
-    IGMP Packet type\: V2 membership report
-
-    """
     V2_MEMBERSHIP_REPORT = 22
 
-    """
-
-    IGMP Packet type\: V2 leave group
-
-    """
     V2_LEAVE_GROUP = 23
 
-    """
-
-    IGMP Packet type\: Multicast traceroute response
-
-    """
     MULTICAST_TRACEROUTE_RESPONSE = 30
 
-    """
-
-    IGMP Packet type\: MulticastTraceroute
-
-    """
     MULTICAST_TRACEROUTE = 31
 
-    """
-
-    IGMP Packet type\: V3 membership report
-
-    """
     V3_MEMBERSHIP_REPORT = 34
 
-    """
-
-    IGMP Packet type\: Multicast router
-    advertisement
-
-    """
     MULTICAST_ROUTER_ADVERTISEMENT = 48
 
-    """
-
-    IGMP Packet type\: Multicast router solicitation
-
-    """
     MULTICAST_ROUTER_SOLICITATION = 49
 
-    """
-
-    IGMP Packet type\: Multicast router termination
-
-    """
     MULTICAST_ROUTER_TERMINATION = 50
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
-        return meta._meta_table['MessageTypeIgmp_Enum']
+        return meta._meta_table['MessageTypeIgmpEnum']
 
 
-class NsrDownReason_Enum(Enum):
+class NsrDownReasonEnum(Enum):
     """
-    NsrDownReason_Enum
+    NsrDownReasonEnum
 
     NSR\-Down Reasons
 
-    """
+    .. data:: NONE = 0
+
+    	None, i.e. NSR was never up
+
+    .. data:: INIT_SYNC_ABORTED = 1
+
+    	Initial sync was aborted
+
+    .. data:: CLIENT_DISABLED = 2
+
+    	Disabled by Active APP
+
+    .. data:: CLIENT_DISCONNECT = 3
+
+    	Standby APP disconnected
+
+    .. data:: TCP_DISCONNECT = 4
+
+    	Standby TCP disconnected
+
+    .. data:: FAILOVER = 5
+
+    	RP/DRP Failover occurred
+
+    .. data:: NSR_CLEAR = 6
+
+    	Clear nsr command
+
+    .. data:: INTERNAL_ERROR = 7
+
+    	Internal error occurred
+
+    .. data:: RETRANSMIT_THRESHOLD_EXCEED = 8
+
+    	Retransmission threshold exceededprobably
+
+    	becauseS-TCP was not healthy
+
+    .. data:: INIT_SYNC_FAILURE_THRESH_EXCEEDED = 9
+
+    	Init-sync repeat failures have exceeded
+
+    	threshold
+
+    .. data:: AUDIT_TIMEOUT = 10
+
+    	Audit operation timed out
+
+    .. data:: AUDIT_FAILED = 11
+
+    	Audit operation failed
+
+    .. data:: STANDBY_SSCB_DELETED = 12
+
+    	Standby SSCB deleted
+
+    .. data:: STANDBY_SESSION_CLOSE = 13
+
+    	Session was closed on standby
+
+    .. data:: STANDBY_RXPATH_FROZEN = 14
+
+    	RX-Path was frozen on standby
+
+    .. data:: PARTNER_DELETED = 15
+
+    	Partner was deleted from set
 
     """
 
-    None, i.e. NSR was never up
-
-    """
     NONE = 0
 
-    """
-
-    Initial sync was aborted
-
-    """
     INIT_SYNC_ABORTED = 1
 
-    """
-
-    Disabled by Active APP
-
-    """
     CLIENT_DISABLED = 2
 
-    """
-
-    Standby APP disconnected
-
-    """
     CLIENT_DISCONNECT = 3
 
-    """
-
-    Standby TCP disconnected
-
-    """
     TCP_DISCONNECT = 4
 
-    """
-
-    RP/DRP Failover occurred
-
-    """
     FAILOVER = 5
 
-    """
-
-    Clear nsr command
-
-    """
     NSR_CLEAR = 6
 
-    """
-
-    Internal error occurred
-
-    """
     INTERNAL_ERROR = 7
 
-    """
-
-    Retransmission threshold exceededprobably
-    becauseS\-TCP was not healthy
-
-    """
     RETRANSMIT_THRESHOLD_EXCEED = 8
 
-    """
-
-    Init\-sync repeat failures have exceeded
-    threshold
-
-    """
     INIT_SYNC_FAILURE_THRESH_EXCEEDED = 9
 
-    """
-
-    Audit operation timed out
-
-    """
     AUDIT_TIMEOUT = 10
 
-    """
-
-    Audit operation failed
-
-    """
     AUDIT_FAILED = 11
 
-    """
-
-    Standby SSCB deleted
-
-    """
     STANDBY_SSCB_DELETED = 12
 
-    """
-
-    Session was closed on standby
-
-    """
     STANDBY_SESSION_CLOSE = 13
 
-    """
-
-    RX\-Path was frozen on standby
-
-    """
     STANDBY_RXPATH_FROZEN = 14
 
-    """
-
-    Partner was deleted from set
-
-    """
     PARTNER_DELETED = 15
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
-        return meta._meta_table['NsrDownReason_Enum']
+        return meta._meta_table['NsrDownReasonEnum']
 
 
-class NsrStatus_Enum(Enum):
+class NsrStatusEnum(Enum):
     """
-    NsrStatus_Enum
+    NsrStatusEnum
 
     NSR Stream Status
 
-    """
+    .. data:: DOWN = 0
+
+    	NSR Stream Down
+
+    .. data:: UP = 1
+
+    	NSR Stream Up
+
+    .. data:: NA = 2
+
+    	NSR Stream Not applicable
 
     """
 
-    NSR Stream Down
-
-    """
     DOWN = 0
 
-    """
-
-    NSR Stream Up
-
-    """
     UP = 1
 
-    """
-
-    NSR Stream Not applicable
-
-    """
     NA = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
-        return meta._meta_table['NsrStatus_Enum']
+        return meta._meta_table['NsrStatusEnum']
 
 
-class Packet_Enum(Enum):
+class PacketEnum(Enum):
     """
-    Packet_Enum
+    PacketEnum
 
     Packet type
 
-    """
+    .. data:: ICMP = 0
+
+    	ICMP packet type
+
+    .. data:: ICM_PV6 = 1
+
+    	ICMPv6 packet type
+
+    .. data:: IGMP = 2
+
+    	IGMP packet type
+
+    .. data:: UNKNOWN = 3
+
+    	Packet type unknown
 
     """
 
-    ICMP packet type
-
-    """
     ICMP = 0
 
-    """
-
-    ICMPv6 packet type
-
-    """
     ICM_PV6 = 1
 
-    """
-
-    IGMP packet type
-
-    """
     IGMP = 2
 
-    """
-
-    Packet type unknown
-
-    """
     UNKNOWN = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
-        return meta._meta_table['Packet_Enum']
+        return meta._meta_table['PacketEnum']
 
 
-class PakPrio_Enum(Enum):
+class PakPrioEnum(Enum):
     """
-    PakPrio_Enum
+    PakPrioEnum
 
     Packet Priority Types
 
-    """
+    .. data:: UNSPECIFIED_PACKET = 0
+
+    	Unspecified
+
+    .. data:: NORMAL_PACKET = 1
+
+    	Normal: all traffic routed via this router,
+
+    	Telnet/FTP traffic generated from within this
+
+    	router
+
+    .. data:: MEDIUM_PACKET = 2
+
+    	Medium: Packets with low drop probability e.g.
+
+    	Routing updates & requests
+
+    .. data:: HIGH_PACKET = 3
+
+    	High: Packets with very low drop probability
+
+    	and normal delivery e.g. L3 Keepalives like
+
+    	OSPF/ISIS Hellos
+
+    .. data:: CRUCIAL_PACKET = 4
+
+    	Crucial: Packets with very low drop probability
+
+    	and expedited delivery e.g L2 keepalives, HDLC
+
+    	Keepalives
 
     """
 
-    Unspecified
-
-    """
     UNSPECIFIED_PACKET = 0
 
-    """
-
-    Normal\: all traffic routed via this router,
-    Telnet/FTP traffic generated from within this
-    router
-
-    """
     NORMAL_PACKET = 1
 
-    """
-
-    Medium\: Packets with low drop probability e.g.
-    Routing updates & requests
-
-    """
     MEDIUM_PACKET = 2
 
-    """
-
-    High\: Packets with very low drop probability
-    and normal delivery e.g. L3 Keepalives like
-    OSPF/ISIS Hellos
-
-    """
     HIGH_PACKET = 3
 
-    """
-
-    Crucial\: Packets with very low drop probability
-    and expedited delivery e.g L2 keepalives, HDLC
-    Keepalives
-
-    """
     CRUCIAL_PACKET = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
-        return meta._meta_table['PakPrio_Enum']
+        return meta._meta_table['PakPrioEnum']
 
 
-class Show_Enum(Enum):
+class ShowEnum(Enum):
     """
-    Show_Enum
+    ShowEnum
 
     Show
 
-    """
+    .. data:: ALL = 0
+
+    	To dispay all
+
+    .. data:: STATIC_POLICY = 1
+
+    	To display static policy
+
+    .. data:: INTERFACE_FILTER = 2
+
+    	To display interface filter
+
+    .. data:: PACKET_FILTER = 3
+
+    	To display packet type filter
 
     """
 
-    To dispay all
-
-    """
     ALL = 0
 
-    """
-
-    To display static policy
-
-    """
     STATIC_POLICY = 1
 
-    """
-
-    To display interface filter
-
-    """
     INTERFACE_FILTER = 2
 
-    """
-
-    To display packet type filter
-
-    """
     PACKET_FILTER = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
-        return meta._meta_table['Show_Enum']
+        return meta._meta_table['ShowEnum']
 
 
-class TcpConnState_Enum(Enum):
+class TcpConnStateEnum(Enum):
     """
-    TcpConnState_Enum
+    TcpConnStateEnum
 
     TCP Connection State
 
-    """
+    .. data:: CLOSED = 0
+
+    	Closed
+
+    .. data:: LISTEN = 1
+
+    	Listen
+
+    .. data:: SYN_SENT = 2
+
+    	Syn sent
+
+    .. data:: SYN_RECEIVED = 3
+
+    	Syn received
+
+    .. data:: ESTABLISHED = 4
+
+    	Established
+
+    .. data:: CLOSE_WAIT = 5
+
+    	Close wait
+
+    .. data:: FIN_WAIT1 = 6
+
+    	FIN Wait1
+
+    .. data:: CLOSING = 7
+
+    	Closing
+
+    .. data:: LAST_ACK = 8
+
+    	Last ack
+
+    .. data:: FIN_WAIT2 = 9
+
+    	FIN Wait2
+
+    .. data:: TIME_WAIT = 10
+
+    	Time wait
 
     """
 
-    Closed
-
-    """
     CLOSED = 0
 
-    """
-
-    Listen
-
-    """
     LISTEN = 1
 
-    """
-
-    Syn sent
-
-    """
     SYN_SENT = 2
 
-    """
-
-    Syn received
-
-    """
     SYN_RECEIVED = 3
 
-    """
-
-    Established
-
-    """
     ESTABLISHED = 4
 
-    """
-
-    Close wait
-
-    """
     CLOSE_WAIT = 5
 
-    """
-
-    FIN Wait1
-
-    """
     FIN_WAIT1 = 6
 
-    """
-
-    Closing
-
-    """
     CLOSING = 7
 
-    """
-
-    Last ack
-
-    """
     LAST_ACK = 8
 
-    """
-
-    FIN Wait2
-
-    """
     FIN_WAIT2 = 9
 
-    """
-
-    Time wait
-
-    """
     TIME_WAIT = 10
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
-        return meta._meta_table['TcpConnState_Enum']
+        return meta._meta_table['TcpConnStateEnum']
 
 
-class TcpTimer_Enum(Enum):
+class TcpTimerEnum(Enum):
     """
-    TcpTimer_Enum
+    TcpTimerEnum
 
     TCP Timer Type
 
-    """
+    .. data:: RETRANSMISSION_TIMER = 0
+
+    	Retransmission timer
+
+    .. data:: WINDOW_PROBE_TIMER = 1
+
+    	Send Window Probe timer
+
+    .. data:: TIMEWAIT_STATE_TIMER = 2
+
+    	TIMEWAIT state timer
+
+    .. data:: ACK_HOLD_TIMER = 3
+
+    	ACK Hold timer
+
+    .. data:: KEEP_ALIVE_TIMER = 4
+
+    	Keep Alive timer
+
+    .. data:: PMTU_AGER_TIMER = 5
+
+    	PMTU Ager Timer
+
+    .. data:: RETRANSMISSION_GIVEUP_TIMER = 6
+
+    	Retransmission Giveup timer
+
+    .. data:: THROTTLE_TIMER = 7
+
+    	Throttle (for PAW/xipc) timer
 
     """
 
-    Retransmission timer
-
-    """
     RETRANSMISSION_TIMER = 0
 
-    """
-
-    Send Window Probe timer
-
-    """
     WINDOW_PROBE_TIMER = 1
 
-    """
-
-    TIMEWAIT state timer
-
-    """
     TIMEWAIT_STATE_TIMER = 2
 
-    """
-
-    ACK Hold timer
-
-    """
     ACK_HOLD_TIMER = 3
 
-    """
-
-    Keep Alive timer
-
-    """
     KEEP_ALIVE_TIMER = 4
 
-    """
-
-    PMTU Ager Timer
-
-    """
     PMTU_AGER_TIMER = 5
 
-    """
-
-    Retransmission Giveup timer
-
-    """
     RETRANSMISSION_GIVEUP_TIMER = 6
 
-    """
-
-    Throttle (for PAW/xipc) timer
-
-    """
     THROTTLE_TIMER = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
-        return meta._meta_table['TcpTimer_Enum']
+        return meta._meta_table['TcpTimerEnum']
 
 
 
@@ -1766,8 +1612,6 @@ class Tcp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.tcp_checksum_error_packets is not None:
                             return True
 
@@ -1783,10 +1627,6 @@ class Tcp(object):
                         if self.tcp_retransmitted_packets is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1863,8 +1703,6 @@ class Tcp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.tcp_checksum_error_packets is not None:
                             return True
 
@@ -1880,10 +1718,6 @@ class Tcp(object):
                         if self.tcp_retransmitted_packets is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1905,24 +1739,12 @@ class Tcp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ipv4_traffic is not None and self.ipv4_traffic._has_data():
-                        return True
-
-                    if self.ipv4_traffic is not None and self.ipv4_traffic.is_presence():
                         return True
 
                     if self.ipv6_traffic is not None and self.ipv6_traffic._has_data():
                         return True
 
-                    if self.ipv6_traffic is not None and self.ipv6_traffic.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1944,21 +1766,12 @@ class Tcp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.statistics is not None and self.statistics._has_data():
                     return True
 
-                if self.statistics is not None and self.statistics.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1978,17 +1791,11 @@ class Tcp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2008,18 +1815,9 @@ class Tcp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -2163,12 +1961,12 @@ class TcpConnection(object):
                     .. attribute:: address_family
                     
                     	Address family
-                    	**type**\: :py:class:`AddrFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamily_Enum>`
+                    	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                     
                     .. attribute:: connection_state
                     
                     	Connection state
-                    	**type**\: :py:class:`TcpConnState_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnState_Enum>`
+                    	**type**\: :py:class:`TcpConnStateEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnStateEnum>`
                     
                     .. attribute:: current_receive_queue_size
                     
@@ -2271,8 +2069,6 @@ class TcpConnection(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.pcb_id is not None:
                             return True
 
@@ -2315,10 +2111,6 @@ class TcpConnection(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
@@ -2338,17 +2130,11 @@ class TcpConnection(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.brief_information is not None:
                         for child_ref in self.brief_information:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2402,7 +2188,7 @@ class TcpConnection(object):
                     .. attribute:: address_family
                     
                     	Address Family
-                    	**type**\: :py:class:`AddrFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamily_Enum>`
+                    	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                     
                     .. attribute:: connect_retries
                     
@@ -2421,7 +2207,7 @@ class TcpConnection(object):
                     .. attribute:: connection_state
                     
                     	Connection state
-                    	**type**\: :py:class:`TcpConnState_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnState_Enum>`
+                    	**type**\: :py:class:`TcpConnStateEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpConnStateEnum>`
                     
                     .. attribute:: current_receive_queue_packet_size
                     
@@ -2625,7 +2411,7 @@ class TcpConnection(object):
                     .. attribute:: packet_priority
                     
                     	Priority given to packets on this socket
-                    	**type**\: :py:class:`PakPrio_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.PakPrio_Enum>`
+                    	**type**\: :py:class:`PakPrioEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.PakPrioEnum>`
                     
                     .. attribute:: packet_tos
                     
@@ -3127,8 +2913,6 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.connection_keep_alive_timer is not None:
                                 return True
 
@@ -3156,10 +2940,6 @@ class TcpConnection(object):
                             if self.window_scaling is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3268,8 +3048,6 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.async_io is not None:
                                 return True
 
@@ -3306,10 +3084,6 @@ class TcpConnection(object):
                             if self.wakeup is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3400,8 +3174,6 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.connection_keep_alive_timer is not None:
                                 return True
 
@@ -3429,10 +3201,6 @@ class TcpConnection(object):
                             if self.window_scaling is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3485,18 +3253,12 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.end is not None:
                                 return True
 
                             if self.start is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3605,8 +3367,6 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.async_io is not None:
                                 return True
 
@@ -3643,10 +3403,6 @@ class TcpConnection(object):
                             if self.wakeup is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3715,8 +3471,6 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.duplicated_ack is not None:
                                 return True
 
@@ -3729,10 +3483,6 @@ class TcpConnection(object):
                             if self.start is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3835,8 +3585,6 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.accept_connection is not None:
                                 return True
 
@@ -3870,10 +3618,6 @@ class TcpConnection(object):
                             if self.use_loopback is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4000,8 +3744,6 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.async_io_notify is not None:
                                 return True
 
@@ -4047,10 +3789,6 @@ class TcpConnection(object):
                             if self.received_at_mark is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4135,8 +3873,6 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ack_needed is not None:
                                 return True
 
@@ -4161,10 +3897,6 @@ class TcpConnection(object):
                             if self.pushed is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4201,7 +3933,7 @@ class TcpConnection(object):
                         .. attribute:: timer_type
                         
                         	Timer Type
-                        	**type**\: :py:class:`TcpTimer_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpTimer_Enum>`
+                        	**type**\: :py:class:`TcpTimerEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.TcpTimerEnum>`
                         
                         
 
@@ -4231,8 +3963,6 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.timer_activations is not None:
                                 return True
 
@@ -4245,10 +3975,6 @@ class TcpConnection(object):
                             if self.timer_type is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4272,8 +3998,6 @@ class TcpConnection(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.pcb_id is not None:
                             return True
 
@@ -4305,9 +4029,6 @@ class TcpConnection(object):
                             return True
 
                         if self.feature_flags is not None and self.feature_flags._has_data():
-                            return True
-
-                        if self.feature_flags is not None and self.feature_flags.is_presence():
                             return True
 
                         if self.fib_label_output is not None:
@@ -4411,9 +4132,6 @@ class TcpConnection(object):
                         if self.receive_buf_state_flags is not None and self.receive_buf_state_flags._has_data():
                             return True
 
-                        if self.receive_buf_state_flags is not None and self.receive_buf_state_flags.is_presence():
-                            return True
-
                         if self.receive_initial_sequence_num is not None:
                             return True
 
@@ -4433,9 +4151,6 @@ class TcpConnection(object):
                             return True
 
                         if self.request_flags is not None and self.request_flags._has_data():
-                            return True
-
-                        if self.request_flags is not None and self.request_flags.is_presence():
                             return True
 
                         if self.request_receive_window_scale is not None:
@@ -4462,9 +4177,6 @@ class TcpConnection(object):
                             return True
 
                         if self.send_buf_state_flags is not None and self.send_buf_state_flags._has_data():
-                            return True
-
-                        if self.send_buf_state_flags is not None and self.send_buf_state_flags.is_presence():
                             return True
 
                         if self.send_congestion_window_size is not None:
@@ -4514,13 +4226,7 @@ class TcpConnection(object):
                         if self.socket_option_flags is not None and self.socket_option_flags._has_data():
                             return True
 
-                        if self.socket_option_flags is not None and self.socket_option_flags.is_presence():
-                            return True
-
                         if self.socket_state_flags is not None and self.socket_state_flags._has_data():
-                            return True
-
-                        if self.socket_state_flags is not None and self.socket_state_flags.is_presence():
                             return True
 
                         if self.soft_error is not None:
@@ -4533,9 +4239,6 @@ class TcpConnection(object):
                             return True
 
                         if self.state_flags is not None and self.state_flags._has_data():
-                            return True
-
-                        if self.state_flags is not None and self.state_flags.is_presence():
                             return True
 
                         if self.syn_wait_time is not None:
@@ -4560,10 +4263,6 @@ class TcpConnection(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
@@ -4583,17 +4282,11 @@ class TcpConnection(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.detail_information is not None:
                         for child_ref in self.detail_information:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4654,7 +4347,7 @@ class TcpConnection(object):
                         .. attribute:: disp_type
                         
                         	Specifying display type
-                        	**type**\: :py:class:`Show_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.Show_Enum>`
+                        	**type**\: :py:class:`ShowEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.ShowEnum>`
                         
                         .. attribute:: connection_id
                         
@@ -4751,7 +4444,7 @@ class TcpConnection(object):
                                 .. attribute:: af_name
                                 
                                 	Address Family
-                                	**type**\: :py:class:`AddrFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamily_Enum>`
+                                	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                                 
                                 .. attribute:: lpts_pcb
                                 
@@ -4896,8 +4589,6 @@ class TcpConnection(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.is_interface is not None:
                                                 return True
 
@@ -4916,10 +4607,6 @@ class TcpConnection(object):
                                             if self.is_remote_port is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -5035,7 +4722,7 @@ class TcpConnection(object):
                                             .. attribute:: af_name
                                             
                                             	AFName
-                                            	**type**\: :py:class:`AddrFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamily_Enum>`
+                                            	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                                             
                                             .. attribute:: ipv4_address
                                             
@@ -5078,8 +4765,6 @@ class TcpConnection(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
@@ -5089,10 +4774,6 @@ class TcpConnection(object):
                                                 if self.ipv6_address is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -5108,17 +4789,17 @@ class TcpConnection(object):
                                             .. attribute:: icm_pv6_message_type
                                             
                                             	ICMPv6 message type
-                                            	**type**\: :py:class:`MessageTypeIcmpv6_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIcmpv6_Enum>`
+                                            	**type**\: :py:class:`MessageTypeIcmpv6Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIcmpv6Enum>`
                                             
                                             .. attribute:: icmp_message_type
                                             
                                             	ICMP message type
-                                            	**type**\: :py:class:`MessageTypeIcmp_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIcmp_Enum>`
+                                            	**type**\: :py:class:`MessageTypeIcmpEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIcmpEnum>`
                                             
                                             .. attribute:: igmp_message_type
                                             
                                             	IGMP message type
-                                            	**type**\: :py:class:`MessageTypeIgmp_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIgmp_Enum>`
+                                            	**type**\: :py:class:`MessageTypeIgmpEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIgmpEnum>`
                                             
                                             .. attribute:: message_id
                                             
@@ -5130,7 +4811,7 @@ class TcpConnection(object):
                                             .. attribute:: type
                                             
                                             	Type
-                                            	**type**\: :py:class:`Packet_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.Packet_Enum>`
+                                            	**type**\: :py:class:`PacketEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.PacketEnum>`
                                             
                                             
 
@@ -5161,8 +4842,6 @@ class TcpConnection(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.icm_pv6_message_type is not None:
                                                     return True
 
@@ -5180,10 +4859,6 @@ class TcpConnection(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
@@ -5197,7 +4872,7 @@ class TcpConnection(object):
                                             .. attribute:: af_name
                                             
                                             	AFName
-                                            	**type**\: :py:class:`AddrFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamily_Enum>`
+                                            	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                                             
                                             .. attribute:: ipv4_address
                                             
@@ -5240,8 +4915,6 @@ class TcpConnection(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
@@ -5251,10 +4924,6 @@ class TcpConnection(object):
                                                 if self.ipv6_address is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -5276,8 +4945,6 @@ class TcpConnection(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.flow_types_info is not None:
                                                 return True
 
@@ -5287,16 +4954,10 @@ class TcpConnection(object):
                                             if self.local_address is not None and self.local_address._has_data():
                                                 return True
 
-                                            if self.local_address is not None and self.local_address.is_presence():
-                                                return True
-
                                             if self.local_length is not None:
                                                 return True
 
                                             if self.packet_type is not None and self.packet_type._has_data():
-                                                return True
-
-                                            if self.packet_type is not None and self.packet_type.is_presence():
                                                 return True
 
                                             if self.priority is not None:
@@ -5311,19 +4972,12 @@ class TcpConnection(object):
                                             if self.remote_address is not None and self.remote_address._has_data():
                                                 return True
 
-                                            if self.remote_address is not None and self.remote_address.is_presence():
-                                                return True
-
                                             if self.remote_length is not None:
                                                 return True
 
                                             if self.ttl is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -5378,8 +5032,6 @@ class TcpConnection(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.is_ignore_vrf_filter is not None:
                                                 return True
 
@@ -5389,10 +5041,6 @@ class TcpConnection(object):
                                             if self.is_pcb_bound is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -5441,18 +5089,12 @@ class TcpConnection(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.is_ip_sla is not None:
                                                 return True
 
                                             if self.is_receive_filter is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -5474,12 +5116,7 @@ class TcpConnection(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.accept_mask is not None and self.accept_mask._has_data():
-                                            return True
-
-                                        if self.accept_mask is not None and self.accept_mask.is_presence():
                                             return True
 
                                         if self.filter is not None:
@@ -5493,22 +5130,12 @@ class TcpConnection(object):
                                         if self.lpts_flags is not None and self.lpts_flags._has_data():
                                             return True
 
-                                        if self.lpts_flags is not None and self.lpts_flags.is_presence():
-                                            return True
-
                                         if self.options is not None and self.options._has_data():
-                                            return True
-
-                                        if self.options is not None and self.options.is_presence():
                                             return True
 
                                         if self.ttl is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -5530,21 +5157,12 @@ class TcpConnection(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.af_name is not None:
                                         return True
 
                                     if self.lpts_pcb is not None and self.lpts_pcb._has_data():
                                         return True
 
-                                    if self.lpts_pcb is not None and self.lpts_pcb.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5560,7 +5178,7 @@ class TcpConnection(object):
                                 .. attribute:: af_name
                                 
                                 	AFName
-                                	**type**\: :py:class:`AddrFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamily_Enum>`
+                                	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                                 
                                 .. attribute:: ipv4_address
                                 
@@ -5603,8 +5221,6 @@ class TcpConnection(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.af_name is not None:
                                         return True
 
@@ -5614,10 +5230,6 @@ class TcpConnection(object):
                                     if self.ipv6_address is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5633,7 +5245,7 @@ class TcpConnection(object):
                                 .. attribute:: af_name
                                 
                                 	AFName
-                                	**type**\: :py:class:`AddrFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamily_Enum>`
+                                	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                                 
                                 .. attribute:: ipv4_address
                                 
@@ -5676,8 +5288,6 @@ class TcpConnection(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.af_name is not None:
                                         return True
 
@@ -5687,10 +5297,6 @@ class TcpConnection(object):
                                     if self.ipv6_address is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5714,21 +5320,13 @@ class TcpConnection(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.pcb_id is not None:
                                     return True
 
                                 if self.common is not None and self.common._has_data():
                                     return True
 
-                                if self.common is not None and self.common.is_presence():
-                                    return True
-
                                 if self.foreign_address is not None and self.foreign_address._has_data():
-                                    return True
-
-                                if self.foreign_address is not None and self.foreign_address.is_presence():
                                     return True
 
                                 if self.foreign_port is not None:
@@ -5740,16 +5338,9 @@ class TcpConnection(object):
                                 if self.local_address is not None and self.local_address._has_data():
                                     return True
 
-                                if self.local_address is not None and self.local_address.is_presence():
-                                    return True
-
                                 if self.local_port is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -5773,8 +5364,6 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.disp_type is not None:
                                 return True
 
@@ -5783,10 +5372,6 @@ class TcpConnection(object):
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5808,17 +5393,11 @@ class TcpConnection(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.display_type is not None:
                             for child_ref in self.display_type:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5840,18 +5419,9 @@ class TcpConnection(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.display_types is not None and self.display_types._has_data():
                         return True
 
-                    if self.display_types is not None and self.display_types.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6005,8 +5575,6 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.client_id is not None:
                                 return True
 
@@ -6030,10 +5598,6 @@ class TcpConnection(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
@@ -6053,17 +5617,11 @@ class TcpConnection(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.client is not None:
                             for child_ref in self.client:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -6380,8 +5938,6 @@ class TcpConnection(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.async_session is not None:
                                     return True
 
@@ -6435,10 +5991,6 @@ class TcpConnection(object):
                                         if child is not None:
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6507,8 +6059,6 @@ class TcpConnection(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.arm_count is not None:
                                     return True
 
@@ -6521,10 +6071,6 @@ class TcpConnection(object):
                                 if self.unarm_count is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6593,8 +6139,6 @@ class TcpConnection(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.arm_count is not None:
                                     return True
 
@@ -6607,10 +6151,6 @@ class TcpConnection(object):
                                 if self.unarm_count is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6634,15 +6174,10 @@ class TcpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.id is not None:
                                 return True
 
                             if self.async_session_stats is not None and self.async_session_stats._has_data():
-                                return True
-
-                            if self.async_session_stats is not None and self.async_session_stats.is_presence():
                                 return True
 
                             if self.is_paw_socket is not None:
@@ -6658,9 +6193,6 @@ class TcpConnection(object):
                                 return True
 
                             if self.read_io_counts is not None and self.read_io_counts._has_data():
-                                return True
-
-                            if self.read_io_counts is not None and self.read_io_counts.is_presence():
                                 return True
 
                             if self.read_io_time is not None:
@@ -6696,19 +6228,12 @@ class TcpConnection(object):
                             if self.write_io_counts is not None and self.write_io_counts._has_data():
                                 return True
 
-                            if self.write_io_counts is not None and self.write_io_counts.is_presence():
-                                return True
-
                             if self.write_io_time is not None:
                                 return True
 
                             if self.xipc_pulse_received is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6730,17 +6255,11 @@ class TcpConnection(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.pcb is not None:
                             for child_ref in self.pcb:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -7465,8 +6984,6 @@ class TcpConnection(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ack_only_packets_sent is not None:
                             return True
 
@@ -7727,10 +7244,6 @@ class TcpConnection(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
@@ -7750,30 +7263,15 @@ class TcpConnection(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.clients is not None and self.clients._has_data():
-                        return True
-
-                    if self.clients is not None and self.clients.is_presence():
                         return True
 
                     if self.pcbs is not None and self.pcbs._has_data():
                         return True
 
-                    if self.pcbs is not None and self.pcbs.is_presence():
-                        return True
-
                     if self.summary is not None and self.summary._has_data():
                         return True
 
-                    if self.summary is not None and self.summary.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7795,39 +7293,21 @@ class TcpConnection(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.id is not None:
                     return True
 
                 if self.brief_informations is not None and self.brief_informations._has_data():
                     return True
 
-                if self.brief_informations is not None and self.brief_informations.is_presence():
-                    return True
-
                 if self.detail_informations is not None and self.detail_informations._has_data():
-                    return True
-
-                if self.detail_informations is not None and self.detail_informations.is_presence():
                     return True
 
                 if self.extended_information is not None and self.extended_information._has_data():
                     return True
 
-                if self.extended_information is not None and self.extended_information.is_presence():
-                    return True
-
                 if self.statistics is not None and self.statistics._has_data():
                     return True
 
-                if self.statistics is not None and self.statistics.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -7847,17 +7327,11 @@ class TcpConnection(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -7877,18 +7351,9 @@ class TcpConnection(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -8145,8 +7610,6 @@ class TcpNsr(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.id is not None:
                                 return True
 
@@ -8176,10 +7639,6 @@ class TcpNsr(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
@@ -8199,17 +7658,11 @@ class TcpNsr(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.brief_client is not None:
                             for child_ref in self.brief_client:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8355,8 +7808,6 @@ class TcpNsr(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.id is not None:
                                 return True
 
@@ -8392,10 +7843,6 @@ class TcpNsr(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
@@ -8415,17 +7862,11 @@ class TcpNsr(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.detail_client is not None:
                             for child_ref in self.detail_client:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8447,24 +7888,12 @@ class TcpNsr(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.brief_clients is not None and self.brief_clients._has_data():
-                        return True
-
-                    if self.brief_clients is not None and self.brief_clients.is_presence():
                         return True
 
                     if self.detail_clients is not None and self.detail_clients._has_data():
                         return True
 
-                    if self.detail_clients is not None and self.detail_clients.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -8539,7 +7968,7 @@ class TcpNsr(object):
                         .. attribute:: address_family
                         
                         	Address family
-                        	**type**\: :py:class:`AddrFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamily_Enum>`
+                        	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                         
                         .. attribute:: foreign_address
                         
@@ -8563,7 +7992,7 @@ class TcpNsr(object):
                         .. attribute:: is_ds_operational_up
                         
                         	Is Downstream NSR operational?
-                        	**type**\: :py:class:`NsrStatus_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrStatus_Enum>`
+                        	**type**\: :py:class:`NsrStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrStatusEnum>`
                         
                         .. attribute:: is_only_receive_path_replication
                         
@@ -8573,7 +8002,7 @@ class TcpNsr(object):
                         .. attribute:: is_us_operational_up
                         
                         	Is Upstream NSR operational?
-                        	**type**\: :py:class:`NsrStatus_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrStatus_Enum>`
+                        	**type**\: :py:class:`NsrStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrStatusEnum>`
                         
                         .. attribute:: local_address
                         
@@ -8649,8 +8078,6 @@ class TcpNsr(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.id is not None:
                                 return True
 
@@ -8696,10 +8123,6 @@ class TcpNsr(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
@@ -8719,17 +8142,11 @@ class TcpNsr(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.brief_session is not None:
                             for child_ref in self.brief_session:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8775,7 +8192,7 @@ class TcpNsr(object):
                         .. attribute:: address_family
                         
                         	Address family
-                        	**type**\: :py:class:`AddrFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamily_Enum>`
+                        	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                         
                         .. attribute:: cookie
                         
@@ -8893,7 +8310,7 @@ class TcpNsr(object):
                         .. attribute:: is_ds_operational_up
                         
                         	Is Downstream NSR operational?
-                        	**type**\: :py:class:`NsrStatus_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrStatus_Enum>`
+                        	**type**\: :py:class:`NsrStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrStatusEnum>`
                         
                         .. attribute:: is_init_sync_error_local
                         
@@ -8928,7 +8345,7 @@ class TcpNsr(object):
                         .. attribute:: is_us_operational_up
                         
                         	Is Upstream NSR operational?
-                        	**type**\: :py:class:`NsrStatus_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrStatus_Enum>`
+                        	**type**\: :py:class:`NsrStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrStatusEnum>`
                         
                         .. attribute:: local_address
                         
@@ -8975,17 +8392,17 @@ class TcpNsr(object):
                         .. attribute:: nsr_down_reason
                         
                         	If NSR is not up, the reason for it
-                        	**type**\: :py:class:`NsrDownReason_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrDownReason_Enum>`
+                        	**type**\: :py:class:`NsrDownReasonEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrDownReasonEnum>`
                         
                         .. attribute:: nsr_down_reason_down_stream
                         
                         	The reason NSR is not up towards the upstream partner
-                        	**type**\: :py:class:`NsrDownReason_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrDownReason_Enum>`
+                        	**type**\: :py:class:`NsrDownReasonEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrDownReasonEnum>`
                         
                         .. attribute:: nsr_down_reason_up_stream
                         
                         	The reason NSR is not up towards the upstream partner
-                        	**type**\: :py:class:`NsrDownReason_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrDownReason_Enum>`
+                        	**type**\: :py:class:`NsrDownReasonEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.NsrDownReasonEnum>`
                         
                         .. attribute:: nsr_down_time
                         
@@ -9192,8 +8609,6 @@ class TcpNsr(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.acknoledgement_number is not None:
                                     return True
 
@@ -9203,10 +8618,6 @@ class TcpNsr(object):
                                 if self.sequence_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -9268,8 +8679,6 @@ class TcpNsr(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.acknoledgement_number is not None:
                                     return True
 
@@ -9279,10 +8688,6 @@ class TcpNsr(object):
                                 if self.sequence_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -9298,7 +8703,7 @@ class TcpNsr(object):
                             .. attribute:: address_family
                             
                             	Address Family of the sessions in this set
-                            	**type**\: :py:class:`AddrFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamily_Enum>`
+                            	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                             
                             .. attribute:: client_instance
                             
@@ -9455,8 +8860,6 @@ class TcpNsr(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.address_family is not None:
                                     return True
 
@@ -9513,10 +8916,6 @@ class TcpNsr(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
@@ -9538,8 +8937,6 @@ class TcpNsr(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.id is not None:
                                 return True
 
@@ -9689,19 +9086,12 @@ class TcpNsr(object):
                             if self.set_information is not None and self.set_information._has_data():
                                 return True
 
-                            if self.set_information is not None and self.set_information.is_presence():
-                                return True
-
                             if self.sscb is not None:
                                 return True
 
                             if self.vrf_id is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -9723,17 +9113,11 @@ class TcpNsr(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.detail_session is not None:
                             for child_ref in self.detail_session:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9755,24 +9139,12 @@ class TcpNsr(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.brief_sessions is not None and self.brief_sessions._has_data():
-                        return True
-
-                    if self.brief_sessions is not None and self.brief_sessions.is_presence():
                         return True
 
                     if self.detail_sessions is not None and self.detail_sessions._has_data():
                         return True
 
-                    if self.detail_sessions is not None and self.detail_sessions.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9847,7 +9219,7 @@ class TcpNsr(object):
                         .. attribute:: address_family
                         
                         	Address Family of the sessions in this set
-                        	**type**\: :py:class:`AddrFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamily_Enum>`
+                        	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                         
                         .. attribute:: client_instance
                         
@@ -10007,8 +9379,6 @@ class TcpNsr(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.id is not None:
                                 return True
 
@@ -10068,10 +9438,6 @@ class TcpNsr(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
@@ -10091,17 +9457,11 @@ class TcpNsr(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.brief_set is not None:
                             for child_ref in self.brief_set:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -10148,7 +9508,7 @@ class TcpNsr(object):
                         .. attribute:: address_family
                         
                         	Address Family of the sessions in this set
-                        	**type**\: :py:class:`AddrFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamily_Enum>`
+                        	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                         
                         .. attribute:: audit_end_time
                         
@@ -10422,8 +9782,6 @@ class TcpNsr(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.id is not None:
                                 return True
 
@@ -10528,10 +9886,6 @@ class TcpNsr(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
@@ -10551,17 +9905,11 @@ class TcpNsr(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.detail_set is not None:
                             for child_ref in self.detail_set:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -10583,24 +9931,12 @@ class TcpNsr(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.brief_sets is not None and self.brief_sets._has_data():
-                        return True
-
-                    if self.brief_sets is not None and self.brief_sets.is_presence():
                         return True
 
                     if self.detail_sets is not None and self.detail_sets._has_data():
                         return True
 
-                    if self.detail_sets is not None and self.detail_sets.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -10837,8 +10173,6 @@ class TcpNsr(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.delivered_count is not None:
                                     return True
 
@@ -10851,10 +10185,6 @@ class TcpNsr(object):
                                 if self.queued_count is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10878,8 +10208,6 @@ class TcpNsr(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.id is not None:
                                 return True
 
@@ -10917,10 +10245,6 @@ class TcpNsr(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
@@ -10940,17 +10264,11 @@ class TcpNsr(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.statistic_client is not None:
                             for child_ref in self.statistic_client:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -11322,8 +10640,6 @@ class TcpNsr(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.cleanup_rcv is not None:
                                     return True
 
@@ -11401,10 +10717,6 @@ class TcpNsr(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
@@ -11426,8 +10738,6 @@ class TcpNsr(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.id is not None:
                                 return True
 
@@ -11464,13 +10774,6 @@ class TcpNsr(object):
                             if self.snd_counters is not None and self.snd_counters._has_data():
                                 return True
 
-                            if self.snd_counters is not None and self.snd_counters.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -11492,17 +10795,11 @@ class TcpNsr(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.statistic_session is not None:
                             for child_ref in self.statistic_session:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -11638,8 +10935,6 @@ class TcpNsr(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.id is not None:
                                 return True
 
@@ -11669,10 +10964,6 @@ class TcpNsr(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
@@ -11692,17 +10983,11 @@ class TcpNsr(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.statistic_set is not None:
                             for child_ref in self.statistic_set:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -12117,8 +11402,6 @@ class TcpNsr(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.mark_session_set_ack_rcv_drop_aggr is not None:
                                     return True
 
@@ -12137,10 +11420,6 @@ class TcpNsr(object):
                                 if self.sweep_session_set_rcv_drop_aggr is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -12377,8 +11656,6 @@ class TcpNsr(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.abort is not None:
                                     return True
 
@@ -12456,10 +11733,6 @@ class TcpNsr(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
@@ -12479,24 +11752,12 @@ class TcpNsr(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.aggr_only is not None and self.aggr_only._has_data():
-                                return True
-
-                            if self.aggr_only is not None and self.aggr_only.is_presence():
                                 return True
 
                             if self.common is not None and self.common._has_data():
                                 return True
 
-                            if self.common is not None and self.common.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -12565,8 +11826,6 @@ class TcpNsr(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.delivered_count is not None:
                                 return True
 
@@ -12579,10 +11838,6 @@ class TcpNsr(object):
                             if self.queued_count is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -12712,8 +11967,6 @@ class TcpNsr(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.cleanup_rcv_drop_no_pcb is not None:
                                     return True
 
@@ -12738,10 +11991,6 @@ class TcpNsr(object):
                                 if self.seg_instr_rcv_drop_no_scb_dp is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -12978,8 +12227,6 @@ class TcpNsr(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.cleanup_rcv is not None:
                                     return True
 
@@ -13057,10 +12304,6 @@ class TcpNsr(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
@@ -13080,24 +12323,12 @@ class TcpNsr(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.aggr_only is not None and self.aggr_only._has_data():
-                                return True
-
-                            if self.aggr_only is not None and self.aggr_only.is_presence():
                                 return True
 
                             if self.common is not None and self.common._has_data():
                                 return True
 
-                            if self.common is not None and self.common.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -13119,12 +12350,7 @@ class TcpNsr(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.audit_counters is not None and self.audit_counters._has_data():
-                            return True
-
-                        if self.audit_counters is not None and self.audit_counters.is_presence():
                             return True
 
                         if self.held_packet_drops is not None:
@@ -13234,13 +12460,6 @@ class TcpNsr(object):
                         if self.snd_counters is not None and self.snd_counters._has_data():
                             return True
 
-                        if self.snd_counters is not None and self.snd_counters.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -13262,36 +12481,18 @@ class TcpNsr(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.statistic_clients is not None and self.statistic_clients._has_data():
-                        return True
-
-                    if self.statistic_clients is not None and self.statistic_clients.is_presence():
                         return True
 
                     if self.statistic_sessions is not None and self.statistic_sessions._has_data():
                         return True
 
-                    if self.statistic_sessions is not None and self.statistic_sessions.is_presence():
-                        return True
-
                     if self.statistic_sets is not None and self.statistic_sets._has_data():
-                        return True
-
-                    if self.statistic_sets is not None and self.statistic_sets.is_presence():
                         return True
 
                     if self.summary is not None and self.summary._has_data():
                         return True
 
-                    if self.summary is not None and self.summary.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -13313,39 +12514,21 @@ class TcpNsr(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.id is not None:
                     return True
 
                 if self.client is not None and self.client._has_data():
                     return True
 
-                if self.client is not None and self.client.is_presence():
-                    return True
-
                 if self.session is not None and self.session._has_data():
-                    return True
-
-                if self.session is not None and self.session.is_presence():
                     return True
 
                 if self.session_set is not None and self.session_set._has_data():
                     return True
 
-                if self.session_set is not None and self.session_set.is_presence():
-                    return True
-
                 if self.statistics is not None and self.statistics._has_data():
                     return True
 
-                if self.statistics is not None and self.statistics.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -13365,17 +12548,11 @@ class TcpNsr(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -13395,18 +12572,9 @@ class TcpNsr(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

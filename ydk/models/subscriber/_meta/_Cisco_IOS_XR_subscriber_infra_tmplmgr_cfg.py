@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -332,7 +332,7 @@ _meta_table = {
                 ''',
                 'other_config',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('ra-hop-limit', REFERENCE_ENUM_CLASS, 'Ipv6NdHopLimit_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdHopLimit_Enum', 
+            _MetaInfoClassMember('ra-hop-limit', REFERENCE_ENUM_CLASS, 'Ipv6NdHopLimitEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdHopLimitEnum', 
                 [], [], 
                 '''                IPv6 ND RA HopLimit
                 ''',
@@ -383,7 +383,7 @@ _meta_table = {
                 ''',
                 'reachable_time',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('router-preference', REFERENCE_ENUM_CLASS, 'Ipv6NdRouterPrefTemplate_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdRouterPrefTemplate_Enum', 
+            _MetaInfoClassMember('router-preference', REFERENCE_ENUM_CLASS, 'Ipv6NdRouterPrefTemplateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdRouterPrefTemplateEnum', 
                 [], [], 
                 '''                RA Router Preference
                 ''',
@@ -465,7 +465,7 @@ _meta_table = {
                 ''',
                 'unreachables',
                 'Cisco-IOS-XR-ipv6-ma-subscriber-cfg', False),
-            _MetaInfoClassMember('verify', REFERENCE_ENUM_CLASS, 'Ipv6ReachableVia_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_subscriber_cfg', 'Ipv6ReachableVia_Enum', 
+            _MetaInfoClassMember('verify', REFERENCE_ENUM_CLASS, 'Ipv6ReachableViaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_subscriber_cfg', 'Ipv6ReachableViaEnum', 
                 [], [], 
                 '''                IPv6 Verify Unicast Souce Reachable
                 ''',
@@ -608,7 +608,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account',
             False, 
             [
-            _MetaInfoClassMember('aal', REFERENCE_ENUM_CLASS, 'Qosl2DataLink_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'Qosl2DataLink_Enum', 
+            _MetaInfoClassMember('aal', REFERENCE_ENUM_CLASS, 'Qosl2DataLinkEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'Qosl2DataLinkEnum', 
                 [], [], 
                 '''                ATM adaptation layer AAL
                 ''',
@@ -620,7 +620,7 @@ _meta_table = {
                 ''',
                 'atm_cell_tax',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'Qosl2Encap_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'Qosl2Encap_Enum', 
+            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'Qosl2EncapEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'Qosl2EncapEnum', 
                 [], [], 
                 '''                Specify encapsulation type
                 ''',
@@ -670,7 +670,7 @@ _meta_table = {
                 ''',
                 'account_stats',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccount_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccount_Enum', 
+            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccountEnum', 
                 [], [], 
                 '''                Turn off L2 or L3 accounting
                 ''',
@@ -721,7 +721,7 @@ _meta_table = {
                 ''',
                 'account_stats',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccount_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccount_Enum', 
+            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccountEnum', 
                 [], [], 
                 '''                Turn off L2 or L3 accounting
                 ''',
@@ -816,7 +816,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment',
             False, 
             [
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'SpanTrafficDirection_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanTrafficDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'SpanTrafficDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanTrafficDirectionEnum', 
                 [], [], 
                 '''                Specify the direction of traffic to replicate
                 (optional)
@@ -846,7 +846,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession',
             False, 
             [
-            _MetaInfoClassMember('session-class', REFERENCE_ENUM_CLASS, 'SpanSessionClass_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClass_Enum', 
+            _MetaInfoClassMember('session-class', REFERENCE_ENUM_CLASS, 'SpanSessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClassEnum', 
                 [], [], 
                 '''                Session Class
                 ''',
@@ -871,7 +871,7 @@ _meta_table = {
                 ''',
                 'mirror_first',
                 'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
-            _MetaInfoClassMember('mirror-interval', REFERENCE_ENUM_CLASS, 'SpanMirrorInterval_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanMirrorInterval_Enum', 
+            _MetaInfoClassMember('mirror-interval', REFERENCE_ENUM_CLASS, 'SpanMirrorIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanMirrorIntervalEnum', 
                 [], [], 
                 '''                Specify the mirror interval
                 ''',
@@ -1316,7 +1316,7 @@ _meta_table = {
                 ''',
                 'other_config',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('ra-hop-limit', REFERENCE_ENUM_CLASS, 'Ipv6NdHopLimit_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdHopLimit_Enum', 
+            _MetaInfoClassMember('ra-hop-limit', REFERENCE_ENUM_CLASS, 'Ipv6NdHopLimitEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdHopLimitEnum', 
                 [], [], 
                 '''                IPv6 ND RA HopLimit
                 ''',
@@ -1367,7 +1367,7 @@ _meta_table = {
                 ''',
                 'reachable_time',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('router-preference', REFERENCE_ENUM_CLASS, 'Ipv6NdRouterPrefTemplate_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdRouterPrefTemplate_Enum', 
+            _MetaInfoClassMember('router-preference', REFERENCE_ENUM_CLASS, 'Ipv6NdRouterPrefTemplateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdRouterPrefTemplateEnum', 
                 [], [], 
                 '''                RA Router Preference
                 ''',
@@ -1449,7 +1449,7 @@ _meta_table = {
                 ''',
                 'unreachables',
                 'Cisco-IOS-XR-ipv6-ma-subscriber-cfg', False),
-            _MetaInfoClassMember('verify', REFERENCE_ENUM_CLASS, 'Ipv6ReachableVia_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_subscriber_cfg', 'Ipv6ReachableVia_Enum', 
+            _MetaInfoClassMember('verify', REFERENCE_ENUM_CLASS, 'Ipv6ReachableViaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_subscriber_cfg', 'Ipv6ReachableViaEnum', 
                 [], [], 
                 '''                IPv6 Verify Unicast Souce Reachable
                 ''',
@@ -1592,7 +1592,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.Ppps.Ppp.Qos.Account',
             False, 
             [
-            _MetaInfoClassMember('aal', REFERENCE_ENUM_CLASS, 'Qosl2DataLink_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'Qosl2DataLink_Enum', 
+            _MetaInfoClassMember('aal', REFERENCE_ENUM_CLASS, 'Qosl2DataLinkEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'Qosl2DataLinkEnum', 
                 [], [], 
                 '''                ATM adaptation layer AAL
                 ''',
@@ -1604,7 +1604,7 @@ _meta_table = {
                 ''',
                 'atm_cell_tax',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'Qosl2Encap_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'Qosl2Encap_Enum', 
+            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'Qosl2EncapEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'Qosl2EncapEnum', 
                 [], [], 
                 '''                Specify encapsulation type
                 ''',
@@ -1654,7 +1654,7 @@ _meta_table = {
                 ''',
                 'account_stats',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccount_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccount_Enum', 
+            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccountEnum', 
                 [], [], 
                 '''                Turn off L2 or L3 accounting
                 ''',
@@ -1705,7 +1705,7 @@ _meta_table = {
                 ''',
                 'account_stats',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccount_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccount_Enum', 
+            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccountEnum', 
                 [], [], 
                 '''                Turn off L2 or L3 accounting
                 ''',
@@ -1800,7 +1800,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment',
             False, 
             [
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'SpanTrafficDirection_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanTrafficDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'SpanTrafficDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanTrafficDirectionEnum', 
                 [], [], 
                 '''                Specify the direction of traffic to replicate
                 (optional)
@@ -1830,7 +1830,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession',
             False, 
             [
-            _MetaInfoClassMember('session-class', REFERENCE_ENUM_CLASS, 'SpanSessionClass_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClass_Enum', 
+            _MetaInfoClassMember('session-class', REFERENCE_ENUM_CLASS, 'SpanSessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClassEnum', 
                 [], [], 
                 '''                Session Class
                 ''',
@@ -1855,7 +1855,7 @@ _meta_table = {
                 ''',
                 'mirror_first',
                 'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
-            _MetaInfoClassMember('mirror-interval', REFERENCE_ENUM_CLASS, 'SpanMirrorInterval_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanMirrorInterval_Enum', 
+            _MetaInfoClassMember('mirror-interval', REFERENCE_ENUM_CLASS, 'SpanMirrorIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanMirrorIntervalEnum', 
                 [], [], 
                 '''                Specify the mirror interval
                 ''',
@@ -2230,7 +2230,7 @@ _meta_table = {
                 ''',
                 'other_config',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('ra-hop-limit', REFERENCE_ENUM_CLASS, 'Ipv6NdHopLimit_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdHopLimit_Enum', 
+            _MetaInfoClassMember('ra-hop-limit', REFERENCE_ENUM_CLASS, 'Ipv6NdHopLimitEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdHopLimitEnum', 
                 [], [], 
                 '''                IPv6 ND RA HopLimit
                 ''',
@@ -2281,7 +2281,7 @@ _meta_table = {
                 ''',
                 'reachable_time',
                 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', False),
-            _MetaInfoClassMember('router-preference', REFERENCE_ENUM_CLASS, 'Ipv6NdRouterPrefTemplate_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdRouterPrefTemplate_Enum', 
+            _MetaInfoClassMember('router-preference', REFERENCE_ENUM_CLASS, 'Ipv6NdRouterPrefTemplateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg', 'Ipv6NdRouterPrefTemplateEnum', 
                 [], [], 
                 '''                RA Router Preference
                 ''',
@@ -2363,7 +2363,7 @@ _meta_table = {
                 ''',
                 'unreachables',
                 'Cisco-IOS-XR-ipv6-ma-subscriber-cfg', False),
-            _MetaInfoClassMember('verify', REFERENCE_ENUM_CLASS, 'Ipv6ReachableVia_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_subscriber_cfg', 'Ipv6ReachableVia_Enum', 
+            _MetaInfoClassMember('verify', REFERENCE_ENUM_CLASS, 'Ipv6ReachableViaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_subscriber_cfg', 'Ipv6ReachableViaEnum', 
                 [], [], 
                 '''                IPv6 Verify Unicast Souce Reachable
                 ''',
@@ -2506,7 +2506,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account',
             False, 
             [
-            _MetaInfoClassMember('aal', REFERENCE_ENUM_CLASS, 'Qosl2DataLink_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'Qosl2DataLink_Enum', 
+            _MetaInfoClassMember('aal', REFERENCE_ENUM_CLASS, 'Qosl2DataLinkEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'Qosl2DataLinkEnum', 
                 [], [], 
                 '''                ATM adaptation layer AAL
                 ''',
@@ -2518,7 +2518,7 @@ _meta_table = {
                 ''',
                 'atm_cell_tax',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'Qosl2Encap_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'Qosl2Encap_Enum', 
+            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'Qosl2EncapEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'Qosl2EncapEnum', 
                 [], [], 
                 '''                Specify encapsulation type
                 ''',
@@ -2568,7 +2568,7 @@ _meta_table = {
                 ''',
                 'account_stats',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccount_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccount_Enum', 
+            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccountEnum', 
                 [], [], 
                 '''                Turn off L2 or L3 accounting
                 ''',
@@ -2619,7 +2619,7 @@ _meta_table = {
                 ''',
                 'account_stats',
                 'Cisco-IOS-XR-qos-ma-cfg', False),
-            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccount_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccount_Enum', 
+            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccountEnum', 
                 [], [], 
                 '''                Turn off L2 or L3 accounting
                 ''',
@@ -2714,7 +2714,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment',
             False, 
             [
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'SpanTrafficDirection_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanTrafficDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'SpanTrafficDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanTrafficDirectionEnum', 
                 [], [], 
                 '''                Specify the direction of traffic to replicate
                 (optional)
@@ -2744,7 +2744,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession',
             False, 
             [
-            _MetaInfoClassMember('session-class', REFERENCE_ENUM_CLASS, 'SpanSessionClass_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClass_Enum', 
+            _MetaInfoClassMember('session-class', REFERENCE_ENUM_CLASS, 'SpanSessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClassEnum', 
                 [], [], 
                 '''                Session Class
                 ''',
@@ -2769,7 +2769,7 @@ _meta_table = {
                 ''',
                 'mirror_first',
                 'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', False),
-            _MetaInfoClassMember('mirror-interval', REFERENCE_ENUM_CLASS, 'SpanMirrorInterval_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanMirrorInterval_Enum', 
+            _MetaInfoClassMember('mirror-interval', REFERENCE_ENUM_CLASS, 'SpanMirrorIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg', 'SpanMirrorIntervalEnum', 
                 [], [], 
                 '''                Specify the mirror interval
                 ''',

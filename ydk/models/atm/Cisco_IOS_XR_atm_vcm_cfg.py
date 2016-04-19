@@ -25,77 +25,73 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class AtmPvcTestMode_Enum(Enum):
+class AtmPvcTestModeEnum(Enum):
     """
-    AtmPvcTestMode_Enum
+    AtmPvcTestModeEnum
 
     Atm pvc test mode
 
-    """
+    .. data:: LOOP = 1
+
+    	Loop mode applicable to L2/L3 PVC
+
+    .. data:: RESERVED = 2
+
+    	Reserved mode applicable to L2 PVC
 
     """
 
-    Loop mode applicable to L2/L3 PVC
-
-    """
     LOOP = 1
 
-    """
-
-    Reserved mode applicable to L2 PVC
-
-    """
     RESERVED = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_cfg as meta
-        return meta._meta_table['AtmPvcTestMode_Enum']
+        return meta._meta_table['AtmPvcTestModeEnum']
 
 
-class AtmPvpTestMode_Enum(Enum):
+class AtmPvpTestModeEnum(Enum):
     """
-    AtmPvpTestMode_Enum
+    AtmPvpTestModeEnum
 
     Atm pvp test mode
 
-    """
+    .. data:: LOOP = 1
+
+    	Loop mode
 
     """
 
-    Loop mode
-
-    """
     LOOP = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_cfg as meta
-        return meta._meta_table['AtmPvpTestMode_Enum']
+        return meta._meta_table['AtmPvpTestModeEnum']
 
 
-class AtmVpiBitsMode_Enum(Enum):
+class AtmVpiBitsModeEnum(Enum):
     """
-    AtmVpiBitsMode_Enum
+    AtmVpiBitsModeEnum
 
     Atm vpi bits mode
 
-    """
+    .. data:: TWELVE = 12
+
+    	12-bits VPI cell format
 
     """
 
-    12\-bits VPI cell format
-
-    """
     TWELVE = 12
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_cfg as meta
-        return meta._meta_table['AtmVpiBitsMode_Enum']
+        return meta._meta_table['AtmVpiBitsModeEnum']
 
 
 

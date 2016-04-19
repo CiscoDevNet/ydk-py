@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,22 +14,22 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'NtpAccessAf_Enum' : _MetaInfoEnum('NtpAccessAf_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg',
+    'NtpAccessAfEnum' : _MetaInfoEnum('NtpAccessAfEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg',
         {
             'ipv4':'IPV4',
             'ipv6':'IPV6',
         }, 'Cisco-IOS-XR-ip-ntp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-ntp-cfg']),
-    'NtpPeer_Enum' : _MetaInfoEnum('NtpPeer_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg',
+    'NtpPeerEnum' : _MetaInfoEnum('NtpPeerEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg',
         {
             'peer':'PEER',
             'server':'SERVER',
         }, 'Cisco-IOS-XR-ip-ntp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-ntp-cfg']),
-    'Ntpdscp_Enum' : _MetaInfoEnum('Ntpdscp_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg',
+    'NtpdscpEnum' : _MetaInfoEnum('NtpdscpEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg',
         {
             'ntp-precedence':'NTP_PRECEDENCE',
             'ntpdscp':'NTPDSCP',
         }, 'Cisco-IOS-XR-ip-ntp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-ntp-cfg']),
-    'NtpAccess_Enum' : _MetaInfoEnum('NtpAccess_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg',
+    'NtpAccessEnum' : _MetaInfoEnum('NtpAccessEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg',
         {
             'peer':'PEER',
             'serve':'SERVE',
@@ -40,7 +40,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable.AccessGroup',
             False, 
             [
-            _MetaInfoClassMember('access-group-type', REFERENCE_ENUM_CLASS, 'NtpAccess_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'NtpAccess_Enum', 
+            _MetaInfoClassMember('access-group-type', REFERENCE_ENUM_CLASS, 'NtpAccessEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'NtpAccessEnum', 
                 [], [], 
                 '''                Access group type
                 ''',
@@ -63,7 +63,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable',
             False, 
             [
-            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'NtpAccessAf_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'NtpAccessAf_Enum', 
+            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'NtpAccessAfEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'NtpAccessAfEnum', 
                 [], [], 
                 '''                Address family
                 ''',
@@ -237,7 +237,7 @@ _meta_table = {
                 ''',
                 'dscp_or_precedence_value',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'Ntpdscp_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntpdscp_Enum', 
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'NtpdscpEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'NtpdscpEnum', 
                 [], [], 
                 '''                NTPPRECEDENCE (0) to specify Precedence value 
                 NTPDSCP (1) to specify DSCP value
@@ -263,7 +263,7 @@ _meta_table = {
                 ''',
                 'dscp_or_precedence_value',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'Ntpdscp_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntpdscp_Enum', 
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'NtpdscpEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'NtpdscpEnum', 
                 [], [], 
                 '''                NTPPRECEDENCE(0) to specify Precedence value
                 NTPDSCP(1) to specify DSCP value
@@ -539,11 +539,11 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg'
         ),
     },
-    'Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4.PeerTypeIpv4' : {
-        'meta_info' : _MetaInfoClass('Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4.PeerTypeIpv4',
+    'Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4.PeerTypeIpv4' : {
+        'meta_info' : _MetaInfoClass('Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4.PeerTypeIpv4',
             False, 
             [
-            _MetaInfoClassMember('peer-type', REFERENCE_ENUM_CLASS, 'NtpPeer_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'NtpPeer_Enum', 
+            _MetaInfoClassMember('peer-type', REFERENCE_ENUM_CLASS, 'NtpPeerEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'NtpPeerEnum', 
                 [], [], 
                 '''                Peer or Server
                 ''',
@@ -604,8 +604,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg'
         ),
     },
-    'Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4' : {
-        'meta_info' : _MetaInfoClass('Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4',
+    'Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4' : {
+        'meta_info' : _MetaInfoClass('Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4',
             False, 
             [
             _MetaInfoClassMember('address-ipv4', ATTRIBUTE, 'str' , None, None, 
@@ -614,7 +614,7 @@ _meta_table = {
                 ''',
                 'address_ipv4',
                 'Cisco-IOS-XR-ip-ntp-cfg', True),
-            _MetaInfoClassMember('peer-type-ipv4', REFERENCE_LIST, 'PeerTypeIpv4' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4.PeerTypeIpv4', 
+            _MetaInfoClassMember('peer-type-ipv4', REFERENCE_LIST, 'PeerTypeIpv4' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4.PeerTypeIpv4', 
                 [], [], 
                 '''                Configure an IPv4 NTP server or peer
                 ''',
@@ -627,11 +627,11 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg'
         ),
     },
-    'Ntp.PeerVrfs.PeerVrf.PeerIpv4s' : {
-        'meta_info' : _MetaInfoClass('Ntp.PeerVrfs.PeerVrf.PeerIpv4s',
+    'Ntp.PeerVrfs.PeerVrf.PeerIpv4S' : {
+        'meta_info' : _MetaInfoClass('Ntp.PeerVrfs.PeerVrf.PeerIpv4S',
             False, 
             [
-            _MetaInfoClassMember('peer-ipv4', REFERENCE_LIST, 'PeerIpv4' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4', 
+            _MetaInfoClassMember('peer-ipv4', REFERENCE_LIST, 'PeerIpv4' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4', 
                 [], [], 
                 '''                Configure an IPv4 NTP server or peer
                 ''',
@@ -644,11 +644,11 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg'
         ),
     },
-    'Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6.PeerTypeIpv6' : {
-        'meta_info' : _MetaInfoClass('Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6.PeerTypeIpv6',
+    'Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6.PeerTypeIpv6' : {
+        'meta_info' : _MetaInfoClass('Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6.PeerTypeIpv6',
             False, 
             [
-            _MetaInfoClassMember('peer-type', REFERENCE_ENUM_CLASS, 'NtpPeer_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'NtpPeer_Enum', 
+            _MetaInfoClassMember('peer-type', REFERENCE_ENUM_CLASS, 'NtpPeerEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'NtpPeerEnum', 
                 [], [], 
                 '''                Peer or Server
                 ''',
@@ -715,8 +715,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg'
         ),
     },
-    'Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6' : {
-        'meta_info' : _MetaInfoClass('Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6',
+    'Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6' : {
+        'meta_info' : _MetaInfoClass('Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6',
             False, 
             [
             _MetaInfoClassMember('address-ipv6', ATTRIBUTE, 'str' , None, None, 
@@ -725,7 +725,7 @@ _meta_table = {
                 ''',
                 'address_ipv6',
                 'Cisco-IOS-XR-ip-ntp-cfg', True),
-            _MetaInfoClassMember('peer-type-ipv6', REFERENCE_LIST, 'PeerTypeIpv6' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6.PeerTypeIpv6', 
+            _MetaInfoClassMember('peer-type-ipv6', REFERENCE_LIST, 'PeerTypeIpv6' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6.PeerTypeIpv6', 
                 [], [], 
                 '''                Configure a NTP server or peer
                 ''',
@@ -738,11 +738,11 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg'
         ),
     },
-    'Ntp.PeerVrfs.PeerVrf.PeerIpv6s' : {
-        'meta_info' : _MetaInfoClass('Ntp.PeerVrfs.PeerVrf.PeerIpv6s',
+    'Ntp.PeerVrfs.PeerVrf.PeerIpv6S' : {
+        'meta_info' : _MetaInfoClass('Ntp.PeerVrfs.PeerVrf.PeerIpv6S',
             False, 
             [
-            _MetaInfoClassMember('peer-ipv6', REFERENCE_LIST, 'PeerIpv6' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6', 
+            _MetaInfoClassMember('peer-ipv6', REFERENCE_LIST, 'PeerIpv6' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6', 
                 [], [], 
                 '''                Configure a NTP server or peer
                 ''',
@@ -765,13 +765,13 @@ _meta_table = {
                 ''',
                 'vrf_name',
                 'Cisco-IOS-XR-ip-ntp-cfg', True),
-            _MetaInfoClassMember('peer-ipv4s', REFERENCE_CLASS, 'PeerIpv4s' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.PeerVrfs.PeerVrf.PeerIpv4s', 
+            _MetaInfoClassMember('peer-ipv4s', REFERENCE_CLASS, 'PeerIpv4S' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.PeerVrfs.PeerVrf.PeerIpv4S', 
                 [], [], 
                 '''                Configures IPv4 NTP Peers or Servers
                 ''',
                 'peer_ipv4s',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
-            _MetaInfoClassMember('peer-ipv6s', REFERENCE_CLASS, 'PeerIpv6s' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.PeerVrfs.PeerVrf.PeerIpv6s', 
+            _MetaInfoClassMember('peer-ipv6s', REFERENCE_CLASS, 'PeerIpv6S' , 'ydk.models.ip.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.PeerVrfs.PeerVrf.PeerIpv6S', 
                 [], [], 
                 '''                Configuration NTP Peers or Servers of IPV6
                 ''',
@@ -943,12 +943,12 @@ _meta_table['Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast']['
 _meta_table['Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast']['meta_info'].parent =_meta_table['Ntp.InterfaceTables.InterfaceTable.Interface']['meta_info']
 _meta_table['Ntp.InterfaceTables.InterfaceTable.Interface']['meta_info'].parent =_meta_table['Ntp.InterfaceTables.InterfaceTable']['meta_info']
 _meta_table['Ntp.InterfaceTables.InterfaceTable']['meta_info'].parent =_meta_table['Ntp.InterfaceTables']['meta_info']
-_meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4.PeerTypeIpv4']['meta_info'].parent =_meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4']['meta_info']
-_meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4']['meta_info'].parent =_meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv4s']['meta_info']
-_meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6.PeerTypeIpv6']['meta_info'].parent =_meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6']['meta_info']
-_meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6']['meta_info'].parent =_meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv6s']['meta_info']
-_meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv4s']['meta_info'].parent =_meta_table['Ntp.PeerVrfs.PeerVrf']['meta_info']
-_meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv6s']['meta_info'].parent =_meta_table['Ntp.PeerVrfs.PeerVrf']['meta_info']
+_meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4.PeerTypeIpv4']['meta_info'].parent =_meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4']['meta_info']
+_meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4']['meta_info'].parent =_meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv4S']['meta_info']
+_meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6.PeerTypeIpv6']['meta_info'].parent =_meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6']['meta_info']
+_meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6']['meta_info'].parent =_meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv6S']['meta_info']
+_meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv4S']['meta_info'].parent =_meta_table['Ntp.PeerVrfs.PeerVrf']['meta_info']
+_meta_table['Ntp.PeerVrfs.PeerVrf.PeerIpv6S']['meta_info'].parent =_meta_table['Ntp.PeerVrfs.PeerVrf']['meta_info']
 _meta_table['Ntp.PeerVrfs.PeerVrf']['meta_info'].parent =_meta_table['Ntp.PeerVrfs']['meta_info']
 _meta_table['Ntp.Sources.Source']['meta_info'].parent =_meta_table['Ntp.Sources']['meta_info']
 _meta_table['Ntp.AccessGroupTables']['meta_info'].parent =_meta_table['Ntp']['meta_info']

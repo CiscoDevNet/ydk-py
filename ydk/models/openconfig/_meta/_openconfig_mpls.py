@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,27 +14,27 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'MplsSrlgFloodingType_Enum' : _MetaInfoEnum('MplsSrlgFloodingType_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'MplsSrlgFloodingTypeEnum' : _MetaInfoEnum('MplsSrlgFloodingTypeEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'FLOODED-SRLG':'FLOODED_SRLG',
             'STATIC-SRLG':'STATIC_SRLG',
         }, 'openconfig-mpls', _yang_ns._namespaces['openconfig-mpls']),
-    'MplsHopType_Enum' : _MetaInfoEnum('MplsHopType_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'MplsHopTypeEnum' : _MetaInfoEnum('MplsHopTypeEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'LOOSE':'LOOSE',
             'STRICT':'STRICT',
         }, 'openconfig-mpls', _yang_ns._namespaces['openconfig-mpls']),
-    'CspfTieBreaking_Enum' : _MetaInfoEnum('CspfTieBreaking_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'CspfTieBreakingEnum' : _MetaInfoEnum('CspfTieBreakingEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'RANDOM':'RANDOM',
             'LEAST_FILL':'LEAST_FILL',
             'MOST_FILL':'MOST_FILL',
         }, 'openconfig-mpls', _yang_ns._namespaces['openconfig-mpls']),
-    'TeMetricType_Enum' : _MetaInfoEnum('TeMetricType_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'TeMetricTypeEnum' : _MetaInfoEnum('TeMetricTypeEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'IGP':'IGP',
         }, 'openconfig-mpls', _yang_ns._namespaces['openconfig-mpls']),
-    'TeBandwidthType_Enum' : _MetaInfoEnum('TeBandwidthType_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'TeBandwidthTypeEnum' : _MetaInfoEnum('TeBandwidthTypeEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'SPECIFIED':'SPECIFIED',
             'AUTO':'AUTO',
@@ -235,7 +235,7 @@ _meta_table = {
                         'address',
                         'openconfig-mpls', False),
                 ]),
-            _MetaInfoClassMember('hop-type', REFERENCE_ENUM_CLASS, 'MplsHopType_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'MplsHopType_Enum', 
+            _MetaInfoClassMember('hop-type', REFERENCE_ENUM_CLASS, 'MplsHopTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'MplsHopTypeEnum', 
                 [], [], 
                 '''                strict or loose hop
                 ''',
@@ -278,7 +278,7 @@ _meta_table = {
                         'address',
                         'openconfig-mpls', False),
                 ]),
-            _MetaInfoClassMember('hop-type', REFERENCE_ENUM_CLASS, 'MplsHopType_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'MplsHopType_Enum', 
+            _MetaInfoClassMember('hop-type', REFERENCE_ENUM_CLASS, 'MplsHopTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'MplsHopTypeEnum', 
                 [], [], 
                 '''                strict or loose hop
                 ''',
@@ -711,7 +711,7 @@ _meta_table = {
                 ''',
                 'set_bandwidth',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('specification-type', REFERENCE_ENUM_CLASS, 'TeBandwidthType_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'TeBandwidthType_Enum', 
+            _MetaInfoClassMember('specification-type', REFERENCE_ENUM_CLASS, 'TeBandwidthTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'TeBandwidthTypeEnum', 
                 [], [], 
                 '''                The method used for settign the bandwidth, either explicitly
                 specified or configured
@@ -736,7 +736,7 @@ _meta_table = {
                 ''',
                 'set_bandwidth',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('specification-type', REFERENCE_ENUM_CLASS, 'TeBandwidthType_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'TeBandwidthType_Enum', 
+            _MetaInfoClassMember('specification-type', REFERENCE_ENUM_CLASS, 'TeBandwidthTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'TeBandwidthTypeEnum', 
                 [], [], 
                 '''                The method used for settign the bandwidth, either explicitly
                 specified or configured
@@ -833,7 +833,7 @@ _meta_table = {
                 ''',
                 'metric',
                 'openconfig-mpls', False, [
-                    _MetaInfoClassMember('metric', REFERENCE_ENUM_CLASS, 'TeMetricType_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'TeMetricType_Enum', 
+                    _MetaInfoClassMember('metric', REFERENCE_ENUM_CLASS, 'TeMetricTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'TeMetricTypeEnum', 
                         [], [], 
                         '''                        LSP metric, either explicit or IGP
                         ''',
@@ -925,8 +925,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.Config' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.Config',
+    'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.Config' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.Config',
             False, 
             [
             _MetaInfoClassMember('destination', REFERENCE_UNION, 'str' , None, None, 
@@ -955,8 +955,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups.Config' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups.Config',
+    'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.Config' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.Config',
             False, 
             [
             _MetaInfoClassMember('exclude-group', REFERENCE_LEAFLIST, 'str' , None, None, 
@@ -987,8 +987,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups.State' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups.State',
+    'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.State' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.State',
             False, 
             [
             _MetaInfoClassMember('exclude-group', REFERENCE_LEAFLIST, 'str' , None, None, 
@@ -1019,17 +1019,17 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups',
+    'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.Config', 
                 [], [], 
                 '''                Configuration data 
                 ''',
                 'config',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.State', 
                 [], [], 
                 '''                Operational state data 
                 ''',
@@ -1042,8 +1042,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config',
+    'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config',
             False, 
             [
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
@@ -1068,8 +1068,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State',
+    'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State',
             False, 
             [
             _MetaInfoClassMember('active', ATTRIBUTE, 'bool' , None, None, 
@@ -1101,8 +1101,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath',
+    'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath',
             False, 
             [
             _MetaInfoClassMember('secondary-path', ATTRIBUTE, 'str' , None, None, 
@@ -1113,14 +1113,14 @@ _meta_table = {
                 ''',
                 'secondary_path',
                 'openconfig-mpls', True),
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the candidate
                 secondary path
                 ''',
                 'config',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State', 
                 [], [], 
                 '''                Operational state parameters relating to the candidate
                 secondary path
@@ -1134,11 +1134,11 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths',
+    'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths',
             False, 
             [
-            _MetaInfoClassMember('candidate-secondary-path', REFERENCE_LIST, 'CandidateSecondaryPath' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath', 
+            _MetaInfoClassMember('candidate-secondary-path', REFERENCE_LIST, 'CandidateSecondaryPath' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath', 
                 [], [], 
                 '''                List of secondary paths which may be utilised when the
                 current primary path is in use
@@ -1152,11 +1152,11 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.Config' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.Config',
+    'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config',
             False, 
             [
-            _MetaInfoClassMember('cspf-tiebreaker', REFERENCE_ENUM_CLASS, 'CspfTieBreaking_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'CspfTieBreaking_Enum', 
+            _MetaInfoClassMember('cspf-tiebreaker', REFERENCE_ENUM_CLASS, 'CspfTieBreakingEnum' , 'ydk.models.openconfig.openconfig_mpls', 'CspfTieBreakingEnum', 
                 [], [], 
                 '''                Determine the tie-breaking method to choose between
                 equally desirable paths during CSFP computation
@@ -1248,11 +1248,11 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.State' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.State',
+    'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State',
             False, 
             [
-            _MetaInfoClassMember('cspf-tiebreaker', REFERENCE_ENUM_CLASS, 'CspfTieBreaking_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'CspfTieBreaking_Enum', 
+            _MetaInfoClassMember('cspf-tiebreaker', REFERENCE_ENUM_CLASS, 'CspfTieBreakingEnum' , 'ydk.models.openconfig.openconfig_mpls', 'CspfTieBreakingEnum', 
                 [], [], 
                 '''                Determine the tie-breaking method to choose between
                 equally desirable paths during CSFP computation
@@ -1344,8 +1344,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths',
+    'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths',
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
@@ -1354,14 +1354,14 @@ _meta_table = {
                 ''',
                 'name',
                 'openconfig-mpls', True),
-            _MetaInfoClassMember('admin-groups', REFERENCE_CLASS, 'AdminGroups' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups', 
+            _MetaInfoClassMember('admin-groups', REFERENCE_CLASS, 'AdminGroups' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups', 
                 [], [], 
                 '''                Top-level container for include/exclude constraints for
                 link affinities
                 ''',
                 'admin_groups',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('candidate-secondary-paths', REFERENCE_CLASS, 'CandidateSecondaryPaths' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths', 
+            _MetaInfoClassMember('candidate-secondary-paths', REFERENCE_CLASS, 'CandidateSecondaryPaths' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths', 
                 [], [], 
                 '''                The set of candidate secondary paths which may be used
                 for this primary path. When secondary paths are specified
@@ -1376,13 +1376,13 @@ _meta_table = {
                 ''',
                 'candidate_secondary_paths',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config', 
                 [], [], 
                 '''                Configuration parameters related to paths
                 ''',
                 'config',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State', 
                 [], [], 
                 '''                State parameters related to paths
                 ''',
@@ -1395,8 +1395,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups.Config' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups.Config',
+    'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.Config' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.Config',
             False, 
             [
             _MetaInfoClassMember('exclude-group', REFERENCE_LEAFLIST, 'str' , None, None, 
@@ -1427,8 +1427,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups.State' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups.State',
+    'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.State' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.State',
             False, 
             [
             _MetaInfoClassMember('exclude-group', REFERENCE_LEAFLIST, 'str' , None, None, 
@@ -1459,17 +1459,17 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups',
+    'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.Config', 
                 [], [], 
                 '''                Configuration data 
                 ''',
                 'config',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.State', 
                 [], [], 
                 '''                Operational state data 
                 ''',
@@ -1482,11 +1482,11 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.Config' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.Config',
+    'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config',
             False, 
             [
-            _MetaInfoClassMember('cspf-tiebreaker', REFERENCE_ENUM_CLASS, 'CspfTieBreaking_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'CspfTieBreaking_Enum', 
+            _MetaInfoClassMember('cspf-tiebreaker', REFERENCE_ENUM_CLASS, 'CspfTieBreakingEnum' , 'ydk.models.openconfig.openconfig_mpls', 'CspfTieBreakingEnum', 
                 [], [], 
                 '''                Determine the tie-breaking method to choose between
                 equally desirable paths during CSFP computation
@@ -1578,11 +1578,11 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.State' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.State',
+    'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.State' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.State',
             False, 
             [
-            _MetaInfoClassMember('cspf-tiebreaker', REFERENCE_ENUM_CLASS, 'CspfTieBreaking_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'CspfTieBreaking_Enum', 
+            _MetaInfoClassMember('cspf-tiebreaker', REFERENCE_ENUM_CLASS, 'CspfTieBreakingEnum' , 'ydk.models.openconfig.openconfig_mpls', 'CspfTieBreakingEnum', 
                 [], [], 
                 '''                Determine the tie-breaking method to choose between
                 equally desirable paths during CSFP computation
@@ -1674,8 +1674,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths',
+    'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths',
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
@@ -1684,20 +1684,20 @@ _meta_table = {
                 ''',
                 'name',
                 'openconfig-mpls', True),
-            _MetaInfoClassMember('admin-groups', REFERENCE_CLASS, 'AdminGroups' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups', 
+            _MetaInfoClassMember('admin-groups', REFERENCE_CLASS, 'AdminGroups' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups', 
                 [], [], 
                 '''                Top-level container for include/exclude constraints for
                 link affinities
                 ''',
                 'admin_groups',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config', 
                 [], [], 
                 '''                Configuration parameters related to paths
                 ''',
                 'config',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.State', 
                 [], [], 
                 '''                State parameters related to paths
                 ''',
@@ -1710,8 +1710,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.State' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.State',
+    'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State',
             False, 
             [
             _MetaInfoClassMember('destination', REFERENCE_UNION, 'str' , None, None, 
@@ -1740,29 +1740,29 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes',
+    'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.Config', 
                 [], [], 
                 '''                Configuration parameters for P2P LSPs
                 ''',
                 'config',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('p2p-primary-paths', REFERENCE_LIST, 'P2pPrimaryPaths' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths', 
+            _MetaInfoClassMember('p2p-primary-paths', REFERENCE_LIST, 'P2PPrimaryPaths' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths', 
                 [], [], 
                 '''                List of p2p primary paths for a tunnel
                 ''',
                 'p2p_primary_paths',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('p2p-secondary-paths', REFERENCE_LIST, 'P2pSecondaryPaths' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths', 
+            _MetaInfoClassMember('p2p-secondary-paths', REFERENCE_LIST, 'P2PSecondaryPaths' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths', 
                 [], [], 
                 '''                List of p2p primary paths for a tunnel
                 ''',
                 'p2p_secondary_paths',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State', 
                 [], [], 
                 '''                State parameters for P2P LSPs
                 ''',
@@ -1893,7 +1893,7 @@ _meta_table = {
                 ''',
                 'metric',
                 'openconfig-mpls', False, [
-                    _MetaInfoClassMember('metric', REFERENCE_ENUM_CLASS, 'TeMetricType_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'TeMetricType_Enum', 
+                    _MetaInfoClassMember('metric', REFERENCE_ENUM_CLASS, 'TeMetricTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'TeMetricTypeEnum', 
                         [], [], 
                         '''                        LSP metric, either explicit or IGP
                         ''',
@@ -2026,7 +2026,7 @@ _meta_table = {
                 ''',
                 'config',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('p2p-tunnel-attributes', REFERENCE_CLASS, 'P2pTunnelAttributes' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes', 
+            _MetaInfoClassMember('p2p-tunnel-attributes', REFERENCE_CLASS, 'P2PTunnelAttributes' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes', 
                 [], [], 
                 '''                Parameters related to LSPs of type P2P
                 ''',
@@ -2084,7 +2084,7 @@ _meta_table = {
                         ''',
                         'incoming_label',
                         'openconfig-mpls', False),
-                    _MetaInfoClassMember('incoming-label', REFERENCE_ENUM_CLASS, 'MplsLabel_Enum' , 'ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel_Enum', 
+                    _MetaInfoClassMember('incoming-label', REFERENCE_ENUM_CLASS, 'MplsLabelEnum' , 'ydk.models.openconfig.openconfig_mpls_types', 'MplsLabelEnum', 
                         [], [], 
                         '''                        label value on the incoming packet
                         ''',
@@ -2124,7 +2124,7 @@ _meta_table = {
                         ''',
                         'push_label',
                         'openconfig-mpls', False),
-                    _MetaInfoClassMember('push-label', REFERENCE_ENUM_CLASS, 'MplsLabel_Enum' , 'ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel_Enum', 
+                    _MetaInfoClassMember('push-label', REFERENCE_ENUM_CLASS, 'MplsLabelEnum' , 'ydk.models.openconfig.openconfig_mpls_types', 'MplsLabelEnum', 
                         [], [], 
                         '''                        label value to push at the current hop for the
                         LSP
@@ -2155,7 +2155,7 @@ _meta_table = {
                         ''',
                         'incoming_label',
                         'openconfig-mpls', False),
-                    _MetaInfoClassMember('incoming-label', REFERENCE_ENUM_CLASS, 'MplsLabel_Enum' , 'ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel_Enum', 
+                    _MetaInfoClassMember('incoming-label', REFERENCE_ENUM_CLASS, 'MplsLabelEnum' , 'ydk.models.openconfig.openconfig_mpls_types', 'MplsLabelEnum', 
                         [], [], 
                         '''                        label value on the incoming packet
                         ''',
@@ -2195,7 +2195,7 @@ _meta_table = {
                         ''',
                         'push_label',
                         'openconfig-mpls', False),
-                    _MetaInfoClassMember('push-label', REFERENCE_ENUM_CLASS, 'MplsLabel_Enum' , 'ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel_Enum', 
+                    _MetaInfoClassMember('push-label', REFERENCE_ENUM_CLASS, 'MplsLabelEnum' , 'ydk.models.openconfig.openconfig_mpls_types', 'MplsLabelEnum', 
                         [], [], 
                         '''                        label value to push at the current hop for the
                         LSP
@@ -2226,7 +2226,7 @@ _meta_table = {
                         ''',
                         'incoming_label',
                         'openconfig-mpls', False),
-                    _MetaInfoClassMember('incoming-label', REFERENCE_ENUM_CLASS, 'MplsLabel_Enum' , 'ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel_Enum', 
+                    _MetaInfoClassMember('incoming-label', REFERENCE_ENUM_CLASS, 'MplsLabelEnum' , 'ydk.models.openconfig.openconfig_mpls_types', 'MplsLabelEnum', 
                         [], [], 
                         '''                        label value on the incoming packet
                         ''',
@@ -2266,7 +2266,7 @@ _meta_table = {
                         ''',
                         'push_label',
                         'openconfig-mpls', False),
-                    _MetaInfoClassMember('push-label', REFERENCE_ENUM_CLASS, 'MplsLabel_Enum' , 'ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel_Enum', 
+                    _MetaInfoClassMember('push-label', REFERENCE_ENUM_CLASS, 'MplsLabelEnum' , 'ydk.models.openconfig.openconfig_mpls_types', 'MplsLabelEnum', 
                         [], [], 
                         '''                        label value to push at the current hop for the
                         LSP
@@ -2336,8 +2336,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2mpLsp' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2mpLsp',
+    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp',
             False, 
             [
             ],
@@ -2347,8 +2347,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2mpLsp' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2mpLsp',
+    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2MpLsp' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2MpLsp',
             False, 
             [
             ],
@@ -2358,8 +2358,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2pLsp' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2pLsp',
+    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp',
             False, 
             [
             _MetaInfoClassMember('fec-address', REFERENCE_UNION, 'str' , None, None, 
@@ -2391,7 +2391,7 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.LdpType_Enum' : _MetaInfoEnum('LdpType_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.LdpTypeEnum' : _MetaInfoEnum('LdpTypeEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'BASIC':'BASIC',
             'TARGETED':'TARGETED',
@@ -2400,31 +2400,31 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel',
             False, 
             [
-            _MetaInfoClassMember('ldp-type', REFERENCE_ENUM_CLASS, 'LdpType_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.LdpType_Enum', 
+            _MetaInfoClassMember('ldp-type', REFERENCE_ENUM_CLASS, 'LdpTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.LdpTypeEnum', 
                 [], [], 
                 '''                specify basic or targeted LDP LSP
                 ''',
                 'ldp_type',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('mp2mp-lsp', REFERENCE_CLASS, 'Mp2mpLsp' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2mpLsp', 
+            _MetaInfoClassMember('mp2mp-lsp', REFERENCE_CLASS, 'Mp2MpLsp' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp', 
                 [], [], 
                 '''                properties of multipoint-to-multipoint tunnels
                 ''',
                 'mp2mp_lsp',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('p2mp-lsp', REFERENCE_CLASS, 'P2mpLsp' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2mpLsp', 
+            _MetaInfoClassMember('p2mp-lsp', REFERENCE_CLASS, 'P2MpLsp' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2MpLsp', 
                 [], [], 
                 '''                properties of point-to-multipoint tunnels
                 ''',
                 'p2mp_lsp',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('p2p-lsp', REFERENCE_CLASS, 'P2pLsp' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2pLsp', 
+            _MetaInfoClassMember('p2p-lsp', REFERENCE_CLASS, 'P2PLsp' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp', 
                 [], [], 
                 '''                properties of point-to-point tunnels
                 ''',
                 'p2p_lsp',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('tunnel-type', REFERENCE_ENUM_CLASS, 'TunnelType_Enum' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelType_Enum', 
+            _MetaInfoClassMember('tunnel-type', REFERENCE_ENUM_CLASS, 'TunnelTypeEnum' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelTypeEnum', 
                 [], [], 
                 '''                specifies the type of LSP, e.g., P2P or P2MP
                 ''',
@@ -2455,8 +2455,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.Config' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.Config',
+    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.Config' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.Config',
             False, 
             [
             _MetaInfoClassMember('fec-address', REFERENCE_UNION, 'str' , None, None, 
@@ -2485,22 +2485,22 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.Config.LastHopBehavior_Enum' : _MetaInfoEnum('LastHopBehavior_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.LastHopBehaviorEnum' : _MetaInfoEnum('LastHopBehaviorEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'EXPLICIT-NULL':'EXPLICIT_NULL',
             'UNCHANGED':'UNCHANGED',
             'PHP':'PHP',
         }, 'openconfig-mpls-sr', _yang_ns._namespaces['openconfig-mpls-sr']),
-    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.Config.Type_Enum' : _MetaInfoEnum('Type_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.TypeEnum' : _MetaInfoEnum('TypeEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'INDEX':'INDEX',
             'ABSOLUTE':'ABSOLUTE',
         }, 'openconfig-mpls-sr', _yang_ns._namespaces['openconfig-mpls-sr']),
-    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.Config' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.Config',
+    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config',
             False, 
             [
-            _MetaInfoClassMember('last-hop-behavior', REFERENCE_ENUM_CLASS, 'LastHopBehavior_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.Config.LastHopBehavior_Enum', 
+            _MetaInfoClassMember('last-hop-behavior', REFERENCE_ENUM_CLASS, 'LastHopBehaviorEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.LastHopBehaviorEnum', 
                 [], [], 
                 '''                Configuration relating to the LFIB actions for the
                 Prefix-SID to be used by the penultimate-hop
@@ -2515,7 +2515,7 @@ _meta_table = {
                 ''',
                 'node_flag',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'Type_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.Config.Type_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'TypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.TypeEnum', 
                 [], [], 
                 '''                Specifies how the value of the Prefix-SID should be
                 interpreted - whether as an offset to the SRGB, or as an
@@ -2530,22 +2530,22 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.State.LastHopBehavior_Enum' : _MetaInfoEnum('LastHopBehavior_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.LastHopBehaviorEnum' : _MetaInfoEnum('LastHopBehaviorEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'EXPLICIT-NULL':'EXPLICIT_NULL',
             'UNCHANGED':'UNCHANGED',
             'PHP':'PHP',
         }, 'openconfig-mpls-sr', _yang_ns._namespaces['openconfig-mpls-sr']),
-    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.State.Type_Enum' : _MetaInfoEnum('Type_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.TypeEnum' : _MetaInfoEnum('TypeEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'INDEX':'INDEX',
             'ABSOLUTE':'ABSOLUTE',
         }, 'openconfig-mpls-sr', _yang_ns._namespaces['openconfig-mpls-sr']),
-    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.State' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.State',
+    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State',
             False, 
             [
-            _MetaInfoClassMember('last-hop-behavior', REFERENCE_ENUM_CLASS, 'LastHopBehavior_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.State.LastHopBehavior_Enum', 
+            _MetaInfoClassMember('last-hop-behavior', REFERENCE_ENUM_CLASS, 'LastHopBehaviorEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.LastHopBehaviorEnum', 
                 [], [], 
                 '''                Configuration relating to the LFIB actions for the
                 Prefix-SID to be used by the penultimate-hop
@@ -2560,7 +2560,7 @@ _meta_table = {
                 ''',
                 'node_flag',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'Type_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.State.Type_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'TypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.TypeEnum', 
                 [], [], 
                 '''                Specifies how the value of the Prefix-SID should be
                 interpreted - whether as an offset to the SRGB, or as an
@@ -2575,18 +2575,18 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid',
+    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the Prefix-SID
                 used for the originated FEC
                 ''',
                 'config',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State', 
                 [], [], 
                 '''                Operational state parameters relating to the
                 Prefix-SID used for the originated FEC
@@ -2600,8 +2600,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.State' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.State',
+    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State',
             False, 
             [
             _MetaInfoClassMember('fec-address', REFERENCE_UNION, 'str' , None, None, 
@@ -2630,8 +2630,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec',
+    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec',
             False, 
             [
             _MetaInfoClassMember('fec-address', REFERENCE_UNION, 'str' , None, None, 
@@ -2653,21 +2653,21 @@ _meta_table = {
                         'fec_address',
                         'openconfig-mpls', True),
                 ]),
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the FEC to be
                 advertised by SR
                 ''',
                 'config',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('prefix-sid', REFERENCE_CLASS, 'PrefixSid' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid', 
+            _MetaInfoClassMember('prefix-sid', REFERENCE_CLASS, 'PrefixSid' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid', 
                 [], [], 
                 '''                Parameters relating to the Prefix-SID
                 used for the originated FEC
                 ''',
                 'prefix_sid',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State', 
                 [], [], 
                 '''                Operational state relating to a FEC advertised by SR
                 ''',
@@ -2680,11 +2680,11 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp' : {
-        'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp',
+    'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp' : {
+        'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp',
             False, 
             [
-            _MetaInfoClassMember('fec', REFERENCE_LIST, 'Fec' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec', 
+            _MetaInfoClassMember('fec', REFERENCE_LIST, 'Fec' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec', 
                 [], [], 
                 '''                List of FECs that are to be originated as SR LSPs
                 ''',
@@ -2701,13 +2701,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel',
             False, 
             [
-            _MetaInfoClassMember('p2p-lsp', REFERENCE_CLASS, 'P2pLsp' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp', 
+            _MetaInfoClassMember('p2p-lsp', REFERENCE_CLASS, 'P2PLsp' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp', 
                 [], [], 
                 '''                properties of point-to-point tunnels
                 ''',
                 'p2p_lsp',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('tunnel-type', REFERENCE_ENUM_CLASS, 'TunnelType_Enum' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelType_Enum', 
+            _MetaInfoClassMember('tunnel-type', REFERENCE_ENUM_CLASS, 'TunnelTypeEnum' , 'ydk.models.openconfig.openconfig_mpls_types', 'TunnelTypeEnum', 
                 [], [], 
                 '''                specifies the type of LSP, e.g., P2P or P2MP
                 ''',
@@ -3832,7 +3832,7 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor.NeighborStatus_Enum' : _MetaInfoEnum('NeighborStatus_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor.NeighborStatusEnum' : _MetaInfoEnum('NeighborStatusEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'UP':'UP',
             'DOWN':'DOWN',
@@ -3866,7 +3866,7 @@ _meta_table = {
                 ''',
                 'detected_interface',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('neighbor-status', REFERENCE_ENUM_CLASS, 'NeighborStatus_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor.NeighborStatus_Enum', 
+            _MetaInfoClassMember('neighbor-status', REFERENCE_ENUM_CLASS, 'NeighborStatusEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor.NeighborStatusEnum', 
                 [], [], 
                 '''                Enumuration of possible RSVP neighbor states
                 ''',
@@ -3937,12 +3937,12 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.Status_Enum' : _MetaInfoEnum('Status_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.StatusEnum' : _MetaInfoEnum('StatusEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'UP':'UP',
             'DOWN':'DOWN',
         }, 'openconfig-mpls-rsvp', _yang_ns._namespaces['openconfig-mpls-rsvp']),
-    'Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.Type_Enum' : _MetaInfoEnum('Type_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.TypeEnum' : _MetaInfoEnum('TypeEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'SOURCE':'SOURCE',
             'TRANSIT':'TRANSIT',
@@ -4021,7 +4021,7 @@ _meta_table = {
                         ''',
                         'label_in',
                         'openconfig-mpls', False),
-                    _MetaInfoClassMember('label-in', REFERENCE_ENUM_CLASS, 'MplsLabel_Enum' , 'ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel_Enum', 
+                    _MetaInfoClassMember('label-in', REFERENCE_ENUM_CLASS, 'MplsLabelEnum' , 'ydk.models.openconfig.openconfig_mpls_types', 'MplsLabelEnum', 
                         [], [], 
                         '''                        Incoming MPLS label associated with this RSVP session
                         ''',
@@ -4040,14 +4040,14 @@ _meta_table = {
                         ''',
                         'label_out',
                         'openconfig-mpls', False),
-                    _MetaInfoClassMember('label-out', REFERENCE_ENUM_CLASS, 'MplsLabel_Enum' , 'ydk.models.openconfig.openconfig_mpls_types', 'MplsLabel_Enum', 
+                    _MetaInfoClassMember('label-out', REFERENCE_ENUM_CLASS, 'MplsLabelEnum' , 'ydk.models.openconfig.openconfig_mpls_types', 'MplsLabelEnum', 
                         [], [], 
                         '''                        Outgoing MPLS label associated with this RSVP session
                         ''',
                         'label_out',
                         'openconfig-mpls', False),
                 ]),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'Status_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.Status_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'StatusEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.StatusEnum', 
                 [], [], 
                 '''                Enumeration of RSVP session states
                 ''',
@@ -4059,7 +4059,7 @@ _meta_table = {
                 ''',
                 'tunnel_id',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'Type_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.Type_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'TypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.TypeEnum', 
                 [], [], 
                 '''                Enumeration of possible RSVP session types
                 ''',
@@ -4149,7 +4149,7 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config.Advertise_Enum' : _MetaInfoEnum('Advertise_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config.AdvertiseEnum' : _MetaInfoEnum('AdvertiseEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'PROTECTED':'PROTECTED',
             'UNPROTECTED':'UNPROTECTED',
@@ -4158,7 +4158,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config',
             False, 
             [
-            _MetaInfoClassMember('advertise', REFERENCE_LEAFLIST, 'Advertise_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config.Advertise_Enum', 
+            _MetaInfoClassMember('advertise', REFERENCE_LEAFLIST, 'AdvertiseEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config.AdvertiseEnum', 
                 [], [], 
                 '''                Specifies the type of adjacency SID which should be
                 advertised for the specified entity.
@@ -4181,7 +4181,7 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State.Advertise_Enum' : _MetaInfoEnum('Advertise_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State.AdvertiseEnum' : _MetaInfoEnum('AdvertiseEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'PROTECTED':'PROTECTED',
             'UNPROTECTED':'UNPROTECTED',
@@ -4190,7 +4190,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State',
             False, 
             [
-            _MetaInfoClassMember('advertise', REFERENCE_LEAFLIST, 'Advertise_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State.Advertise_Enum', 
+            _MetaInfoClassMember('advertise', REFERENCE_LEAFLIST, 'AdvertiseEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State.AdvertiseEnum', 
                 [], [], 
                 '''                Specifies the type of adjacency SID which should be
                 advertised for the specified entity.
@@ -4469,12 +4469,12 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdSpecification_Enum' : _MetaInfoEnum('ThresholdSpecification_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdSpecificationEnum' : _MetaInfoEnum('ThresholdSpecificationEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'MIRRORED-UP-DOWN':'MIRRORED_UP_DOWN',
             'SEPARATE-UP-DOWN':'SEPARATE_UP_DOWN',
         }, 'openconfig-mpls', _yang_ns._namespaces['openconfig-mpls']),
-    'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdType_Enum' : _MetaInfoEnum('ThresholdType_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdTypeEnum' : _MetaInfoEnum('ThresholdTypeEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'DELTA':'DELTA',
             'THRESHOLD-CROSSED':'THRESHOLD_CROSSED',
@@ -4499,7 +4499,7 @@ _meta_table = {
                 ''',
                 'down_thresholds',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('threshold-specification', REFERENCE_ENUM_CLASS, 'ThresholdSpecification_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdSpecification_Enum', 
+            _MetaInfoClassMember('threshold-specification', REFERENCE_ENUM_CLASS, 'ThresholdSpecificationEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdSpecificationEnum', 
                 [], [], 
                 '''                This value specifies whether a single set of threshold
                 values should be used for both increasing and decreasing
@@ -4512,7 +4512,7 @@ _meta_table = {
                 ''',
                 'threshold_specification',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('threshold-type', REFERENCE_ENUM_CLASS, 'ThresholdType_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdType_Enum', 
+            _MetaInfoClassMember('threshold-type', REFERENCE_ENUM_CLASS, 'ThresholdTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdTypeEnum', 
                 [], [], 
                 '''                The type of threshold that should be used to specify the
                 values at which bandwidth is flooded. DELTA indicates that
@@ -4550,12 +4550,12 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdSpecification_Enum' : _MetaInfoEnum('ThresholdSpecification_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdSpecificationEnum' : _MetaInfoEnum('ThresholdSpecificationEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'MIRRORED-UP-DOWN':'MIRRORED_UP_DOWN',
             'SEPARATE-UP-DOWN':'SEPARATE_UP_DOWN',
         }, 'openconfig-mpls', _yang_ns._namespaces['openconfig-mpls']),
-    'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdType_Enum' : _MetaInfoEnum('ThresholdType_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdTypeEnum' : _MetaInfoEnum('ThresholdTypeEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'DELTA':'DELTA',
             'THRESHOLD-CROSSED':'THRESHOLD_CROSSED',
@@ -4580,7 +4580,7 @@ _meta_table = {
                 ''',
                 'down_thresholds',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('threshold-specification', REFERENCE_ENUM_CLASS, 'ThresholdSpecification_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdSpecification_Enum', 
+            _MetaInfoClassMember('threshold-specification', REFERENCE_ENUM_CLASS, 'ThresholdSpecificationEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdSpecificationEnum', 
                 [], [], 
                 '''                This value specifies whether a single set of threshold
                 values should be used for both increasing and decreasing
@@ -4593,7 +4593,7 @@ _meta_table = {
                 ''',
                 'threshold_specification',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('threshold-type', REFERENCE_ENUM_CLASS, 'ThresholdType_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdType_Enum', 
+            _MetaInfoClassMember('threshold-type', REFERENCE_ENUM_CLASS, 'ThresholdTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdTypeEnum', 
                 [], [], 
                 '''                The type of threshold that should be used to specify the
                 values at which bandwidth is flooded. DELTA indicates that
@@ -4769,7 +4769,7 @@ _meta_table = {
                 ''',
                 'cost',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('flooding-type', REFERENCE_ENUM_CLASS, 'MplsSrlgFloodingType_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'MplsSrlgFloodingType_Enum', 
+            _MetaInfoClassMember('flooding-type', REFERENCE_ENUM_CLASS, 'MplsSrlgFloodingTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'MplsSrlgFloodingTypeEnum', 
                 [], [], 
                 '''                The type of SRLG, either flooded in the IGP or
                 statically configured
@@ -4806,7 +4806,7 @@ _meta_table = {
                 ''',
                 'cost',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('flooding-type', REFERENCE_ENUM_CLASS, 'MplsSrlgFloodingType_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'MplsSrlgFloodingType_Enum', 
+            _MetaInfoClassMember('flooding-type', REFERENCE_ENUM_CLASS, 'MplsSrlgFloodingTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'MplsSrlgFloodingTypeEnum', 
                 [], [], 
                 '''                The type of SRLG, either flooded in the IGP or
                 statically configured
@@ -5208,12 +5208,12 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdSpecification_Enum' : _MetaInfoEnum('ThresholdSpecification_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdSpecificationEnum' : _MetaInfoEnum('ThresholdSpecificationEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'MIRRORED-UP-DOWN':'MIRRORED_UP_DOWN',
             'SEPARATE-UP-DOWN':'SEPARATE_UP_DOWN',
         }, 'openconfig-mpls', _yang_ns._namespaces['openconfig-mpls']),
-    'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdType_Enum' : _MetaInfoEnum('ThresholdType_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdTypeEnum' : _MetaInfoEnum('ThresholdTypeEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'DELTA':'DELTA',
             'THRESHOLD-CROSSED':'THRESHOLD_CROSSED',
@@ -5238,7 +5238,7 @@ _meta_table = {
                 ''',
                 'down_thresholds',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('threshold-specification', REFERENCE_ENUM_CLASS, 'ThresholdSpecification_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdSpecification_Enum', 
+            _MetaInfoClassMember('threshold-specification', REFERENCE_ENUM_CLASS, 'ThresholdSpecificationEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdSpecificationEnum', 
                 [], [], 
                 '''                This value specifies whether a single set of threshold
                 values should be used for both increasing and decreasing
@@ -5251,7 +5251,7 @@ _meta_table = {
                 ''',
                 'threshold_specification',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('threshold-type', REFERENCE_ENUM_CLASS, 'ThresholdType_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdType_Enum', 
+            _MetaInfoClassMember('threshold-type', REFERENCE_ENUM_CLASS, 'ThresholdTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdTypeEnum', 
                 [], [], 
                 '''                The type of threshold that should be used to specify the
                 values at which bandwidth is flooded. DELTA indicates that
@@ -5289,12 +5289,12 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdSpecification_Enum' : _MetaInfoEnum('ThresholdSpecification_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdSpecificationEnum' : _MetaInfoEnum('ThresholdSpecificationEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'MIRRORED-UP-DOWN':'MIRRORED_UP_DOWN',
             'SEPARATE-UP-DOWN':'SEPARATE_UP_DOWN',
         }, 'openconfig-mpls', _yang_ns._namespaces['openconfig-mpls']),
-    'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdType_Enum' : _MetaInfoEnum('ThresholdType_Enum', 'ydk.models.openconfig.openconfig_mpls',
+    'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdTypeEnum' : _MetaInfoEnum('ThresholdTypeEnum', 'ydk.models.openconfig.openconfig_mpls',
         {
             'DELTA':'DELTA',
             'THRESHOLD-CROSSED':'THRESHOLD_CROSSED',
@@ -5319,7 +5319,7 @@ _meta_table = {
                 ''',
                 'down_thresholds',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('threshold-specification', REFERENCE_ENUM_CLASS, 'ThresholdSpecification_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdSpecification_Enum', 
+            _MetaInfoClassMember('threshold-specification', REFERENCE_ENUM_CLASS, 'ThresholdSpecificationEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdSpecificationEnum', 
                 [], [], 
                 '''                This value specifies whether a single set of threshold
                 values should be used for both increasing and decreasing
@@ -5332,7 +5332,7 @@ _meta_table = {
                 ''',
                 'threshold_specification',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('threshold-type', REFERENCE_ENUM_CLASS, 'ThresholdType_Enum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdType_Enum', 
+            _MetaInfoClassMember('threshold-type', REFERENCE_ENUM_CLASS, 'ThresholdTypeEnum' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdTypeEnum', 
                 [], [], 
                 '''                The type of threshold that should be used to specify the
                 values at which bandwidth is flooded. DELTA indicates that
@@ -5595,28 +5595,28 @@ _meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow'
 _meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth']['meta_info']
 _meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.Config']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth']['meta_info']
 _meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.State']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth']['meta_info']
-_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups.Config']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups']['meta_info']
-_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups.State']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups']['meta_info']
-_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath']['meta_info']
-_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath']['meta_info']
-_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths']['meta_info']
-_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths']['meta_info']
-_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths']['meta_info']
-_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.Config']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths']['meta_info']
-_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.State']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths']['meta_info']
-_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups.Config']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups']['meta_info']
-_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups.State']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups']['meta_info']
-_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths']['meta_info']
-_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.Config']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths']['meta_info']
-_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.State']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths']['meta_info']
-_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.Config']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes']['meta_info']
-_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes']['meta_info']
-_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes']['meta_info']
-_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.State']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes']['meta_info']
+_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.Config']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups']['meta_info']
+_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.State']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups']['meta_info']
+_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath']['meta_info']
+_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath']['meta_info']
+_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths']['meta_info']
+_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths']['meta_info']
+_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths']['meta_info']
+_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths']['meta_info']
+_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths']['meta_info']
+_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.Config']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups']['meta_info']
+_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.State']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups']['meta_info']
+_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths']['meta_info']
+_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths']['meta_info']
+_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.State']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths']['meta_info']
+_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.Config']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes']['meta_info']
+_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes']['meta_info']
+_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes']['meta_info']
+_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes']['meta_info']
 _meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.State.Counters']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.State']['meta_info']
 _meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel']['meta_info']
 _meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.Config']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel']['meta_info']
-_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel']['meta_info']
+_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel']['meta_info']
 _meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.State']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath.Tunnel']['meta_info']
 _meta_table['Mpls.Lsps.ConstrainedPath.NamedExplicitPaths']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath']['meta_info']
 _meta_table['Mpls.Lsps.ConstrainedPath.Tunnel']['meta_info'].parent =_meta_table['Mpls.Lsps.ConstrainedPath']['meta_info']
@@ -5624,17 +5624,17 @@ _meta_table['Mpls.Lsps.StaticLsps.LabelSwitchedPath.Egress']['meta_info'].parent
 _meta_table['Mpls.Lsps.StaticLsps.LabelSwitchedPath.Ingress']['meta_info'].parent =_meta_table['Mpls.Lsps.StaticLsps.LabelSwitchedPath']['meta_info']
 _meta_table['Mpls.Lsps.StaticLsps.LabelSwitchedPath.Transit']['meta_info'].parent =_meta_table['Mpls.Lsps.StaticLsps.LabelSwitchedPath']['meta_info']
 _meta_table['Mpls.Lsps.StaticLsps.LabelSwitchedPath']['meta_info'].parent =_meta_table['Mpls.Lsps.StaticLsps']['meta_info']
-_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2mpLsp']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel']['meta_info']
-_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2mpLsp']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel']['meta_info']
-_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2pLsp']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel']['meta_info']
+_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel']['meta_info']
+_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2MpLsp']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel']['meta_info']
+_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel']['meta_info']
 _meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp']['meta_info']
-_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.Config']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid']['meta_info']
-_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.State']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid']['meta_info']
-_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.Config']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec']['meta_info']
-_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec']['meta_info']
-_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.State']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec']['meta_info']
-_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp']['meta_info']
-_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel']['meta_info']
+_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid']['meta_info']
+_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid']['meta_info']
+_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.Config']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec']['meta_info']
+_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec']['meta_info']
+_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec']['meta_info']
+_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp']['meta_info']
+_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel']['meta_info']
 _meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting']['meta_info']
 _meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol']['meta_info']
 _meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting']['meta_info'].parent =_meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol']['meta_info']

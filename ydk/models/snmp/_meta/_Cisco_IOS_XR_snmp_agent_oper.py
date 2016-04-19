@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,18 +14,18 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'SnmpCorrVbindMatch_Enum' : _MetaInfoEnum('SnmpCorrVbindMatch_Enum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper',
+    'SnmpCorrVbindMatchEnum' : _MetaInfoEnum('SnmpCorrVbindMatchEnum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper',
         {
             'index':'INDEX',
             'value':'VALUE',
         }, 'Cisco-IOS-XR-snmp-agent-oper', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-oper']),
-    'SnmpCorrRuleState_Enum' : _MetaInfoEnum('SnmpCorrRuleState_Enum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper',
+    'SnmpCorrRuleStateEnum' : _MetaInfoEnum('SnmpCorrRuleStateEnum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper',
         {
             'rule-unapplied':'RULE_UNAPPLIED',
             'rule-applied':'RULE_APPLIED',
             'rule-applied-all':'RULE_APPLIED_ALL',
         }, 'Cisco-IOS-XR-snmp-agent-oper', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-oper']),
-    'DupReqDropStatus_Enum' : _MetaInfoEnum('DupReqDropStatus_Enum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper',
+    'DupReqDropStatusEnum' : _MetaInfoEnum('DupReqDropStatusEnum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper',
         {
             'disabled':'DISABLED',
             'enabled':'ENABLED',
@@ -80,7 +80,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus.VarBind',
             False, 
             [
-            _MetaInfoClassMember('match-type', REFERENCE_ENUM_CLASS, 'SnmpCorrVbindMatch_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'SnmpCorrVbindMatch_Enum', 
+            _MetaInfoClassMember('match-type', REFERENCE_ENUM_CLASS, 'SnmpCorrVbindMatchEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'SnmpCorrVbindMatchEnum', 
                 [], [], 
                 '''                Varbind match type
                 ''',
@@ -132,7 +132,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Correlator.RuleDetails.RuleDetail.RootCause.VarBind',
             False, 
             [
-            _MetaInfoClassMember('match-type', REFERENCE_ENUM_CLASS, 'SnmpCorrVbindMatch_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'SnmpCorrVbindMatch_Enum', 
+            _MetaInfoClassMember('match-type', REFERENCE_ENUM_CLASS, 'SnmpCorrVbindMatchEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'SnmpCorrVbindMatchEnum', 
                 [], [], 
                 '''                Varbind match type
                 ''',
@@ -196,7 +196,7 @@ _meta_table = {
                 ''',
                 'rule_name',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('rule-state', REFERENCE_ENUM_CLASS, 'SnmpCorrRuleState_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'SnmpCorrRuleState_Enum', 
+            _MetaInfoClassMember('rule-state', REFERENCE_ENUM_CLASS, 'SnmpCorrRuleStateEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'SnmpCorrRuleStateEnum', 
                 [], [], 
                 '''                Applied state of the rule It could be not
                 applied, applied or applied to all
@@ -294,7 +294,7 @@ _meta_table = {
                 ''',
                 'rule_name',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('rule-state', REFERENCE_ENUM_CLASS, 'SnmpCorrRuleState_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'SnmpCorrRuleState_Enum', 
+            _MetaInfoClassMember('rule-state', REFERENCE_ENUM_CLASS, 'SnmpCorrRuleStateEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'SnmpCorrRuleStateEnum', 
                 [], [], 
                 '''                Applied state of the rule It could be not
                 applied, applied or applied to all
@@ -762,7 +762,7 @@ _meta_table = {
                 ''',
                 'duplicate_request_latest_enable_time',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('duplicate-request-status', REFERENCE_ENUM_CLASS, 'DupReqDropStatus_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'DupReqDropStatus_Enum', 
+            _MetaInfoClassMember('duplicate-request-status', REFERENCE_ENUM_CLASS, 'DupReqDropStatusEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'DupReqDropStatusEnum', 
                 [], [], 
                 '''                Duplicate requests drop feature status.
                 ''',
@@ -1917,7 +1917,7 @@ _meta_table = {
                 ''',
                 'duplicate_request_latest_enable_time',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
-            _MetaInfoClassMember('duplicate-request-status', REFERENCE_ENUM_CLASS, 'DupReqDropStatus_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'DupReqDropStatus_Enum', 
+            _MetaInfoClassMember('duplicate-request-status', REFERENCE_ENUM_CLASS, 'DupReqDropStatusEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_oper', 'DupReqDropStatusEnum', 
                 [], [], 
                 '''                Duplicate requests drop feature status.
                 ''',
@@ -2887,7 +2887,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-snmp-ifmib-oper', True),
-            _MetaInfoClassMember('link-up-down-notif-status', REFERENCE_ENUM_CLASS, 'LinkUpDownStatus_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_ifmib_oper', 'LinkUpDownStatus_Enum', 
+            _MetaInfoClassMember('link-up-down-notif-status', REFERENCE_ENUM_CLASS, 'LinkUpDownStatusEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_ifmib_oper', 'LinkUpDownStatusEnum', 
                 [], [], 
                 '''                LinkUpDown notification status
                 ''',

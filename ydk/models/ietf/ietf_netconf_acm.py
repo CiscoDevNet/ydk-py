@@ -29,34 +29,33 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class ActionType_Enum(Enum):
+class ActionTypeEnum(Enum):
     """
-    ActionType_Enum
+    ActionTypeEnum
 
     Action taken by the server when a particular
+
     rule matches.
 
-    """
+    .. data:: PERMIT = 0
+
+    	Requested action is permitted.
+
+    .. data:: DENY = 1
+
+    	Requested action is denied.
 
     """
 
-    Requested action is permitted.
-
-    """
     PERMIT = 0
 
-    """
-
-    Requested action is denied.
-
-    """
     DENY = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ietf._meta import _ietf_netconf_acm as meta
-        return meta._meta_table['ActionType_Enum']
+        return meta._meta_table['ActionTypeEnum']
 
 
 class AccessOperationsType_Bits(FixedBitsDict):
@@ -118,7 +117,7 @@ class Nacm(object):
     .. attribute:: exec_default
     
     	Controls whether exec access is granted if no appropriate rule is found for a particular protocol operation request
-    	**type**\: :py:class:`ActionType_Enum <ydk.models.ietf.ietf_netconf_acm.ActionType_Enum>`
+    	**type**\: :py:class:`ActionTypeEnum <ydk.models.ietf.ietf_netconf_acm.ActionTypeEnum>`
     
     .. attribute:: groups
     
@@ -128,7 +127,7 @@ class Nacm(object):
     .. attribute:: read_default
     
     	Controls whether read access is granted if no appropriate rule is found for a particular read request
-    	**type**\: :py:class:`ActionType_Enum <ydk.models.ietf.ietf_netconf_acm.ActionType_Enum>`
+    	**type**\: :py:class:`ActionTypeEnum <ydk.models.ietf.ietf_netconf_acm.ActionTypeEnum>`
     
     .. attribute:: rule_list
     
@@ -138,7 +137,7 @@ class Nacm(object):
     .. attribute:: write_default
     
     	Controls whether create, update, or delete access is granted if no appropriate rule is found for a particular write request
-    	**type**\: :py:class:`ActionType_Enum <ydk.models.ietf.ietf_netconf_acm.ActionType_Enum>`
+    	**type**\: :py:class:`ActionTypeEnum <ydk.models.ietf.ietf_netconf_acm.ActionTypeEnum>`
     
     
 
@@ -232,8 +231,6 @@ class Nacm(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
@@ -242,10 +239,6 @@ class Nacm(object):
                         if child is not None:
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -265,17 +258,11 @@ class Nacm(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.group is not None:
                 for child_ref in self.group:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -346,7 +333,7 @@ class Nacm(object):
             .. attribute:: action
             
             	The access control action associated with the rule.  If a rule is determined to match a particular request, then this object is used to determine whether to permit or deny the request
-            	**type**\: :py:class:`ActionType_Enum <ydk.models.ietf.ietf_netconf_acm.ActionType_Enum>`
+            	**type**\: :py:class:`ActionTypeEnum <ydk.models.ietf.ietf_netconf_acm.ActionTypeEnum>`
             
             .. attribute:: comment
             
@@ -407,8 +394,6 @@ class Nacm(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
@@ -435,10 +420,6 @@ class Nacm(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.ietf._meta import _ietf_netconf_acm as meta
@@ -458,8 +439,6 @@ class Nacm(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.name is not None:
                 return True
 
@@ -473,10 +452,6 @@ class Nacm(object):
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -496,8 +471,6 @@ class Nacm(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.denied_data_writes is not None:
             return True
 
@@ -519,9 +492,6 @@ class Nacm(object):
         if self.groups is not None and self.groups._has_data():
             return True
 
-        if self.groups is not None and self.groups.is_presence():
-            return True
-
         if self.read_default is not None:
             return True
 
@@ -533,10 +503,6 @@ class Nacm(object):
         if self.write_default is not None:
             return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

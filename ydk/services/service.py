@@ -23,11 +23,11 @@
 class Service(object):
     """ Base service class which can be extended for different ways of communicating to remote server """
 
-    def execute_payload(self, provider, payload):
+    def execute_payload(self, provider, operation, payload):
         # print payload
-        provider.payload_log(payload)
         reply = provider.sp_instance.execute_operation(
                                             provider.sp_instance._nc_manager,
+                                            operation,
                                             payload)
 
         # print reply

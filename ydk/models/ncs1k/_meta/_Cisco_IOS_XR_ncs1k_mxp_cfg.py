@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,19 +14,19 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'ClientDataRate_Enum' : _MetaInfoEnum('ClientDataRate_Enum', 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg',
+    'ClientDataRateEnum' : _MetaInfoEnum('ClientDataRateEnum', 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg',
         {
             'ten-gig':'TEN_GIG',
             'forty-gig':'FORTY_GIG',
             'hundred-gig':'HUNDRED_GIG',
         }, 'Cisco-IOS-XR-ncs1k-mxp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ncs1k-mxp-cfg']),
-    'TrunkDataRate_Enum' : _MetaInfoEnum('TrunkDataRate_Enum', 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg',
+    'TrunkDataRateEnum' : _MetaInfoEnum('TrunkDataRateEnum', 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg',
         {
             'hundred-gig':'HUNDRED_GIG',
             'two-hundred-gig':'TWO_HUNDRED_GIG',
             'two-hundred-fifty-gig':'TWO_HUNDRED_FIFTY_GIG',
         }, 'Cisco-IOS-XR-ncs1k-mxp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ncs1k-mxp-cfg']),
-    'Fec_Enum' : _MetaInfoEnum('Fec_Enum', 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg',
+    'FecEnum' : _MetaInfoEnum('FecEnum', 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg',
         {
             'sd7':'SD7',
             'sd20':'SD20',
@@ -41,19 +41,19 @@ _meta_table = {
                 ''',
                 'slice_id',
                 'Cisco-IOS-XR-ncs1k-mxp-cfg', True),
-            _MetaInfoClassMember('client-rate', REFERENCE_ENUM_CLASS, 'ClientDataRate_Enum' , 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg', 'ClientDataRate_Enum', 
+            _MetaInfoClassMember('client-rate', REFERENCE_ENUM_CLASS, 'ClientDataRateEnum' , 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg', 'ClientDataRateEnum', 
                 [], [], 
                 '''                Client Rate
                 ''',
                 'client_rate',
                 'Cisco-IOS-XR-ncs1k-mxp-cfg', False),
-            _MetaInfoClassMember('fec', REFERENCE_ENUM_CLASS, 'Fec_Enum' , 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg', 'Fec_Enum', 
+            _MetaInfoClassMember('fec', REFERENCE_ENUM_CLASS, 'FecEnum' , 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg', 'FecEnum', 
                 [], [], 
                 '''                FEC
                 ''',
                 'fec',
                 'Cisco-IOS-XR-ncs1k-mxp-cfg', False),
-            _MetaInfoClassMember('trunk-rate', REFERENCE_ENUM_CLASS, 'TrunkDataRate_Enum' , 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg', 'TrunkDataRate_Enum', 
+            _MetaInfoClassMember('trunk-rate', REFERENCE_ENUM_CLASS, 'TrunkDataRateEnum' , 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg', 'TrunkDataRateEnum', 
                 [], [], 
                 '''                TrunkRate
                 ''',

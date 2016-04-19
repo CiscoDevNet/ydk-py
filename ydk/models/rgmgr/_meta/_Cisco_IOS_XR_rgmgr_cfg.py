@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'IccpMode_Enum' : _MetaInfoEnum('IccpMode_Enum', 'ydk.models.rgmgr.Cisco_IOS_XR_rgmgr_cfg',
+    'IccpModeEnum' : _MetaInfoEnum('IccpModeEnum', 'ydk.models.rgmgr.Cisco_IOS_XR_rgmgr_cfg',
         {
             'singleton':'SINGLETON',
         }, 'Cisco-IOS-XR-rgmgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-rgmgr-cfg']),
@@ -263,7 +263,7 @@ _meta_table = {
                 ''',
                 'members',
                 'Cisco-IOS-XR-rgmgr-cfg', False),
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'IccpMode_Enum' , 'ydk.models.rgmgr.Cisco_IOS_XR_rgmgr_cfg', 'IccpMode_Enum', 
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'IccpModeEnum' , 'ydk.models.rgmgr.Cisco_IOS_XR_rgmgr_cfg', 'IccpModeEnum', 
                 [], [], 
                 '''                ICCP mode
                 ''',

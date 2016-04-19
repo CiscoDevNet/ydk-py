@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,14 +14,14 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'RcmdPriority_Enum' : _MetaInfoEnum('RcmdPriority_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg',
+    'RcmdPriorityEnum' : _MetaInfoEnum('RcmdPriorityEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg',
         {
             'critical':'CRITICAL',
             'high':'HIGH',
             'medium':'MEDIUM',
             'low':'LOW',
         }, 'Cisco-IOS-XR-infra-rcmd-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-cfg']),
-    'ProtocolName_Enum' : _MetaInfoEnum('ProtocolName_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg',
+    'ProtocolNameEnum' : _MetaInfoEnum('ProtocolNameEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg',
         {
             'ospf':'OSPF',
             'isis':'ISIS',
@@ -174,7 +174,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RouterConvergence.Protocols.Protocol.Priorities.Priority',
             False, 
             [
-            _MetaInfoClassMember('rcmd-priority', REFERENCE_ENUM_CLASS, 'RcmdPriority_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg', 'RcmdPriority_Enum', 
+            _MetaInfoClassMember('rcmd-priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg', 'RcmdPriorityEnum', 
                 [], [], 
                 '''                Specify the priority
                 ''',
@@ -243,7 +243,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RouterConvergence.Protocols.Protocol',
             False, 
             [
-            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'ProtocolName_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg', 'ProtocolName_Enum', 
+            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'ProtocolNameEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg', 'ProtocolNameEnum', 
                 [], [], 
                 '''                Specify the protocol
                 ''',

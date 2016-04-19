@@ -19,6 +19,7 @@
      
 """
 from .service import Service
+from meta_service import MetaService
 import logging
 
 
@@ -44,10 +45,12 @@ class ExecutorService(Service):
                   - if there isn't enough information in the entity to prepare the message (missing keys for example)
         """
         try:
+            rpc = MetaService.normalize_meta(provider.get_capabilities(), rpc)
             return self.execute_payload(
                                         provider,
+                                        '',
                                         provider.sp_instance.encode_rpc(rpc)
                                         )
         finally:
-            self.executor_logger.info('Operation completed')
+            self.executor_logger.info('Netconf operation completed')
 

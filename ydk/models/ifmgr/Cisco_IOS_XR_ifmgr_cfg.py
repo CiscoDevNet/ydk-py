@@ -25,223 +25,215 @@ from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYDataValidationError
 
 
-from ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes import AtmPvcData_Enum
-from ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes import AtmPvcEncapsulation_Enum
-from ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes import AtmPvcShaping_Enum
-from ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes import AtmVpShaping_Enum
-from ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg import AtmPvcTestMode_Enum
-from ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg import AtmPvpTestMode_Enum
-from ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg import AtmVpiBitsMode_Enum
-from ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg import BfdMode_Enum
-from ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg import BundleCiscoExtTypes_Enum
-from ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg import BundleLoadBalance_Enum
-from ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg import BundleMaximumActiveLinksMode_Enum
-from ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg import BundlePortActivity_Enum
-from ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg import ChurnLogging_Enum
-from ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg import MlacpMaximizeParameter_Enum
-from ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg import MlacpSwitchover_Enum
-from ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg import OpticsDwdmCarrierGrid_Enum
-from ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg import OpticsDwdmCarrierParam_Enum
-from ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg import OpticsLoopback_Enum
-from ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg import Threshold_Enum
-from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnExpTtiTypeDapi_Enum
-from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnExpTtiTypeFull_Enum
-from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnExpTtiTypeOs_Enum
-from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnExpTtiTypeSapi_Enum
-from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnLoopback_Enum
-from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnPerMon_Enum
-from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnSecAdminState_Enum
-from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnSendTtiTypeDapi_Enum
-from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnSendTtiTypeFull_Enum
-from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnSendTtiTypeOs_Enum
-from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnSendTtiTypeSapi_Enum
-from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtuForwardErrorCorrection_Enum
-from ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg import EthernetAutoNegotiation_Enum
-from ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg import EthernetDuplex_Enum
-from ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg import EthernetFec_Enum
-from ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg import EthernetFlowCtrl_Enum
-from ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg import EthernetIpg_Enum
-from ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg import EthernetLoopback_Enum
-from ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg import EthernetSpeed_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg import SpanMirrorInterval_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg import SpanTrafficDirection_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes import SpanSessionClass_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg import CfmLmCountersCfg_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes import CfmAisInterval_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes import CfmCcmInterval_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamEventActionEnumEfd_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamEventActionEnum_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamEventActionPrimEnum_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamInterfaceHelloIntervalEnum_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamInterfaceModeEnum_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamInterfaceRequireModeEnum_Enum
-from ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg import VrfAddressFamily_Enum
-from ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg import VrfSubAddressFamily_Enum
-from ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg import Ipv4DefaultPing_Enum
-from ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg import Ipv4InterfaceQppb_Enum
-from ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg import Ipv4Reachable_Enum
-from ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg import Ipv4SelfPing_Enum
-from ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg import Ipv6DefaultPing_Enum
-from ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg import Ipv6Qppb_Enum
-from ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg import Ipv6Reachable_Enum
-from ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg import Ipv6SelfPing_Enum
-from ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg import Ipv6NdRouterPref_Enum
-from ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg import Ipv6ndMonth_Enum
-from ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg import Ipv6srpEncapsulation_Enum
-from ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg import EgressFiltering_Enum
-from ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg import Filtering_Enum
-from ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg import L2ProtocolMode_Enum
-from ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg import L2ProtocolName_Enum
-from ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes import EthertypeMatch_Enum
-from ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes import Match_Enum
-from ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes import Rewrite_Enum
-from ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes import Vlan_Enum
-from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import BindingSegmentId_Enum
-from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTeAutorouteMetric_Enum
-from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTeBackupBandwidthClass_Enum
-from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTeBackupBandwidthPool_Enum
-from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTeBandwidthDste_Enum
-from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTeBandwidthLimit_Enum
-from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTeIgpProtocol_Enum
-from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTePathOptionProperty_Enum
-from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTePathOptionProtection_Enum
-from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTePathOption_Enum
-from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTePathSelectionMetric_Enum
-from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTeSwitchingCap_Enum
-from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTeSwitchingEncode_Enum
-from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTeTunnelAffinity_Enum
-from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import PathInvalidationAction_Enum
-from ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg import QosFieldNotSupported_Enum
-from ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg import QosPolicyAccount_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import EtherReport_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import EtherThreshold_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import FecReport_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import FecThreshold_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import GfpReport_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import GfpThreshold_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import HoVcReport_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import HoVcThreshold_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import OcnReport_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import OcnThreshold_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import OpticsReport_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import OpticsThreshold_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import OtnReport_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import OtnTcmReport_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import OtnTcmThreshold_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import OtnThreshold_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import PathReport_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import PathThreshold_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import Report_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import StmReport_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import StmThreshold_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import StsReport_Enum
-from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import StsThreshold_Enum
-from ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg import QosFieldNotSupported_Enum
-from ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg import QosPolicyAccount_Enum
-from ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg import Qosl2DataLink_Enum
-from ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg import Qosl2Encap_Enum
-from ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_cfg import WanphyLanMode_Enum
-from ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_cfg import WanphyWanMode_Enum
+from ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes import AtmPvcDataEnum
+from ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes import AtmPvcEncapsulationEnum
+from ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes import AtmPvcShapingEnum
+from ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes import AtmVpShapingEnum
+from ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg import AtmPvcTestModeEnum
+from ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg import AtmPvpTestModeEnum
+from ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg import AtmVpiBitsModeEnum
+from ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg import BfdModeEnum
+from ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg import BundleCiscoExtTypesEnum
+from ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg import BundleLoadBalanceEnum
+from ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg import BundleMaximumActiveLinksModeEnum
+from ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg import BundlePortActivityEnum
+from ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg import ChurnLoggingEnum
+from ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg import MlacpMaximizeParameterEnum
+from ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg import MlacpSwitchoverEnum
+from ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg import OpticsDwdmCarrierGridEnum
+from ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg import OpticsDwdmCarrierParamEnum
+from ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg import OpticsLoopbackEnum
+from ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg import ThresholdEnum
+from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnExpTtiTypeDapiEnum
+from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnExpTtiTypeFullEnum
+from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnExpTtiTypeOsEnum
+from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnExpTtiTypeSapiEnum
+from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnLoopbackEnum
+from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnPerMonEnum
+from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnSecAdminStateEnum
+from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnSendTtiTypeDapiEnum
+from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnSendTtiTypeFullEnum
+from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnSendTtiTypeOsEnum
+from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtnSendTtiTypeSapiEnum
+from ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg import OtuForwardErrorCorrectionEnum
+from ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg import EthernetAutoNegotiationEnum
+from ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg import EthernetDuplexEnum
+from ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg import EthernetFecEnum
+from ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg import EthernetFlowCtrlEnum
+from ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg import EthernetIpgEnum
+from ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg import EthernetLoopbackEnum
+from ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg import EthernetSpeedEnum
+from ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg import SpanMirrorIntervalEnum
+from ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg import SpanTrafficDirectionEnum
+from ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes import SpanSessionClassEnum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg import CfmLmCountersCfgEnum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes import CfmAisIntervalEnum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes import CfmCcmIntervalEnum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamEventActionEnumEfdEnum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamEventActionEnumEnum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamEventActionPrimEnumEnum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamInterfaceHelloIntervalEnumEnum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamInterfaceModeEnumEnum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamInterfaceRequireModeEnumEnum
+from ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg import VrfAddressFamilyEnum
+from ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg import VrfSubAddressFamilyEnum
+from ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg import Ipv4DefaultPingEnum
+from ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg import Ipv4InterfaceQppbEnum
+from ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg import Ipv4ReachableEnum
+from ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg import Ipv4SelfPingEnum
+from ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg import Ipv6DefaultPingEnum
+from ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg import Ipv6QppbEnum
+from ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg import Ipv6ReachableEnum
+from ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg import Ipv6SelfPingEnum
+from ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg import Ipv6NdMonthEnum
+from ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg import Ipv6NdRouterPrefEnum
+from ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg import Ipv6SrpEncapsulationEnum
+from ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg import EgressFilteringEnum
+from ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg import FilteringEnum
+from ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg import L2ProtocolModeEnum
+from ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg import L2ProtocolNameEnum
+from ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes import EthertypeMatchEnum
+from ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes import MatchEnum
+from ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes import RewriteEnum
+from ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes import VlanEnum
+from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import BindingSegmentIdEnum
+from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTeAutorouteMetricEnum
+from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTeBackupBandwidthClassEnum
+from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTeBackupBandwidthPoolEnum
+from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTeBandwidthDsteEnum
+from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTeBandwidthLimitEnum
+from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTeIgpProtocolEnum
+from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTePathOptionEnum
+from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTePathOptionPropertyEnum
+from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTePathOptionProtectionEnum
+from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTePathSelectionMetricEnum
+from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTeSwitchingCapEnum
+from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTeSwitchingEncodeEnum
+from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import MplsTeTunnelAffinityEnum
+from ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg import PathInvalidationActionEnum
+from ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg import QosFieldNotSupportedEnum
+from ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg import QosPolicyAccountEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import EtherReportEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import EtherThresholdEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import FecReportEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import FecThresholdEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import GfpReportEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import GfpThresholdEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import HoVcReportEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import HoVcThresholdEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import OcnReportEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import OcnThresholdEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import OpticsReportEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import OpticsThresholdEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import OtnReportEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import OtnTcmReportEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import OtnTcmThresholdEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import OtnThresholdEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import PathReportEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import PathThresholdEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import ReportEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import StmReportEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import StmThresholdEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import StsReportEnum
+from ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg import StsThresholdEnum
+from ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg import QosFieldNotSupportedEnum
+from ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg import QosPolicyAccountEnum
+from ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg import Qosl2DataLinkEnum
+from ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg import Qosl2EncapEnum
+from ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_cfg import WanphyLanModeEnum
+from ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_cfg import WanphyWanModeEnum
 
-class InterfaceModeEnum_Enum(Enum):
+class InterfaceModeEnumEnum(Enum):
     """
-    InterfaceModeEnum_Enum
+    InterfaceModeEnumEnum
 
     Interface mode enum
 
-    """
+    .. data:: DEFAULT = 0
+
+    	Default Interface Mode
+
+    .. data:: POINT_TO_POINT = 1
+
+    	Point-to-Point Interface Mode
+
+    .. data:: MULTIPOINT = 2
+
+    	Multipoint Interface Mode
+
+    .. data:: L2_TRANSPORT = 3
+
+    	L2 Transport Interface Mode
 
     """
 
-    Default Interface Mode
-
-    """
     DEFAULT = 0
 
-    """
-
-    Point\-to\-Point Interface Mode
-
-    """
     POINT_TO_POINT = 1
 
-    """
-
-    Multipoint Interface Mode
-
-    """
     MULTIPOINT = 2
 
-    """
-
-    L2 Transport Interface Mode
-
-    """
     L2_TRANSPORT = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-        return meta._meta_table['InterfaceModeEnum_Enum']
+        return meta._meta_table['InterfaceModeEnumEnum']
 
 
-class LinkStatusEnum_Enum(Enum):
+class LinkStatusEnumEnum(Enum):
     """
-    LinkStatusEnum_Enum
+    LinkStatusEnumEnum
 
     Link status enum
 
-    """
+    .. data:: DEFAULT = 0
+
+    	Display link status messages for physical links
+
+    .. data:: DISABLE = 1
+
+    	Disable link status messages
+
+    .. data:: SOFTWARE_INTERFACES = 2
+
+    	Display link status messages for all interfaces
 
     """
 
-    Display link status messages for physical links
-
-    """
     DEFAULT = 0
 
-    """
-
-    Disable link status messages
-
-    """
     DISABLE = 1
 
-    """
-
-    Display link status messages for all interfaces
-
-    """
     SOFTWARE_INTERFACES = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-        return meta._meta_table['LinkStatusEnum_Enum']
+        return meta._meta_table['LinkStatusEnumEnum']
 
 
-class SecondaryAdminStateEnum_Enum(Enum):
+class SecondaryAdminStateEnumEnum(Enum):
     """
-    SecondaryAdminStateEnum_Enum
+    SecondaryAdminStateEnumEnum
 
     Secondary admin state enum
 
-    """
+    .. data:: MAINTENANCE = 1
+
+    	Maintenance Mode
 
     """
 
-    Maintenance Mode
-
-    """
     MAINTENANCE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-        return meta._meta_table['SecondaryAdminStateEnum_Enum']
+        return meta._meta_table['SecondaryAdminStateEnumEnum']
 
 
 
@@ -252,7 +244,7 @@ class GlobalInterfaceConfiguration(object):
     .. attribute:: link_status
     
     	Enable or disable link\-status messages
-    	**type**\: :py:class:`LinkStatusEnum_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.LinkStatusEnum_Enum>`
+    	**type**\: :py:class:`LinkStatusEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.LinkStatusEnumEnum>`
     
     
 
@@ -276,15 +268,9 @@ class GlobalInterfaceConfiguration(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.link_status is not None:
             return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -373,12 +359,12 @@ class InterfaceConfigurations(object):
         .. attribute:: cisco_ios_xr_ncs5500_qos_cfg_qos
         
         	Interface QOS configuration
-        	**type**\: :py:class:`CiscoIOSXRNcs5500QosCfg_qos <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos>`
+        	**type**\: :py:class:`CiscoIosXrNcs5500QosCfg_Qos <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos>`
         
         .. attribute:: cisco_ios_xr_skp_qos_cfg_qos
         
         	Interface QOS configuration
-        	**type**\: :py:class:`CiscoIOSXRSkpQosCfg_qos <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos>`
+        	**type**\: :py:class:`CiscoIosXrSkpQosCfg_Qos <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos>`
         
         .. attribute:: dagrs
         
@@ -428,7 +414,7 @@ class InterfaceConfigurations(object):
         .. attribute:: interface_mode_non_physical
         
         	The mode in which an interface is running. The existence of this object causes the creation of the software subinterface
-        	**type**\: :py:class:`InterfaceModeEnum_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceModeEnum_Enum>`
+        	**type**\: :py:class:`InterfaceModeEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceModeEnumEnum>`
         
         .. attribute:: interface_virtual
         
@@ -453,7 +439,7 @@ class InterfaceConfigurations(object):
         .. attribute:: ipv4arp
         
         	Configure Address Resolution Protocol
-        	**type**\: :py:class:`Ipv4arp <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4arp>`
+        	**type**\: :py:class:`Ipv4Arp <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Arp>`
         
         .. attribute:: ipv6_neighbor
         
@@ -563,7 +549,7 @@ class InterfaceConfigurations(object):
         .. attribute:: secondary_admin_state
         
         	The secondary admin state of the interface
-        	**type**\: :py:class:`SecondaryAdminStateEnum_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.SecondaryAdminStateEnum_Enum>`
+        	**type**\: :py:class:`SecondaryAdminStateEnumEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.SecondaryAdminStateEnumEnum>`
         
         .. attribute:: shutdown
         
@@ -636,9 +622,9 @@ class InterfaceConfigurations(object):
             self.bundle_member.parent = self
             self.cdp = InterfaceConfigurations.InterfaceConfiguration.Cdp()
             self.cdp.parent = self
-            self.cisco_ios_xr_ncs5500_qos_cfg_qos = InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos()
+            self.cisco_ios_xr_ncs5500_qos_cfg_qos = InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos()
             self.cisco_ios_xr_ncs5500_qos_cfg_qos.parent = self
-            self.cisco_ios_xr_skp_qos_cfg_qos = InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos()
+            self.cisco_ios_xr_skp_qos_cfg_qos = InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos()
             self.cisco_ios_xr_skp_qos_cfg_qos.parent = self
             self.dagrs = InterfaceConfigurations.InterfaceConfiguration.Dagrs()
             self.dagrs.parent = self
@@ -665,7 +651,7 @@ class InterfaceConfigurations(object):
             self.ipv4_network_forwarding.parent = self
             self.ipv4_packet_filter = InterfaceConfigurations.InterfaceConfiguration.Ipv4PacketFilter()
             self.ipv4_packet_filter.parent = self
-            self.ipv4arp = InterfaceConfigurations.InterfaceConfiguration.Ipv4arp()
+            self.ipv4arp = InterfaceConfigurations.InterfaceConfiguration.Ipv4Arp()
             self.ipv4arp.parent = self
             self.ipv6_neighbor = InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor()
             self.ipv6_neighbor.parent = self
@@ -766,12 +752,12 @@ class InterfaceConfigurations(object):
                 .. attribute:: af_name
                 
                 	Address\-family
-                	**type**\: :py:class:`VrfAddressFamily_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.VrfAddressFamily_Enum>`
+                	**type**\: :py:class:`VrfAddressFamilyEnum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.VrfAddressFamilyEnum>`
                 
                 .. attribute:: saf_name
                 
                 	Sub\-address\-family
-                	**type**\: :py:class:`VrfSubAddressFamily_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.VrfSubAddressFamily_Enum>`
+                	**type**\: :py:class:`VrfSubAddressFamilyEnum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.VrfSubAddressFamilyEnum>`
                 
                 
 
@@ -803,18 +789,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.af_name is not None:
                         return True
 
                     if self.saf_name is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -832,12 +812,12 @@ class InterfaceConfigurations(object):
                 .. attribute:: af_name
                 
                 	Address\-family
-                	**type**\: :py:class:`VrfAddressFamily_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.VrfAddressFamily_Enum>`
+                	**type**\: :py:class:`VrfAddressFamilyEnum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.VrfAddressFamilyEnum>`
                 
                 .. attribute:: saf_name
                 
                 	Sub\-address\-family
-                	**type**\: :py:class:`VrfSubAddressFamily_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.VrfSubAddressFamily_Enum>`
+                	**type**\: :py:class:`VrfSubAddressFamilyEnum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg.VrfSubAddressFamilyEnum>`
                 
                 .. attribute:: topology_name
                 
@@ -879,8 +859,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.af_name is not None:
                         return True
 
@@ -890,10 +868,6 @@ class InterfaceConfigurations(object):
                     if self.topology_name is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -915,8 +889,6 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.af is not None:
                     for child_ref in self.af:
                         if child_ref._has_data():
@@ -927,10 +899,6 @@ class InterfaceConfigurations(object):
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -946,7 +914,7 @@ class InterfaceConfigurations(object):
             .. attribute:: max_vpi_bits
             
             	Support 12\-bits VPI cell format
-            	**type**\: :py:class:`AtmVpiBitsMode_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg.AtmVpiBitsMode_Enum>`
+            	**type**\: :py:class:`AtmVpiBitsModeEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg.AtmVpiBitsModeEnum>`
             
             .. attribute:: maximum_cell_packing_timers
             
@@ -1007,6 +975,11 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 50..4095
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: cell_packing_timer2
                 
                 	Cell\-packing timer2 (micro seconds)
@@ -1014,12 +987,22 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 50..4095
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: cell_packing_timer3
                 
                 	Cell\-packing timer3 (micro seconds)
                 	**type**\: int
                 
                 	**range:** 50..4095
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -1050,8 +1033,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.cell_packing_timer1 is not None:
                         return True
 
@@ -1062,10 +1043,6 @@ class InterfaceConfigurations(object):
                         return True
 
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -1103,7 +1080,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: pv_ctype
                     
                     	PVC type
-                    	**type**\: :py:class:`AtmPvcData_Enum <ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes.AtmPvcData_Enum>`
+                    	**type**\: :py:class:`AtmPvcDataEnum <ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes.AtmPvcDataEnum>`
                     
                     .. attribute:: vci
                     
@@ -1132,7 +1109,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: encapsulation
                     
                     	Configure encapsulation
-                    	**type**\: :py:class:`AtmPvcEncapsulation_Enum <ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes.AtmPvcEncapsulation_Enum>`
+                    	**type**\: :py:class:`AtmPvcEncapsulationEnum <ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes.AtmPvcEncapsulationEnum>`
                     
                     .. attribute:: oam_emulation
                     
@@ -1152,7 +1129,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: test_mode
                     
                     	Configure the PVC test mode
-                    	**type**\: :py:class:`AtmPvcTestMode_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg.AtmPvcTestMode_Enum>`
+                    	**type**\: :py:class:`AtmPvcTestModeEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg.AtmPvcTestModeEnum>`
                     
                     .. attribute:: vc_class
                     
@@ -1197,12 +1174,22 @@ class InterfaceConfigurations(object):
                         
                         	**range:** 1..3
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: maximum_cells_packed
                         
                         	Maximum number of cells to be packed in a packet
                         	**type**\: int
                         
                         	**range:** 2..255
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -1232,8 +1219,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.cell_packing_timer_id is not None:
                                 return True
 
@@ -1241,10 +1226,6 @@ class InterfaceConfigurations(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -1294,18 +1275,12 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ais_transmit_rate is not None:
                                 return True
 
                             if self.enable is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1342,7 +1317,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: type
                         
                         	Traffic shaping type
-                        	**type**\: :py:class:`AtmPvcShaping_Enum <ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes.AtmPvcShaping_Enum>`
+                        	**type**\: :py:class:`AtmPvcShapingEnum <ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes.AtmPvcShapingEnum>`
                         
                         
 
@@ -1372,8 +1347,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.burst_size is not None:
                                 return True
 
@@ -1386,10 +1359,6 @@ class InterfaceConfigurations(object):
                             if self.type is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1417,8 +1386,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.pv_ctype is not None:
                             return True
 
@@ -1431,9 +1398,6 @@ class InterfaceConfigurations(object):
                         if self.cell_packing is not None and self.cell_packing._has_data():
                             return True
 
-                        if self.cell_packing is not None and self.cell_packing.is_presence():
-                            return True
-
                         if self.enable is not None:
                             return True
 
@@ -1443,16 +1407,10 @@ class InterfaceConfigurations(object):
                         if self.oam_emulation is not None and self.oam_emulation._has_data():
                             return True
 
-                        if self.oam_emulation is not None and self.oam_emulation.is_presence():
-                            return True
-
                         if self.oam_segment_endpoint is not None:
                             return True
 
                         if self.shape is not None and self.shape._has_data():
-                            return True
-
-                        if self.shape is not None and self.shape.is_presence():
                             return True
 
                         if self.test_mode is not None:
@@ -1461,10 +1419,6 @@ class InterfaceConfigurations(object):
                         if self.vc_class is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1486,17 +1440,11 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.pvc is not None:
                         for child_ref in self.pvc:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1562,7 +1510,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: test_mode
                     
                     	Configure the PVP test mode
-                    	**type**\: :py:class:`AtmPvpTestMode_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg.AtmPvpTestMode_Enum>`
+                    	**type**\: :py:class:`AtmPvpTestModeEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg.AtmPvpTestModeEnum>`
                     
                     
 
@@ -1594,12 +1542,22 @@ class InterfaceConfigurations(object):
                         
                         	**range:** 1..3
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: maximum_cells_packed
                         
                         	Maximum number of cells to be packed in a packet
                         	**type**\: int
                         
                         	**range:** 2..255
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -1629,8 +1587,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.cell_packing_timer_id is not None:
                                 return True
 
@@ -1638,10 +1594,6 @@ class InterfaceConfigurations(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -1677,7 +1629,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: type
                         
                         	Traffic shaping type
-                        	**type**\: :py:class:`AtmPvcShaping_Enum <ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes.AtmPvcShaping_Enum>`
+                        	**type**\: :py:class:`AtmPvcShapingEnum <ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes.AtmPvcShapingEnum>`
                         
                         
 
@@ -1707,8 +1659,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.burst_size is not None:
                                 return True
 
@@ -1721,10 +1671,6 @@ class InterfaceConfigurations(object):
                             if self.type is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1748,15 +1694,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.vpi is not None:
                             return True
 
                         if self.cell_packing is not None and self.cell_packing._has_data():
-                            return True
-
-                        if self.cell_packing is not None and self.cell_packing.is_presence():
                             return True
 
                         if self.enable is not None:
@@ -1768,16 +1709,9 @@ class InterfaceConfigurations(object):
                         if self.shape is not None and self.shape._has_data():
                             return True
 
-                        if self.shape is not None and self.shape.is_presence():
-                            return True
-
                         if self.test_mode is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1799,17 +1733,11 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.pvp is not None:
                         for child_ref in self.pvp:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1917,7 +1845,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: type
                         
                         	Traffic shaping type
-                        	**type**\: :py:class:`AtmVpShaping_Enum <ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes.AtmVpShaping_Enum>`
+                        	**type**\: :py:class:`AtmVpShapingEnum <ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes.AtmVpShapingEnum>`
                         
                         
 
@@ -1947,8 +1875,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.burst_size is not None:
                                 return True
 
@@ -1961,10 +1887,6 @@ class InterfaceConfigurations(object):
                             if self.type is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1988,8 +1910,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.vpi is not None:
                             return True
 
@@ -2005,13 +1925,6 @@ class InterfaceConfigurations(object):
                         if self.shape is not None and self.shape._has_data():
                             return True
 
-                        if self.shape is not None and self.shape.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2033,17 +1946,11 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.vp_tunnel is not None:
                         for child_ref in self.vp_tunnel:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2065,27 +1972,16 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.max_vpi_bits is not None:
                     return True
 
                 if self.maximum_cell_packing_timers is not None and self.maximum_cell_packing_timers._has_data():
                     return True
 
-                if self.maximum_cell_packing_timers is not None and self.maximum_cell_packing_timers.is_presence():
-                    return True
-
                 if self.pvcs is not None and self.pvcs._has_data():
                     return True
 
-                if self.pvcs is not None and self.pvcs.is_presence():
-                    return True
-
                 if self.pvps is not None and self.pvps._has_data():
-                    return True
-
-                if self.pvps is not None and self.pvps.is_presence():
                     return True
 
                 if self.vc_class is not None:
@@ -2094,13 +1990,6 @@ class InterfaceConfigurations(object):
                 if self.vp_tunnels is not None and self.vp_tunnels._has_data():
                     return True
 
-                if self.vp_tunnels is not None and self.vp_tunnels.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2121,7 +2010,7 @@ class InterfaceConfigurations(object):
             .. attribute:: mode
             
             	Configuration of BFDoBM mode [cisco\|ietf]
-            	**type**\: :py:class:`BfdMode_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.BfdMode_Enum>`
+            	**type**\: :py:class:`BfdModeEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.BfdModeEnum>`
             
             
 
@@ -2256,15 +2145,9 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.min_interval is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2317,18 +2200,12 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.nbor_unconfig_timer is not None:
                                 return True
 
                             if self.start_timer is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2350,8 +2227,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.destination_address is not None:
                             return True
 
@@ -2359,9 +2234,6 @@ class InterfaceConfigurations(object):
                             return True
 
                         if self.echo is not None and self.echo._has_data():
-                            return True
-
-                        if self.echo is not None and self.echo.is_presence():
                             return True
 
                         if self.fast_detect is not None:
@@ -2373,13 +2245,6 @@ class InterfaceConfigurations(object):
                         if self.timers is not None and self.timers._has_data():
                             return True
 
-                        if self.timers is not None and self.timers.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2401,18 +2266,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ipv4 is not None and self.ipv4._has_data():
                         return True
 
-                    if self.ipv4 is not None and self.ipv4.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2434,21 +2290,12 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.address_family is not None and self.address_family._has_data():
-                    return True
-
-                if self.address_family is not None and self.address_family.is_presence():
                     return True
 
                 if self.mode is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2543,7 +2390,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: hash_type
                     
                     	The specified hash function to use
-                    	**type**\: :py:class:`BundleLoadBalance_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.BundleLoadBalance_Enum>`
+                    	**type**\: :py:class:`BundleLoadBalanceEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.BundleLoadBalanceEnum>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: hash_value
                     
@@ -2551,6 +2403,11 @@ class InterfaceConfigurations(object):
                     	**type**\: int
                     
                     	**range:** 1..64
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -2580,8 +2437,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.hash_type is not None:
                             return True
 
@@ -2589,10 +2444,6 @@ class InterfaceConfigurations(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -2613,21 +2464,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.hash_function is not None and self.hash_function._has_data():
-                        return True
-
-                    if self.hash_function is not None and self.hash_function.is_presence():
                         return True
 
                     if self.localize_links is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2669,10 +2511,20 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 1..64
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: max_active_links_mode
                     
                     	Maximum active links mode
-                    	**type**\: :py:class:`BundleMaximumActiveLinksMode_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.BundleMaximumActiveLinksMode_Enum>`
+                    	**type**\: :py:class:`BundleMaximumActiveLinksModeEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.BundleMaximumActiveLinksModeEnum>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -2702,8 +2554,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.links is not None:
                             return True
 
@@ -2711,10 +2561,6 @@ class InterfaceConfigurations(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -2735,18 +2581,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.links is not None and self.links._has_data():
                         return True
 
-                    if self.links is not None and self.links.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2799,18 +2636,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bandwidth is not None:
                         return True
 
                     if self.links is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2832,24 +2663,13 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.bundle_load_balancing is not None and self.bundle_load_balancing._has_data():
-                    return True
-
-                if self.bundle_load_balancing is not None and self.bundle_load_balancing.is_presence():
                     return True
 
                 if self.maximum_active is not None and self.maximum_active._has_data():
                     return True
 
-                if self.maximum_active is not None and self.maximum_active.is_presence():
-                    return True
-
                 if self.minimum_active is not None and self.minimum_active._has_data():
-                    return True
-
-                if self.minimum_active is not None and self.minimum_active.is_presence():
                     return True
 
                 if self.shutdown is not None:
@@ -2858,10 +2678,6 @@ class InterfaceConfigurations(object):
                 if self.wait_while is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2914,7 +2730,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: port_activity
                 
                 	Port Activity
-                	**type**\: :py:class:`BundlePortActivity_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.BundlePortActivity_Enum>`
+                	**type**\: :py:class:`BundlePortActivityEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.BundlePortActivityEnum>`
                 
                 
 
@@ -2942,18 +2758,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bundle_id is not None:
                         return True
 
                     if self.port_activity is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2975,21 +2785,12 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.id is not None and self.id._has_data():
-                    return True
-
-                if self.id is not None and self.id.is_presence():
                     return True
 
                 if self.port_priority is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3032,15 +2833,9 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3049,7 +2844,7 @@ class InterfaceConfigurations(object):
                 return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.Cdp']['meta_info']
 
 
-        class CiscoIOSXRNcs5500QosCfg_qos(object):
+        class CiscoIosXrNcs5500QosCfg_Qos(object):
             """
             Interface QOS configuration
             
@@ -3070,12 +2865,12 @@ class InterfaceConfigurations(object):
             .. attribute:: input
             
             	Ingress service policy
-            	**type**\: :py:class:`Input <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Input>`
+            	**type**\: :py:class:`Input <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input>`
             
             .. attribute:: output
             
             	Egress service policy
-            	**type**\: :py:class:`Output <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Output>`
+            	**type**\: :py:class:`Output <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output>`
             
             
 
@@ -3088,9 +2883,9 @@ class InterfaceConfigurations(object):
                 self.parent = None
                 self.actual_rate_down = None
                 self.actual_rate_up = None
-                self.input = InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Input()
+                self.input = InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input()
                 self.input.parent = self
-                self.output = InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Output()
+                self.output = InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output()
                 self.output.parent = self
 
 
@@ -3101,7 +2896,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: service_policy
                 
                 	Service policy details
-                	**type**\: list of :py:class:`ServicePolicy <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Input.ServicePolicy>`
+                	**type**\: list of :py:class:`ServicePolicy <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input.ServicePolicy>`
                 
                 
 
@@ -3131,7 +2926,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: account_type
                     
                     	Turn off L2 or L3 accounting
-                    	**type**\: :py:class:`QosPolicyAccount_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosPolicyAccount_Enum>`
+                    	**type**\: :py:class:`QosPolicyAccountEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosPolicyAccountEnum>`
                     
                     .. attribute:: l1_user_defined
                     
@@ -3143,17 +2938,17 @@ class InterfaceConfigurations(object):
                     .. attribute:: policy_merge
                     
                     	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`QosFieldNotSupported_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupported_Enum>`
+                    	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupportedEnum>`
                     
                     .. attribute:: resource_id
                     
                     	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`QosFieldNotSupported_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupported_Enum>`
+                    	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupportedEnum>`
                     
                     .. attribute:: service_fragment_parent_policy
                     
                     	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`QosFieldNotSupported_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupported_Enum>`
+                    	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupportedEnum>`
                     
                     .. attribute:: spi_name
                     
@@ -3163,7 +2958,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: subscriber_parent_policy
                     
                     	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`QosFieldNotSupported_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupported_Enum>`
+                    	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupportedEnum>`
                     
                     
 
@@ -3199,8 +2994,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.service_policy_name is not None:
                             return True
 
@@ -3227,14 +3020,10 @@ class InterfaceConfigurations(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Input.ServicePolicy']['meta_info']
+                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input.ServicePolicy']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -3250,8 +3039,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.service_policy is not None:
                         for child_ref in self.service_policy:
                             if child_ref._has_data():
@@ -3259,14 +3046,10 @@ class InterfaceConfigurations(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Input']['meta_info']
+                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input']['meta_info']
 
 
             class Output(object):
@@ -3276,7 +3059,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: service_policy
                 
                 	Service policy details
-                	**type**\: list of :py:class:`ServicePolicy <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Output.ServicePolicy>`
+                	**type**\: list of :py:class:`ServicePolicy <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output.ServicePolicy>`
                 
                 
 
@@ -3306,7 +3089,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: account_type
                     
                     	Turn off L2 or L3 accounting
-                    	**type**\: :py:class:`QosPolicyAccount_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosPolicyAccount_Enum>`
+                    	**type**\: :py:class:`QosPolicyAccountEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosPolicyAccountEnum>`
                     
                     .. attribute:: l1_user_defined
                     
@@ -3318,17 +3101,17 @@ class InterfaceConfigurations(object):
                     .. attribute:: policy_merge
                     
                     	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`QosFieldNotSupported_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupported_Enum>`
+                    	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupportedEnum>`
                     
                     .. attribute:: resource_id
                     
                     	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`QosFieldNotSupported_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupported_Enum>`
+                    	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupportedEnum>`
                     
                     .. attribute:: service_fragment_parent_policy
                     
                     	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`QosFieldNotSupported_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupported_Enum>`
+                    	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupportedEnum>`
                     
                     .. attribute:: spi_name
                     
@@ -3338,7 +3121,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: subscriber_parent_policy
                     
                     	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`QosFieldNotSupported_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupported_Enum>`
+                    	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg.QosFieldNotSupportedEnum>`
                     
                     
 
@@ -3374,8 +3157,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.service_policy_name is not None:
                             return True
 
@@ -3402,14 +3183,10 @@ class InterfaceConfigurations(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Output.ServicePolicy']['meta_info']
+                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output.ServicePolicy']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -3425,8 +3202,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.service_policy is not None:
                         for child_ref in self.service_policy:
                             if child_ref._has_data():
@@ -3434,14 +3209,10 @@ class InterfaceConfigurations(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Output']['meta_info']
+                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output']['meta_info']
 
             @property
             def _common_path(self):
@@ -3457,8 +3228,6 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.actual_rate_down is not None:
                     return True
 
@@ -3468,28 +3237,18 @@ class InterfaceConfigurations(object):
                 if self.input is not None and self.input._has_data():
                     return True
 
-                if self.input is not None and self.input.is_presence():
-                    return True
-
                 if self.output is not None and self.output._has_data():
                     return True
 
-                if self.output is not None and self.output.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
             def _meta_info():
                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos']['meta_info']
+                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos']['meta_info']
 
 
-        class CiscoIOSXRSkpQosCfg_qos(object):
+        class CiscoIosXrSkpQosCfg_Qos(object):
             """
             Interface QOS configuration
             
@@ -3510,12 +3269,12 @@ class InterfaceConfigurations(object):
             .. attribute:: input
             
             	Ingress service policy
-            	**type**\: :py:class:`Input <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Input>`
+            	**type**\: :py:class:`Input <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input>`
             
             .. attribute:: l2_overhead
             
             	Layer 2 overhead accounting
-            	**type**\: :py:class:`L2Overhead <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.L2Overhead>`
+            	**type**\: :py:class:`L2Overhead <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead>`
             
             .. attribute:: minimum_bandwidth
             
@@ -3527,7 +3286,7 @@ class InterfaceConfigurations(object):
             .. attribute:: output
             
             	Egress service policy
-            	**type**\: :py:class:`Output <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Output>`
+            	**type**\: :py:class:`Output <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output>`
             
             
 
@@ -3540,12 +3299,12 @@ class InterfaceConfigurations(object):
                 self.parent = None
                 self.actual_rate_down = None
                 self.actual_rate_up = None
-                self.input = InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Input()
+                self.input = InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input()
                 self.input.parent = self
-                self.l2_overhead = InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.L2Overhead()
+                self.l2_overhead = InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead()
                 self.l2_overhead.parent = self
                 self.minimum_bandwidth = None
-                self.output = InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Output()
+                self.output = InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output()
                 self.output.parent = self
 
 
@@ -3556,7 +3315,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: service_policy
                 
                 	Service policy details
-                	**type**\: list of :py:class:`ServicePolicy <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Input.ServicePolicy>`
+                	**type**\: list of :py:class:`ServicePolicy <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input.ServicePolicy>`
                 
                 
 
@@ -3586,7 +3345,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: account_type
                     
                     	Turn off L2 or L3 accounting
-                    	**type**\: :py:class:`QosPolicyAccount_Enum <ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg.QosPolicyAccount_Enum>`
+                    	**type**\: :py:class:`QosPolicyAccountEnum <ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg.QosPolicyAccountEnum>`
                     
                     .. attribute:: l1_user_defined
                     
@@ -3598,7 +3357,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: policy_merge
                     
                     	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`QosFieldNotSupported_Enum <ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg.QosFieldNotSupported_Enum>`
+                    	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg.QosFieldNotSupportedEnum>`
                     
                     .. attribute:: resource_id
                     
@@ -3656,8 +3415,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.service_policy_name is not None:
                             return True
 
@@ -3684,14 +3441,10 @@ class InterfaceConfigurations(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Input.ServicePolicy']['meta_info']
+                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input.ServicePolicy']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -3707,8 +3460,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.service_policy is not None:
                         for child_ref in self.service_policy:
                             if child_ref._has_data():
@@ -3716,14 +3467,10 @@ class InterfaceConfigurations(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Input']['meta_info']
+                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input']['meta_info']
 
 
             class L2Overhead(object):
@@ -3733,7 +3480,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: account
                 
                 	Access Loop Encapsulation
-                	**type**\: :py:class:`Account <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.L2Overhead.Account>`
+                	**type**\: :py:class:`Account <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead.Account>`
                 
                 .. attribute:: iwf
                 
@@ -3749,7 +3496,7 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.account = InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.L2Overhead.Account()
+                    self.account = InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead.Account()
                     self.account.parent = self
                     self.iwf = None
 
@@ -3766,12 +3513,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: data_link_type
                     
                     	Data link type
-                    	**type**\: :py:class:`Qosl2DataLink_Enum <ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg.Qosl2DataLink_Enum>`
+                    	**type**\: :py:class:`Qosl2DataLinkEnum <ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg.Qosl2DataLinkEnum>`
                     
                     .. attribute:: encap_type
                     
                     	Encap used between the DSLAM and CPE
-                    	**type**\: :py:class:`Qosl2Encap_Enum <ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg.Qosl2Encap_Enum>`
+                    	**type**\: :py:class:`Qosl2EncapEnum <ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg.Qosl2EncapEnum>`
                     
                     .. attribute:: l2_user_defined
                     
@@ -3808,8 +3555,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.atm_cell_tax is not None:
                             return True
 
@@ -3824,14 +3569,10 @@ class InterfaceConfigurations(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.L2Overhead.Account']['meta_info']
+                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead.Account']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -3847,12 +3588,7 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.account is not None and self.account._has_data():
-                        return True
-
-                    if self.account is not None and self.account.is_presence():
                         return True
 
                     if self.iwf is not None:
@@ -3860,14 +3596,10 @@ class InterfaceConfigurations(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.L2Overhead']['meta_info']
+                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead']['meta_info']
 
 
             class Output(object):
@@ -3877,7 +3609,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: service_policy
                 
                 	Service policy details
-                	**type**\: list of :py:class:`ServicePolicy <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Output.ServicePolicy>`
+                	**type**\: list of :py:class:`ServicePolicy <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output.ServicePolicy>`
                 
                 
 
@@ -3907,7 +3639,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: account_type
                     
                     	Turn off L2 or L3 accounting
-                    	**type**\: :py:class:`QosPolicyAccount_Enum <ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg.QosPolicyAccount_Enum>`
+                    	**type**\: :py:class:`QosPolicyAccountEnum <ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg.QosPolicyAccountEnum>`
                     
                     .. attribute:: l1_user_defined
                     
@@ -3919,7 +3651,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: policy_merge
                     
                     	Not supported (Leave unspecified)
-                    	**type**\: :py:class:`QosFieldNotSupported_Enum <ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg.QosFieldNotSupported_Enum>`
+                    	**type**\: :py:class:`QosFieldNotSupportedEnum <ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg.QosFieldNotSupportedEnum>`
                     
                     .. attribute:: resource_id
                     
@@ -3977,8 +3709,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.service_policy_name is not None:
                             return True
 
@@ -4005,14 +3735,10 @@ class InterfaceConfigurations(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Output.ServicePolicy']['meta_info']
+                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output.ServicePolicy']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -4028,8 +3754,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.service_policy is not None:
                         for child_ref in self.service_policy:
                             if child_ref._has_data():
@@ -4037,14 +3761,10 @@ class InterfaceConfigurations(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Output']['meta_info']
+                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output']['meta_info']
 
             @property
             def _common_path(self):
@@ -4060,8 +3780,6 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.actual_rate_down is not None:
                     return True
 
@@ -4071,13 +3789,7 @@ class InterfaceConfigurations(object):
                 if self.input is not None and self.input._has_data():
                     return True
 
-                if self.input is not None and self.input.is_presence():
-                    return True
-
                 if self.l2_overhead is not None and self.l2_overhead._has_data():
-                    return True
-
-                if self.l2_overhead is not None and self.l2_overhead.is_presence():
                     return True
 
                 if self.minimum_bandwidth is not None:
@@ -4086,19 +3798,12 @@ class InterfaceConfigurations(object):
                 if self.output is not None and self.output._has_data():
                     return True
 
-                if self.output is not None and self.output.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
             def _meta_info():
                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos']['meta_info']
+                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos']['meta_info']
 
 
         class Dagrs(object):
@@ -4248,18 +3953,12 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.dist_norm is not None:
                                 return True
 
                             if self.dist_prio is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4312,18 +4011,12 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.metric_norm is not None:
                                 return True
 
                             if self.metric_prio is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4376,18 +4069,12 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.query_time is not None:
                                 return True
 
                             if self.sby_time is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4409,18 +4096,10 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.distance is not None and self.distance._has_data():
                             return True
 
-                        if self.distance is not None and self.distance.is_presence():
-                            return True
-
                         if self.metric is not None and self.metric._has_data():
-                            return True
-
-                        if self.metric is not None and self.metric.is_presence():
                             return True
 
                         if self.priority_timeout is not None:
@@ -4429,13 +4108,6 @@ class InterfaceConfigurations(object):
                         if self.timers is not None and self.timers._has_data():
                             return True
 
-                        if self.timers is not None and self.timers.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4459,8 +4131,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ip_addr is not None:
                         return True
 
@@ -4470,13 +4140,6 @@ class InterfaceConfigurations(object):
                     if self.sub is not None and self.sub._has_data():
                         return True
 
-                    if self.sub is not None and self.sub.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4498,17 +4161,11 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.dagr is not None:
                     for child_ref in self.dagr:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4525,7 +4182,7 @@ class InterfaceConfigurations(object):
             .. attribute:: args
             
             	Dampening Arguments
-            	**type**\: :py:class:`Args_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dampening.Args_Enum>`
+            	**type**\: :py:class:`ArgsEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dampening.ArgsEnum>`
             
             .. attribute:: half_life
             
@@ -4578,48 +4235,45 @@ class InterfaceConfigurations(object):
                 self.suppress_threshold = None
                 self.suppress_time = None
 
-            class Args_Enum(Enum):
+            class ArgsEnum(Enum):
                 """
-                Args_Enum
+                ArgsEnum
 
                 Dampening Arguments
 
-                """
+                .. data:: DEFAULT_VALUES = 0
+
+                	Default values
+
+                .. data:: SPECIFY_HALF_LIFE = 1
+
+                	Half Life Specified
+
+                .. data:: SPECIFY_ALL = 4
+
+                	All Arguments except Restart Penalty
+
+                	Specified
+
+                .. data:: SPECIFY_RP = 5
+
+                	All Arguments Specified
 
                 """
 
-                Default values
-
-                """
                 DEFAULT_VALUES = 0
 
-                """
-
-                Half Life Specified
-
-                """
                 SPECIFY_HALF_LIFE = 1
 
-                """
-
-                All Arguments except Restart Penalty
-                Specified
-
-                """
                 SPECIFY_ALL = 4
 
-                """
-
-                All Arguments Specified
-
-                """
                 SPECIFY_RP = 5
 
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.Dampening.Args_Enum']
+                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.Dampening.ArgsEnum']
 
 
             @property
@@ -4636,8 +4290,6 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.args is not None:
                     return True
 
@@ -4656,10 +4308,6 @@ class InterfaceConfigurations(object):
                 if self.suppress_time is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4710,18 +4358,12 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.capsulation_options is not None:
                     return True
 
                 if self.encapsulation is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4775,18 +4417,12 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.inbound is not None:
                     return True
 
                 if self.outbound is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4802,7 +4438,7 @@ class InterfaceConfigurations(object):
             .. attribute:: auto_negotiation
             
             	Link auto\-negotiation
-            	**type**\: :py:class:`EthernetAutoNegotiation_Enum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetAutoNegotiation_Enum>`
+            	**type**\: :py:class:`EthernetAutoNegotiationEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetAutoNegotiationEnum>`
             
             .. attribute:: carrier_delay
             
@@ -4812,27 +4448,27 @@ class InterfaceConfigurations(object):
             .. attribute:: duplex
             
             	Configure duplex operational mode
-            	**type**\: :py:class:`EthernetDuplex_Enum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetDuplex_Enum>`
+            	**type**\: :py:class:`EthernetDuplexEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetDuplexEnum>`
             
             .. attribute:: flow_control
             
             	Configure flow\-control mode
-            	**type**\: :py:class:`EthernetFlowCtrl_Enum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetFlowCtrl_Enum>`
+            	**type**\: :py:class:`EthernetFlowCtrlEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetFlowCtrlEnum>`
             
             .. attribute:: forward_error_correction
             
             	Forward Error Correction
-            	**type**\: :py:class:`EthernetFec_Enum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetFec_Enum>`
+            	**type**\: :py:class:`EthernetFecEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetFecEnum>`
             
             .. attribute:: inter_packet_gap
             
             	Inter\-packet gap
-            	**type**\: :py:class:`EthernetIpg_Enum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetIpg_Enum>`
+            	**type**\: :py:class:`EthernetIpgEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetIpgEnum>`
             
             .. attribute:: loopback
             
             	Configure loopback mode
-            	**type**\: :py:class:`EthernetLoopback_Enum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetLoopback_Enum>`
+            	**type**\: :py:class:`EthernetLoopbackEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetLoopbackEnum>`
             
             .. attribute:: signal_degrade_bit_error_rate
             
@@ -4847,7 +4483,7 @@ class InterfaceConfigurations(object):
             .. attribute:: speed
             
             	Set the ethernet speed on an interface
-            	**type**\: :py:class:`EthernetSpeed_Enum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetSpeed_Enum>`
+            	**type**\: :py:class:`EthernetSpeedEnum <ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetSpeedEnum>`
             
             
 
@@ -4918,18 +4554,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.carrier_delay_down is not None:
                         return True
 
                     if self.carrier_delay_up is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4980,18 +4610,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.signal_degrade_report is not None:
                         return True
 
                     if self.signal_degrade_threshold is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5048,8 +4672,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.signal_fail_report_disable is not None:
                         return True
 
@@ -5059,10 +4681,6 @@ class InterfaceConfigurations(object):
                     if self.signal_remote_fault is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5084,15 +4702,10 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.auto_negotiation is not None:
                     return True
 
                 if self.carrier_delay is not None and self.carrier_delay._has_data():
-                    return True
-
-                if self.carrier_delay is not None and self.carrier_delay.is_presence():
                     return True
 
                 if self.duplex is not None:
@@ -5113,22 +4726,12 @@ class InterfaceConfigurations(object):
                 if self.signal_degrade_bit_error_rate is not None and self.signal_degrade_bit_error_rate._has_data():
                     return True
 
-                if self.signal_degrade_bit_error_rate is not None and self.signal_degrade_bit_error_rate.is_presence():
-                    return True
-
                 if self.signal_fail_bit_error_rate is not None and self.signal_fail_bit_error_rate._has_data():
-                    return True
-
-                if self.signal_fail_bit_error_rate is not None and self.signal_fail_bit_error_rate.is_presence():
                     return True
 
                 if self.speed is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -5169,10 +4772,20 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: additional_range1_low
                 
                 	Low value of first additional range for tag match
-                	**type**\: one of { :py:class:`VlanTagOrCvp_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvp_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrCvpEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: additional_range2_high
                 
@@ -5181,10 +4794,20 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: additional_range2_low
                 
                 	Low value of second additional range for tag match
-                	**type**\: one of { :py:class:`VlanTagOrCvp_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvp_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrCvpEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: additional_range3_high
                 
@@ -5193,10 +4816,20 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: additional_range3_low
                 
                 	Low value of third additional range for tag match
-                	**type**\: one of { :py:class:`VlanTagOrCvp_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvp_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrCvpEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: additional_range4_high
                 
@@ -5205,10 +4838,20 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: additional_range4_low
                 
                 	Low value of forth additional range for tag match
-                	**type**\: one of { :py:class:`VlanTagOrCvp_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvp_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrCvpEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: additional_range5_high
                 
@@ -5217,10 +4860,20 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: additional_range5_low
                 
                 	Low value of fifth additional range for tag match
-                	**type**\: one of { :py:class:`VlanTagOrCvp_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvp_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrCvpEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: additional_range6_high
                 
@@ -5229,10 +4882,20 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: additional_range6_low
                 
                 	Low value of sixth additional range for tag match
-                	**type**\: one of { :py:class:`VlanTagOrCvp_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvp_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrCvpEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: additional_range7_high
                 
@@ -5241,10 +4904,20 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: additional_range7_low
                 
                 	Low value of seventh additional range for tag match
-                	**type**\: one of { :py:class:`VlanTagOrCvp_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvp_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrCvpEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: additional_range8_high
                 
@@ -5253,15 +4926,30 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: additional_range8_low
                 
                 	Low value of eighth additional range for tag match
-                	**type**\: one of { :py:class:`VlanTagOrCvp_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvp_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrCvpEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: exact
                 
                 	Only match packets with no more tags than explicitly matched
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: ingress_destination_mac
                 
@@ -5270,12 +4958,22 @@ class InterfaceConfigurations(object):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: ingress_source_mac
                 
                 	Source MAC address to match on ingress
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: inner_class_of_service
                 
@@ -5284,6 +4982,11 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..7
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: inner_range1_high
                 
                 	High value of first range for inner tag match
@@ -5291,15 +4994,30 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: inner_range1_low
                 
                 	Low value of first range for inner tag match
-                	**type**\: one of { :py:class:`VlanTagOrAny_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAny_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrAnyEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: inner_tag_type
                 
                 	Type of tag for inner match (if present)
-                	**type**\: :py:class:`Match_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.Match_Enum>`
+                	**type**\: :py:class:`MatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: outer_class_of_service
                 
@@ -5308,25 +5026,50 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..7
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: outer_range1_high
                 
                 	High value of first range for outer tag match
-                	**type**\: one of { :py:class:`VlanTagOrNative_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrNative_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrNativeEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrNativeEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: outer_range1_low
                 
                 	Low value of first range for outer tag match
-                	**type**\: one of { :py:class:`VlanTagOrAny_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAny_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrAnyEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: outer_tag_type
                 
                 	Whether to match all unmatched packets, untagged packets or tagged packets, and if matching tagged packets, the outer tag type to match
-                	**type**\: :py:class:`Match_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.Match_Enum>`
+                	**type**\: :py:class:`MatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: payload_ethertype_match
                 
                 	Which payload ethertype values to match
-                	**type**\: :py:class:`EthertypeMatch_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.EthertypeMatch_Enum>`
+                	**type**\: :py:class:`EthertypeMatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.EthertypeMatchEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -5382,8 +5125,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.additional_range1_high is not None:
                         return True
 
@@ -5470,10 +5211,6 @@ class InterfaceConfigurations(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
@@ -5493,18 +5230,9 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.ambiguous_encapsulation is not None and self.ambiguous_encapsulation._has_data():
                     return True
 
-                if self.ambiguous_encapsulation is not None and self.ambiguous_encapsulation.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -5535,7 +5263,7 @@ class InterfaceConfigurations(object):
             .. attribute:: filtering
             
             	Ingress Ethernet frame filtering
-            	**type**\: :py:class:`Filtering_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.Filtering_Enum>`
+            	**type**\: :py:class:`FilteringEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.FilteringEnum>`
             
             
 
@@ -5611,7 +5339,12 @@ class InterfaceConfigurations(object):
                         .. attribute:: ais_interval
                         
                         	AIS Interval
-                        	**type**\: :py:class:`CfmAisInterval_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmAisInterval_Enum>`
+                        	**type**\: :py:class:`CfmAisIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmAisIntervalEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: cos
                         
@@ -5619,6 +5352,11 @@ class InterfaceConfigurations(object):
                         	**type**\: int
                         
                         	**range:** 0..7
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -5648,8 +5386,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ais_interval is not None:
                                 return True
 
@@ -5657,10 +5393,6 @@ class InterfaceConfigurations(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -5681,18 +5413,9 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.transmission is not None and self.transmission._has_data():
                             return True
 
-                        if self.transmission is not None and self.transmission.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5802,7 +5525,12 @@ class InterfaceConfigurations(object):
                                 .. attribute:: cfg_type
                                 
                                 	Aggregate, List, or Range
-                                	**type**\: :py:class:`CfmLmCountersCfg_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg.CfmLmCountersCfg_Enum>`
+                                	**type**\: :py:class:`CfmLmCountersCfgEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg.CfmLmCountersCfgEnum>`
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 .. attribute:: cos0
                                 
@@ -5811,12 +5539,22 @@ class InterfaceConfigurations(object):
                                 
                                 	**range:** 0..7
                                 
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
                                 .. attribute:: cos1
                                 
                                 	CoS bits for per\-CoS counters \- end of range or list item
                                 	**type**\: int
                                 
                                 	**range:** 0..7
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 .. attribute:: cos2
                                 
@@ -5825,12 +5563,22 @@ class InterfaceConfigurations(object):
                                 
                                 	**range:** 0..7
                                 
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
                                 .. attribute:: cos3
                                 
                                 	CoS bits for per\-CoS counters \- list item
                                 	**type**\: int
                                 
                                 	**range:** 0..7
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 .. attribute:: cos4
                                 
@@ -5839,12 +5587,22 @@ class InterfaceConfigurations(object):
                                 
                                 	**range:** 0..7
                                 
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
                                 .. attribute:: cos5
                                 
                                 	CoS bits for per\-CoS counters \- list item
                                 	**type**\: int
                                 
                                 	**range:** 0..7
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 .. attribute:: cos6
                                 
@@ -5853,12 +5611,22 @@ class InterfaceConfigurations(object):
                                 
                                 	**range:** 0..7
                                 
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
                                 .. attribute:: cos7
                                 
                                 	CoS bits for per\-CoS counters \- list item
                                 	**type**\: int
                                 
                                 	**range:** 0..7
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 
 
@@ -5895,8 +5663,6 @@ class InterfaceConfigurations(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.cfg_type is not None:
                                         return True
 
@@ -5926,10 +5692,6 @@ class InterfaceConfigurations(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return True
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
@@ -5947,10 +5709,20 @@ class InterfaceConfigurations(object):
                                 
                                 	**range:** 1..8191
                                 
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
                                 .. attribute:: service
                                 
                                 	Service (Maintenance Association)
                                 	**type**\: str
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 
 
@@ -5980,8 +5752,6 @@ class InterfaceConfigurations(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.mep_id is not None:
                                         return True
 
@@ -5989,10 +5759,6 @@ class InterfaceConfigurations(object):
                                         return True
 
                                     return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return True
 
                                 @staticmethod
                                 def _meta_info():
@@ -6080,18 +5846,12 @@ class InterfaceConfigurations(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.profile is not None:
                                             return True
 
                                         if self.target_mac_address is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6149,18 +5909,12 @@ class InterfaceConfigurations(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.profile is not None:
                                             return True
 
                                         if self.target_mep_id is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6182,8 +5936,6 @@ class InterfaceConfigurations(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.sla_profile_target_mac_address is not None:
                                         for child_ref in self.sla_profile_target_mac_address:
                                             if child_ref._has_data():
@@ -6194,10 +5946,6 @@ class InterfaceConfigurations(object):
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6219,33 +5967,18 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.cos is not None:
                                     return True
 
                                 if self.loss_measurement_counters is not None and self.loss_measurement_counters._has_data():
                                     return True
 
-                                if self.loss_measurement_counters is not None and self.loss_measurement_counters.is_presence():
-                                    return True
-
                                 if self.mep_properties is not None and self.mep_properties._has_data():
-                                    return True
-
-                                if self.mep_properties is not None and self.mep_properties.is_presence():
                                     return True
 
                                 if self.sla_profile_target_mep_ids is not None and self.sla_profile_target_mep_ids._has_data():
                                     return True
 
-                                if self.sla_profile_target_mep_ids is not None and self.sla_profile_target_mep_ids.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6269,21 +6002,12 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.domain is not None:
                                 return True
 
                             if self.mep is not None and self.mep._has_data():
                                 return True
 
-                            if self.mep is not None and self.mep.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6305,17 +6029,11 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.domain is not None:
                             for child_ref in self.domain:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -6337,24 +6055,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ais_up is not None and self.ais_up._has_data():
-                        return True
-
-                    if self.ais_up is not None and self.ais_up.is_presence():
                         return True
 
                     if self.domains is not None and self.domains._has_data():
                         return True
 
-                    if self.domains is not None and self.domains.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6375,7 +6081,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: hello_interval
                 
                 	Possible Ethernet Link OAM hello intervals
-                	**type**\: :py:class:`EtherLinkOamInterfaceHelloIntervalEnum_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamInterfaceHelloIntervalEnum_Enum>`
+                	**type**\: :py:class:`EtherLinkOamInterfaceHelloIntervalEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamInterfaceHelloIntervalEnumEnum>`
                 
                 .. attribute:: link_monitor
                 
@@ -6390,7 +6096,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: mode
                 
                 	Possible Ethernet Link OAM modes
-                	**type**\: :py:class:`EtherLinkOamInterfaceModeEnum_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamInterfaceModeEnum_Enum>`
+                	**type**\: :py:class:`EtherLinkOamInterfaceModeEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamInterfaceModeEnumEnum>`
                 
                 .. attribute:: profile_name
                 
@@ -6450,52 +6156,52 @@ class InterfaceConfigurations(object):
                     .. attribute:: capabilities_conflict
                     
                     	Action to perform when a capabilities conflict occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnumEfd_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfd_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
                     
                     .. attribute:: critical_event
                     
                     	Action to perform when a critical event occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEnum>`
                     
                     .. attribute:: discovery_timeout
                     
                     	Action to perform when discovery timeout occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnumEfd_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfd_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
                     
                     .. attribute:: dying_gasp
                     
                     	Action to perform when a dying gasp occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEnum>`
                     
                     .. attribute:: high_threshold
                     
                     	Action to perform when a high\-threshold event occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEnum>`
                     
                     .. attribute:: link_fault
                     
                     	Action to perform when a link fault occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnumEfd_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfd_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
                     
                     .. attribute:: remote_loopback
                     
                     	Action to perform when remote loopback is entered or exited
-                    	**type**\: :py:class:`EtherLinkOamEventActionPrimEnum_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnum_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamEventActionPrimEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnumEnum>`
                     
                     .. attribute:: session_down
                     
                     	Action to perform when a session comes down
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnumEfd_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfd_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
                     
                     .. attribute:: session_up
                     
                     	Action to perform when a session comes up
-                    	**type**\: :py:class:`EtherLinkOamEventActionPrimEnum_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnum_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamEventActionPrimEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnumEnum>`
                     
                     .. attribute:: wiring_conflict
                     
                     	Action to perform when a wiring conflict occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnumEfd_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfd_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
                     
                     
 
@@ -6531,8 +6237,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.capabilities_conflict is not None:
                             return True
 
@@ -6563,10 +6267,6 @@ class InterfaceConfigurations(object):
                         if self.wiring_conflict is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -6664,12 +6364,22 @@ class InterfaceConfigurations(object):
                             
                             	**range:** 1..12000000
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: threshold_low
                             
                             	The low threshold for frame events
                             	**type**\: int
                             
                             	**range:** 1..12000000
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -6699,8 +6409,6 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.threshold_high is not None:
                                     return True
 
@@ -6708,10 +6416,6 @@ class InterfaceConfigurations(object):
                                     return True
 
                                 return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
 
                             @staticmethod
                             def _meta_info():
@@ -6732,21 +6436,12 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.threshold is not None and self.threshold._has_data():
-                                return True
-
-                            if self.threshold is not None and self.threshold.is_presence():
                                 return True
 
                             if self.window is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6795,12 +6490,22 @@ class InterfaceConfigurations(object):
                             
                             	**range:** 1..1000000
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: threshold_low
                             
                             	The low threshold for frame\-period events
                             	**type**\: int
                             
                             	**range:** 1..1000000
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -6830,8 +6535,6 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.threshold_high is not None:
                                     return True
 
@@ -6839,10 +6542,6 @@ class InterfaceConfigurations(object):
                                     return True
 
                                 return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
 
                             @staticmethod
                             def _meta_info():
@@ -6863,21 +6562,12 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.threshold is not None and self.threshold._has_data():
-                                return True
-
-                            if self.threshold is not None and self.threshold.is_presence():
                                 return True
 
                             if self.window is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6926,12 +6616,22 @@ class InterfaceConfigurations(object):
                             
                             	**range:** 1..900
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: threshold_low
                             
                             	The low threshold for frame\-seconds
                             	**type**\: int
                             
                             	**range:** 1..900
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -6961,8 +6661,6 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.threshold_high is not None:
                                     return True
 
@@ -6970,10 +6668,6 @@ class InterfaceConfigurations(object):
                                     return True
 
                                 return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
 
                             @staticmethod
                             def _meta_info():
@@ -6994,21 +6688,12 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.threshold is not None and self.threshold._has_data():
-                                return True
-
-                            if self.threshold is not None and self.threshold.is_presence():
                                 return True
 
                             if self.window is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7058,12 +6743,22 @@ class InterfaceConfigurations(object):
                             
                             	**range:** 1..60000000
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: threshold_low
                             
                             	The low threshold for symbol\-period
                             	**type**\: int
                             
                             	**range:** 1..60000000
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -7093,8 +6788,6 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.threshold_high is not None:
                                     return True
 
@@ -7102,10 +6795,6 @@ class InterfaceConfigurations(object):
                                     return True
 
                                 return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
 
                             @staticmethod
                             def _meta_info():
@@ -7126,21 +6815,12 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.threshold is not None and self.threshold._has_data():
-                                return True
-
-                            if self.threshold is not None and self.threshold.is_presence():
                                 return True
 
                             if self.window is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7162,24 +6842,13 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.frame is not None and self.frame._has_data():
-                            return True
-
-                        if self.frame is not None and self.frame.is_presence():
                             return True
 
                         if self.frame_period is not None and self.frame_period._has_data():
                             return True
 
-                        if self.frame_period is not None and self.frame_period.is_presence():
-                            return True
-
                         if self.frame_seconds is not None and self.frame_seconds._has_data():
-                            return True
-
-                        if self.frame_seconds is not None and self.frame_seconds.is_presence():
                             return True
 
                         if self.monitoring is not None:
@@ -7188,13 +6857,6 @@ class InterfaceConfigurations(object):
                         if self.symbol_period is not None and self.symbol_period._has_data():
                             return True
 
-                        if self.symbol_period is not None and self.symbol_period.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -7220,7 +6882,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: mode
                     
                     	Possible required peer modes
-                    	**type**\: :py:class:`EtherLinkOamInterfaceRequireModeEnum_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamInterfaceRequireModeEnum_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamInterfaceRequireModeEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamInterfaceRequireModeEnumEnum>`
                     
                     .. attribute:: remote_loopback
                     
@@ -7255,8 +6917,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.link_monitoring is not None:
                             return True
 
@@ -7269,10 +6929,6 @@ class InterfaceConfigurations(object):
                         if self.remote_loopback is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -7294,21 +6950,13 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.action is not None and self.action._has_data():
-                        return True
-
-                    if self.action is not None and self.action.is_presence():
                         return True
 
                     if self.hello_interval is not None:
                         return True
 
                     if self.link_monitor is not None and self.link_monitor._has_data():
-                        return True
-
-                    if self.link_monitor is not None and self.link_monitor.is_presence():
                         return True
 
                     if self.mib_retrieval is not None:
@@ -7326,19 +6974,12 @@ class InterfaceConfigurations(object):
                     if self.require_remote is not None and self.require_remote._has_data():
                         return True
 
-                    if self.require_remote is not None and self.require_remote.is_presence():
-                        return True
-
                     if self.timeout is not None:
                         return True
 
                     if self.udlf is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7360,18 +7001,10 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.cfm is not None and self.cfm._has_data():
                     return True
 
-                if self.cfm is not None and self.cfm.is_presence():
-                    return True
-
                 if self.ether_link_oam is not None and self.ether_link_oam._has_data():
-                    return True
-
-                if self.ether_link_oam is not None and self.ether_link_oam.is_presence():
                     return True
 
                 if self.ether_link_oam_enable is not None:
@@ -7380,10 +7013,6 @@ class InterfaceConfigurations(object):
                 if self.filtering is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -7436,10 +7065,20 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: additional_range1_low
                 
                 	Low value of first additional range for tag match
-                	**type**\: one of { :py:class:`VlanTagOrCvp_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvp_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrCvpEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: additional_range2_high
                 
@@ -7448,10 +7087,20 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: additional_range2_low
                 
                 	Low value of second additional range for tag match
-                	**type**\: one of { :py:class:`VlanTagOrCvp_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvp_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrCvpEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: additional_range3_high
                 
@@ -7460,10 +7109,20 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: additional_range3_low
                 
                 	Low value of third additional range for tag match
-                	**type**\: one of { :py:class:`VlanTagOrCvp_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvp_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrCvpEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: additional_range4_high
                 
@@ -7472,10 +7131,20 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: additional_range4_low
                 
                 	Low value of forth additional range for tag match
-                	**type**\: one of { :py:class:`VlanTagOrCvp_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvp_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrCvpEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: additional_range5_high
                 
@@ -7484,10 +7153,20 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: additional_range5_low
                 
                 	Low value of fifth additional range for tag match
-                	**type**\: one of { :py:class:`VlanTagOrCvp_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvp_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrCvpEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: additional_range6_high
                 
@@ -7496,10 +7175,20 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: additional_range6_low
                 
                 	Low value of sixth additional range for tag match
-                	**type**\: one of { :py:class:`VlanTagOrCvp_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvp_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrCvpEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: additional_range7_high
                 
@@ -7508,10 +7197,20 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: additional_range7_low
                 
                 	Low value of seventh additional range for tag match
-                	**type**\: one of { :py:class:`VlanTagOrCvp_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvp_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrCvpEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: additional_range8_high
                 
@@ -7520,15 +7219,30 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: additional_range8_low
                 
                 	Low value of eighth additional range for tag match
-                	**type**\: one of { :py:class:`VlanTagOrCvp_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvp_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrCvpEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: exact
                 
                 	Only match packets with no more tags than explicitly matched
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: ingress_destination_mac
                 
@@ -7537,12 +7251,22 @@ class InterfaceConfigurations(object):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: ingress_source_mac
                 
                 	Source MAC address to match on ingress
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: inner_class_of_service
                 
@@ -7551,6 +7275,11 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..7
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: inner_range1_high
                 
                 	High value of first range for inner tag match
@@ -7558,15 +7287,30 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: inner_range1_low
                 
                 	Low value of first range for inner tag match
-                	**type**\: one of { :py:class:`VlanTagOrAny_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAny_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrAnyEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: inner_tag_type
                 
                 	Type of tag for inner match (if present)
-                	**type**\: :py:class:`Match_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.Match_Enum>`
+                	**type**\: :py:class:`MatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: outer_class_of_service
                 
@@ -7575,25 +7319,50 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..7
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: outer_range1_high
                 
                 	High value of first range for outer tag match
-                	**type**\: one of { :py:class:`VlanTagOrNative_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrNative_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrNativeEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrNativeEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: outer_range1_low
                 
                 	Low value of first range for outer tag match
-                	**type**\: one of { :py:class:`VlanTagOrAny_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAny_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrAnyEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: outer_tag_type
                 
                 	Whether to match all unmatched packets, untagged packets or tagged packets, and if matching tagged packets, the outer tag type to match
-                	**type**\: :py:class:`Match_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.Match_Enum>`
+                	**type**\: :py:class:`MatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: payload_ethertype_match
                 
                 	Which payload ethertype values to match
-                	**type**\: :py:class:`EthertypeMatch_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.EthertypeMatch_Enum>`
+                	**type**\: :py:class:`EthertypeMatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.EthertypeMatchEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -7649,8 +7418,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.additional_range1_high is not None:
                         return True
 
@@ -7737,10 +7504,6 @@ class InterfaceConfigurations(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
@@ -7759,10 +7522,20 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: outer_tag_type
                 
                 	Type of outer tag
-                	**type**\: :py:class:`Vlan_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.Vlan_Enum>`
+                	**type**\: :py:class:`VlanEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: outer_vlan_id
                 
@@ -7770,6 +7543,11 @@ class InterfaceConfigurations(object):
                 	**type**\: int
                 
                 	**range:** 1..4094
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -7800,8 +7578,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.inner_vlan_id is not None:
                         return True
 
@@ -7812,10 +7588,6 @@ class InterfaceConfigurations(object):
                         return True
 
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -7830,7 +7602,12 @@ class InterfaceConfigurations(object):
                 .. attribute:: inner_tag_type
                 
                 	Type of innermost tag to be pushed
-                	**type**\: :py:class:`Match_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.Match_Enum>`
+                	**type**\: :py:class:`MatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: inner_tag_value
                 
@@ -7839,10 +7616,20 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: outer_tag_type
                 
                 	Type of outermost tag to be pushed
-                	**type**\: :py:class:`Match_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.Match_Enum>`
+                	**type**\: :py:class:`MatchEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: outer_tag_value
                 
@@ -7851,10 +7638,20 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: rewrite_type
                 
                 	The type of rewrite to perform
-                	**type**\: :py:class:`Rewrite_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.Rewrite_Enum>`
+                	**type**\: :py:class:`RewriteEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.RewriteEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -7887,8 +7684,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.inner_tag_type is not None:
                         return True
 
@@ -7905,10 +7700,6 @@ class InterfaceConfigurations(object):
                         return True
 
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -7929,36 +7720,124 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.encapsulation is not None and self.encapsulation._has_data():
-                    return True
-
-                if self.encapsulation is not None and self.encapsulation.is_presence():
                     return True
 
                 if self.local_traffic_default_encapsulation is not None and self.local_traffic_default_encapsulation._has_data():
                     return True
 
-                if self.local_traffic_default_encapsulation is not None and self.local_traffic_default_encapsulation.is_presence():
-                    return True
-
                 if self.rewrite is not None and self.rewrite._has_data():
                     return True
 
-                if self.rewrite is not None and self.rewrite.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
             def _meta_info():
                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
                 return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.EthernetService']['meta_info']
+
+
+        class Ipv4Arp(object):
+            """
+            Configure Address Resolution Protocol
+            
+            .. attribute:: gratuitous_ignore
+            
+            	Ignore the receipt of Gratuitous ARP packets on the interface
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: learning_disable
+            
+            	Disable the dynamic learning of ARP entries on the interface
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: learning_local
+            
+            	Enable the dynamic learning of ARP entries(for local subnet) on the interface
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: local_proxy_arp
+            
+            	Local Proxy ARP configuration
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: proxy_arp
+            
+            	Proxy ARP configuration
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: purge_delay
+            
+            	Time to delay purging arp entries when the interface goes down
+            	**type**\: int
+            
+            	**range:** 1..65535
+            
+            .. attribute:: timeout
+            
+            	Number of seconds for ARP cache timeout
+            	**type**\: int
+            
+            	**range:** 30..2144448000
+            
+            
+
+            """
+
+            _prefix = 'ipv4-arp-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.gratuitous_ignore = None
+                self.learning_disable = None
+                self.learning_local = None
+                self.local_proxy_arp = None
+                self.proxy_arp = None
+                self.purge_delay = None
+                self.timeout = None
+
+            @property
+            def _common_path(self):
+                if self.parent is None:
+                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:ipv4arp'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.gratuitous_ignore is not None:
+                    return True
+
+                if self.learning_disable is not None:
+                    return True
+
+                if self.learning_local is not None:
+                    return True
+
+                if self.local_proxy_arp is not None:
+                    return True
+
+                if self.proxy_arp is not None:
+                    return True
+
+                if self.purge_delay is not None:
+                    return True
+
+                if self.timeout is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv4Arp']['meta_info']
 
 
         class Ipv4Network(object):
@@ -8096,6 +7975,11 @@ class InterfaceConfigurations(object):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: netmask
                     
                     	Netmask
@@ -8103,12 +7987,22 @@ class InterfaceConfigurations(object):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: route_tag
                     
                     	RouteTag
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -8139,8 +8033,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             return True
 
@@ -8151,10 +8043,6 @@ class InterfaceConfigurations(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -8239,8 +8127,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 return True
 
@@ -8250,10 +8136,6 @@ class InterfaceConfigurations(object):
                             if self.route_tag is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8275,17 +8157,11 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.secondary is not None:
                             for child_ref in self.secondary:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8307,30 +8183,18 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.dhcp is not None:
                         return True
 
                     if self.primary is not None and self.primary._has_data():
                         return True
 
-                    if self.primary is not None and self.primary.is_presence():
-                        return True
-
                     if self.secondaries is not None and self.secondaries._has_data():
-                        return True
-
-                    if self.secondaries is not None and self.secondaries.is_presence():
                         return True
 
                     if self.unnumbered is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -8431,18 +8295,12 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.destination is not None:
                                 return True
 
                             if self.source is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8464,18 +8322,9 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.flow_tag_input is not None and self.flow_tag_input._has_data():
                             return True
 
-                        if self.flow_tag_input is not None and self.flow_tag_input.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8514,12 +8363,12 @@ class InterfaceConfigurations(object):
                         .. attribute:: destination
                         
                         	QPPB configuration on destination
-                        	**type**\: :py:class:`Ipv4InterfaceQppb_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg.Ipv4InterfaceQppb_Enum>`
+                        	**type**\: :py:class:`Ipv4InterfaceQppbEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg.Ipv4InterfaceQppbEnum>`
                         
                         .. attribute:: source
                         
                         	QPPB configuration on source
-                        	**type**\: :py:class:`Ipv4InterfaceQppb_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg.Ipv4InterfaceQppb_Enum>`
+                        	**type**\: :py:class:`Ipv4InterfaceQppbEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg.Ipv4InterfaceQppbEnum>`
                         
                         
 
@@ -8547,18 +8396,12 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.destination is not None:
                                 return True
 
                             if self.source is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8580,18 +8423,9 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.input is not None and self.input._has_data():
                             return True
 
-                        if self.input is not None and self.input.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8613,24 +8447,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.flow_tag is not None and self.flow_tag._has_data():
-                        return True
-
-                    if self.flow_tag is not None and self.flow_tag.is_presence():
                         return True
 
                     if self.qppb is not None and self.qppb._has_data():
                         return True
 
-                    if self.qppb is not None and self.qppb.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -8708,18 +8530,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.destination_accounting is not None:
                             return True
 
                         if self.source_accounting is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8768,18 +8584,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.destination_accounting is not None:
                             return True
 
                         if self.source_accounting is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8801,24 +8611,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.input is not None and self.input._has_data():
-                        return True
-
-                    if self.input is not None and self.input.is_presence():
                         return True
 
                     if self.output is not None and self.output._has_data():
                         return True
 
-                    if self.output is not None and self.output.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -8899,18 +8697,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             return True
 
                         if self.vrf_name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8932,17 +8724,11 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.helper_address is not None:
                         for child_ref in self.helper_address:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -8958,17 +8744,17 @@ class InterfaceConfigurations(object):
                 .. attribute:: default_ping
                 
                 	Allow default route to match when checking source address
-                	**type**\: :py:class:`Ipv4DefaultPing_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg.Ipv4DefaultPing_Enum>`
+                	**type**\: :py:class:`Ipv4DefaultPingEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg.Ipv4DefaultPingEnum>`
                 
                 .. attribute:: reachable
                 
                 	Source is reachable via any interface or interface on which packet was received
-                	**type**\: :py:class:`Ipv4Reachable_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg.Ipv4Reachable_Enum>`
+                	**type**\: :py:class:`Ipv4ReachableEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg.Ipv4ReachableEnum>`
                 
                 .. attribute:: self_ping
                 
                 	Allow router to ping itself (opens vulnerability in verification)
-                	**type**\: :py:class:`Ipv4SelfPing_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg.Ipv4SelfPing_Enum>`
+                	**type**\: :py:class:`Ipv4SelfPingEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg.Ipv4SelfPingEnum>`
                 
                 
 
@@ -8997,8 +8783,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.default_ping is not None:
                         return True
 
@@ -9008,10 +8792,6 @@ class InterfaceConfigurations(object):
                     if self.self_ping is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9033,30 +8813,16 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.addresses is not None and self.addresses._has_data():
-                    return True
-
-                if self.addresses is not None and self.addresses.is_presence():
                     return True
 
                 if self.bgp is not None and self.bgp._has_data():
                     return True
 
-                if self.bgp is not None and self.bgp.is_presence():
-                    return True
-
                 if self.bgp_pa is not None and self.bgp_pa._has_data():
                     return True
 
-                if self.bgp_pa is not None and self.bgp_pa.is_presence():
-                    return True
-
                 if self.helper_addresses is not None and self.helper_addresses._has_data():
-                    return True
-
-                if self.helper_addresses is not None and self.helper_addresses.is_presence():
                     return True
 
                 if self.icmp_mask_reply is not None:
@@ -9077,13 +8843,6 @@ class InterfaceConfigurations(object):
                 if self.verify is not None and self.verify._has_data():
                     return True
 
-                if self.verify is not None and self.verify.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -9139,8 +8898,6 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.directed_broadcast is not None:
                     return True
 
@@ -9150,10 +8907,6 @@ class InterfaceConfigurations(object):
                 if self.unreachables is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -9271,8 +9024,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.acl_name_array is not None:
                         for child in self.acl_name_array:
                             if child is not None:
@@ -9298,10 +9049,6 @@ class InterfaceConfigurations(object):
                     if self.name is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9389,8 +9136,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.acl_name_array is not None:
                         for child in self.acl_name_array:
                             if child is not None:
@@ -9418,10 +9163,6 @@ class InterfaceConfigurations(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
@@ -9441,139 +9182,18 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.inbound is not None and self.inbound._has_data():
-                    return True
-
-                if self.inbound is not None and self.inbound.is_presence():
                     return True
 
                 if self.outbound is not None and self.outbound._has_data():
                     return True
 
-                if self.outbound is not None and self.outbound.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
             def _meta_info():
                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
                 return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv4PacketFilter']['meta_info']
-
-
-        class Ipv4arp(object):
-            """
-            Configure Address Resolution Protocol
-            
-            .. attribute:: gratuitous_ignore
-            
-            	Ignore the receipt of Gratuitous ARP packets on the interface
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: learning_disable
-            
-            	Disable the dynamic learning of ARP entries on the interface
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: learning_local
-            
-            	Enable the dynamic learning of ARP entries(for local subnet) on the interface
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: local_proxy_arp
-            
-            	Local Proxy ARP configuration
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: proxy_arp
-            
-            	Proxy ARP configuration
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: purge_delay
-            
-            	Time to delay purging arp entries when the interface goes down
-            	**type**\: int
-            
-            	**range:** 1..65535
-            
-            .. attribute:: timeout
-            
-            	Number of seconds for ARP cache timeout
-            	**type**\: int
-            
-            	**range:** 30..2144448000
-            
-            
-
-            """
-
-            _prefix = 'ipv4-arp-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.gratuitous_ignore = None
-                self.learning_disable = None
-                self.learning_local = None
-                self.local_proxy_arp = None
-                self.proxy_arp = None
-                self.purge_delay = None
-                self.timeout = None
-
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:ipv4arp'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.is_presence():
-                    return True
-                if self.gratuitous_ignore is not None:
-                    return True
-
-                if self.learning_disable is not None:
-                    return True
-
-                if self.learning_local is not None:
-                    return True
-
-                if self.local_proxy_arp is not None:
-                    return True
-
-                if self.proxy_arp is not None:
-                    return True
-
-                if self.purge_delay is not None:
-                    return True
-
-                if self.timeout is not None:
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv4arp']['meta_info']
 
 
         class Ipv6Neighbor(object):
@@ -9657,17 +9277,17 @@ class InterfaceConfigurations(object):
             .. attribute:: router_preference
             
             	RA Router Preference
-            	**type**\: :py:class:`Ipv6NdRouterPref_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6NdRouterPref_Enum>`
+            	**type**\: :py:class:`Ipv6NdRouterPrefEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6NdRouterPrefEnum>`
             
             .. attribute:: srp_multicast_encapsulation
             
             	Set SRP multicast prefer encapsulation
-            	**type**\: :py:class:`Ipv6srpEncapsulation_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6srpEncapsulation_Enum>`
+            	**type**\: :py:class:`Ipv6SrpEncapsulationEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6SrpEncapsulationEnum>`
             
             .. attribute:: srp_unicast_encapsulation
             
             	Set SRP unicast prefer encapsulation
-            	**type**\: :py:class:`Ipv6srpEncapsulation_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6srpEncapsulation_Enum>`
+            	**type**\: :py:class:`Ipv6SrpEncapsulationEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6SrpEncapsulationEnum>`
             
             
 
@@ -9734,15 +9354,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.attempts is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9809,7 +9423,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: expiry_month
                     
                     	Month to expire valid lifetime
-                    	**type**\: :py:class:`Ipv6ndMonth_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6ndMonth_Enum>`
+                    	**type**\: :py:class:`Ipv6NdMonthEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6NdMonthEnum>`
                     
                     .. attribute:: expiry_year
                     
@@ -9857,7 +9471,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: pref_expiry_month
                     
                     	Month to expire preferred lifetime
-                    	**type**\: :py:class:`Ipv6ndMonth_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6ndMonth_Enum>`
+                    	**type**\: :py:class:`Ipv6NdMonthEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6NdMonthEnum>`
                     
                     .. attribute:: pref_expiry_year
                     
@@ -9938,8 +9552,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.prefix is not None:
                             return True
 
@@ -9996,10 +9608,6 @@ class InterfaceConfigurations(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
@@ -10019,17 +9627,11 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ipv6_prefix is not None:
                         for child_ref in self.ipv6_prefix:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -10050,12 +9652,22 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 4..1800
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: minimum
                 
                 	Minimum RA interval in seconds
                 	**type**\: int
                 
                 	**range:** 3..1800
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -10085,8 +9697,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.maximum is not None:
                         return True
 
@@ -10094,10 +9704,6 @@ class InterfaceConfigurations(object):
                         return True
 
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -10118,21 +9724,13 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.cache_limit is not None:
                     return True
 
                 if self.duplicate_address_detection is not None and self.duplicate_address_detection._has_data():
                     return True
 
-                if self.duplicate_address_detection is not None and self.duplicate_address_detection.is_presence():
-                    return True
-
                 if self.ipv6_prefixes is not None and self.ipv6_prefixes._has_data():
-                    return True
-
-                if self.ipv6_prefixes is not None and self.ipv6_prefixes.is_presence():
                     return True
 
                 if self.managed_config is not None:
@@ -10145,9 +9743,6 @@ class InterfaceConfigurations(object):
                     return True
 
                 if self.ra_interval is not None and self.ra_interval._has_data():
-                    return True
-
-                if self.ra_interval is not None and self.ra_interval.is_presence():
                     return True
 
                 if self.ra_lifetime is not None:
@@ -10177,10 +9772,6 @@ class InterfaceConfigurations(object):
                 if self.srp_unicast_encapsulation is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -10354,15 +9945,9 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.enable is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -10452,8 +10037,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 return True
 
@@ -10466,10 +10049,6 @@ class InterfaceConfigurations(object):
                             if self.zone is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -10491,17 +10070,11 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.eui64_address is not None:
                             for child_ref in self.eui64_address:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -10519,6 +10092,11 @@ class InterfaceConfigurations(object):
                     	IPv6 address
                     	**type**\: one of { str | str }
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: route_tag
                     
                     	RouteTag
@@ -10526,10 +10104,20 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 1..4294967295
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: zone
                     
                     	IPv6 address zone
                     	**type**\: str
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -10560,8 +10148,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             return True
 
@@ -10572,10 +10158,6 @@ class InterfaceConfigurations(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -10664,8 +10246,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 return True
 
@@ -10678,10 +10258,6 @@ class InterfaceConfigurations(object):
                             if self.zone is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -10703,17 +10279,11 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.regular_address is not None:
                             for child_ref in self.regular_address:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -10735,36 +10305,18 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.auto_configuration is not None and self.auto_configuration._has_data():
-                        return True
-
-                    if self.auto_configuration is not None and self.auto_configuration.is_presence():
                         return True
 
                     if self.eui64_addresses is not None and self.eui64_addresses._has_data():
                         return True
 
-                    if self.eui64_addresses is not None and self.eui64_addresses.is_presence():
-                        return True
-
                     if self.link_local_address is not None and self.link_local_address._has_data():
-                        return True
-
-                    if self.link_local_address is not None and self.link_local_address.is_presence():
                         return True
 
                     if self.regular_addresses is not None and self.regular_addresses._has_data():
                         return True
 
-                    if self.regular_addresses is not None and self.regular_addresses.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -10836,18 +10388,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.destination is not None:
                             return True
 
                         if self.source is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -10869,18 +10415,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bgp_flow_tag_policy is not None and self.bgp_flow_tag_policy._has_data():
                         return True
 
-                    if self.bgp_flow_tag_policy is not None and self.bgp_flow_tag_policy.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -10962,8 +10499,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.direction is not None:
                             return True
 
@@ -10973,10 +10508,6 @@ class InterfaceConfigurations(object):
                         if self.source_accounting is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -10998,17 +10529,11 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bgp_policy_accounting is not None:
                         for child_ref in self.bgp_policy_accounting:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -11024,12 +10549,22 @@ class InterfaceConfigurations(object):
                 .. attribute:: destination
                 
                 	QPPB configuration on destination
-                	**type**\: :py:class:`Ipv6Qppb_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6Qppb_Enum>`
+                	**type**\: :py:class:`Ipv6QppbEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6QppbEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: source
                 
                 	QPPB configuration on source
-                	**type**\: :py:class:`Ipv6Qppb_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6Qppb_Enum>`
+                	**type**\: :py:class:`Ipv6QppbEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6QppbEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -11059,8 +10594,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.destination is not None:
                         return True
 
@@ -11068,10 +10601,6 @@ class InterfaceConfigurations(object):
                         return True
 
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -11140,15 +10669,9 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.multicast_address is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -11170,17 +10693,11 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.mac_address_filter is not None:
                         for child_ref in self.mac_address_filter:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -11196,17 +10713,32 @@ class InterfaceConfigurations(object):
                 .. attribute:: default_ping
                 
                 	Allow Default Route
-                	**type**\: :py:class:`Ipv6DefaultPing_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6DefaultPing_Enum>`
+                	**type**\: :py:class:`Ipv6DefaultPingEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6DefaultPingEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: reachable
                 
                 	Source Reachable Interface
-                	**type**\: :py:class:`Ipv6Reachable_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6Reachable_Enum>`
+                	**type**\: :py:class:`Ipv6ReachableEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6ReachableEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: self_ping
                 
                 	Allow Self Ping
-                	**type**\: :py:class:`Ipv6SelfPing_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6SelfPing_Enum>`
+                	**type**\: :py:class:`Ipv6SelfPingEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6SelfPingEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -11237,8 +10769,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.default_ping is not None:
                         return True
 
@@ -11249,10 +10779,6 @@ class InterfaceConfigurations(object):
                         return True
 
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -11273,36 +10799,19 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.addresses is not None and self.addresses._has_data():
-                    return True
-
-                if self.addresses is not None and self.addresses.is_presence():
                     return True
 
                 if self.bgp_flow_tag_policy_table is not None and self.bgp_flow_tag_policy_table._has_data():
                     return True
 
-                if self.bgp_flow_tag_policy_table is not None and self.bgp_flow_tag_policy_table.is_presence():
-                    return True
-
                 if self.bgp_policy_accountings is not None and self.bgp_policy_accountings._has_data():
-                    return True
-
-                if self.bgp_policy_accountings is not None and self.bgp_policy_accountings.is_presence():
                     return True
 
                 if self.bgp_qos_policy_propagation is not None and self.bgp_qos_policy_propagation._has_data():
                     return True
 
-                if self.bgp_qos_policy_propagation is not None and self.bgp_qos_policy_propagation.is_presence():
-                    return True
-
                 if self.mac_address_filters is not None and self.mac_address_filters._has_data():
-                    return True
-
-                if self.mac_address_filters is not None and self.mac_address_filters.is_presence():
                     return True
 
                 if self.mtu is not None:
@@ -11323,13 +10832,6 @@ class InterfaceConfigurations(object):
                 if self.verify is not None and self.verify._has_data():
                     return True
 
-                if self.verify is not None and self.verify.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -11441,8 +10943,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.acl_name_array is not None:
                         for child in self.acl_name_array:
                             if child is not None:
@@ -11465,10 +10965,6 @@ class InterfaceConfigurations(object):
                     if self.name is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -11550,8 +11046,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.acl_name_array is not None:
                         for child in self.acl_name_array:
                             if child is not None:
@@ -11576,10 +11070,6 @@ class InterfaceConfigurations(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
@@ -11599,24 +11089,12 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.inbound is not None and self.inbound._has_data():
-                    return True
-
-                if self.inbound is not None and self.inbound.is_presence():
                     return True
 
                 if self.outbound is not None and self.outbound._has_data():
                     return True
 
-                if self.outbound is not None and self.outbound.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -11715,12 +11193,22 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 1..3
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: maximum_cells_packed
                     
                     	Maximum number of cells to be packed in a packet
                     	**type**\: int
                     
                     	**range:** 2..255
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -11750,8 +11238,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.cell_packing_timer_id is not None:
                             return True
 
@@ -11759,10 +11245,6 @@ class InterfaceConfigurations(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -11783,18 +11265,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.cell_packing is not None and self.cell_packing._has_data():
                         return True
 
-                    if self.cell_packing is not None and self.cell_packing.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -11810,7 +11283,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: egress_filtering
                 
                 	Egress Ethernet filtering
-                	**type**\: :py:class:`EgressFiltering_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EgressFiltering_Enum>`
+                	**type**\: :py:class:`EgressFilteringEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EgressFilteringEnum>`
                 
                 .. attribute:: source_bypass_egress_filtering
                 
@@ -11843,18 +11316,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.egress_filtering is not None:
                         return True
 
                     if self.source_bypass_egress_filtering is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -11893,12 +11360,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: l2_protocol_name
                     
                     	Protocol name
-                    	**type**\: :py:class:`L2ProtocolName_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.L2ProtocolName_Enum>`
+                    	**type**\: :py:class:`L2ProtocolNameEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.L2ProtocolNameEnum>`
                     
                     .. attribute:: mode
                     
                     	How to handle the protocol's packets
-                    	**type**\: :py:class:`L2ProtocolMode_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.L2ProtocolMode_Enum>`
+                    	**type**\: :py:class:`L2ProtocolModeEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.L2ProtocolModeEnum>`
                     
                     .. attribute:: mpls_exp_bits_value
                     
@@ -11936,8 +11403,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.l2_protocol_name is not None:
                             return True
 
@@ -11947,10 +11412,6 @@ class InterfaceConfigurations(object):
                         if self.mpls_exp_bits_value is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -11972,17 +11433,11 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.l2_protocol is not None:
                         for child_ref in self.l2_protocol:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -12023,7 +11478,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: session_class
                     
                     	Session Class
-                    	**type**\: :py:class:`SpanSessionClass_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass_Enum>`
+                    	**type**\: :py:class:`SpanSessionClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
                     
                     .. attribute:: acl
                     
@@ -12045,7 +11500,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: mirror_interval
                     
                     	Specify the mirror interval
-                    	**type**\: :py:class:`SpanMirrorInterval_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMirrorInterval_Enum>`
+                    	**type**\: :py:class:`SpanMirrorIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMirrorIntervalEnum>`
                     
                     
 
@@ -12070,12 +11525,22 @@ class InterfaceConfigurations(object):
                         .. attribute:: direction
                         
                         	Specify the direction of traffic to replicate (optional)
-                        	**type**\: :py:class:`SpanTrafficDirection_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanTrafficDirection_Enum>`
+                        	**type**\: :py:class:`SpanTrafficDirectionEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanTrafficDirectionEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: port_level_enable
                         
                         	Enable port level traffic mirroring
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: session_name
                         
@@ -12083,6 +11548,11 @@ class InterfaceConfigurations(object):
                         	**type**\: str
                         
                         	**range:** 0..79
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -12113,8 +11583,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.direction is not None:
                                 return True
 
@@ -12125,10 +11593,6 @@ class InterfaceConfigurations(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -12151,8 +11615,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.session_class is not None:
                             return True
 
@@ -12162,19 +11624,12 @@ class InterfaceConfigurations(object):
                         if self.attachment is not None and self.attachment._has_data():
                             return True
 
-                        if self.attachment is not None and self.attachment.is_presence():
-                            return True
-
                         if self.mirror_first is not None:
                             return True
 
                         if self.mirror_interval is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -12196,17 +11651,11 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.span_monitor_session is not None:
                         for child_ref in self.span_monitor_session:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -12228,12 +11677,7 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.atm_port_mode_parameters is not None and self.atm_port_mode_parameters._has_data():
-                    return True
-
-                if self.atm_port_mode_parameters is not None and self.atm_port_mode_parameters.is_presence():
                     return True
 
                 if self.enabled is not None:
@@ -12242,13 +11686,7 @@ class InterfaceConfigurations(object):
                 if self.l2_ethernet_features is not None and self.l2_ethernet_features._has_data():
                     return True
 
-                if self.l2_ethernet_features is not None and self.l2_ethernet_features.is_presence():
-                    return True
-
                 if self.l2_protocols is not None and self.l2_protocols._has_data():
-                    return True
-
-                if self.l2_protocols is not None and self.l2_protocols.is_presence():
                     return True
 
                 if self.propagate_remote_status is not None:
@@ -12257,13 +11695,6 @@ class InterfaceConfigurations(object):
                 if self.span_monitor_sessions is not None and self.span_monitor_sessions._has_data():
                     return True
 
-                if self.span_monitor_sessions is not None and self.span_monitor_sessions.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -12280,7 +11711,7 @@ class InterfaceConfigurations(object):
             .. attribute:: churn_logging
             
             	Log churn notifications on the specified system(s)
-            	**type**\: :py:class:`ChurnLogging_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.ChurnLogging_Enum>`
+            	**type**\: :py:class:`ChurnLoggingEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.ChurnLoggingEnum>`
             
             .. attribute:: cisco_extensions
             
@@ -12307,7 +11738,7 @@ class InterfaceConfigurations(object):
             .. attribute:: period_short
             
             	LACP period to request from the partner (LACP standard short period, or rate in milliseconds for use with Cisco\-specific extensions). Default is LACP standard long period (30s)
-            	**type**\: one of { :py:class:`PeriodShortEnum_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.PeriodShortEnum_Enum>` | int }
+            	**type**\: one of { :py:class:`PeriodShortEnumEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.PeriodShortEnumEnum>` | int }
             
             .. attribute:: suppress_flaps
             
@@ -12366,10 +11797,20 @@ class InterfaceConfigurations(object):
                 	Cisco extensions
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: cisco_ext_type
                 
                 	Specific Cisco extension to enable / disable
-                	**type**\: :py:class:`BundleCiscoExtTypes_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.BundleCiscoExtTypes_Enum>`
+                	**type**\: :py:class:`BundleCiscoExtTypesEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.BundleCiscoExtTypesEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -12399,8 +11840,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.cisco_ext is not None:
                         return True
 
@@ -12408,10 +11847,6 @@ class InterfaceConfigurations(object):
                         return True
 
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -12471,8 +11906,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.actor_churn is not None:
                         return True
 
@@ -12482,10 +11915,6 @@ class InterfaceConfigurations(object):
                     if self.rx_default is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -12507,15 +11936,10 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.churn_logging is not None:
                     return True
 
                 if self.cisco_extensions is not None and self.cisco_extensions._has_data():
-                    return True
-
-                if self.cisco_extensions is not None and self.cisco_extensions.is_presence():
                     return True
 
                 if self.collector_max_delay is not None:
@@ -12542,13 +11966,6 @@ class InterfaceConfigurations(object):
                 if self.timeout is not None and self.timeout._has_data():
                     return True
 
-                if self.timeout is not None and self.timeout.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -12566,15 +11983,30 @@ class InterfaceConfigurations(object):
             	enter LLDP interface submode
             	**type**\: bool
             
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
+            
             .. attribute:: receive
             
             	Disable LLDP RX
             	**type**\: :py:class:`Receive <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lldp.Receive>`
             
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
+            
             .. attribute:: transmit
             
             	Disable LLDP TX
             	**type**\: :py:class:`Transmit <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lldp.Transmit>`
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
             
             
 
@@ -12628,15 +12060,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.disable is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -12679,15 +12105,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.disable is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -12709,28 +12129,16 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.lldp_intf_enter is not None:
                     return True
 
                 if self.receive is not None and self.receive._has_data():
                     return True
 
-                if self.receive is not None and self.receive.is_presence():
-                    return True
-
                 if self.transmit is not None and self.transmit._has_data():
                     return True
 
-                if self.transmit is not None and self.transmit.is_presence():
-                    return True
-
                 return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return True
 
             @staticmethod
             def _meta_info():
@@ -12778,18 +12186,12 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.egress is not None:
                     return True
 
                 if self.ingress is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -12831,7 +12233,7 @@ class InterfaceConfigurations(object):
             .. attribute:: switchover_type
             
             	Set the type of mLACP switchover to use for this bundle
-            	**type**\: :py:class:`MlacpSwitchover_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.MlacpSwitchover_Enum>`
+            	**type**\: :py:class:`MlacpSwitchoverEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.MlacpSwitchoverEnum>`
             
             
 
@@ -12861,6 +12263,11 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: link_threshold
                 
                 	The number of links below which to switch to the peer if it has more links available. Only applicable if maximizing by links. If 0, no threshold is applied
@@ -12868,10 +12275,20 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..64
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: maximize_by
                 
                 	The paramenter which should be maximized
-                	**type**\: :py:class:`MlacpMaximizeParameter_Enum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.MlacpMaximizeParameter_Enum>`
+                	**type**\: :py:class:`MlacpMaximizeParameterEnum <ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg.MlacpMaximizeParameterEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -12902,8 +12319,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bandwidth_threshold is not None:
                         return True
 
@@ -12914,10 +12329,6 @@ class InterfaceConfigurations(object):
                         return True
 
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -12938,15 +12349,10 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.iccp_group is not None:
                     return True
 
                 if self.maximize is not None and self.maximize._has_data():
-                    return True
-
-                if self.maximize is not None and self.maximize.is_presence():
                     return True
 
                 if self.port_priority is not None:
@@ -12958,10 +12364,6 @@ class InterfaceConfigurations(object):
                 if self.switchover_type is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -13012,7 +12414,7 @@ class InterfaceConfigurations(object):
             .. attribute:: path_selection_metric
             
             	Path selection configuration for this specific tunnel
-            	**type**\: :py:class:`MplsTePathSelectionMetric_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetric_Enum>`
+            	**type**\: :py:class:`MplsTePathSelectionMetricEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
             
             .. attribute:: priority
             
@@ -13111,18 +12513,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.affinity is not None:
                         return True
 
                     if self.mask is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -13152,7 +12548,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: dste_type
                 
                 	DSTE\-standard flag
-                	**type**\: :py:class:`MplsTeBandwidthDste_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDste_Enum>`
+                	**type**\: :py:class:`MplsTeBandwidthDsteEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
                 
                 
 
@@ -13181,8 +12577,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bandwidth is not None:
                         return True
 
@@ -13192,10 +12586,6 @@ class InterfaceConfigurations(object):
                     if self.dste_type is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -13256,7 +12646,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: s2l_logging
                     
                     	Log tunnel destination s2l messages
-                    	**type**\: :py:class:`S2lLogging <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.S2lLogging>`
+                    	**type**\: :py:class:`S2LLogging <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.S2LLogging>`
                     
                     
 
@@ -13272,7 +12662,7 @@ class InterfaceConfigurations(object):
                         self.destination_disable = None
                         self.path_options = InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.PathOptions()
                         self.path_options.parent = self
-                        self.s2l_logging = InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.S2lLogging()
+                        self.s2l_logging = InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.S2LLogging()
                         self.s2l_logging.parent = self
 
 
@@ -13314,7 +12704,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: lockdown
                             
                             	Path option properties
-                            	**type**\: :py:class:`MplsTePathOptionProperty_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionProperty_Enum>`
+                            	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
                             
                             .. attribute:: path_id
                             
@@ -13331,12 +12721,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: path_type
                             
                             	The type of the path option
-                            	**type**\: :py:class:`MplsTePathOption_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOption_Enum>`
+                            	**type**\: :py:class:`MplsTePathOptionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionEnum>`
                             
                             .. attribute:: verbatim
                             
                             	Path option properties
-                            	**type**\: :py:class:`MplsTePathOptionProperty_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionProperty_Enum>`
+                            	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
                             
                             
 
@@ -13370,8 +12760,6 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.preference_level is not None:
                                     return True
 
@@ -13390,10 +12778,6 @@ class InterfaceConfigurations(object):
                                 if self.verbatim is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -13415,17 +12799,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.path_option is not None:
                                 for child_ref in self.path_option:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -13434,7 +12812,7 @@ class InterfaceConfigurations(object):
                             return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.PathOptions']['meta_info']
 
 
-                    class S2lLogging(object):
+                    class S2LLogging(object):
                         """
                         Log tunnel destination s2l messages
                         
@@ -13486,8 +12864,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.s2l_insufficient_bw_messsage is not None:
                                 return True
 
@@ -13502,14 +12878,10 @@ class InterfaceConfigurations(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.S2lLogging']['meta_info']
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.S2LLogging']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -13527,8 +12899,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             return True
 
@@ -13541,19 +12911,9 @@ class InterfaceConfigurations(object):
                         if self.path_options is not None and self.path_options._has_data():
                             return True
 
-                        if self.path_options is not None and self.path_options.is_presence():
-                            return True
-
                         if self.s2l_logging is not None and self.s2l_logging._has_data():
                             return True
 
-                        if self.s2l_logging is not None and self.s2l_logging.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -13575,17 +12935,11 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.destination_leaf is not None:
                         for child_ref in self.destination_leaf:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -13676,8 +13030,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.all is not None:
                         return True
 
@@ -13705,10 +13057,6 @@ class InterfaceConfigurations(object):
                     if self.sub_lsp_state_message is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -13817,7 +13165,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: affinity_type
                     
                     	The type of the affinity entry
-                    	**type**\: :py:class:`MplsTeTunnelAffinity_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity_Enum>`
+                    	**type**\: :py:class:`MplsTeTunnelAffinityEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                     
                     
 
@@ -13876,8 +13224,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.affinity1 is not None:
                             return True
 
@@ -13913,10 +13259,6 @@ class InterfaceConfigurations(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
@@ -13936,17 +13278,11 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.new_style_affinity is not None:
                         for child_ref in self.new_style_affinity:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -13999,18 +13335,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.hold_priority is not None:
                         return True
 
                     if self.setup_priority is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -14032,24 +13362,13 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.affinity_mask is not None and self.affinity_mask._has_data():
-                    return True
-
-                if self.affinity_mask is not None and self.affinity_mask.is_presence():
                     return True
 
                 if self.bandwidth is not None and self.bandwidth._has_data():
                     return True
 
-                if self.bandwidth is not None and self.bandwidth.is_presence():
-                    return True
-
                 if self.destination_leafs is not None and self.destination_leafs._has_data():
-                    return True
-
-                if self.destination_leafs is not None and self.destination_leafs.is_presence():
                     return True
 
                 if self.fast_reroute is not None:
@@ -14061,22 +13380,13 @@ class InterfaceConfigurations(object):
                 if self.logging is not None and self.logging._has_data():
                     return True
 
-                if self.logging is not None and self.logging.is_presence():
-                    return True
-
                 if self.new_style_affinities is not None and self.new_style_affinities._has_data():
-                    return True
-
-                if self.new_style_affinities is not None and self.new_style_affinities.is_presence():
                     return True
 
                 if self.path_selection_metric is not None:
                     return True
 
                 if self.priority is not None and self.priority._has_data():
-                    return True
-
-                if self.priority is not None and self.priority.is_presence():
                     return True
 
                 if self.record_route is not None:
@@ -14088,10 +13398,6 @@ class InterfaceConfigurations(object):
                 if self.signalled_payload is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -14169,18 +13475,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.owner is not None:
                         return True
 
                     if self.mtu is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -14202,17 +13502,11 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.mtu is not None:
                     for child_ref in self.mtu:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -14375,18 +13669,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.monitor_map_name is not None:
                                     return True
 
                                 if self.sampler_map_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -14408,17 +13696,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.flow_monitor_name is not None:
                                 for child_ref in self.flow_monitor_name:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -14494,18 +13776,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.monitor_map_name is not None:
                                     return True
 
                                 if self.sampler_map_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -14527,17 +13803,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.flow_monitor_name is not None:
                                 for child_ref in self.flow_monitor_name:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -14559,24 +13829,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.egress is not None and self.egress._has_data():
-                            return True
-
-                        if self.egress is not None and self.egress.is_presence():
                             return True
 
                         if self.ingress is not None and self.ingress._has_data():
                             return True
 
-                        if self.ingress is not None and self.ingress.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -14598,18 +13856,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.flow_monitor_map is not None and self.flow_monitor_map._has_data():
                         return True
 
-                    if self.flow_monitor_map is not None and self.flow_monitor_map.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -14736,18 +13985,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.monitor_map_name is not None:
                                     return True
 
                                 if self.sampler_map_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -14769,17 +14012,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.flow_monitor_name is not None:
                                 for child_ref in self.flow_monitor_name:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -14855,18 +14092,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.monitor_map_name is not None:
                                     return True
 
                                 if self.sampler_map_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -14888,17 +14119,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.flow_monitor_name is not None:
                                 for child_ref in self.flow_monitor_name:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -14920,24 +14145,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.egress is not None and self.egress._has_data():
-                            return True
-
-                        if self.egress is not None and self.egress.is_presence():
                             return True
 
                         if self.ingress is not None and self.ingress._has_data():
                             return True
 
-                        if self.ingress is not None and self.ingress.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -14959,18 +14172,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.flow_monitor_map is not None and self.flow_monitor_map._has_data():
                         return True
 
-                    if self.flow_monitor_map is not None and self.flow_monitor_map.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -15097,18 +14301,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.monitor_map_name is not None:
                                     return True
 
                                 if self.sampler_map_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -15130,17 +14328,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.flow_monitor_name is not None:
                                 for child_ref in self.flow_monitor_name:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -15216,18 +14408,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.monitor_map_name is not None:
                                     return True
 
                                 if self.sampler_map_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -15249,17 +14435,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.flow_monitor_name is not None:
                                 for child_ref in self.flow_monitor_name:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -15281,24 +14461,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.egress is not None and self.egress._has_data():
-                            return True
-
-                        if self.egress is not None and self.egress.is_presence():
                             return True
 
                         if self.ingress is not None and self.ingress._has_data():
                             return True
 
-                        if self.ingress is not None and self.ingress.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -15320,18 +14488,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.flow_monitor_map is not None and self.flow_monitor_map._has_data():
                         return True
 
-                    if self.flow_monitor_map is not None and self.flow_monitor_map.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -15353,30 +14512,15 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.ipv4 is not None and self.ipv4._has_data():
-                    return True
-
-                if self.ipv4 is not None and self.ipv4.is_presence():
                     return True
 
                 if self.ipv6 is not None and self.ipv6._has_data():
                     return True
 
-                if self.ipv6 is not None and self.ipv6.is_presence():
-                    return True
-
                 if self.mpls is not None and self.mpls._has_data():
                     return True
 
-                if self.mpls is not None and self.mpls.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -15398,7 +14542,6 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                pass
 
             @property
             def _common_path(self):
@@ -15414,12 +14557,6 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -15501,7 +14638,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: continuity_check_interval
                     
                     	Continuity\-Check Interval
-                    	**type**\: :py:class:`CfmCcmInterval_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmCcmInterval_Enum>`
+                    	**type**\: :py:class:`CfmCcmIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmCcmIntervalEnum>`
                     
                     .. attribute:: enable
                     
@@ -15542,8 +14679,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.continuity_check_interval is not None:
                             return True
 
@@ -15553,10 +14688,6 @@ class InterfaceConfigurations(object):
                         if self.level is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -15578,18 +14709,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.cfm is not None and self.cfm._has_data():
                         return True
 
-                    if self.cfm is not None and self.cfm.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -15642,18 +14764,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.iccp_group is not None:
                         return True
 
                     if self.minimum_preferred_links is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -15749,8 +14865,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.port_type is not None:
                             return True
 
@@ -15763,10 +14877,6 @@ class InterfaceConfigurations(object):
                         if self.port_range is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -15788,17 +14898,11 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.remote_port is not None:
                         for child_ref in self.remote_port:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -15820,33 +14924,18 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.ethernet_features is not None and self.ethernet_features._has_data():
-                    return True
-
-                if self.ethernet_features is not None and self.ethernet_features.is_presence():
                     return True
 
                 if self.redundancy is not None and self.redundancy._has_data():
                     return True
 
-                if self.redundancy is not None and self.redundancy.is_presence():
-                    return True
-
                 if self.remote_ports is not None and self.remote_ports._has_data():
-                    return True
-
-                if self.remote_ports is not None and self.remote_ports.is_presence():
                     return True
 
                 if self.satellite is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -15935,18 +15024,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.iccp_group is not None:
                         return True
 
                     if self.minimum_preferred_links is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -16101,8 +15184,6 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.port_type is not None:
                                     return True
 
@@ -16115,10 +15196,6 @@ class InterfaceConfigurations(object):
                                 if self.port_range is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16140,17 +15217,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.remote_port is not None:
                                 for child_ref in self.remote_port:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -16174,8 +15245,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.satellite_id is not None:
                             return True
 
@@ -16185,13 +15254,6 @@ class InterfaceConfigurations(object):
                         if self.remote_ports is not None and self.remote_ports._has_data():
                             return True
 
-                        if self.remote_ports is not None and self.remote_ports.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -16213,17 +15275,11 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.satellite is not None:
                         for child_ref in self.satellite:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -16245,27 +15301,15 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
                 if self.redundancy is not None and self.redundancy._has_data():
                     return True
 
-                if self.redundancy is not None and self.redundancy.is_presence():
-                    return True
-
                 if self.satellites is not None and self.satellites._has_data():
                     return True
 
-                if self.satellites is not None and self.satellites.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -16335,7 +15379,7 @@ class InterfaceConfigurations(object):
             .. attribute:: optics_loopback
             
             	Configure optics loopback mode 
-            	**type**\: :py:class:`OpticsLoopback_Enum <ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg.OpticsLoopback_Enum>`
+            	**type**\: :py:class:`OpticsLoopbackEnum <ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg.OpticsLoopbackEnum>`
             
             .. attribute:: optics_network_srlgs
             
@@ -16413,12 +15457,22 @@ class InterfaceConfigurations(object):
                 .. attribute:: grid_type
                 
                 	DWDM Channel Grid Type
-                	**type**\: :py:class:`OpticsDwdmCarrierGrid_Enum <ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg.OpticsDwdmCarrierGrid_Enum>`
+                	**type**\: :py:class:`OpticsDwdmCarrierGridEnum <ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg.OpticsDwdmCarrierGridEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: param_type
                 
                 	DWDM Channel Parameter Type ITU\-Channel or Frequency or Wavelength
-                	**type**\: :py:class:`OpticsDwdmCarrierParam_Enum <ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg.OpticsDwdmCarrierParam_Enum>`
+                	**type**\: :py:class:`OpticsDwdmCarrierParamEnum <ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg.OpticsDwdmCarrierParamEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: param_value
                 
@@ -16426,6 +15480,11 @@ class InterfaceConfigurations(object):
                 	**type**\: int
                 
                 	**range:** 1..1961000
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -16456,8 +15515,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.grid_type is not None:
                         return True
 
@@ -16468,10 +15525,6 @@ class InterfaceConfigurations(object):
                         return True
 
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -16588,8 +15641,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.set_id is not None:
                             return True
 
@@ -16613,10 +15664,6 @@ class InterfaceConfigurations(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
@@ -16636,17 +15683,11 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.optics_network_srlg is not None:
                         for child_ref in self.optics_network_srlg:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -16685,7 +15726,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: rx_threshold_type
                     
                     	Low or high rx threshold
-                    	**type**\: :py:class:`Threshold_Enum <ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg.Threshold_Enum>`
+                    	**type**\: :py:class:`ThresholdEnum <ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg.ThresholdEnum>`
                     
                     .. attribute:: rx_threshold
                     
@@ -16722,18 +15763,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.rx_threshold_type is not None:
                             return True
 
                         if self.rx_threshold is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -16755,17 +15790,11 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.rx_threshold is not None:
                         for child_ref in self.rx_threshold:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -16804,7 +15833,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: tx_threshold_type
                     
                     	Low or high tx threshold
-                    	**type**\: :py:class:`Threshold_Enum <ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg.Threshold_Enum>`
+                    	**type**\: :py:class:`ThresholdEnum <ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg.ThresholdEnum>`
                     
                     .. attribute:: tx_threshold
                     
@@ -16841,18 +15870,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.tx_threshold_type is not None:
                             return True
 
                         if self.tx_threshold is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -16874,17 +15897,11 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.tx_threshold is not None:
                         for child_ref in self.tx_threshold:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -16906,8 +15923,6 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.optics_cd_high_threshold is not None:
                     return True
 
@@ -16929,9 +15944,6 @@ class InterfaceConfigurations(object):
                 if self.optics_dwdm_carrier is not None and self.optics_dwdm_carrier._has_data():
                     return True
 
-                if self.optics_dwdm_carrier is not None and self.optics_dwdm_carrier.is_presence():
-                    return True
-
                 if self.optics_lbc_high_threshold is not None:
                     return True
 
@@ -16939,9 +15951,6 @@ class InterfaceConfigurations(object):
                     return True
 
                 if self.optics_network_srlgs is not None and self.optics_network_srlgs._has_data():
-                    return True
-
-                if self.optics_network_srlgs is not None and self.optics_network_srlgs.is_presence():
                     return True
 
                 if self.optics_osnr_low_threshold is not None:
@@ -16959,19 +15968,9 @@ class InterfaceConfigurations(object):
                 if self.rx_thresholds is not None and self.rx_thresholds._has_data():
                     return True
 
-                if self.rx_thresholds is not None and self.rx_thresholds.is_presence():
-                    return True
-
                 if self.tx_thresholds is not None and self.tx_thresholds._has_data():
                     return True
 
-                if self.tx_thresholds is not None and self.tx_thresholds.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -16987,7 +15986,7 @@ class InterfaceConfigurations(object):
             .. attribute:: fec
             
             	Configure forward error correction
-            	**type**\: :py:class:`OtuForwardErrorCorrection_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtuForwardErrorCorrection_Enum>`
+            	**type**\: :py:class:`OtuForwardErrorCorrectionEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtuForwardErrorCorrectionEnum>`
             
             .. attribute:: gcc
             
@@ -16997,7 +15996,7 @@ class InterfaceConfigurations(object):
             .. attribute:: loopback
             
             	Type of Loopback
-            	**type**\: :py:class:`OtnLoopback_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnLoopback_Enum>`
+            	**type**\: :py:class:`OtnLoopbackEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnLoopbackEnum>`
             
             .. attribute:: network_srlgs
             
@@ -17047,7 +16046,7 @@ class InterfaceConfigurations(object):
             .. attribute:: performance_monitoring
             
             	Configure performance monitoring
-            	**type**\: :py:class:`OtnPerMon_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnPerMon_Enum>`
+            	**type**\: :py:class:`OtnPerMonEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnPerMonEnum>`
             
             .. attribute:: proactive_protection
             
@@ -17064,7 +16063,7 @@ class InterfaceConfigurations(object):
             .. attribute:: secondary_admin_state
             
             	Configure secondary admin state 
-            	**type**\: :py:class:`OtnSecAdminState_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnSecAdminState_Enum>`
+            	**type**\: :py:class:`OtnSecAdminStateEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnSecAdminStateEnum>`
             
             .. attribute:: sf
             
@@ -17220,8 +16219,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.set_id is not None:
                             return True
 
@@ -17245,10 +16242,6 @@ class InterfaceConfigurations(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
@@ -17268,17 +16261,11 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.network_srlg is not None:
                         for child_ref in self.network_srlg:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -17309,7 +16296,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: string_type
                 
                 	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\: :py:class:`OtnExpTtiTypeFull_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeFull_Enum>`
+                	**type**\: :py:class:`OtnExpTtiTypeFullEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeFullEnum>`
                 
                 
 
@@ -17338,8 +16325,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.full_ascii_string is not None:
                         return True
 
@@ -17349,10 +16334,6 @@ class InterfaceConfigurations(object):
                     if self.string_type is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -17376,7 +16357,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: string_type
                 
                 	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\: :py:class:`OtnExpTtiTypeSapi_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeSapi_Enum>`
+                	**type**\: :py:class:`OtnExpTtiTypeSapiEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeSapiEnum>`
                 
                 
 
@@ -17404,18 +16385,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.sapi_ascii_string is not None:
                         return True
 
                     if self.string_type is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -17439,7 +16414,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: string_type
                 
                 	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\: :py:class:`OtnExpTtiTypeDapi_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeDapi_Enum>`
+                	**type**\: :py:class:`OtnExpTtiTypeDapiEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeDapiEnum>`
                 
                 
 
@@ -17467,18 +16442,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.dapi_ascii_string is not None:
                         return True
 
                     if self.string_type is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -17508,7 +16477,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: string_type
                 
                 	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\: :py:class:`OtnExpTtiTypeOs_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeOs_Enum>`
+                	**type**\: :py:class:`OtnExpTtiTypeOsEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeOsEnum>`
                 
                 
 
@@ -17537,8 +16506,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.osascii_string is not None:
                         return True
 
@@ -17548,10 +16515,6 @@ class InterfaceConfigurations(object):
                     if self.string_type is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -17581,7 +16544,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: string_type
                 
                 	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\: :py:class:`OtnSendTtiTypeFull_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeFull_Enum>`
+                	**type**\: :py:class:`OtnSendTtiTypeFullEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeFullEnum>`
                 
                 
 
@@ -17610,8 +16573,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.full_ascii_string is not None:
                         return True
 
@@ -17621,10 +16582,6 @@ class InterfaceConfigurations(object):
                     if self.string_type is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -17647,7 +16604,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: string_type
                 
                 	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\: :py:class:`OtnSendTtiTypeSapi_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeSapi_Enum>`
+                	**type**\: :py:class:`OtnSendTtiTypeSapiEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeSapiEnum>`
                 
                 
 
@@ -17675,18 +16632,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.sapi_ascii_string is not None:
                         return True
 
                     if self.string_type is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -17709,7 +16660,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: string_type
                 
                 	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\: :py:class:`OtnSendTtiTypeDapi_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeDapi_Enum>`
+                	**type**\: :py:class:`OtnSendTtiTypeDapiEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeDapiEnum>`
                 
                 
 
@@ -17737,18 +16688,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.dapi_ascii_string is not None:
                         return True
 
                     if self.string_type is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -17778,7 +16723,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: string_type
                 
                 	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\: :py:class:`OtnSendTtiTypeOs_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeOs_Enum>`
+                	**type**\: :py:class:`OtnSendTtiTypeOsEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeOsEnum>`
                 
                 
 
@@ -17807,8 +16752,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.osascii_string is not None:
                         return True
 
@@ -17818,10 +16761,6 @@ class InterfaceConfigurations(object):
                     if self.string_type is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -17929,8 +16868,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.coefficient is not None:
                             return True
 
@@ -17940,10 +16877,6 @@ class InterfaceConfigurations(object):
                         if self.power is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -17994,18 +16927,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.enable is not None:
                             return True
 
                         if self.value is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -18064,8 +16991,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.coefficient is not None:
                             return True
 
@@ -18075,10 +17000,6 @@ class InterfaceConfigurations(object):
                         if self.power is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -18129,18 +17050,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.enable is not None:
                             return True
 
                         if self.value is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -18162,18 +17077,10 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.revert_threshold is not None and self.revert_threshold._has_data():
                         return True
 
-                    if self.revert_threshold is not None and self.revert_threshold.is_presence():
-                        return True
-
                     if self.revert_window is not None and self.revert_window._has_data():
-                        return True
-
-                    if self.revert_window is not None and self.revert_window.is_presence():
                         return True
 
                     if self.status is not None:
@@ -18182,19 +17089,9 @@ class InterfaceConfigurations(object):
                     if self.trigger_threshold is not None and self.trigger_threshold._has_data():
                         return True
 
-                    if self.trigger_threshold is not None and self.trigger_threshold.is_presence():
-                        return True
-
                     if self.trigger_window is not None and self.trigger_window._has_data():
                         return True
 
-                    if self.trigger_window is not None and self.trigger_window.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -18216,8 +17113,6 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.fec is not None:
                     return True
 
@@ -18230,64 +17125,34 @@ class InterfaceConfigurations(object):
                 if self.network_srlgs is not None and self.network_srlgs._has_data():
                     return True
 
-                if self.network_srlgs is not None and self.network_srlgs.is_presence():
-                    return True
-
                 if self.otn_expected_tti is not None and self.otn_expected_tti._has_data():
-                    return True
-
-                if self.otn_expected_tti is not None and self.otn_expected_tti.is_presence():
                     return True
 
                 if self.otn_expected_ttisapi is not None and self.otn_expected_ttisapi._has_data():
                     return True
 
-                if self.otn_expected_ttisapi is not None and self.otn_expected_ttisapi.is_presence():
-                    return True
-
                 if self.otn_expected_ttitcmdapi is not None and self.otn_expected_ttitcmdapi._has_data():
-                    return True
-
-                if self.otn_expected_ttitcmdapi is not None and self.otn_expected_ttitcmdapi.is_presence():
                     return True
 
                 if self.otn_expected_ttitcmos is not None and self.otn_expected_ttitcmos._has_data():
                     return True
 
-                if self.otn_expected_ttitcmos is not None and self.otn_expected_ttitcmos.is_presence():
-                    return True
-
                 if self.otn_send_tti is not None and self.otn_send_tti._has_data():
-                    return True
-
-                if self.otn_send_tti is not None and self.otn_send_tti.is_presence():
                     return True
 
                 if self.otn_send_ttisapi is not None and self.otn_send_ttisapi._has_data():
                     return True
 
-                if self.otn_send_ttisapi is not None and self.otn_send_ttisapi.is_presence():
-                    return True
-
                 if self.otn_send_ttitcmdapi is not None and self.otn_send_ttitcmdapi._has_data():
                     return True
 
-                if self.otn_send_ttitcmdapi is not None and self.otn_send_ttitcmdapi.is_presence():
-                    return True
-
                 if self.otn_send_ttitcmos is not None and self.otn_send_ttitcmos._has_data():
-                    return True
-
-                if self.otn_send_ttitcmos is not None and self.otn_send_ttitcmos.is_presence():
                     return True
 
                 if self.performance_monitoring is not None:
                     return True
 
                 if self.proactive_protection is not None and self.proactive_protection._has_data():
-                    return True
-
-                if self.proactive_protection is not None and self.proactive_protection.is_presence():
                     return True
 
                 if self.sd is not None:
@@ -18299,10 +17164,6 @@ class InterfaceConfigurations(object):
                 if self.sf is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -18373,15 +17234,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.input is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -18403,21 +17258,12 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.service_policy is not None and self.service_policy._has_data():
-                    return True
-
-                if self.service_policy is not None and self.service_policy.is_presence():
                     return True
 
                 if self.service_policy_in is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -18468,7 +17314,7 @@ class InterfaceConfigurations(object):
             .. attribute:: hour24otn_tcms
             
             	Configure pm parameters of tcm's 24 hour interval
-            	**type**\: :py:class:`Hour24otnTcms <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms>`
+            	**type**\: :py:class:`Hour24OtnTcms <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms>`
             
             .. attribute:: minute15
             
@@ -18488,7 +17334,7 @@ class InterfaceConfigurations(object):
             .. attribute:: minute15otn_tcms
             
             	set opr min threshold
-            	**type**\: :py:class:`Minute15otnTcms <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms>`
+            	**type**\: :py:class:`Minute15OtnTcms <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms>`
             
             .. attribute:: oc_hour24
             
@@ -18553,7 +17399,7 @@ class InterfaceConfigurations(object):
                 self.hour24_gfp.parent = self
                 self.hour24_path = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path()
                 self.hour24_path.parent = self
-                self.hour24otn_tcms = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms()
+                self.hour24otn_tcms = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms()
                 self.hour24otn_tcms.parent = self
                 self.minute15 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15()
                 self.minute15.parent = self
@@ -18561,7 +17407,7 @@ class InterfaceConfigurations(object):
                 self.minute15_gfp.parent = self
                 self.minute15_path = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path()
                 self.minute15_path.parent = self
-                self.minute15otn_tcms = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms()
+                self.minute15otn_tcms = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms()
                 self.minute15otn_tcms.parent = self
                 self.oc_hour24 = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24()
                 self.oc_hour24.parent = self
@@ -18662,7 +17508,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ether_report
                             
                             	Ether Report Type
-                            	**type**\: :py:class:`EtherReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.EtherReport_Enum>`
+                            	**type**\: :py:class:`EtherReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.EtherReportEnum>`
                             
                             
 
@@ -18691,15 +17537,9 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ether_report is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -18721,17 +17561,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.hour24_ether_report is not None:
                                 for child_ref in self.hour24_ether_report:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -18770,7 +17604,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ether_threshold
                             
                             	Ether Threshold Type
-                            	**type**\: :py:class:`EtherThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.EtherThreshold_Enum>`
+                            	**type**\: :py:class:`EtherThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.EtherThresholdEnum>`
                             
                             .. attribute:: ether_threshold_value
                             
@@ -18807,18 +17641,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ether_threshold is not None:
                                     return True
 
                                 if self.ether_threshold_value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -18840,17 +17668,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.hour24_ether_threshold is not None:
                                 for child_ref in self.hour24_ether_threshold:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -18872,24 +17694,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.hour24_ether_reports is not None and self.hour24_ether_reports._has_data():
-                            return True
-
-                        if self.hour24_ether_reports is not None and self.hour24_ether_reports.is_presence():
                             return True
 
                         if self.hour24_ether_thresholds is not None and self.hour24_ether_thresholds._has_data():
                             return True
 
-                        if self.hour24_ether_thresholds is not None and self.hour24_ether_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -18911,18 +17721,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.hour24_ether is not None and self.hour24_ether._has_data():
                         return True
 
-                    if self.hour24_ether is not None and self.hour24_ether.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -19012,7 +17813,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ether_report
                             
                             	Ether Report Type
-                            	**type**\: :py:class:`EtherReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.EtherReport_Enum>`
+                            	**type**\: :py:class:`EtherReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.EtherReportEnum>`
                             
                             
 
@@ -19041,15 +17842,9 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ether_report is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -19071,17 +17866,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.minute15_ether_report is not None:
                                 for child_ref in self.minute15_ether_report:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -19120,7 +17909,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ether_threshold
                             
                             	Ether Threshold Type
-                            	**type**\: :py:class:`EtherThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.EtherThreshold_Enum>`
+                            	**type**\: :py:class:`EtherThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.EtherThresholdEnum>`
                             
                             .. attribute:: ether_threshold_value
                             
@@ -19157,18 +17946,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ether_threshold is not None:
                                     return True
 
                                 if self.ether_threshold_value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -19190,17 +17973,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.minute15_ether_threshold is not None:
                                 for child_ref in self.minute15_ether_threshold:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -19222,24 +17999,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.minute15_ether_reports is not None and self.minute15_ether_reports._has_data():
-                            return True
-
-                        if self.minute15_ether_reports is not None and self.minute15_ether_reports.is_presence():
                             return True
 
                         if self.minute15_ether_thresholds is not None and self.minute15_ether_thresholds._has_data():
                             return True
 
-                        if self.minute15_ether_thresholds is not None and self.minute15_ether_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -19261,18 +18026,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.minute15_ether is not None and self.minute15_ether._has_data():
                         return True
 
-                    if self.minute15_ether is not None and self.minute15_ether.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -19288,7 +18044,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: ho_vc_hour24ho_vc
                 
                 	Configure ho\_vc performance monitoring
-                	**type**\: :py:class:`HoVcHour24hoVc <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc>`
+                	**type**\: :py:class:`HoVcHour24HoVc <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc>`
                 
                 
 
@@ -19299,23 +18055,23 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.ho_vc_hour24ho_vc = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc()
+                    self.ho_vc_hour24ho_vc = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc()
                     self.ho_vc_hour24ho_vc.parent = self
 
 
-                class HoVcHour24hoVc(object):
+                class HoVcHour24HoVc(object):
                     """
                     Configure ho\_vc performance monitoring
                     
                     .. attribute:: ho_vc_hour24ho_vc_reports
                     
                     	set ho\_vc TCA reporting status
-                    	**type**\: :py:class:`HoVcHour24hoVcReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcReports>`
+                    	**type**\: :py:class:`HoVcHour24HoVcReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcReports>`
                     
                     .. attribute:: ho_vc_hour24ho_vc_thresholds
                     
                     	Configure threshold on ho\_vc parameters
-                    	**type**\: :py:class:`HoVcHour24hoVcThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcThresholds>`
+                    	**type**\: :py:class:`HoVcHour24HoVcThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcThresholds>`
                     
                     
 
@@ -19326,20 +18082,20 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.ho_vc_hour24ho_vc_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcReports()
+                        self.ho_vc_hour24ho_vc_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcReports()
                         self.ho_vc_hour24ho_vc_reports.parent = self
-                        self.ho_vc_hour24ho_vc_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcThresholds()
+                        self.ho_vc_hour24ho_vc_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcThresholds()
                         self.ho_vc_hour24ho_vc_thresholds.parent = self
 
 
-                    class HoVcHour24hoVcReports(object):
+                    class HoVcHour24HoVcReports(object):
                         """
                         set ho\_vc TCA reporting status
                         
                         .. attribute:: ho_vc_hour24ho_vc_report
                         
                         	none
-                        	**type**\: list of :py:class:`HoVcHour24hoVcReport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcReports.HoVcHour24hoVcReport>`
+                        	**type**\: list of :py:class:`HoVcHour24HoVcReport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcReports.HoVcHour24HoVcReport>`
                         
                         
 
@@ -19355,19 +18111,19 @@ class InterfaceConfigurations(object):
                             self.ho_vc_hour24ho_vc_report.name = 'ho_vc_hour24ho_vc_report'
 
 
-                        class HoVcHour24hoVcReport(object):
+                        class HoVcHour24HoVcReport(object):
                             """
                             none
                             
                             .. attribute:: ho_vc_report
                             
                             	ho\_vc Report Type
-                            	**type**\: :py:class:`HoVcReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.HoVcReport_Enum>`
+                            	**type**\: :py:class:`HoVcReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.HoVcReportEnum>`
                             
                             .. attribute:: enable
                             
                             	ho\_vc Report
-                            	**type**\: :py:class:`Report_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.Report_Enum>`
+                            	**type**\: :py:class:`ReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             
 
@@ -19397,8 +18153,6 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ho_vc_report is not None:
                                     return True
 
@@ -19407,14 +18161,10 @@ class InterfaceConfigurations(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcReports.HoVcHour24hoVcReport']['meta_info']
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcReports.HoVcHour24HoVcReport']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -19430,8 +18180,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ho_vc_hour24ho_vc_report is not None:
                                 for child_ref in self.ho_vc_hour24ho_vc_report:
                                     if child_ref._has_data():
@@ -19439,24 +18187,20 @@ class InterfaceConfigurations(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcReports']['meta_info']
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcReports']['meta_info']
 
 
-                    class HoVcHour24hoVcThresholds(object):
+                    class HoVcHour24HoVcThresholds(object):
                         """
                         Configure threshold on ho\_vc parameters
                         
                         .. attribute:: ho_vc_hour24ho_vc_threshold
                         
                         	none
-                        	**type**\: list of :py:class:`HoVcHour24hoVcThreshold <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcThresholds.HoVcHour24hoVcThreshold>`
+                        	**type**\: list of :py:class:`HoVcHour24HoVcThreshold <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcThresholds.HoVcHour24HoVcThreshold>`
                         
                         
 
@@ -19472,14 +18216,14 @@ class InterfaceConfigurations(object):
                             self.ho_vc_hour24ho_vc_threshold.name = 'ho_vc_hour24ho_vc_threshold'
 
 
-                        class HoVcHour24hoVcThreshold(object):
+                        class HoVcHour24HoVcThreshold(object):
                             """
                             none
                             
                             .. attribute:: ho_vc_threshold
                             
                             	ho\_vc Threshold Type
-                            	**type**\: :py:class:`HoVcThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.HoVcThreshold_Enum>`
+                            	**type**\: :py:class:`HoVcThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.HoVcThresholdEnum>`
                             
                             .. attribute:: ho_vc_threshold_value
                             
@@ -19516,8 +18260,6 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ho_vc_threshold is not None:
                                     return True
 
@@ -19526,14 +18268,10 @@ class InterfaceConfigurations(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcThresholds.HoVcHour24hoVcThreshold']['meta_info']
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcThresholds.HoVcHour24HoVcThreshold']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -19549,8 +18287,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ho_vc_hour24ho_vc_threshold is not None:
                                 for child_ref in self.ho_vc_hour24ho_vc_threshold:
                                     if child_ref._has_data():
@@ -19558,14 +18294,10 @@ class InterfaceConfigurations(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcThresholds']['meta_info']
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcThresholds']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -19581,30 +18313,18 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ho_vc_hour24ho_vc_reports is not None and self.ho_vc_hour24ho_vc_reports._has_data():
-                            return True
-
-                        if self.ho_vc_hour24ho_vc_reports is not None and self.ho_vc_hour24ho_vc_reports.is_presence():
                             return True
 
                         if self.ho_vc_hour24ho_vc_thresholds is not None and self.ho_vc_hour24ho_vc_thresholds._has_data():
                             return True
 
-                        if self.ho_vc_hour24ho_vc_thresholds is not None and self.ho_vc_hour24ho_vc_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc']['meta_info']
+                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -19620,18 +18340,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ho_vc_hour24ho_vc is not None and self.ho_vc_hour24ho_vc._has_data():
                         return True
 
-                    if self.ho_vc_hour24ho_vc is not None and self.ho_vc_hour24ho_vc.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -19647,7 +18358,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: ho_vc_minute15ho_vc
                 
                 	Configure ho\_vc performance monitoring
-                	**type**\: :py:class:`HoVcMinute15hoVc <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc>`
+                	**type**\: :py:class:`HoVcMinute15HoVc <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc>`
                 
                 
 
@@ -19658,23 +18369,23 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.ho_vc_minute15ho_vc = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc()
+                    self.ho_vc_minute15ho_vc = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc()
                     self.ho_vc_minute15ho_vc.parent = self
 
 
-                class HoVcMinute15hoVc(object):
+                class HoVcMinute15HoVc(object):
                     """
                     Configure ho\_vc performance monitoring
                     
                     .. attribute:: ho_vc_minute15ho_vc_reports
                     
                     	set ho\_vc TCA reporting status
-                    	**type**\: :py:class:`HoVcMinute15hoVcReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcReports>`
+                    	**type**\: :py:class:`HoVcMinute15HoVcReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcReports>`
                     
                     .. attribute:: ho_vc_minute15ho_vc_thresholds
                     
                     	Configure threshold on ho\_vc parameters
-                    	**type**\: :py:class:`HoVcMinute15hoVcThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcThresholds>`
+                    	**type**\: :py:class:`HoVcMinute15HoVcThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcThresholds>`
                     
                     
 
@@ -19685,20 +18396,20 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.ho_vc_minute15ho_vc_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcReports()
+                        self.ho_vc_minute15ho_vc_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcReports()
                         self.ho_vc_minute15ho_vc_reports.parent = self
-                        self.ho_vc_minute15ho_vc_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcThresholds()
+                        self.ho_vc_minute15ho_vc_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcThresholds()
                         self.ho_vc_minute15ho_vc_thresholds.parent = self
 
 
-                    class HoVcMinute15hoVcReports(object):
+                    class HoVcMinute15HoVcReports(object):
                         """
                         set ho\_vc TCA reporting status
                         
                         .. attribute:: ho_vc_minute15ho_vc_report
                         
                         	none
-                        	**type**\: list of :py:class:`HoVcMinute15hoVcReport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcReports.HoVcMinute15hoVcReport>`
+                        	**type**\: list of :py:class:`HoVcMinute15HoVcReport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcReports.HoVcMinute15HoVcReport>`
                         
                         
 
@@ -19714,19 +18425,19 @@ class InterfaceConfigurations(object):
                             self.ho_vc_minute15ho_vc_report.name = 'ho_vc_minute15ho_vc_report'
 
 
-                        class HoVcMinute15hoVcReport(object):
+                        class HoVcMinute15HoVcReport(object):
                             """
                             none
                             
                             .. attribute:: ho_vc_report
                             
                             	ho\_vc Report Type
-                            	**type**\: :py:class:`HoVcReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.HoVcReport_Enum>`
+                            	**type**\: :py:class:`HoVcReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.HoVcReportEnum>`
                             
                             .. attribute:: enable
                             
                             	ho\_vc Report
-                            	**type**\: :py:class:`Report_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.Report_Enum>`
+                            	**type**\: :py:class:`ReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             
 
@@ -19756,8 +18467,6 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ho_vc_report is not None:
                                     return True
 
@@ -19766,14 +18475,10 @@ class InterfaceConfigurations(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcReports.HoVcMinute15hoVcReport']['meta_info']
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcReports.HoVcMinute15HoVcReport']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -19789,8 +18494,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ho_vc_minute15ho_vc_report is not None:
                                 for child_ref in self.ho_vc_minute15ho_vc_report:
                                     if child_ref._has_data():
@@ -19798,24 +18501,20 @@ class InterfaceConfigurations(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcReports']['meta_info']
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcReports']['meta_info']
 
 
-                    class HoVcMinute15hoVcThresholds(object):
+                    class HoVcMinute15HoVcThresholds(object):
                         """
                         Configure threshold on ho\_vc parameters
                         
                         .. attribute:: ho_vc_minute15ho_vc_threshold
                         
                         	none
-                        	**type**\: list of :py:class:`HoVcMinute15hoVcThreshold <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcThresholds.HoVcMinute15hoVcThreshold>`
+                        	**type**\: list of :py:class:`HoVcMinute15HoVcThreshold <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcThresholds.HoVcMinute15HoVcThreshold>`
                         
                         
 
@@ -19831,14 +18530,14 @@ class InterfaceConfigurations(object):
                             self.ho_vc_minute15ho_vc_threshold.name = 'ho_vc_minute15ho_vc_threshold'
 
 
-                        class HoVcMinute15hoVcThreshold(object):
+                        class HoVcMinute15HoVcThreshold(object):
                             """
                             none
                             
                             .. attribute:: ho_vc_threshold
                             
                             	ho\_vc Threshold Type
-                            	**type**\: :py:class:`HoVcThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.HoVcThreshold_Enum>`
+                            	**type**\: :py:class:`HoVcThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.HoVcThresholdEnum>`
                             
                             .. attribute:: ho_vc_threshold_value
                             
@@ -19875,8 +18574,6 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ho_vc_threshold is not None:
                                     return True
 
@@ -19885,14 +18582,10 @@ class InterfaceConfigurations(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcThresholds.HoVcMinute15hoVcThreshold']['meta_info']
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcThresholds.HoVcMinute15HoVcThreshold']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -19908,8 +18601,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ho_vc_minute15ho_vc_threshold is not None:
                                 for child_ref in self.ho_vc_minute15ho_vc_threshold:
                                     if child_ref._has_data():
@@ -19917,14 +18608,10 @@ class InterfaceConfigurations(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcThresholds']['meta_info']
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcThresholds']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -19940,30 +18627,18 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ho_vc_minute15ho_vc_reports is not None and self.ho_vc_minute15ho_vc_reports._has_data():
-                            return True
-
-                        if self.ho_vc_minute15ho_vc_reports is not None and self.ho_vc_minute15ho_vc_reports.is_presence():
                             return True
 
                         if self.ho_vc_minute15ho_vc_thresholds is not None and self.ho_vc_minute15ho_vc_thresholds._has_data():
                             return True
 
-                        if self.ho_vc_minute15ho_vc_thresholds is not None and self.ho_vc_minute15ho_vc_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc']['meta_info']
+                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -19979,18 +18654,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ho_vc_minute15ho_vc is not None and self.ho_vc_minute15ho_vc._has_data():
                         return True
 
-                    if self.ho_vc_minute15ho_vc is not None and self.ho_vc_minute15ho_vc.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -20011,12 +18677,12 @@ class InterfaceConfigurations(object):
                 .. attribute:: hour24fec
                 
                 	Configure fec g709 performance monitoring
-                	**type**\: :py:class:`Hour24fec <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec>`
+                	**type**\: :py:class:`Hour24Fec <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec>`
                 
                 .. attribute:: hour24otn
                 
                 	configure otn g709 performance monitoring
-                	**type**\: :py:class:`Hour24otn <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn>`
+                	**type**\: :py:class:`Hour24Otn <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn>`
                 
                 
 
@@ -20029,10 +18695,278 @@ class InterfaceConfigurations(object):
                     self.parent = None
                     self.hour24_optics = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics()
                     self.hour24_optics.parent = self
-                    self.hour24fec = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec()
+                    self.hour24fec = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec()
                     self.hour24fec.parent = self
-                    self.hour24otn = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn()
+                    self.hour24otn = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn()
                     self.hour24otn.parent = self
+
+
+                class Hour24Fec(object):
+                    """
+                    Configure fec g709 performance monitoring
+                    
+                    .. attribute:: hour24fec_reports
+                    
+                    	set fec TCA reporting status
+                    	**type**\: :py:class:`Hour24FecReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecReports>`
+                    
+                    .. attribute:: hour24fec_thresholds
+                    
+                    	Configure fec threshold
+                    	**type**\: :py:class:`Hour24FecThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'pmengine-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.hour24fec_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecReports()
+                        self.hour24fec_reports.parent = self
+                        self.hour24fec_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds()
+                        self.hour24fec_thresholds.parent = self
+
+
+                    class Hour24FecReports(object):
+                        """
+                        set fec TCA reporting status
+                        
+                        .. attribute:: hour24fec_report
+                        
+                        	none
+                        	**type**\: list of :py:class:`Hour24FecReport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecReports.Hour24FecReport>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'pmengine-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.hour24fec_report = YList()
+                            self.hour24fec_report.parent = self
+                            self.hour24fec_report.name = 'hour24fec_report'
+
+
+                        class Hour24FecReport(object):
+                            """
+                            none
+                            
+                            .. attribute:: fec_report
+                            
+                            	Fec Report type
+                            	**type**\: :py:class:`FecReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.FecReportEnum>`
+                            
+                            .. attribute:: enable
+                            
+                            	Fec Report
+                            	**type**\: :py:class:`ReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'pmengine-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.fec_report = None
+                                self.enable = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                if self.fec_report is None:
+                                    raise YPYDataValidationError('Key property fec_report is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24fec-report[Cisco-IOS-XR-pmengine-cfg:fec-report = ' + str(self.fec_report) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.fec_report is not None:
+                                    return True
+
+                                if self.enable is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecReports.Hour24FecReport']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24fec-reports'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.hour24fec_report is not None:
+                                for child_ref in self.hour24fec_report:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecReports']['meta_info']
+
+
+                    class Hour24FecThresholds(object):
+                        """
+                        Configure fec threshold
+                        
+                        .. attribute:: hour24fec_threshold
+                        
+                        	none
+                        	**type**\: list of :py:class:`Hour24FecThreshold <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds.Hour24FecThreshold>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'pmengine-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.hour24fec_threshold = YList()
+                            self.hour24fec_threshold.parent = self
+                            self.hour24fec_threshold.name = 'hour24fec_threshold'
+
+
+                        class Hour24FecThreshold(object):
+                            """
+                            none
+                            
+                            .. attribute:: fec_threshold
+                            
+                            	Fec Threshold Type
+                            	**type**\: :py:class:`FecThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.FecThresholdEnum>`
+                            
+                            .. attribute:: fec_threshold_value
+                            
+                            	Fec threshold value
+                            	**type**\: str
+                            
+                            	**range:** 0..16
+                            
+                            
+
+                            """
+
+                            _prefix = 'pmengine-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.fec_threshold = None
+                                self.fec_threshold_value = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                if self.fec_threshold is None:
+                                    raise YPYDataValidationError('Key property fec_threshold is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24fec-threshold[Cisco-IOS-XR-pmengine-cfg:fec-threshold = ' + str(self.fec_threshold) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.fec_threshold is not None:
+                                    return True
+
+                                if self.fec_threshold_value is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds.Hour24FecThreshold']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24fec-thresholds'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.hour24fec_threshold is not None:
+                                for child_ref in self.hour24fec_threshold:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24fec'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.hour24fec_reports is not None and self.hour24fec_reports._has_data():
+                            return True
+
+                        if self.hour24fec_thresholds is not None and self.hour24fec_thresholds._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec']['meta_info']
 
 
                 class Hour24Optics(object):
@@ -20094,7 +19028,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: optics_report
                             
                             	Optics Report Type
-                            	**type**\: :py:class:`OpticsReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OpticsReport_Enum>`
+                            	**type**\: :py:class:`OpticsReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OpticsReportEnum>`
                             
                             
 
@@ -20123,15 +19057,9 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.optics_report is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -20153,17 +19081,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.hour24_optics_report is not None:
                                 for child_ref in self.hour24_optics_report:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -20202,7 +19124,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: optics_threshold
                             
                             	Optics Threshold Type
-                            	**type**\: :py:class:`OpticsThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OpticsThreshold_Enum>`
+                            	**type**\: :py:class:`OpticsThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OpticsThresholdEnum>`
                             
                             .. attribute:: optics_threshold_value
                             
@@ -20239,18 +19161,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.optics_threshold is not None:
                                     return True
 
                                 if self.optics_threshold_value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -20272,17 +19188,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.hour24_optics_threshold is not None:
                                 for child_ref in self.hour24_optics_threshold:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -20304,24 +19214,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.hour24_optics_reports is not None and self.hour24_optics_reports._has_data():
-                            return True
-
-                        if self.hour24_optics_reports is not None and self.hour24_optics_reports.is_presence():
                             return True
 
                         if self.hour24_optics_thresholds is not None and self.hour24_optics_thresholds._has_data():
                             return True
 
-                        if self.hour24_optics_thresholds is not None and self.hour24_optics_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -20330,323 +19228,19 @@ class InterfaceConfigurations(object):
                         return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics']['meta_info']
 
 
-                class Hour24fec(object):
-                    """
-                    Configure fec g709 performance monitoring
-                    
-                    .. attribute:: hour24fec_reports
-                    
-                    	set fec TCA reporting status
-                    	**type**\: :py:class:`Hour24fecReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecReports>`
-                    
-                    .. attribute:: hour24fec_thresholds
-                    
-                    	Configure fec threshold
-                    	**type**\: :py:class:`Hour24fecThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecThresholds>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'pmengine-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.hour24fec_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecReports()
-                        self.hour24fec_reports.parent = self
-                        self.hour24fec_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecThresholds()
-                        self.hour24fec_thresholds.parent = self
-
-
-                    class Hour24fecReports(object):
-                        """
-                        set fec TCA reporting status
-                        
-                        .. attribute:: hour24fec_report
-                        
-                        	none
-                        	**type**\: list of :py:class:`Hour24fecReport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecReports.Hour24fecReport>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'pmengine-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.hour24fec_report = YList()
-                            self.hour24fec_report.parent = self
-                            self.hour24fec_report.name = 'hour24fec_report'
-
-
-                        class Hour24fecReport(object):
-                            """
-                            none
-                            
-                            .. attribute:: fec_report
-                            
-                            	Fec Report type
-                            	**type**\: :py:class:`FecReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.FecReport_Enum>`
-                            
-                            .. attribute:: enable
-                            
-                            	Fec Report
-                            	**type**\: :py:class:`Report_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.Report_Enum>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'pmengine-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.fec_report = None
-                                self.enable = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                if self.fec_report is None:
-                                    raise YPYDataValidationError('Key property fec_report is None')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24fec-report[Cisco-IOS-XR-pmengine-cfg:fec-report = ' + str(self.fec_report) + ']'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.is_presence():
-                                    return True
-                                if self.fec_report is not None:
-                                    return True
-
-                                if self.enable is not None:
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecReports.Hour24fecReport']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24fec-reports'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.is_presence():
-                                return True
-                            if self.hour24fec_report is not None:
-                                for child_ref in self.hour24fec_report:
-                                    if child_ref._has_data():
-                                        return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecReports']['meta_info']
-
-
-                    class Hour24fecThresholds(object):
-                        """
-                        Configure fec threshold
-                        
-                        .. attribute:: hour24fec_threshold
-                        
-                        	none
-                        	**type**\: list of :py:class:`Hour24fecThreshold <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecThresholds.Hour24fecThreshold>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'pmengine-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.hour24fec_threshold = YList()
-                            self.hour24fec_threshold.parent = self
-                            self.hour24fec_threshold.name = 'hour24fec_threshold'
-
-
-                        class Hour24fecThreshold(object):
-                            """
-                            none
-                            
-                            .. attribute:: fec_threshold
-                            
-                            	Fec Threshold Type
-                            	**type**\: :py:class:`FecThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.FecThreshold_Enum>`
-                            
-                            .. attribute:: fec_threshold_value
-                            
-                            	Fec threshold value
-                            	**type**\: str
-                            
-                            	**range:** 0..16
-                            
-                            
-
-                            """
-
-                            _prefix = 'pmengine-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.fec_threshold = None
-                                self.fec_threshold_value = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                if self.fec_threshold is None:
-                                    raise YPYDataValidationError('Key property fec_threshold is None')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24fec-threshold[Cisco-IOS-XR-pmengine-cfg:fec-threshold = ' + str(self.fec_threshold) + ']'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.is_presence():
-                                    return True
-                                if self.fec_threshold is not None:
-                                    return True
-
-                                if self.fec_threshold_value is not None:
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecThresholds.Hour24fecThreshold']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24fec-thresholds'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.is_presence():
-                                return True
-                            if self.hour24fec_threshold is not None:
-                                for child_ref in self.hour24fec_threshold:
-                                    if child_ref._has_data():
-                                        return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecThresholds']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24fec'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.is_presence():
-                            return True
-                        if self.hour24fec_reports is not None and self.hour24fec_reports._has_data():
-                            return True
-
-                        if self.hour24fec_reports is not None and self.hour24fec_reports.is_presence():
-                            return True
-
-                        if self.hour24fec_thresholds is not None and self.hour24fec_thresholds._has_data():
-                            return True
-
-                        if self.hour24fec_thresholds is not None and self.hour24fec_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec']['meta_info']
-
-
-                class Hour24otn(object):
+                class Hour24Otn(object):
                     """
                     configure otn g709 performance monitoring
                     
                     .. attribute:: hour24otn_reports
                     
                     	set otn TCA reporting status
-                    	**type**\: :py:class:`Hour24otnReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnReports>`
+                    	**type**\: :py:class:`Hour24OtnReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnReports>`
                     
                     .. attribute:: hour24otn_thresholds
                     
                     	Configure threshold on otn parameters
-                    	**type**\: :py:class:`Hour24otnThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnThresholds>`
+                    	**type**\: :py:class:`Hour24OtnThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds>`
                     
                     
 
@@ -20657,20 +19251,20 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.hour24otn_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnReports()
+                        self.hour24otn_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnReports()
                         self.hour24otn_reports.parent = self
-                        self.hour24otn_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnThresholds()
+                        self.hour24otn_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds()
                         self.hour24otn_thresholds.parent = self
 
 
-                    class Hour24otnReports(object):
+                    class Hour24OtnReports(object):
                         """
                         set otn TCA reporting status
                         
                         .. attribute:: hour24otn_report
                         
                         	none
-                        	**type**\: list of :py:class:`Hour24otnReport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnReports.Hour24otnReport>`
+                        	**type**\: list of :py:class:`Hour24OtnReport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnReports.Hour24OtnReport>`
                         
                         
 
@@ -20686,19 +19280,19 @@ class InterfaceConfigurations(object):
                             self.hour24otn_report.name = 'hour24otn_report'
 
 
-                        class Hour24otnReport(object):
+                        class Hour24OtnReport(object):
                             """
                             none
                             
                             .. attribute:: otn_report
                             
                             	Otn Report Type
-                            	**type**\: :py:class:`OtnReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnReport_Enum>`
+                            	**type**\: :py:class:`OtnReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Otn Report
-                            	**type**\: :py:class:`Report_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.Report_Enum>`
+                            	**type**\: :py:class:`ReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             
 
@@ -20728,8 +19322,6 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.otn_report is not None:
                                     return True
 
@@ -20738,14 +19330,10 @@ class InterfaceConfigurations(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnReports.Hour24otnReport']['meta_info']
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnReports.Hour24OtnReport']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -20761,8 +19349,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.hour24otn_report is not None:
                                 for child_ref in self.hour24otn_report:
                                     if child_ref._has_data():
@@ -20770,24 +19356,20 @@ class InterfaceConfigurations(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnReports']['meta_info']
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnReports']['meta_info']
 
 
-                    class Hour24otnThresholds(object):
+                    class Hour24OtnThresholds(object):
                         """
                         Configure threshold on otn parameters
                         
                         .. attribute:: hour24otn_threshold
                         
                         	none
-                        	**type**\: list of :py:class:`Hour24otnThreshold <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnThresholds.Hour24otnThreshold>`
+                        	**type**\: list of :py:class:`Hour24OtnThreshold <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds.Hour24OtnThreshold>`
                         
                         
 
@@ -20803,14 +19385,14 @@ class InterfaceConfigurations(object):
                             self.hour24otn_threshold.name = 'hour24otn_threshold'
 
 
-                        class Hour24otnThreshold(object):
+                        class Hour24OtnThreshold(object):
                             """
                             none
                             
                             .. attribute:: otn_threshold
                             
                             	Otn Threshold Type
-                            	**type**\: :py:class:`OtnThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnThreshold_Enum>`
+                            	**type**\: :py:class:`OtnThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnThresholdEnum>`
                             
                             .. attribute:: otn_threshold_value
                             
@@ -20847,8 +19429,6 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.otn_threshold is not None:
                                     return True
 
@@ -20857,14 +19437,10 @@ class InterfaceConfigurations(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnThresholds.Hour24otnThreshold']['meta_info']
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds.Hour24OtnThreshold']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -20880,8 +19456,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.hour24otn_threshold is not None:
                                 for child_ref in self.hour24otn_threshold:
                                     if child_ref._has_data():
@@ -20889,14 +19463,10 @@ class InterfaceConfigurations(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnThresholds']['meta_info']
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -20912,30 +19482,18 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.hour24otn_reports is not None and self.hour24otn_reports._has_data():
-                            return True
-
-                        if self.hour24otn_reports is not None and self.hour24otn_reports.is_presence():
                             return True
 
                         if self.hour24otn_thresholds is not None and self.hour24otn_thresholds._has_data():
                             return True
 
-                        if self.hour24otn_thresholds is not None and self.hour24otn_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn']['meta_info']
+                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -20951,30 +19509,15 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.hour24_optics is not None and self.hour24_optics._has_data():
-                        return True
-
-                    if self.hour24_optics is not None and self.hour24_optics.is_presence():
                         return True
 
                     if self.hour24fec is not None and self.hour24fec._has_data():
                         return True
 
-                    if self.hour24fec is not None and self.hour24fec.is_presence():
-                        return True
-
                     if self.hour24otn is not None and self.hour24otn._has_data():
                         return True
 
-                    if self.hour24otn is not None and self.hour24otn.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -21064,7 +19607,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: gfp_report
                             
                             	Gfp Report Type
-                            	**type**\: :py:class:`GfpReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.GfpReport_Enum>`
+                            	**type**\: :py:class:`GfpReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.GfpReportEnum>`
                             
                             
 
@@ -21093,15 +19636,9 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.gfp_report is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -21123,17 +19660,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.hour24_gfp_report is not None:
                                 for child_ref in self.hour24_gfp_report:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -21172,7 +19703,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: gfp_threshold
                             
                             	Gfp Threshold Type
-                            	**type**\: :py:class:`GfpThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.GfpThreshold_Enum>`
+                            	**type**\: :py:class:`GfpThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.GfpThresholdEnum>`
                             
                             .. attribute:: gfp_threshold_value
                             
@@ -21209,18 +19740,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.gfp_threshold is not None:
                                     return True
 
                                 if self.gfp_threshold_value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -21242,17 +19767,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.hour24_gfp_threshold is not None:
                                 for child_ref in self.hour24_gfp_threshold:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -21274,24 +19793,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.hour24_gfp_reports is not None and self.hour24_gfp_reports._has_data():
-                            return True
-
-                        if self.hour24_gfp_reports is not None and self.hour24_gfp_reports.is_presence():
                             return True
 
                         if self.hour24_gfp_thresholds is not None and self.hour24_gfp_thresholds._has_data():
                             return True
 
-                        if self.hour24_gfp_thresholds is not None and self.hour24_gfp_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -21313,18 +19820,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.hour24_gfp is not None and self.hour24_gfp._has_data():
                         return True
 
-                    if self.hour24_gfp is not None and self.hour24_gfp.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -21333,367 +19831,7 @@ class InterfaceConfigurations(object):
                     return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp']['meta_info']
 
 
-            class Hour24Path(object):
-                """
-                Configure pm parameters of pathmonitor 24 hour
-                interval
-                
-                .. attribute:: hour24otn_path
-                
-                	configure otn g709 performance monitoring
-                	**type**\: :py:class:`Hour24otnPath <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath>`
-                
-                
-
-                """
-
-                _prefix = 'pmengine-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.hour24otn_path = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath()
-                    self.hour24otn_path.parent = self
-
-
-                class Hour24otnPath(object):
-                    """
-                    configure otn g709 performance monitoring
-                    
-                    .. attribute:: hour24otn_path_reports
-                    
-                    	set otn TCA reporting status
-                    	**type**\: :py:class:`Hour24otnPathReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathReports>`
-                    
-                    .. attribute:: hour24otn_path_thresholds
-                    
-                    	Configure threshold on otn parameters
-                    	**type**\: :py:class:`Hour24otnPathThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathThresholds>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'pmengine-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.hour24otn_path_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathReports()
-                        self.hour24otn_path_reports.parent = self
-                        self.hour24otn_path_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathThresholds()
-                        self.hour24otn_path_thresholds.parent = self
-
-
-                    class Hour24otnPathReports(object):
-                        """
-                        set otn TCA reporting status
-                        
-                        .. attribute:: hour24otn_path_report
-                        
-                        	none
-                        	**type**\: list of :py:class:`Hour24otnPathReport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathReports.Hour24otnPathReport>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'pmengine-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.hour24otn_path_report = YList()
-                            self.hour24otn_path_report.parent = self
-                            self.hour24otn_path_report.name = 'hour24otn_path_report'
-
-
-                        class Hour24otnPathReport(object):
-                            """
-                            none
-                            
-                            .. attribute:: otn_report
-                            
-                            	Otn Report Type
-                            	**type**\: :py:class:`OtnReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnReport_Enum>`
-                            
-                            .. attribute:: enable
-                            
-                            	Otn Report
-                            	**type**\: :py:class:`Report_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.Report_Enum>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'pmengine-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.otn_report = None
-                                self.enable = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                if self.otn_report is None:
-                                    raise YPYDataValidationError('Key property otn_report is None')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-path-report[Cisco-IOS-XR-pmengine-cfg:otn-report = ' + str(self.otn_report) + ']'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.is_presence():
-                                    return True
-                                if self.otn_report is not None:
-                                    return True
-
-                                if self.enable is not None:
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathReports.Hour24otnPathReport']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-path-reports'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.is_presence():
-                                return True
-                            if self.hour24otn_path_report is not None:
-                                for child_ref in self.hour24otn_path_report:
-                                    if child_ref._has_data():
-                                        return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathReports']['meta_info']
-
-
-                    class Hour24otnPathThresholds(object):
-                        """
-                        Configure threshold on otn parameters
-                        
-                        .. attribute:: hour24otn_path_threshold
-                        
-                        	none
-                        	**type**\: list of :py:class:`Hour24otnPathThreshold <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathThresholds.Hour24otnPathThreshold>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'pmengine-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.hour24otn_path_threshold = YList()
-                            self.hour24otn_path_threshold.parent = self
-                            self.hour24otn_path_threshold.name = 'hour24otn_path_threshold'
-
-
-                        class Hour24otnPathThreshold(object):
-                            """
-                            none
-                            
-                            .. attribute:: otn_threshold
-                            
-                            	Otn Threshold Type
-                            	**type**\: :py:class:`OtnThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnThreshold_Enum>`
-                            
-                            .. attribute:: otn_threshold_value
-                            
-                            	Otn Threshold Value
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            
-
-                            """
-
-                            _prefix = 'pmengine-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.otn_threshold = None
-                                self.otn_threshold_value = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                if self.otn_threshold is None:
-                                    raise YPYDataValidationError('Key property otn_threshold is None')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-path-threshold[Cisco-IOS-XR-pmengine-cfg:otn-threshold = ' + str(self.otn_threshold) + ']'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.is_presence():
-                                    return True
-                                if self.otn_threshold is not None:
-                                    return True
-
-                                if self.otn_threshold_value is not None:
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathThresholds.Hour24otnPathThreshold']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-path-thresholds'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.is_presence():
-                                return True
-                            if self.hour24otn_path_threshold is not None:
-                                for child_ref in self.hour24otn_path_threshold:
-                                    if child_ref._has_data():
-                                        return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathThresholds']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-path'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.is_presence():
-                            return True
-                        if self.hour24otn_path_reports is not None and self.hour24otn_path_reports._has_data():
-                            return True
-
-                        if self.hour24otn_path_reports is not None and self.hour24otn_path_reports.is_presence():
-                            return True
-
-                        if self.hour24otn_path_thresholds is not None and self.hour24otn_path_thresholds._has_data():
-                            return True
-
-                        if self.hour24otn_path_thresholds is not None and self.hour24otn_path_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24-path'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.is_presence():
-                        return True
-                    if self.hour24otn_path is not None and self.hour24otn_path._has_data():
-                        return True
-
-                    if self.hour24otn_path is not None and self.hour24otn_path.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path']['meta_info']
-
-
-            class Hour24otnTcms(object):
+            class Hour24OtnTcms(object):
                 """
                 Configure pm parameters of tcm's 24 hour
                 interval
@@ -21701,7 +19839,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: hour24otn_tcm
                 
                 	configure otn g709 tcm's performance monitoring
-                	**type**\: list of :py:class:`Hour24otnTcm <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm>`
+                	**type**\: list of :py:class:`Hour24OtnTcm <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm>`
                 
                 
 
@@ -21717,7 +19855,7 @@ class InterfaceConfigurations(object):
                     self.hour24otn_tcm.name = 'hour24otn_tcm'
 
 
-                class Hour24otnTcm(object):
+                class Hour24OtnTcm(object):
                     """
                     configure otn g709 tcm's performance
                     monitoring
@@ -21732,12 +19870,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: hour24otn_tcm_reports
                     
                     	set otn TCA reporting status
-                    	**type**\: :py:class:`Hour24otnTcmReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmReports>`
+                    	**type**\: :py:class:`Hour24OtnTcmReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports>`
                     
                     .. attribute:: hour24otn_tcm_thresholds
                     
                     	Configure threshold on otn parameters
-                    	**type**\: :py:class:`Hour24otnTcmThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmThresholds>`
+                    	**type**\: :py:class:`Hour24OtnTcmThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds>`
                     
                     
 
@@ -21749,20 +19887,20 @@ class InterfaceConfigurations(object):
                     def __init__(self):
                         self.parent = None
                         self.tcm_number = None
-                        self.hour24otn_tcm_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmReports()
+                        self.hour24otn_tcm_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports()
                         self.hour24otn_tcm_reports.parent = self
-                        self.hour24otn_tcm_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmThresholds()
+                        self.hour24otn_tcm_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds()
                         self.hour24otn_tcm_thresholds.parent = self
 
 
-                    class Hour24otnTcmReports(object):
+                    class Hour24OtnTcmReports(object):
                         """
                         set otn TCA reporting status
                         
                         .. attribute:: hour24otn_tcm_report
                         
                         	none
-                        	**type**\: list of :py:class:`Hour24otnTcmReport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmReports.Hour24otnTcmReport>`
+                        	**type**\: list of :py:class:`Hour24OtnTcmReport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports.Hour24OtnTcmReport>`
                         
                         
 
@@ -21778,19 +19916,19 @@ class InterfaceConfigurations(object):
                             self.hour24otn_tcm_report.name = 'hour24otn_tcm_report'
 
 
-                        class Hour24otnTcmReport(object):
+                        class Hour24OtnTcmReport(object):
                             """
                             none
                             
                             .. attribute:: otn_report
                             
                             	Otn Report Type
-                            	**type**\: :py:class:`OtnTcmReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnTcmReport_Enum>`
+                            	**type**\: :py:class:`OtnTcmReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnTcmReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Otn Report
-                            	**type**\: :py:class:`Report_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.Report_Enum>`
+                            	**type**\: :py:class:`ReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             
 
@@ -21820,8 +19958,6 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.otn_report is not None:
                                     return True
 
@@ -21830,14 +19966,10 @@ class InterfaceConfigurations(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmReports.Hour24otnTcmReport']['meta_info']
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports.Hour24OtnTcmReport']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -21853,8 +19985,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.hour24otn_tcm_report is not None:
                                 for child_ref in self.hour24otn_tcm_report:
                                     if child_ref._has_data():
@@ -21862,24 +19992,20 @@ class InterfaceConfigurations(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmReports']['meta_info']
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports']['meta_info']
 
 
-                    class Hour24otnTcmThresholds(object):
+                    class Hour24OtnTcmThresholds(object):
                         """
                         Configure threshold on otn parameters
                         
                         .. attribute:: hour24otn_tcm_threshold
                         
                         	none
-                        	**type**\: list of :py:class:`Hour24otnTcmThreshold <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmThresholds.Hour24otnTcmThreshold>`
+                        	**type**\: list of :py:class:`Hour24OtnTcmThreshold <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds.Hour24OtnTcmThreshold>`
                         
                         
 
@@ -21895,14 +20021,14 @@ class InterfaceConfigurations(object):
                             self.hour24otn_tcm_threshold.name = 'hour24otn_tcm_threshold'
 
 
-                        class Hour24otnTcmThreshold(object):
+                        class Hour24OtnTcmThreshold(object):
                             """
                             none
                             
                             .. attribute:: otn_threshold
                             
                             	Otn Threshold Type
-                            	**type**\: :py:class:`OtnTcmThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnTcmThreshold_Enum>`
+                            	**type**\: :py:class:`OtnTcmThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnTcmThresholdEnum>`
                             
                             .. attribute:: otn_threshold_value
                             
@@ -21939,8 +20065,6 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.otn_threshold is not None:
                                     return True
 
@@ -21949,14 +20073,10 @@ class InterfaceConfigurations(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmThresholds.Hour24otnTcmThreshold']['meta_info']
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds.Hour24OtnTcmThreshold']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -21972,8 +20092,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.hour24otn_tcm_threshold is not None:
                                 for child_ref in self.hour24otn_tcm_threshold:
                                     if child_ref._has_data():
@@ -21981,14 +20099,10 @@ class InterfaceConfigurations(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmThresholds']['meta_info']
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -22006,33 +20120,21 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.tcm_number is not None:
                             return True
 
                         if self.hour24otn_tcm_reports is not None and self.hour24otn_tcm_reports._has_data():
                             return True
 
-                        if self.hour24otn_tcm_reports is not None and self.hour24otn_tcm_reports.is_presence():
-                            return True
-
                         if self.hour24otn_tcm_thresholds is not None and self.hour24otn_tcm_thresholds._has_data():
                             return True
 
-                        if self.hour24otn_tcm_thresholds is not None and self.hour24otn_tcm_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm']['meta_info']
+                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -22048,8 +20150,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.hour24otn_tcm is not None:
                         for child_ref in self.hour24otn_tcm:
                             if child_ref._has_data():
@@ -22057,14 +20157,325 @@ class InterfaceConfigurations(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms']['meta_info']
+
+
+            class Hour24Path(object):
+                """
+                Configure pm parameters of pathmonitor 24 hour
+                interval
+                
+                .. attribute:: hour24otn_path
+                
+                	configure otn g709 performance monitoring
+                	**type**\: :py:class:`Hour24OtnPath <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath>`
+                
+                
+
+                """
+
+                _prefix = 'pmengine-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.hour24otn_path = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath()
+                    self.hour24otn_path.parent = self
+
+
+                class Hour24OtnPath(object):
+                    """
+                    configure otn g709 performance monitoring
+                    
+                    .. attribute:: hour24otn_path_reports
+                    
+                    	set otn TCA reporting status
+                    	**type**\: :py:class:`Hour24OtnPathReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports>`
+                    
+                    .. attribute:: hour24otn_path_thresholds
+                    
+                    	Configure threshold on otn parameters
+                    	**type**\: :py:class:`Hour24OtnPathThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathThresholds>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'pmengine-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.hour24otn_path_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports()
+                        self.hour24otn_path_reports.parent = self
+                        self.hour24otn_path_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathThresholds()
+                        self.hour24otn_path_thresholds.parent = self
+
+
+                    class Hour24OtnPathReports(object):
+                        """
+                        set otn TCA reporting status
+                        
+                        .. attribute:: hour24otn_path_report
+                        
+                        	none
+                        	**type**\: list of :py:class:`Hour24OtnPathReport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports.Hour24OtnPathReport>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'pmengine-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.hour24otn_path_report = YList()
+                            self.hour24otn_path_report.parent = self
+                            self.hour24otn_path_report.name = 'hour24otn_path_report'
+
+
+                        class Hour24OtnPathReport(object):
+                            """
+                            none
+                            
+                            .. attribute:: otn_report
+                            
+                            	Otn Report Type
+                            	**type**\: :py:class:`OtnReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnReportEnum>`
+                            
+                            .. attribute:: enable
+                            
+                            	Otn Report
+                            	**type**\: :py:class:`ReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'pmengine-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.otn_report = None
+                                self.enable = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                if self.otn_report is None:
+                                    raise YPYDataValidationError('Key property otn_report is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-path-report[Cisco-IOS-XR-pmengine-cfg:otn-report = ' + str(self.otn_report) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.otn_report is not None:
+                                    return True
+
+                                if self.enable is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports.Hour24OtnPathReport']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-path-reports'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.hour24otn_path_report is not None:
+                                for child_ref in self.hour24otn_path_report:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports']['meta_info']
+
+
+                    class Hour24OtnPathThresholds(object):
+                        """
+                        Configure threshold on otn parameters
+                        
+                        .. attribute:: hour24otn_path_threshold
+                        
+                        	none
+                        	**type**\: list of :py:class:`Hour24OtnPathThreshold <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathThresholds.Hour24OtnPathThreshold>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'pmengine-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.hour24otn_path_threshold = YList()
+                            self.hour24otn_path_threshold.parent = self
+                            self.hour24otn_path_threshold.name = 'hour24otn_path_threshold'
+
+
+                        class Hour24OtnPathThreshold(object):
+                            """
+                            none
+                            
+                            .. attribute:: otn_threshold
+                            
+                            	Otn Threshold Type
+                            	**type**\: :py:class:`OtnThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnThresholdEnum>`
+                            
+                            .. attribute:: otn_threshold_value
+                            
+                            	Otn Threshold Value
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            
+
+                            """
+
+                            _prefix = 'pmengine-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.otn_threshold = None
+                                self.otn_threshold_value = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                if self.otn_threshold is None:
+                                    raise YPYDataValidationError('Key property otn_threshold is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-path-threshold[Cisco-IOS-XR-pmengine-cfg:otn-threshold = ' + str(self.otn_threshold) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.otn_threshold is not None:
+                                    return True
+
+                                if self.otn_threshold_value is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathThresholds.Hour24OtnPathThreshold']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-path-thresholds'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.hour24otn_path_threshold is not None:
+                                for child_ref in self.hour24otn_path_threshold:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathThresholds']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24otn-path'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.hour24otn_path_reports is not None and self.hour24otn_path_reports._has_data():
+                            return True
+
+                        if self.hour24otn_path_thresholds is not None and self.hour24otn_path_thresholds._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:hour24-path'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.hour24otn_path is not None and self.hour24otn_path._has_data():
+                        return True
+
                     return False
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms']['meta_info']
+                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path']['meta_info']
 
 
             class Minute15(object):
@@ -22079,12 +20490,12 @@ class InterfaceConfigurations(object):
                 .. attribute:: minute15fec
                 
                 	Configure fec g709 performance monitoring
-                	**type**\: :py:class:`Minute15fec <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec>`
+                	**type**\: :py:class:`Minute15Fec <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec>`
                 
                 .. attribute:: minute15otn
                 
                 	configure otn g709 performance monitoring
-                	**type**\: :py:class:`Minute15otn <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn>`
+                	**type**\: :py:class:`Minute15Otn <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn>`
                 
                 
 
@@ -22097,10 +20508,278 @@ class InterfaceConfigurations(object):
                     self.parent = None
                     self.minute15_optics = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics()
                     self.minute15_optics.parent = self
-                    self.minute15fec = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec()
+                    self.minute15fec = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec()
                     self.minute15fec.parent = self
-                    self.minute15otn = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn()
+                    self.minute15otn = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn()
                     self.minute15otn.parent = self
+
+
+                class Minute15Fec(object):
+                    """
+                    Configure fec g709 performance monitoring
+                    
+                    .. attribute:: minute15fec_reports
+                    
+                    	set fec TCA reporting status
+                    	**type**\: :py:class:`Minute15FecReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecReports>`
+                    
+                    .. attribute:: minute15fec_thresholds
+                    
+                    	Configure fec threshold
+                    	**type**\: :py:class:`Minute15FecThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'pmengine-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.minute15fec_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecReports()
+                        self.minute15fec_reports.parent = self
+                        self.minute15fec_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds()
+                        self.minute15fec_thresholds.parent = self
+
+
+                    class Minute15FecReports(object):
+                        """
+                        set fec TCA reporting status
+                        
+                        .. attribute:: minute15fec_report
+                        
+                        	none
+                        	**type**\: list of :py:class:`Minute15FecReport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecReports.Minute15FecReport>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'pmengine-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.minute15fec_report = YList()
+                            self.minute15fec_report.parent = self
+                            self.minute15fec_report.name = 'minute15fec_report'
+
+
+                        class Minute15FecReport(object):
+                            """
+                            none
+                            
+                            .. attribute:: fec_report
+                            
+                            	Fec Report Type
+                            	**type**\: :py:class:`FecReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.FecReportEnum>`
+                            
+                            .. attribute:: enable
+                            
+                            	Fec Report
+                            	**type**\: :py:class:`ReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'pmengine-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.fec_report = None
+                                self.enable = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                if self.fec_report is None:
+                                    raise YPYDataValidationError('Key property fec_report is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15fec-report[Cisco-IOS-XR-pmengine-cfg:fec-report = ' + str(self.fec_report) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.fec_report is not None:
+                                    return True
+
+                                if self.enable is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecReports.Minute15FecReport']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15fec-reports'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.minute15fec_report is not None:
+                                for child_ref in self.minute15fec_report:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecReports']['meta_info']
+
+
+                    class Minute15FecThresholds(object):
+                        """
+                        Configure fec threshold
+                        
+                        .. attribute:: minute15fec_threshold
+                        
+                        	none
+                        	**type**\: list of :py:class:`Minute15FecThreshold <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds.Minute15FecThreshold>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'pmengine-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.minute15fec_threshold = YList()
+                            self.minute15fec_threshold.parent = self
+                            self.minute15fec_threshold.name = 'minute15fec_threshold'
+
+
+                        class Minute15FecThreshold(object):
+                            """
+                            none
+                            
+                            .. attribute:: fec_threshold
+                            
+                            	Fec Threshold Type
+                            	**type**\: :py:class:`FecThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.FecThresholdEnum>`
+                            
+                            .. attribute:: fec_threshold_value
+                            
+                            	Fec Threshold Value
+                            	**type**\: str
+                            
+                            	**range:** 0..16
+                            
+                            
+
+                            """
+
+                            _prefix = 'pmengine-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.fec_threshold = None
+                                self.fec_threshold_value = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                if self.fec_threshold is None:
+                                    raise YPYDataValidationError('Key property fec_threshold is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15fec-threshold[Cisco-IOS-XR-pmengine-cfg:fec-threshold = ' + str(self.fec_threshold) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.fec_threshold is not None:
+                                    return True
+
+                                if self.fec_threshold_value is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds.Minute15FecThreshold']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15fec-thresholds'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.minute15fec_threshold is not None:
+                                for child_ref in self.minute15fec_threshold:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15fec'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.minute15fec_reports is not None and self.minute15fec_reports._has_data():
+                            return True
+
+                        if self.minute15fec_thresholds is not None and self.minute15fec_thresholds._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec']['meta_info']
 
 
                 class Minute15Optics(object):
@@ -22162,7 +20841,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: optics_report
                             
                             	Optics Report Type
-                            	**type**\: :py:class:`OpticsReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OpticsReport_Enum>`
+                            	**type**\: :py:class:`OpticsReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OpticsReportEnum>`
                             
                             
 
@@ -22191,15 +20870,9 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.optics_report is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -22221,17 +20894,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.minute15_optics_report is not None:
                                 for child_ref in self.minute15_optics_report:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -22270,7 +20937,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: optics_threshold
                             
                             	Optics Threshold Type
-                            	**type**\: :py:class:`OpticsThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OpticsThreshold_Enum>`
+                            	**type**\: :py:class:`OpticsThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OpticsThresholdEnum>`
                             
                             .. attribute:: optics_threshold_value
                             
@@ -22307,18 +20974,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.optics_threshold is not None:
                                     return True
 
                                 if self.optics_threshold_value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -22340,17 +21001,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.minute15_optics_threshold is not None:
                                 for child_ref in self.minute15_optics_threshold:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -22372,24 +21027,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.minute15_optics_reports is not None and self.minute15_optics_reports._has_data():
-                            return True
-
-                        if self.minute15_optics_reports is not None and self.minute15_optics_reports.is_presence():
                             return True
 
                         if self.minute15_optics_thresholds is not None and self.minute15_optics_thresholds._has_data():
                             return True
 
-                        if self.minute15_optics_thresholds is not None and self.minute15_optics_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -22398,323 +21041,19 @@ class InterfaceConfigurations(object):
                         return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics']['meta_info']
 
 
-                class Minute15fec(object):
-                    """
-                    Configure fec g709 performance monitoring
-                    
-                    .. attribute:: minute15fec_reports
-                    
-                    	set fec TCA reporting status
-                    	**type**\: :py:class:`Minute15fecReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecReports>`
-                    
-                    .. attribute:: minute15fec_thresholds
-                    
-                    	Configure fec threshold
-                    	**type**\: :py:class:`Minute15fecThresholds <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecThresholds>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'pmengine-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.minute15fec_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecReports()
-                        self.minute15fec_reports.parent = self
-                        self.minute15fec_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecThresholds()
-                        self.minute15fec_thresholds.parent = self
-
-
-                    class Minute15fecReports(object):
-                        """
-                        set fec TCA reporting status
-                        
-                        .. attribute:: minute15fec_report
-                        
-                        	none
-                        	**type**\: list of :py:class:`Minute15fecReport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecReports.Minute15fecReport>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'pmengine-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.minute15fec_report = YList()
-                            self.minute15fec_report.parent = self
-                            self.minute15fec_report.name = 'minute15fec_report'
-
-
-                        class Minute15fecReport(object):
-                            """
-                            none
-                            
-                            .. attribute:: fec_report
-                            
-                            	Fec Report Type
-                            	**type**\: :py:class:`FecReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.FecReport_Enum>`
-                            
-                            .. attribute:: enable
-                            
-                            	Fec Report
-                            	**type**\: :py:class:`Report_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.Report_Enum>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'pmengine-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.fec_report = None
-                                self.enable = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                if self.fec_report is None:
-                                    raise YPYDataValidationError('Key property fec_report is None')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15fec-report[Cisco-IOS-XR-pmengine-cfg:fec-report = ' + str(self.fec_report) + ']'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.is_presence():
-                                    return True
-                                if self.fec_report is not None:
-                                    return True
-
-                                if self.enable is not None:
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecReports.Minute15fecReport']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15fec-reports'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.is_presence():
-                                return True
-                            if self.minute15fec_report is not None:
-                                for child_ref in self.minute15fec_report:
-                                    if child_ref._has_data():
-                                        return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecReports']['meta_info']
-
-
-                    class Minute15fecThresholds(object):
-                        """
-                        Configure fec threshold
-                        
-                        .. attribute:: minute15fec_threshold
-                        
-                        	none
-                        	**type**\: list of :py:class:`Minute15fecThreshold <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecThresholds.Minute15fecThreshold>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'pmengine-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.minute15fec_threshold = YList()
-                            self.minute15fec_threshold.parent = self
-                            self.minute15fec_threshold.name = 'minute15fec_threshold'
-
-
-                        class Minute15fecThreshold(object):
-                            """
-                            none
-                            
-                            .. attribute:: fec_threshold
-                            
-                            	Fec Threshold Type
-                            	**type**\: :py:class:`FecThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.FecThreshold_Enum>`
-                            
-                            .. attribute:: fec_threshold_value
-                            
-                            	Fec Threshold Value
-                            	**type**\: str
-                            
-                            	**range:** 0..16
-                            
-                            
-
-                            """
-
-                            _prefix = 'pmengine-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.fec_threshold = None
-                                self.fec_threshold_value = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                if self.fec_threshold is None:
-                                    raise YPYDataValidationError('Key property fec_threshold is None')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15fec-threshold[Cisco-IOS-XR-pmengine-cfg:fec-threshold = ' + str(self.fec_threshold) + ']'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.is_presence():
-                                    return True
-                                if self.fec_threshold is not None:
-                                    return True
-
-                                if self.fec_threshold_value is not None:
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecThresholds.Minute15fecThreshold']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15fec-thresholds'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.is_presence():
-                                return True
-                            if self.minute15fec_threshold is not None:
-                                for child_ref in self.minute15fec_threshold:
-                                    if child_ref._has_data():
-                                        return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecThresholds']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15fec'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.is_presence():
-                            return True
-                        if self.minute15fec_reports is not None and self.minute15fec_reports._has_data():
-                            return True
-
-                        if self.minute15fec_reports is not None and self.minute15fec_reports.is_presence():
-                            return True
-
-                        if self.minute15fec_thresholds is not None and self.minute15fec_thresholds._has_data():
-                            return True
-
-                        if self.minute15fec_thresholds is not None and self.minute15fec_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec']['meta_info']
-
-
-                class Minute15otn(object):
+                class Minute15Otn(object):
                     """
                     configure otn g709 performance monitoring
                     
                     .. attribute:: min15_otn_threshes
                     
                     	Configure threshold on otn parameters
-                    	**type**\: :py:class:`Min15OtnThreshes <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Min15OtnThreshes>`
+                    	**type**\: :py:class:`Min15OtnThreshes <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Min15OtnThreshes>`
                     
                     .. attribute:: minute15otn_reports
                     
                     	set otn TCA reporting status
-                    	**type**\: :py:class:`Minute15otnReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Minute15otnReports>`
+                    	**type**\: :py:class:`Minute15OtnReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Minute15OtnReports>`
                     
                     
 
@@ -22725,9 +21064,9 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.min15_otn_threshes = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Min15OtnThreshes()
+                        self.min15_otn_threshes = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Min15OtnThreshes()
                         self.min15_otn_threshes.parent = self
-                        self.minute15otn_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Minute15otnReports()
+                        self.minute15otn_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Minute15OtnReports()
                         self.minute15otn_reports.parent = self
 
 
@@ -22738,7 +21077,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: min15_otn_thresh
                         
                         	none
-                        	**type**\: list of :py:class:`Min15OtnThresh <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Min15OtnThreshes.Min15OtnThresh>`
+                        	**type**\: list of :py:class:`Min15OtnThresh <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Min15OtnThreshes.Min15OtnThresh>`
                         
                         
 
@@ -22761,7 +21100,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: otn_threshold
                             
                             	Otn Threshold Type
-                            	**type**\: :py:class:`OtnThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnThreshold_Enum>`
+                            	**type**\: :py:class:`OtnThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnThresholdEnum>`
                             
                             .. attribute:: otn_threshold_value
                             
@@ -22798,8 +21137,6 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.otn_threshold is not None:
                                     return True
 
@@ -22808,14 +21145,10 @@ class InterfaceConfigurations(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Min15OtnThreshes.Min15OtnThresh']['meta_info']
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Min15OtnThreshes.Min15OtnThresh']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -22831,8 +21164,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.min15_otn_thresh is not None:
                                 for child_ref in self.min15_otn_thresh:
                                     if child_ref._has_data():
@@ -22840,24 +21171,20 @@ class InterfaceConfigurations(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Min15OtnThreshes']['meta_info']
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Min15OtnThreshes']['meta_info']
 
 
-                    class Minute15otnReports(object):
+                    class Minute15OtnReports(object):
                         """
                         set otn TCA reporting status
                         
                         .. attribute:: minute15otn_report
                         
                         	none
-                        	**type**\: list of :py:class:`Minute15otnReport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Minute15otnReports.Minute15otnReport>`
+                        	**type**\: list of :py:class:`Minute15OtnReport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Minute15OtnReports.Minute15OtnReport>`
                         
                         
 
@@ -22873,19 +21200,19 @@ class InterfaceConfigurations(object):
                             self.minute15otn_report.name = 'minute15otn_report'
 
 
-                        class Minute15otnReport(object):
+                        class Minute15OtnReport(object):
                             """
                             none
                             
                             .. attribute:: otn_report
                             
                             	Otn Report Type
-                            	**type**\: :py:class:`OtnReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnReport_Enum>`
+                            	**type**\: :py:class:`OtnReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Otn Report
-                            	**type**\: :py:class:`Report_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.Report_Enum>`
+                            	**type**\: :py:class:`ReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             
 
@@ -22915,8 +21242,6 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.otn_report is not None:
                                     return True
 
@@ -22925,14 +21250,10 @@ class InterfaceConfigurations(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Minute15otnReports.Minute15otnReport']['meta_info']
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Minute15OtnReports.Minute15OtnReport']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -22948,8 +21269,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.minute15otn_report is not None:
                                 for child_ref in self.minute15otn_report:
                                     if child_ref._has_data():
@@ -22957,14 +21276,10 @@ class InterfaceConfigurations(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Minute15otnReports']['meta_info']
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Minute15OtnReports']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -22980,30 +21295,18 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.min15_otn_threshes is not None and self.min15_otn_threshes._has_data():
-                            return True
-
-                        if self.min15_otn_threshes is not None and self.min15_otn_threshes.is_presence():
                             return True
 
                         if self.minute15otn_reports is not None and self.minute15otn_reports._has_data():
                             return True
 
-                        if self.minute15otn_reports is not None and self.minute15otn_reports.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn']['meta_info']
+                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -23019,30 +21322,15 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.minute15_optics is not None and self.minute15_optics._has_data():
-                        return True
-
-                    if self.minute15_optics is not None and self.minute15_optics.is_presence():
                         return True
 
                     if self.minute15fec is not None and self.minute15fec._has_data():
                         return True
 
-                    if self.minute15fec is not None and self.minute15fec.is_presence():
-                        return True
-
                     if self.minute15otn is not None and self.minute15otn._has_data():
                         return True
 
-                    if self.minute15otn is not None and self.minute15otn.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -23132,7 +21420,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: gfp_report
                             
                             	Gfp Report Type
-                            	**type**\: :py:class:`GfpReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.GfpReport_Enum>`
+                            	**type**\: :py:class:`GfpReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.GfpReportEnum>`
                             
                             
 
@@ -23161,15 +21449,9 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.gfp_report is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -23191,17 +21473,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.minute15_gfp_report is not None:
                                 for child_ref in self.minute15_gfp_report:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -23240,7 +21516,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: gfp_threshold
                             
                             	Gfp Threshold Type
-                            	**type**\: :py:class:`GfpThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.GfpThreshold_Enum>`
+                            	**type**\: :py:class:`GfpThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.GfpThresholdEnum>`
                             
                             .. attribute:: gfp_threshold_value
                             
@@ -23277,18 +21553,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.gfp_threshold is not None:
                                     return True
 
                                 if self.gfp_threshold_value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -23310,17 +21580,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.minute15_gfp_threshold is not None:
                                 for child_ref in self.minute15_gfp_threshold:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -23342,24 +21606,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.minute15_gfp_reports is not None and self.minute15_gfp_reports._has_data():
-                            return True
-
-                        if self.minute15_gfp_reports is not None and self.minute15_gfp_reports.is_presence():
                             return True
 
                         if self.minute15_gfp_thresholds is not None and self.minute15_gfp_thresholds._has_data():
                             return True
 
-                        if self.minute15_gfp_thresholds is not None and self.minute15_gfp_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -23381,18 +21633,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.minute15_gfp is not None and self.minute15_gfp._has_data():
                         return True
 
-                    if self.minute15_gfp is not None and self.minute15_gfp.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -23401,373 +21644,14 @@ class InterfaceConfigurations(object):
                     return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp']['meta_info']
 
 
-            class Minute15Path(object):
-                """
-                set opr min threshold
-                
-                .. attribute:: minute15otn_path
-                
-                	configure otn g709 performance monitoring
-                	**type**\: :py:class:`Minute15otnPath <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath>`
-                
-                
-
-                """
-
-                _prefix = 'pmengine-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.minute15otn_path = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath()
-                    self.minute15otn_path.parent = self
-
-
-                class Minute15otnPath(object):
-                    """
-                    configure otn g709 performance monitoring
-                    
-                    .. attribute:: min15_otn_path_threshes
-                    
-                    	Configure threshold on otn parameters
-                    	**type**\: :py:class:`Min15OtnPathThreshes <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Min15OtnPathThreshes>`
-                    
-                    .. attribute:: minute15otn_path_reports
-                    
-                    	set otn TCA reporting status
-                    	**type**\: :py:class:`Minute15otnPathReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Minute15otnPathReports>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'pmengine-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.min15_otn_path_threshes = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Min15OtnPathThreshes()
-                        self.min15_otn_path_threshes.parent = self
-                        self.minute15otn_path_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Minute15otnPathReports()
-                        self.minute15otn_path_reports.parent = self
-
-
-                    class Min15OtnPathThreshes(object):
-                        """
-                        Configure threshold on otn parameters
-                        
-                        .. attribute:: min15_otn_path_thresh
-                        
-                        	none
-                        	**type**\: list of :py:class:`Min15OtnPathThresh <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Min15OtnPathThreshes.Min15OtnPathThresh>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'pmengine-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.min15_otn_path_thresh = YList()
-                            self.min15_otn_path_thresh.parent = self
-                            self.min15_otn_path_thresh.name = 'min15_otn_path_thresh'
-
-
-                        class Min15OtnPathThresh(object):
-                            """
-                            none
-                            
-                            .. attribute:: otn_threshold
-                            
-                            	Otn Threshold Type
-                            	**type**\: :py:class:`OtnThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnThreshold_Enum>`
-                            
-                            .. attribute:: otn_threshold_value
-                            
-                            	Otn Threshold Value
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            
-
-                            """
-
-                            _prefix = 'pmengine-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.otn_threshold = None
-                                self.otn_threshold_value = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                if self.otn_threshold is None:
-                                    raise YPYDataValidationError('Key property otn_threshold is None')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:min15-otn-path-thresh[Cisco-IOS-XR-pmengine-cfg:otn-threshold = ' + str(self.otn_threshold) + ']'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.is_presence():
-                                    return True
-                                if self.otn_threshold is not None:
-                                    return True
-
-                                if self.otn_threshold_value is not None:
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Min15OtnPathThreshes.Min15OtnPathThresh']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:min15-otn-path-threshes'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.is_presence():
-                                return True
-                            if self.min15_otn_path_thresh is not None:
-                                for child_ref in self.min15_otn_path_thresh:
-                                    if child_ref._has_data():
-                                        return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Min15OtnPathThreshes']['meta_info']
-
-
-                    class Minute15otnPathReports(object):
-                        """
-                        set otn TCA reporting status
-                        
-                        .. attribute:: minute15otn_path_report
-                        
-                        	none
-                        	**type**\: list of :py:class:`Minute15otnPathReport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Minute15otnPathReports.Minute15otnPathReport>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'pmengine-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.minute15otn_path_report = YList()
-                            self.minute15otn_path_report.parent = self
-                            self.minute15otn_path_report.name = 'minute15otn_path_report'
-
-
-                        class Minute15otnPathReport(object):
-                            """
-                            none
-                            
-                            .. attribute:: otn_report
-                            
-                            	Otn Report Type
-                            	**type**\: :py:class:`OtnReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnReport_Enum>`
-                            
-                            .. attribute:: enable
-                            
-                            	Otn Report
-                            	**type**\: :py:class:`Report_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.Report_Enum>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'pmengine-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.otn_report = None
-                                self.enable = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                if self.otn_report is None:
-                                    raise YPYDataValidationError('Key property otn_report is None')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15otn-path-report[Cisco-IOS-XR-pmengine-cfg:otn-report = ' + str(self.otn_report) + ']'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.is_presence():
-                                    return True
-                                if self.otn_report is not None:
-                                    return True
-
-                                if self.enable is not None:
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Minute15otnPathReports.Minute15otnPathReport']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15otn-path-reports'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.is_presence():
-                                return True
-                            if self.minute15otn_path_report is not None:
-                                for child_ref in self.minute15otn_path_report:
-                                    if child_ref._has_data():
-                                        return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Minute15otnPathReports']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15otn-path'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.is_presence():
-                            return True
-                        if self.min15_otn_path_threshes is not None and self.min15_otn_path_threshes._has_data():
-                            return True
-
-                        if self.min15_otn_path_threshes is not None and self.min15_otn_path_threshes.is_presence():
-                            return True
-
-                        if self.minute15otn_path_reports is not None and self.minute15otn_path_reports._has_data():
-                            return True
-
-                        if self.minute15otn_path_reports is not None and self.minute15otn_path_reports.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15-path'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.is_presence():
-                        return True
-                    if self.minute15otn_path is not None and self.minute15otn_path._has_data():
-                        return True
-
-                    if self.minute15otn_path is not None and self.minute15otn_path.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path']['meta_info']
-
-
-            class Minute15otnTcms(object):
+            class Minute15OtnTcms(object):
                 """
                 set opr min threshold
                 
                 .. attribute:: minute15otn_tcm
                 
                 	configure otn g709 tcm's performance monitoring
-                	**type**\: list of :py:class:`Minute15otnTcm <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm>`
+                	**type**\: list of :py:class:`Minute15OtnTcm <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm>`
                 
                 
 
@@ -23783,7 +21667,7 @@ class InterfaceConfigurations(object):
                     self.minute15otn_tcm.name = 'minute15otn_tcm'
 
 
-                class Minute15otnTcm(object):
+                class Minute15OtnTcm(object):
                     """
                     configure otn g709 tcm's performance
                     monitoring
@@ -23798,12 +21682,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: min15_otn_tcm_threshes
                     
                     	Configure threshold on otn parameters
-                    	**type**\: :py:class:`Min15OtnTcmThreshes <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Min15OtnTcmThreshes>`
+                    	**type**\: :py:class:`Min15OtnTcmThreshes <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Min15OtnTcmThreshes>`
                     
                     .. attribute:: minute15otn_tcm_reports
                     
                     	set otn TCA reporting status
-                    	**type**\: :py:class:`Minute15otnTcmReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Minute15otnTcmReports>`
+                    	**type**\: :py:class:`Minute15OtnTcmReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Minute15OtnTcmReports>`
                     
                     
 
@@ -23815,9 +21699,9 @@ class InterfaceConfigurations(object):
                     def __init__(self):
                         self.parent = None
                         self.tcm_number = None
-                        self.min15_otn_tcm_threshes = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Min15OtnTcmThreshes()
+                        self.min15_otn_tcm_threshes = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Min15OtnTcmThreshes()
                         self.min15_otn_tcm_threshes.parent = self
-                        self.minute15otn_tcm_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Minute15otnTcmReports()
+                        self.minute15otn_tcm_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Minute15OtnTcmReports()
                         self.minute15otn_tcm_reports.parent = self
 
 
@@ -23828,7 +21712,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: min15_otn_tcm_thresh
                         
                         	none
-                        	**type**\: list of :py:class:`Min15OtnTcmThresh <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Min15OtnTcmThreshes.Min15OtnTcmThresh>`
+                        	**type**\: list of :py:class:`Min15OtnTcmThresh <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Min15OtnTcmThreshes.Min15OtnTcmThresh>`
                         
                         
 
@@ -23851,7 +21735,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: otn_threshold
                             
                             	Otn Threshold Type
-                            	**type**\: :py:class:`OtnTcmThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnTcmThreshold_Enum>`
+                            	**type**\: :py:class:`OtnTcmThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnTcmThresholdEnum>`
                             
                             .. attribute:: otn_threshold_value
                             
@@ -23888,8 +21772,6 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.otn_threshold is not None:
                                     return True
 
@@ -23898,14 +21780,10 @@ class InterfaceConfigurations(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Min15OtnTcmThreshes.Min15OtnTcmThresh']['meta_info']
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Min15OtnTcmThreshes.Min15OtnTcmThresh']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -23921,8 +21799,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.min15_otn_tcm_thresh is not None:
                                 for child_ref in self.min15_otn_tcm_thresh:
                                     if child_ref._has_data():
@@ -23930,24 +21806,20 @@ class InterfaceConfigurations(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Min15OtnTcmThreshes']['meta_info']
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Min15OtnTcmThreshes']['meta_info']
 
 
-                    class Minute15otnTcmReports(object):
+                    class Minute15OtnTcmReports(object):
                         """
                         set otn TCA reporting status
                         
                         .. attribute:: minute15otn_tcm_report
                         
                         	none
-                        	**type**\: list of :py:class:`Minute15otnTcmReport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Minute15otnTcmReports.Minute15otnTcmReport>`
+                        	**type**\: list of :py:class:`Minute15OtnTcmReport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Minute15OtnTcmReports.Minute15OtnTcmReport>`
                         
                         
 
@@ -23963,19 +21835,19 @@ class InterfaceConfigurations(object):
                             self.minute15otn_tcm_report.name = 'minute15otn_tcm_report'
 
 
-                        class Minute15otnTcmReport(object):
+                        class Minute15OtnTcmReport(object):
                             """
                             none
                             
                             .. attribute:: otn_report
                             
                             	Otn Report Type
-                            	**type**\: :py:class:`OtnTcmReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnTcmReport_Enum>`
+                            	**type**\: :py:class:`OtnTcmReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnTcmReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Otn Report
-                            	**type**\: :py:class:`Report_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.Report_Enum>`
+                            	**type**\: :py:class:`ReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             
 
@@ -24005,8 +21877,6 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.otn_report is not None:
                                     return True
 
@@ -24015,14 +21885,10 @@ class InterfaceConfigurations(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Minute15otnTcmReports.Minute15otnTcmReport']['meta_info']
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Minute15OtnTcmReports.Minute15OtnTcmReport']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -24038,8 +21904,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.minute15otn_tcm_report is not None:
                                 for child_ref in self.minute15otn_tcm_report:
                                     if child_ref._has_data():
@@ -24047,14 +21911,10 @@ class InterfaceConfigurations(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Minute15otnTcmReports']['meta_info']
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Minute15OtnTcmReports']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -24072,33 +21932,21 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.tcm_number is not None:
                             return True
 
                         if self.min15_otn_tcm_threshes is not None and self.min15_otn_tcm_threshes._has_data():
                             return True
 
-                        if self.min15_otn_tcm_threshes is not None and self.min15_otn_tcm_threshes.is_presence():
-                            return True
-
                         if self.minute15otn_tcm_reports is not None and self.minute15otn_tcm_reports._has_data():
                             return True
 
-                        if self.minute15otn_tcm_reports is not None and self.minute15otn_tcm_reports.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm']['meta_info']
+                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -24114,8 +21962,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.minute15otn_tcm is not None:
                         for child_ref in self.minute15otn_tcm:
                             if child_ref._has_data():
@@ -24123,14 +21969,324 @@ class InterfaceConfigurations(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms']['meta_info']
+
+
+            class Minute15Path(object):
+                """
+                set opr min threshold
+                
+                .. attribute:: minute15otn_path
+                
+                	configure otn g709 performance monitoring
+                	**type**\: :py:class:`Minute15OtnPath <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath>`
+                
+                
+
+                """
+
+                _prefix = 'pmengine-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.minute15otn_path = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath()
+                    self.minute15otn_path.parent = self
+
+
+                class Minute15OtnPath(object):
+                    """
+                    configure otn g709 performance monitoring
+                    
+                    .. attribute:: min15_otn_path_threshes
+                    
+                    	Configure threshold on otn parameters
+                    	**type**\: :py:class:`Min15OtnPathThreshes <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Min15OtnPathThreshes>`
+                    
+                    .. attribute:: minute15otn_path_reports
+                    
+                    	set otn TCA reporting status
+                    	**type**\: :py:class:`Minute15OtnPathReports <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'pmengine-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.min15_otn_path_threshes = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Min15OtnPathThreshes()
+                        self.min15_otn_path_threshes.parent = self
+                        self.minute15otn_path_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports()
+                        self.minute15otn_path_reports.parent = self
+
+
+                    class Min15OtnPathThreshes(object):
+                        """
+                        Configure threshold on otn parameters
+                        
+                        .. attribute:: min15_otn_path_thresh
+                        
+                        	none
+                        	**type**\: list of :py:class:`Min15OtnPathThresh <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Min15OtnPathThreshes.Min15OtnPathThresh>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'pmengine-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.min15_otn_path_thresh = YList()
+                            self.min15_otn_path_thresh.parent = self
+                            self.min15_otn_path_thresh.name = 'min15_otn_path_thresh'
+
+
+                        class Min15OtnPathThresh(object):
+                            """
+                            none
+                            
+                            .. attribute:: otn_threshold
+                            
+                            	Otn Threshold Type
+                            	**type**\: :py:class:`OtnThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnThresholdEnum>`
+                            
+                            .. attribute:: otn_threshold_value
+                            
+                            	Otn Threshold Value
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            
+
+                            """
+
+                            _prefix = 'pmengine-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.otn_threshold = None
+                                self.otn_threshold_value = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                if self.otn_threshold is None:
+                                    raise YPYDataValidationError('Key property otn_threshold is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:min15-otn-path-thresh[Cisco-IOS-XR-pmengine-cfg:otn-threshold = ' + str(self.otn_threshold) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.otn_threshold is not None:
+                                    return True
+
+                                if self.otn_threshold_value is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Min15OtnPathThreshes.Min15OtnPathThresh']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:min15-otn-path-threshes'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.min15_otn_path_thresh is not None:
+                                for child_ref in self.min15_otn_path_thresh:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Min15OtnPathThreshes']['meta_info']
+
+
+                    class Minute15OtnPathReports(object):
+                        """
+                        set otn TCA reporting status
+                        
+                        .. attribute:: minute15otn_path_report
+                        
+                        	none
+                        	**type**\: list of :py:class:`Minute15OtnPathReport <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports.Minute15OtnPathReport>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'pmengine-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.minute15otn_path_report = YList()
+                            self.minute15otn_path_report.parent = self
+                            self.minute15otn_path_report.name = 'minute15otn_path_report'
+
+
+                        class Minute15OtnPathReport(object):
+                            """
+                            none
+                            
+                            .. attribute:: otn_report
+                            
+                            	Otn Report Type
+                            	**type**\: :py:class:`OtnReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OtnReportEnum>`
+                            
+                            .. attribute:: enable
+                            
+                            	Otn Report
+                            	**type**\: :py:class:`ReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'pmengine-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.otn_report = None
+                                self.enable = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                if self.otn_report is None:
+                                    raise YPYDataValidationError('Key property otn_report is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15otn-path-report[Cisco-IOS-XR-pmengine-cfg:otn-report = ' + str(self.otn_report) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.otn_report is not None:
+                                    return True
+
+                                if self.enable is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports.Minute15OtnPathReport']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15otn-path-reports'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.minute15otn_path_report is not None:
+                                for child_ref in self.minute15otn_path_report:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15otn-path'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.min15_otn_path_threshes is not None and self.min15_otn_path_threshes._has_data():
+                            return True
+
+                        if self.minute15otn_path_reports is not None and self.minute15otn_path_reports._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-pmengine-cfg:minute15-path'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.minute15otn_path is not None and self.minute15otn_path._has_data():
+                        return True
+
                     return False
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms']['meta_info']
+                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path']['meta_info']
 
 
             class OcHour24(object):
@@ -24214,12 +22370,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: ocn_report
                             
                             	Ocn Report Type
-                            	**type**\: :py:class:`OcnReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OcnReport_Enum>`
+                            	**type**\: :py:class:`OcnReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OcnReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Ocn Report
-                            	**type**\: :py:class:`Report_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.Report_Enum>`
+                            	**type**\: :py:class:`ReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             
 
@@ -24249,18 +22405,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ocn_report is not None:
                                     return True
 
                                 if self.enable is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -24282,17 +22432,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.oc_hour24_ocn_report is not None:
                                 for child_ref in self.oc_hour24_ocn_report:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -24331,7 +22475,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ocn_threshold
                             
                             	Ocn Threshold Type
-                            	**type**\: :py:class:`OcnThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OcnThreshold_Enum>`
+                            	**type**\: :py:class:`OcnThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OcnThresholdEnum>`
                             
                             .. attribute:: ocn_threshold_value
                             
@@ -24368,18 +22512,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ocn_threshold is not None:
                                     return True
 
                                 if self.ocn_threshold_value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -24401,17 +22539,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.oc_hour24_ocn_threshold is not None:
                                 for child_ref in self.oc_hour24_ocn_threshold:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -24433,24 +22565,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.oc_hour24_ocn_reports is not None and self.oc_hour24_ocn_reports._has_data():
-                            return True
-
-                        if self.oc_hour24_ocn_reports is not None and self.oc_hour24_ocn_reports.is_presence():
                             return True
 
                         if self.oc_hour24_ocn_thresholds is not None and self.oc_hour24_ocn_thresholds._has_data():
                             return True
 
-                        if self.oc_hour24_ocn_thresholds is not None and self.oc_hour24_ocn_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -24472,18 +22592,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.oc_hour24_ocn is not None and self.oc_hour24_ocn._has_data():
                         return True
 
-                    if self.oc_hour24_ocn is not None and self.oc_hour24_ocn.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -24573,12 +22684,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: ocn_report
                             
                             	Ocn Report Type
-                            	**type**\: :py:class:`OcnReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OcnReport_Enum>`
+                            	**type**\: :py:class:`OcnReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OcnReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Ocn Report
-                            	**type**\: :py:class:`Report_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.Report_Enum>`
+                            	**type**\: :py:class:`ReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             
 
@@ -24608,18 +22719,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ocn_report is not None:
                                     return True
 
                                 if self.enable is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -24641,17 +22746,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.oc_minute15_ocn_report is not None:
                                 for child_ref in self.oc_minute15_ocn_report:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -24690,7 +22789,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ocn_threshold
                             
                             	Ocn Threshold Type
-                            	**type**\: :py:class:`OcnThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OcnThreshold_Enum>`
+                            	**type**\: :py:class:`OcnThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OcnThresholdEnum>`
                             
                             .. attribute:: ocn_threshold_value
                             
@@ -24727,18 +22826,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ocn_threshold is not None:
                                     return True
 
                                 if self.ocn_threshold_value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -24760,17 +22853,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.oc_minute15_ocn_threshold is not None:
                                 for child_ref in self.oc_minute15_ocn_threshold:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -24792,24 +22879,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.oc_minute15_ocn_reports is not None and self.oc_minute15_ocn_reports._has_data():
-                            return True
-
-                        if self.oc_minute15_ocn_reports is not None and self.oc_minute15_ocn_reports.is_presence():
                             return True
 
                         if self.oc_minute15_ocn_thresholds is not None and self.oc_minute15_ocn_thresholds._has_data():
                             return True
 
-                        if self.oc_minute15_ocn_thresholds is not None and self.oc_minute15_ocn_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -24831,18 +22906,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.oc_minute15_ocn is not None and self.oc_minute15_ocn._has_data():
                         return True
 
-                    if self.oc_minute15_ocn is not None and self.oc_minute15_ocn.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -24939,7 +23005,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ocn_report
                             
                             	Ocn Report Type
-                            	**type**\: :py:class:`OcnReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OcnReport_Enum>`
+                            	**type**\: :py:class:`OcnReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OcnReportEnum>`
                             
                             
 
@@ -24968,15 +23034,9 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ocn_report is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -24998,17 +23058,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.sonet_hour24_ocn_report is not None:
                                 for child_ref in self.sonet_hour24_ocn_report:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -25047,7 +23101,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ocn_threshold
                             
                             	Ocn Threshold Type
-                            	**type**\: :py:class:`OcnThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OcnThreshold_Enum>`
+                            	**type**\: :py:class:`OcnThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OcnThresholdEnum>`
                             
                             .. attribute:: ocn_threshold_value
                             
@@ -25084,18 +23138,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ocn_threshold is not None:
                                     return True
 
                                 if self.ocn_threshold_value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -25117,17 +23165,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.sonet_hour24_ocn_threshold is not None:
                                 for child_ref in self.sonet_hour24_ocn_threshold:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -25149,24 +23191,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.sonet_hour24_ocn_reports is not None and self.sonet_hour24_ocn_reports._has_data():
-                            return True
-
-                        if self.sonet_hour24_ocn_reports is not None and self.sonet_hour24_ocn_reports.is_presence():
                             return True
 
                         if self.sonet_hour24_ocn_thresholds is not None and self.sonet_hour24_ocn_thresholds._has_data():
                             return True
 
-                        if self.sonet_hour24_ocn_thresholds is not None and self.sonet_hour24_ocn_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -25234,7 +23264,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: path_report
                             
                             	Path Report Type
-                            	**type**\: :py:class:`PathReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.PathReport_Enum>`
+                            	**type**\: :py:class:`PathReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.PathReportEnum>`
                             
                             
 
@@ -25263,15 +23293,9 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.path_report is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -25293,17 +23317,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.sonet_hour24_path_report is not None:
                                 for child_ref in self.sonet_hour24_path_report:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -25342,7 +23360,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: path_threshold
                             
                             	Path Threshold Type
-                            	**type**\: :py:class:`PathThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.PathThreshold_Enum>`
+                            	**type**\: :py:class:`PathThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.PathThresholdEnum>`
                             
                             .. attribute:: path_threshold_value
                             
@@ -25379,18 +23397,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.path_threshold is not None:
                                     return True
 
                                 if self.path_threshold_value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -25412,17 +23424,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.sonet_hour24_path_threshold is not None:
                                 for child_ref in self.sonet_hour24_path_threshold:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -25444,24 +23450,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.sonet_hour24_path_reports is not None and self.sonet_hour24_path_reports._has_data():
-                            return True
-
-                        if self.sonet_hour24_path_reports is not None and self.sonet_hour24_path_reports.is_presence():
                             return True
 
                         if self.sonet_hour24_path_thresholds is not None and self.sonet_hour24_path_thresholds._has_data():
                             return True
 
-                        if self.sonet_hour24_path_thresholds is not None and self.sonet_hour24_path_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -25483,24 +23477,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.sonet_hour24_ocn is not None and self.sonet_hour24_ocn._has_data():
-                        return True
-
-                    if self.sonet_hour24_ocn is not None and self.sonet_hour24_ocn.is_presence():
                         return True
 
                     if self.sonet_hour24_path is not None and self.sonet_hour24_path._has_data():
                         return True
 
-                    if self.sonet_hour24_path is not None and self.sonet_hour24_path.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -25597,7 +23579,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ocn_report
                             
                             	Ocn Report Type
-                            	**type**\: :py:class:`OcnReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OcnReport_Enum>`
+                            	**type**\: :py:class:`OcnReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OcnReportEnum>`
                             
                             
 
@@ -25626,15 +23608,9 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ocn_report is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -25656,17 +23632,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.sonet_minute15_ocn_report is not None:
                                 for child_ref in self.sonet_minute15_ocn_report:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -25705,7 +23675,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ocn_threshold
                             
                             	Ocn Threshold Type
-                            	**type**\: :py:class:`OcnThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OcnThreshold_Enum>`
+                            	**type**\: :py:class:`OcnThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.OcnThresholdEnum>`
                             
                             .. attribute:: ocn_threshold_value
                             
@@ -25742,18 +23712,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ocn_threshold is not None:
                                     return True
 
                                 if self.ocn_threshold_value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -25775,17 +23739,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.sonet_minute15_ocn_threshold is not None:
                                 for child_ref in self.sonet_minute15_ocn_threshold:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -25807,24 +23765,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.sonet_minute15_ocn_reports is not None and self.sonet_minute15_ocn_reports._has_data():
-                            return True
-
-                        if self.sonet_minute15_ocn_reports is not None and self.sonet_minute15_ocn_reports.is_presence():
                             return True
 
                         if self.sonet_minute15_ocn_thresholds is not None and self.sonet_minute15_ocn_thresholds._has_data():
                             return True
 
-                        if self.sonet_minute15_ocn_thresholds is not None and self.sonet_minute15_ocn_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -25892,7 +23838,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: path_report
                             
                             	Path Report Type
-                            	**type**\: :py:class:`PathReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.PathReport_Enum>`
+                            	**type**\: :py:class:`PathReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.PathReportEnum>`
                             
                             
 
@@ -25921,15 +23867,9 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.path_report is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -25951,17 +23891,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.sonet_minute15_path_report is not None:
                                 for child_ref in self.sonet_minute15_path_report:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -26000,7 +23934,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: path_threshold
                             
                             	Path Threshold Type
-                            	**type**\: :py:class:`PathThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.PathThreshold_Enum>`
+                            	**type**\: :py:class:`PathThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.PathThresholdEnum>`
                             
                             .. attribute:: path_threshold_value
                             
@@ -26037,18 +23971,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.path_threshold is not None:
                                     return True
 
                                 if self.path_threshold_value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -26070,17 +23998,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.sonet_minute15_path_threshold is not None:
                                 for child_ref in self.sonet_minute15_path_threshold:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -26102,24 +24024,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.sonet_minute15_path_reports is not None and self.sonet_minute15_path_reports._has_data():
-                            return True
-
-                        if self.sonet_minute15_path_reports is not None and self.sonet_minute15_path_reports.is_presence():
                             return True
 
                         if self.sonet_minute15_path_thresholds is not None and self.sonet_minute15_path_thresholds._has_data():
                             return True
 
-                        if self.sonet_minute15_path_thresholds is not None and self.sonet_minute15_path_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -26141,24 +24051,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.sonet_minute15_ocn is not None and self.sonet_minute15_ocn._has_data():
-                        return True
-
-                    if self.sonet_minute15_ocn is not None and self.sonet_minute15_ocn.is_presence():
                         return True
 
                     if self.sonet_minute15_path is not None and self.sonet_minute15_path._has_data():
                         return True
 
-                    if self.sonet_minute15_path is not None and self.sonet_minute15_path.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -26248,12 +24146,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: stm_report
                             
                             	Stm Report Type
-                            	**type**\: :py:class:`StmReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.StmReport_Enum>`
+                            	**type**\: :py:class:`StmReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.StmReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Stm Report
-                            	**type**\: :py:class:`Report_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.Report_Enum>`
+                            	**type**\: :py:class:`ReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             
 
@@ -26283,18 +24181,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.stm_report is not None:
                                     return True
 
                                 if self.enable is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -26316,17 +24208,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.stm_hour24_stm_report is not None:
                                 for child_ref in self.stm_hour24_stm_report:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -26365,7 +24251,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: stm_threshold
                             
                             	Stm Threshold Type
-                            	**type**\: :py:class:`StmThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.StmThreshold_Enum>`
+                            	**type**\: :py:class:`StmThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.StmThresholdEnum>`
                             
                             .. attribute:: stm_threshold_value
                             
@@ -26402,18 +24288,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.stm_threshold is not None:
                                     return True
 
                                 if self.stm_threshold_value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -26435,17 +24315,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.stm_hour24_stm_threshold is not None:
                                 for child_ref in self.stm_hour24_stm_threshold:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -26467,24 +24341,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.stm_hour24_stm_reports is not None and self.stm_hour24_stm_reports._has_data():
-                            return True
-
-                        if self.stm_hour24_stm_reports is not None and self.stm_hour24_stm_reports.is_presence():
                             return True
 
                         if self.stm_hour24_stm_thresholds is not None and self.stm_hour24_stm_thresholds._has_data():
                             return True
 
-                        if self.stm_hour24_stm_thresholds is not None and self.stm_hour24_stm_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -26506,18 +24368,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.stm_hour24_stm is not None and self.stm_hour24_stm._has_data():
                         return True
 
-                    if self.stm_hour24_stm is not None and self.stm_hour24_stm.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -26607,12 +24460,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: stm_report
                             
                             	Stm Report Type
-                            	**type**\: :py:class:`StmReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.StmReport_Enum>`
+                            	**type**\: :py:class:`StmReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.StmReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Stm Report
-                            	**type**\: :py:class:`Report_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.Report_Enum>`
+                            	**type**\: :py:class:`ReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             
 
@@ -26642,18 +24495,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.stm_report is not None:
                                     return True
 
                                 if self.enable is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -26675,17 +24522,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.stm_minute15_stm_report is not None:
                                 for child_ref in self.stm_minute15_stm_report:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -26724,7 +24565,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: stm_threshold
                             
                             	Stm Threshold Type
-                            	**type**\: :py:class:`StmThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.StmThreshold_Enum>`
+                            	**type**\: :py:class:`StmThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.StmThresholdEnum>`
                             
                             .. attribute:: stm_threshold_value
                             
@@ -26761,18 +24602,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.stm_threshold is not None:
                                     return True
 
                                 if self.stm_threshold_value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -26794,17 +24629,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.stm_minute15_stm_threshold is not None:
                                 for child_ref in self.stm_minute15_stm_threshold:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -26826,24 +24655,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.stm_minute15_stm_reports is not None and self.stm_minute15_stm_reports._has_data():
-                            return True
-
-                        if self.stm_minute15_stm_reports is not None and self.stm_minute15_stm_reports.is_presence():
                             return True
 
                         if self.stm_minute15_stm_thresholds is not None and self.stm_minute15_stm_thresholds._has_data():
                             return True
 
-                        if self.stm_minute15_stm_thresholds is not None and self.stm_minute15_stm_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -26865,18 +24682,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.stm_minute15_stm is not None and self.stm_minute15_stm._has_data():
                         return True
 
-                    if self.stm_minute15_stm is not None and self.stm_minute15_stm.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -26966,12 +24774,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: path_report
                             
                             	Path Report Type
-                            	**type**\: :py:class:`StsReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.StsReport_Enum>`
+                            	**type**\: :py:class:`StsReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.StsReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Path Report
-                            	**type**\: :py:class:`Report_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.Report_Enum>`
+                            	**type**\: :py:class:`ReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             
 
@@ -27001,18 +24809,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.path_report is not None:
                                     return True
 
                                 if self.enable is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -27034,17 +24836,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.sts_hour24_path_report is not None:
                                 for child_ref in self.sts_hour24_path_report:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -27083,7 +24879,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: path_threshold
                             
                             	Path Threshold Type
-                            	**type**\: :py:class:`StsThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.StsThreshold_Enum>`
+                            	**type**\: :py:class:`StsThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.StsThresholdEnum>`
                             
                             .. attribute:: path_threshold_value
                             
@@ -27120,18 +24916,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.path_threshold is not None:
                                     return True
 
                                 if self.path_threshold_value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -27153,17 +24943,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.sts_hour24_path_threshold is not None:
                                 for child_ref in self.sts_hour24_path_threshold:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -27185,24 +24969,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.sts_hour24_path_reports is not None and self.sts_hour24_path_reports._has_data():
-                            return True
-
-                        if self.sts_hour24_path_reports is not None and self.sts_hour24_path_reports.is_presence():
                             return True
 
                         if self.sts_hour24_path_thresholds is not None and self.sts_hour24_path_thresholds._has_data():
                             return True
 
-                        if self.sts_hour24_path_thresholds is not None and self.sts_hour24_path_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -27224,18 +24996,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.sts_hour24_path is not None and self.sts_hour24_path._has_data():
                         return True
 
-                    if self.sts_hour24_path is not None and self.sts_hour24_path.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -27325,12 +25088,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: path_report
                             
                             	Path Report Type
-                            	**type**\: :py:class:`StsReport_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.StsReport_Enum>`
+                            	**type**\: :py:class:`StsReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.StsReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Path Report
-                            	**type**\: :py:class:`Report_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.Report_Enum>`
+                            	**type**\: :py:class:`ReportEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             
 
@@ -27360,18 +25123,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.path_report is not None:
                                     return True
 
                                 if self.enable is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -27393,17 +25150,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.sts_minute15_path_report is not None:
                                 for child_ref in self.sts_minute15_path_report:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -27442,7 +25193,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: path_threshold
                             
                             	Path Threshold Type
-                            	**type**\: :py:class:`StsThreshold_Enum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.StsThreshold_Enum>`
+                            	**type**\: :py:class:`StsThresholdEnum <ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg.StsThresholdEnum>`
                             
                             .. attribute:: path_threshold_value
                             
@@ -27479,18 +25230,12 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.path_threshold is not None:
                                     return True
 
                                 if self.path_threshold_value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -27512,17 +25257,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.sts_minute15_path_threshold is not None:
                                 for child_ref in self.sts_minute15_path_threshold:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -27544,24 +25283,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.sts_minute15_path_reports is not None and self.sts_minute15_path_reports._has_data():
-                            return True
-
-                        if self.sts_minute15_path_reports is not None and self.sts_minute15_path_reports.is_presence():
                             return True
 
                         if self.sts_minute15_path_thresholds is not None and self.sts_minute15_path_thresholds._has_data():
                             return True
 
-                        if self.sts_minute15_path_thresholds is not None and self.sts_minute15_path_thresholds.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -27583,18 +25310,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.sts_minute15_path is not None and self.sts_minute15_path._has_data():
                         return True
 
-                    if self.sts_minute15_path is not None and self.sts_minute15_path.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -27616,132 +25334,66 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.ethernet_hour24 is not None and self.ethernet_hour24._has_data():
-                    return True
-
-                if self.ethernet_hour24 is not None and self.ethernet_hour24.is_presence():
                     return True
 
                 if self.ethernet_minute15 is not None and self.ethernet_minute15._has_data():
                     return True
 
-                if self.ethernet_minute15 is not None and self.ethernet_minute15.is_presence():
-                    return True
-
                 if self.ho_vc_hour24 is not None and self.ho_vc_hour24._has_data():
-                    return True
-
-                if self.ho_vc_hour24 is not None and self.ho_vc_hour24.is_presence():
                     return True
 
                 if self.ho_vc_minute15 is not None and self.ho_vc_minute15._has_data():
                     return True
 
-                if self.ho_vc_minute15 is not None and self.ho_vc_minute15.is_presence():
-                    return True
-
                 if self.hour24 is not None and self.hour24._has_data():
-                    return True
-
-                if self.hour24 is not None and self.hour24.is_presence():
                     return True
 
                 if self.hour24_gfp is not None and self.hour24_gfp._has_data():
                     return True
 
-                if self.hour24_gfp is not None and self.hour24_gfp.is_presence():
-                    return True
-
                 if self.hour24_path is not None and self.hour24_path._has_data():
-                    return True
-
-                if self.hour24_path is not None and self.hour24_path.is_presence():
                     return True
 
                 if self.hour24otn_tcms is not None and self.hour24otn_tcms._has_data():
                     return True
 
-                if self.hour24otn_tcms is not None and self.hour24otn_tcms.is_presence():
-                    return True
-
                 if self.minute15 is not None and self.minute15._has_data():
-                    return True
-
-                if self.minute15 is not None and self.minute15.is_presence():
                     return True
 
                 if self.minute15_gfp is not None and self.minute15_gfp._has_data():
                     return True
 
-                if self.minute15_gfp is not None and self.minute15_gfp.is_presence():
-                    return True
-
                 if self.minute15_path is not None and self.minute15_path._has_data():
-                    return True
-
-                if self.minute15_path is not None and self.minute15_path.is_presence():
                     return True
 
                 if self.minute15otn_tcms is not None and self.minute15otn_tcms._has_data():
                     return True
 
-                if self.minute15otn_tcms is not None and self.minute15otn_tcms.is_presence():
-                    return True
-
                 if self.oc_hour24 is not None and self.oc_hour24._has_data():
-                    return True
-
-                if self.oc_hour24 is not None and self.oc_hour24.is_presence():
                     return True
 
                 if self.oc_minute15 is not None and self.oc_minute15._has_data():
                     return True
 
-                if self.oc_minute15 is not None and self.oc_minute15.is_presence():
-                    return True
-
                 if self.sonet_hour24 is not None and self.sonet_hour24._has_data():
-                    return True
-
-                if self.sonet_hour24 is not None and self.sonet_hour24.is_presence():
                     return True
 
                 if self.sonet_minute15 is not None and self.sonet_minute15._has_data():
                     return True
 
-                if self.sonet_minute15 is not None and self.sonet_minute15.is_presence():
-                    return True
-
                 if self.stm_hour24 is not None and self.stm_hour24._has_data():
-                    return True
-
-                if self.stm_hour24 is not None and self.stm_hour24.is_presence():
                     return True
 
                 if self.stm_minute15 is not None and self.stm_minute15._has_data():
                     return True
 
-                if self.stm_minute15 is not None and self.stm_minute15.is_presence():
-                    return True
-
                 if self.sts_hour24 is not None and self.sts_hour24._has_data():
-                    return True
-
-                if self.sts_hour24 is not None and self.sts_hour24.is_presence():
                     return True
 
                 if self.sts_minute15 is not None and self.sts_minute15._has_data():
                     return True
 
-                if self.sts_minute15 is not None and self.sts_minute15.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -27794,18 +25446,12 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.generic_interface_list is not None:
                     return True
 
                 if self.l2_overhead is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -27858,18 +25504,12 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.generic_interface_list is not None:
                     return True
 
                 if self.l2_overhead is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -27910,7 +25550,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: session_class
                 
                 	Session Class
-                	**type**\: :py:class:`SpanSessionClass_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass_Enum>`
+                	**type**\: :py:class:`SpanSessionClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
                 
                 .. attribute:: acl
                 
@@ -27932,7 +25572,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: mirror_interval
                 
                 	Specify the mirror interval
-                	**type**\: :py:class:`SpanMirrorInterval_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMirrorInterval_Enum>`
+                	**type**\: :py:class:`SpanMirrorIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMirrorIntervalEnum>`
                 
                 
 
@@ -27957,12 +25597,22 @@ class InterfaceConfigurations(object):
                     .. attribute:: direction
                     
                     	Specify the direction of traffic to replicate (optional)
-                    	**type**\: :py:class:`SpanTrafficDirection_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanTrafficDirection_Enum>`
+                    	**type**\: :py:class:`SpanTrafficDirectionEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanTrafficDirectionEnum>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: port_level_enable
                     
                     	Enable port level traffic mirroring
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: session_name
                     
@@ -27970,6 +25620,11 @@ class InterfaceConfigurations(object):
                     	**type**\: str
                     
                     	**range:** 0..79
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -28000,8 +25655,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.direction is not None:
                             return True
 
@@ -28012,10 +25665,6 @@ class InterfaceConfigurations(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -28038,8 +25687,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.session_class is not None:
                         return True
 
@@ -28049,19 +25696,12 @@ class InterfaceConfigurations(object):
                     if self.attachment is not None and self.attachment._has_data():
                         return True
 
-                    if self.attachment is not None and self.attachment.is_presence():
-                        return True
-
                     if self.mirror_first is not None:
                         return True
 
                     if self.mirror_interval is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -28083,17 +25723,11 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.span_monitor_session is not None:
                     for child_ref in self.span_monitor_session:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -28138,15 +25772,9 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.load_interval is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -28309,18 +25937,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interval_ms is not None:
                             return True
 
                         if self.interval_us is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -28375,18 +25997,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interval_standby_ms is not None:
                             return True
 
                         if self.interval_standby_us is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -28408,8 +26024,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.detection_multiplier is not None:
                         return True
 
@@ -28419,22 +26033,12 @@ class InterfaceConfigurations(object):
                     if self.min_interval is not None and self.min_interval._has_data():
                         return True
 
-                    if self.min_interval is not None and self.min_interval.is_presence():
-                        return True
-
                     if self.min_interval_standby is not None and self.min_interval_standby._has_data():
-                        return True
-
-                    if self.min_interval_standby is not None and self.min_interval_standby.is_presence():
                         return True
 
                     if self.multiplier_standby is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -28496,8 +26100,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.global_id is not None:
                         return True
 
@@ -28507,10 +26109,6 @@ class InterfaceConfigurations(object):
                     if self.tunnel_id is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -28593,8 +26191,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ais is not None:
                             return True
 
@@ -28604,10 +26200,6 @@ class InterfaceConfigurations(object):
                         if self.lkr is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -28629,21 +26221,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.enable is not None:
                         return True
 
                     if self.protection_trigger is not None and self.protection_trigger._has_data():
                         return True
 
-                    if self.protection_trigger is not None and self.protection_trigger.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -28706,12 +26289,22 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 16..1048575
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: link
                     
                     	Transport profile identifier of outgoing link
                     	**type**\: int
                     
                     	**range:** 1..65535
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -28741,8 +26334,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.label is not None:
                             return True
 
@@ -28750,10 +26341,6 @@ class InterfaceConfigurations(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -28774,8 +26361,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.in_label is not None:
                         return True
 
@@ -28788,13 +26373,6 @@ class InterfaceConfigurations(object):
                     if self.out_label is not None and self.out_label._has_data():
                         return True
 
-                    if self.out_label is not None and self.out_label.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -28857,12 +26435,22 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 16..1048575
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: link
                     
                     	Transport profile identifier of outgoing link
                     	**type**\: int
                     
                     	**range:** 1..65535
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -28892,8 +26480,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.label is not None:
                             return True
 
@@ -28901,10 +26487,6 @@ class InterfaceConfigurations(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -28925,8 +26507,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.in_label is not None:
                         return True
 
@@ -28939,13 +26519,6 @@ class InterfaceConfigurations(object):
                     if self.out_label is not None and self.out_label._has_data():
                         return True
 
-                    if self.out_label is not None and self.out_label.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -28967,30 +26540,16 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.bfd is not None and self.bfd._has_data():
-                    return True
-
-                if self.bfd is not None and self.bfd.is_presence():
                     return True
 
                 if self.destination is not None and self.destination._has_data():
                     return True
 
-                if self.destination is not None and self.destination.is_presence():
-                    return True
-
                 if self.fault is not None and self.fault._has_data():
                     return True
 
-                if self.fault is not None and self.fault.is_presence():
-                    return True
-
                 if self.protect_lsp is not None and self.protect_lsp._has_data():
-                    return True
-
-                if self.protect_lsp is not None and self.protect_lsp.is_presence():
                     return True
 
                 if self.source is not None:
@@ -28999,13 +26558,6 @@ class InterfaceConfigurations(object):
                 if self.working_lsp is not None and self.working_lsp._has_data():
                     return True
 
-                if self.working_lsp is not None and self.working_lsp.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -29131,7 +26683,7 @@ class InterfaceConfigurations(object):
             .. attribute:: path_selection_metric
             
             	Path selection metric configuration for this specific tunnel
-            	**type**\: :py:class:`MplsTePathSelectionMetric_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetric_Enum>`
+            	**type**\: :py:class:`MplsTePathSelectionMetricEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
             
             .. attribute:: pce
             
@@ -29258,15 +26810,9 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.deactivate_tunnel is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -29286,12 +26832,22 @@ class InterfaceConfigurations(object):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: mask
                 
                 	Affinity mask
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -29321,8 +26877,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.affinity is not None:
                         return True
 
@@ -29330,10 +26884,6 @@ class InterfaceConfigurations(object):
                         return True
 
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -29413,12 +26963,22 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 1..100
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: adjustment_threshold_value
                     
                     	Bandwidth change value to trigger adjustment (kbps)
                     	**type**\: int
                     
                     	**range:** 10..4294967295
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -29448,8 +27008,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.adjustment_threshold_percent is not None:
                             return True
 
@@ -29457,10 +27015,6 @@ class InterfaceConfigurations(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -29480,12 +27034,22 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: bandwidth_min_limit
                     
                     	Set minimum bandwidth auto\-bw can apply on a tunnel
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -29515,8 +27079,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bandwidth_max_limit is not None:
                             return True
 
@@ -29524,10 +27086,6 @@ class InterfaceConfigurations(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -29546,6 +27104,11 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 1..10
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: overflow_threshold_percent
                     
                     	Bandwidth change percent to trigger an overflow
@@ -29553,12 +27116,22 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 1..100
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: overflow_threshold_value
                     
                     	Bandwidth change value to trigger an overflow (kbps)
                     	**type**\: int
                     
                     	**range:** 10..4294967295
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -29589,8 +27162,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.overflow_threshold_limit is not None:
                             return True
 
@@ -29601,10 +27172,6 @@ class InterfaceConfigurations(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -29623,6 +27190,11 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 1..10
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: underflow_threshold_percent
                     
                     	Bandwidth change percent to trigger an underflow
@@ -29630,12 +27202,22 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 1..100
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: underflow_threshold_value
                     
                     	Bandwidth change value to trigger an underflow (kbps)
                     	**type**\: int
                     
                     	**range:** 10..4294967295
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -29666,8 +27248,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.underflow_threshold_limit is not None:
                             return True
 
@@ -29678,10 +27258,6 @@ class InterfaceConfigurations(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -29702,21 +27278,13 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.adjustment_threshold is not None and self.adjustment_threshold._has_data():
-                        return True
-
-                    if self.adjustment_threshold is not None and self.adjustment_threshold.is_presence():
                         return True
 
                     if self.application_frequency is not None:
                         return True
 
                     if self.bandwidth_limits is not None and self.bandwidth_limits._has_data():
-                        return True
-
-                    if self.bandwidth_limits is not None and self.bandwidth_limits.is_presence():
                         return True
 
                     if self.collection_only is not None:
@@ -29728,19 +27296,9 @@ class InterfaceConfigurations(object):
                     if self.overflow is not None and self.overflow._has_data():
                         return True
 
-                    if self.overflow is not None and self.overflow.is_presence():
-                        return True
-
                     if self.underflow is not None and self.underflow._has_data():
                         return True
 
-                    if self.underflow is not None and self.underflow.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -29846,7 +27404,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: metric_type
                         
                         	Autoroute tunnel metric type
-                        	**type**\: :py:class:`MplsTeAutorouteMetric_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeAutorouteMetric_Enum>`
+                        	**type**\: :py:class:`MplsTeAutorouteMetricEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeAutorouteMetricEnum>`
                         
                         .. attribute:: relative_metric
                         
@@ -29883,8 +27441,6 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.absolute_metric is not None:
                                 return True
 
@@ -29897,10 +27453,6 @@ class InterfaceConfigurations(object):
                             if self.relative_metric is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -29922,8 +27474,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.enable is not None:
                             return True
 
@@ -29933,13 +27483,6 @@ class InterfaceConfigurations(object):
                         if self.metric is not None and self.metric._has_data():
                             return True
 
-                        if self.metric is not None and self.metric.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -30009,15 +27552,9 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.destination_address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -30039,17 +27576,11 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.destination is not None:
                             for child_ref in self.destination:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -30079,7 +27610,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: metric_type
                     
                     	Autoroute tunnel metric type
-                    	**type**\: :py:class:`MplsTeAutorouteMetric_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeAutorouteMetric_Enum>`
+                    	**type**\: :py:class:`MplsTeAutorouteMetricEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeAutorouteMetricEnum>`
                     
                     .. attribute:: relative_metric
                     
@@ -30116,8 +27647,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.absolute_metric is not None:
                             return True
 
@@ -30130,10 +27659,6 @@ class InterfaceConfigurations(object):
                         if self.relative_metric is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -30155,12 +27680,7 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.autoroute_announce is not None and self.autoroute_announce._has_data():
-                        return True
-
-                    if self.autoroute_announce is not None and self.autoroute_announce.is_presence():
                         return True
 
                     if self.destination is not None:
@@ -30169,19 +27689,9 @@ class InterfaceConfigurations(object):
                     if self.destination_xr is not None and self.destination_xr._has_data():
                         return True
 
-                    if self.destination_xr is not None and self.destination_xr.is_presence():
-                        return True
-
                     if self.metric is not None and self.metric._has_data():
                         return True
 
-                    if self.metric is not None and self.metric.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -30204,22 +27714,22 @@ class InterfaceConfigurations(object):
                 .. attribute:: class_type
                 
                 	Backup bandwidth class type, relevant only if DSTEType is StandardDSTE
-                	**type**\: :py:class:`MplsTeBackupBandwidthClass_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBackupBandwidthClass_Enum>`
+                	**type**\: :py:class:`MplsTeBackupBandwidthClassEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBackupBandwidthClassEnum>`
                 
                 .. attribute:: dste_type
                 
                 	DSTE\-standard flag
-                	**type**\: :py:class:`MplsTeBandwidthDste_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDste_Enum>`
+                	**type**\: :py:class:`MplsTeBandwidthDsteEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
                 
                 .. attribute:: limit_type
                 
                 	Backup bandwidth limit type
-                	**type**\: :py:class:`MplsTeBandwidthLimit_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthLimit_Enum>`
+                	**type**\: :py:class:`MplsTeBandwidthLimitEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthLimitEnum>`
                 
                 .. attribute:: pool_type
                 
                 	Backup bandwidth pool type, relevant only if DSTEType is PreStandardDSTE
-                	**type**\: :py:class:`MplsTeBackupBandwidthPool_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBackupBandwidthPool_Enum>`
+                	**type**\: :py:class:`MplsTeBackupBandwidthPoolEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBackupBandwidthPoolEnum>`
                 
                 
 
@@ -30250,8 +27760,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.backup_bandwidth is not None:
                         return True
 
@@ -30267,10 +27775,6 @@ class InterfaceConfigurations(object):
                     if self.pool_type is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -30290,6 +27794,11 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: class_or_pool_type
                 
                 	Class type for the bandwith allocation
@@ -30297,10 +27806,20 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..1
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: dste_type
                 
                 	DSTE\-standard flag
-                	**type**\: :py:class:`MplsTeBandwidthDste_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDste_Enum>`
+                	**type**\: :py:class:`MplsTeBandwidthDsteEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -30331,8 +27850,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bandwidth is not None:
                         return True
 
@@ -30343,10 +27860,6 @@ class InterfaceConfigurations(object):
                         return True
 
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -30464,8 +27977,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bringup_timeout is not None:
                         return True
 
@@ -30499,10 +28010,6 @@ class InterfaceConfigurations(object):
                     if self.periodic_ping_interval is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -30608,15 +28115,9 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.enable is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -30638,21 +28139,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.enable is not None:
                             return True
 
                         if self.fault_oam is not None and self.fault_oam._has_data():
                             return True
 
-                        if self.fault_oam is not None and self.fault_oam.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -30673,6 +28165,11 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: association_id
                     
                     	Association ID
@@ -30680,9 +28177,19 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 0..65535
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: association_is_global_id_configured
                     
                     	Is Association Global ID Configured
+                    	**type**\: bool
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
                     .. attribute:: association_source_address
@@ -30691,6 +28198,11 @@ class InterfaceConfigurations(object):
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -30722,8 +28234,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.association_global_id is not None:
                             return True
 
@@ -30737,10 +28247,6 @@ class InterfaceConfigurations(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -30761,27 +28267,15 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.association_corouted_type is not None and self.association_corouted_type._has_data():
-                        return True
-
-                    if self.association_corouted_type is not None and self.association_corouted_type.is_presence():
                         return True
 
                     if self.association_parameters is not None and self.association_parameters._has_data():
                         return True
 
-                    if self.association_parameters is not None and self.association_parameters.is_presence():
-                        return True
-
                     if self.enabled is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -30804,7 +28298,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: segment_id_type
                 
                 	MPLS label value type
-                	**type**\: :py:class:`BindingSegmentId_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.BindingSegmentId_Enum>`
+                	**type**\: :py:class:`BindingSegmentIdEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.BindingSegmentIdEnum>`
                 
                 
 
@@ -30832,18 +28326,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.label_value is not None:
                         return True
 
                     if self.segment_id_type is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -30863,12 +28351,22 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..1
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: node_protection
                 
                 	Node Protection
                 	**type**\: int
                 
                 	**range:** 0..1
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -30898,8 +28396,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bandwidth_protection is not None:
                         return True
 
@@ -30907,10 +28403,6 @@ class InterfaceConfigurations(object):
                         return True
 
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -30966,8 +28458,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.enable is not None:
                         return True
 
@@ -30977,10 +28467,6 @@ class InterfaceConfigurations(object):
                     if self.include_ipv6 is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -31089,7 +28575,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: affinity_type
                     
                     	The type of the affinity entry
-                    	**type**\: :py:class:`MplsTeTunnelAffinity_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity_Enum>`
+                    	**type**\: :py:class:`MplsTeTunnelAffinityEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                     
                     
 
@@ -31148,8 +28634,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.affinity1 is not None:
                             return True
 
@@ -31185,10 +28669,6 @@ class InterfaceConfigurations(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
@@ -31208,17 +28688,11 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.new_style_affinity is not None:
                         for child_ref in self.new_style_affinity:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -31235,7 +28709,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: path_invalidation_action
                 
                 	Path Invalidation Action
-                	**type**\: :py:class:`PathInvalidationAction_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationAction_Enum>`
+                	**type**\: :py:class:`PathInvalidationActionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationActionEnum>`
                 
                 .. attribute:: path_invalidation_timeout
                 
@@ -31270,18 +28744,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.path_invalidation_action is not None:
                         return True
 
                     if self.path_invalidation_timeout is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -31320,7 +28788,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: protection
                     
                     	Protection type for this path
-                    	**type**\: :py:class:`MplsTePathOptionProtection_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionProtection_Enum>`
+                    	**type**\: :py:class:`MplsTePathOptionProtectionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionProtectionEnum>`
                     
                     .. attribute:: path_options
                     
@@ -31406,7 +28874,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: igp_type
                             
                             	IGP type
-                            	**type**\: :py:class:`MplsTeIgpProtocol_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeIgpProtocol_Enum>`
+                            	**type**\: :py:class:`MplsTeIgpProtocolEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeIgpProtocolEnum>`
                             
                             .. attribute:: interface
                             
@@ -31418,7 +28886,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: lockdown
                             
                             	Lockdown properties
-                            	**type**\: :py:class:`MplsTePathOptionProperty_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionProperty_Enum>`
+                            	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
                             
                             .. attribute:: output_label
                             
@@ -31454,12 +28922,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: path_type
                             
                             	The type of the path option
-                            	**type**\: :py:class:`MplsTePathOption_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOption_Enum>`
+                            	**type**\: :py:class:`MplsTePathOptionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionEnum>`
                             
                             .. attribute:: pce
                             
                             	PCE properties
-                            	**type**\: :py:class:`MplsTePathOptionProperty_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionProperty_Enum>`
+                            	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
                             
                             .. attribute:: pce_address
                             
@@ -31478,12 +28946,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: segment_routing
                             
                             	SegmentRouting properties
-                            	**type**\: :py:class:`MplsTePathOptionProperty_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionProperty_Enum>`
+                            	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
                             
                             .. attribute:: verbatim
                             
                             	Verbatim properties
-                            	**type**\: :py:class:`MplsTePathOptionProperty_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionProperty_Enum>`
+                            	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
                             
                             
 
@@ -31530,8 +28998,6 @@ class InterfaceConfigurations(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.preference_level is not None:
                                     return True
 
@@ -31591,10 +29057,6 @@ class InterfaceConfigurations(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
@@ -31614,17 +29076,11 @@ class InterfaceConfigurations(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.path_option is not None:
                                 for child_ref in self.path_option:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -31648,21 +29104,12 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.protection is not None:
                             return True
 
                         if self.path_options is not None and self.path_options._has_data():
                             return True
 
-                        if self.path_options is not None and self.path_options.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -31684,17 +29131,11 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.path_option_protect is not None:
                         for child_ref in self.path_option_protect:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -31743,18 +29184,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.delegation is not None:
                         return True
 
                     if self.enable is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -31799,17 +29234,11 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.policy_class is not None:
                         for child in self.policy_class:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -31829,12 +29258,22 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..7
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: setup_priority
                 
                 	Setup Priority
                 	**type**\: int
                 
                 	**range:** 0..7
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -31864,8 +29303,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.hold_priority is not None:
                         return True
 
@@ -31873,10 +29310,6 @@ class InterfaceConfigurations(object):
                         return True
 
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -31920,12 +29353,22 @@ class InterfaceConfigurations(object):
                     .. attribute:: capability
                     
                     	Switching capability
-                    	**type**\: :py:class:`MplsTeSwitchingCap_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingCap_Enum>`
+                    	**type**\: :py:class:`MplsTeSwitchingCapEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingCapEnum>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: encoding
                     
                     	LSP encoding
-                    	**type**\: :py:class:`MplsTeSwitchingEncode_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingEncode_Enum>`
+                    	**type**\: :py:class:`MplsTeSwitchingEncodeEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingEncodeEnum>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -31955,8 +29398,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.capability is not None:
                             return True
 
@@ -31964,10 +29405,6 @@ class InterfaceConfigurations(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -31983,12 +29420,22 @@ class InterfaceConfigurations(object):
                     .. attribute:: capability
                     
                     	Switching capability
-                    	**type**\: :py:class:`MplsTeSwitchingCap_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingCap_Enum>`
+                    	**type**\: :py:class:`MplsTeSwitchingCapEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingCapEnum>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: encoding
                     
                     	LSP encoding
-                    	**type**\: :py:class:`MplsTeSwitchingEncode_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingEncode_Enum>`
+                    	**type**\: :py:class:`MplsTeSwitchingEncodeEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingEncodeEnum>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -32018,8 +29465,6 @@ class InterfaceConfigurations(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.capability is not None:
                             return True
 
@@ -32027,10 +29472,6 @@ class InterfaceConfigurations(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -32051,24 +29492,12 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.endpoint is not None and self.endpoint._has_data():
-                        return True
-
-                    if self.endpoint is not None and self.endpoint.is_presence():
                         return True
 
                     if self.transit is not None and self.transit._has_data():
                         return True
 
-                    if self.transit is not None and self.transit.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -32090,60 +29519,31 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.admin_mode is not None and self.admin_mode._has_data():
-                    return True
-
-                if self.admin_mode is not None and self.admin_mode.is_presence():
                     return True
 
                 if self.affinity_mask is not None and self.affinity_mask._has_data():
                     return True
 
-                if self.affinity_mask is not None and self.affinity_mask.is_presence():
-                    return True
-
                 if self.auto_bandwidth is not None and self.auto_bandwidth._has_data():
-                    return True
-
-                if self.auto_bandwidth is not None and self.auto_bandwidth.is_presence():
                     return True
 
                 if self.autoroute is not None and self.autoroute._has_data():
                     return True
 
-                if self.autoroute is not None and self.autoroute.is_presence():
-                    return True
-
                 if self.backup_bandwidth is not None and self.backup_bandwidth._has_data():
-                    return True
-
-                if self.backup_bandwidth is not None and self.backup_bandwidth.is_presence():
                     return True
 
                 if self.bandwidth is not None and self.bandwidth._has_data():
                     return True
 
-                if self.bandwidth is not None and self.bandwidth.is_presence():
-                    return True
-
                 if self.bfd_over_lsp is not None and self.bfd_over_lsp._has_data():
-                    return True
-
-                if self.bfd_over_lsp is not None and self.bfd_over_lsp.is_presence():
                     return True
 
                 if self.bidirectional is not None and self.bidirectional._has_data():
                     return True
 
-                if self.bidirectional is not None and self.bidirectional.is_presence():
-                    return True
-
                 if self.binding_segment_id_mpls is not None and self.binding_segment_id_mpls._has_data():
-                    return True
-
-                if self.binding_segment_id_mpls is not None and self.binding_segment_id_mpls.is_presence():
                     return True
 
                 if self.destination is not None:
@@ -32152,16 +29552,10 @@ class InterfaceConfigurations(object):
                 if self.fast_reroute is not None and self.fast_reroute._has_data():
                     return True
 
-                if self.fast_reroute is not None and self.fast_reroute.is_presence():
-                    return True
-
                 if self.forward_class is not None:
                     return True
 
                 if self.forwarding_adjacency is not None and self.forwarding_adjacency._has_data():
-                    return True
-
-                if self.forwarding_adjacency is not None and self.forwarding_adjacency.is_presence():
                     return True
 
                 if self.load_share is not None:
@@ -32170,19 +29564,10 @@ class InterfaceConfigurations(object):
                 if self.new_style_affinities is not None and self.new_style_affinities._has_data():
                     return True
 
-                if self.new_style_affinities is not None and self.new_style_affinities.is_presence():
-                    return True
-
                 if self.path_invalidation is not None and self.path_invalidation._has_data():
                     return True
 
-                if self.path_invalidation is not None and self.path_invalidation.is_presence():
-                    return True
-
                 if self.path_option_protects is not None and self.path_option_protects._has_data():
-                    return True
-
-                if self.path_option_protects is not None and self.path_option_protects.is_presence():
                     return True
 
                 if self.path_protection is not None:
@@ -32200,19 +29585,10 @@ class InterfaceConfigurations(object):
                 if self.pce is not None and self.pce._has_data():
                     return True
 
-                if self.pce is not None and self.pce.is_presence():
-                    return True
-
                 if self.policy_classes is not None and self.policy_classes._has_data():
                     return True
 
-                if self.policy_classes is not None and self.policy_classes.is_presence():
-                    return True
-
                 if self.priority is not None and self.priority._has_data():
-                    return True
-
-                if self.priority is not None and self.priority.is_presence():
                     return True
 
                 if self.record_route is not None:
@@ -32227,13 +29603,6 @@ class InterfaceConfigurations(object):
                 if self.switching is not None and self.switching._has_data():
                     return True
 
-                if self.switching is not None and self.switching.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -32275,15 +29644,30 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: second_tag
                 
                 	Second VLAN tag value. The any value may only be used for Layer 2 subinterfaces
-                	**type**\: one of { :py:class:`VlanTagOrNull_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrNull_Enum>` | int }
+                	**type**\: one of { :py:class:`VlanTagOrNullEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrNullEnum>` | int }
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: vlan_type
                 
                 	Whether this sub\-interface is dot1ad or dot1Q
-                	**type**\: :py:class:`Vlan_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.Vlan_Enum>`
+                	**type**\: :py:class:`VlanEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -32314,8 +29698,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.first_tag is not None:
                         return True
 
@@ -32326,10 +29708,6 @@ class InterfaceConfigurations(object):
                         return True
 
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -32350,18 +29728,9 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.vlan_identifier is not None and self.vlan_identifier._has_data():
                     return True
 
-                if self.vlan_identifier is not None and self.vlan_identifier.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -32382,7 +29751,7 @@ class InterfaceConfigurations(object):
             .. attribute:: tunneling_ethertype
             
             	The outer ethertype used in Q\-in\-Q frames. The default value is 0x8100
-            	**type**\: :py:class:`TunnelingEthertype_Enum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration.TunnelingEthertype_Enum>`
+            	**type**\: :py:class:`TunnelingEthertypeEnum <ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration.TunnelingEthertypeEnum>`
             
             
 
@@ -32396,34 +29765,33 @@ class InterfaceConfigurations(object):
                 self.native_vlan_identifier = None
                 self.tunneling_ethertype = None
 
-            class TunnelingEthertype_Enum(Enum):
+            class TunnelingEthertypeEnum(Enum):
                 """
-                TunnelingEthertype_Enum
+                TunnelingEthertypeEnum
 
                 The outer ethertype used in Q\-in\-Q frames. The
+
                 default value is 0x8100
 
-                """
+                .. data:: Y_0X9100 = 37120
+
+                	0x9100
+
+                .. data:: Y_0X9200 = 37376
+
+                	0x9200
 
                 """
 
-                0x9100
-
-                """
                 Y_0X9100 = 37120
 
-                """
-
-                0x9200
-
-                """
                 Y_0X9200 = 37376
 
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration.TunnelingEthertype_Enum']
+                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration.TunnelingEthertypeEnum']
 
 
 
@@ -32439,10 +29807,20 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4094
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: vlan_type
                 
                 	Whether this interface is dot1ad or dot1Q
-                	**type**\: :py:class:`Vlan_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.Vlan_Enum>`
+                	**type**\: :py:class:`VlanEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanEnum>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -32472,8 +29850,6 @@ class InterfaceConfigurations(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.vlan_identifier is not None:
                         return True
 
@@ -32481,10 +29857,6 @@ class InterfaceConfigurations(object):
                         return True
 
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -32505,21 +29877,12 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.native_vlan_identifier is not None and self.native_vlan_identifier._has_data():
-                    return True
-
-                if self.native_vlan_identifier is not None and self.native_vlan_identifier.is_presence():
                     return True
 
                 if self.tunneling_ethertype is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -32535,7 +29898,7 @@ class InterfaceConfigurations(object):
             .. attribute:: lan_mode
             
             	Configure LAN Mode
-            	**type**\: :py:class:`WanphyLanMode_Enum <ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_cfg.WanphyLanMode_Enum>`
+            	**type**\: :py:class:`WanphyLanModeEnum <ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_cfg.WanphyLanModeEnum>`
             
             .. attribute:: report_line_ais
             
@@ -32619,7 +29982,7 @@ class InterfaceConfigurations(object):
             .. attribute:: wan_mode
             
             	Configure WAN Mode
-            	**type**\: :py:class:`WanphyWanMode_Enum <ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_cfg.WanphyWanMode_Enum>`
+            	**type**\: :py:class:`WanphyWanModeEnum <ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_cfg.WanphyWanModeEnum>`
             
             
 
@@ -32662,8 +30025,6 @@ class InterfaceConfigurations(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.lan_mode is not None:
                     return True
 
@@ -32717,10 +30078,6 @@ class InterfaceConfigurations(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.ifmgr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
@@ -32742,8 +30099,6 @@ class InterfaceConfigurations(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.active is not None:
                 return True
 
@@ -32753,13 +30108,7 @@ class InterfaceConfigurations(object):
             if self.afs is not None and self.afs._has_data():
                 return True
 
-            if self.afs is not None and self.afs.is_presence():
-                return True
-
             if self.atm is not None and self.atm._has_data():
-                return True
-
-            if self.atm is not None and self.atm.is_presence():
                 return True
 
             if self.bandwidth is not None:
@@ -32768,49 +30117,25 @@ class InterfaceConfigurations(object):
             if self.bfd is not None and self.bfd._has_data():
                 return True
 
-            if self.bfd is not None and self.bfd.is_presence():
-                return True
-
             if self.bundle is not None and self.bundle._has_data():
-                return True
-
-            if self.bundle is not None and self.bundle.is_presence():
                 return True
 
             if self.bundle_member is not None and self.bundle_member._has_data():
                 return True
 
-            if self.bundle_member is not None and self.bundle_member.is_presence():
-                return True
-
             if self.cdp is not None and self.cdp._has_data():
-                return True
-
-            if self.cdp is not None and self.cdp.is_presence():
                 return True
 
             if self.cisco_ios_xr_ncs5500_qos_cfg_qos is not None and self.cisco_ios_xr_ncs5500_qos_cfg_qos._has_data():
                 return True
 
-            if self.cisco_ios_xr_ncs5500_qos_cfg_qos is not None and self.cisco_ios_xr_ncs5500_qos_cfg_qos.is_presence():
-                return True
-
             if self.cisco_ios_xr_skp_qos_cfg_qos is not None and self.cisco_ios_xr_skp_qos_cfg_qos._has_data():
-                return True
-
-            if self.cisco_ios_xr_skp_qos_cfg_qos is not None and self.cisco_ios_xr_skp_qos_cfg_qos.is_presence():
                 return True
 
             if self.dagrs is not None and self.dagrs._has_data():
                 return True
 
-            if self.dagrs is not None and self.dagrs.is_presence():
-                return True
-
             if self.dampening is not None and self.dampening._has_data():
-                return True
-
-            if self.dampening is not None and self.dampening.is_presence():
                 return True
 
             if self.description is not None:
@@ -32819,37 +30144,19 @@ class InterfaceConfigurations(object):
             if self.encapsulation is not None and self.encapsulation._has_data():
                 return True
 
-            if self.encapsulation is not None and self.encapsulation.is_presence():
-                return True
-
             if self.es_packet_filter is not None and self.es_packet_filter._has_data():
-                return True
-
-            if self.es_packet_filter is not None and self.es_packet_filter.is_presence():
                 return True
 
             if self.ethernet is not None and self.ethernet._has_data():
                 return True
 
-            if self.ethernet is not None and self.ethernet.is_presence():
-                return True
-
             if self.ethernet_bng is not None and self.ethernet_bng._has_data():
-                return True
-
-            if self.ethernet_bng is not None and self.ethernet_bng.is_presence():
                 return True
 
             if self.ethernet_features is not None and self.ethernet_features._has_data():
                 return True
 
-            if self.ethernet_features is not None and self.ethernet_features.is_presence():
-                return True
-
             if self.ethernet_service is not None and self.ethernet_service._has_data():
-                return True
-
-            if self.ethernet_service is not None and self.ethernet_service.is_presence():
                 return True
 
             if self.interface_mode_non_physical is not None:
@@ -32861,55 +30168,28 @@ class InterfaceConfigurations(object):
             if self.ipv4_network is not None and self.ipv4_network._has_data():
                 return True
 
-            if self.ipv4_network is not None and self.ipv4_network.is_presence():
-                return True
-
             if self.ipv4_network_forwarding is not None and self.ipv4_network_forwarding._has_data():
-                return True
-
-            if self.ipv4_network_forwarding is not None and self.ipv4_network_forwarding.is_presence():
                 return True
 
             if self.ipv4_packet_filter is not None and self.ipv4_packet_filter._has_data():
                 return True
 
-            if self.ipv4_packet_filter is not None and self.ipv4_packet_filter.is_presence():
-                return True
-
             if self.ipv4arp is not None and self.ipv4arp._has_data():
-                return True
-
-            if self.ipv4arp is not None and self.ipv4arp.is_presence():
                 return True
 
             if self.ipv6_neighbor is not None and self.ipv6_neighbor._has_data():
                 return True
 
-            if self.ipv6_neighbor is not None and self.ipv6_neighbor.is_presence():
-                return True
-
             if self.ipv6_network is not None and self.ipv6_network._has_data():
-                return True
-
-            if self.ipv6_network is not None and self.ipv6_network.is_presence():
                 return True
 
             if self.ipv6_packet_filter is not None and self.ipv6_packet_filter._has_data():
                 return True
 
-            if self.ipv6_packet_filter is not None and self.ipv6_packet_filter.is_presence():
-                return True
-
             if self.l2_transport is not None and self.l2_transport._has_data():
                 return True
 
-            if self.l2_transport is not None and self.l2_transport.is_presence():
-                return True
-
             if self.lacp is not None and self.lacp._has_data():
-                return True
-
-            if self.lacp is not None and self.lacp.is_presence():
                 return True
 
             if self.link_status is not None:
@@ -32918,91 +30198,46 @@ class InterfaceConfigurations(object):
             if self.lldp is not None and self.lldp._has_data():
                 return True
 
-            if self.lldp is not None and self.lldp.is_presence():
-                return True
-
             if self.mac_accounting is not None and self.mac_accounting._has_data():
-                return True
-
-            if self.mac_accounting is not None and self.mac_accounting.is_presence():
                 return True
 
             if self.mlacp is not None and self.mlacp._has_data():
                 return True
 
-            if self.mlacp is not None and self.mlacp.is_presence():
-                return True
-
             if self.mte_tunnel_attributes is not None and self.mte_tunnel_attributes._has_data():
-                return True
-
-            if self.mte_tunnel_attributes is not None and self.mte_tunnel_attributes.is_presence():
                 return True
 
             if self.mtus is not None and self.mtus._has_data():
                 return True
 
-            if self.mtus is not None and self.mtus.is_presence():
-                return True
-
             if self.net_flow is not None and self.net_flow._has_data():
-                return True
-
-            if self.net_flow is not None and self.net_flow.is_presence():
                 return True
 
             if self.nv_satellite_access is not None and self.nv_satellite_access._has_data():
                 return True
 
-            if self.nv_satellite_access is not None and self.nv_satellite_access.is_presence():
-                return True
-
             if self.nv_satellite_fabric_link is not None and self.nv_satellite_fabric_link._has_data():
-                return True
-
-            if self.nv_satellite_fabric_link is not None and self.nv_satellite_fabric_link.is_presence():
                 return True
 
             if self.nv_satellite_fabric_network is not None and self.nv_satellite_fabric_network._has_data():
                 return True
 
-            if self.nv_satellite_fabric_network is not None and self.nv_satellite_fabric_network.is_presence():
-                return True
-
             if self.optics is not None and self.optics._has_data():
-                return True
-
-            if self.optics is not None and self.optics.is_presence():
                 return True
 
             if self.otu is not None and self.otu._has_data():
                 return True
 
-            if self.otu is not None and self.otu.is_presence():
-                return True
-
             if self.pbr is not None and self.pbr._has_data():
-                return True
-
-            if self.pbr is not None and self.pbr.is_presence():
                 return True
 
             if self.performance_management is not None and self.performance_management._has_data():
                 return True
 
-            if self.performance_management is not None and self.performance_management.is_presence():
-                return True
-
             if self.pseudowire_ether is not None and self.pseudowire_ether._has_data():
                 return True
 
-            if self.pseudowire_ether is not None and self.pseudowire_ether.is_presence():
-                return True
-
             if self.pseudowire_iw is not None and self.pseudowire_iw._has_data():
-                return True
-
-            if self.pseudowire_iw is not None and self.pseudowire_iw.is_presence():
                 return True
 
             if self.secondary_admin_state is not None:
@@ -33014,37 +30249,19 @@ class InterfaceConfigurations(object):
             if self.span_monitor_sessions is not None and self.span_monitor_sessions._has_data():
                 return True
 
-            if self.span_monitor_sessions is not None and self.span_monitor_sessions.is_presence():
-                return True
-
             if self.statistics is not None and self.statistics._has_data():
-                return True
-
-            if self.statistics is not None and self.statistics.is_presence():
                 return True
 
             if self.transport_profile_tunnel is not None and self.transport_profile_tunnel._has_data():
                 return True
 
-            if self.transport_profile_tunnel is not None and self.transport_profile_tunnel.is_presence():
-                return True
-
             if self.tunnel_te_attributes is not None and self.tunnel_te_attributes._has_data():
-                return True
-
-            if self.tunnel_te_attributes is not None and self.tunnel_te_attributes.is_presence():
                 return True
 
             if self.vlan_sub_configuration is not None and self.vlan_sub_configuration._has_data():
                 return True
 
-            if self.vlan_sub_configuration is not None and self.vlan_sub_configuration.is_presence():
-                return True
-
             if self.vlan_trunk_configuration is not None and self.vlan_trunk_configuration._has_data():
-                return True
-
-            if self.vlan_trunk_configuration is not None and self.vlan_trunk_configuration.is_presence():
                 return True
 
             if self.vrf is not None:
@@ -33053,13 +30270,6 @@ class InterfaceConfigurations(object):
             if self.wanphy is not None and self.wanphy._has_data():
                 return True
 
-            if self.wanphy is not None and self.wanphy.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -33079,17 +30289,11 @@ class InterfaceConfigurations(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.interface_configuration is not None:
             for child_ref in self.interface_configuration:
                 if child_ref._has_data():
                     return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'ActionType_Enum' : _MetaInfoEnum('ActionType_Enum', 'ydk.models.ietf.ietf_netconf_acm',
+    'ActionTypeEnum' : _MetaInfoEnum('ActionTypeEnum', 'ydk.models.ietf.ietf_netconf_acm',
         {
             'permit':'PERMIT',
             'deny':'DENY',
@@ -101,7 +101,7 @@ _meta_table = {
                         'access_operations',
                         'ietf-netconf-acm', False),
                 ]),
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'ActionType_Enum' , 'ydk.models.ietf.ietf_netconf_acm', 'ActionType_Enum', 
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'ActionTypeEnum' , 'ydk.models.ietf.ietf_netconf_acm', 'ActionTypeEnum', 
                 [], [], 
                 '''                The access control action associated with the
                 rule.  If a rule is determined to match a
@@ -326,7 +326,7 @@ _meta_table = {
                 ''',
                 'enable_nacm',
                 'ietf-netconf-acm', False),
-            _MetaInfoClassMember('exec-default', REFERENCE_ENUM_CLASS, 'ActionType_Enum' , 'ydk.models.ietf.ietf_netconf_acm', 'ActionType_Enum', 
+            _MetaInfoClassMember('exec-default', REFERENCE_ENUM_CLASS, 'ActionTypeEnum' , 'ydk.models.ietf.ietf_netconf_acm', 'ActionTypeEnum', 
                 [], [], 
                 '''                Controls whether exec access is granted if no appropriate
                 rule is found for a particular protocol operation request.
@@ -339,7 +339,7 @@ _meta_table = {
                 ''',
                 'groups',
                 'ietf-netconf-acm', False),
-            _MetaInfoClassMember('read-default', REFERENCE_ENUM_CLASS, 'ActionType_Enum' , 'ydk.models.ietf.ietf_netconf_acm', 'ActionType_Enum', 
+            _MetaInfoClassMember('read-default', REFERENCE_ENUM_CLASS, 'ActionTypeEnum' , 'ydk.models.ietf.ietf_netconf_acm', 'ActionTypeEnum', 
                 [], [], 
                 '''                Controls whether read access is granted if
                 no appropriate rule is found for a
@@ -353,7 +353,7 @@ _meta_table = {
                 ''',
                 'rule_list',
                 'ietf-netconf-acm', False),
-            _MetaInfoClassMember('write-default', REFERENCE_ENUM_CLASS, 'ActionType_Enum' , 'ydk.models.ietf.ietf_netconf_acm', 'ActionType_Enum', 
+            _MetaInfoClassMember('write-default', REFERENCE_ENUM_CLASS, 'ActionTypeEnum' , 'ydk.models.ietf.ietf_netconf_acm', 'ActionTypeEnum', 
                 [], [], 
                 '''                Controls whether create, update, or delete access
                 is granted if no appropriate rule is found for a

@@ -24,54 +24,49 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class HwModuleSliceStatus_Enum(Enum):
+class HwModuleSliceStatusEnum(Enum):
     """
-    HwModuleSliceStatus_Enum
+    HwModuleSliceStatusEnum
 
     Hw module slice status
 
-    """
+    .. data:: NOT_PROVISIONED = 0
+
+    	Not Provisioned
+
+    .. data:: PROVISIONING_IN_PROGRESS = 1
+
+    	Provisioning In-Progress
+
+    .. data:: PROVISIONED = 2
+
+    	Provisioned
+
+    .. data:: PROVISIONING_FAILED = 3
+
+    	Provisioning Failed
+
+    .. data:: PROVISIONING_SCHEDULED = 4
+
+    	Provisioning Scheduled
 
     """
 
-    Not Provisioned
-
-    """
     NOT_PROVISIONED = 0
 
-    """
-
-    Provisioning In\-Progress
-
-    """
     PROVISIONING_IN_PROGRESS = 1
 
-    """
-
-    Provisioned
-
-    """
     PROVISIONED = 2
 
-    """
-
-    Provisioning Failed
-
-    """
     PROVISIONING_FAILED = 3
 
-    """
-
-    Provisioning Scheduled
-
-    """
     PROVISIONING_SCHEDULED = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ncs1k._meta import _Cisco_IOS_XR_ncs1k_mxp_oper as meta
-        return meta._meta_table['HwModuleSliceStatus_Enum']
+        return meta._meta_table['HwModuleSliceStatusEnum']
 
 
 
@@ -152,7 +147,7 @@ class HwModule(object):
             .. attribute:: hardware_status
             
             	HardwareStatus
-            	**type**\: :py:class:`HwModuleSliceStatus_Enum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatus_Enum>`
+            	**type**\: :py:class:`HwModuleSliceStatusEnum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatusEnum>`
             
             .. attribute:: slice_id
             
@@ -260,18 +255,12 @@ class HwModule(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.percentage is not None:
                             return True
 
                         if self.trunk_name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -291,8 +280,6 @@ class HwModule(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.client_name is not None:
                         return True
 
@@ -301,10 +288,6 @@ class HwModule(object):
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -324,8 +307,6 @@ class HwModule(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.client_port is not None:
                     for child_ref in self.client_port:
                         if child_ref._has_data():
@@ -348,10 +329,6 @@ class HwModule(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.ncs1k._meta import _Cisco_IOS_XR_ncs1k_mxp_oper as meta
@@ -369,17 +346,11 @@ class HwModule(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.slice_info is not None:
                 for child_ref in self.slice_info:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -468,7 +439,7 @@ class HwModule(object):
                 .. attribute:: hardware_status
                 
                 	HardwareStatus
-                	**type**\: :py:class:`HwModuleSliceStatus_Enum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatus_Enum>`
+                	**type**\: :py:class:`HwModuleSliceStatusEnum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatusEnum>`
                 
                 .. attribute:: slice_id
                 
@@ -578,18 +549,12 @@ class HwModule(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.percentage is not None:
                                 return True
 
                             if self.trunk_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -611,8 +576,6 @@ class HwModule(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.client_name is not None:
                             return True
 
@@ -621,10 +584,6 @@ class HwModule(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -646,8 +605,6 @@ class HwModule(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.client_port is not None:
                         for child_ref in self.client_port:
                             if child_ref._has_data():
@@ -670,10 +627,6 @@ class HwModule(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ncs1k._meta import _Cisco_IOS_XR_ncs1k_mxp_oper as meta
@@ -693,8 +646,6 @@ class HwModule(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.slice_num is not None:
                     return True
 
@@ -703,10 +654,6 @@ class HwModule(object):
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -726,17 +673,11 @@ class HwModule(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.slice_id is not None:
                 for child_ref in self.slice_id:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -756,24 +697,12 @@ class HwModule(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.slice_all is not None and self.slice_all._has_data():
-            return True
-
-        if self.slice_all is not None and self.slice_all.is_presence():
             return True
 
         if self.slice_ids is not None and self.slice_ids._has_data():
             return True
 
-        if self.slice_ids is not None and self.slice_ids.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

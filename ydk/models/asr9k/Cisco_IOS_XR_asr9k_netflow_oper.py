@@ -24,91 +24,85 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class NfmgrFemEdmExpVer_Enum(Enum):
+class NfmgrFemEdmExpVerEnum(Enum):
     """
-    NfmgrFemEdmExpVer_Enum
+    NfmgrFemEdmExpVerEnum
 
     Netflow export version
 
-    """
+    .. data:: V9 = 0
+
+    	Version 9 export format
+
+    .. data:: IP_FIX = 1
+
+    	IPFIX export format
 
     """
 
-    Version 9 export format
-
-    """
     V9 = 0
 
-    """
-
-    IPFIX export format
-
-    """
     IP_FIX = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
-        return meta._meta_table['NfmgrFemEdmExpVer_Enum']
+        return meta._meta_table['NfmgrFemEdmExpVerEnum']
 
 
-class NfmgrFemEdmTransProto_Enum(Enum):
+class NfmgrFemEdmTransProtoEnum(Enum):
     """
-    NfmgrFemEdmTransProto_Enum
+    NfmgrFemEdmTransProtoEnum
 
     Netflow export transport protocol
 
-    """
+    .. data:: UNSPECIFIED = 0
+
+    	Unspecified transport protocol
+
+    .. data:: UDP = 1
+
+    	UDP transport protocol
 
     """
 
-    Unspecified transport protocol
-
-    """
     UNSPECIFIED = 0
 
-    """
-
-    UDP transport protocol
-
-    """
     UDP = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
-        return meta._meta_table['NfmgrFemEdmTransProto_Enum']
+        return meta._meta_table['NfmgrFemEdmTransProtoEnum']
 
 
-class UdpAddressFamily_Enum(Enum):
+class UdpAddressFamilyEnum(Enum):
     """
-    UdpAddressFamily_Enum
+    UdpAddressFamilyEnum
 
     Address Family Type
 
-    """
+    .. data:: IPV4 = 2
+
+    	IPv4
+
+    .. data:: IPV6 = 10
+
+    	IPv6
 
     """
 
-    IPv4
-
-    """
     IPV4 = 2
 
-    """
-
-    IPv6
-
-    """
     IPV6 = 10
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
-        return meta._meta_table['UdpAddressFamily_Enum']
+        return meta._meta_table['UdpAddressFamilyEnum']
 
 
 
@@ -287,7 +281,7 @@ class NetFlow(object):
                     .. attribute:: transport_protocol
                     
                     	Transport protocol
-                    	**type**\: :py:class:`NfmgrFemEdmTransProto_Enum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NfmgrFemEdmTransProto_Enum>`
+                    	**type**\: :py:class:`NfmgrFemEdmTransProtoEnum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NfmgrFemEdmTransProtoEnum>`
                     
                     .. attribute:: vrf_name
                     
@@ -325,8 +319,6 @@ class NetFlow(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.destination_address is not None:
                             return True
 
@@ -350,10 +342,6 @@ class NetFlow(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
@@ -372,7 +360,7 @@ class NetFlow(object):
                     .. attribute:: version
                     
                     	version
-                    	**type**\: :py:class:`NfmgrFemEdmExpVer_Enum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NfmgrFemEdmExpVer_Enum>`
+                    	**type**\: :py:class:`NfmgrFemEdmExpVerEnum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NfmgrFemEdmExpVerEnum>`
                     
                     .. attribute:: version9
                     
@@ -471,8 +459,6 @@ class NetFlow(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.common_template_export_timeout is not None:
                                 return True
 
@@ -491,10 +477,6 @@ class NetFlow(object):
                             if self.vrf_table_export_timeout is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -579,8 +561,6 @@ class NetFlow(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.common_template_export_timeout is not None:
                                 return True
 
@@ -599,10 +579,6 @@ class NetFlow(object):
                             if self.vrf_table_export_timeout is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -624,12 +600,7 @@ class NetFlow(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ipfix is not None and self.ipfix._has_data():
-                            return True
-
-                        if self.ipfix is not None and self.ipfix.is_presence():
                             return True
 
                         if self.version is not None:
@@ -638,13 +609,6 @@ class NetFlow(object):
                         if self.version9 is not None and self.version9._has_data():
                             return True
 
-                        if self.version9 is not None and self.version9.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -666,8 +630,6 @@ class NetFlow(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.exporter_name is not None:
                         return True
 
@@ -685,13 +647,6 @@ class NetFlow(object):
                     if self.version is not None and self.version._has_data():
                         return True
 
-                    if self.version is not None and self.version.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -711,17 +666,11 @@ class NetFlow(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.flow_exporter_map is not None:
                     for child_ref in self.flow_exporter_map:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -901,15 +850,9 @@ class NetFlow(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -931,8 +874,6 @@ class NetFlow(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.monitor_name is not None:
                         return True
 
@@ -976,10 +917,6 @@ class NetFlow(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
@@ -997,17 +934,11 @@ class NetFlow(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.flow_monitor_map is not None:
                     for child_ref in self.flow_monitor_map:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1095,8 +1026,6 @@ class NetFlow(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.sampler_name is not None:
                         return True
 
@@ -1109,10 +1038,6 @@ class NetFlow(object):
                     if self.sampling_mode is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1132,17 +1057,11 @@ class NetFlow(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.flow_sampler_map is not None:
                     for child_ref in self.flow_sampler_map:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1162,30 +1081,15 @@ class NetFlow(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.flow_exporter_maps is not None and self.flow_exporter_maps._has_data():
-                return True
-
-            if self.flow_exporter_maps is not None and self.flow_exporter_maps.is_presence():
                 return True
 
             if self.flow_monitor_maps is not None and self.flow_monitor_maps._has_data():
                 return True
 
-            if self.flow_monitor_maps is not None and self.flow_monitor_maps.is_presence():
-                return True
-
             if self.flow_sampler_maps is not None and self.flow_sampler_maps._has_data():
                 return True
 
-            if self.flow_sampler_maps is not None and self.flow_sampler_maps.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1415,8 +1319,6 @@ class NetFlow(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.drops_no_space is not None:
                             return True
 
@@ -1461,10 +1363,6 @@ class NetFlow(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
@@ -1484,18 +1382,9 @@ class NetFlow(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.statistics is not None and self.statistics._has_data():
                         return True
 
-                    if self.statistics is not None and self.statistics.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1947,7 +1836,7 @@ class NetFlow(object):
                                         .. attribute:: af_name
                                         
                                         	AFName
-                                        	**type**\: :py:class:`UdpAddressFamily_Enum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.UdpAddressFamily_Enum>`
+                                        	**type**\: :py:class:`UdpAddressFamilyEnum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.UdpAddressFamilyEnum>`
                                         
                                         .. attribute:: ipv4_address
                                         
@@ -1990,8 +1879,6 @@ class NetFlow(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.af_name is not None:
                                                 return True
 
@@ -2001,10 +1888,6 @@ class NetFlow(object):
                                             if self.ipv6_address is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -2020,7 +1903,7 @@ class NetFlow(object):
                                         .. attribute:: af_name
                                         
                                         	AFName
-                                        	**type**\: :py:class:`UdpAddressFamily_Enum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.UdpAddressFamily_Enum>`
+                                        	**type**\: :py:class:`UdpAddressFamilyEnum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.UdpAddressFamilyEnum>`
                                         
                                         .. attribute:: ipv4_address
                                         
@@ -2063,8 +1946,6 @@ class NetFlow(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.af_name is not None:
                                                 return True
 
@@ -2074,10 +1955,6 @@ class NetFlow(object):
                                             if self.ipv6_address is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -2099,8 +1976,6 @@ class NetFlow(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.bytes_dropped is not None:
                                             return True
 
@@ -2108,9 +1983,6 @@ class NetFlow(object):
                                             return True
 
                                         if self.destination_address is not None and self.destination_address._has_data():
-                                            return True
-
-                                        if self.destination_address is not None and self.destination_address.is_presence():
                                             return True
 
                                         if self.destination_port is not None:
@@ -2194,9 +2066,6 @@ class NetFlow(object):
                                         if self.source_address is not None and self.source_address._has_data():
                                             return True
 
-                                        if self.source_address is not None and self.source_address.is_presence():
-                                            return True
-
                                         if self.template_bytes_dropped is not None:
                                             return True
 
@@ -2215,10 +2084,6 @@ class NetFlow(object):
                                         if self.vrf_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2240,8 +2105,6 @@ class NetFlow(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.collector is not None:
                                         for child_ref in self.collector:
                                             if child_ref._has_data():
@@ -2258,10 +2121,6 @@ class NetFlow(object):
                                             if child is not None:
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2283,17 +2142,11 @@ class NetFlow(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.statistic is not None:
                                     for child_ref in self.statistic:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2317,21 +2170,12 @@ class NetFlow(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.exporter_name is not None:
                                 return True
 
                             if self.exporter is not None and self.exporter._has_data():
                                 return True
 
-                            if self.exporter is not None and self.exporter.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2353,17 +2197,11 @@ class NetFlow(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.flow_exporter is not None:
                             for child_ref in self.flow_exporter:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2385,18 +2223,9 @@ class NetFlow(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.flow_exporters is not None and self.flow_exporters._has_data():
                         return True
 
-                    if self.flow_exporters is not None and self.flow_exporters.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2418,27 +2247,15 @@ class NetFlow(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node is not None:
                     return True
 
                 if self.producer is not None and self.producer._has_data():
                     return True
 
-                if self.producer is not None and self.producer.is_presence():
-                    return True
-
                 if self.server is not None and self.server._has_data():
                     return True
 
-                if self.server is not None and self.server.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2458,17 +2275,11 @@ class NetFlow(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.statistic is not None:
                 for child_ref in self.statistic:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2488,24 +2299,12 @@ class NetFlow(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.configuration is not None and self.configuration._has_data():
-            return True
-
-        if self.configuration is not None and self.configuration.is_presence():
             return True
 
         if self.statistics is not None and self.statistics._has_data():
             return True
 
-        if self.statistics is not None and self.statistics.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

@@ -316,8 +316,6 @@ class InfraStatistics(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bandwidth is not None:
                             return True
 
@@ -357,10 +355,6 @@ class InfraStatistics(object):
                         if self.reliability is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -685,8 +679,6 @@ class InfraStatistics(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.applique is not None:
                             return True
 
@@ -795,10 +787,6 @@ class InfraStatistics(object):
                         if self.unknown_protocol_packets_received is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1124,8 +1112,6 @@ class InfraStatistics(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.applique is not None:
                             return True
 
@@ -1234,10 +1220,6 @@ class InfraStatistics(object):
                         if self.unknown_protocol_packets_received is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1387,8 +1369,6 @@ class InfraStatistics(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.protocol_name is not None:
                                 return True
 
@@ -1424,10 +1404,6 @@ class InfraStatistics(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
@@ -1447,17 +1423,11 @@ class InfraStatistics(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.protocol is not None:
                             for child_ref in self.protocol:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1479,36 +1449,18 @@ class InfraStatistics(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.data_rate is not None and self.data_rate._has_data():
-                        return True
-
-                    if self.data_rate is not None and self.data_rate.is_presence():
                         return True
 
                     if self.generic_counters is not None and self.generic_counters._has_data():
                         return True
 
-                    if self.generic_counters is not None and self.generic_counters.is_presence():
-                        return True
-
                     if self.interfaces_mib_counters is not None and self.interfaces_mib_counters._has_data():
-                        return True
-
-                    if self.interfaces_mib_counters is not None and self.interfaces_mib_counters.is_presence():
                         return True
 
                     if self.protocols is not None and self.protocols._has_data():
                         return True
 
-                    if self.protocols is not None and self.protocols.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1649,8 +1601,6 @@ class InfraStatistics(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bandwidth is not None:
                         return True
 
@@ -1690,10 +1640,6 @@ class InfraStatistics(object):
                     if self.reliability is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2018,8 +1964,6 @@ class InfraStatistics(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.applique is not None:
                         return True
 
@@ -2128,10 +2072,6 @@ class InfraStatistics(object):
                     if self.unknown_protocol_packets_received is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2457,8 +2397,6 @@ class InfraStatistics(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.applique is not None:
                         return True
 
@@ -2567,10 +2505,6 @@ class InfraStatistics(object):
                     if self.unknown_protocol_packets_received is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2754,8 +2688,6 @@ class InfraStatistics(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bandwidth is not None:
                             return True
 
@@ -2795,10 +2727,6 @@ class InfraStatistics(object):
                         if self.reliability is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3123,8 +3051,6 @@ class InfraStatistics(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.applique is not None:
                             return True
 
@@ -3233,10 +3159,6 @@ class InfraStatistics(object):
                         if self.unknown_protocol_packets_received is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3562,8 +3484,6 @@ class InfraStatistics(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.applique is not None:
                             return True
 
@@ -3672,10 +3592,6 @@ class InfraStatistics(object):
                         if self.unknown_protocol_packets_received is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3825,8 +3741,6 @@ class InfraStatistics(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.protocol_name is not None:
                                 return True
 
@@ -3862,10 +3776,6 @@ class InfraStatistics(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
@@ -3885,17 +3795,11 @@ class InfraStatistics(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.protocol is not None:
                             for child_ref in self.protocol:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3917,36 +3821,18 @@ class InfraStatistics(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.data_rate is not None and self.data_rate._has_data():
-                        return True
-
-                    if self.data_rate is not None and self.data_rate.is_presence():
                         return True
 
                     if self.generic_counters is not None and self.generic_counters._has_data():
                         return True
 
-                    if self.generic_counters is not None and self.generic_counters.is_presence():
-                        return True
-
                     if self.interfaces_mib_counters is not None and self.interfaces_mib_counters._has_data():
-                        return True
-
-                    if self.interfaces_mib_counters is not None and self.interfaces_mib_counters.is_presence():
                         return True
 
                     if self.protocols is not None and self.protocols._has_data():
                         return True
 
-                    if self.protocols is not None and self.protocols.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4096,8 +3982,6 @@ class InfraStatistics(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.protocol_name is not None:
                             return True
 
@@ -4133,10 +4017,6 @@ class InfraStatistics(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
@@ -4156,17 +4036,11 @@ class InfraStatistics(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.protocol is not None:
                         for child_ref in self.protocol:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4350,8 +4224,6 @@ class InfraStatistics(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bandwidth is not None:
                             return True
 
@@ -4391,10 +4263,6 @@ class InfraStatistics(object):
                         if self.reliability is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4719,8 +4587,6 @@ class InfraStatistics(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.applique is not None:
                             return True
 
@@ -4829,10 +4695,6 @@ class InfraStatistics(object):
                         if self.unknown_protocol_packets_received is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5158,8 +5020,6 @@ class InfraStatistics(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.applique is not None:
                             return True
 
@@ -5268,10 +5128,6 @@ class InfraStatistics(object):
                         if self.unknown_protocol_packets_received is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5421,8 +5277,6 @@ class InfraStatistics(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.protocol_name is not None:
                                 return True
 
@@ -5458,10 +5312,6 @@ class InfraStatistics(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
@@ -5481,17 +5331,11 @@ class InfraStatistics(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.protocol is not None:
                             for child_ref in self.protocol:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5513,36 +5357,18 @@ class InfraStatistics(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.data_rate is not None and self.data_rate._has_data():
-                        return True
-
-                    if self.data_rate is not None and self.data_rate.is_presence():
                         return True
 
                     if self.generic_counters is not None and self.generic_counters._has_data():
                         return True
 
-                    if self.generic_counters is not None and self.generic_counters.is_presence():
-                        return True
-
                     if self.interfaces_mib_counters is not None and self.interfaces_mib_counters._has_data():
-                        return True
-
-                    if self.interfaces_mib_counters is not None and self.interfaces_mib_counters.is_presence():
                         return True
 
                     if self.protocols is not None and self.protocols._has_data():
                         return True
 
-                    if self.protocols is not None and self.protocols.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5564,57 +5390,30 @@ class InfraStatistics(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.interface_name is not None:
                     return True
 
                 if self.cache is not None and self.cache._has_data():
                     return True
 
-                if self.cache is not None and self.cache.is_presence():
-                    return True
-
                 if self.data_rate is not None and self.data_rate._has_data():
-                    return True
-
-                if self.data_rate is not None and self.data_rate.is_presence():
                     return True
 
                 if self.generic_counters is not None and self.generic_counters._has_data():
                     return True
 
-                if self.generic_counters is not None and self.generic_counters.is_presence():
-                    return True
-
                 if self.interfaces_mib_counters is not None and self.interfaces_mib_counters._has_data():
-                    return True
-
-                if self.interfaces_mib_counters is not None and self.interfaces_mib_counters.is_presence():
                     return True
 
                 if self.latest is not None and self.latest._has_data():
                     return True
 
-                if self.latest is not None and self.latest.is_presence():
-                    return True
-
                 if self.protocols is not None and self.protocols._has_data():
-                    return True
-
-                if self.protocols is not None and self.protocols.is_presence():
                     return True
 
                 if self.total is not None and self.total._has_data():
                     return True
 
-                if self.total is not None and self.total.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -5634,17 +5433,11 @@ class InfraStatistics(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -5664,18 +5457,9 @@ class InfraStatistics(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.interfaces is not None and self.interfaces._has_data():
             return True
 
-        if self.interfaces is not None and self.interfaces.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

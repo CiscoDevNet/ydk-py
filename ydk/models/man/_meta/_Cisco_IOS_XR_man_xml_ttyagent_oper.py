@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,12 +14,12 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'XrXmlSessionAlarmRegister_Enum' : _MetaInfoEnum('XrXmlSessionAlarmRegister_Enum', 'ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper',
+    'XrXmlSessionAlarmRegisterEnum' : _MetaInfoEnum('XrXmlSessionAlarmRegisterEnum', 'ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper',
         {
             'registered':'REGISTERED',
             'not-registered':'NOT_REGISTERED',
         }, 'Cisco-IOS-XR-man-xml-ttyagent-oper', _yang_ns._namespaces['Cisco-IOS-XR-man-xml-ttyagent-oper']),
-    'XrXmlSessionState_Enum' : _MetaInfoEnum('XrXmlSessionState_Enum', 'ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper',
+    'XrXmlSessionStateEnum' : _MetaInfoEnum('XrXmlSessionStateEnum', 'ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper',
         {
             'idle':'IDLE',
             'busy':'BUSY',
@@ -40,7 +40,7 @@ _meta_table = {
                 ''',
                 'admin_config_session_id',
                 'Cisco-IOS-XR-man-xml-ttyagent-oper', False),
-            _MetaInfoClassMember('alarm-notification', REFERENCE_ENUM_CLASS, 'XrXmlSessionAlarmRegister_Enum' , 'ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper', 'XrXmlSessionAlarmRegister_Enum', 
+            _MetaInfoClassMember('alarm-notification', REFERENCE_ENUM_CLASS, 'XrXmlSessionAlarmRegisterEnum' , 'ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper', 'XrXmlSessionAlarmRegisterEnum', 
                 [], [], 
                 '''                is the session registered for alarm
                 notifications
@@ -86,7 +86,7 @@ _meta_table = {
                 ''',
                 'start_time',
                 'Cisco-IOS-XR-man-xml-ttyagent-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'XrXmlSessionState_Enum' , 'ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper', 'XrXmlSessionState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'XrXmlSessionStateEnum' , 'ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper', 'XrXmlSessionStateEnum', 
                 [], [], 
                 '''                state of the session idle/busy
                 ''',
@@ -161,7 +161,7 @@ _meta_table = {
                 ''',
                 'admin_config_session_id',
                 'Cisco-IOS-XR-man-xml-ttyagent-oper', False),
-            _MetaInfoClassMember('alarm-notification', REFERENCE_ENUM_CLASS, 'XrXmlSessionAlarmRegister_Enum' , 'ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper', 'XrXmlSessionAlarmRegister_Enum', 
+            _MetaInfoClassMember('alarm-notification', REFERENCE_ENUM_CLASS, 'XrXmlSessionAlarmRegisterEnum' , 'ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper', 'XrXmlSessionAlarmRegisterEnum', 
                 [], [], 
                 '''                is the session registered for alarm
                 notifications
@@ -207,7 +207,7 @@ _meta_table = {
                 ''',
                 'start_time',
                 'Cisco-IOS-XR-man-xml-ttyagent-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'XrXmlSessionState_Enum' , 'ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper', 'XrXmlSessionState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'XrXmlSessionStateEnum' , 'ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper', 'XrXmlSessionStateEnum', 
                 [], [], 
                 '''                state of the session idle/busy
                 ''',
@@ -282,7 +282,7 @@ _meta_table = {
                 ''',
                 'admin_config_session_id',
                 'Cisco-IOS-XR-man-xml-ttyagent-oper', False),
-            _MetaInfoClassMember('alarm-notification', REFERENCE_ENUM_CLASS, 'XrXmlSessionAlarmRegister_Enum' , 'ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper', 'XrXmlSessionAlarmRegister_Enum', 
+            _MetaInfoClassMember('alarm-notification', REFERENCE_ENUM_CLASS, 'XrXmlSessionAlarmRegisterEnum' , 'ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper', 'XrXmlSessionAlarmRegisterEnum', 
                 [], [], 
                 '''                is the session registered for alarm
                 notifications
@@ -328,7 +328,7 @@ _meta_table = {
                 ''',
                 'start_time',
                 'Cisco-IOS-XR-man-xml-ttyagent-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'XrXmlSessionState_Enum' , 'ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper', 'XrXmlSessionState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'XrXmlSessionStateEnum' , 'ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper', 'XrXmlSessionStateEnum', 
                 [], [], 
                 '''                state of the session idle/busy
                 ''',

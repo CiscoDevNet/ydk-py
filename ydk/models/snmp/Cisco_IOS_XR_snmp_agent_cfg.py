@@ -24,741 +24,673 @@ from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYDataValidationError
 
 
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibAdjacencyChangeBoolean_Enum
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibAllBoolean_Enum
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibAreaMismatchBoolean_Enum
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibAttemptToExceedMaxSequenceBoolean_Enum
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibAuthenticationFailureBoolean_Enum
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibAuthenticationTypeFailureBoolean_Enum
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibCorruptedLspDetectedBoolean_Enum
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibDatabaseOverFlowBoolean_Enum
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibIdLengthMismatchBoolean_Enum
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibLspErrorDetectedBoolean_Enum
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibLspTooLargeToPropagateBoolean_Enum
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibManualAddressDropsBoolean_Enum
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibMaxAreaAddressMismatchBoolean_Enum
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibOriginatedLspBufferSizeMismatchBoolean_Enum
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibOwnLspPurgeBoolean_Enum
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibProtocolsSupportedMismatchBoolean_Enum
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibRejectedAdjacencyBoolean_Enum
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibSequenceNumberSkipBoolean_Enum
-from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibVersionSkewBoolean_Enum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibAdjacencyChangeBooleanEnum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibAllBooleanEnum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibAreaMismatchBooleanEnum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibAttemptToExceedMaxSequenceBooleanEnum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibAuthenticationFailureBooleanEnum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibAuthenticationTypeFailureBooleanEnum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibCorruptedLspDetectedBooleanEnum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibDatabaseOverFlowBooleanEnum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibIdLengthMismatchBooleanEnum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibLspErrorDetectedBooleanEnum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibLspTooLargeToPropagateBooleanEnum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibManualAddressDropsBooleanEnum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibMaxAreaAddressMismatchBooleanEnum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibOriginatedLspBufferSizeMismatchBooleanEnum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibOwnLspPurgeBooleanEnum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibProtocolsSupportedMismatchBooleanEnum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibRejectedAdjacencyBooleanEnum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibSequenceNumberSkipBooleanEnum
+from ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg import IsisMibVersionSkewBooleanEnum
 
-class GroupSnmpVersion_Enum(Enum):
+class GroupSnmpVersionEnum(Enum):
     """
-    GroupSnmpVersion_Enum
+    GroupSnmpVersionEnum
 
     Group snmp version
 
-    """
+    .. data:: V1 = 0
+
+    	SNMP version 1
+
+    .. data:: V2C = 1
+
+    	SNMP version 2
+
+    .. data:: V3 = 2
+
+    	SNMP version 3
 
     """
 
-    SNMP version 1
-
-    """
     V1 = 0
 
-    """
-
-    SNMP version 2
-
-    """
     V2C = 1
 
-    """
-
-    SNMP version 3
-
-    """
     V3 = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
-        return meta._meta_table['GroupSnmpVersion_Enum']
+        return meta._meta_table['GroupSnmpVersionEnum']
 
 
-class SnmpAccessLevel_Enum(Enum):
+class SnmpAccessLevelEnum(Enum):
     """
-    SnmpAccessLevel_Enum
+    SnmpAccessLevelEnum
 
     Snmp access level
 
-    """
+    .. data:: READ_ONLY = 0
+
+    	Read Only Access for a community string
+
+    .. data:: READ_WRITE = 1
+
+    	Read Write Access for a community string
 
     """
 
-    Read Only Access for a community string
-
-    """
     READ_ONLY = 0
 
-    """
-
-    Read Write Access for a community string
-
-    """
     READ_WRITE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
-        return meta._meta_table['SnmpAccessLevel_Enum']
+        return meta._meta_table['SnmpAccessLevelEnum']
 
 
-class SnmpBulkstatFileFormat_Enum(Enum):
+class SnmpBulkstatFileFormatEnum(Enum):
     """
-    SnmpBulkstatFileFormat_Enum
+    SnmpBulkstatFileFormatEnum
 
     Snmp bulkstat file format
 
-    """
+    .. data:: SCHEMA_ASCII = 1
+
+    	Tranfer file in schema Ascii format
+
+    .. data:: BULK_ASCII = 2
+
+    	Tranfer file in Bulk Ascii format
+
+    .. data:: BULK_BINARY = 3
+
+    	Tranfer file in Bulk binary format
 
     """
 
-    Tranfer file in schema Ascii format
-
-    """
     SCHEMA_ASCII = 1
 
-    """
-
-    Tranfer file in Bulk Ascii format
-
-    """
     BULK_ASCII = 2
 
-    """
-
-    Tranfer file in Bulk binary format
-
-    """
     BULK_BINARY = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
-        return meta._meta_table['SnmpBulkstatFileFormat_Enum']
+        return meta._meta_table['SnmpBulkstatFileFormatEnum']
 
 
-class SnmpBulkstatSchema_Enum(Enum):
+class SnmpBulkstatSchemaEnum(Enum):
     """
-    SnmpBulkstatSchema_Enum
+    SnmpBulkstatSchemaEnum
 
     Snmp bulkstat schema
 
-    """
+    .. data:: EXACT_INTERFACE = 1
+
+    	Exact Interface
+
+    .. data:: EXACT_OID = 2
+
+    	Exact OID
+
+    .. data:: WILD_INTERFACE = 3
+
+    	Wild Interface
+
+    .. data:: WILD_OID = 4
+
+    	Wild OID
+
+    .. data:: RANGE_OID = 5
+
+    	Range of OID
+
+    .. data:: REPEAT_OID = 6
+
+    	Repeated the instance
 
     """
 
-    Exact Interface
-
-    """
     EXACT_INTERFACE = 1
 
-    """
-
-    Exact OID
-
-    """
     EXACT_OID = 2
 
-    """
-
-    Wild Interface
-
-    """
     WILD_INTERFACE = 3
 
-    """
-
-    Wild OID
-
-    """
     WILD_OID = 4
 
-    """
-
-    Range of OID
-
-    """
     RANGE_OID = 5
 
-    """
-
-    Repeated the instance
-
-    """
     REPEAT_OID = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
-        return meta._meta_table['SnmpBulkstatSchema_Enum']
+        return meta._meta_table['SnmpBulkstatSchemaEnum']
 
 
-class SnmpContext_Enum(Enum):
+class SnmpContextEnum(Enum):
     """
-    SnmpContext_Enum
+    SnmpContextEnum
 
     Snmp context
 
-    """
+    .. data:: VRF = 1
+
+    	VRF feature
+
+    .. data:: BRIDGE = 4
+
+    	BRIDGE feature
+
+    .. data:: OSPF = 5
+
+    	OSPF feature
+
+    .. data:: OSPFV3 = 6
+
+    	OSPFv3 feature
 
     """
 
-    VRF feature
-
-    """
     VRF = 1
 
-    """
-
-    BRIDGE feature
-
-    """
     BRIDGE = 4
 
-    """
-
-    OSPF feature
-
-    """
     OSPF = 5
 
-    """
-
-    OSPFv3 feature
-
-    """
     OSPFV3 = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
-        return meta._meta_table['SnmpContext_Enum']
+        return meta._meta_table['SnmpContextEnum']
 
 
-class SnmpDscpValue_Enum(Enum):
+class SnmpDscpValueEnum(Enum):
     """
-    SnmpDscpValue_Enum
+    SnmpDscpValueEnum
 
     Snmp dscp value
 
-    """
+    .. data:: DEFAULT = 0
+
+    	Applicable to DSCP: bits 000000
+
+    .. data:: AF11 = 10
+
+    	Applicable to DSCP: bits 001010
+
+    .. data:: AF12 = 12
+
+    	Applicable to DSCP: bits 001100
+
+    .. data:: AF13 = 14
+
+    	Applicable to DSCP: bits 001110
+
+    .. data:: AF21 = 18
+
+    	Applicable to DSCP: bits 010010
+
+    .. data:: AF22 = 20
+
+    	Applicable to DSCP: bits 010100
+
+    .. data:: AF23 = 22
+
+    	Applicable to DSCP: bits 010110
+
+    .. data:: AF31 = 26
+
+    	Applicable to DSCP: bits 011010
+
+    .. data:: AF32 = 28
+
+    	Applicable to DSCP: bits 011100
+
+    .. data:: AF33 = 30
+
+    	Applicable to DSCP: bits 011110
+
+    .. data:: AF41 = 34
+
+    	Applicable to DSCP: bits 100010
+
+    .. data:: AF42 = 36
+
+    	Applicable to DSCP: bits 100100
+
+    .. data:: AF43 = 38
+
+    	Applicable to DSCP: bits 100110
+
+    .. data:: EF = 46
+
+    	Applicable to DSCP: bits 101110
+
+    .. data:: CS1 = 8
+
+    	Applicable to DSCP: bits 001000
+
+    .. data:: CS2 = 16
+
+    	Applicable to DSCP: bits 010000
+
+    .. data:: CS3 = 24
+
+    	Applicable to DSCP: bits 011000
+
+    .. data:: CS4 = 32
+
+    	Applicable to DSCP: bits 100000
+
+    .. data:: CS5 = 40
+
+    	Applicable to DSCP: bits 101000
+
+    .. data:: CS6 = 48
+
+    	Applicable to DSCP: bits 110000
+
+    .. data:: CS7 = 56
+
+    	Applicable to DSCP: bits 111000
 
     """
 
-    Applicable to DSCP\: bits 000000
-
-    """
     DEFAULT = 0
 
-    """
-
-    Applicable to DSCP\: bits 001010
-
-    """
     AF11 = 10
 
-    """
-
-    Applicable to DSCP\: bits 001100
-
-    """
     AF12 = 12
 
-    """
-
-    Applicable to DSCP\: bits 001110
-
-    """
     AF13 = 14
 
-    """
-
-    Applicable to DSCP\: bits 010010
-
-    """
     AF21 = 18
 
-    """
-
-    Applicable to DSCP\: bits 010100
-
-    """
     AF22 = 20
 
-    """
-
-    Applicable to DSCP\: bits 010110
-
-    """
     AF23 = 22
 
-    """
-
-    Applicable to DSCP\: bits 011010
-
-    """
     AF31 = 26
 
-    """
-
-    Applicable to DSCP\: bits 011100
-
-    """
     AF32 = 28
 
-    """
-
-    Applicable to DSCP\: bits 011110
-
-    """
     AF33 = 30
 
-    """
-
-    Applicable to DSCP\: bits 100010
-
-    """
     AF41 = 34
 
-    """
-
-    Applicable to DSCP\: bits 100100
-
-    """
     AF42 = 36
 
-    """
-
-    Applicable to DSCP\: bits 100110
-
-    """
     AF43 = 38
 
-    """
-
-    Applicable to DSCP\: bits 101110
-
-    """
     EF = 46
 
-    """
-
-    Applicable to DSCP\: bits 001000
-
-    """
     CS1 = 8
 
-    """
-
-    Applicable to DSCP\: bits 010000
-
-    """
     CS2 = 16
 
-    """
-
-    Applicable to DSCP\: bits 011000
-
-    """
     CS3 = 24
 
-    """
-
-    Applicable to DSCP\: bits 100000
-
-    """
     CS4 = 32
 
-    """
-
-    Applicable to DSCP\: bits 101000
-
-    """
     CS5 = 40
 
-    """
-
-    Applicable to DSCP\: bits 110000
-
-    """
     CS6 = 48
 
-    """
-
-    Applicable to DSCP\: bits 111000
-
-    """
     CS7 = 56
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
-        return meta._meta_table['SnmpDscpValue_Enum']
+        return meta._meta_table['SnmpDscpValueEnum']
 
 
-class SnmpHashAlgorithm_Enum(Enum):
+class SnmpHashAlgorithmEnum(Enum):
     """
-    SnmpHashAlgorithm_Enum
+    SnmpHashAlgorithmEnum
 
     Snmp hash algorithm
 
-    """
+    .. data:: NONE = 0
+
+    	No authentication required
+
+    .. data:: MD5 = 1
+
+    	Standard Message Digest algorithm
+
+    .. data:: SHA = 2
+
+    	SHA algorithm
 
     """
 
-    No authentication required
-
-    """
     NONE = 0
 
-    """
-
-    Standard Message Digest algorithm
-
-    """
     MD5 = 1
 
-    """
-
-    SHA algorithm
-
-    """
     SHA = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
-        return meta._meta_table['SnmpHashAlgorithm_Enum']
+        return meta._meta_table['SnmpHashAlgorithmEnum']
 
 
-class SnmpMibViewInclusion_Enum(Enum):
+class SnmpMibViewInclusionEnum(Enum):
     """
-    SnmpMibViewInclusion_Enum
+    SnmpMibViewInclusionEnum
 
     Snmp mib view inclusion
 
-    """
+    .. data:: INCLUDED = 1
+
+    	MIB View to be included
+
+    .. data:: EXCLUDED = 2
+
+    	MIB View to be excluded
 
     """
 
-    MIB View to be included
-
-    """
     INCLUDED = 1
 
-    """
-
-    MIB View to be excluded
-
-    """
     EXCLUDED = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
-        return meta._meta_table['SnmpMibViewInclusion_Enum']
+        return meta._meta_table['SnmpMibViewInclusionEnum']
 
 
-class SnmpOwnerAccess_Enum(Enum):
+class SnmpOwnerAccessEnum(Enum):
     """
-    SnmpOwnerAccess_Enum
+    SnmpOwnerAccessEnum
 
     Snmp owner access
 
-    """
+    .. data:: SDR_OWNER = 0
+
+    	Secure Domain Router Owner permissions
+
+    .. data:: SYSTEM_OWNER = 1
+
+    	System owner permissions
 
     """
 
-    Secure Domain Router Owner permissions
-
-    """
     SDR_OWNER = 0
 
-    """
-
-    System owner permissions
-
-    """
     SYSTEM_OWNER = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
-        return meta._meta_table['SnmpOwnerAccess_Enum']
+        return meta._meta_table['SnmpOwnerAccessEnum']
 
 
-class SnmpPrecedenceValue1_Enum(Enum):
+class SnmpPrecedenceValue1Enum(Enum):
     """
-    SnmpPrecedenceValue1_Enum
+    SnmpPrecedenceValue1Enum
 
     Snmp precedence value1
 
-    """
+    .. data:: ROUTINE = 0
+
+    	Applicable to Precedence: value 0
+
+    .. data:: PRIORITY = 1
+
+    	Applicable to Precedence: value 1
+
+    .. data:: IMMEDIATE = 2
+
+    	Applicable to Precedence: value 2
+
+    .. data:: FLASH = 3
+
+    	Applicable to Precedence: value 3
+
+    .. data:: FLASH_OVERRIDE = 4
+
+    	Applicable to Precedence: value 4
+
+    .. data:: CRITICAL = 5
+
+    	Applicable to Precedence: value 5
+
+    .. data:: INTERNET = 6
+
+    	Applicable to Precedence: value 6
+
+    .. data:: NETWORK = 7
+
+    	Applicable to Precedence: value 7
 
     """
 
-    Applicable to Precedence\: value 0
-
-    """
     ROUTINE = 0
 
-    """
-
-    Applicable to Precedence\: value 1
-
-    """
     PRIORITY = 1
 
-    """
-
-    Applicable to Precedence\: value 2
-
-    """
     IMMEDIATE = 2
 
-    """
-
-    Applicable to Precedence\: value 3
-
-    """
     FLASH = 3
 
-    """
-
-    Applicable to Precedence\: value 4
-
-    """
     FLASH_OVERRIDE = 4
 
-    """
-
-    Applicable to Precedence\: value 5
-
-    """
     CRITICAL = 5
 
-    """
-
-    Applicable to Precedence\: value 6
-
-    """
     INTERNET = 6
 
-    """
-
-    Applicable to Precedence\: value 7
-
-    """
     NETWORK = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
-        return meta._meta_table['SnmpPrecedenceValue1_Enum']
+        return meta._meta_table['SnmpPrecedenceValue1Enum']
 
 
-class SnmpPrivAlgorithm_Enum(Enum):
+class SnmpPrivAlgorithmEnum(Enum):
     """
-    SnmpPrivAlgorithm_Enum
+    SnmpPrivAlgorithmEnum
 
     Snmp priv algorithm
 
-    """
+    .. data:: NONE = 0
+
+    	No Privacy
+
+    .. data:: DES = 1
+
+    	Des algorithm
+
+    .. data:: Y_3DES = 2
+
+    	3des algorithm
+
+    .. data:: AES128 = 3
+
+    	aes128 algorithm
+
+    .. data:: AES192 = 4
+
+    	aes192 algorithm
+
+    .. data:: AES256 = 5
+
+    	aes256 algorithm
 
     """
 
-    No Privacy
-
-    """
     NONE = 0
 
-    """
-
-    Des algorithm
-
-    """
     DES = 1
 
-    """
-
-    3des algorithm
-
-    """
     Y_3DES = 2
 
-    """
-
-    aes128 algorithm
-
-    """
     AES128 = 3
 
-    """
-
-    aes192 algorithm
-
-    """
     AES192 = 4
 
-    """
-
-    aes256 algorithm
-
-    """
     AES256 = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
-        return meta._meta_table['SnmpPrivAlgorithm_Enum']
+        return meta._meta_table['SnmpPrivAlgorithmEnum']
 
 
-class SnmpSecurityModel_Enum(Enum):
+class SnmpSecurityModelEnum(Enum):
     """
-    SnmpSecurityModel_Enum
+    SnmpSecurityModelEnum
 
     Snmp security model
 
-    """
+    .. data:: NO_AUTHENTICATION = 0
+
+    	No Authentication required
+
+    .. data:: AUTHENTICATION = 1
+
+    	Authentication password alone required for
+
+    	access
+
+    .. data:: PRIVACY = 2
+
+    	Authentication and privacy password required
+
+    	for access
 
     """
 
-    No Authentication required
-
-    """
     NO_AUTHENTICATION = 0
 
-    """
-
-    Authentication password alone required for
-    access
-
-    """
     AUTHENTICATION = 1
 
-    """
-
-    Authentication and privacy password required
-    for access
-
-    """
     PRIVACY = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
-        return meta._meta_table['SnmpSecurityModel_Enum']
+        return meta._meta_table['SnmpSecurityModelEnum']
 
 
-class SnmpTos_Enum(Enum):
+class SnmpTosEnum(Enum):
     """
-    SnmpTos_Enum
+    SnmpTosEnum
 
     Snmp tos
 
-    """
+    .. data:: PRECEDENCE = 0
+
+    	SNMP TOS type Precedence
+
+    .. data:: DSCP = 1
+
+    	SNMP TOS type DSCP
 
     """
 
-    SNMP TOS type Precedence
-
-    """
     PRECEDENCE = 0
 
-    """
-
-    SNMP TOS type DSCP
-
-    """
     DSCP = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
-        return meta._meta_table['SnmpTos_Enum']
+        return meta._meta_table['SnmpTosEnum']
 
 
-class Snmpacl_Enum(Enum):
+class SnmpaclEnum(Enum):
     """
-    Snmpacl_Enum
+    SnmpaclEnum
 
     Snmpacl
 
-    """
+    .. data:: IPV4 = 1
+
+    	Ipv4 Access-list
+
+    .. data:: IPV6 = 2
+
+    	Ipv6 Access-list
 
     """
 
-    Ipv4 Access\-list
-
-    """
     IPV4 = 1
 
-    """
-
-    Ipv6 Access\-list
-
-    """
     IPV6 = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
-        return meta._meta_table['Snmpacl_Enum']
+        return meta._meta_table['SnmpaclEnum']
 
 
-class UserSnmpVersion_Enum(Enum):
+class UserSnmpVersionEnum(Enum):
     """
-    UserSnmpVersion_Enum
+    UserSnmpVersionEnum
 
     User snmp version
 
-    """
+    .. data:: V1 = 1
+
+    	SNMP version 1
+
+    .. data:: V2C = 2
+
+    	SNMP version 2
+
+    .. data:: V3 = 3
+
+    	SNMP version 3
 
     """
 
-    SNMP version 1
-
-    """
     V1 = 1
 
-    """
-
-    SNMP version 2
-
-    """
     V2C = 2
 
-    """
-
-    SNMP version 3
-
-    """
     V3 = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
-        return meta._meta_table['UserSnmpVersion_Enum']
+        return meta._meta_table['UserSnmpVersionEnum']
 
 
 
@@ -784,7 +716,7 @@ class Mib(object):
     .. attribute:: mpls_p2mp_mib
     
     	MPLS P2MP MIB configuration
-    	**type**\: :py:class:`MplsP2mpMib <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsP2mpMib>`
+    	**type**\: :py:class:`MplsP2MpMib <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsP2MpMib>`
     
     .. attribute:: mpls_te_ext_mib
     
@@ -815,7 +747,7 @@ class Mib(object):
         self.interface_mib.parent = self
         self.mpls_frr_mib = Mib.MplsFrrMib()
         self.mpls_frr_mib.parent = self
-        self.mpls_p2mp_mib = Mib.MplsP2mpMib()
+        self.mpls_p2mp_mib = Mib.MplsP2MpMib()
         self.mpls_p2mp_mib.parent = self
         self.mpls_te_ext_mib = Mib.MplsTeExtMib()
         self.mpls_te_ext_mib.parent = self
@@ -857,15 +789,9 @@ class Mib(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.entity_index_persistence is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -967,15 +893,9 @@ class Mib(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.link_ietf is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1078,18 +998,12 @@ class Mib(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.enable is not None:
                             return True
 
                         if self.regular_expression is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1111,21 +1025,12 @@ class Mib(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.subset_id is not None:
                         return True
 
                     if self.link_up_down is not None and self.link_up_down._has_data():
                         return True
 
-                    if self.link_up_down is not None and self.link_up_down.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1145,17 +1050,11 @@ class Mib(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.subset is not None:
                     for child_ref in self.subset:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1175,8 +1074,6 @@ class Mib(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.interface_alias_long is not None:
                 return True
 
@@ -1192,22 +1089,12 @@ class Mib(object):
             if self.notification is not None and self.notification._has_data():
                 return True
 
-            if self.notification is not None and self.notification.is_presence():
-                return True
-
             if self.statistics_cache is not None:
                 return True
 
             if self.subsets is not None and self.subsets._has_data():
                 return True
 
-            if self.subsets is not None and self.subsets.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1250,15 +1137,9 @@ class Mib(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.cache_timer is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1267,7 +1148,7 @@ class Mib(object):
             return meta._meta_table['Mib.MplsFrrMib']['meta_info']
 
 
-    class MplsP2mpMib(object):
+    class MplsP2MpMib(object):
         """
         MPLS P2MP MIB configuration
         
@@ -1301,21 +1182,15 @@ class Mib(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.cache_timer is not None:
                 return True
 
             return False
 
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return False
-
         @staticmethod
         def _meta_info():
             from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
-            return meta._meta_table['Mib.MplsP2mpMib']['meta_info']
+            return meta._meta_table['Mib.MplsP2MpMib']['meta_info']
 
 
     class MplsTeExtMib(object):
@@ -1352,15 +1227,9 @@ class Mib(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.cache_timer is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1403,15 +1272,9 @@ class Mib(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.cache_timer is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1462,18 +1325,12 @@ class Mib(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.cache_garbage_collect_timer is not None:
                 return True
 
             if self.cache_timer is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1493,54 +1350,27 @@ class Mib(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.entity_mib is not None and self.entity_mib._has_data():
-            return True
-
-        if self.entity_mib is not None and self.entity_mib.is_presence():
             return True
 
         if self.interface_mib is not None and self.interface_mib._has_data():
             return True
 
-        if self.interface_mib is not None and self.interface_mib.is_presence():
-            return True
-
         if self.mpls_frr_mib is not None and self.mpls_frr_mib._has_data():
-            return True
-
-        if self.mpls_frr_mib is not None and self.mpls_frr_mib.is_presence():
             return True
 
         if self.mpls_p2mp_mib is not None and self.mpls_p2mp_mib._has_data():
             return True
 
-        if self.mpls_p2mp_mib is not None and self.mpls_p2mp_mib.is_presence():
-            return True
-
         if self.mpls_te_ext_mib is not None and self.mpls_te_ext_mib._has_data():
-            return True
-
-        if self.mpls_te_ext_mib is not None and self.mpls_te_ext_mib.is_presence():
             return True
 
         if self.mpls_te_ext_std_mib is not None and self.mpls_te_ext_std_mib._has_data():
             return True
 
-        if self.mpls_te_ext_std_mib is not None and self.mpls_te_ext_std_mib.is_presence():
-            return True
-
         if self.mpls_te_mib is not None and self.mpls_te_mib._has_data():
             return True
 
-        if self.mpls_te_mib is not None and self.mpls_te_mib.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -1860,12 +1690,12 @@ class Snmp(object):
                 .. attribute:: owner
                 
                 	Logical Router or System owner access
-                	**type**\: :py:class:`SnmpOwnerAccess_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpOwnerAccess_Enum>`
+                	**type**\: :py:class:`SnmpOwnerAccessEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpOwnerAccessEnum>`
                 
                 .. attribute:: priviledge
                 
                 	Read/Write Access
-                	**type**\: :py:class:`SnmpAccessLevel_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpAccessLevel_Enum>`
+                	**type**\: :py:class:`SnmpAccessLevelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpAccessLevelEnum>`
                 
                 .. attribute:: v4_access_list
                 
@@ -1875,7 +1705,7 @@ class Snmp(object):
                 .. attribute:: v4acl_type
                 
                 	Access\-list type
-                	**type**\: :py:class:`Snmpacl_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl_Enum>`
+                	**type**\: :py:class:`SnmpaclEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpaclEnum>`
                 
                 .. attribute:: v6_access_list
                 
@@ -1885,7 +1715,7 @@ class Snmp(object):
                 .. attribute:: v6acl_type
                 
                 	Access\-list type
-                	**type**\: :py:class:`Snmpacl_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl_Enum>`
+                	**type**\: :py:class:`SnmpaclEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpaclEnum>`
                 
                 .. attribute:: view_name
                 
@@ -1924,8 +1754,6 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.community_name is not None:
                         return True
 
@@ -1952,10 +1780,6 @@ class Snmp(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
@@ -1973,17 +1797,11 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.default_community is not None:
                     for child_ref in self.default_community:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2031,12 +1849,12 @@ class Snmp(object):
                 .. attribute:: owner
                 
                 	Logical Router or System owner access
-                	**type**\: :py:class:`SnmpOwnerAccess_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpOwnerAccess_Enum>`
+                	**type**\: :py:class:`SnmpOwnerAccessEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpOwnerAccessEnum>`
                 
                 .. attribute:: priviledge
                 
                 	Read/Write Access
-                	**type**\: :py:class:`SnmpAccessLevel_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpAccessLevel_Enum>`
+                	**type**\: :py:class:`SnmpAccessLevelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpAccessLevelEnum>`
                 
                 .. attribute:: v4_access_list
                 
@@ -2046,7 +1864,7 @@ class Snmp(object):
                 .. attribute:: v4acl_type
                 
                 	Access\-list type
-                	**type**\: :py:class:`Snmpacl_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl_Enum>`
+                	**type**\: :py:class:`SnmpaclEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpaclEnum>`
                 
                 .. attribute:: v6_access_list
                 
@@ -2056,7 +1874,7 @@ class Snmp(object):
                 .. attribute:: v6acl_type
                 
                 	Access\-list type
-                	**type**\: :py:class:`Snmpacl_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl_Enum>`
+                	**type**\: :py:class:`SnmpaclEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpaclEnum>`
                 
                 .. attribute:: view_name
                 
@@ -2095,8 +1913,6 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.community_name is not None:
                         return True
 
@@ -2123,10 +1939,6 @@ class Snmp(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
@@ -2144,17 +1956,11 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.encrypted_community is not None:
                     for child_ref in self.encrypted_community:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2174,24 +1980,12 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.default_communities is not None and self.default_communities._has_data():
-                return True
-
-            if self.default_communities is not None and self.default_communities.is_presence():
                 return True
 
             if self.encrypted_communities is not None and self.encrypted_communities._has_data():
                 return True
 
-            if self.encrypted_communities is not None and self.encrypted_communities.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2322,8 +2116,6 @@ class Snmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.remote_address is not None:
                             return True
 
@@ -2333,10 +2125,6 @@ class Snmp(object):
                         if self.remote_engine_id is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2356,17 +2144,11 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.remote is not None:
                         for child_ref in self.remote:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2386,21 +2168,12 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.local is not None:
                     return True
 
                 if self.remotes is not None and self.remotes._has_data():
                     return True
 
-                if self.remotes is not None and self.remotes.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2420,18 +2193,9 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.engine_id is not None and self.engine_id._has_data():
                 return True
 
-            if self.engine_id is not None and self.engine_id.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2602,15 +2366,9 @@ class Snmp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.oid is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2632,17 +2390,11 @@ class Snmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.object is not None:
                             for child_ref in self.object:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2664,24 +2416,15 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object_list_name is not None:
                         return True
 
                     if self.objects is not None and self.objects._has_data():
                         return True
 
-                    if self.objects is not None and self.objects.is_presence():
-                        return True
-
                     if self.type is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2701,17 +2444,11 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.object is not None:
                     for child_ref in self.object:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2803,12 +2540,22 @@ class Snmp(object):
                     	End Instance OID for repetition
                     	**type**\: str
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: instance
                     
                     	Instance of the schema
                     	**type**\: str
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: max
                     
@@ -2817,20 +2564,40 @@ class Snmp(object):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: start
                     
                     	Start Instance OID for repetition
                     	**type**\: str
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: sub_interface
                     
                     	Include all the subinterface
                     	**type**\: bool
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: type
                     
                     	Type of the instance
-                    	**type**\: :py:class:`SnmpBulkstatSchema_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpBulkstatSchema_Enum>`
+                    	**type**\: :py:class:`SnmpBulkstatSchemaEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpBulkstatSchemaEnum>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -2864,8 +2631,6 @@ class Snmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.end is not None:
                             return True
 
@@ -2886,10 +2651,6 @@ class Snmp(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
@@ -2909,15 +2670,10 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.schema_name is not None:
                         return True
 
                     if self.instance is not None and self.instance._has_data():
-                        return True
-
-                    if self.instance is not None and self.instance.is_presence():
                         return True
 
                     if self.poll_interval is not None:
@@ -2929,10 +2685,6 @@ class Snmp(object):
                     if self.type is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2952,17 +2704,11 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.schema is not None:
                     for child_ref in self.schema:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3021,7 +2767,7 @@ class Snmp(object):
                 .. attribute:: format
                 
                 	Format of the bulk data file
-                	**type**\: :py:class:`SnmpBulkstatFileFormat_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpBulkstatFileFormat_Enum>`
+                	**type**\: :py:class:`SnmpBulkstatFileFormatEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpBulkstatFileFormatEnum>`
                 
                 .. attribute:: interval
                 
@@ -3148,15 +2894,9 @@ class Snmp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.schema_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3178,17 +2918,11 @@ class Snmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.transfer_schema is not None:
                             for child_ref in self.transfer_schema:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3210,8 +2944,6 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.transfer_name is not None:
                         return True
 
@@ -3242,16 +2974,9 @@ class Snmp(object):
                     if self.transfer_schemas is not None and self.transfer_schemas._has_data():
                         return True
 
-                    if self.transfer_schemas is not None and self.transfer_schemas.is_presence():
-                        return True
-
                     if self.type is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3271,17 +2996,11 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.transfer is not None:
                     for child_ref in self.transfer:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3301,33 +3020,18 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.memory is not None:
                 return True
 
             if self.objects is not None and self.objects._has_data():
                 return True
 
-            if self.objects is not None and self.objects.is_presence():
-                return True
-
             if self.schemas is not None and self.schemas._has_data():
-                return True
-
-            if self.schemas is not None and self.schemas.is_presence():
                 return True
 
             if self.transfers is not None and self.transfers._has_data():
                 return True
 
-            if self.transfers is not None and self.transfers.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3373,7 +3077,7 @@ class Snmp(object):
             .. attribute:: context
             
             	SNMP context feature type
-            	**type**\: :py:class:`SnmpContext_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpContext_Enum>`
+            	**type**\: :py:class:`SnmpContextEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpContextEnum>`
             
             .. attribute:: instance_name
             
@@ -3419,8 +3123,6 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.context_mapping_name is not None:
                     return True
 
@@ -3436,10 +3138,6 @@ class Snmp(object):
                 if self.vrf_name is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3459,17 +3157,11 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.context_mapping is not None:
                 for child_ref in self.context_mapping:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3537,15 +3229,9 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.context_name is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3565,17 +3251,11 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.context is not None:
                 for child_ref in self.context:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3778,18 +3458,12 @@ class Snmp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ip_address is not None:
                                     return True
 
                                 if self.port is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3811,17 +3485,11 @@ class Snmp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.host is not None:
                                 for child_ref in self.host:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3843,21 +3511,12 @@ class Snmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.all is not None:
                             return True
 
                         if self.hosts is not None and self.hosts._has_data():
                             return True
 
-                        if self.hosts is not None and self.hosts.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3927,15 +3586,9 @@ class Snmp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.rulename is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3957,17 +3610,11 @@ class Snmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.rulename is not None:
                             for child_ref in self.rulename:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3989,27 +3636,15 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.name is not None:
                         return True
 
                     if self.applied_to is not None and self.applied_to._has_data():
                         return True
 
-                    if self.applied_to is not None and self.applied_to.is_presence():
-                        return True
-
                     if self.rulenames is not None and self.rulenames._has_data():
                         return True
 
-                    if self.rulenames is not None and self.rulenames.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4029,17 +3664,11 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.rule_set is not None:
                     for child_ref in self.rule_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4204,18 +3833,12 @@ class Snmp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ip_address is not None:
                                     return True
 
                                 if self.port is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4237,17 +3860,11 @@ class Snmp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.host is not None:
                                 for child_ref in self.host:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4269,21 +3886,12 @@ class Snmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.all is not None:
                             return True
 
                         if self.hosts is not None and self.hosts._has_data():
                             return True
 
-                        if self.hosts is not None and self.hosts.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4301,10 +3909,20 @@ class Snmp(object):
                     	Table of configured non\-rootcause
                     	**type**\: :py:class:`NonRootCauses <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.NonRootCauses>`
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: root_causes
                     
                     	Table of configured rootcause (only one entry allowed)
                     	**type**\: :py:class:`RootCauses <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Correlator.Rules.Rule.NonStateful.RootCauses>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: timeout
                     
@@ -4312,6 +3930,11 @@ class Snmp(object):
                     	**type**\: int
                     
                     	**range:** 1..600000
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -4479,18 +4102,12 @@ class Snmp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.index is not None:
                                                 return True
 
                                             if self.value is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -4514,21 +4131,12 @@ class Snmp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.oid is not None:
                                             return True
 
                                         if self.match is not None and self.match._has_data():
                                             return True
 
-                                        if self.match is not None and self.match.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -4550,17 +4158,11 @@ class Snmp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.var_bind is not None:
                                         for child_ref in self.var_bind:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -4584,8 +4186,6 @@ class Snmp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.oid is not None:
                                     return True
 
@@ -4595,13 +4195,6 @@ class Snmp(object):
                                 if self.var_binds is not None and self.var_binds._has_data():
                                     return True
 
-                                if self.var_binds is not None and self.var_binds.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4623,17 +4216,11 @@ class Snmp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.non_root_cause is not None:
                                 for child_ref in self.non_root_cause:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4792,18 +4379,12 @@ class Snmp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.index is not None:
                                                 return True
 
                                             if self.value is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -4827,21 +4408,12 @@ class Snmp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.oid is not None:
                                             return True
 
                                         if self.match is not None and self.match._has_data():
                                             return True
 
-                                        if self.match is not None and self.match.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -4863,17 +4435,11 @@ class Snmp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.var_bind is not None:
                                         for child_ref in self.var_bind:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -4897,8 +4463,6 @@ class Snmp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.oid is not None:
                                     return True
 
@@ -4908,13 +4472,6 @@ class Snmp(object):
                                 if self.var_binds is not None and self.var_binds._has_data():
                                     return True
 
-                                if self.var_binds is not None and self.var_binds.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4936,17 +4493,11 @@ class Snmp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.root_cause is not None:
                                 for child_ref in self.root_cause:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4968,28 +4519,16 @@ class Snmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.non_root_causes is not None and self.non_root_causes._has_data():
                             return True
 
-                        if self.non_root_causes is not None and self.non_root_causes.is_presence():
-                            return True
-
                         if self.root_causes is not None and self.root_causes._has_data():
-                            return True
-
-                        if self.root_causes is not None and self.root_causes.is_presence():
                             return True
 
                         if self.timeout is not None:
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -5010,27 +4549,15 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.name is not None:
                         return True
 
                     if self.applied_to is not None and self.applied_to._has_data():
                         return True
 
-                    if self.applied_to is not None and self.applied_to.is_presence():
-                        return True
-
                     if self.non_stateful is not None and self.non_stateful._has_data():
                         return True
 
-                    if self.non_stateful is not None and self.non_stateful.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5050,17 +4577,11 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.rule is not None:
                     for child_ref in self.rule:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -5080,27 +4601,15 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.buffer_size is not None:
                 return True
 
             if self.rule_sets is not None and self.rule_sets._has_data():
                 return True
 
-            if self.rule_sets is not None and self.rule_sets.is_presence():
-                return True
-
             if self.rules is not None and self.rules._has_data():
                 return True
 
-            if self.rules is not None and self.rules.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -5186,8 +4695,6 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.community_name is not None:
                     return True
 
@@ -5200,10 +4707,6 @@ class Snmp(object):
                 if self.target_list is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -5223,17 +4726,11 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.default_community_map is not None:
                 for child_ref in self.default_community_map:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -5320,8 +4817,6 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.community_name is not None:
                     return True
 
@@ -5334,10 +4829,6 @@ class Snmp(object):
                 if self.target_list is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -5357,17 +4848,11 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.encrypted_community_map is not None:
                 for child_ref in self.encrypted_community_map:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -5428,12 +4913,12 @@ class Snmp(object):
             .. attribute:: security_model
             
             	security model like auth/noAuth/Priv applicable for v3
-            	**type**\: :py:class:`SnmpSecurityModel_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel_Enum>`
+            	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
             
             .. attribute:: snmp_version
             
             	snmp version
-            	**type**\: :py:class:`GroupSnmpVersion_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.GroupSnmpVersion_Enum>`
+            	**type**\: :py:class:`GroupSnmpVersionEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.GroupSnmpVersionEnum>`
             
             .. attribute:: v4_access_list
             
@@ -5443,7 +4928,7 @@ class Snmp(object):
             .. attribute:: v4acl_type
             
             	Access\-list type
-            	**type**\: :py:class:`Snmpacl_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl_Enum>`
+            	**type**\: :py:class:`SnmpaclEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpaclEnum>`
             
             .. attribute:: v6_access_list
             
@@ -5453,7 +4938,7 @@ class Snmp(object):
             .. attribute:: v6acl_type
             
             	Access\-list type
-            	**type**\: :py:class:`Snmpacl_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl_Enum>`
+            	**type**\: :py:class:`SnmpaclEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpaclEnum>`
             
             .. attribute:: write_view
             
@@ -5495,8 +4980,6 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
@@ -5532,10 +5015,6 @@ class Snmp(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
@@ -5553,17 +5032,11 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.group is not None:
                 for child_ref in self.group:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -5601,17 +5074,17 @@ class Snmp(object):
             .. attribute:: dscp
             
             	SNMP DSCP value
-            	**type**\: one of { :py:class:`SnmpDscpValue_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpDscpValue_Enum>` | int }
+            	**type**\: one of { :py:class:`SnmpDscpValueEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpDscpValueEnum>` | int }
             
             .. attribute:: precedence
             
             	SNMP Precedence value
-            	**type**\: one of { :py:class:`SnmpPrecedenceValue1_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpPrecedenceValue1_Enum>` | int }
+            	**type**\: one of { :py:class:`SnmpPrecedenceValue1Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpPrecedenceValue1Enum>` | int }
             
             .. attribute:: type
             
             	SNMP TOS type DSCP or Precedence
-            	**type**\: :py:class:`SnmpTos_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpTos_Enum>`
+            	**type**\: :py:class:`SnmpTosEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpTosEnum>`
             
             
 
@@ -5638,8 +5111,6 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.dscp is not None:
                     return True
 
@@ -5649,10 +5120,6 @@ class Snmp(object):
                 if self.type is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -5672,18 +5139,9 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.tos is not None and self.tos._has_data():
                 return True
 
-            if self.tos is not None and self.tos.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -5721,17 +5179,17 @@ class Snmp(object):
             .. attribute:: dscp
             
             	SNMP DSCP value
-            	**type**\: one of { :py:class:`SnmpDscpValue_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpDscpValue_Enum>` | int }
+            	**type**\: one of { :py:class:`SnmpDscpValueEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpDscpValueEnum>` | int }
             
             .. attribute:: precedence
             
             	SNMP Precedence value
-            	**type**\: one of { :py:class:`SnmpPrecedenceValue1_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpPrecedenceValue1_Enum>` | int }
+            	**type**\: one of { :py:class:`SnmpPrecedenceValue1Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpPrecedenceValue1Enum>` | int }
             
             .. attribute:: type
             
             	SNMP TOS type DSCP or Precedence
-            	**type**\: :py:class:`SnmpTos_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpTos_Enum>`
+            	**type**\: :py:class:`SnmpTosEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpTosEnum>`
             
             
 
@@ -5758,8 +5216,6 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.dscp is not None:
                     return True
 
@@ -5769,10 +5225,6 @@ class Snmp(object):
                 if self.type is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -5792,18 +5244,9 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.tos is not None and self.tos._has_data():
                 return True
 
-            if self.tos is not None and self.tos.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -5876,18 +5319,12 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.oid_processing is not None:
                     return True
 
                 if self.pdu_processing is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -5907,18 +5344,9 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.threshold is not None and self.threshold._has_data():
                 return True
 
-            if self.threshold is not None and self.threshold.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -5979,7 +5407,7 @@ class Snmp(object):
         .. attribute:: l2vpn
         
         	CISCO\-IETF\-PW\-MIB notification configuration
-        	**type**\: :py:class:`L2vpn <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.L2vpn>`
+        	**type**\: :py:class:`L2Vpn <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.L2Vpn>`
         
         .. attribute:: mpls_frr
         
@@ -5999,7 +5427,7 @@ class Snmp(object):
         .. attribute:: mpls_te_p2mp
         
         	CISCO\-MPLS\-TE\-P2MP\-STD\-MIB notification configuration
-        	**type**\: :py:class:`MplsTeP2mp <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsTeP2mp>`
+        	**type**\: :py:class:`MplsTeP2Mp <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.MplsTeP2Mp>`
         
         .. attribute:: ntp
         
@@ -6078,7 +5506,7 @@ class Snmp(object):
             self.fru_control.parent = self
             self.isis = Snmp.Notification.Isis()
             self.isis.parent = self
-            self.l2vpn = Snmp.Notification.L2vpn()
+            self.l2vpn = Snmp.Notification.L2Vpn()
             self.l2vpn.parent = self
             self.mpls_frr = Snmp.Notification.MplsFrr()
             self.mpls_frr.parent = self
@@ -6086,7 +5514,7 @@ class Snmp(object):
             self.mpls_ldp.parent = self
             self.mpls_te = Snmp.Notification.MplsTe()
             self.mpls_te.parent = self
-            self.mpls_te_p2mp = Snmp.Notification.MplsTeP2mp()
+            self.mpls_te_p2mp = Snmp.Notification.MplsTeP2Mp()
             self.mpls_te_p2mp.parent = self
             self.ntp = Snmp.Notification.Ntp()
             self.ntp.parent = self
@@ -6142,15 +5570,9 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -6167,12 +5589,12 @@ class Snmp(object):
             .. attribute:: bgp4mib
             
             	Enable BGP4\-MIB and CISCO\-BGP4\-MIB IPv4\-only notifications\: bgpEstablishedNotification, bgpBackwardTransNotification, cbgpFsmStateChange, cbgpBackwardTransition, cbgpPrefixThresholdExceeded, cbgpPrefixThresholdClear
-            	**type**\: :py:class:`Bgp4mib <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bgp.Bgp4mib>`
+            	**type**\: :py:class:`Bgp4Mib <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bgp.Bgp4Mib>`
             
             .. attribute:: cisco_bgp4mib
             
             	Enable CISCO\-BGP4\-MIB v2 notifications\: cbgpPeer2EstablishedNotification, cbgpPeer2BackwardTransNotification, cbgpPeer2FsmStateChange, cbgpPeer2BackwardTransition, cbgpPeer2PrefixThresholdExceeded, cbgpPeer2PrefixThresholdClear
-            	**type**\: :py:class:`CiscoBgp4mib <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bgp.CiscoBgp4mib>`
+            	**type**\: :py:class:`CiscoBgp4Mib <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Bgp.CiscoBgp4Mib>`
             
             
 
@@ -6183,13 +5605,13 @@ class Snmp(object):
 
             def __init__(self):
                 self.parent = None
-                self.bgp4mib = Snmp.Notification.Bgp.Bgp4mib()
+                self.bgp4mib = Snmp.Notification.Bgp.Bgp4Mib()
                 self.bgp4mib.parent = self
-                self.cisco_bgp4mib = Snmp.Notification.Bgp.CiscoBgp4mib()
+                self.cisco_bgp4mib = Snmp.Notification.Bgp.CiscoBgp4Mib()
                 self.cisco_bgp4mib.parent = self
 
 
-            class Bgp4mib(object):
+            class Bgp4Mib(object):
                 """
                 Enable BGP4\-MIB and CISCO\-BGP4\-MIB IPv4\-only
                 notifications\: bgpEstablishedNotification,
@@ -6232,8 +5654,6 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.enable is not None:
                         return True
 
@@ -6242,17 +5662,13 @@ class Snmp(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
-                    return meta._meta_table['Snmp.Notification.Bgp.Bgp4mib']['meta_info']
+                    return meta._meta_table['Snmp.Notification.Bgp.Bgp4Mib']['meta_info']
 
 
-            class CiscoBgp4mib(object):
+            class CiscoBgp4Mib(object):
                 """
                 Enable CISCO\-BGP4\-MIB v2 notifications\:
                 cbgpPeer2EstablishedNotification,
@@ -6296,8 +5712,6 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.enable is not None:
                         return True
 
@@ -6306,14 +5720,10 @@ class Snmp(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
-                    return meta._meta_table['Snmp.Notification.Bgp.CiscoBgp4mib']['meta_info']
+                    return meta._meta_table['Snmp.Notification.Bgp.CiscoBgp4Mib']['meta_info']
 
             @property
             def _common_path(self):
@@ -6327,24 +5737,12 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.bgp4mib is not None and self.bgp4mib._has_data():
-                    return True
-
-                if self.bgp4mib is not None and self.bgp4mib.is_presence():
                     return True
 
                 if self.cisco_bgp4mib is not None and self.cisco_bgp4mib._has_data():
                     return True
 
-                if self.cisco_bgp4mib is not None and self.cisco_bgp4mib.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -6386,15 +5784,9 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -6435,15 +5827,9 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -6484,15 +5870,9 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -6546,8 +5926,6 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
@@ -6557,10 +5935,6 @@ class Snmp(object):
                 if self.switchover is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -6607,18 +5981,12 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.oper_status is not None:
                     return True
 
                 if self.switchover is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -6660,15 +6028,9 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -6684,97 +6046,97 @@ class Snmp(object):
             .. attribute:: adjacency_change
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibAdjacencyChangeBoolean_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAdjacencyChangeBoolean_Enum>`
+            	**type**\: :py:class:`IsisMibAdjacencyChangeBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAdjacencyChangeBooleanEnum>`
             
             .. attribute:: all
             
             	Enable all isisMIB notifications
-            	**type**\: :py:class:`IsisMibAllBoolean_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAllBoolean_Enum>`
+            	**type**\: :py:class:`IsisMibAllBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAllBooleanEnum>`
             
             .. attribute:: area_mismatch
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibAreaMismatchBoolean_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAreaMismatchBoolean_Enum>`
+            	**type**\: :py:class:`IsisMibAreaMismatchBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAreaMismatchBooleanEnum>`
             
             .. attribute:: attempt_to_exceed_max_sequence
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibAttemptToExceedMaxSequenceBoolean_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAttemptToExceedMaxSequenceBoolean_Enum>`
+            	**type**\: :py:class:`IsisMibAttemptToExceedMaxSequenceBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAttemptToExceedMaxSequenceBooleanEnum>`
             
             .. attribute:: authentication_failure
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibAuthenticationFailureBoolean_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAuthenticationFailureBoolean_Enum>`
+            	**type**\: :py:class:`IsisMibAuthenticationFailureBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAuthenticationFailureBooleanEnum>`
             
             .. attribute:: authentication_type_failure
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibAuthenticationTypeFailureBoolean_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAuthenticationTypeFailureBoolean_Enum>`
+            	**type**\: :py:class:`IsisMibAuthenticationTypeFailureBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibAuthenticationTypeFailureBooleanEnum>`
             
             .. attribute:: corrupted_lsp_detected
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibCorruptedLspDetectedBoolean_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibCorruptedLspDetectedBoolean_Enum>`
+            	**type**\: :py:class:`IsisMibCorruptedLspDetectedBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibCorruptedLspDetectedBooleanEnum>`
             
             .. attribute:: database_overflow
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibDatabaseOverFlowBoolean_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibDatabaseOverFlowBoolean_Enum>`
+            	**type**\: :py:class:`IsisMibDatabaseOverFlowBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibDatabaseOverFlowBooleanEnum>`
             
             .. attribute:: id_length_mismatch
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibIdLengthMismatchBoolean_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibIdLengthMismatchBoolean_Enum>`
+            	**type**\: :py:class:`IsisMibIdLengthMismatchBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibIdLengthMismatchBooleanEnum>`
             
             .. attribute:: lsp_error_detected
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibLspErrorDetectedBoolean_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibLspErrorDetectedBoolean_Enum>`
+            	**type**\: :py:class:`IsisMibLspErrorDetectedBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibLspErrorDetectedBooleanEnum>`
             
             .. attribute:: lsp_too_large_to_propagate
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibLspTooLargeToPropagateBoolean_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibLspTooLargeToPropagateBoolean_Enum>`
+            	**type**\: :py:class:`IsisMibLspTooLargeToPropagateBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibLspTooLargeToPropagateBooleanEnum>`
             
             .. attribute:: manual_address_drops
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibManualAddressDropsBoolean_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibManualAddressDropsBoolean_Enum>`
+            	**type**\: :py:class:`IsisMibManualAddressDropsBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibManualAddressDropsBooleanEnum>`
             
             .. attribute:: max_area_address_mismatch
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibMaxAreaAddressMismatchBoolean_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibMaxAreaAddressMismatchBoolean_Enum>`
+            	**type**\: :py:class:`IsisMibMaxAreaAddressMismatchBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibMaxAreaAddressMismatchBooleanEnum>`
             
             .. attribute:: originated_lsp_buffer_size_mismatch
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibOriginatedLspBufferSizeMismatchBoolean_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibOriginatedLspBufferSizeMismatchBoolean_Enum>`
+            	**type**\: :py:class:`IsisMibOriginatedLspBufferSizeMismatchBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibOriginatedLspBufferSizeMismatchBooleanEnum>`
             
             .. attribute:: own_lsp_purge
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibOwnLspPurgeBoolean_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibOwnLspPurgeBoolean_Enum>`
+            	**type**\: :py:class:`IsisMibOwnLspPurgeBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibOwnLspPurgeBooleanEnum>`
             
             .. attribute:: protocols_supported_mismatch
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibProtocolsSupportedMismatchBoolean_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibProtocolsSupportedMismatchBoolean_Enum>`
+            	**type**\: :py:class:`IsisMibProtocolsSupportedMismatchBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibProtocolsSupportedMismatchBooleanEnum>`
             
             .. attribute:: rejected_adjacency
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibRejectedAdjacencyBoolean_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibRejectedAdjacencyBoolean_Enum>`
+            	**type**\: :py:class:`IsisMibRejectedAdjacencyBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibRejectedAdjacencyBooleanEnum>`
             
             .. attribute:: sequence_number_skip
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibSequenceNumberSkipBoolean_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibSequenceNumberSkipBoolean_Enum>`
+            	**type**\: :py:class:`IsisMibSequenceNumberSkipBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibSequenceNumberSkipBooleanEnum>`
             
             .. attribute:: version_skew
             
             	Enable or disable
-            	**type**\: :py:class:`IsisMibVersionSkewBoolean_Enum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibVersionSkewBoolean_Enum>`
+            	**type**\: :py:class:`IsisMibVersionSkewBooleanEnum <ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg.IsisMibVersionSkewBooleanEnum>`
             
             
 
@@ -6817,8 +6179,6 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.adjacency_change is not None:
                     return True
 
@@ -6878,17 +6238,13 @@ class Snmp(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
                 return meta._meta_table['Snmp.Notification.Isis']['meta_info']
 
 
-        class L2vpn(object):
+        class L2Vpn(object):
             """
             CISCO\-IETF\-PW\-MIB notification configuration
             
@@ -6938,8 +6294,6 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.cisco is not None:
                     return True
 
@@ -6954,14 +6308,10 @@ class Snmp(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
-                return meta._meta_table['Snmp.Notification.L2vpn']['meta_info']
+                return meta._meta_table['Snmp.Notification.L2Vpn']['meta_info']
 
 
         class MplsFrr(object):
@@ -7008,8 +6358,6 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
@@ -7019,10 +6367,6 @@ class Snmp(object):
                 if self.unprotected is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -7075,8 +6419,6 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.init_session_threshold_exceeded is not None:
                     return True
 
@@ -7086,10 +6428,6 @@ class Snmp(object):
                 if self.session_up is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -7207,8 +6545,6 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bringup_fail is not None:
                         return True
 
@@ -7224,10 +6560,6 @@ class Snmp(object):
                     if self.re_route_pending_clear is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7247,15 +6579,10 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.cisco is not None:
                     return True
 
                 if self.cisco_extension is not None and self.cisco_extension._has_data():
-                    return True
-
-                if self.cisco_extension is not None and self.cisco_extension.is_presence():
                     return True
 
                 if self.down is not None:
@@ -7272,17 +6599,13 @@ class Snmp(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
                 return meta._meta_table['Snmp.Notification.MplsTe']['meta_info']
 
 
-        class MplsTeP2mp(object):
+        class MplsTeP2Mp(object):
             """
             CISCO\-MPLS\-TE\-P2MP\-STD\-MIB notification
             configuration
@@ -7321,8 +6644,6 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.down is not None:
                     return True
 
@@ -7331,14 +6652,10 @@ class Snmp(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
-                return meta._meta_table['Snmp.Notification.MplsTeP2mp']['meta_info']
+                return meta._meta_table['Snmp.Notification.MplsTeP2Mp']['meta_info']
 
 
         class Ntp(object):
@@ -7373,15 +6690,9 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -7422,15 +6733,9 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -7544,8 +6849,6 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.authentication_failure is not None:
                         return True
 
@@ -7564,10 +6867,6 @@ class Snmp(object):
                     if self.virtual_config_error is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7614,18 +6913,12 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.max_age_lsa is not None:
                         return True
 
                     if self.originate_lsa is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7672,18 +6965,12 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.packet is not None:
                         return True
 
                     if self.virtual_packet is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7742,8 +7029,6 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface is not None:
                         return True
 
@@ -7756,10 +7041,6 @@ class Snmp(object):
                     if self.virtual_neighbor is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7779,36 +7060,18 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.error is not None and self.error._has_data():
-                    return True
-
-                if self.error is not None and self.error.is_presence():
                     return True
 
                 if self.lsa is not None and self.lsa._has_data():
                     return True
 
-                if self.lsa is not None and self.lsa.is_presence():
-                    return True
-
                 if self.retransmit is not None and self.retransmit._has_data():
-                    return True
-
-                if self.retransmit is not None and self.retransmit.is_presence():
                     return True
 
                 if self.state_change is not None and self.state_change._has_data():
                     return True
 
-                if self.state_change is not None and self.state_change.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -7896,8 +7159,6 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bad_packet is not None:
                         return True
 
@@ -7910,10 +7171,6 @@ class Snmp(object):
                     if self.virtual_config_error is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7996,8 +7253,6 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface is not None:
                         return True
 
@@ -8024,10 +7279,6 @@ class Snmp(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
@@ -8045,24 +7296,12 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.error is not None and self.error._has_data():
-                    return True
-
-                if self.error is not None and self.error.is_presence():
                     return True
 
                 if self.state_change is not None and self.state_change._has_data():
                     return True
 
-                if self.state_change is not None and self.state_change.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -8115,8 +7354,6 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
@@ -8126,10 +7363,6 @@ class Snmp(object):
                 if self.new_flow is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -8171,15 +7404,9 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.role_change is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -8250,8 +7477,6 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.authentication is not None:
                     return True
 
@@ -8270,10 +7495,6 @@ class Snmp(object):
                 if self.warm_start is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -8314,15 +7535,9 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -8363,15 +7578,9 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -8431,8 +7640,6 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
@@ -8445,10 +7652,6 @@ class Snmp(object):
                 if self.status is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -8468,156 +7671,78 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.bfd is not None and self.bfd._has_data():
-                return True
-
-            if self.bfd is not None and self.bfd.is_presence():
                 return True
 
             if self.bgp is not None and self.bgp._has_data():
                 return True
 
-            if self.bgp is not None and self.bgp.is_presence():
-                return True
-
             if self.cfm is not None and self.cfm._has_data():
-                return True
-
-            if self.cfm is not None and self.cfm.is_presence():
                 return True
 
             if self.config_man is not None and self.config_man._has_data():
                 return True
 
-            if self.config_man is not None and self.config_man.is_presence():
-                return True
-
             if self.entity is not None and self.entity._has_data():
-                return True
-
-            if self.entity is not None and self.entity.is_presence():
                 return True
 
             if self.entity_redundancy is not None and self.entity_redundancy._has_data():
                 return True
 
-            if self.entity_redundancy is not None and self.entity_redundancy.is_presence():
-                return True
-
             if self.entity_state is not None and self.entity_state._has_data():
-                return True
-
-            if self.entity_state is not None and self.entity_state.is_presence():
                 return True
 
             if self.fru_control is not None and self.fru_control._has_data():
                 return True
 
-            if self.fru_control is not None and self.fru_control.is_presence():
-                return True
-
             if self.isis is not None and self.isis._has_data():
-                return True
-
-            if self.isis is not None and self.isis.is_presence():
                 return True
 
             if self.l2vpn is not None and self.l2vpn._has_data():
                 return True
 
-            if self.l2vpn is not None and self.l2vpn.is_presence():
-                return True
-
             if self.mpls_frr is not None and self.mpls_frr._has_data():
-                return True
-
-            if self.mpls_frr is not None and self.mpls_frr.is_presence():
                 return True
 
             if self.mpls_ldp is not None and self.mpls_ldp._has_data():
                 return True
 
-            if self.mpls_ldp is not None and self.mpls_ldp.is_presence():
-                return True
-
             if self.mpls_te is not None and self.mpls_te._has_data():
-                return True
-
-            if self.mpls_te is not None and self.mpls_te.is_presence():
                 return True
 
             if self.mpls_te_p2mp is not None and self.mpls_te_p2mp._has_data():
                 return True
 
-            if self.mpls_te_p2mp is not None and self.mpls_te_p2mp.is_presence():
-                return True
-
             if self.ntp is not None and self.ntp._has_data():
-                return True
-
-            if self.ntp is not None and self.ntp.is_presence():
                 return True
 
             if self.oam is not None and self.oam._has_data():
                 return True
 
-            if self.oam is not None and self.oam.is_presence():
-                return True
-
             if self.ospf is not None and self.ospf._has_data():
-                return True
-
-            if self.ospf is not None and self.ospf.is_presence():
                 return True
 
             if self.ospfv3 is not None and self.ospfv3._has_data():
                 return True
 
-            if self.ospfv3 is not None and self.ospfv3.is_presence():
-                return True
-
             if self.rsvp is not None and self.rsvp._has_data():
-                return True
-
-            if self.rsvp is not None and self.rsvp.is_presence():
                 return True
 
             if self.selective_vrf_download is not None and self.selective_vrf_download._has_data():
                 return True
 
-            if self.selective_vrf_download is not None and self.selective_vrf_download.is_presence():
-                return True
-
             if self.snmp is not None and self.snmp._has_data():
-                return True
-
-            if self.snmp is not None and self.snmp.is_presence():
                 return True
 
             if self.syslog is not None and self.syslog._has_data():
                 return True
 
-            if self.syslog is not None and self.syslog.is_presence():
-                return True
-
             if self.system is not None and self.system._has_data():
-                return True
-
-            if self.system is not None and self.system.is_presence():
                 return True
 
             if self.vpls is not None and self.vpls._has_data():
                 return True
 
-            if self.vpls is not None and self.vpls.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -8638,12 +7763,22 @@ class Snmp(object):
         
         	**range:** 0..300
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: throttle_rate
         
         	Throttle time in milliseconds for incoming queue (default 500 msec)
         	**type**\: int
         
         	**range:** 0..1000
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         
 
@@ -8671,8 +7806,6 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.drop_time is not None:
                 return True
 
@@ -8680,10 +7813,6 @@ class Snmp(object):
                 return True
 
             return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return True
 
         @staticmethod
         def _meta_info():
@@ -8741,8 +7870,6 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.chassis_id is not None:
                 return True
 
@@ -8752,10 +7879,6 @@ class Snmp(object):
             if self.location is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -8905,15 +8028,9 @@ class Snmp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip_address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8935,17 +8052,11 @@ class Snmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.target_address is not None:
                             for child_ref in self.target_address:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9015,15 +8126,9 @@ class Snmp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -9045,17 +8150,11 @@ class Snmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.vrf_name is not None:
                             for child_ref in self.vrf_name:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9077,27 +8176,15 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.target_list_name is not None:
                         return True
 
                     if self.target_addresses is not None and self.target_addresses._has_data():
                         return True
 
-                    if self.target_addresses is not None and self.target_addresses.is_presence():
-                        return True
-
                     if self.vrf_names is not None and self.vrf_names._has_data():
                         return True
 
-                    if self.vrf_names is not None and self.vrf_names.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9117,17 +8204,11 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.target is not None:
                     for child_ref in self.target:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -9147,18 +8228,9 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.targets is not None and self.targets._has_data():
                 return True
 
-            if self.targets is not None and self.targets.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -9225,8 +8297,6 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.duplicates is not None:
                 return True
 
@@ -9239,10 +8309,6 @@ class Snmp(object):
             if self.subagent is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -9301,8 +8367,6 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.queue_length is not None:
                 return True
 
@@ -9312,10 +8376,6 @@ class Snmp(object):
             if self.timeout is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -9456,7 +8516,7 @@ class Snmp(object):
                     .. attribute:: security_level
                     
                     	Security level to be used noauth/auth/priv
-                    	**type**\: :py:class:`SnmpSecurityModel_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel_Enum>`
+                    	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
                     
                     .. attribute:: version
                     
@@ -9496,8 +8556,6 @@ class Snmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.community_name is not None:
                             return True
 
@@ -9521,10 +8579,6 @@ class Snmp(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
@@ -9544,17 +8598,11 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.default_user_community is not None:
                         for child_ref in self.default_user_community:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9630,7 +8678,7 @@ class Snmp(object):
                     .. attribute:: security_level
                     
                     	Security level to be used noauth/auth/priv
-                    	**type**\: :py:class:`SnmpSecurityModel_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel_Enum>`
+                    	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
                     
                     .. attribute:: version
                     
@@ -9670,8 +8718,6 @@ class Snmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.community_name is not None:
                             return True
 
@@ -9695,10 +8741,6 @@ class Snmp(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
@@ -9718,17 +8760,11 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.encrypted_user_community is not None:
                         for child_ref in self.encrypted_user_community:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9834,7 +8870,7 @@ class Snmp(object):
                         .. attribute:: security_level
                         
                         	Security level to be used noauth/auth/priv
-                        	**type**\: :py:class:`SnmpSecurityModel_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel_Enum>`
+                        	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
                         
                         .. attribute:: version
                         
@@ -9874,8 +8910,6 @@ class Snmp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.community_name is not None:
                                 return True
 
@@ -9899,10 +8933,6 @@ class Snmp(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
@@ -9922,17 +8952,11 @@ class Snmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.inform_encrypted_user_community is not None:
                             for child_ref in self.inform_encrypted_user_community:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -10008,7 +9032,7 @@ class Snmp(object):
                         .. attribute:: security_level
                         
                         	Security level to be used noauth/auth/priv
-                        	**type**\: :py:class:`SnmpSecurityModel_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel_Enum>`
+                        	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
                         
                         .. attribute:: version
                         
@@ -10048,8 +9072,6 @@ class Snmp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.community_name is not None:
                                 return True
 
@@ -10073,10 +9095,6 @@ class Snmp(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
@@ -10096,17 +9114,11 @@ class Snmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.inform_user_community is not None:
                             for child_ref in self.inform_user_community:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -10128,24 +9140,12 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.inform_encrypted_user_communities is not None and self.inform_encrypted_user_communities._has_data():
-                        return True
-
-                    if self.inform_encrypted_user_communities is not None and self.inform_encrypted_user_communities.is_presence():
                         return True
 
                     if self.inform_user_communities is not None and self.inform_user_communities._has_data():
                         return True
 
-                    if self.inform_user_communities is not None and self.inform_user_communities.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -10167,33 +9167,18 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.ip_address is not None:
                     return True
 
                 if self.default_user_communities is not None and self.default_user_communities._has_data():
                     return True
 
-                if self.default_user_communities is not None and self.default_user_communities.is_presence():
-                    return True
-
                 if self.encrypted_user_communities is not None and self.encrypted_user_communities._has_data():
-                    return True
-
-                if self.encrypted_user_communities is not None and self.encrypted_user_communities.is_presence():
                     return True
 
                 if self.inform_host is not None and self.inform_host._has_data():
                     return True
 
-                if self.inform_host is not None and self.inform_host.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -10213,17 +9198,11 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.trap_host is not None:
                 for child_ref in self.trap_host:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -10267,7 +9246,7 @@ class Snmp(object):
             .. attribute:: algorithm
             
             	The algorithm used md5 or sha
-            	**type**\: :py:class:`SnmpHashAlgorithm_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpHashAlgorithm_Enum>`
+            	**type**\: :py:class:`SnmpHashAlgorithmEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpHashAlgorithmEnum>`
             
             .. attribute:: authentication_password
             
@@ -10289,7 +9268,7 @@ class Snmp(object):
             .. attribute:: owner
             
             	The system access either SDROwner or SystemOwner
-            	**type**\: :py:class:`SnmpOwnerAccess_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpOwnerAccess_Enum>`
+            	**type**\: :py:class:`SnmpOwnerAccessEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpOwnerAccessEnum>`
             
             .. attribute:: port
             
@@ -10301,7 +9280,7 @@ class Snmp(object):
             .. attribute:: priv_algorithm
             
             	The algorithm used des56 or aes128 or aes192or aes256 or 3des
-            	**type**\: :py:class:`SnmpPrivAlgorithm_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpPrivAlgorithm_Enum>`
+            	**type**\: :py:class:`SnmpPrivAlgorithmEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpPrivAlgorithmEnum>`
             
             .. attribute:: privacy_password
             
@@ -10328,7 +9307,7 @@ class Snmp(object):
             .. attribute:: v4acl_type
             
             	Access\-list type
-            	**type**\: :py:class:`Snmpacl_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl_Enum>`
+            	**type**\: :py:class:`SnmpaclEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpaclEnum>`
             
             .. attribute:: v6_access_list
             
@@ -10338,12 +9317,12 @@ class Snmp(object):
             .. attribute:: v6acl_type
             
             	Access\-list type
-            	**type**\: :py:class:`Snmpacl_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.Snmpacl_Enum>`
+            	**type**\: :py:class:`SnmpaclEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpaclEnum>`
             
             .. attribute:: version
             
             	SNMP version to be used. v1,v2c or v3
-            	**type**\: :py:class:`UserSnmpVersion_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.UserSnmpVersion_Enum>`
+            	**type**\: :py:class:`UserSnmpVersionEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.UserSnmpVersionEnum>`
             
             
 
@@ -10385,8 +9364,6 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.user_name is not None:
                     return True
 
@@ -10437,10 +9414,6 @@ class Snmp(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
@@ -10458,17 +9431,11 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.user is not None:
                 for child_ref in self.user:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -10519,7 +9486,7 @@ class Snmp(object):
             .. attribute:: view_inclusion
             
             	MIB view to be included or excluded
-            	**type**\: :py:class:`SnmpMibViewInclusion_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpMibViewInclusion_Enum>`
+            	**type**\: :py:class:`SnmpMibViewInclusionEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpMibViewInclusionEnum>`
             
             
 
@@ -10550,8 +9517,6 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.family is not None:
                     return True
 
@@ -10561,10 +9526,6 @@ class Snmp(object):
                 if self.view_inclusion is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -10584,17 +9545,11 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.view is not None:
                 for child_ref in self.view:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -10707,7 +9662,7 @@ class Snmp(object):
                     .. attribute:: context
                     
                     	SNMP context feature type
-                    	**type**\: :py:class:`SnmpContext_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpContext_Enum>`
+                    	**type**\: :py:class:`SnmpContextEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpContextEnum>`
                     
                     .. attribute:: instance_name
                     
@@ -10755,8 +9710,6 @@ class Snmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.context_mapping_name is not None:
                             return True
 
@@ -10772,10 +9725,6 @@ class Snmp(object):
                         if self.vrf_name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -10797,17 +9746,11 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.context_mapping is not None:
                         for child_ref in self.context_mapping:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -10877,15 +9820,9 @@ class Snmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.context_name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -10907,17 +9844,11 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.context is not None:
                         for child_ref in self.context:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -11058,7 +9989,7 @@ class Snmp(object):
                             .. attribute:: security_level
                             
                             	Security level to be used noauth/auth/priv
-                            	**type**\: :py:class:`SnmpSecurityModel_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel_Enum>`
+                            	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
                             
                             .. attribute:: version
                             
@@ -11098,8 +10029,6 @@ class Snmp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.community_name is not None:
                                     return True
 
@@ -11123,10 +10052,6 @@ class Snmp(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
@@ -11146,17 +10071,11 @@ class Snmp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.default_user_community is not None:
                                 for child_ref in self.default_user_community:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -11232,7 +10151,7 @@ class Snmp(object):
                             .. attribute:: security_level
                             
                             	Security level to be used noauth/auth/priv
-                            	**type**\: :py:class:`SnmpSecurityModel_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel_Enum>`
+                            	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
                             
                             .. attribute:: version
                             
@@ -11272,8 +10191,6 @@ class Snmp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.community_name is not None:
                                     return True
 
@@ -11297,10 +10214,6 @@ class Snmp(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
@@ -11320,17 +10233,11 @@ class Snmp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.encrypted_user_community is not None:
                                 for child_ref in self.encrypted_user_community:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -11436,7 +10343,7 @@ class Snmp(object):
                                 .. attribute:: security_level
                                 
                                 	Security level to be used noauth/auth/priv
-                                	**type**\: :py:class:`SnmpSecurityModel_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel_Enum>`
+                                	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
                                 
                                 .. attribute:: version
                                 
@@ -11476,8 +10383,6 @@ class Snmp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.community_name is not None:
                                         return True
 
@@ -11501,10 +10406,6 @@ class Snmp(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
@@ -11524,17 +10425,11 @@ class Snmp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.inform_encrypted_user_community is not None:
                                     for child_ref in self.inform_encrypted_user_community:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11610,7 +10505,7 @@ class Snmp(object):
                                 .. attribute:: security_level
                                 
                                 	Security level to be used noauth/auth/priv
-                                	**type**\: :py:class:`SnmpSecurityModel_Enum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModel_Enum>`
+                                	**type**\: :py:class:`SnmpSecurityModelEnum <ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg.SnmpSecurityModelEnum>`
                                 
                                 .. attribute:: version
                                 
@@ -11650,8 +10545,6 @@ class Snmp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.community_name is not None:
                                         return True
 
@@ -11675,10 +10568,6 @@ class Snmp(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
@@ -11698,17 +10587,11 @@ class Snmp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.inform_user_community is not None:
                                     for child_ref in self.inform_user_community:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11730,24 +10613,12 @@ class Snmp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.inform_encrypted_user_communities is not None and self.inform_encrypted_user_communities._has_data():
-                                return True
-
-                            if self.inform_encrypted_user_communities is not None and self.inform_encrypted_user_communities.is_presence():
                                 return True
 
                             if self.inform_user_communities is not None and self.inform_user_communities._has_data():
                                 return True
 
-                            if self.inform_user_communities is not None and self.inform_user_communities.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -11771,33 +10642,18 @@ class Snmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ip_address is not None:
                             return True
 
                         if self.default_user_communities is not None and self.default_user_communities._has_data():
                             return True
 
-                        if self.default_user_communities is not None and self.default_user_communities.is_presence():
-                            return True
-
                         if self.encrypted_user_communities is not None and self.encrypted_user_communities._has_data():
-                            return True
-
-                        if self.encrypted_user_communities is not None and self.encrypted_user_communities.is_presence():
                             return True
 
                         if self.inform_host is not None and self.inform_host._has_data():
                             return True
 
-                        if self.inform_host is not None and self.inform_host.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -11819,17 +10675,11 @@ class Snmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.trap_host is not None:
                         for child_ref in self.trap_host:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -11851,33 +10701,18 @@ class Snmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
                 if self.context_mappings is not None and self.context_mappings._has_data():
                     return True
 
-                if self.context_mappings is not None and self.context_mappings.is_presence():
-                    return True
-
                 if self.contexts is not None and self.contexts._has_data():
-                    return True
-
-                if self.contexts is not None and self.contexts.is_presence():
                     return True
 
                 if self.trap_hosts is not None and self.trap_hosts._has_data():
                     return True
 
-                if self.trap_hosts is not None and self.trap_hosts.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -11897,17 +10732,11 @@ class Snmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -11927,60 +10756,31 @@ class Snmp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.administration is not None and self.administration._has_data():
-            return True
-
-        if self.administration is not None and self.administration.is_presence():
             return True
 
         if self.agent is not None and self.agent._has_data():
             return True
 
-        if self.agent is not None and self.agent.is_presence():
-            return True
-
         if self.bulk_stats is not None and self.bulk_stats._has_data():
-            return True
-
-        if self.bulk_stats is not None and self.bulk_stats.is_presence():
             return True
 
         if self.context_mappings is not None and self.context_mappings._has_data():
             return True
 
-        if self.context_mappings is not None and self.context_mappings.is_presence():
-            return True
-
         if self.contexts is not None and self.contexts._has_data():
-            return True
-
-        if self.contexts is not None and self.contexts.is_presence():
             return True
 
         if self.correlator is not None and self.correlator._has_data():
             return True
 
-        if self.correlator is not None and self.correlator.is_presence():
-            return True
-
         if self.default_community_maps is not None and self.default_community_maps._has_data():
-            return True
-
-        if self.default_community_maps is not None and self.default_community_maps.is_presence():
             return True
 
         if self.encrypted_community_maps is not None and self.encrypted_community_maps._has_data():
             return True
 
-        if self.encrypted_community_maps is not None and self.encrypted_community_maps.is_presence():
-            return True
-
         if self.groups is not None and self.groups._has_data():
-            return True
-
-        if self.groups is not None and self.groups.is_presence():
             return True
 
         if self.inform_pending is not None:
@@ -11995,25 +10795,13 @@ class Snmp(object):
         if self.ipv4 is not None and self.ipv4._has_data():
             return True
 
-        if self.ipv4 is not None and self.ipv4.is_presence():
-            return True
-
         if self.ipv6 is not None and self.ipv6._has_data():
-            return True
-
-        if self.ipv6 is not None and self.ipv6.is_presence():
             return True
 
         if self.logging is not None and self.logging._has_data():
             return True
 
-        if self.logging is not None and self.logging.is_presence():
-            return True
-
         if self.notification is not None and self.notification._has_data():
-            return True
-
-        if self.notification is not None and self.notification.is_presence():
             return True
 
         if self.oid_poll_stats is not None:
@@ -12022,22 +10810,13 @@ class Snmp(object):
         if self.overload_control is not None and self.overload_control._has_data():
             return True
 
-        if self.overload_control is not None and self.overload_control.is_presence():
-            return True
-
         if self.packet_size is not None:
             return True
 
         if self.system is not None and self.system._has_data():
             return True
 
-        if self.system is not None and self.system.is_presence():
-            return True
-
         if self.target is not None and self.target._has_data():
-            return True
-
-        if self.target is not None and self.target.is_presence():
             return True
 
         if self.throttle_time is not None:
@@ -12046,19 +10825,10 @@ class Snmp(object):
         if self.timeouts is not None and self.timeouts._has_data():
             return True
 
-        if self.timeouts is not None and self.timeouts.is_presence():
-            return True
-
         if self.trap is not None and self.trap._has_data():
             return True
 
-        if self.trap is not None and self.trap.is_presence():
-            return True
-
         if self.trap_hosts is not None and self.trap_hosts._has_data():
-            return True
-
-        if self.trap_hosts is not None and self.trap_hosts.is_presence():
             return True
 
         if self.trap_port is not None:
@@ -12073,13 +10843,7 @@ class Snmp(object):
         if self.users is not None and self.users._has_data():
             return True
 
-        if self.users is not None and self.users.is_presence():
-            return True
-
         if self.views is not None and self.views._has_data():
-            return True
-
-        if self.views is not None and self.views.is_presence():
             return True
 
         if self.vrf_authentication_trap_disable is not None:
@@ -12088,13 +10852,6 @@ class Snmp(object):
         if self.vrfs is not None and self.vrfs._has_data():
             return True
 
-        if self.vrfs is not None and self.vrfs.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

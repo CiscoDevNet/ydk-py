@@ -175,18 +175,12 @@ class Parser(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.identifier is not None:
                         return True
 
                     if self.identifier_xr is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -206,17 +200,11 @@ class Parser(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.all is not None:
                     for child_ref in self.all:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -290,18 +278,12 @@ class Parser(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.identifier is not None:
                         return True
 
                     if self.identifier_xr is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -321,17 +303,11 @@ class Parser(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.configuration is not None:
                     for child_ref in self.configuration:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -405,18 +381,12 @@ class Parser(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.identifier is not None:
                         return True
 
                     if self.identifier_xr is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -436,17 +406,11 @@ class Parser(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.exec_ is not None:
                     for child_ref in self.exec_:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -466,30 +430,15 @@ class Parser(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.alls is not None and self.alls._has_data():
-                return True
-
-            if self.alls is not None and self.alls.is_presence():
                 return True
 
             if self.configurations is not None and self.configurations._has_data():
                 return True
 
-            if self.configurations is not None and self.configurations.is_presence():
-                return True
-
             if self.execs is not None and self.execs._has_data():
                 return True
 
-            if self.execs is not None and self.execs.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -552,15 +501,9 @@ class Parser(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.usergroup is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -580,18 +523,9 @@ class Parser(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.disable is not None and self.disable._has_data():
                 return True
 
-            if self.disable is not None and self.disable.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -634,15 +568,9 @@ class Parser(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.size is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -683,15 +611,9 @@ class Parser(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.indentation_disable is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -733,15 +655,9 @@ class Parser(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.enable is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -761,42 +677,21 @@ class Parser(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.alias is not None and self.alias._has_data():
-            return True
-
-        if self.alias is not None and self.alias.is_presence():
             return True
 
         if self.configuration is not None and self.configuration._has_data():
             return True
 
-        if self.configuration is not None and self.configuration.is_presence():
-            return True
-
         if self.history is not None and self.history._has_data():
-            return True
-
-        if self.history is not None and self.history.is_presence():
             return True
 
         if self.indentation is not None and self.indentation._has_data():
             return True
 
-        if self.indentation is not None and self.indentation.is_presence():
-            return True
-
         if self.submode_exit is not None and self.submode_exit._has_data():
             return True
 
-        if self.submode_exit is not None and self.submode_exit.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

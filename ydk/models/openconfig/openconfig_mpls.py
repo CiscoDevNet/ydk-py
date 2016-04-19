@@ -58,161 +58,160 @@ from ydk.models.openconfig.openconfig_mpls_types import LspRole_Identity
 from ydk.models.openconfig.openconfig_mpls_types import NullLabelType_Identity
 from ydk.models.openconfig.openconfig_mpls_types import ProtectionType_Identity
 from ydk.models.openconfig.openconfig_mpls_types import TunnelAdminStatus_Identity
-from ydk.models.openconfig.openconfig_mpls_types import TunnelType_Enum
+from ydk.models.openconfig.openconfig_mpls_types import TunnelTypeEnum
 from ydk.models.openconfig.openconfig_mpls_types import TunnelType_Identity
 
-class CspfTieBreaking_Enum(Enum):
+class CspfTieBreakingEnum(Enum):
     """
-    CspfTieBreaking_Enum
+    CspfTieBreakingEnum
 
     type to indicate the CSPF selection policy when
+
     multiple equal cost paths are available
 
-    """
+    .. data:: RANDOM = 0
+
+    	CSPF calculation selects a random path among
+
+    	multiple equal-cost paths to the destination
+
+    .. data:: LEAST_FILL = 1
+
+    	CSPF calculation selects the path with greatest
+
+    	available bandwidth
+
+    .. data:: MOST_FILL = 2
+
+    	CSPF calculation selects the path with the least
+
+    	available bandwidth
 
     """
 
-    CSPF calculation selects a random path among
-    multiple equal\-cost paths to the destination
-
-    """
     RANDOM = 0
 
-    """
-
-    CSPF calculation selects the path with greatest
-    available bandwidth
-
-    """
     LEAST_FILL = 1
 
-    """
-
-    CSPF calculation selects the path with the least
-    available bandwidth
-
-    """
     MOST_FILL = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-        return meta._meta_table['CspfTieBreaking_Enum']
+        return meta._meta_table['CspfTieBreakingEnum']
 
 
-class MplsHopType_Enum(Enum):
+class MplsHopTypeEnum(Enum):
     """
-    MplsHopType_Enum
+    MplsHopTypeEnum
 
     enumerated type for specifying loose or strict
+
     paths
 
-    """
+    .. data:: LOOSE = 0
+
+    	loose hop in an explicit path
+
+    .. data:: STRICT = 1
+
+    	strict hop in an explicit path
 
     """
 
-    loose hop in an explicit path
-
-    """
     LOOSE = 0
 
-    """
-
-    strict hop in an explicit path
-
-    """
     STRICT = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-        return meta._meta_table['MplsHopType_Enum']
+        return meta._meta_table['MplsHopTypeEnum']
 
 
-class MplsSrlgFloodingType_Enum(Enum):
+class MplsSrlgFloodingTypeEnum(Enum):
     """
-    MplsSrlgFloodingType_Enum
+    MplsSrlgFloodingTypeEnum
 
     Enumerated bype for specifying how the SRLG is flooded
 
-    """
+    .. data:: FLOODED_SRLG = 0
+
+    	SRLG is flooded in the IGP
+
+    .. data:: STATIC_SRLG = 1
+
+    	SRLG is not flooded, the members are
+
+    	statically configured
 
     """
 
-    SRLG is flooded in the IGP
-
-    """
     FLOODED_SRLG = 0
 
-    """
-
-    SRLG is not flooded, the members are
-    statically configured
-
-    """
     STATIC_SRLG = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-        return meta._meta_table['MplsSrlgFloodingType_Enum']
+        return meta._meta_table['MplsSrlgFloodingTypeEnum']
 
 
-class TeBandwidthType_Enum(Enum):
+class TeBandwidthTypeEnum(Enum):
     """
-    TeBandwidthType_Enum
+    TeBandwidthTypeEnum
 
     enumerated type for specifying whether bandwidth is
+
     explicitly specified or automatically computed
 
-    """
+    .. data:: SPECIFIED = 0
+
+    	Bandwidth is explicitly specified
+
+    .. data:: AUTO = 1
+
+    	Bandwidth is automatically computed
 
     """
 
-    Bandwidth is explicitly specified
-
-    """
     SPECIFIED = 0
 
-    """
-
-    Bandwidth is automatically computed
-
-    """
     AUTO = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-        return meta._meta_table['TeBandwidthType_Enum']
+        return meta._meta_table['TeBandwidthTypeEnum']
 
 
-class TeMetricType_Enum(Enum):
+class TeMetricTypeEnum(Enum):
     """
-    TeMetricType_Enum
+    TeMetricTypeEnum
 
     union type for setting the LSP TE metric to a
+
     static value, or to track the IGP metric
 
-    """
+    .. data:: IGP = 0
+
+    	set the LSP metric to track the underlying
+
+    	IGP metric
 
     """
 
-    set the LSP metric to track the underlying
-    IGP metric
-
-    """
     IGP = 0
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-        return meta._meta_table['TeMetricType_Enum']
+        return meta._meta_table['TeMetricTypeEnum']
 
 
 
@@ -226,25 +225,50 @@ class Mpls(object):
     	general mpls configuration applicable to any type of LSP and signaling protocol \- label ranges, entropy label supportmay be added here
     	**type**\: :py:class:`Global <ydk.models.openconfig.openconfig_mpls.Mpls.Global>`
     
+    .. attribute:: _is_presence
+    
+    	Is present if this instance represents presence container else not
+    	**type**\: bool
+    
     .. attribute:: lsps
     
     	LSP definitions and configuration
     	**type**\: :py:class:`Lsps <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps>`
+    
+    .. attribute:: _is_presence
+    
+    	Is present if this instance represents presence container else not
+    	**type**\: bool
     
     .. attribute:: signaling_protocols
     
     	top\-level signaling protocol configuration
     	**type**\: :py:class:`SignalingProtocols <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols>`
     
+    .. attribute:: _is_presence
+    
+    	Is present if this instance represents presence container else not
+    	**type**\: bool
+    
     .. attribute:: te_global_attributes
     
     	traffic\-engineering global attributes
     	**type**\: :py:class:`TeGlobalAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes>`
     
+    .. attribute:: _is_presence
+    
+    	Is present if this instance represents presence container else not
+    	**type**\: bool
+    
     .. attribute:: te_interface_attributes
     
     	traffic engineering attributes specific for interfaces
     	**type**\: :py:class:`TeInterfaceAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes>`
+    
+    .. attribute:: _is_presence
+    
+    	Is present if this instance represents presence container else not
+    	**type**\: bool
     
     
 
@@ -338,15 +362,9 @@ class Mpls(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.null_label is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -453,18 +471,12 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.mpls_enabled is not None:
                             return True
 
                         if self.name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -513,18 +525,12 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.mpls_enabled is not None:
                             return True
 
                         if self.name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -546,27 +552,15 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.name is not None:
                         return True
 
                     if self.config is not None and self.config._has_data():
                         return True
 
-                    if self.config is not None and self.config.is_presence():
-                        return True
-
                     if self.state is not None and self.state._has_data():
                         return True
 
-                    if self.state is not None and self.state.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -586,17 +580,11 @@ class Mpls(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.interface is not None:
                     for child_ref in self.interface:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -637,15 +625,9 @@ class Mpls(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.null_label is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -665,30 +647,15 @@ class Mpls(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.config is not None and self.config._has_data():
-                return True
-
-            if self.config is not None and self.config.is_presence():
                 return True
 
             if self.mpls_interface_attributes is not None and self.mpls_interface_attributes._has_data():
                 return True
 
-            if self.mpls_interface_attributes is not None and self.mpls_interface_attributes.is_presence():
-                return True
-
             if self.state is not None and self.state._has_data():
                 return True
 
-            if self.state is not None and self.state.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -843,15 +810,9 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -910,7 +871,7 @@ class Mpls(object):
                         .. attribute:: hop_type
                         
                         	strict or loose hop
-                        	**type**\: :py:class:`MplsHopType_Enum <ydk.models.openconfig.openconfig_mpls.MplsHopType_Enum>`
+                        	**type**\: :py:class:`MplsHopTypeEnum <ydk.models.openconfig.openconfig_mpls.MplsHopTypeEnum>`
                         
                         .. attribute:: index
                         
@@ -946,8 +907,6 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 return True
 
@@ -957,10 +916,6 @@ class Mpls(object):
                             if self.index is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -981,7 +936,7 @@ class Mpls(object):
                         .. attribute:: hop_type
                         
                         	strict or loose hop
-                        	**type**\: :py:class:`MplsHopType_Enum <ydk.models.openconfig.openconfig_mpls.MplsHopType_Enum>`
+                        	**type**\: :py:class:`MplsHopTypeEnum <ydk.models.openconfig.openconfig_mpls.MplsHopTypeEnum>`
                         
                         .. attribute:: index
                         
@@ -1017,8 +972,6 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 return True
 
@@ -1028,10 +981,6 @@ class Mpls(object):
                             if self.index is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1055,27 +1004,15 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.index is not None:
                             return True
 
                         if self.config is not None and self.config._has_data():
                             return True
 
-                        if self.config is not None and self.config.is_presence():
-                            return True
-
                         if self.state is not None and self.state._has_data():
                             return True
 
-                        if self.state is not None and self.state.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1119,15 +1056,9 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1149,15 +1080,10 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.name is not None:
                         return True
 
                     if self.config is not None and self.config._has_data():
-                        return True
-
-                    if self.config is not None and self.config.is_presence():
                         return True
 
                     if self.explicit_route_objects is not None:
@@ -1168,13 +1094,6 @@ class Mpls(object):
                     if self.state is not None and self.state._has_data():
                         return True
 
-                    if self.state is not None and self.state.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1210,7 +1129,7 @@ class Mpls(object):
                 .. attribute:: p2p_tunnel_attributes
                 
                 	Parameters related to LSPs of type P2P
-                	**type**\: :py:class:`P2pTunnelAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes>`
+                	**type**\: :py:class:`P2PTunnelAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes>`
                 
                 .. attribute:: state
                 
@@ -1232,7 +1151,7 @@ class Mpls(object):
                     self.bandwidth.parent = self
                     self.config = Mpls.Lsps.ConstrainedPath.Tunnel.Config()
                     self.config.parent = self
-                    self.p2p_tunnel_attributes = Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes()
+                    self.p2p_tunnel_attributes = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes()
                     self.p2p_tunnel_attributes.parent = self
                     self.state = Mpls.Lsps.ConstrainedPath.Tunnel.State()
                     self.state.parent = self
@@ -1384,8 +1303,6 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.adjust_interval is not None:
                                     return True
 
@@ -1401,10 +1318,6 @@ class Mpls(object):
                                 if self.min_bw is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1494,8 +1407,6 @@ class Mpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.enabled is not None:
                                         return True
 
@@ -1505,10 +1416,6 @@ class Mpls(object):
                                     if self.trigger_event_count is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1568,8 +1475,6 @@ class Mpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.enabled is not None:
                                         return True
 
@@ -1579,10 +1484,6 @@ class Mpls(object):
                                     if self.trigger_event_count is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1604,24 +1505,12 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.config is not None and self.config._has_data():
-                                    return True
-
-                                if self.config is not None and self.config.is_presence():
                                     return True
 
                                 if self.state is not None and self.state._has_data():
                                     return True
 
-                                if self.state is not None and self.state.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1697,8 +1586,6 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.adjust_interval is not None:
                                     return True
 
@@ -1714,10 +1601,6 @@ class Mpls(object):
                                 if self.min_bw is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1807,8 +1690,6 @@ class Mpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.enabled is not None:
                                         return True
 
@@ -1818,10 +1699,6 @@ class Mpls(object):
                                     if self.underflow_threshold is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1881,8 +1758,6 @@ class Mpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.enabled is not None:
                                         return True
 
@@ -1892,10 +1767,6 @@ class Mpls(object):
                                     if self.underflow_threshold is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1917,24 +1788,12 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.config is not None and self.config._has_data():
-                                    return True
-
-                                if self.config is not None and self.config.is_presence():
                                     return True
 
                                 if self.state is not None and self.state._has_data():
                                     return True
 
-                                if self.state is not None and self.state.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1956,36 +1815,18 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.config is not None and self.config._has_data():
-                                return True
-
-                            if self.config is not None and self.config.is_presence():
                                 return True
 
                             if self.overflow is not None and self.overflow._has_data():
                                 return True
 
-                            if self.overflow is not None and self.overflow.is_presence():
-                                return True
-
                             if self.state is not None and self.state._has_data():
-                                return True
-
-                            if self.state is not None and self.state.is_presence():
                                 return True
 
                             if self.underflow is not None and self.underflow._has_data():
                                 return True
 
-                            if self.underflow is not None and self.underflow.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2009,7 +1850,7 @@ class Mpls(object):
                         .. attribute:: specification_type
                         
                         	The method used for settign the bandwidth, either explicitly specified or configured
-                        	**type**\: :py:class:`TeBandwidthType_Enum <ydk.models.openconfig.openconfig_mpls.TeBandwidthType_Enum>`
+                        	**type**\: :py:class:`TeBandwidthTypeEnum <ydk.models.openconfig.openconfig_mpls.TeBandwidthTypeEnum>`
                         
                         
 
@@ -2037,18 +1878,12 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.set_bandwidth is not None:
                                 return True
 
                             if self.specification_type is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2072,7 +1907,7 @@ class Mpls(object):
                         .. attribute:: specification_type
                         
                         	The method used for settign the bandwidth, either explicitly specified or configured
-                        	**type**\: :py:class:`TeBandwidthType_Enum <ydk.models.openconfig.openconfig_mpls.TeBandwidthType_Enum>`
+                        	**type**\: :py:class:`TeBandwidthTypeEnum <ydk.models.openconfig.openconfig_mpls.TeBandwidthTypeEnum>`
                         
                         
 
@@ -2100,18 +1935,12 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.set_bandwidth is not None:
                                 return True
 
                             if self.specification_type is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2133,30 +1962,15 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.auto_bandwidth is not None and self.auto_bandwidth._has_data():
-                            return True
-
-                        if self.auto_bandwidth is not None and self.auto_bandwidth.is_presence():
                             return True
 
                         if self.config is not None and self.config._has_data():
                             return True
 
-                        if self.config is not None and self.config.is_presence():
-                            return True
-
                         if self.state is not None and self.state._has_data():
                             return True
 
-                        if self.state is not None and self.state.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2194,7 +2008,7 @@ class Mpls(object):
                     .. attribute:: metric
                     
                     	LSP metric, either explicit or IGP
-                    	**type**\: one of { :py:class:`TeMetricType_Enum <ydk.models.openconfig.openconfig_mpls.TeMetricType_Enum>` | int }
+                    	**type**\: one of { :py:class:`TeMetricTypeEnum <ydk.models.openconfig.openconfig_mpls.TeMetricTypeEnum>` | int }
                     
                     .. attribute:: name
                     
@@ -2285,8 +2099,6 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.admin_status is not None:
                             return True
 
@@ -2331,39 +2143,35 @@ class Mpls(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
                         return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.Config']['meta_info']
 
 
-                class P2pTunnelAttributes(object):
+                class P2PTunnelAttributes(object):
                     """
                     Parameters related to LSPs of type P2P
                     
                     .. attribute:: config
                     
                     	Configuration parameters for P2P LSPs
-                    	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.Config>`
+                    	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.Config>`
                     
                     .. attribute:: p2p_primary_paths
                     
                     	List of p2p primary paths for a tunnel
-                    	**type**\: list of :py:class:`P2pPrimaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths>`
+                    	**type**\: list of :py:class:`P2PPrimaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths>`
                     
                     .. attribute:: p2p_secondary_paths
                     
                     	List of p2p primary paths for a tunnel
-                    	**type**\: list of :py:class:`P2pSecondaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths>`
+                    	**type**\: list of :py:class:`P2PSecondaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths>`
                     
                     .. attribute:: state
                     
                     	State parameters for P2P LSPs
-                    	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.State>`
+                    	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State>`
                     
                     
 
@@ -2374,7 +2182,7 @@ class Mpls(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.Config()
+                        self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.Config()
                         self.config.parent = self
                         self.p2p_primary_paths = YList()
                         self.p2p_primary_paths.parent = self
@@ -2382,7 +2190,7 @@ class Mpls(object):
                         self.p2p_secondary_paths = YList()
                         self.p2p_secondary_paths.parent = self
                         self.p2p_secondary_paths.name = 'p2p_secondary_paths'
-                        self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.State()
+                        self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State()
                         self.state.parent = self
 
 
@@ -2420,24 +2228,18 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.destination is not None:
                                 return True
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                            return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.Config']['meta_info']
+                            return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.Config']['meta_info']
 
 
-                    class P2pPrimaryPaths(object):
+                    class P2PPrimaryPaths(object):
                         """
                         List of p2p primary paths for a tunnel
                         
@@ -2449,22 +2251,22 @@ class Mpls(object):
                         .. attribute:: admin_groups
                         
                         	Top\-level container for include/exclude constraints for link affinities
-                        	**type**\: :py:class:`AdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups>`
+                        	**type**\: :py:class:`AdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups>`
                         
                         .. attribute:: candidate_secondary_paths
                         
                         	The set of candidate secondary paths which may be used for this primary path. When secondary paths are specified in the list the path of the secondary LSP in use must be restricted to those path options referenced. The priority of the secondary paths is specified within the list. Higher priority values are less preferred \- that is to say that a path with priority 0 is the most preferred path. In the case that the list is empty, any secondary path option may be utilised when the current primary path is in use
-                        	**type**\: :py:class:`CandidateSecondaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths>`
+                        	**type**\: :py:class:`CandidateSecondaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths>`
                         
                         .. attribute:: config
                         
                         	Configuration parameters related to paths
-                        	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.Config>`
+                        	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config>`
                         
                         .. attribute:: state
                         
                         	State parameters related to paths
-                        	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.State>`
+                        	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State>`
                         
                         
 
@@ -2476,13 +2278,13 @@ class Mpls(object):
                         def __init__(self):
                             self.parent = None
                             self.name = None
-                            self.admin_groups = Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups()
+                            self.admin_groups = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups()
                             self.admin_groups.parent = self
-                            self.candidate_secondary_paths = Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths()
+                            self.candidate_secondary_paths = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths()
                             self.candidate_secondary_paths.parent = self
-                            self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.Config()
+                            self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config()
                             self.config.parent = self
-                            self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.State()
+                            self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State()
                             self.state.parent = self
 
 
@@ -2494,12 +2296,12 @@ class Mpls(object):
                             .. attribute:: config
                             
                             	Configuration data 
-                            	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups.Config>`
+                            	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.Config>`
                             
                             .. attribute:: state
                             
                             	Operational state data 
-                            	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups.State>`
+                            	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.State>`
                             
                             
 
@@ -2510,9 +2312,9 @@ class Mpls(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups.Config()
+                                self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.Config()
                                 self.config.parent = self
-                                self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups.State()
+                                self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.State()
                                 self.state.parent = self
 
 
@@ -2562,8 +2364,6 @@ class Mpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.exclude_group is not None:
                                         for child in self.exclude_group:
                                             if child is not None:
@@ -2581,14 +2381,10 @@ class Mpls(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                    return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups.Config']['meta_info']
+                                    return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.Config']['meta_info']
 
 
                             class State(object):
@@ -2637,8 +2433,6 @@ class Mpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.exclude_group is not None:
                                         for child in self.exclude_group:
                                             if child is not None:
@@ -2656,14 +2450,10 @@ class Mpls(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                    return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups.State']['meta_info']
+                                    return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.State']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -2679,30 +2469,18 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.config is not None and self.config._has_data():
-                                    return True
-
-                                if self.config is not None and self.config.is_presence():
                                     return True
 
                                 if self.state is not None and self.state._has_data():
                                     return True
 
-                                if self.state is not None and self.state.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.AdminGroups']['meta_info']
+                                return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups']['meta_info']
 
 
                         class CandidateSecondaryPaths(object):
@@ -2721,7 +2499,7 @@ class Mpls(object):
                             .. attribute:: candidate_secondary_path
                             
                             	List of secondary paths which may be utilised when the current primary path is in use
-                            	**type**\: list of :py:class:`CandidateSecondaryPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath>`
+                            	**type**\: list of :py:class:`CandidateSecondaryPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath>`
                             
                             
 
@@ -2750,12 +2528,12 @@ class Mpls(object):
                                 .. attribute:: config
                                 
                                 	Configuration parameters relating to the candidate secondary path
-                                	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config>`
+                                	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config>`
                                 
                                 .. attribute:: state
                                 
                                 	Operational state parameters relating to the candidate secondary path
-                                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State>`
+                                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State>`
                                 
                                 
 
@@ -2767,9 +2545,9 @@ class Mpls(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.secondary_path = None
-                                    self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config()
+                                    self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config()
                                     self.config.parent = self
-                                    self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State()
+                                    self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State()
                                     self.state.parent = self
 
 
@@ -2816,8 +2594,6 @@ class Mpls(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.priority is not None:
                                             return True
 
@@ -2826,14 +2602,10 @@ class Mpls(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                        return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config']['meta_info']
+                                        return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config']['meta_info']
 
 
                                 class State(object):
@@ -2885,8 +2657,6 @@ class Mpls(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.active is not None:
                                             return True
 
@@ -2898,14 +2668,10 @@ class Mpls(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                        return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State']['meta_info']
+                                        return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -2923,33 +2689,21 @@ class Mpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.secondary_path is not None:
                                         return True
 
                                     if self.config is not None and self.config._has_data():
                                         return True
 
-                                    if self.config is not None and self.config.is_presence():
-                                        return True
-
                                     if self.state is not None and self.state._has_data():
                                         return True
 
-                                    if self.state is not None and self.state.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                    return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath']['meta_info']
+                                    return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -2965,8 +2719,6 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.candidate_secondary_path is not None:
                                     for child_ref in self.candidate_secondary_path:
                                         if child_ref._has_data():
@@ -2974,14 +2726,10 @@ class Mpls(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.CandidateSecondaryPaths']['meta_info']
+                                return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths']['meta_info']
 
 
                         class Config(object):
@@ -2991,7 +2739,7 @@ class Mpls(object):
                             .. attribute:: cspf_tiebreaker
                             
                             	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
-                            	**type**\: :py:class:`CspfTieBreaking_Enum <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking_Enum>`
+                            	**type**\: :py:class:`CspfTieBreakingEnum <ydk.models.openconfig.openconfig_mpls.CspfTieBreakingEnum>`
                             
                             .. attribute:: explicit_path_name
                             
@@ -3080,8 +2828,6 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.cspf_tiebreaker is not None:
                                     return True
 
@@ -3114,14 +2860,10 @@ class Mpls(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.Config']['meta_info']
+                                return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config']['meta_info']
 
 
                         class State(object):
@@ -3131,7 +2873,7 @@ class Mpls(object):
                             .. attribute:: cspf_tiebreaker
                             
                             	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
-                            	**type**\: :py:class:`CspfTieBreaking_Enum <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking_Enum>`
+                            	**type**\: :py:class:`CspfTieBreakingEnum <ydk.models.openconfig.openconfig_mpls.CspfTieBreakingEnum>`
                             
                             .. attribute:: explicit_path_name
                             
@@ -3220,8 +2962,6 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.cspf_tiebreaker is not None:
                                     return True
 
@@ -3254,14 +2994,10 @@ class Mpls(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths.State']['meta_info']
+                                return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -3279,48 +3015,30 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.name is not None:
                                 return True
 
                             if self.admin_groups is not None and self.admin_groups._has_data():
                                 return True
 
-                            if self.admin_groups is not None and self.admin_groups.is_presence():
-                                return True
-
                             if self.candidate_secondary_paths is not None and self.candidate_secondary_paths._has_data():
-                                return True
-
-                            if self.candidate_secondary_paths is not None and self.candidate_secondary_paths.is_presence():
                                 return True
 
                             if self.config is not None and self.config._has_data():
                                 return True
 
-                            if self.config is not None and self.config.is_presence():
-                                return True
-
                             if self.state is not None and self.state._has_data():
                                 return True
 
-                            if self.state is not None and self.state.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                            return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pPrimaryPaths']['meta_info']
+                            return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths']['meta_info']
 
 
-                    class P2pSecondaryPaths(object):
+                    class P2PSecondaryPaths(object):
                         """
                         List of p2p primary paths for a tunnel
                         
@@ -3332,17 +3050,17 @@ class Mpls(object):
                         .. attribute:: admin_groups
                         
                         	Top\-level container for include/exclude constraints for link affinities
-                        	**type**\: :py:class:`AdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups>`
+                        	**type**\: :py:class:`AdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups>`
                         
                         .. attribute:: config
                         
                         	Configuration parameters related to paths
-                        	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.Config>`
+                        	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config>`
                         
                         .. attribute:: state
                         
                         	State parameters related to paths
-                        	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.State>`
+                        	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.State>`
                         
                         
 
@@ -3354,11 +3072,11 @@ class Mpls(object):
                         def __init__(self):
                             self.parent = None
                             self.name = None
-                            self.admin_groups = Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups()
+                            self.admin_groups = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups()
                             self.admin_groups.parent = self
-                            self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.Config()
+                            self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config()
                             self.config.parent = self
-                            self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.State()
+                            self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.State()
                             self.state.parent = self
 
 
@@ -3370,12 +3088,12 @@ class Mpls(object):
                             .. attribute:: config
                             
                             	Configuration data 
-                            	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups.Config>`
+                            	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.Config>`
                             
                             .. attribute:: state
                             
                             	Operational state data 
-                            	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups.State>`
+                            	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.State>`
                             
                             
 
@@ -3386,9 +3104,9 @@ class Mpls(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups.Config()
+                                self.config = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.Config()
                                 self.config.parent = self
-                                self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups.State()
+                                self.state = Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.State()
                                 self.state.parent = self
 
 
@@ -3438,8 +3156,6 @@ class Mpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.exclude_group is not None:
                                         for child in self.exclude_group:
                                             if child is not None:
@@ -3457,14 +3173,10 @@ class Mpls(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                    return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups.Config']['meta_info']
+                                    return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.Config']['meta_info']
 
 
                             class State(object):
@@ -3513,8 +3225,6 @@ class Mpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.exclude_group is not None:
                                         for child in self.exclude_group:
                                             if child is not None:
@@ -3532,14 +3242,10 @@ class Mpls(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                    return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups.State']['meta_info']
+                                    return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.State']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -3555,30 +3261,18 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.config is not None and self.config._has_data():
-                                    return True
-
-                                if self.config is not None and self.config.is_presence():
                                     return True
 
                                 if self.state is not None and self.state._has_data():
                                     return True
 
-                                if self.state is not None and self.state.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.AdminGroups']['meta_info']
+                                return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups']['meta_info']
 
 
                         class Config(object):
@@ -3588,7 +3282,7 @@ class Mpls(object):
                             .. attribute:: cspf_tiebreaker
                             
                             	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
-                            	**type**\: :py:class:`CspfTieBreaking_Enum <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking_Enum>`
+                            	**type**\: :py:class:`CspfTieBreakingEnum <ydk.models.openconfig.openconfig_mpls.CspfTieBreakingEnum>`
                             
                             .. attribute:: explicit_path_name
                             
@@ -3677,8 +3371,6 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.cspf_tiebreaker is not None:
                                     return True
 
@@ -3711,14 +3403,10 @@ class Mpls(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.Config']['meta_info']
+                                return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config']['meta_info']
 
 
                         class State(object):
@@ -3728,7 +3416,7 @@ class Mpls(object):
                             .. attribute:: cspf_tiebreaker
                             
                             	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
-                            	**type**\: :py:class:`CspfTieBreaking_Enum <ydk.models.openconfig.openconfig_mpls.CspfTieBreaking_Enum>`
+                            	**type**\: :py:class:`CspfTieBreakingEnum <ydk.models.openconfig.openconfig_mpls.CspfTieBreakingEnum>`
                             
                             .. attribute:: explicit_path_name
                             
@@ -3817,8 +3505,6 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.cspf_tiebreaker is not None:
                                     return True
 
@@ -3851,14 +3537,10 @@ class Mpls(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.State']['meta_info']
+                                return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.State']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -3876,39 +3558,24 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.name is not None:
                                 return True
 
                             if self.admin_groups is not None and self.admin_groups._has_data():
                                 return True
 
-                            if self.admin_groups is not None and self.admin_groups.is_presence():
-                                return True
-
                             if self.config is not None and self.config._has_data():
-                                return True
-
-                            if self.config is not None and self.config.is_presence():
                                 return True
 
                             if self.state is not None and self.state._has_data():
                                 return True
 
-                            if self.state is not None and self.state.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                            return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths']['meta_info']
+                            return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths']['meta_info']
 
 
                     class State(object):
@@ -3945,21 +3612,15 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.destination is not None:
                                 return True
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                            return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes.State']['meta_info']
+                            return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -3975,12 +3636,7 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.config is not None and self.config._has_data():
-                            return True
-
-                        if self.config is not None and self.config.is_presence():
                             return True
 
                         if self.p2p_primary_paths is not None:
@@ -3996,19 +3652,12 @@ class Mpls(object):
                         if self.state is not None and self.state._has_data():
                             return True
 
-                        if self.state is not None and self.state.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                        return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2pTunnelAttributes']['meta_info']
+                        return meta._meta_table['Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes']['meta_info']
 
 
                 class State(object):
@@ -4045,7 +3694,7 @@ class Mpls(object):
                     .. attribute:: metric
                     
                     	LSP metric, either explicit or IGP
-                    	**type**\: one of { :py:class:`TeMetricType_Enum <ydk.models.openconfig.openconfig_mpls.TeMetricType_Enum>` | int }
+                    	**type**\: one of { :py:class:`TeMetricTypeEnum <ydk.models.openconfig.openconfig_mpls.TeMetricTypeEnum>` | int }
                     
                     .. attribute:: name
                     
@@ -4222,8 +3871,6 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bytes is not None:
                                 return True
 
@@ -4247,10 +3894,6 @@ class Mpls(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_mpls as meta
@@ -4270,15 +3913,10 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.admin_status is not None:
                             return True
 
                         if self.counters is not None and self.counters._has_data():
-                            return True
-
-                        if self.counters is not None and self.counters.is_presence():
                             return True
 
                         if self.description is not None:
@@ -4328,10 +3966,6 @@ class Mpls(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
@@ -4353,8 +3987,6 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.name is not None:
                         return True
 
@@ -4364,31 +3996,15 @@ class Mpls(object):
                     if self.bandwidth is not None and self.bandwidth._has_data():
                         return True
 
-                    if self.bandwidth is not None and self.bandwidth.is_presence():
-                        return True
-
                     if self.config is not None and self.config._has_data():
-                        return True
-
-                    if self.config is not None and self.config.is_presence():
                         return True
 
                     if self.p2p_tunnel_attributes is not None and self.p2p_tunnel_attributes._has_data():
                         return True
 
-                    if self.p2p_tunnel_attributes is not None and self.p2p_tunnel_attributes.is_presence():
-                        return True
-
                     if self.state is not None and self.state._has_data():
                         return True
 
-                    if self.state is not None and self.state.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4408,8 +4024,6 @@ class Mpls(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.named_explicit_paths is not None:
                     for child_ref in self.named_explicit_paths:
                         if child_ref._has_data():
@@ -4420,10 +4034,6 @@ class Mpls(object):
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4506,7 +4116,7 @@ class Mpls(object):
                     .. attribute:: incoming_label
                     
                     	label value on the incoming packet
-                    	**type**\: one of { int | :py:class:`MplsLabel_Enum <ydk.models.openconfig.openconfig_mpls_types.MplsLabel_Enum>` }
+                    	**type**\: one of { int | :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>` }
                     
                     .. attribute:: next_hop
                     
@@ -4516,7 +4126,7 @@ class Mpls(object):
                     .. attribute:: push_label
                     
                     	label value to push at the current hop for the LSP
-                    	**type**\: one of { int | :py:class:`MplsLabel_Enum <ydk.models.openconfig.openconfig_mpls_types.MplsLabel_Enum>` }
+                    	**type**\: one of { int | :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>` }
                     
                     
 
@@ -4545,8 +4155,6 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.incoming_label is not None:
                             return True
 
@@ -4556,10 +4164,6 @@ class Mpls(object):
                         if self.push_label is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4576,7 +4180,7 @@ class Mpls(object):
                     .. attribute:: incoming_label
                     
                     	label value on the incoming packet
-                    	**type**\: one of { int | :py:class:`MplsLabel_Enum <ydk.models.openconfig.openconfig_mpls_types.MplsLabel_Enum>` }
+                    	**type**\: one of { int | :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>` }
                     
                     .. attribute:: next_hop
                     
@@ -4586,7 +4190,7 @@ class Mpls(object):
                     .. attribute:: push_label
                     
                     	label value to push at the current hop for the LSP
-                    	**type**\: one of { int | :py:class:`MplsLabel_Enum <ydk.models.openconfig.openconfig_mpls_types.MplsLabel_Enum>` }
+                    	**type**\: one of { int | :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>` }
                     
                     
 
@@ -4615,8 +4219,6 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.incoming_label is not None:
                             return True
 
@@ -4626,10 +4228,6 @@ class Mpls(object):
                         if self.push_label is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4646,7 +4244,7 @@ class Mpls(object):
                     .. attribute:: incoming_label
                     
                     	label value on the incoming packet
-                    	**type**\: one of { int | :py:class:`MplsLabel_Enum <ydk.models.openconfig.openconfig_mpls_types.MplsLabel_Enum>` }
+                    	**type**\: one of { int | :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>` }
                     
                     .. attribute:: next_hop
                     
@@ -4656,7 +4254,7 @@ class Mpls(object):
                     .. attribute:: push_label
                     
                     	label value to push at the current hop for the LSP
-                    	**type**\: one of { int | :py:class:`MplsLabel_Enum <ydk.models.openconfig.openconfig_mpls_types.MplsLabel_Enum>` }
+                    	**type**\: one of { int | :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>` }
                     
                     
 
@@ -4685,8 +4283,6 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.incoming_label is not None:
                             return True
 
@@ -4696,10 +4292,6 @@ class Mpls(object):
                         if self.push_label is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4721,33 +4313,18 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.name is not None:
                         return True
 
                     if self.egress is not None and self.egress._has_data():
                         return True
 
-                    if self.egress is not None and self.egress.is_presence():
-                        return True
-
                     if self.ingress is not None and self.ingress._has_data():
-                        return True
-
-                    if self.ingress is not None and self.ingress.is_presence():
                         return True
 
                     if self.transit is not None and self.transit._has_data():
                         return True
 
-                    if self.transit is not None and self.transit.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4767,17 +4344,11 @@ class Mpls(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.label_switched_path is not None:
                     for child_ref in self.label_switched_path:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4846,6 +4417,11 @@ class Mpls(object):
                     	contains configuration stanzas for different LSP tunnel types (P2P, P2MP, etc.)
                     	**type**\: :py:class:`Tunnel <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel>`
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -4869,27 +4445,27 @@ class Mpls(object):
                         .. attribute:: ldp_type
                         
                         	specify basic or targeted LDP LSP
-                        	**type**\: :py:class:`LdpType_Enum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.LdpType_Enum>`
+                        	**type**\: :py:class:`LdpTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.LdpTypeEnum>`
                         
                         .. attribute:: mp2mp_lsp
                         
                         	properties of multipoint\-to\-multipoint tunnels
-                        	**type**\: :py:class:`Mp2mpLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2mpLsp>`
+                        	**type**\: :py:class:`Mp2MpLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp>`
                         
                         .. attribute:: p2mp_lsp
                         
                         	properties of point\-to\-multipoint tunnels
-                        	**type**\: :py:class:`P2mpLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2mpLsp>`
+                        	**type**\: :py:class:`P2MpLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2MpLsp>`
                         
                         .. attribute:: p2p_lsp
                         
                         	properties of point\-to\-point tunnels
-                        	**type**\: :py:class:`P2pLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2pLsp>`
+                        	**type**\: :py:class:`P2PLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp>`
                         
                         .. attribute:: tunnel_type
                         
                         	specifies the type of LSP, e.g., P2P or P2MP
-                        	**type**\: :py:class:`TunnelType_Enum <ydk.models.openconfig.openconfig_mpls_types.TunnelType_Enum>`
+                        	**type**\: :py:class:`TunnelTypeEnum <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeEnum>`
                         
                         
 
@@ -4901,45 +4477,43 @@ class Mpls(object):
                         def __init__(self):
                             self.parent = None
                             self.ldp_type = None
-                            self.mp2mp_lsp = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2mpLsp()
+                            self.mp2mp_lsp = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp()
                             self.mp2mp_lsp.parent = self
-                            self.p2mp_lsp = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2mpLsp()
+                            self.p2mp_lsp = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2MpLsp()
                             self.p2mp_lsp.parent = self
-                            self.p2p_lsp = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2pLsp()
+                            self.p2p_lsp = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp()
                             self.p2p_lsp.parent = self
                             self.tunnel_type = None
 
-                        class LdpType_Enum(Enum):
+                        class LdpTypeEnum(Enum):
                             """
-                            LdpType_Enum
+                            LdpTypeEnum
 
                             specify basic or targeted LDP LSP
 
-                            """
+                            .. data:: BASIC = 0
+
+                            	basic hop-by-hop LSP
+
+                            .. data:: TARGETED = 1
+
+                            	tLDP LSP
 
                             """
 
-                            basic hop\-by\-hop LSP
-
-                            """
                             BASIC = 0
 
-                            """
-
-                            tLDP LSP
-
-                            """
                             TARGETED = 1
 
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.LdpType_Enum']
+                                return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.LdpTypeEnum']
 
 
 
-                        class Mp2mpLsp(object):
+                        class Mp2MpLsp(object):
                             """
                             properties of multipoint\-to\-multipoint tunnels
                             
@@ -4952,7 +4526,6 @@ class Mpls(object):
 
                             def __init__(self):
                                 self.parent = None
-                                pass
 
                             @property
                             def _common_path(self):
@@ -4966,21 +4539,15 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2mpLsp']['meta_info']
+                                return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp']['meta_info']
 
 
-                        class P2mpLsp(object):
+                        class P2MpLsp(object):
                             """
                             properties of point\-to\-multipoint tunnels
                             
@@ -4993,7 +4560,6 @@ class Mpls(object):
 
                             def __init__(self):
                                 self.parent = None
-                                pass
 
                             @property
                             def _common_path(self):
@@ -5007,21 +4573,15 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2mpLsp']['meta_info']
+                                return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2MpLsp']['meta_info']
 
 
-                        class P2pLsp(object):
+                        class P2PLsp(object):
                             """
                             properties of point\-to\-point tunnels
                             
@@ -5053,8 +4613,6 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fec_address is not None:
                                     for child in self.fec_address:
                                         if child is not None:
@@ -5062,14 +4620,10 @@ class Mpls(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2pLsp']['meta_info']
+                                return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -5083,36 +4637,21 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ldp_type is not None:
                                 return True
 
                             if self.mp2mp_lsp is not None and self.mp2mp_lsp._has_data():
                                 return True
 
-                            if self.mp2mp_lsp is not None and self.mp2mp_lsp.is_presence():
-                                return True
-
                             if self.p2mp_lsp is not None and self.p2mp_lsp._has_data():
-                                return True
-
-                            if self.p2mp_lsp is not None and self.p2mp_lsp.is_presence():
                                 return True
 
                             if self.p2p_lsp is not None and self.p2p_lsp._has_data():
                                 return True
 
-                            if self.p2p_lsp is not None and self.p2p_lsp.is_presence():
-                                return True
-
                             if self.tunnel_type is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5132,19 +4671,10 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.tunnel is not None and self.tunnel._has_data():
                             return True
 
-                        if self.tunnel is not None and self.tunnel.is_presence():
-                            return True
-
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -5161,6 +4691,11 @@ class Mpls(object):
                     
                     	contains configuration stanzas for different LSP tunnel types (P2P, P2MP, etc.)
                     	**type**\: :py:class:`Tunnel <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -5185,12 +4720,12 @@ class Mpls(object):
                         .. attribute:: p2p_lsp
                         
                         	properties of point\-to\-point tunnels
-                        	**type**\: :py:class:`P2pLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp>`
+                        	**type**\: :py:class:`P2PLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp>`
                         
                         .. attribute:: tunnel_type
                         
                         	specifies the type of LSP, e.g., P2P or P2MP
-                        	**type**\: :py:class:`TunnelType_Enum <ydk.models.openconfig.openconfig_mpls_types.TunnelType_Enum>`
+                        	**type**\: :py:class:`TunnelTypeEnum <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeEnum>`
                         
                         
 
@@ -5201,19 +4736,19 @@ class Mpls(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.p2p_lsp = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp()
+                            self.p2p_lsp = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp()
                             self.p2p_lsp.parent = self
                             self.tunnel_type = None
 
 
-                        class P2pLsp(object):
+                        class P2PLsp(object):
                             """
                             properties of point\-to\-point tunnels
                             
                             .. attribute:: fec
                             
                             	List of FECs that are to be originated as SR LSPs
-                            	**type**\: list of :py:class:`Fec <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec>`
+                            	**type**\: list of :py:class:`Fec <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec>`
                             
                             
 
@@ -5241,17 +4776,17 @@ class Mpls(object):
                                 .. attribute:: config
                                 
                                 	Configuration parameters relating to the FEC to be advertised by SR
-                                	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.Config>`
+                                	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.Config>`
                                 
                                 .. attribute:: prefix_sid
                                 
                                 	Parameters relating to the Prefix\-SID used for the originated FEC
-                                	**type**\: :py:class:`PrefixSid <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid>`
+                                	**type**\: :py:class:`PrefixSid <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid>`
                                 
                                 .. attribute:: state
                                 
                                 	Operational state relating to a FEC advertised by SR
-                                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.State>`
+                                	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State>`
                                 
                                 
 
@@ -5263,11 +4798,11 @@ class Mpls(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.fec_address = None
-                                    self.config = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.Config()
+                                    self.config = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.Config()
                                     self.config.parent = self
-                                    self.prefix_sid = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid()
+                                    self.prefix_sid = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid()
                                     self.prefix_sid.parent = self
-                                    self.state = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.State()
+                                    self.state = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State()
                                     self.state.parent = self
 
 
@@ -5306,21 +4841,15 @@ class Mpls(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fec_address is not None:
                                             return True
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                        return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.Config']['meta_info']
+                                        return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.Config']['meta_info']
 
 
                                 class PrefixSid(object):
@@ -5331,12 +4860,12 @@ class Mpls(object):
                                     .. attribute:: config
                                     
                                     	Configuration parameters relating to the Prefix\-SID used for the originated FEC
-                                    	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.Config>`
+                                    	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config>`
                                     
                                     .. attribute:: state
                                     
                                     	Operational state parameters relating to the Prefix\-SID used for the originated FEC
-                                    	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.State>`
+                                    	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State>`
                                     
                                     
 
@@ -5347,9 +4876,9 @@ class Mpls(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.config = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.Config()
+                                        self.config = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config()
                                         self.config.parent = self
-                                        self.state = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.State()
+                                        self.state = Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State()
                                         self.state.parent = self
 
 
@@ -5361,7 +4890,7 @@ class Mpls(object):
                                         .. attribute:: last_hop_behavior
                                         
                                         	Configuration relating to the LFIB actions for the Prefix\-SID to be used by the penultimate\-hop
-                                        	**type**\: :py:class:`LastHopBehavior_Enum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.Config.LastHopBehavior_Enum>`
+                                        	**type**\: :py:class:`LastHopBehaviorEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.LastHopBehaviorEnum>`
                                         
                                         .. attribute:: node_flag
                                         
@@ -5371,7 +4900,7 @@ class Mpls(object):
                                         .. attribute:: type
                                         
                                         	Specifies how the value of the Prefix\-SID should be interpreted \- whether as an offset to the SRGB, or as an absolute value
-                                        	**type**\: :py:class:`Type_Enum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.Config.Type_Enum>`
+                                        	**type**\: :py:class:`TypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.TypeEnum>`
                                         
                                         
 
@@ -5386,82 +4915,90 @@ class Mpls(object):
                                             self.node_flag = None
                                             self.type = None
 
-                                        class LastHopBehavior_Enum(Enum):
+                                        class LastHopBehaviorEnum(Enum):
                                             """
-                                            LastHopBehavior_Enum
+                                            LastHopBehaviorEnum
 
                                             Configuration relating to the LFIB actions for the
+
                                             Prefix\-SID to be used by the penultimate\-hop
 
-                                            """
+                                            .. data:: EXPLICIT_NULL = 0
+
+                                            	Specifies that the explicit null label is to be used
+
+                                            	when the penultimate hop forwards a labelled packet to
+
+                                            	this Prefix-SID
+
+                                            .. data:: UNCHANGED = 1
+
+                                            	Specicies that the Prefix-SID's label value is to be
+
+                                            	left in place when the penultimate hop forwards to this
+
+                                            	Prefix-SID
+
+                                            .. data:: PHP = 2
+
+                                            	Specicies that the penultimate hop should pop the
+
+                                            	Prefix-SID label before forwarding to the eLER
 
                                             """
 
-                                            Specifies that the explicit null label is to be used
-                                            when the penultimate hop forwards a labelled packet to
-                                            this Prefix\-SID
-
-                                            """
                                             EXPLICIT_NULL = 0
 
-                                            """
-
-                                            Specicies that the Prefix\-SID's label value is to be
-                                            left in place when the penultimate hop forwards to this
-                                            Prefix\-SID
-
-                                            """
                                             UNCHANGED = 1
 
-                                            """
-
-                                            Specicies that the penultimate hop should pop the
-                                            Prefix\-SID label before forwarding to the eLER
-
-                                            """
                                             PHP = 2
 
 
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                                return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.Config.LastHopBehavior_Enum']
+                                                return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.LastHopBehaviorEnum']
 
 
-                                        class Type_Enum(Enum):
+                                        class TypeEnum(Enum):
                                             """
-                                            Type_Enum
+                                            TypeEnum
 
                                             Specifies how the value of the Prefix\-SID should be
+
                                             interpreted \- whether as an offset to the SRGB, or as an
+
                                             absolute value
 
-                                            """
+                                            .. data:: INDEX = 0
+
+                                            	Set when the value of the prefix SID should be specified
+
+                                            	as an off-set from the SRGB's zero-value. When multiple
+
+                                            	SRGBs are specified, the zero-value is the minimum
+
+                                            	of their lower bounds
+
+                                            .. data:: ABSOLUTE = 1
+
+                                            	Set when the value of a prefix SID is specified as the
+
+                                            	absolute value within an SRGB. It is an error to specify
+
+                                            	an absolute value outside of a specified SRGB
 
                                             """
 
-                                            Set when the value of the prefix SID should be specified
-                                            as an off\-set from the SRGB's zero\-value. When multiple
-                                            SRGBs are specified, the zero\-value is the minimum
-                                            of their lower bounds
-
-                                            """
                                             INDEX = 0
 
-                                            """
-
-                                            Set when the value of a prefix SID is specified as the
-                                            absolute value within an SRGB. It is an error to specify
-                                            an absolute value outside of a specified SRGB
-
-                                            """
                                             ABSOLUTE = 1
 
 
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                                return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.Config.Type_Enum']
+                                                return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.TypeEnum']
 
 
                                         @property
@@ -5478,8 +5015,6 @@ class Mpls(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.last_hop_behavior is not None:
                                                 return True
 
@@ -5491,14 +5026,10 @@ class Mpls(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                            return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.Config']['meta_info']
+                                            return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config']['meta_info']
 
 
                                     class State(object):
@@ -5509,7 +5040,7 @@ class Mpls(object):
                                         .. attribute:: last_hop_behavior
                                         
                                         	Configuration relating to the LFIB actions for the Prefix\-SID to be used by the penultimate\-hop
-                                        	**type**\: :py:class:`LastHopBehavior_Enum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.State.LastHopBehavior_Enum>`
+                                        	**type**\: :py:class:`LastHopBehaviorEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.LastHopBehaviorEnum>`
                                         
                                         .. attribute:: node_flag
                                         
@@ -5519,7 +5050,7 @@ class Mpls(object):
                                         .. attribute:: type
                                         
                                         	Specifies how the value of the Prefix\-SID should be interpreted \- whether as an offset to the SRGB, or as an absolute value
-                                        	**type**\: :py:class:`Type_Enum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.State.Type_Enum>`
+                                        	**type**\: :py:class:`TypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.TypeEnum>`
                                         
                                         
 
@@ -5534,82 +5065,90 @@ class Mpls(object):
                                             self.node_flag = None
                                             self.type = None
 
-                                        class LastHopBehavior_Enum(Enum):
+                                        class LastHopBehaviorEnum(Enum):
                                             """
-                                            LastHopBehavior_Enum
+                                            LastHopBehaviorEnum
 
                                             Configuration relating to the LFIB actions for the
+
                                             Prefix\-SID to be used by the penultimate\-hop
 
-                                            """
+                                            .. data:: EXPLICIT_NULL = 0
+
+                                            	Specifies that the explicit null label is to be used
+
+                                            	when the penultimate hop forwards a labelled packet to
+
+                                            	this Prefix-SID
+
+                                            .. data:: UNCHANGED = 1
+
+                                            	Specicies that the Prefix-SID's label value is to be
+
+                                            	left in place when the penultimate hop forwards to this
+
+                                            	Prefix-SID
+
+                                            .. data:: PHP = 2
+
+                                            	Specicies that the penultimate hop should pop the
+
+                                            	Prefix-SID label before forwarding to the eLER
 
                                             """
 
-                                            Specifies that the explicit null label is to be used
-                                            when the penultimate hop forwards a labelled packet to
-                                            this Prefix\-SID
-
-                                            """
                                             EXPLICIT_NULL = 0
 
-                                            """
-
-                                            Specicies that the Prefix\-SID's label value is to be
-                                            left in place when the penultimate hop forwards to this
-                                            Prefix\-SID
-
-                                            """
                                             UNCHANGED = 1
 
-                                            """
-
-                                            Specicies that the penultimate hop should pop the
-                                            Prefix\-SID label before forwarding to the eLER
-
-                                            """
                                             PHP = 2
 
 
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                                return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.State.LastHopBehavior_Enum']
+                                                return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.LastHopBehaviorEnum']
 
 
-                                        class Type_Enum(Enum):
+                                        class TypeEnum(Enum):
                                             """
-                                            Type_Enum
+                                            TypeEnum
 
                                             Specifies how the value of the Prefix\-SID should be
+
                                             interpreted \- whether as an offset to the SRGB, or as an
+
                                             absolute value
 
-                                            """
+                                            .. data:: INDEX = 0
+
+                                            	Set when the value of the prefix SID should be specified
+
+                                            	as an off-set from the SRGB's zero-value. When multiple
+
+                                            	SRGBs are specified, the zero-value is the minimum
+
+                                            	of their lower bounds
+
+                                            .. data:: ABSOLUTE = 1
+
+                                            	Set when the value of a prefix SID is specified as the
+
+                                            	absolute value within an SRGB. It is an error to specify
+
+                                            	an absolute value outside of a specified SRGB
 
                                             """
 
-                                            Set when the value of the prefix SID should be specified
-                                            as an off\-set from the SRGB's zero\-value. When multiple
-                                            SRGBs are specified, the zero\-value is the minimum
-                                            of their lower bounds
-
-                                            """
                                             INDEX = 0
 
-                                            """
-
-                                            Set when the value of a prefix SID is specified as the
-                                            absolute value within an SRGB. It is an error to specify
-                                            an absolute value outside of a specified SRGB
-
-                                            """
                                             ABSOLUTE = 1
 
 
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                                return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.State.Type_Enum']
+                                                return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.TypeEnum']
 
 
                                         @property
@@ -5626,8 +5165,6 @@ class Mpls(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.last_hop_behavior is not None:
                                                 return True
 
@@ -5639,14 +5176,10 @@ class Mpls(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                            return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid.State']['meta_info']
+                                            return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -5662,30 +5195,18 @@ class Mpls(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.config is not None and self.config._has_data():
-                                            return True
-
-                                        if self.config is not None and self.config.is_presence():
                                             return True
 
                                         if self.state is not None and self.state._has_data():
                                             return True
 
-                                        if self.state is not None and self.state.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                        return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.PrefixSid']['meta_info']
+                                        return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid']['meta_info']
 
 
                                 class State(object):
@@ -5722,21 +5243,15 @@ class Mpls(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fec_address is not None:
                                             return True
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                        return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec.State']['meta_info']
+                                        return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -5752,39 +5267,24 @@ class Mpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.fec_address is not None:
                                         return True
 
                                     if self.config is not None and self.config._has_data():
                                         return True
 
-                                    if self.config is not None and self.config.is_presence():
-                                        return True
-
                                     if self.prefix_sid is not None and self.prefix_sid._has_data():
-                                        return True
-
-                                    if self.prefix_sid is not None and self.prefix_sid.is_presence():
                                         return True
 
                                     if self.state is not None and self.state._has_data():
                                         return True
 
-                                    if self.state is not None and self.state.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                    return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp.Fec']['meta_info']
+                                    return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -5798,8 +5298,6 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fec is not None:
                                     for child_ref in self.fec:
                                         if child_ref._has_data():
@@ -5807,14 +5305,10 @@ class Mpls(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2pLsp']['meta_info']
+                                return meta._meta_table['Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -5828,21 +5322,12 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.p2p_lsp is not None and self.p2p_lsp._has_data():
-                                return True
-
-                            if self.p2p_lsp is not None and self.p2p_lsp.is_presence():
                                 return True
 
                             if self.tunnel_type is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5862,19 +5347,10 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.tunnel is not None and self.tunnel._has_data():
                             return True
 
-                        if self.tunnel is not None and self.tunnel.is_presence():
-                            return True
-
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -5893,24 +5369,12 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ldp is not None and self.ldp._has_data():
-                        return True
-
-                    if self.ldp is not None and self.ldp.is_presence():
                         return True
 
                     if self.segment_routing is not None and self.segment_routing._has_data():
                         return True
 
-                    if self.segment_routing is not None and self.segment_routing.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5930,18 +5394,9 @@ class Mpls(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.path_setup_protocol is not None and self.path_setup_protocol._has_data():
                     return True
 
-                if self.path_setup_protocol is not None and self.path_setup_protocol.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -5961,30 +5416,15 @@ class Mpls(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.constrained_path is not None and self.constrained_path._has_data():
-                return True
-
-            if self.constrained_path is not None and self.constrained_path.is_presence():
                 return True
 
             if self.static_lsps is not None and self.static_lsps._has_data():
                 return True
 
-            if self.static_lsps is not None and self.static_lsps.is_presence():
-                return True
-
             if self.unconstrained_path is not None and self.unconstrained_path._has_data():
                 return True
 
-            if self.unconstrained_path is not None and self.unconstrained_path.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -6064,7 +5504,6 @@ class Mpls(object):
 
                 def __init__(self):
                     self.parent = None
-                    pass
 
                 @property
                 def _common_path(self):
@@ -6078,12 +5517,6 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6103,18 +5536,9 @@ class Mpls(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.timers is not None and self.timers._has_data():
                     return True
 
-                if self.timers is not None and self.timers.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -6288,8 +5712,6 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.enable is not None:
                                 return True
 
@@ -6299,10 +5721,6 @@ class Mpls(object):
                             if self.restart_time is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6360,8 +5778,6 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.enable is not None:
                                 return True
 
@@ -6371,10 +5787,6 @@ class Mpls(object):
                             if self.restart_time is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6394,24 +5806,12 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.config is not None and self.config._has_data():
-                            return True
-
-                        if self.config is not None and self.config.is_presence():
                             return True
 
                         if self.state is not None and self.state._has_data():
                             return True
 
-                        if self.state is not None and self.state.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -6490,18 +5890,12 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.hello_interval is not None:
                                 return True
 
                             if self.refresh_reduction is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6550,18 +5944,12 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.hello_interval is not None:
                                 return True
 
                             if self.refresh_reduction is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6581,24 +5969,12 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.config is not None and self.config._has_data():
-                            return True
-
-                        if self.config is not None and self.config.is_presence():
                             return True
 
                         if self.state is not None and self.state._has_data():
                             return True
 
-                        if self.state is not None and self.state.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -6678,18 +6054,12 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.enable is not None:
                                 return True
 
                             if self.soft_preemption_timeout is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6739,18 +6109,12 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.enable is not None:
                                 return True
 
                             if self.soft_preemption_timeout is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6770,24 +6134,12 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.config is not None and self.config._has_data():
-                            return True
-
-                        if self.config is not None and self.config.is_presence():
                             return True
 
                         if self.state is not None and self.state._has_data():
                             return True
 
-                        if self.state is not None and self.state.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -7012,8 +6364,6 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.in_ack_messages is not None:
                                 return True
 
@@ -7079,10 +6429,6 @@ class Mpls(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_mpls as meta
@@ -7100,18 +6446,9 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.counters is not None and self.counters._has_data():
                             return True
 
-                        if self.counters is not None and self.counters.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -7131,36 +6468,18 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.graceful_restart is not None and self.graceful_restart._has_data():
-                        return True
-
-                    if self.graceful_restart is not None and self.graceful_restart.is_presence():
                         return True
 
                     if self.hellos is not None and self.hellos._has_data():
                         return True
 
-                    if self.hellos is not None and self.hellos.is_presence():
-                        return True
-
                     if self.soft_preemption is not None and self.soft_preemption._has_data():
-                        return True
-
-                    if self.soft_preemption is not None and self.soft_preemption.is_presence():
                         return True
 
                     if self.state is not None and self.state._has_data():
                         return True
 
-                    if self.state is not None and self.state.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7328,18 +6647,12 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.authentication_key is not None:
                                     return True
 
                                 if self.enable is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7391,18 +6704,12 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.authentication_key is not None:
                                     return True
 
                                 if self.enable is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7424,24 +6731,12 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.config is not None and self.config._has_data():
-                                return True
-
-                            if self.config is not None and self.config.is_presence():
                                 return True
 
                             if self.state is not None and self.state._has_data():
                                 return True
 
-                            if self.state is not None and self.state.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7484,15 +6779,9 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7573,18 +6862,12 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.hello_interval is not None:
                                     return True
 
                                 if self.refresh_reduction is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7635,18 +6918,12 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.hello_interval is not None:
                                     return True
 
                                 if self.refresh_reduction is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7668,24 +6945,12 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.config is not None and self.config._has_data():
-                                return True
-
-                            if self.config is not None and self.config.is_presence():
                                 return True
 
                             if self.state is not None and self.state._has_data():
                                 return True
 
-                            if self.state is not None and self.state.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7765,18 +7030,12 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bypass_optimize_interval is not None:
                                     return True
 
                                 if self.link_protection_style_requested is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7827,18 +7086,12 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bypass_optimize_interval is not None:
                                     return True
 
                                 if self.link_protection_style_requested is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7860,24 +7113,12 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.config is not None and self.config._has_data():
-                                return True
-
-                            if self.config is not None and self.config.is_presence():
                                 return True
 
                             if self.state is not None and self.state._has_data():
                                 return True
 
-                            if self.state is not None and self.state.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7987,8 +7228,6 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.priority is not None:
                                     return True
 
@@ -7998,10 +7237,6 @@ class Mpls(object):
                                 if self.reserved_bandwidth is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8182,8 +7417,6 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.in_ack_messages is not None:
                                     return True
 
@@ -8240,10 +7473,6 @@ class Mpls(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
@@ -8263,8 +7492,6 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_reservation_count is not None:
                                 return True
 
@@ -8276,16 +7503,9 @@ class Mpls(object):
                             if self.counters is not None and self.counters._has_data():
                                 return True
 
-                            if self.counters is not None and self.counters.is_presence():
-                                return True
-
                             if self.highwater_mark is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8361,15 +7581,9 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.subscription is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8415,15 +7629,9 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.subscription is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8445,24 +7653,12 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.config is not None and self.config._has_data():
-                                return True
-
-                            if self.config is not None and self.config.is_presence():
                                 return True
 
                             if self.state is not None and self.state._has_data():
                                 return True
 
-                            if self.state is not None and self.state.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8484,51 +7680,27 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_name is not None:
                             return True
 
                         if self.authentication is not None and self.authentication._has_data():
                             return True
 
-                        if self.authentication is not None and self.authentication.is_presence():
-                            return True
-
                         if self.config is not None and self.config._has_data():
-                            return True
-
-                        if self.config is not None and self.config.is_presence():
                             return True
 
                         if self.hellos is not None and self.hellos._has_data():
                             return True
 
-                        if self.hellos is not None and self.hellos.is_presence():
-                            return True
-
                         if self.protection is not None and self.protection._has_data():
-                            return True
-
-                        if self.protection is not None and self.protection.is_presence():
                             return True
 
                         if self.state is not None and self.state._has_data():
                             return True
 
-                        if self.state is not None and self.state.is_presence():
-                            return True
-
                         if self.subscription is not None and self.subscription._has_data():
                             return True
 
-                        if self.subscription is not None and self.subscription.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8548,17 +7720,11 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -8610,7 +7776,6 @@ class Mpls(object):
 
                     def __init__(self):
                         self.parent = None
-                        pass
 
                     @property
                     def _common_path(self):
@@ -8624,12 +7789,6 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8679,7 +7838,7 @@ class Mpls(object):
                         .. attribute:: neighbor_status
                         
                         	Enumuration of possible RSVP neighbor states
-                        	**type**\: :py:class:`NeighborStatus_Enum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor.NeighborStatus_Enum>`
+                        	**type**\: :py:class:`NeighborStatusEnum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor.NeighborStatusEnum>`
                         
                         .. attribute:: refresh_reduction
                         
@@ -8700,35 +7859,35 @@ class Mpls(object):
                             self.neighbor_status = None
                             self.refresh_reduction = None
 
-                        class NeighborStatus_Enum(Enum):
+                        class NeighborStatusEnum(Enum):
                             """
-                            NeighborStatus_Enum
+                            NeighborStatusEnum
 
                             Enumuration of possible RSVP neighbor states
 
-                            """
+                            .. data:: UP = 0
+
+                            	RSVP hello messages are detected from the neighbor
+
+                            .. data:: DOWN = 1
+
+                            	RSVP neighbor not detected as up, due to a
+
+                            	communication failure or IGP notification
+
+                            	the neighbor is unavailable
 
                             """
 
-                            RSVP hello messages are detected from the neighbor
-
-                            """
                             UP = 0
 
-                            """
-
-                            RSVP neighbor not detected as up, due to a
-                            communication failure or IGP notification
-                            the neighbor is unavailable
-
-                            """
                             DOWN = 1
 
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor.NeighborStatus_Enum']
+                                return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor.NeighborStatusEnum']
 
 
                         @property
@@ -8745,8 +7904,6 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 return True
 
@@ -8759,10 +7916,6 @@ class Mpls(object):
                             if self.refresh_reduction is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8782,17 +7935,11 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.neighbor is not None:
                             for child_ref in self.neighbor:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8812,24 +7959,12 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.config is not None and self.config._has_data():
-                        return True
-
-                    if self.config is not None and self.config.is_presence():
                         return True
 
                     if self.state is not None and self.state._has_data():
                         return True
 
-                    if self.state is not None and self.state.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -8880,7 +8015,6 @@ class Mpls(object):
 
                     def __init__(self):
                         self.parent = None
-                        pass
 
                     @property
                     def _common_path(self):
@@ -8894,12 +8028,6 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8968,17 +8096,17 @@ class Mpls(object):
                         .. attribute:: label_in
                         
                         	Incoming MPLS label associated with this RSVP session
-                        	**type**\: one of { int | :py:class:`MplsLabel_Enum <ydk.models.openconfig.openconfig_mpls_types.MplsLabel_Enum>` }
+                        	**type**\: one of { int | :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>` }
                         
                         .. attribute:: label_out
                         
                         	Outgoing MPLS label associated with this RSVP session
-                        	**type**\: one of { int | :py:class:`MplsLabel_Enum <ydk.models.openconfig.openconfig_mpls_types.MplsLabel_Enum>` }
+                        	**type**\: one of { int | :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>` }
                         
                         .. attribute:: status
                         
                         	Enumeration of RSVP session states
-                        	**type**\: :py:class:`Status_Enum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.Status_Enum>`
+                        	**type**\: :py:class:`StatusEnum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.StatusEnum>`
                         
                         .. attribute:: tunnel_id
                         
@@ -8990,7 +8118,7 @@ class Mpls(object):
                         .. attribute:: type
                         
                         	Enumeration of possible RSVP session types
-                        	**type**\: :py:class:`Type_Enum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.Type_Enum>`
+                        	**type**\: :py:class:`TypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.TypeEnum>`
                         
                         
 
@@ -9012,69 +8140,64 @@ class Mpls(object):
                             self.tunnel_id = None
                             self.type = None
 
-                        class Status_Enum(Enum):
+                        class StatusEnum(Enum):
                             """
-                            Status_Enum
+                            StatusEnum
 
                             Enumeration of RSVP session states
 
-                            """
+                            .. data:: UP = 0
+
+                            	RSVP session is up
+
+                            .. data:: DOWN = 1
+
+                            	RSVP session is down
 
                             """
 
-                            RSVP session is up
-
-                            """
                             UP = 0
 
-                            """
-
-                            RSVP session is down
-
-                            """
                             DOWN = 1
 
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.Status_Enum']
+                                return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.StatusEnum']
 
 
-                        class Type_Enum(Enum):
+                        class TypeEnum(Enum):
                             """
-                            Type_Enum
+                            TypeEnum
 
                             Enumeration of possible RSVP session types
 
-                            """
+                            .. data:: SOURCE = 0
+
+                            	RSVP session originates on this device
+
+                            .. data:: TRANSIT = 1
+
+                            	RSVP session transits this device only
+
+                            .. data:: DESTINATION = 2
+
+                            	RSVP session terminates on this device
 
                             """
 
-                            RSVP session originates on this device
-
-                            """
                             SOURCE = 0
 
-                            """
-
-                            RSVP session transits this device only
-
-                            """
                             TRANSIT = 1
 
-                            """
-
-                            RSVP session terminates on this device
-
-                            """
                             DESTINATION = 2
 
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.Type_Enum']
+                                return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.TypeEnum']
 
 
                         @property
@@ -9097,8 +8220,6 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.destination_address is not None:
                                 return True
 
@@ -9133,10 +8254,6 @@ class Mpls(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_mpls as meta
@@ -9154,17 +8271,11 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.session is not None:
                             for child_ref in self.session:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9184,24 +8295,12 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.config is not None and self.config._has_data():
-                        return True
-
-                    if self.config is not None and self.config.is_presence():
                         return True
 
                     if self.state is not None and self.state._has_data():
                         return True
 
-                    if self.state is not None and self.state.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9221,36 +8320,18 @@ class Mpls(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.global_ is not None and self.global_._has_data():
-                    return True
-
-                if self.global_ is not None and self.global_.is_presence():
                     return True
 
                 if self.interface_attributes is not None and self.interface_attributes._has_data():
                     return True
 
-                if self.interface_attributes is not None and self.interface_attributes.is_presence():
-                    return True
-
                 if self.neighbors is not None and self.neighbors._has_data():
-                    return True
-
-                if self.neighbors is not None and self.neighbors.is_presence():
                     return True
 
                 if self.sessions is not None and self.sessions._has_data():
                     return True
 
-                if self.sessions is not None and self.sessions.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -9371,7 +8452,7 @@ class Mpls(object):
                         .. attribute:: advertise
                         
                         	Specifies the type of adjacency SID which should be advertised for the specified entity
-                        	**type**\: list of :py:class:`Advertise_Enum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config.Advertise_Enum>`
+                        	**type**\: list of :py:class:`AdvertiseEnum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config.AdvertiseEnum>`
                         
                         .. attribute:: groups
                         
@@ -9392,40 +8473,45 @@ class Mpls(object):
                             self.advertise = []
                             self.groups = []
 
-                        class Advertise_Enum(Enum):
+                        class AdvertiseEnum(Enum):
                             """
-                            Advertise_Enum
+                            AdvertiseEnum
 
                             Specifies the type of adjacency SID which should be
+
                             advertised for the specified entity.
 
-                            """
+                            .. data:: PROTECTED = 0
+
+                            	Advertise an Adjacency-SID for this interface, which is
+
+                            	eligible to be protected using a local protection
+
+                            	mechanism on the local LSR. The local protection
+
+                            	mechanism selected is dependent upon the configuration
+
+                            	of RSVP-TE FRR or LFA elsewhere on the system
+
+                            .. data:: UNPROTECTED = 1
+
+                            	Advertise an Adajcency-SID for this interface, which is
+
+                            	explicitly excluded from being protected by any local
+
+                            	protection mechanism
 
                             """
 
-                            Advertise an Adjacency\-SID for this interface, which is
-                            eligible to be protected using a local protection
-                            mechanism on the local LSR. The local protection
-                            mechanism selected is dependent upon the configuration
-                            of RSVP\-TE FRR or LFA elsewhere on the system
-
-                            """
                             PROTECTED = 0
 
-                            """
-
-                            Advertise an Adajcency\-SID for this interface, which is
-                            explicitly excluded from being protected by any local
-                            protection mechanism
-
-                            """
                             UNPROTECTED = 1
 
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                return meta._meta_table['Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config.Advertise_Enum']
+                                return meta._meta_table['Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config.AdvertiseEnum']
 
 
                         @property
@@ -9442,8 +8528,6 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.advertise is not None:
                                 for child in self.advertise:
                                     if child is not None:
@@ -9454,10 +8538,6 @@ class Mpls(object):
                                     if child is not None:
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -9474,7 +8554,7 @@ class Mpls(object):
                         .. attribute:: advertise
                         
                         	Specifies the type of adjacency SID which should be advertised for the specified entity
-                        	**type**\: list of :py:class:`Advertise_Enum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State.Advertise_Enum>`
+                        	**type**\: list of :py:class:`AdvertiseEnum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State.AdvertiseEnum>`
                         
                         .. attribute:: groups
                         
@@ -9495,40 +8575,45 @@ class Mpls(object):
                             self.advertise = []
                             self.groups = []
 
-                        class Advertise_Enum(Enum):
+                        class AdvertiseEnum(Enum):
                             """
-                            Advertise_Enum
+                            AdvertiseEnum
 
                             Specifies the type of adjacency SID which should be
+
                             advertised for the specified entity.
 
-                            """
+                            .. data:: PROTECTED = 0
+
+                            	Advertise an Adjacency-SID for this interface, which is
+
+                            	eligible to be protected using a local protection
+
+                            	mechanism on the local LSR. The local protection
+
+                            	mechanism selected is dependent upon the configuration
+
+                            	of RSVP-TE FRR or LFA elsewhere on the system
+
+                            .. data:: UNPROTECTED = 1
+
+                            	Advertise an Adajcency-SID for this interface, which is
+
+                            	explicitly excluded from being protected by any local
+
+                            	protection mechanism
 
                             """
 
-                            Advertise an Adjacency\-SID for this interface, which is
-                            eligible to be protected using a local protection
-                            mechanism on the local LSR. The local protection
-                            mechanism selected is dependent upon the configuration
-                            of RSVP\-TE FRR or LFA elsewhere on the system
-
-                            """
                             PROTECTED = 0
 
-                            """
-
-                            Advertise an Adajcency\-SID for this interface, which is
-                            explicitly excluded from being protected by any local
-                            protection mechanism
-
-                            """
                             UNPROTECTED = 1
 
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                return meta._meta_table['Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State.Advertise_Enum']
+                                return meta._meta_table['Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State.AdvertiseEnum']
 
 
                         @property
@@ -9545,8 +8630,6 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.advertise is not None:
                                 for child in self.advertise:
                                     if child is not None:
@@ -9557,10 +8640,6 @@ class Mpls(object):
                                     if child is not None:
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -9582,24 +8661,12 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.config is not None and self.config._has_data():
-                            return True
-
-                        if self.config is not None and self.config.is_presence():
                             return True
 
                         if self.state is not None and self.state._has_data():
                             return True
 
-                        if self.state is not None and self.state.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9643,15 +8710,9 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9695,15 +8756,9 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9725,33 +8780,18 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface is not None:
                         return True
 
                     if self.adjacency_sid is not None and self.adjacency_sid._has_data():
                         return True
 
-                    if self.adjacency_sid is not None and self.adjacency_sid.is_presence():
-                        return True
-
                     if self.config is not None and self.config._has_data():
-                        return True
-
-                    if self.config is not None and self.config.is_presence():
                         return True
 
                     if self.state is not None and self.state._has_data():
                         return True
 
-                    if self.state is not None and self.state.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9852,18 +8892,12 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.lower_bound is not None:
                             return True
 
                         if self.upper_bound is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9941,8 +8975,6 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.free is not None:
                             return True
 
@@ -9958,10 +8990,6 @@ class Mpls(object):
                         if self.used is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9985,8 +9013,6 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.lower_bound is not None:
                         return True
 
@@ -9996,19 +9022,9 @@ class Mpls(object):
                     if self.config is not None and self.config._has_data():
                         return True
 
-                    if self.config is not None and self.config.is_presence():
-                        return True
-
                     if self.state is not None and self.state._has_data():
                         return True
 
-                    if self.state is not None and self.state.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -10028,8 +9044,6 @@ class Mpls(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.interfaces is not None:
                     for child_ref in self.interfaces:
                         if child_ref._has_data():
@@ -10040,10 +9054,6 @@ class Mpls(object):
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -10063,30 +9073,15 @@ class Mpls(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.ldp is not None and self.ldp._has_data():
-                return True
-
-            if self.ldp is not None and self.ldp.is_presence():
                 return True
 
             if self.rsvp_te is not None and self.rsvp_te._has_data():
                 return True
 
-            if self.rsvp_te is not None and self.rsvp_te.is_presence():
-                return True
-
             if self.segment_routing is not None and self.segment_routing._has_data():
                 return True
 
-            if self.segment_routing is not None and self.segment_routing.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -10191,12 +9186,12 @@ class Mpls(object):
                 .. attribute:: threshold_specification
                 
                 	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
-                	**type**\: :py:class:`ThresholdSpecification_Enum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdSpecification_Enum>`
+                	**type**\: :py:class:`ThresholdSpecificationEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdSpecificationEnum>`
                 
                 .. attribute:: threshold_type
                 
                 	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
-                	**type**\: :py:class:`ThresholdType_Enum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdType_Enum>`
+                	**type**\: :py:class:`ThresholdTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdTypeEnum>`
                 
                 .. attribute:: up_down_thresholds
                 
@@ -10228,92 +9223,118 @@ class Mpls(object):
                     self.up_down_thresholds = []
                     self.up_thresholds = []
 
-                class ThresholdSpecification_Enum(Enum):
+                class ThresholdSpecificationEnum(Enum):
                     """
-                    ThresholdSpecification_Enum
+                    ThresholdSpecificationEnum
 
                     This value specifies whether a single set of threshold
+
                     values should be used for both increasing and decreasing
+
                     bandwidth when determining whether to trigger updated
+
                     bandwidth values to be flooded in the IGP TE extensions.
+
                     MIRRORED\-UP\-DOWN indicates that a single value (or set of
+
                     values) should be used for both increasing and decreasing
+
                     values, where SEPARATE\-UP\-DOWN specifies that the increasing
+
                     and decreasing values will be separately specified
 
-                    """
+                    .. data:: MIRRORED_UP_DOWN = 0
+
+                    	MIRRORED-UP-DOWN indicates that a single set of
+
+                    	threshold values should be used for both increasing
+
+                    	and decreasing bandwidth when determining whether
+
+                    	to trigger updated bandwidth values to be flooded
+
+                    	in the IGP TE extensions.
+
+                    .. data:: SEPARATE_UP_DOWN = 1
+
+                    	SEPARATE-UP-DOWN indicates that a separate
+
+                    	threshold values should be used for the increasing
+
+                    	and decreasing bandwidth when determining whether
+
+                    	to trigger updated bandwidth values to be flooded
+
+                    	in the IGP TE extensions.
 
                     """
 
-                    MIRRORED\-UP\-DOWN indicates that a single set of
-                    threshold values should be used for both increasing
-                    and decreasing bandwidth when determining whether
-                    to trigger updated bandwidth values to be flooded
-                    in the IGP TE extensions.
-
-                    """
                     MIRRORED_UP_DOWN = 0
 
-                    """
-
-                    SEPARATE\-UP\-DOWN indicates that a separate
-                    threshold values should be used for the increasing
-                    and decreasing bandwidth when determining whether
-                    to trigger updated bandwidth values to be flooded
-                    in the IGP TE extensions.
-
-                    """
                     SEPARATE_UP_DOWN = 1
 
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                        return meta._meta_table['Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdSpecification_Enum']
+                        return meta._meta_table['Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdSpecificationEnum']
 
 
-                class ThresholdType_Enum(Enum):
+                class ThresholdTypeEnum(Enum):
                     """
-                    ThresholdType_Enum
+                    ThresholdTypeEnum
 
                     The type of threshold that should be used to specify the
+
                     values at which bandwidth is flooded. DELTA indicates that
+
                     the local system should flood IGP updates when a change in
+
                     reserved bandwidth >= the specified delta occurs on the
+
                     interface. Where THRESHOLD\-CROSSED is specified, the local
+
                     system should trigger an update (and hence flood) the
+
                     reserved bandwidth when the reserved bandwidth changes such
+
                     that it crosses, or becomes equal to one of the threshold
+
                     values
 
-                    """
+                    .. data:: DELTA = 0
+
+                    	DELTA indicates that the local
+
+                    	system should flood IGP updates when a
+
+                    	change in reserved bandwidth >= the specified
+
+                    	delta occurs on the interface.
+
+                    .. data:: THRESHOLD_CROSSED = 1
+
+                    	THRESHOLD-CROSSED indicates that
+
+                    	the local system should trigger an update (and
+
+                    	hence flood) the reserved bandwidth when the
+
+                    	reserved bandwidth changes such that it crosses,
+
+                    	or becomes equal to one of the threshold values.
 
                     """
 
-                    DELTA indicates that the local
-                    system should flood IGP updates when a
-                    change in reserved bandwidth >= the specified
-                    delta occurs on the interface.
-
-                    """
                     DELTA = 0
 
-                    """
-
-                    THRESHOLD\-CROSSED indicates that
-                    the local system should trigger an update (and
-                    hence flood) the reserved bandwidth when the
-                    reserved bandwidth changes such that it crosses,
-                    or becomes equal to one of the threshold values.
-
-                    """
                     THRESHOLD_CROSSED = 1
 
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                        return meta._meta_table['Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdType_Enum']
+                        return meta._meta_table['Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdTypeEnum']
 
 
                 @property
@@ -10328,8 +9349,6 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.delta_percentage is not None:
                         return True
 
@@ -10354,10 +9373,6 @@ class Mpls(object):
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -10387,12 +9402,12 @@ class Mpls(object):
                 .. attribute:: threshold_specification
                 
                 	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
-                	**type**\: :py:class:`ThresholdSpecification_Enum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdSpecification_Enum>`
+                	**type**\: :py:class:`ThresholdSpecificationEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdSpecificationEnum>`
                 
                 .. attribute:: threshold_type
                 
                 	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
-                	**type**\: :py:class:`ThresholdType_Enum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdType_Enum>`
+                	**type**\: :py:class:`ThresholdTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdTypeEnum>`
                 
                 .. attribute:: up_down_thresholds
                 
@@ -10424,92 +9439,118 @@ class Mpls(object):
                     self.up_down_thresholds = []
                     self.up_thresholds = []
 
-                class ThresholdSpecification_Enum(Enum):
+                class ThresholdSpecificationEnum(Enum):
                     """
-                    ThresholdSpecification_Enum
+                    ThresholdSpecificationEnum
 
                     This value specifies whether a single set of threshold
+
                     values should be used for both increasing and decreasing
+
                     bandwidth when determining whether to trigger updated
+
                     bandwidth values to be flooded in the IGP TE extensions.
+
                     MIRRORED\-UP\-DOWN indicates that a single value (or set of
+
                     values) should be used for both increasing and decreasing
+
                     values, where SEPARATE\-UP\-DOWN specifies that the increasing
+
                     and decreasing values will be separately specified
 
-                    """
+                    .. data:: MIRRORED_UP_DOWN = 0
+
+                    	MIRRORED-UP-DOWN indicates that a single set of
+
+                    	threshold values should be used for both increasing
+
+                    	and decreasing bandwidth when determining whether
+
+                    	to trigger updated bandwidth values to be flooded
+
+                    	in the IGP TE extensions.
+
+                    .. data:: SEPARATE_UP_DOWN = 1
+
+                    	SEPARATE-UP-DOWN indicates that a separate
+
+                    	threshold values should be used for the increasing
+
+                    	and decreasing bandwidth when determining whether
+
+                    	to trigger updated bandwidth values to be flooded
+
+                    	in the IGP TE extensions.
 
                     """
 
-                    MIRRORED\-UP\-DOWN indicates that a single set of
-                    threshold values should be used for both increasing
-                    and decreasing bandwidth when determining whether
-                    to trigger updated bandwidth values to be flooded
-                    in the IGP TE extensions.
-
-                    """
                     MIRRORED_UP_DOWN = 0
 
-                    """
-
-                    SEPARATE\-UP\-DOWN indicates that a separate
-                    threshold values should be used for the increasing
-                    and decreasing bandwidth when determining whether
-                    to trigger updated bandwidth values to be flooded
-                    in the IGP TE extensions.
-
-                    """
                     SEPARATE_UP_DOWN = 1
 
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                        return meta._meta_table['Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdSpecification_Enum']
+                        return meta._meta_table['Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdSpecificationEnum']
 
 
-                class ThresholdType_Enum(Enum):
+                class ThresholdTypeEnum(Enum):
                     """
-                    ThresholdType_Enum
+                    ThresholdTypeEnum
 
                     The type of threshold that should be used to specify the
+
                     values at which bandwidth is flooded. DELTA indicates that
+
                     the local system should flood IGP updates when a change in
+
                     reserved bandwidth >= the specified delta occurs on the
+
                     interface. Where THRESHOLD\-CROSSED is specified, the local
+
                     system should trigger an update (and hence flood) the
+
                     reserved bandwidth when the reserved bandwidth changes such
+
                     that it crosses, or becomes equal to one of the threshold
+
                     values
 
-                    """
+                    .. data:: DELTA = 0
+
+                    	DELTA indicates that the local
+
+                    	system should flood IGP updates when a
+
+                    	change in reserved bandwidth >= the specified
+
+                    	delta occurs on the interface.
+
+                    .. data:: THRESHOLD_CROSSED = 1
+
+                    	THRESHOLD-CROSSED indicates that
+
+                    	the local system should trigger an update (and
+
+                    	hence flood) the reserved bandwidth when the
+
+                    	reserved bandwidth changes such that it crosses,
+
+                    	or becomes equal to one of the threshold values.
 
                     """
 
-                    DELTA indicates that the local
-                    system should flood IGP updates when a
-                    change in reserved bandwidth >= the specified
-                    delta occurs on the interface.
-
-                    """
                     DELTA = 0
 
-                    """
-
-                    THRESHOLD\-CROSSED indicates that
-                    the local system should trigger an update (and
-                    hence flood) the reserved bandwidth when the
-                    reserved bandwidth changes such that it crosses,
-                    or becomes equal to one of the threshold values.
-
-                    """
                     THRESHOLD_CROSSED = 1
 
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                        return meta._meta_table['Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdType_Enum']
+                        return meta._meta_table['Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdTypeEnum']
 
 
                 @property
@@ -10524,8 +9565,6 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.delta_percentage is not None:
                         return True
 
@@ -10552,10 +9591,6 @@ class Mpls(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_mpls as meta
@@ -10573,24 +9608,12 @@ class Mpls(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.config is not None and self.config._has_data():
-                    return True
-
-                if self.config is not None and self.config.is_presence():
                     return True
 
                 if self.state is not None and self.state._has_data():
                     return True
 
-                if self.state is not None and self.state.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -10701,18 +9724,12 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.admin_group_name is not None:
                             return True
 
                         if self.bit_position is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -10763,18 +9780,12 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.admin_group_name is not None:
                             return True
 
                         if self.bit_position is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -10796,27 +9807,15 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.admin_group_name is not None:
                         return True
 
                     if self.config is not None and self.config._has_data():
                         return True
 
-                    if self.config is not None and self.config.is_presence():
-                        return True
-
                     if self.state is not None and self.state._has_data():
                         return True
 
-                    if self.state is not None and self.state.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -10836,17 +9835,11 @@ class Mpls(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.admin_group is not None:
                     for child_ref in self.admin_group:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -10934,7 +9927,7 @@ class Mpls(object):
                     .. attribute:: flooding_type
                     
                     	The type of SRLG, either flooded in the IGP or statically configured
-                    	**type**\: :py:class:`MplsSrlgFloodingType_Enum <ydk.models.openconfig.openconfig_mpls.MplsSrlgFloodingType_Enum>`
+                    	**type**\: :py:class:`MplsSrlgFloodingTypeEnum <ydk.models.openconfig.openconfig_mpls.MplsSrlgFloodingTypeEnum>`
                     
                     .. attribute:: name
                     
@@ -10976,8 +9969,6 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.cost is not None:
                             return True
 
@@ -10990,10 +9981,6 @@ class Mpls(object):
                         if self.value is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -11016,7 +10003,7 @@ class Mpls(object):
                     .. attribute:: flooding_type
                     
                     	The type of SRLG, either flooded in the IGP or statically configured
-                    	**type**\: :py:class:`MplsSrlgFloodingType_Enum <ydk.models.openconfig.openconfig_mpls.MplsSrlgFloodingType_Enum>`
+                    	**type**\: :py:class:`MplsSrlgFloodingTypeEnum <ydk.models.openconfig.openconfig_mpls.MplsSrlgFloodingTypeEnum>`
                     
                     .. attribute:: name
                     
@@ -11058,8 +10045,6 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.cost is not None:
                             return True
 
@@ -11072,10 +10057,6 @@ class Mpls(object):
                         if self.value is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -11185,18 +10166,12 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.from_address is not None:
                                     return True
 
                                 if self.to_address is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11246,18 +10221,12 @@ class Mpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.from_address is not None:
                                     return True
 
                                 if self.to_address is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11281,27 +10250,15 @@ class Mpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.from_address is not None:
                                 return True
 
                             if self.config is not None and self.config._has_data():
                                 return True
 
-                            if self.config is not None and self.config.is_presence():
-                                return True
-
                             if self.state is not None and self.state._has_data():
                                 return True
 
-                            if self.state is not None and self.state.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -11323,17 +10280,11 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.members_list is not None:
                             for child_ref in self.members_list:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -11355,33 +10306,18 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.name is not None:
                         return True
 
                     if self.config is not None and self.config._has_data():
                         return True
 
-                    if self.config is not None and self.config.is_presence():
-                        return True
-
                     if self.state is not None and self.state._has_data():
-                        return True
-
-                    if self.state is not None and self.state.is_presence():
                         return True
 
                     if self.static_srlg_members is not None and self.static_srlg_members._has_data():
                         return True
 
-                    if self.static_srlg_members is not None and self.static_srlg_members.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -11401,17 +10337,11 @@ class Mpls(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.srlg is not None:
                     for child_ref in self.srlg:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -11501,8 +10431,6 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.cleanup_delay is not None:
                         return True
 
@@ -11512,10 +10440,6 @@ class Mpls(object):
                     if self.reoptimize_timer is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -11574,8 +10498,6 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.cleanup_delay is not None:
                         return True
 
@@ -11585,10 +10507,6 @@ class Mpls(object):
                     if self.reoptimize_timer is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -11608,24 +10526,12 @@ class Mpls(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.config is not None and self.config._has_data():
-                    return True
-
-                if self.config is not None and self.config.is_presence():
                     return True
 
                 if self.state is not None and self.state._has_data():
                     return True
 
-                if self.state is not None and self.state.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -11645,36 +10551,18 @@ class Mpls(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.igp_flooding_bandwidth is not None and self.igp_flooding_bandwidth._has_data():
-                return True
-
-            if self.igp_flooding_bandwidth is not None and self.igp_flooding_bandwidth.is_presence():
                 return True
 
             if self.mpls_admin_groups is not None and self.mpls_admin_groups._has_data():
                 return True
 
-            if self.mpls_admin_groups is not None and self.mpls_admin_groups.is_presence():
-                return True
-
             if self.srlg is not None and self.srlg._has_data():
-                return True
-
-            if self.srlg is not None and self.srlg.is_presence():
                 return True
 
             if self.te_lsp_timers is not None and self.te_lsp_timers._has_data():
                 return True
 
-            if self.te_lsp_timers is not None and self.te_lsp_timers.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -11803,8 +10691,6 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.admin_group is not None:
                         for child in self.admin_group:
                             if child is not None:
@@ -11821,10 +10707,6 @@ class Mpls(object):
                     if self.te_metric is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -11886,12 +10768,12 @@ class Mpls(object):
                     .. attribute:: threshold_specification
                     
                     	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
-                    	**type**\: :py:class:`ThresholdSpecification_Enum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdSpecification_Enum>`
+                    	**type**\: :py:class:`ThresholdSpecificationEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdSpecificationEnum>`
                     
                     .. attribute:: threshold_type
                     
                     	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
-                    	**type**\: :py:class:`ThresholdType_Enum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdType_Enum>`
+                    	**type**\: :py:class:`ThresholdTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdTypeEnum>`
                     
                     .. attribute:: up_down_thresholds
                     
@@ -11923,92 +10805,118 @@ class Mpls(object):
                         self.up_down_thresholds = []
                         self.up_thresholds = []
 
-                    class ThresholdSpecification_Enum(Enum):
+                    class ThresholdSpecificationEnum(Enum):
                         """
-                        ThresholdSpecification_Enum
+                        ThresholdSpecificationEnum
 
                         This value specifies whether a single set of threshold
+
                         values should be used for both increasing and decreasing
+
                         bandwidth when determining whether to trigger updated
+
                         bandwidth values to be flooded in the IGP TE extensions.
+
                         MIRRORED\-UP\-DOWN indicates that a single value (or set of
+
                         values) should be used for both increasing and decreasing
+
                         values, where SEPARATE\-UP\-DOWN specifies that the increasing
+
                         and decreasing values will be separately specified
 
-                        """
+                        .. data:: MIRRORED_UP_DOWN = 0
+
+                        	MIRRORED-UP-DOWN indicates that a single set of
+
+                        	threshold values should be used for both increasing
+
+                        	and decreasing bandwidth when determining whether
+
+                        	to trigger updated bandwidth values to be flooded
+
+                        	in the IGP TE extensions.
+
+                        .. data:: SEPARATE_UP_DOWN = 1
+
+                        	SEPARATE-UP-DOWN indicates that a separate
+
+                        	threshold values should be used for the increasing
+
+                        	and decreasing bandwidth when determining whether
+
+                        	to trigger updated bandwidth values to be flooded
+
+                        	in the IGP TE extensions.
 
                         """
 
-                        MIRRORED\-UP\-DOWN indicates that a single set of
-                        threshold values should be used for both increasing
-                        and decreasing bandwidth when determining whether
-                        to trigger updated bandwidth values to be flooded
-                        in the IGP TE extensions.
-
-                        """
                         MIRRORED_UP_DOWN = 0
 
-                        """
-
-                        SEPARATE\-UP\-DOWN indicates that a separate
-                        threshold values should be used for the increasing
-                        and decreasing bandwidth when determining whether
-                        to trigger updated bandwidth values to be flooded
-                        in the IGP TE extensions.
-
-                        """
                         SEPARATE_UP_DOWN = 1
 
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                            return meta._meta_table['Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdSpecification_Enum']
+                            return meta._meta_table['Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdSpecificationEnum']
 
 
-                    class ThresholdType_Enum(Enum):
+                    class ThresholdTypeEnum(Enum):
                         """
-                        ThresholdType_Enum
+                        ThresholdTypeEnum
 
                         The type of threshold that should be used to specify the
+
                         values at which bandwidth is flooded. DELTA indicates that
+
                         the local system should flood IGP updates when a change in
+
                         reserved bandwidth >= the specified delta occurs on the
+
                         interface. Where THRESHOLD\-CROSSED is specified, the local
+
                         system should trigger an update (and hence flood) the
+
                         reserved bandwidth when the reserved bandwidth changes such
+
                         that it crosses, or becomes equal to one of the threshold
+
                         values
 
-                        """
+                        .. data:: DELTA = 0
+
+                        	DELTA indicates that the local
+
+                        	system should flood IGP updates when a
+
+                        	change in reserved bandwidth >= the specified
+
+                        	delta occurs on the interface.
+
+                        .. data:: THRESHOLD_CROSSED = 1
+
+                        	THRESHOLD-CROSSED indicates that
+
+                        	the local system should trigger an update (and
+
+                        	hence flood) the reserved bandwidth when the
+
+                        	reserved bandwidth changes such that it crosses,
+
+                        	or becomes equal to one of the threshold values.
 
                         """
 
-                        DELTA indicates that the local
-                        system should flood IGP updates when a
-                        change in reserved bandwidth >= the specified
-                        delta occurs on the interface.
-
-                        """
                         DELTA = 0
 
-                        """
-
-                        THRESHOLD\-CROSSED indicates that
-                        the local system should trigger an update (and
-                        hence flood) the reserved bandwidth when the
-                        reserved bandwidth changes such that it crosses,
-                        or becomes equal to one of the threshold values.
-
-                        """
                         THRESHOLD_CROSSED = 1
 
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                            return meta._meta_table['Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdType_Enum']
+                            return meta._meta_table['Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdTypeEnum']
 
 
                     @property
@@ -12025,8 +10933,6 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.delta_percentage is not None:
                             return True
 
@@ -12051,10 +10957,6 @@ class Mpls(object):
                                 if child is not None:
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -12084,12 +10986,12 @@ class Mpls(object):
                     .. attribute:: threshold_specification
                     
                     	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
-                    	**type**\: :py:class:`ThresholdSpecification_Enum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdSpecification_Enum>`
+                    	**type**\: :py:class:`ThresholdSpecificationEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdSpecificationEnum>`
                     
                     .. attribute:: threshold_type
                     
                     	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
-                    	**type**\: :py:class:`ThresholdType_Enum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdType_Enum>`
+                    	**type**\: :py:class:`ThresholdTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdTypeEnum>`
                     
                     .. attribute:: up_down_thresholds
                     
@@ -12121,92 +11023,118 @@ class Mpls(object):
                         self.up_down_thresholds = []
                         self.up_thresholds = []
 
-                    class ThresholdSpecification_Enum(Enum):
+                    class ThresholdSpecificationEnum(Enum):
                         """
-                        ThresholdSpecification_Enum
+                        ThresholdSpecificationEnum
 
                         This value specifies whether a single set of threshold
+
                         values should be used for both increasing and decreasing
+
                         bandwidth when determining whether to trigger updated
+
                         bandwidth values to be flooded in the IGP TE extensions.
+
                         MIRRORED\-UP\-DOWN indicates that a single value (or set of
+
                         values) should be used for both increasing and decreasing
+
                         values, where SEPARATE\-UP\-DOWN specifies that the increasing
+
                         and decreasing values will be separately specified
 
-                        """
+                        .. data:: MIRRORED_UP_DOWN = 0
+
+                        	MIRRORED-UP-DOWN indicates that a single set of
+
+                        	threshold values should be used for both increasing
+
+                        	and decreasing bandwidth when determining whether
+
+                        	to trigger updated bandwidth values to be flooded
+
+                        	in the IGP TE extensions.
+
+                        .. data:: SEPARATE_UP_DOWN = 1
+
+                        	SEPARATE-UP-DOWN indicates that a separate
+
+                        	threshold values should be used for the increasing
+
+                        	and decreasing bandwidth when determining whether
+
+                        	to trigger updated bandwidth values to be flooded
+
+                        	in the IGP TE extensions.
 
                         """
 
-                        MIRRORED\-UP\-DOWN indicates that a single set of
-                        threshold values should be used for both increasing
-                        and decreasing bandwidth when determining whether
-                        to trigger updated bandwidth values to be flooded
-                        in the IGP TE extensions.
-
-                        """
                         MIRRORED_UP_DOWN = 0
 
-                        """
-
-                        SEPARATE\-UP\-DOWN indicates that a separate
-                        threshold values should be used for the increasing
-                        and decreasing bandwidth when determining whether
-                        to trigger updated bandwidth values to be flooded
-                        in the IGP TE extensions.
-
-                        """
                         SEPARATE_UP_DOWN = 1
 
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                            return meta._meta_table['Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdSpecification_Enum']
+                            return meta._meta_table['Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdSpecificationEnum']
 
 
-                    class ThresholdType_Enum(Enum):
+                    class ThresholdTypeEnum(Enum):
                         """
-                        ThresholdType_Enum
+                        ThresholdTypeEnum
 
                         The type of threshold that should be used to specify the
+
                         values at which bandwidth is flooded. DELTA indicates that
+
                         the local system should flood IGP updates when a change in
+
                         reserved bandwidth >= the specified delta occurs on the
+
                         interface. Where THRESHOLD\-CROSSED is specified, the local
+
                         system should trigger an update (and hence flood) the
+
                         reserved bandwidth when the reserved bandwidth changes such
+
                         that it crosses, or becomes equal to one of the threshold
+
                         values
 
-                        """
+                        .. data:: DELTA = 0
+
+                        	DELTA indicates that the local
+
+                        	system should flood IGP updates when a
+
+                        	change in reserved bandwidth >= the specified
+
+                        	delta occurs on the interface.
+
+                        .. data:: THRESHOLD_CROSSED = 1
+
+                        	THRESHOLD-CROSSED indicates that
+
+                        	the local system should trigger an update (and
+
+                        	hence flood) the reserved bandwidth when the
+
+                        	reserved bandwidth changes such that it crosses,
+
+                        	or becomes equal to one of the threshold values.
 
                         """
 
-                        DELTA indicates that the local
-                        system should flood IGP updates when a
-                        change in reserved bandwidth >= the specified
-                        delta occurs on the interface.
-
-                        """
                         DELTA = 0
 
-                        """
-
-                        THRESHOLD\-CROSSED indicates that
-                        the local system should trigger an update (and
-                        hence flood) the reserved bandwidth when the
-                        reserved bandwidth changes such that it crosses,
-                        or becomes equal to one of the threshold values.
-
-                        """
                         THRESHOLD_CROSSED = 1
 
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                            return meta._meta_table['Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdType_Enum']
+                            return meta._meta_table['Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdTypeEnum']
 
 
                     @property
@@ -12223,8 +11151,6 @@ class Mpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.delta_percentage is not None:
                             return True
 
@@ -12251,10 +11177,6 @@ class Mpls(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
@@ -12274,24 +11196,12 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.config is not None and self.config._has_data():
-                        return True
-
-                    if self.config is not None and self.config.is_presence():
                         return True
 
                     if self.state is not None and self.state._has_data():
                         return True
 
-                    if self.state is not None and self.state.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -12354,8 +11264,6 @@ class Mpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.admin_group is not None:
                         for child in self.admin_group:
                             if child is not None:
@@ -12372,10 +11280,6 @@ class Mpls(object):
                     if self.te_metric is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -12397,33 +11301,18 @@ class Mpls(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
                 if self.config is not None and self.config._has_data():
                     return True
 
-                if self.config is not None and self.config.is_presence():
-                    return True
-
                 if self.igp_flooding_bandwidth is not None and self.igp_flooding_bandwidth._has_data():
-                    return True
-
-                if self.igp_flooding_bandwidth is not None and self.igp_flooding_bandwidth.is_presence():
                     return True
 
                 if self.state is not None and self.state._has_data():
                     return True
 
-                if self.state is not None and self.state.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -12443,17 +11332,11 @@ class Mpls(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -12473,43 +11356,22 @@ class Mpls(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.global_ is not None and self.global_._has_data():
-            return True
-
-        if self.global_ is not None and self.global_.is_presence():
             return True
 
         if self.lsps is not None and self.lsps._has_data():
             return True
 
-        if self.lsps is not None and self.lsps.is_presence():
-            return True
-
         if self.signaling_protocols is not None and self.signaling_protocols._has_data():
-            return True
-
-        if self.signaling_protocols is not None and self.signaling_protocols.is_presence():
             return True
 
         if self.te_global_attributes is not None and self.te_global_attributes._has_data():
             return True
 
-        if self.te_global_attributes is not None and self.te_global_attributes.is_presence():
-            return True
-
         if self.te_interface_attributes is not None and self.te_interface_attributes._has_data():
             return True
 
-        if self.te_interface_attributes is not None and self.te_interface_attributes.is_presence():
-            return True
-
         return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
-        return True
 
     @staticmethod
     def _meta_info():
@@ -12553,7 +11415,6 @@ class ExplicitlyDefined_Identity(PathComputationMethod_Identity):
 
     def __init__(self):
         PathComputationMethod_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -12575,7 +11436,6 @@ class ExternallyQueried_Identity(PathComputationMethod_Identity):
 
     def __init__(self):
         PathComputationMethod_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -12597,7 +11457,6 @@ class LocallyComputed_Identity(PathComputationMethod_Identity):
 
     def __init__(self):
         PathComputationMethod_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():

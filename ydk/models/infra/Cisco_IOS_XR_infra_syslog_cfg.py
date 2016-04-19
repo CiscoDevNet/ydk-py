@@ -24,787 +24,699 @@ from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYDataValidationError
 
 
-from ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_datatypes import AlarmLoggerSeverityLevel_Enum
+from ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_datatypes import AlarmLoggerSeverityLevelEnum
 
-class Facility_Enum(Enum):
+class FacilityEnum(Enum):
     """
-    Facility_Enum
+    FacilityEnum
 
     Facility
 
-    """
+    .. data:: KERN = 0
+
+    	Kernel Facility
+
+    .. data:: USER = 8
+
+    	User Facility
+
+    .. data:: MAIL = 16
+
+    	Mail Facility
+
+    .. data:: DAEMON = 24
+
+    	Daemon Facility
+
+    .. data:: AUTH = 32
+
+    	Auth Facility
+
+    .. data:: SYSLOG = 40
+
+    	Syslog Facility
+
+    .. data:: LPR = 48
+
+    	Lpr Facility
+
+    .. data:: NEWS = 56
+
+    	News Facility
+
+    .. data:: UUCP = 64
+
+    	Uucp Facility
+
+    .. data:: CRON = 72
+
+    	Cron Facility
+
+    .. data:: AUTHPRIV = 80
+
+    	Authpriv Facility
+
+    .. data:: FTP = 88
+
+    	Ftp Facility
+
+    .. data:: LOCAL0 = 128
+
+    	Local0 Facility
+
+    .. data:: LOCAL1 = 136
+
+    	Local1 Facility
+
+    .. data:: LOCAL2 = 144
+
+    	Local2 Facility
+
+    .. data:: LOCAL3 = 152
+
+    	Local3 Facility
+
+    .. data:: LOCAL4 = 160
+
+    	Local4 Facility
+
+    .. data:: LOCAL5 = 168
+
+    	Local5 Facility
+
+    .. data:: LOCAL6 = 176
+
+    	Local6 Facility
+
+    .. data:: LOCAL7 = 184
+
+    	Local7 Facility
+
+    .. data:: SYS9 = 192
+
+    	System9 Facility
+
+    .. data:: SYS10 = 200
+
+    	System10 Facility
+
+    .. data:: SYS11 = 208
+
+    	System11 Facility
+
+    .. data:: SYS12 = 216
+
+    	System12 Facility
+
+    .. data:: SYS13 = 224
+
+    	System13 Facility
+
+    .. data:: SYS14 = 232
+
+    	System14 Facility
 
     """
 
-    Kernel Facility
-
-    """
     KERN = 0
 
-    """
-
-    User Facility
-
-    """
     USER = 8
 
-    """
-
-    Mail Facility
-
-    """
     MAIL = 16
 
-    """
-
-    Daemon Facility
-
-    """
     DAEMON = 24
 
-    """
-
-    Auth Facility
-
-    """
     AUTH = 32
 
-    """
-
-    Syslog Facility
-
-    """
     SYSLOG = 40
 
-    """
-
-    Lpr Facility
-
-    """
     LPR = 48
 
-    """
-
-    News Facility
-
-    """
     NEWS = 56
 
-    """
-
-    Uucp Facility
-
-    """
     UUCP = 64
 
-    """
-
-    Cron Facility
-
-    """
     CRON = 72
 
-    """
-
-    Authpriv Facility
-
-    """
     AUTHPRIV = 80
 
-    """
-
-    Ftp Facility
-
-    """
     FTP = 88
 
-    """
-
-    Local0 Facility
-
-    """
     LOCAL0 = 128
 
-    """
-
-    Local1 Facility
-
-    """
     LOCAL1 = 136
 
-    """
-
-    Local2 Facility
-
-    """
     LOCAL2 = 144
 
-    """
-
-    Local3 Facility
-
-    """
     LOCAL3 = 152
 
-    """
-
-    Local4 Facility
-
-    """
     LOCAL4 = 160
 
-    """
-
-    Local5 Facility
-
-    """
     LOCAL5 = 168
 
-    """
-
-    Local6 Facility
-
-    """
     LOCAL6 = 176
 
-    """
-
-    Local7 Facility
-
-    """
     LOCAL7 = 184
 
-    """
-
-    System9 Facility
-
-    """
     SYS9 = 192
 
-    """
-
-    System10 Facility
-
-    """
     SYS10 = 200
 
-    """
-
-    System11 Facility
-
-    """
     SYS11 = 208
 
-    """
-
-    System12 Facility
-
-    """
     SYS12 = 216
 
-    """
-
-    System13 Facility
-
-    """
     SYS13 = 224
 
-    """
-
-    System14 Facility
-
-    """
     SYS14 = 232
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-        return meta._meta_table['Facility_Enum']
+        return meta._meta_table['FacilityEnum']
 
 
-class LogCollectFrequency_Enum(Enum):
+class LogCollectFrequencyEnum(Enum):
     """
-    LogCollectFrequency_Enum
+    LogCollectFrequencyEnum
 
     Log collect frequency
 
-    """
+    .. data:: WEEKLY = 1
+
+    	Collect log in files on a weekly basis
+
+    .. data:: DAILY = 2
+
+    	Collect log in files on a daily basis
 
     """
 
-    Collect log in files on a weekly basis
-
-    """
     WEEKLY = 1
 
-    """
-
-    Collect log in files on a daily basis
-
-    """
     DAILY = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-        return meta._meta_table['LogCollectFrequency_Enum']
+        return meta._meta_table['LogCollectFrequencyEnum']
 
 
-class LogMessageSeverity_Enum(Enum):
+class LogMessageSeverityEnum(Enum):
     """
-    LogMessageSeverity_Enum
+    LogMessageSeverityEnum
 
     Log message severity
 
-    """
+    .. data:: EMERGENCY = 0
+
+    	System is unusable                (severity=0)
+
+    .. data:: ALERT = 1
+
+    	Immediate action needed           (severity=1)
+
+    .. data:: CRITICAL = 2
+
+    	Critical conditions               (severity=2)
+
+    .. data:: ERROR = 3
+
+    	Error conditions                  (severity=3)
+
+    .. data:: WARNING = 4
+
+    	Warning conditions                (severity=4)
+
+    .. data:: NOTICE = 5
+
+    	Normal but significant conditions (severity=5)
+
+    .. data:: INFORMATIONAL = 6
+
+    	Informational messages            (severity=6)
+
+    .. data:: DEBUG = 7
+
+    	Debugging messages                (severity=7)
 
     """
 
-    System is unusable                (severity=0)
-
-    """
     EMERGENCY = 0
 
-    """
-
-    Immediate action needed           (severity=1)
-
-    """
     ALERT = 1
 
-    """
-
-    Critical conditions               (severity=2)
-
-    """
     CRITICAL = 2
 
-    """
-
-    Error conditions                  (severity=3)
-
-    """
     ERROR = 3
 
-    """
-
-    Warning conditions                (severity=4)
-
-    """
     WARNING = 4
 
-    """
-
-    Normal but significant conditions (severity=5)
-
-    """
     NOTICE = 5
 
-    """
-
-    Informational messages            (severity=6)
-
-    """
     INFORMATIONAL = 6
 
-    """
-
-    Debugging messages                (severity=7)
-
-    """
     DEBUG = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-        return meta._meta_table['LogMessageSeverity_Enum']
+        return meta._meta_table['LogMessageSeverityEnum']
 
 
-class LogSeverity_Enum(Enum):
+class LogSeverityEnum(Enum):
     """
-    LogSeverity_Enum
+    LogSeverityEnum
 
     Log severity
 
-    """
+    .. data:: EMERGENCY = 0
+
+    	System is unusable                (severity=0)
+
+    .. data:: ALERT = 1
+
+    	Immediate action needed           (severity=1)
+
+    .. data:: CRITICAL = 2
+
+    	Critical conditions               (severity=2)
+
+    .. data:: ERROR = 3
+
+    	Error conditions                  (severity=3)
+
+    .. data:: WARNING = 4
+
+    	Warning conditions                (severity=4)
+
+    .. data:: NOTICE = 5
+
+    	Normal but significant conditions (severity=5)
+
+    .. data:: INFORMATIONAL = 6
+
+    	Informational messages            (severity=6)
+
+    .. data:: DEBUG = 7
+
+    	Debugging messages                (severity=7)
 
     """
 
-    System is unusable                (severity=0)
-
-    """
     EMERGENCY = 0
 
-    """
-
-    Immediate action needed           (severity=1)
-
-    """
     ALERT = 1
 
-    """
-
-    Critical conditions               (severity=2)
-
-    """
     CRITICAL = 2
 
-    """
-
-    Error conditions                  (severity=3)
-
-    """
     ERROR = 3
 
-    """
-
-    Warning conditions                (severity=4)
-
-    """
     WARNING = 4
 
-    """
-
-    Normal but significant conditions (severity=5)
-
-    """
     NOTICE = 5
 
-    """
-
-    Informational messages            (severity=6)
-
-    """
     INFORMATIONAL = 6
 
-    """
-
-    Debugging messages                (severity=7)
-
-    """
     DEBUG = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-        return meta._meta_table['LogSeverity_Enum']
+        return meta._meta_table['LogSeverityEnum']
 
 
-class LoggingDscpValue_Enum(Enum):
+class LoggingDscpEnum(Enum):
     """
-    LoggingDscpValue_Enum
+    LoggingDscpEnum
+
+    Logging dscp
+
+    .. data:: DSCP = 1
+
+    	Logging TOS type DSCP
+
+    """
+
+    DSCP = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+        return meta._meta_table['LoggingDscpEnum']
+
+
+class LoggingDscpValueEnum(Enum):
+    """
+    LoggingDscpValueEnum
 
     Logging dscp value
 
-    """
+    .. data:: DEFAULT = 0
+
+    	Applicable to DSCP: bits 000000
+
+    .. data:: AF11 = 10
+
+    	Applicable to DSCP: bits 001010
+
+    .. data:: AF12 = 12
+
+    	Applicable to DSCP: bits 001100
+
+    .. data:: AF13 = 14
+
+    	Applicable to DSCP: bits 001110
+
+    .. data:: AF21 = 18
+
+    	Applicable to DSCP: bits 010010
+
+    .. data:: AF22 = 20
+
+    	Applicable to DSCP: bits 010100
+
+    .. data:: AF23 = 22
+
+    	Applicable to DSCP: bits 010110
+
+    .. data:: AF31 = 26
+
+    	Applicable to DSCP: bits 011010
+
+    .. data:: AF32 = 28
+
+    	Applicable to DSCP: bits 011100
+
+    .. data:: AF33 = 30
+
+    	Applicable to DSCP: bits 011110
+
+    .. data:: AF41 = 34
+
+    	Applicable to DSCP: bits 100010
+
+    .. data:: AF42 = 36
+
+    	Applicable to DSCP: bits 100100
+
+    .. data:: AF43 = 38
+
+    	Applicable to DSCP: bits 100110
+
+    .. data:: EF = 46
+
+    	Applicable to DSCP: bits 101110
+
+    .. data:: CS1 = 8
+
+    	Applicable to DSCP: bits 001000
+
+    .. data:: CS2 = 16
+
+    	Applicable to DSCP: bits 010000
+
+    .. data:: CS3 = 24
+
+    	Applicable to DSCP: bits 011000
+
+    .. data:: CS4 = 32
+
+    	Applicable to DSCP: bits 100000
+
+    .. data:: CS5 = 40
+
+    	Applicable to DSCP: bits 101000
+
+    .. data:: CS6 = 48
+
+    	Applicable to DSCP: bits 110000
+
+    .. data:: CS7 = 56
+
+    	Applicable to DSCP: bits 111000
 
     """
 
-    Applicable to DSCP\: bits 000000
-
-    """
     DEFAULT = 0
 
-    """
-
-    Applicable to DSCP\: bits 001010
-
-    """
     AF11 = 10
 
-    """
-
-    Applicable to DSCP\: bits 001100
-
-    """
     AF12 = 12
 
-    """
-
-    Applicable to DSCP\: bits 001110
-
-    """
     AF13 = 14
 
-    """
-
-    Applicable to DSCP\: bits 010010
-
-    """
     AF21 = 18
 
-    """
-
-    Applicable to DSCP\: bits 010100
-
-    """
     AF22 = 20
 
-    """
-
-    Applicable to DSCP\: bits 010110
-
-    """
     AF23 = 22
 
-    """
-
-    Applicable to DSCP\: bits 011010
-
-    """
     AF31 = 26
 
-    """
-
-    Applicable to DSCP\: bits 011100
-
-    """
     AF32 = 28
 
-    """
-
-    Applicable to DSCP\: bits 011110
-
-    """
     AF33 = 30
 
-    """
-
-    Applicable to DSCP\: bits 100010
-
-    """
     AF41 = 34
 
-    """
-
-    Applicable to DSCP\: bits 100100
-
-    """
     AF42 = 36
 
-    """
-
-    Applicable to DSCP\: bits 100110
-
-    """
     AF43 = 38
 
-    """
-
-    Applicable to DSCP\: bits 101110
-
-    """
     EF = 46
 
-    """
-
-    Applicable to DSCP\: bits 001000
-
-    """
     CS1 = 8
 
-    """
-
-    Applicable to DSCP\: bits 010000
-
-    """
     CS2 = 16
 
-    """
-
-    Applicable to DSCP\: bits 011000
-
-    """
     CS3 = 24
 
-    """
-
-    Applicable to DSCP\: bits 100000
-
-    """
     CS4 = 32
 
-    """
-
-    Applicable to DSCP\: bits 101000
-
-    """
     CS5 = 40
 
-    """
-
-    Applicable to DSCP\: bits 110000
-
-    """
     CS6 = 48
 
-    """
-
-    Applicable to DSCP\: bits 111000
-
-    """
     CS7 = 56
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-        return meta._meta_table['LoggingDscpValue_Enum']
+        return meta._meta_table['LoggingDscpValueEnum']
 
 
-class LoggingDscp_Enum(Enum):
+class LoggingLevelsEnum(Enum):
     """
-    LoggingDscp_Enum
-
-    Logging dscp
-
-    """
-
-    """
-
-    Logging TOS type DSCP
-
-    """
-    DSCP = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-        return meta._meta_table['LoggingDscp_Enum']
-
-
-class LoggingLevels_Enum(Enum):
-    """
-    LoggingLevels_Enum
+    LoggingLevelsEnum
 
     Logging levels
 
-    """
+    .. data:: EMERGENCY = 0
+
+    	Emergency Level Msg
+
+    .. data:: ALERT = 1
+
+    	Alert Level Msg
+
+    .. data:: CRITICAL = 2
+
+    	Critical Level Msg
+
+    .. data:: ERROR = 3
+
+    	Error Level Msg
+
+    .. data:: WARNING = 4
+
+    	Warning Level Msg
+
+    .. data:: NOTICE = 5
+
+    	Notification Level Msg
+
+    .. data:: INFO = 6
+
+    	Informational Level Msg
+
+    .. data:: DEBUG = 7
+
+    	Debugging Level Msg
+
+    .. data:: DISABLE = 15
+
+    	Disable logging
 
     """
 
-    Emergency Level Msg
-
-    """
     EMERGENCY = 0
 
-    """
-
-    Alert Level Msg
-
-    """
     ALERT = 1
 
-    """
-
-    Critical Level Msg
-
-    """
     CRITICAL = 2
 
-    """
-
-    Error Level Msg
-
-    """
     ERROR = 3
 
-    """
-
-    Warning Level Msg
-
-    """
     WARNING = 4
 
-    """
-
-    Notification Level Msg
-
-    """
     NOTICE = 5
 
-    """
-
-    Informational Level Msg
-
-    """
     INFO = 6
 
-    """
-
-    Debugging Level Msg
-
-    """
     DEBUG = 7
 
-    """
-
-    Disable logging
-
-    """
     DISABLE = 15
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-        return meta._meta_table['LoggingLevels_Enum']
+        return meta._meta_table['LoggingLevelsEnum']
 
 
-class LoggingPrecedenceValue_Enum(Enum):
+class LoggingPrecedenceEnum(Enum):
     """
-    LoggingPrecedenceValue_Enum
+    LoggingPrecedenceEnum
+
+    Logging precedence
+
+    .. data:: PRECEDENCE = 0
+
+    	Logging TOS type precedence
+
+    """
+
+    PRECEDENCE = 0
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+        return meta._meta_table['LoggingPrecedenceEnum']
+
+
+class LoggingPrecedenceValueEnum(Enum):
+    """
+    LoggingPrecedenceValueEnum
 
     Logging precedence value
 
-    """
+    .. data:: ROUTINE = 0
+
+    	Applicable to precedence: value 0
+
+    .. data:: PRIORITY = 1
+
+    	Applicable to precedence: value 1
+
+    .. data:: IMMEDIATE = 2
+
+    	Applicable to precedence: value 2
+
+    .. data:: FLASH = 3
+
+    	Applicable to precedence: value 3
+
+    .. data:: FLASH_OVERRIDE = 4
+
+    	Applicable to precedence: value 4
+
+    .. data:: CRITICAL = 5
+
+    	Applicable to precedence: value 5
+
+    .. data:: INTERNET = 6
+
+    	Applicable to precedence: value 6
+
+    .. data:: NETWORK = 7
+
+    	Applicable to precedence: value 7
 
     """
 
-    Applicable to precedence\: value 0
-
-    """
     ROUTINE = 0
 
-    """
-
-    Applicable to precedence\: value 1
-
-    """
     PRIORITY = 1
 
-    """
-
-    Applicable to precedence\: value 2
-
-    """
     IMMEDIATE = 2
 
-    """
-
-    Applicable to precedence\: value 3
-
-    """
     FLASH = 3
 
-    """
-
-    Applicable to precedence\: value 4
-
-    """
     FLASH_OVERRIDE = 4
 
-    """
-
-    Applicable to precedence\: value 5
-
-    """
     CRITICAL = 5
 
-    """
-
-    Applicable to precedence\: value 6
-
-    """
     INTERNET = 6
 
-    """
-
-    Applicable to precedence\: value 7
-
-    """
     NETWORK = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-        return meta._meta_table['LoggingPrecedenceValue_Enum']
+        return meta._meta_table['LoggingPrecedenceValueEnum']
 
 
-class LoggingPrecedence_Enum(Enum):
+class LoggingTosEnum(Enum):
     """
-    LoggingPrecedence_Enum
-
-    Logging precedence
-
-    """
-
-    """
-
-    Logging TOS type precedence
-
-    """
-    PRECEDENCE = 0
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-        return meta._meta_table['LoggingPrecedence_Enum']
-
-
-class LoggingTos_Enum(Enum):
-    """
-    LoggingTos_Enum
+    LoggingTosEnum
 
     Logging tos
 
-    """
+    .. data:: PRECEDENCE = 0
+
+    	Logging TOS type precedence
+
+    .. data:: DSCP = 1
+
+    	Logging TOS type DSCP
 
     """
 
-    Logging TOS type precedence
-
-    """
     PRECEDENCE = 0
 
-    """
-
-    Logging TOS type DSCP
-
-    """
     DSCP = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-        return meta._meta_table['LoggingTos_Enum']
+        return meta._meta_table['LoggingTosEnum']
 
 
-class TimeInfo_Enum(Enum):
+class TimeInfoEnum(Enum):
     """
-    TimeInfo_Enum
+    TimeInfoEnum
 
     Time info
 
-    """
+    .. data:: DISABLE = 0
+
+    	Exclude
+
+    .. data:: ENABLE = 1
+
+    	Include
 
     """
 
-    Exclude
-
-    """
     DISABLE = 0
 
-    """
-
-    Include
-
-    """
     ENABLE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-        return meta._meta_table['TimeInfo_Enum']
+        return meta._meta_table['TimeInfoEnum']
 
 
 
@@ -953,7 +865,7 @@ class Syslog(object):
         .. attribute:: severity_level
         
         	Log all events with equal or higher (lower level) severity than this
-        	**type**\: :py:class:`AlarmLoggerSeverityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_datatypes.AlarmLoggerSeverityLevel_Enum>`
+        	**type**\: :py:class:`AlarmLoggerSeverityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_datatypes.AlarmLoggerSeverityLevelEnum>`
         
         .. attribute:: source_location
         
@@ -993,8 +905,6 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.buffer_size is not None:
                 return True
 
@@ -1007,10 +917,6 @@ class Syslog(object):
             if self.threshold is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1038,7 +944,7 @@ class Syslog(object):
         .. attribute:: frequency
         
         	The collection interval for logs
-        	**type**\: :py:class:`LogCollectFrequency_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LogCollectFrequency_Enum>`
+        	**type**\: :py:class:`LogCollectFrequencyEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LogCollectFrequencyEnum>`
         
         .. attribute:: length
         
@@ -1050,7 +956,7 @@ class Syslog(object):
         .. attribute:: severity
         
         	The minimum severity of log messages to archive
-        	**type**\: :py:class:`LogMessageSeverity_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LogMessageSeverity_Enum>`
+        	**type**\: :py:class:`LogMessageSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LogMessageSeverityEnum>`
         
         .. attribute:: size
         
@@ -1095,8 +1001,6 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.device is not None:
                 return True
 
@@ -1118,10 +1022,6 @@ class Syslog(object):
             if self.threshold is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1149,7 +1049,7 @@ class Syslog(object):
         .. attribute:: logging_level
         
         	Logging level for Buffered logging
-        	**type**\: :py:class:`LoggingLevels_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels_Enum>`
+        	**type**\: :py:class:`LoggingLevelsEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevelsEnum>`
         
         
 
@@ -1228,8 +1128,6 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.match1 is not None:
                     return True
 
@@ -1250,10 +1148,6 @@ class Syslog(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
@@ -1271,24 +1165,15 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.buffer_size is not None:
                 return True
 
             if self.buffered_discriminator is not None and self.buffered_discriminator._has_data():
                 return True
 
-            if self.buffered_discriminator is not None and self.buffered_discriminator.is_presence():
-                return True
-
             if self.logging_level is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1309,7 +1194,7 @@ class Syslog(object):
         .. attribute:: logging_level
         
         	Console logging level
-        	**type**\: :py:class:`LoggingLevels_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels_Enum>`
+        	**type**\: :py:class:`LoggingLevelsEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevelsEnum>`
         
         
 
@@ -1387,8 +1272,6 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.match1 is not None:
                     return True
 
@@ -1409,10 +1292,6 @@ class Syslog(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
@@ -1430,21 +1309,12 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.console_discriminator is not None and self.console_discriminator._has_data():
-                return True
-
-            if self.console_discriminator is not None and self.console_discriminator.is_presence():
                 return True
 
             if self.logging_level is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1577,8 +1447,6 @@ class Syslog(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.match1 is not None:
                         return True
 
@@ -1597,10 +1465,6 @@ class Syslog(object):
                     if self.nomatch3 is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1659,8 +1523,6 @@ class Syslog(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.max_file_size is not None:
                         return True
 
@@ -1670,10 +1532,6 @@ class Syslog(object):
                     if self.severity is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1695,27 +1553,15 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.file_name is not None:
                     return True
 
                 if self.file_log_discriminator is not None and self.file_log_discriminator._has_data():
                     return True
 
-                if self.file_log_discriminator is not None and self.file_log_discriminator.is_presence():
-                    return True
-
                 if self.file_specification is not None and self.file_specification._has_data():
                     return True
 
-                if self.file_specification is not None and self.file_specification.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1735,17 +1581,11 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.file is not None:
                 for child_ref in self.file:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1768,7 +1608,7 @@ class Syslog(object):
         .. attribute:: logging_level
         
         	History logging level
-        	**type**\: :py:class:`LoggingLevels_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels_Enum>`
+        	**type**\: :py:class:`LoggingLevelsEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevelsEnum>`
         
         
 
@@ -1794,18 +1634,12 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.history_size is not None:
                 return True
 
             if self.logging_level is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1878,12 +1712,12 @@ class Syslog(object):
                 .. attribute:: ipv4s
                 
                 	List of the IPv4 logging host
-                	**type**\: :py:class:`Ipv4s <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4s>`
+                	**type**\: :py:class:`Ipv4S <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S>`
                 
                 .. attribute:: ipv6s
                 
                 	List of the IPv6 logging host
-                	**type**\: :py:class:`Ipv6s <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6s>`
+                	**type**\: :py:class:`Ipv6S <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S>`
                 
                 
 
@@ -1897,9 +1731,9 @@ class Syslog(object):
                     self.vrf_name = None
                     self.hosts = Syslog.HostServer.Vrfs.Vrf.Hosts()
                     self.hosts.parent = self
-                    self.ipv4s = Syslog.HostServer.Vrfs.Vrf.Ipv4s()
+                    self.ipv4s = Syslog.HostServer.Vrfs.Vrf.Ipv4S()
                     self.ipv4s.parent = self
-                    self.ipv6s = Syslog.HostServer.Vrfs.Vrf.Ipv6s()
+                    self.ipv6s = Syslog.HostServer.Vrfs.Vrf.Ipv6S()
                     self.ipv6s.parent = self
 
 
@@ -2032,8 +1866,6 @@ class Syslog(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.match1 is not None:
                                     return True
 
@@ -2052,10 +1884,6 @@ class Syslog(object):
                                 if self.nomatch3 is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2094,7 +1922,7 @@ class Syslog(object):
                                 .. attribute:: severity
                                 
                                 	Severity for the logging host
-                                	**type**\: :py:class:`LogSeverity_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LogSeverity_Enum>`
+                                	**type**\: :py:class:`LogSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LogSeverityEnum>`
                                 
                                 
 
@@ -2123,15 +1951,9 @@ class Syslog(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.severity is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2153,17 +1975,11 @@ class Syslog(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.host_name_severity is not None:
                                     for child_ref in self.host_name_severity:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2216,18 +2032,12 @@ class Syslog(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.port is not None:
                                     return True
 
                                 if self.severity is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2251,33 +2061,18 @@ class Syslog(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.host_name is not None:
                                 return True
 
                             if self.host_name_discriminator is not None and self.host_name_discriminator._has_data():
                                 return True
 
-                            if self.host_name_discriminator is not None and self.host_name_discriminator.is_presence():
-                                return True
-
                             if self.host_name_severities is not None and self.host_name_severities._has_data():
-                                return True
-
-                            if self.host_name_severities is not None and self.host_name_severities.is_presence():
                                 return True
 
                             if self.host_severity_port is not None and self.host_severity_port._has_data():
                                 return True
 
-                            if self.host_severity_port is not None and self.host_severity_port.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2299,17 +2094,11 @@ class Syslog(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.host is not None:
                             for child_ref in self.host:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2318,14 +2107,14 @@ class Syslog(object):
                         return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Hosts']['meta_info']
 
 
-                class Ipv4s(object):
+                class Ipv4S(object):
                     """
                     List of the IPv4 logging host
                     
                     .. attribute:: ipv4
                     
                     	IPv4 address of the logging host
-                    	**type**\: list of :py:class:`Ipv4 <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4>`
+                    	**type**\: list of :py:class:`Ipv4 <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4>`
                     
                     
 
@@ -2355,17 +2144,17 @@ class Syslog(object):
                         .. attribute:: ipv4_discriminator
                         
                         	Set IPv4 logging discriminators
-                        	**type**\: :py:class:`Ipv4Discriminator <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4Discriminator>`
+                        	**type**\: :py:class:`Ipv4Discriminator <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator>`
                         
                         .. attribute:: ipv4_severity_levels
                         
                         	Severity container of the logging host
-                        	**type**\: :py:class:`Ipv4SeverityLevels <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels>`
+                        	**type**\: :py:class:`Ipv4SeverityLevels <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels>`
                         
                         .. attribute:: ipv4_severity_port
                         
                         	Severity/Port for the logging host
-                        	**type**\: :py:class:`Ipv4SeverityPort <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityPort>`
+                        	**type**\: :py:class:`Ipv4SeverityPort <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort>`
                         
                         
 
@@ -2377,11 +2166,11 @@ class Syslog(object):
                         def __init__(self):
                             self.parent = None
                             self.address = None
-                            self.ipv4_discriminator = Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4Discriminator()
+                            self.ipv4_discriminator = Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator()
                             self.ipv4_discriminator.parent = self
-                            self.ipv4_severity_levels = Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels()
+                            self.ipv4_severity_levels = Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels()
                             self.ipv4_severity_levels.parent = self
-                            self.ipv4_severity_port = Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityPort()
+                            self.ipv4_severity_port = Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort()
                             self.ipv4_severity_port.parent = self
 
 
@@ -2449,8 +2238,6 @@ class Syslog(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.match1 is not None:
                                     return True
 
@@ -2471,14 +2258,10 @@ class Syslog(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-                                return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4Discriminator']['meta_info']
+                                return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator']['meta_info']
 
 
                         class Ipv4SeverityLevels(object):
@@ -2488,7 +2271,7 @@ class Syslog(object):
                             .. attribute:: ipv4_severity_level
                             
                             	Severity for the logging host
-                            	**type**\: list of :py:class:`Ipv4SeverityLevel <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel>`
+                            	**type**\: list of :py:class:`Ipv4SeverityLevel <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel>`
                             
                             
 
@@ -2511,7 +2294,7 @@ class Syslog(object):
                                 .. attribute:: severity
                                 
                                 	Severity for the logging host
-                                	**type**\: :py:class:`LogSeverity_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LogSeverity_Enum>`
+                                	**type**\: :py:class:`LogSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LogSeverityEnum>`
                                 
                                 
 
@@ -2540,21 +2323,15 @@ class Syslog(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.severity is not None:
                                         return True
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-                                    return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel']['meta_info']
+                                    return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -2570,8 +2347,6 @@ class Syslog(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ipv4_severity_level is not None:
                                     for child_ref in self.ipv4_severity_level:
                                         if child_ref._has_data():
@@ -2579,14 +2354,10 @@ class Syslog(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-                                return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels']['meta_info']
+                                return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels']['meta_info']
 
 
                         class Ipv4SeverityPort(object):
@@ -2633,8 +2404,6 @@ class Syslog(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.port is not None:
                                     return True
 
@@ -2643,14 +2412,10 @@ class Syslog(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-                                return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityPort']['meta_info']
+                                return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -2668,39 +2433,24 @@ class Syslog(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 return True
 
                             if self.ipv4_discriminator is not None and self.ipv4_discriminator._has_data():
                                 return True
 
-                            if self.ipv4_discriminator is not None and self.ipv4_discriminator.is_presence():
-                                return True
-
                             if self.ipv4_severity_levels is not None and self.ipv4_severity_levels._has_data():
-                                return True
-
-                            if self.ipv4_severity_levels is not None and self.ipv4_severity_levels.is_presence():
                                 return True
 
                             if self.ipv4_severity_port is not None and self.ipv4_severity_port._has_data():
                                 return True
 
-                            if self.ipv4_severity_port is not None and self.ipv4_severity_port.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-                            return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4']['meta_info']
+                            return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -2716,8 +2466,6 @@ class Syslog(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ipv4 is not None:
                             for child_ref in self.ipv4:
                                 if child_ref._has_data():
@@ -2725,24 +2473,20 @@ class Syslog(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-                        return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s']['meta_info']
+                        return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4S']['meta_info']
 
 
-                class Ipv6s(object):
+                class Ipv6S(object):
                     """
                     List of the IPv6 logging host
                     
                     .. attribute:: ipv6
                     
                     	IPv6 address of the logging host
-                    	**type**\: list of :py:class:`Ipv6 <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6>`
+                    	**type**\: list of :py:class:`Ipv6 <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6>`
                     
                     
 
@@ -2772,17 +2516,17 @@ class Syslog(object):
                         .. attribute:: ipv6_discriminator
                         
                         	Set IPv6 logging discriminators
-                        	**type**\: :py:class:`Ipv6Discriminator <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6Discriminator>`
+                        	**type**\: :py:class:`Ipv6Discriminator <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator>`
                         
                         .. attribute:: ipv6_severity_levels
                         
                         	Severity container of the logging host
-                        	**type**\: :py:class:`Ipv6SeverityLevels <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels>`
+                        	**type**\: :py:class:`Ipv6SeverityLevels <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels>`
                         
                         .. attribute:: ipv6_severity_port
                         
                         	Severity/Port for the logging host
-                        	**type**\: :py:class:`Ipv6SeverityPort <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityPort>`
+                        	**type**\: :py:class:`Ipv6SeverityPort <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort>`
                         
                         
 
@@ -2794,11 +2538,11 @@ class Syslog(object):
                         def __init__(self):
                             self.parent = None
                             self.address = None
-                            self.ipv6_discriminator = Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6Discriminator()
+                            self.ipv6_discriminator = Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator()
                             self.ipv6_discriminator.parent = self
-                            self.ipv6_severity_levels = Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels()
+                            self.ipv6_severity_levels = Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels()
                             self.ipv6_severity_levels.parent = self
-                            self.ipv6_severity_port = Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityPort()
+                            self.ipv6_severity_port = Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort()
                             self.ipv6_severity_port.parent = self
 
 
@@ -2866,8 +2610,6 @@ class Syslog(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.match1 is not None:
                                     return True
 
@@ -2888,14 +2630,10 @@ class Syslog(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-                                return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6Discriminator']['meta_info']
+                                return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator']['meta_info']
 
 
                         class Ipv6SeverityLevels(object):
@@ -2905,7 +2643,7 @@ class Syslog(object):
                             .. attribute:: ipv6_severity_level
                             
                             	Severity for the logging host
-                            	**type**\: list of :py:class:`Ipv6SeverityLevel <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel>`
+                            	**type**\: list of :py:class:`Ipv6SeverityLevel <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel>`
                             
                             
 
@@ -2928,7 +2666,7 @@ class Syslog(object):
                                 .. attribute:: severity
                                 
                                 	Severity for the logging host
-                                	**type**\: :py:class:`LogSeverity_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LogSeverity_Enum>`
+                                	**type**\: :py:class:`LogSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LogSeverityEnum>`
                                 
                                 
 
@@ -2957,21 +2695,15 @@ class Syslog(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.severity is not None:
                                         return True
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-                                    return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel']['meta_info']
+                                    return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -2987,8 +2719,6 @@ class Syslog(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ipv6_severity_level is not None:
                                     for child_ref in self.ipv6_severity_level:
                                         if child_ref._has_data():
@@ -2996,14 +2726,10 @@ class Syslog(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-                                return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels']['meta_info']
+                                return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels']['meta_info']
 
 
                         class Ipv6SeverityPort(object):
@@ -3050,8 +2776,6 @@ class Syslog(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.port is not None:
                                     return True
 
@@ -3060,14 +2784,10 @@ class Syslog(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-                                return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityPort']['meta_info']
+                                return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -3085,39 +2805,24 @@ class Syslog(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 return True
 
                             if self.ipv6_discriminator is not None and self.ipv6_discriminator._has_data():
                                 return True
 
-                            if self.ipv6_discriminator is not None and self.ipv6_discriminator.is_presence():
-                                return True
-
                             if self.ipv6_severity_levels is not None and self.ipv6_severity_levels._has_data():
-                                return True
-
-                            if self.ipv6_severity_levels is not None and self.ipv6_severity_levels.is_presence():
                                 return True
 
                             if self.ipv6_severity_port is not None and self.ipv6_severity_port._has_data():
                                 return True
 
-                            if self.ipv6_severity_port is not None and self.ipv6_severity_port.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-                            return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6']['meta_info']
+                            return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -3133,8 +2838,6 @@ class Syslog(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ipv6 is not None:
                             for child_ref in self.ipv6:
                                 if child_ref._has_data():
@@ -3142,14 +2845,10 @@ class Syslog(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
-                        return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s']['meta_info']
+                        return meta._meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6S']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -3165,33 +2864,18 @@ class Syslog(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.vrf_name is not None:
                         return True
 
                     if self.hosts is not None and self.hosts._has_data():
                         return True
 
-                    if self.hosts is not None and self.hosts.is_presence():
-                        return True
-
                     if self.ipv4s is not None and self.ipv4s._has_data():
-                        return True
-
-                    if self.ipv4s is not None and self.ipv4s.is_presence():
                         return True
 
                     if self.ipv6s is not None and self.ipv6s._has_data():
                         return True
 
-                    if self.ipv6s is not None and self.ipv6s.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3211,17 +2895,11 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.vrf is not None:
                     for child_ref in self.vrf:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3241,18 +2919,9 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.vrfs is not None and self.vrfs._has_data():
                 return True
 
-            if self.vrfs is not None and self.vrfs.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3302,17 +2971,32 @@ class Syslog(object):
             .. attribute:: type
             
             	Logging TOS type DSCP
-            	**type**\: :py:class:`LoggingDscp_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscp_Enum>`
+            	**type**\: :py:class:`LoggingDscpEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpEnum>`
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
             
             .. attribute:: unused
             
             	Unused
-            	**type**\: one of { :py:class:`LoggingPrecedenceValue_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue_Enum>` | int }
+            	**type**\: one of { :py:class:`LoggingPrecedenceValueEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValueEnum>` | int }
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
             
             .. attribute:: value
             
             	Logging DSCP value
-            	**type**\: one of { :py:class:`LoggingDscpValue_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue_Enum>` | int }
+            	**type**\: one of { :py:class:`LoggingDscpValueEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValueEnum>` | int }
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
             
             
 
@@ -3341,8 +3025,6 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.type is not None:
                     return True
 
@@ -3353,10 +3035,6 @@ class Syslog(object):
                     return True
 
                 return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return True
 
             @staticmethod
             def _meta_info():
@@ -3371,17 +3049,32 @@ class Syslog(object):
             .. attribute:: type
             
             	Logging TOS type precedence
-            	**type**\: :py:class:`LoggingPrecedence_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedence_Enum>`
+            	**type**\: :py:class:`LoggingPrecedenceEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceEnum>`
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
             
             .. attribute:: unused
             
             	Unused
-            	**type**\: one of { :py:class:`LoggingDscpValue_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue_Enum>` | int }
+            	**type**\: one of { :py:class:`LoggingDscpValueEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValueEnum>` | int }
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
             
             .. attribute:: value
             
             	Logging precedence value
-            	**type**\: one of { :py:class:`LoggingPrecedenceValue_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue_Enum>` | int }
+            	**type**\: one of { :py:class:`LoggingPrecedenceValueEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValueEnum>` | int }
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
             
             
 
@@ -3410,8 +3103,6 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.type is not None:
                     return True
 
@@ -3422,10 +3113,6 @@ class Syslog(object):
                     return True
 
                 return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return True
 
             @staticmethod
             def _meta_info():
@@ -3440,17 +3127,17 @@ class Syslog(object):
             .. attribute:: dscp
             
             	Logging DSCP value
-            	**type**\: one of { :py:class:`LoggingDscpValue_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue_Enum>` | int }
+            	**type**\: one of { :py:class:`LoggingDscpValueEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValueEnum>` | int }
             
             .. attribute:: precedence
             
             	Logging precedence value
-            	**type**\: one of { :py:class:`LoggingPrecedenceValue_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue_Enum>` | int }
+            	**type**\: one of { :py:class:`LoggingPrecedenceValueEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValueEnum>` | int }
             
             .. attribute:: type
             
             	Logging TOS type DSCP or precedence
-            	**type**\: :py:class:`LoggingTos_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingTos_Enum>`
+            	**type**\: :py:class:`LoggingTosEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingTosEnum>`
             
             
 
@@ -3477,8 +3164,6 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.dscp is not None:
                     return True
 
@@ -3488,10 +3173,6 @@ class Syslog(object):
                 if self.type is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3511,30 +3192,15 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.dscp is not None and self.dscp._has_data():
-                return True
-
-            if self.dscp is not None and self.dscp.is_presence():
                 return True
 
             if self.precedence is not None and self.precedence._has_data():
                 return True
 
-            if self.precedence is not None and self.precedence.is_presence():
-                return True
-
             if self.tos is not None and self.tos._has_data():
                 return True
 
-            if self.tos is not None and self.tos.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3584,17 +3250,32 @@ class Syslog(object):
             .. attribute:: type
             
             	Logging TOS type DSCP
-            	**type**\: :py:class:`LoggingDscp_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscp_Enum>`
+            	**type**\: :py:class:`LoggingDscpEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpEnum>`
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
             
             .. attribute:: unused
             
             	Unused
-            	**type**\: one of { :py:class:`LoggingPrecedenceValue_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue_Enum>` | int }
+            	**type**\: one of { :py:class:`LoggingPrecedenceValueEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValueEnum>` | int }
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
             
             .. attribute:: value
             
             	Logging DSCP value
-            	**type**\: one of { :py:class:`LoggingDscpValue_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue_Enum>` | int }
+            	**type**\: one of { :py:class:`LoggingDscpValueEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValueEnum>` | int }
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
             
             
 
@@ -3623,8 +3304,6 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.type is not None:
                     return True
 
@@ -3635,10 +3314,6 @@ class Syslog(object):
                     return True
 
                 return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return True
 
             @staticmethod
             def _meta_info():
@@ -3653,17 +3328,32 @@ class Syslog(object):
             .. attribute:: type
             
             	Logging TOS type precedence
-            	**type**\: :py:class:`LoggingPrecedence_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedence_Enum>`
+            	**type**\: :py:class:`LoggingPrecedenceEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceEnum>`
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
             
             .. attribute:: unused
             
             	Unused
-            	**type**\: one of { :py:class:`LoggingDscpValue_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue_Enum>` | int }
+            	**type**\: one of { :py:class:`LoggingDscpValueEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValueEnum>` | int }
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
             
             .. attribute:: value
             
             	Logging precedence value
-            	**type**\: one of { :py:class:`LoggingPrecedenceValue_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue_Enum>` | int }
+            	**type**\: one of { :py:class:`LoggingPrecedenceValueEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValueEnum>` | int }
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
             
             
 
@@ -3692,8 +3382,6 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.type is not None:
                     return True
 
@@ -3704,10 +3392,6 @@ class Syslog(object):
                     return True
 
                 return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return True
 
             @staticmethod
             def _meta_info():
@@ -3722,17 +3406,17 @@ class Syslog(object):
             .. attribute:: dscp
             
             	Logging DSCP value
-            	**type**\: one of { :py:class:`LoggingDscpValue_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValue_Enum>` | int }
+            	**type**\: one of { :py:class:`LoggingDscpValueEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingDscpValueEnum>` | int }
             
             .. attribute:: precedence
             
             	Logging precedence value
-            	**type**\: one of { :py:class:`LoggingPrecedenceValue_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValue_Enum>` | int }
+            	**type**\: one of { :py:class:`LoggingPrecedenceValueEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingPrecedenceValueEnum>` | int }
             
             .. attribute:: type
             
             	Logging TOS type DSCP or precedence
-            	**type**\: :py:class:`LoggingTos_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingTos_Enum>`
+            	**type**\: :py:class:`LoggingTosEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingTosEnum>`
             
             
 
@@ -3759,8 +3443,6 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.dscp is not None:
                     return True
 
@@ -3770,10 +3452,6 @@ class Syslog(object):
                 if self.type is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3793,30 +3471,15 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.dscp is not None and self.dscp._has_data():
-                return True
-
-            if self.dscp is not None and self.dscp.is_presence():
                 return True
 
             if self.precedence is not None and self.precedence._has_data():
                 return True
 
-            if self.precedence is not None and self.precedence.is_presence():
-                return True
-
             if self.traffic_class is not None and self.traffic_class._has_data():
                 return True
 
-            if self.traffic_class is not None and self.traffic_class.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3832,7 +3495,7 @@ class Syslog(object):
         .. attribute:: facility_level
         
         	Facility from which logging is done
-        	**type**\: :py:class:`Facility_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.Facility_Enum>`
+        	**type**\: :py:class:`FacilityEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.FacilityEnum>`
         
         
 
@@ -3857,15 +3520,9 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.facility_level is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3881,7 +3538,7 @@ class Syslog(object):
         .. attribute:: logging_level
         
         	Monitor Logging Level
-        	**type**\: :py:class:`LoggingLevels_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels_Enum>`
+        	**type**\: :py:class:`LoggingLevelsEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevelsEnum>`
         
         .. attribute:: monitor_discriminator
         
@@ -3964,8 +3621,6 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.match1 is not None:
                     return True
 
@@ -3986,10 +3641,6 @@ class Syslog(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
@@ -4007,21 +3658,12 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.logging_level is not None:
                 return True
 
             if self.monitor_discriminator is not None and self.monitor_discriminator._has_data():
                 return True
 
-            if self.monitor_discriminator is not None and self.monitor_discriminator.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -4167,15 +3809,9 @@ class Syslog(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.vrf_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4197,17 +3833,11 @@ class Syslog(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.source_interface_vrf is not None:
                             for child_ref in self.source_interface_vrf:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4229,21 +3859,12 @@ class Syslog(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.src_interface_name_value is not None:
                         return True
 
                     if self.source_interface_vrfs is not None and self.source_interface_vrfs._has_data():
                         return True
 
-                    if self.source_interface_vrfs is not None and self.source_interface_vrfs.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4263,17 +3884,11 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.source_interface_value is not None:
                     for child_ref in self.source_interface_value:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4293,18 +3908,9 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.source_interface_values is not None and self.source_interface_values._has_data():
                 return True
 
-            if self.source_interface_values is not None and self.source_interface_values.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -4320,7 +3926,7 @@ class Syslog(object):
         .. attribute:: logging_level
         
         	Trap logging level
-        	**type**\: :py:class:`LoggingLevels_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevels_Enum>`
+        	**type**\: :py:class:`LoggingLevelsEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.LoggingLevelsEnum>`
         
         
 
@@ -4345,15 +3951,9 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.logging_level is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -4373,30 +3973,16 @@ class Syslog(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.alarm_logger is not None and self.alarm_logger._has_data():
-            return True
-
-        if self.alarm_logger is not None and self.alarm_logger.is_presence():
             return True
 
         if self.archive is not None and self.archive._has_data():
             return True
 
-        if self.archive is not None and self.archive.is_presence():
-            return True
-
         if self.buffered_logging is not None and self.buffered_logging._has_data():
             return True
 
-        if self.buffered_logging is not None and self.buffered_logging.is_presence():
-            return True
-
         if self.console_logging is not None and self.console_logging._has_data():
-            return True
-
-        if self.console_logging is not None and self.console_logging.is_presence():
             return True
 
         if self.enable_console_logging is not None:
@@ -4405,13 +3991,7 @@ class Syslog(object):
         if self.files is not None and self.files._has_data():
             return True
 
-        if self.files is not None and self.files.is_presence():
-            return True
-
         if self.history_logging is not None and self.history_logging._has_data():
-            return True
-
-        if self.history_logging is not None and self.history_logging.is_presence():
             return True
 
         if self.host_name_prefix is not None:
@@ -4420,19 +4000,10 @@ class Syslog(object):
         if self.host_server is not None and self.host_server._has_data():
             return True
 
-        if self.host_server is not None and self.host_server.is_presence():
-            return True
-
         if self.ipv4 is not None and self.ipv4._has_data():
             return True
 
-        if self.ipv4 is not None and self.ipv4.is_presence():
-            return True
-
         if self.ipv6 is not None and self.ipv6._has_data():
-            return True
-
-        if self.ipv6 is not None and self.ipv6.is_presence():
             return True
 
         if self.local_log_file_size is not None:
@@ -4441,19 +4012,10 @@ class Syslog(object):
         if self.logging_facilities is not None and self.logging_facilities._has_data():
             return True
 
-        if self.logging_facilities is not None and self.logging_facilities.is_presence():
-            return True
-
         if self.monitor_logging is not None and self.monitor_logging._has_data():
             return True
 
-        if self.monitor_logging is not None and self.monitor_logging.is_presence():
-            return True
-
         if self.source_interface_table is not None and self.source_interface_table._has_data():
-            return True
-
-        if self.source_interface_table is not None and self.source_interface_table.is_presence():
             return True
 
         if self.suppress_duplicates is not None:
@@ -4462,13 +4024,6 @@ class Syslog(object):
         if self.trap_logging is not None and self.trap_logging._has_data():
             return True
 
-        if self.trap_logging is not None and self.trap_logging.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -4596,22 +4151,22 @@ class SyslogService(object):
                     .. attribute:: msec
                     
                     	Seconds
-                    	**type**\: :py:class:`TimeInfo_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo_Enum>`
+                    	**type**\: :py:class:`TimeInfoEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfoEnum>`
                     
                     .. attribute:: time_stamp_value
                     
                     	Time
-                    	**type**\: :py:class:`TimeInfo_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo_Enum>`
+                    	**type**\: :py:class:`TimeInfoEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfoEnum>`
                     
                     .. attribute:: time_zone
                     
                     	Timezone
-                    	**type**\: :py:class:`TimeInfo_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo_Enum>`
+                    	**type**\: :py:class:`TimeInfoEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfoEnum>`
                     
                     .. attribute:: year
                     
                     	Year
-                    	**type**\: :py:class:`TimeInfo_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo_Enum>`
+                    	**type**\: :py:class:`TimeInfoEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfoEnum>`
                     
                     
 
@@ -4639,8 +4194,6 @@ class SyslogService(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.msec is not None:
                             return True
 
@@ -4653,10 +4206,6 @@ class SyslogService(object):
                         if self.year is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4676,18 +4225,9 @@ class SyslogService(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.datetime_value is not None and self.datetime_value._has_data():
                         return True
 
-                    if self.datetime_value is not None and self.datetime_value.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4707,12 +4247,7 @@ class SyslogService(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.debug_datetime is not None and self.debug_datetime._has_data():
-                    return True
-
-                if self.debug_datetime is not None and self.debug_datetime.is_presence():
                     return True
 
                 if self.debug_timestamp_disable is not None:
@@ -4721,10 +4256,6 @@ class SyslogService(object):
                 if self.debug_uptime is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4796,22 +4327,22 @@ class SyslogService(object):
                     .. attribute:: msec
                     
                     	Seconds
-                    	**type**\: :py:class:`TimeInfo_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo_Enum>`
+                    	**type**\: :py:class:`TimeInfoEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfoEnum>`
                     
                     .. attribute:: time_stamp_value
                     
                     	Time
-                    	**type**\: :py:class:`TimeInfo_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo_Enum>`
+                    	**type**\: :py:class:`TimeInfoEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfoEnum>`
                     
                     .. attribute:: time_zone
                     
                     	Timezone
-                    	**type**\: :py:class:`TimeInfo_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo_Enum>`
+                    	**type**\: :py:class:`TimeInfoEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfoEnum>`
                     
                     .. attribute:: year
                     
                     	Year
-                    	**type**\: :py:class:`TimeInfo_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfo_Enum>`
+                    	**type**\: :py:class:`TimeInfoEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg.TimeInfoEnum>`
                     
                     
 
@@ -4839,8 +4370,6 @@ class SyslogService(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.msec is not None:
                             return True
 
@@ -4853,10 +4382,6 @@ class SyslogService(object):
                         if self.year is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4876,18 +4401,9 @@ class SyslogService(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.log_datetime_value is not None and self.log_datetime_value._has_data():
                         return True
 
-                    if self.log_datetime_value is not None and self.log_datetime_value.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4907,12 +4423,7 @@ class SyslogService(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.log_datetime is not None and self.log_datetime._has_data():
-                    return True
-
-                if self.log_datetime is not None and self.log_datetime.is_presence():
                     return True
 
                 if self.log_timestamp_disable is not None:
@@ -4921,10 +4432,6 @@ class SyslogService(object):
                 if self.log_uptime is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4944,12 +4451,7 @@ class SyslogService(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.debug is not None and self.debug._has_data():
-                return True
-
-            if self.debug is not None and self.debug.is_presence():
                 return True
 
             if self.enable is not None:
@@ -4958,13 +4460,6 @@ class SyslogService(object):
             if self.log is not None and self.log._has_data():
                 return True
 
-            if self.log is not None and self.log.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -4984,18 +4479,9 @@ class SyslogService(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.timestamps is not None and self.timestamps._has_data():
             return True
 
-        if self.timestamps is not None and self.timestamps.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

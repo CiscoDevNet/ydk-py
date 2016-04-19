@@ -88,8 +88,6 @@ class Cdp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.advertise_v1_only is not None:
             return True
 
@@ -105,10 +103,6 @@ class Cdp(object):
         if self.timer is not None:
             return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

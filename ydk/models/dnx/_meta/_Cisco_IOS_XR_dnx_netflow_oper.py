@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,17 +14,17 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'UdpAddressFamily_Enum' : _MetaInfoEnum('UdpAddressFamily_Enum', 'ydk.models.dnx.Cisco_IOS_XR_dnx_netflow_oper',
+    'UdpAddressFamilyEnum' : _MetaInfoEnum('UdpAddressFamilyEnum', 'ydk.models.dnx.Cisco_IOS_XR_dnx_netflow_oper',
         {
             'ipv4':'IPV4',
             'ipv6':'IPV6',
         }, 'Cisco-IOS-XR-dnx-netflow-oper', _yang_ns._namespaces['Cisco-IOS-XR-dnx-netflow-oper']),
-    'NfmgrFemEdmExpVer_Enum' : _MetaInfoEnum('NfmgrFemEdmExpVer_Enum', 'ydk.models.dnx.Cisco_IOS_XR_dnx_netflow_oper',
+    'NfmgrFemEdmExpVerEnum' : _MetaInfoEnum('NfmgrFemEdmExpVerEnum', 'ydk.models.dnx.Cisco_IOS_XR_dnx_netflow_oper',
         {
             'v9':'V9',
             'ip-fix':'IP_FIX',
         }, 'Cisco-IOS-XR-dnx-netflow-oper', _yang_ns._namespaces['Cisco-IOS-XR-dnx-netflow-oper']),
-    'NfmgrFemEdmTransProto_Enum' : _MetaInfoEnum('NfmgrFemEdmTransProto_Enum', 'ydk.models.dnx.Cisco_IOS_XR_dnx_netflow_oper',
+    'NfmgrFemEdmTransProtoEnum' : _MetaInfoEnum('NfmgrFemEdmTransProtoEnum', 'ydk.models.dnx.Cisco_IOS_XR_dnx_netflow_oper',
         {
             'unspecified':'UNSPECIFIED',
             'udp':'UDP',
@@ -64,7 +64,7 @@ _meta_table = {
                 ''',
                 'source_interface',
                 'Cisco-IOS-XR-dnx-netflow-oper', False),
-            _MetaInfoClassMember('transport-protocol', REFERENCE_ENUM_CLASS, 'NfmgrFemEdmTransProto_Enum' , 'ydk.models.dnx.Cisco_IOS_XR_dnx_netflow_oper', 'NfmgrFemEdmTransProto_Enum', 
+            _MetaInfoClassMember('transport-protocol', REFERENCE_ENUM_CLASS, 'NfmgrFemEdmTransProtoEnum' , 'ydk.models.dnx.Cisco_IOS_XR_dnx_netflow_oper', 'NfmgrFemEdmTransProtoEnum', 
                 [], [], 
                 '''                Transport protocol
                 ''',
@@ -187,7 +187,7 @@ _meta_table = {
                 ''',
                 'ipfix',
                 'Cisco-IOS-XR-dnx-netflow-oper', False),
-            _MetaInfoClassMember('version', REFERENCE_ENUM_CLASS, 'NfmgrFemEdmExpVer_Enum' , 'ydk.models.dnx.Cisco_IOS_XR_dnx_netflow_oper', 'NfmgrFemEdmExpVer_Enum', 
+            _MetaInfoClassMember('version', REFERENCE_ENUM_CLASS, 'NfmgrFemEdmExpVerEnum' , 'ydk.models.dnx.Cisco_IOS_XR_dnx_netflow_oper', 'NfmgrFemEdmExpVerEnum', 
                 [], [], 
                 '''                version
                 ''',
@@ -574,7 +574,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector.DestinationAddress',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'UdpAddressFamily_Enum' , 'ydk.models.dnx.Cisco_IOS_XR_dnx_netflow_oper', 'UdpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'UdpAddressFamilyEnum' , 'ydk.models.dnx.Cisco_IOS_XR_dnx_netflow_oper', 'UdpAddressFamilyEnum', 
                 [], [], 
                 '''                AFName
                 ''',
@@ -603,7 +603,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector.SourceAddress',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'UdpAddressFamily_Enum' , 'ydk.models.dnx.Cisco_IOS_XR_dnx_netflow_oper', 'UdpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'UdpAddressFamilyEnum' , 'ydk.models.dnx.Cisco_IOS_XR_dnx_netflow_oper', 'UdpAddressFamilyEnum', 
                 [], [], 
                 '''                AFName
                 ''',

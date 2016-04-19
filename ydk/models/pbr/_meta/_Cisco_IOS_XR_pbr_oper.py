@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'PolicyState_Enum' : _MetaInfoEnum('PolicyState_Enum', 'ydk.models.pbr.Cisco_IOS_XR_pbr_oper',
+    'PolicyStateEnum' : _MetaInfoEnum('PolicyStateEnum', 'ydk.models.pbr.Cisco_IOS_XR_pbr_oper',
         {
             'active':'ACTIVE',
             'suspended':'SUSPENDED',
@@ -210,7 +210,7 @@ _meta_table = {
                 ''',
                 'policy_name',
                 'Cisco-IOS-XR-pbr-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.pbr.Cisco_IOS_XR_pbr_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.pbr.Cisco_IOS_XR_pbr_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',

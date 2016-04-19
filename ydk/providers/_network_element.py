@@ -49,15 +49,9 @@ class _NetworkElement(object):
         netconf_client = _NCClientSPPlugin('Netconf Protocol')
         self.sp_instance = netconf_client
         netconf_client._connect(self.session_config, self.port)
-        self._pfo = open('netconf.log', 'wb')
-        self._pfo.write("Connected to ncserver...\n")
         return True
 
     def disconnect(self):
         self.sp_instance._nc_manager.close_session()
-        self._pfo.close()
-        print("Operations service protocol packets log can be found in : netconf.log")
         return True
 
-    def payload_log(self, p):
-        self._pfo.write(p)

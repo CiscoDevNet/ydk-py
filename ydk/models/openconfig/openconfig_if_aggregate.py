@@ -17,160 +17,161 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class AggregationType_Enum(Enum):
+class AggregationTypeEnum(Enum):
     """
-    AggregationType_Enum
+    AggregationTypeEnum
 
     Type to define the lag\-type, i.e., how the LAG is
+
     defined and managed
 
-    """
+    .. data:: LACP = 0
+
+    	LAG managed by LACP
+
+    .. data:: STATIC = 1
+
+    	Statically configured bundle / LAG
 
     """
 
-    LAG managed by LACP
-
-    """
     LACP = 0
 
-    """
-
-    Statically configured bundle / LAG
-
-    """
     STATIC = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_if_aggregate as meta
-        return meta._meta_table['AggregationType_Enum']
+        return meta._meta_table['AggregationTypeEnum']
 
 
-class LacpActivityType_Enum(Enum):
+class LacpActivityTypeEnum(Enum):
     """
-    LacpActivityType_Enum
+    LacpActivityTypeEnum
 
     Describes the LACP membership type, active or passive, of the
+
     interface in the aggregate
 
-    """
+    .. data:: ACTIVE = 0
+
+    	Interface is an active member, i.e., will detect and
+
+    	maintain aggregates
+
+    .. data:: PASSIVE = 1
+
+    	Interface is a passive member, i.e., it participates
+
+    	with an active partner
 
     """
 
-    Interface is an active member, i.e., will detect and
-    maintain aggregates
-
-    """
     ACTIVE = 0
 
-    """
-
-    Interface is a passive member, i.e., it participates
-    with an active partner
-
-    """
     PASSIVE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_if_aggregate as meta
-        return meta._meta_table['LacpActivityType_Enum']
+        return meta._meta_table['LacpActivityTypeEnum']
 
 
-class LacpPeriodType_Enum(Enum):
+class LacpPeriodTypeEnum(Enum):
     """
-    LacpPeriodType_Enum
+    LacpPeriodTypeEnum
 
     Defines the period options for the time between sending
+
     LACP messages
 
-    """
+    .. data:: FAST = 0
+
+    	Send LACP packets every second
+
+    .. data:: SLOW = 1
+
+    	Send LACP packets every 30 seconds
 
     """
 
-    Send LACP packets every second
-
-    """
     FAST = 0
 
-    """
-
-    Send LACP packets every 30 seconds
-
-    """
     SLOW = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_if_aggregate as meta
-        return meta._meta_table['LacpPeriodType_Enum']
+        return meta._meta_table['LacpPeriodTypeEnum']
 
 
-class LacpSynchronizationType_Enum(Enum):
+class LacpSynchronizationTypeEnum(Enum):
     """
-    LacpSynchronizationType_Enum
+    LacpSynchronizationTypeEnum
 
     Indicates LACP synchronization state of participant
 
-    """
+    .. data:: IN_SYNC = 0
+
+    	Participant is in sync with the system id and key
+
+    	transmitted
+
+    .. data:: OUT_SYNC = 1
+
+    	Participant is not in sync with the system id and key
+
+    	transmitted
 
     """
 
-    Participant is in sync with the system id and key
-    transmitted
-
-    """
     IN_SYNC = 0
 
-    """
-
-    Participant is not in sync with the system id and key
-    transmitted
-
-    """
     OUT_SYNC = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_if_aggregate as meta
-        return meta._meta_table['LacpSynchronizationType_Enum']
+        return meta._meta_table['LacpSynchronizationTypeEnum']
 
 
-class LacpTimeoutType_Enum(Enum):
+class LacpTimeoutTypeEnum(Enum):
     """
-    LacpTimeoutType_Enum
+    LacpTimeoutTypeEnum
 
     Type of timeout used, short or long, by LACP participants
 
-    """
+    .. data:: LONG = 0
+
+    	Participant wishes to use long timeouts to detect
+
+    	status of the aggregate, i.e., will expect less frequent
+
+    	transmissions. Long timeout is 90 seconds.
+
+    .. data:: SHORT = 1
+
+    	Participant wishes to use short timeouts, i.e., expects
+
+    	frequent transmissions to aggressively detect status
+
+    	changes. Short timeout is 3 seconds.
 
     """
 
-    Participant wishes to use long timeouts to detect
-    status of the aggregate, i.e., will expect less frequent
-    transmissions. Long timeout is 90 seconds.
-
-    """
     LONG = 0
 
-    """
-
-    Participant wishes to use short timeouts, i.e., expects
-    frequent transmissions to aggressively detect status
-    changes. Short timeout is 3 seconds.
-
-    """
     SHORT = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_if_aggregate as meta
-        return meta._meta_table['LacpTimeoutType_Enum']
+        return meta._meta_table['LacpTimeoutTypeEnum']
 
 
 

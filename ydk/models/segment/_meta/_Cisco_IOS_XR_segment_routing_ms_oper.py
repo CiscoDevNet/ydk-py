@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,18 +14,18 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'SrmsMiAfEB_Enum' : _MetaInfoEnum('SrmsMiAfEB_Enum', 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper',
+    'SrmsMiAfEBEnum' : _MetaInfoEnum('SrmsMiAfEBEnum', 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper',
         {
             'none':'NONE',
             'ipv4':'IPV4',
             'ipv6':'IPV6',
         }, 'Cisco-IOS-XR-segment-routing-ms-oper', _yang_ns._namespaces['Cisco-IOS-XR-segment-routing-ms-oper']),
-    'SrmsMiActionEB_Enum' : _MetaInfoEnum('SrmsMiActionEB_Enum', 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper',
+    'SrmsMiActionEBEnum' : _MetaInfoEnum('SrmsMiActionEBEnum', 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper',
         {
             'none':'NONE',
             'add':'ADD',
         }, 'Cisco-IOS-XR-segment-routing-ms-oper', _yang_ns._namespaces['Cisco-IOS-XR-segment-routing-ms-oper']),
-    'SrmsMiSrcEB_Enum' : _MetaInfoEnum('SrmsMiSrcEB_Enum', 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper',
+    'SrmsMiSrcEBEnum' : _MetaInfoEnum('SrmsMiSrcEBEnum', 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper',
         {
             'none':'NONE',
             'local':'LOCAL',
@@ -35,7 +35,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Srms.Mapping.MappingIpv4.MappingMi.Addr',
             False, 
             [
-            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'SrmsMiAfEB_Enum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiAfEB_Enum', 
+            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'SrmsMiAfEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiAfEBEnum', 
                 [], [], 
                 '''                AF
                 ''',
@@ -64,7 +64,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Srms.Mapping.MappingIpv4.MappingMi',
             False, 
             [
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEB_Enum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEB_Enum', 
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEBEnum', 
                 [], [], 
                 '''                action
                 ''',
@@ -124,7 +124,7 @@ _meta_table = {
                 ''',
                 'sid_start',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEB_Enum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEB_Enum', 
+            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEBEnum', 
                 [], [], 
                 '''                src
                 ''',
@@ -162,7 +162,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Srms.Mapping.MappingIpv6.MappingMi.Addr',
             False, 
             [
-            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'SrmsMiAfEB_Enum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiAfEB_Enum', 
+            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'SrmsMiAfEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiAfEBEnum', 
                 [], [], 
                 '''                AF
                 ''',
@@ -191,7 +191,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Srms.Mapping.MappingIpv6.MappingMi',
             False, 
             [
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEB_Enum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEB_Enum', 
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEBEnum', 
                 [], [], 
                 '''                action
                 ''',
@@ -251,7 +251,7 @@ _meta_table = {
                 ''',
                 'sid_start',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEB_Enum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEB_Enum', 
+            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEBEnum', 
                 [], [], 
                 '''                src
                 ''',
@@ -312,7 +312,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr',
             False, 
             [
-            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'SrmsMiAfEB_Enum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiAfEB_Enum', 
+            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'SrmsMiAfEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiAfEBEnum', 
                 [], [], 
                 '''                AF
                 ''',
@@ -347,7 +347,7 @@ _meta_table = {
                 ''',
                 'mi_id',
                 'Cisco-IOS-XR-segment-routing-ms-oper', True),
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEB_Enum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEB_Enum', 
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEBEnum', 
                 [], [], 
                 '''                action
                 ''',
@@ -395,7 +395,7 @@ _meta_table = {
                 ''',
                 'sid_start',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEB_Enum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEB_Enum', 
+            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEBEnum', 
                 [], [], 
                 '''                src
                 ''',
@@ -429,7 +429,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr',
             False, 
             [
-            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'SrmsMiAfEB_Enum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiAfEB_Enum', 
+            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'SrmsMiAfEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiAfEBEnum', 
                 [], [], 
                 '''                AF
                 ''',
@@ -464,7 +464,7 @@ _meta_table = {
                 ''',
                 'mi_id',
                 'Cisco-IOS-XR-segment-routing-ms-oper', True),
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEB_Enum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEB_Enum', 
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEBEnum', 
                 [], [], 
                 '''                action
                 ''',
@@ -512,7 +512,7 @@ _meta_table = {
                 ''',
                 'sid_start',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEB_Enum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEB_Enum', 
+            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEBEnum', 
                 [], [], 
                 '''                src
                 ''',
@@ -569,7 +569,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr',
             False, 
             [
-            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'SrmsMiAfEB_Enum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiAfEB_Enum', 
+            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'SrmsMiAfEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiAfEBEnum', 
                 [], [], 
                 '''                AF
                 ''',
@@ -604,7 +604,7 @@ _meta_table = {
                 ''',
                 'mi_id',
                 'Cisco-IOS-XR-segment-routing-ms-oper', True),
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEB_Enum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEB_Enum', 
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEBEnum', 
                 [], [], 
                 '''                action
                 ''',
@@ -652,7 +652,7 @@ _meta_table = {
                 ''',
                 'sid_start',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEB_Enum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEB_Enum', 
+            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEBEnum', 
                 [], [], 
                 '''                src
                 ''',
@@ -686,7 +686,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr',
             False, 
             [
-            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'SrmsMiAfEB_Enum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiAfEB_Enum', 
+            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'SrmsMiAfEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiAfEBEnum', 
                 [], [], 
                 '''                AF
                 ''',
@@ -721,7 +721,7 @@ _meta_table = {
                 ''',
                 'mi_id',
                 'Cisco-IOS-XR-segment-routing-ms-oper', True),
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEB_Enum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEB_Enum', 
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEBEnum', 
                 [], [], 
                 '''                action
                 ''',
@@ -769,7 +769,7 @@ _meta_table = {
                 ''',
                 'sid_start',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEB_Enum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEB_Enum', 
+            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEBEnum', 
                 [], [], 
                 '''                src
                 ''',

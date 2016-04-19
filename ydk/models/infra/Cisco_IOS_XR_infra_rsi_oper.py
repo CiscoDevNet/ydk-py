@@ -26,125 +26,112 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class Priority_Enum(Enum):
+class PriorityEnum(Enum):
     """
-    Priority_Enum
+    PriorityEnum
 
     Priority
 
-    """
+    .. data:: CRITICAL = 0
+
+    	Critical
+
+    .. data:: HIGH = 1
+
+    	High
+
+    .. data:: MEDIUM = 2
+
+    	Medium
+
+    .. data:: LOW = 3
+
+    	Low
+
+    .. data:: VERY_LOW = 4
+
+    	Very low
 
     """
 
-    Critical
-
-    """
     CRITICAL = 0
 
-    """
-
-    High
-
-    """
     HIGH = 1
 
-    """
-
-    Medium
-
-    """
     MEDIUM = 2
 
-    """
-
-    Low
-
-    """
     LOW = 3
 
-    """
-
-    Very low
-
-    """
     VERY_LOW = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-        return meta._meta_table['Priority_Enum']
+        return meta._meta_table['PriorityEnum']
 
 
-class Source_Enum(Enum):
+class SourceEnum(Enum):
     """
-    Source_Enum
+    SourceEnum
 
     Source
 
-    """
+    .. data:: CONFIGURED = 1
+
+    	Configured
+
+    .. data:: FROM_GROUP = 2
+
+    	From group
+
+    .. data:: INHERITED = 4
+
+    	Inherited
+
+    .. data:: FROM_OPTICAL = 8
+
+    	From optical
+
+    .. data:: CONFIGURED_AND_NOTIFIED = 17
+
+    	Configured and notified
+
+    .. data:: FROM_GROUP_AND_NOTIFIED = 18
+
+    	From group and notified
+
+    .. data:: INHERITED_AND_NOTIFIED = 20
+
+    	Inherited and notified
+
+    .. data:: FROM_OPTICAL_AND_NOTIFIED = 24
+
+    	From optical and notified
 
     """
 
-    Configured
-
-    """
     CONFIGURED = 1
 
-    """
-
-    From group
-
-    """
     FROM_GROUP = 2
 
-    """
-
-    Inherited
-
-    """
     INHERITED = 4
 
-    """
-
-    From optical
-
-    """
     FROM_OPTICAL = 8
 
-    """
-
-    Configured and notified
-
-    """
     CONFIGURED_AND_NOTIFIED = 17
 
-    """
-
-    From group and notified
-
-    """
     FROM_GROUP_AND_NOTIFIED = 18
 
-    """
-
-    Inherited and notified
-
-    """
     INHERITED_AND_NOTIFIED = 20
 
-    """
-
-    From optical and notified
-
-    """
     FROM_OPTICAL_AND_NOTIFIED = 24
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-        return meta._meta_table['Source_Enum']
+        return meta._meta_table['SourceEnum']
 
 
 
@@ -207,18 +194,12 @@ class SelectiveVrfDownload(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.is_svd_enabled is not None:
                 return True
 
             if self.is_svd_enabled_cfg is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -238,18 +219,9 @@ class SelectiveVrfDownload(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.state is not None and self.state._has_data():
             return True
 
-        if self.state is not None and self.state.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -394,17 +366,11 @@ class Srlg(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface_name is not None:
                         for child in self.interface_name:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -426,15 +392,10 @@ class Srlg(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.srlg_name is not None:
                     return True
 
                 if self.interfaces is not None and self.interfaces._has_data():
-                    return True
-
-                if self.interfaces is not None and self.interfaces.is_presence():
                     return True
 
                 if self.srlg_name_xr is not None:
@@ -443,10 +404,6 @@ class Srlg(object):
                 if self.srlg_value is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -466,17 +423,11 @@ class Srlg(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.interface_srlg_name is not None:
                 for child_ref in self.interface_srlg_name:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -655,7 +606,7 @@ class Srlg(object):
                         .. attribute:: priority
                         
                         	Priority
-                        	**type**\: :py:class:`Priority_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.Priority_Enum>`
+                        	**type**\: :py:class:`PriorityEnum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.PriorityEnum>`
                         
                         .. attribute:: srlg_index
                         
@@ -698,8 +649,6 @@ class Srlg(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.priority is not None:
                                 return True
 
@@ -709,10 +658,6 @@ class Srlg(object):
                             if self.srlg_value is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -736,8 +681,6 @@ class Srlg(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.group_name is not None:
                             return True
 
@@ -752,10 +695,6 @@ class Srlg(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -777,17 +716,11 @@ class Srlg(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.group is not None:
                         for child_ref in self.group:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -871,7 +804,7 @@ class Srlg(object):
                         .. attribute:: priority
                         
                         	Priority
-                        	**type**\: :py:class:`Priority_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.Priority_Enum>`
+                        	**type**\: :py:class:`PriorityEnum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.PriorityEnum>`
                         
                         .. attribute:: srlg_index
                         
@@ -914,8 +847,6 @@ class Srlg(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.priority is not None:
                                 return True
 
@@ -925,10 +856,6 @@ class Srlg(object):
                             if self.srlg_value is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -952,8 +879,6 @@ class Srlg(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.inherit_node_name is not None:
                             return True
 
@@ -968,10 +893,6 @@ class Srlg(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -993,17 +914,11 @@ class Srlg(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.inherit_node is not None:
                         for child_ref in self.inherit_node:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1089,12 +1004,12 @@ class Srlg(object):
                         .. attribute:: priority
                         
                         	Priority
-                        	**type**\: :py:class:`Priority_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.Priority_Enum>`
+                        	**type**\: :py:class:`PriorityEnum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.PriorityEnum>`
                         
                         .. attribute:: source
                         
                         	Source
-                        	**type**\: :py:class:`Source_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.Source_Enum>`
+                        	**type**\: :py:class:`SourceEnum <ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper.SourceEnum>`
                         
                         .. attribute:: source_name
                         
@@ -1144,8 +1059,6 @@ class Srlg(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.priority is not None:
                                 return True
 
@@ -1161,10 +1074,6 @@ class Srlg(object):
                             if self.srlg_value is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1188,8 +1097,6 @@ class Srlg(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_name is not None:
                             return True
 
@@ -1204,10 +1111,6 @@ class Srlg(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1229,17 +1132,11 @@ class Srlg(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface_detail is not None:
                         for child_ref in self.interface_detail:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1349,17 +1246,11 @@ class Srlg(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface_name is not None:
                                 for child in self.interface_name:
                                     if child is not None:
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1383,15 +1274,10 @@ class Srlg(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.srlg_name is not None:
                             return True
 
                         if self.interfaces is not None and self.interfaces._has_data():
-                            return True
-
-                        if self.interfaces is not None and self.interfaces.is_presence():
                             return True
 
                         if self.srlg_name_xr is not None:
@@ -1400,10 +1286,6 @@ class Srlg(object):
                         if self.srlg_value is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1425,17 +1307,11 @@ class Srlg(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface_srlg_name is not None:
                         for child_ref in self.interface_srlg_name:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1535,8 +1411,6 @@ class Srlg(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_name is not None:
                             return True
 
@@ -1554,10 +1428,6 @@ class Srlg(object):
                         if self.value_count is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1579,17 +1449,11 @@ class Srlg(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1673,8 +1537,6 @@ class Srlg(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.srlg_name is not None:
                             return True
 
@@ -1684,10 +1546,6 @@ class Srlg(object):
                         if self.srlg_value is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1709,17 +1567,11 @@ class Srlg(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.srlg_map is not None:
                         for child_ref in self.srlg_map:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1795,8 +1647,6 @@ class Srlg(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.value is not None:
                             return True
 
@@ -1805,10 +1655,6 @@ class Srlg(object):
                                 if child is not None:
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1830,17 +1676,11 @@ class Srlg(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.srlg_value is not None:
                         for child_ref in self.srlg_value:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1862,57 +1702,30 @@ class Srlg(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.groups is not None and self.groups._has_data():
                     return True
 
-                if self.groups is not None and self.groups.is_presence():
-                    return True
-
                 if self.inherit_nodes is not None and self.inherit_nodes._has_data():
-                    return True
-
-                if self.inherit_nodes is not None and self.inherit_nodes.is_presence():
                     return True
 
                 if self.interface_details is not None and self.interface_details._has_data():
                     return True
 
-                if self.interface_details is not None and self.interface_details.is_presence():
-                    return True
-
                 if self.interface_srlg_names is not None and self.interface_srlg_names._has_data():
-                    return True
-
-                if self.interface_srlg_names is not None and self.interface_srlg_names.is_presence():
                     return True
 
                 if self.interfaces is not None and self.interfaces._has_data():
                     return True
 
-                if self.interfaces is not None and self.interfaces.is_presence():
-                    return True
-
                 if self.srlg_maps is not None and self.srlg_maps._has_data():
-                    return True
-
-                if self.srlg_maps is not None and self.srlg_maps.is_presence():
                     return True
 
                 if self.srlg_values is not None and self.srlg_values._has_data():
                     return True
 
-                if self.srlg_values is not None and self.srlg_values.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1932,17 +1745,11 @@ class Srlg(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2024,8 +1831,6 @@ class Srlg(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.srlg_name is not None:
                     return True
 
@@ -2035,10 +1840,6 @@ class Srlg(object):
                 if self.srlg_value is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2058,17 +1859,11 @@ class Srlg(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.srlg_map is not None:
                 for child_ref in self.srlg_map:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2088,30 +1883,15 @@ class Srlg(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.interface_srlg_names is not None and self.interface_srlg_names._has_data():
-            return True
-
-        if self.interface_srlg_names is not None and self.interface_srlg_names.is_presence():
             return True
 
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
         if self.srlg_maps is not None and self.srlg_maps._has_data():
             return True
 
-        if self.srlg_maps is not None and self.srlg_maps.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -2296,15 +2076,9 @@ class VrfGroup(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.vrf_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2328,8 +2102,6 @@ class VrfGroup(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.group_name is not None:
                             return True
 
@@ -2344,10 +2116,6 @@ class VrfGroup(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2369,17 +2137,11 @@ class VrfGroup(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.group is not None:
                         for child_ref in self.group:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2401,21 +2163,12 @@ class VrfGroup(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.groups is not None and self.groups._has_data():
                     return True
 
-                if self.groups is not None and self.groups.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2435,17 +2188,11 @@ class VrfGroup(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2465,18 +2212,9 @@ class VrfGroup(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,12 +14,12 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'VrfAddressFamily_Enum' : _MetaInfoEnum('VrfAddressFamily_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg',
+    'VrfAddressFamilyEnum' : _MetaInfoEnum('VrfAddressFamilyEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg',
         {
             'ipv4':'IPV4',
             'ipv6':'IPV6',
         }, 'Cisco-IOS-XR-infra-rsi-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-rsi-cfg']),
-    'SrlgPriority_Enum' : _MetaInfoEnum('SrlgPriority_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg',
+    'SrlgPriorityEnum' : _MetaInfoEnum('SrlgPriorityEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg',
         {
             'critical':'CRITICAL',
             'high':'HIGH',
@@ -27,7 +27,7 @@ _meta_table = {
             'low':'LOW',
             'very-low':'VERY_LOW',
         }, 'Cisco-IOS-XR-infra-rsi-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-rsi-cfg']),
-    'VrfSubAddressFamily_Enum' : _MetaInfoEnum('VrfSubAddressFamily_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg',
+    'VrfSubAddressFamilyEnum' : _MetaInfoEnum('VrfSubAddressFamilyEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg',
         {
             'unicast':'UNICAST',
             'multicast':'MULTICAST',
@@ -37,13 +37,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('GlobalAf.Afs.Af',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'VrfAddressFamily_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'VrfAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'VrfAddressFamilyEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'VrfAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-infra-rsi-cfg', True),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'VrfSubAddressFamily_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'VrfSubAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'VrfSubAddressFamilyEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'VrfSubAddressFamilyEnum', 
                 [], [], 
                 '''                Sub-Address family
                 ''',
@@ -130,7 +130,7 @@ _meta_table = {
                 ''',
                 'srlg_index',
                 'Cisco-IOS-XR-infra-rsi-cfg', True),
-            _MetaInfoClassMember('srlg-priority', REFERENCE_ENUM_CLASS, 'SrlgPriority_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'SrlgPriority_Enum', 
+            _MetaInfoClassMember('srlg-priority', REFERENCE_ENUM_CLASS, 'SrlgPriorityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'SrlgPriorityEnum', 
                 [], [], 
                 '''                SRLG priority
                 ''',
@@ -222,7 +222,7 @@ _meta_table = {
                 ''',
                 'srlg_index',
                 'Cisco-IOS-XR-infra-rsi-cfg', True),
-            _MetaInfoClassMember('srlg-priority', REFERENCE_ENUM_CLASS, 'SrlgPriority_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'SrlgPriority_Enum', 
+            _MetaInfoClassMember('srlg-priority', REFERENCE_ENUM_CLASS, 'SrlgPriorityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'SrlgPriorityEnum', 
                 [], [], 
                 '''                SRLG priority
                 ''',
@@ -315,7 +315,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'SrlgPriority_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'SrlgPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'SrlgPriorityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'SrlgPriorityEnum', 
                 [], [], 
                 '''                Priority for optical domain values
                 ''',
@@ -344,7 +344,7 @@ _meta_table = {
                 ''',
                 'group_name',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
-            _MetaInfoClassMember('srlg-priority', REFERENCE_ENUM_CLASS, 'SrlgPriority_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'SrlgPriority_Enum', 
+            _MetaInfoClassMember('srlg-priority', REFERENCE_ENUM_CLASS, 'SrlgPriorityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'SrlgPriorityEnum', 
                 [], [], 
                 '''                SRLG priority
                 ''',
@@ -441,7 +441,7 @@ _meta_table = {
                 ''',
                 'srlg_index',
                 'Cisco-IOS-XR-infra-rsi-cfg', True),
-            _MetaInfoClassMember('srlg-priority', REFERENCE_ENUM_CLASS, 'SrlgPriority_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'SrlgPriority_Enum', 
+            _MetaInfoClassMember('srlg-priority', REFERENCE_ENUM_CLASS, 'SrlgPriorityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'SrlgPriorityEnum', 
                 [], [], 
                 '''                SRLG priority
                 ''',
@@ -770,7 +770,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpVrfRouteTarget_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpVrfRouteTarget_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpVrfRouteTargetEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpVrfRouteTargetEnum', 
                 [], [], 
                 '''                Type of RT
                 ''',
@@ -920,7 +920,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpVrfRouteTarget_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpVrfRouteTarget_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpVrfRouteTargetEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpVrfRouteTargetEnum', 
                 [], [], 
                 '''                Type of RT
                 ''',
@@ -1030,13 +1030,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'VrfAddressFamily_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'VrfAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'VrfAddressFamilyEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'VrfAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-infra-rsi-cfg', True),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'VrfSubAddressFamily_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'VrfSubAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'VrfSubAddressFamilyEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'VrfSubAddressFamilyEnum', 
                 [], [], 
                 '''                Sub-Address family
                 ''',

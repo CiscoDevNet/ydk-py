@@ -20,353 +20,316 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class AuthorizeIdentifier_Enum(Enum):
+class AuthorizeIdentifierEnum(Enum):
     """
-    AuthorizeIdentifier_Enum
+    AuthorizeIdentifierEnum
 
     Authorize identifier.
 
-    """
+    .. data:: CIRCUIT_ID = 0
+
+    	Authorize circuit ID.
+
+    .. data:: REMOTE_ID = 1
+
+    	Authorize remote ID.
+
+    .. data:: SOURCE_ADDRESS_IPV4 = 2
+
+    	Authorize source IPv4 address.
+
+    .. data:: SOURCE_ADDRESS_IPV6 = 3
+
+    	Authorize source IPv6 address.
+
+    .. data:: SOURCE_ADDRESS_MAC = 4
+
+    	Authorize source MAC address.
+
+    .. data:: USERNAME = 5
+
+    	Authorize username.
 
     """
 
-    Authorize circuit ID.
-
-    """
     CIRCUIT_ID = 0
 
-    """
-
-    Authorize remote ID.
-
-    """
     REMOTE_ID = 1
 
-    """
-
-    Authorize source IPv4 address.
-
-    """
     SOURCE_ADDRESS_IPV4 = 2
 
-    """
-
-    Authorize source IPv6 address.
-
-    """
     SOURCE_ADDRESS_IPV6 = 3
 
-    """
-
-    Authorize source MAC address.
-
-    """
     SOURCE_ADDRESS_MAC = 4
 
-    """
-
-    Authorize username.
-
-    """
     USERNAME = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_policymgr_cfg as meta
-        return meta._meta_table['AuthorizeIdentifier_Enum']
+        return meta._meta_table['AuthorizeIdentifierEnum']
 
 
-class ClassMapType_Enum(Enum):
+class ClassMapTypeEnum(Enum):
     """
-    ClassMapType_Enum
+    ClassMapTypeEnum
 
     Policy manager class\-map type.
 
-    """
+    .. data:: QOS = 1
+
+    	QoS Classmap.
+
+    .. data:: TRAFFIC = 3
+
+    	TRAFFIC Classmap.
+
+    .. data:: CONTROL = 4
+
+    	Control Subscriber Classmap.
 
     """
 
-    QoS Classmap.
-
-    """
     QOS = 1
 
-    """
-
-    TRAFFIC Classmap.
-
-    """
     TRAFFIC = 3
 
-    """
-
-    Control Subscriber Classmap.
-
-    """
     CONTROL = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_policymgr_cfg as meta
-        return meta._meta_table['ClassMapType_Enum']
+        return meta._meta_table['ClassMapTypeEnum']
 
 
-class EventType_Enum(Enum):
+class EventTypeEnum(Enum):
     """
-    EventType_Enum
+    EventTypeEnum
 
     Event type.
 
-    """
+    .. data:: ACCOUNT_LOGOFF = 0
+
+    	Account logoff event.
+
+    .. data:: ACCOUNT_LOGON = 1
+
+    	Account logon event.
+
+    .. data:: AUTHENTICATION_FAILURE = 2
+
+    	Authentication failure event.
+
+    .. data:: AUTHENTICATION_NO_RESPONSE = 3
+
+    	Authentication no response event.
+
+    .. data:: AUTHORIZATION_FAILURE = 4
+
+    	Authorization failure event.
+
+    .. data:: AUTHORIZATION_NO_RESPONSE = 5
+
+    	Authorization no response event.
+
+    .. data:: CREDIT_EXHAUSTED = 6
+
+    	Credit exhaustion event.
+
+    .. data:: EXCEPTION = 7
+
+    	Exception event.
+
+    .. data:: IDLE_TIMEOUT = 8
+
+    	Idle timeout event.
+
+    .. data:: QUOTA_DEPLETED = 9
+
+    	Quota depletion event.
+
+    .. data:: SERVICE_START = 10
+
+    	Service start event.
+
+    .. data:: SERVICE_STOP = 11
+
+    	Service stop event.
+
+    .. data:: SESSION_ACTIVATE = 12
+
+    	Session activate event.
+
+    .. data:: SESSION_START = 13
+
+    	Session start event.
+
+    .. data:: SESSION_STOP = 14
+
+    	Session stop event.
+
+    .. data:: TIMER_EXPIRY = 15
+
+    	Timer expiry event.
 
     """
 
-    Account logoff event.
-
-    """
     ACCOUNT_LOGOFF = 0
 
-    """
-
-    Account logon event.
-
-    """
     ACCOUNT_LOGON = 1
 
-    """
-
-    Authentication failure event.
-
-    """
     AUTHENTICATION_FAILURE = 2
 
-    """
-
-    Authentication no response event.
-
-    """
     AUTHENTICATION_NO_RESPONSE = 3
 
-    """
-
-    Authorization failure event.
-
-    """
     AUTHORIZATION_FAILURE = 4
 
-    """
-
-    Authorization no response event.
-
-    """
     AUTHORIZATION_NO_RESPONSE = 5
 
-    """
-
-    Credit exhaustion event.
-
-    """
     CREDIT_EXHAUSTED = 6
 
-    """
-
-    Exception event.
-
-    """
     EXCEPTION = 7
 
-    """
-
-    Idle timeout event.
-
-    """
     IDLE_TIMEOUT = 8
 
-    """
-
-    Quota depletion event.
-
-    """
     QUOTA_DEPLETED = 9
 
-    """
-
-    Service start event.
-
-    """
     SERVICE_START = 10
 
-    """
-
-    Service stop event.
-
-    """
     SERVICE_STOP = 11
 
-    """
-
-    Session activate event.
-
-    """
     SESSION_ACTIVATE = 12
 
-    """
-
-    Session start event.
-
-    """
     SESSION_START = 13
 
-    """
-
-    Session stop event.
-
-    """
     SESSION_STOP = 14
 
-    """
-
-    Timer expiry event.
-
-    """
     TIMER_EXPIRY = 15
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_policymgr_cfg as meta
-        return meta._meta_table['EventType_Enum']
+        return meta._meta_table['EventTypeEnum']
 
 
-class ExecutionStrategy_Enum(Enum):
+class ExecutionStrategyEnum(Enum):
     """
-    ExecutionStrategy_Enum
+    ExecutionStrategyEnum
 
     Executuion strategy.
 
-    """
+    .. data:: DO_ALL = 0
+
+    	Do all actions.
+
+    .. data:: DO_UNTIL_FAILURE = 1
+
+    	Do all actions until failure.
+
+    .. data:: DO_UNTIL_SUCCESS = 2
+
+    	Do all actions until success.
 
     """
 
-    Do all actions.
-
-    """
     DO_ALL = 0
 
-    """
-
-    Do all actions until failure.
-
-    """
     DO_UNTIL_FAILURE = 1
 
-    """
-
-    Do all actions until success.
-
-    """
     DO_UNTIL_SUCCESS = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_policymgr_cfg as meta
-        return meta._meta_table['ExecutionStrategy_Enum']
+        return meta._meta_table['ExecutionStrategyEnum']
 
 
-class PmapClassMapType_Enum(Enum):
+class PmapClassMapTypeEnum(Enum):
     """
-    PmapClassMapType_Enum
+    PmapClassMapTypeEnum
 
     Policy manager class\-map type.
 
-    """
+    .. data:: QOS = 1
+
+    	QoS Classmap.
+
+    .. data:: TRAFFIC = 2
+
+    	TRAFFIC Classmap.
+
+    .. data:: SUBSCRIBER_CONTROL = 3
+
+    	Subscriber Control Classmap.
 
     """
 
-    QoS Classmap.
-
-    """
     QOS = 1
 
-    """
-
-    TRAFFIC Classmap.
-
-    """
     TRAFFIC = 2
 
-    """
-
-    Subscriber Control Classmap.
-
-    """
     SUBSCRIBER_CONTROL = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_policymgr_cfg as meta
-        return meta._meta_table['PmapClassMapType_Enum']
+        return meta._meta_table['PmapClassMapTypeEnum']
 
 
-class PolicyMapType_Enum(Enum):
+class PolicyMapTypeEnum(Enum):
     """
-    PolicyMapType_Enum
+    PolicyMapTypeEnum
 
     Policy manager policy\-map type.
 
-    """
+    .. data:: QOS = 1
+
+    	QoS Policymap
+
+    .. data:: PBR = 2
+
+    	PBR Policymap
+
+    .. data:: TRAFFIC = 3
+
+    	TRAFFIC Policymap
+
+    .. data:: SUBSCRIBER_CONTROL = 4
+
+    	SUBSCRIBER-CONTROL Policymap
+
+    .. data:: REDIRECT = 6
+
+    	REDIRECT Policy map
+
+    .. data:: FLOW_MONITOR = 7
+
+    	FLOWMONITOR Policy map
 
     """
 
-    QoS Policymap
-
-    """
     QOS = 1
 
-    """
-
-    PBR Policymap
-
-    """
     PBR = 2
 
-    """
-
-    TRAFFIC Policymap
-
-    """
     TRAFFIC = 3
 
-    """
-
-    SUBSCRIBER\-CONTROL Policymap
-
-    """
     SUBSCRIBER_CONTROL = 4
 
-    """
-
-    REDIRECT Policy map
-
-    """
     REDIRECT = 6
 
-    """
-
-    FLOWMONITOR Policy map
-
-    """
     FLOW_MONITOR = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_policymgr_cfg as meta
-        return meta._meta_table['PolicyMapType_Enum']
+        return meta._meta_table['PolicyMapTypeEnum']
 
 
 
@@ -435,7 +398,7 @@ class PolicyManager(object):
             .. attribute:: type
             
             	Type of class\-map
-            	**type**\: :py:class:`ClassMapType_Enum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg.ClassMapType_Enum>`
+            	**type**\: :py:class:`ClassMapTypeEnum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg.ClassMapTypeEnum>`
             
             .. attribute:: class_map_mode_match_all
             
@@ -948,18 +911,12 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             return True
 
                         if self.netmask is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1016,18 +973,12 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             return True
 
                         if self.prefix_length is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1084,18 +1035,12 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.format is not None:
                             return True
 
                         if self.name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1170,15 +1115,9 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.idle_timeout is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1200,12 +1139,7 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.flow_cache is not None and self.flow_cache._has_data():
-                            return True
-
-                        if self.flow_cache is not None and self.flow_cache.is_presence():
                             return True
 
                         if self.flow_key is not None:
@@ -1213,10 +1147,6 @@ class PolicyManager(object):
                                 if child is not None:
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1273,18 +1203,12 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             return True
 
                         if self.netmask is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1341,18 +1265,12 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             return True
 
                         if self.prefix_length is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1374,8 +1292,6 @@ class PolicyManager(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.atm_clp is not None:
                         return True
 
@@ -1430,9 +1346,6 @@ class PolicyManager(object):
                                 return True
 
                     if self.flow is not None and self.flow._has_data():
-                        return True
-
-                    if self.flow is not None and self.flow.is_presence():
                         return True
 
                     if self.flow_tag is not None:
@@ -1611,10 +1524,6 @@ class PolicyManager(object):
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2036,18 +1945,12 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             return True
 
                         if self.netmask is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2104,18 +2007,12 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             return True
 
                         if self.prefix_length is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2172,18 +2069,12 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.format is not None:
                             return True
 
                         if self.name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2240,18 +2131,12 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             return True
 
                         if self.netmask is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2308,18 +2193,12 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             return True
 
                         if self.prefix_length is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2341,8 +2220,6 @@ class PolicyManager(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.authen_status is not None:
                         return True
 
@@ -2554,10 +2431,6 @@ class PolicyManager(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_policymgr_cfg as meta
@@ -2579,8 +2452,6 @@ class PolicyManager(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
@@ -2599,19 +2470,9 @@ class PolicyManager(object):
                 if self.match is not None and self.match._has_data():
                     return True
 
-                if self.match is not None and self.match.is_presence():
-                    return True
-
                 if self.match_not is not None and self.match_not._has_data():
                     return True
 
-                if self.match_not is not None and self.match_not.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2631,17 +2492,11 @@ class PolicyManager(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.class_map is not None:
                 for child_ref in self.class_map:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2687,7 +2542,7 @@ class PolicyManager(object):
             .. attribute:: type
             
             	Type of policy\-map
-            	**type**\: :py:class:`PolicyMapType_Enum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg.PolicyMapType_Enum>`
+            	**type**\: :py:class:`PolicyMapTypeEnum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg.PolicyMapTypeEnum>`
             
             .. attribute:: description
             
@@ -2731,7 +2586,7 @@ class PolicyManager(object):
                 .. attribute:: event_type
                 
                 	Event type
-                	**type**\: :py:class:`EventType_Enum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg.EventType_Enum>`
+                	**type**\: :py:class:`EventTypeEnum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg.EventTypeEnum>`
                 
                 .. attribute:: class_
                 
@@ -2779,7 +2634,7 @@ class PolicyManager(object):
                     .. attribute:: class_type
                     
                     	Type of class
-                    	**type**\: :py:class:`PmapClassMapType_Enum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg.PmapClassMapType_Enum>`
+                    	**type**\: :py:class:`PmapClassMapTypeEnum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg.PmapClassMapTypeEnum>`
                     
                     .. attribute:: action_rule
                     
@@ -2789,7 +2644,7 @@ class PolicyManager(object):
                     .. attribute:: class_execution_strategy
                     
                     	Class execution strategy
-                    	**type**\: :py:class:`ExecutionStrategy_Enum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg.ExecutionStrategy_Enum>`
+                    	**type**\: :py:class:`ExecutionStrategyEnum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg.ExecutionStrategyEnum>`
                     
                     
 
@@ -2890,10 +2745,20 @@ class PolicyManager(object):
                             	Name of the AAA method list
                             	**type**\: str
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: name
                             
                             	Dynamic template name
                             	**type**\: str
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -2923,8 +2788,6 @@ class PolicyManager(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.aaa_list is not None:
                                     return True
 
@@ -2932,10 +2795,6 @@ class PolicyManager(object):
                                     return True
 
                                 return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
 
                             @staticmethod
                             def _meta_info():
@@ -2977,15 +2836,9 @@ class PolicyManager(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.aaa_list is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3003,20 +2856,40 @@ class PolicyManager(object):
                             	Name of the AAA method list
                             	**type**\: str
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: format
                             
                             	Specify an Authorize format name
                             	**type**\: str
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: identifier
                             
                             	Specify an Authorize format name
-                            	**type**\: :py:class:`AuthorizeIdentifier_Enum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg.AuthorizeIdentifier_Enum>`
+                            	**type**\: :py:class:`AuthorizeIdentifierEnum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg.AuthorizeIdentifierEnum>`
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             .. attribute:: password
                             
                             	Specify a password to be used for AAA request
                             	**type**\: str
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -3048,8 +2921,6 @@ class PolicyManager(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.aaa_list is not None:
                                     return True
 
@@ -3063,10 +2934,6 @@ class PolicyManager(object):
                                     return True
 
                                 return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
 
                             @staticmethod
                             def _meta_info():
@@ -3083,10 +2950,20 @@ class PolicyManager(object):
                             	Name of the AAA method list
                             	**type**\: str
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: name
                             
                             	Dynamic template name
                             	**type**\: str
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -3116,8 +2993,6 @@ class PolicyManager(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.aaa_list is not None:
                                     return True
 
@@ -3125,10 +3000,6 @@ class PolicyManager(object):
                                     return True
 
                                 return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
 
                             @staticmethod
                             def _meta_info():
@@ -3146,12 +3017,22 @@ class PolicyManager(object):
                             	Name of the timer
                             	**type**\: str
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: timer_value
                             
                             	Timer value in minutes
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -3181,8 +3062,6 @@ class PolicyManager(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.timer_name is not None:
                                     return True
 
@@ -3190,10 +3069,6 @@ class PolicyManager(object):
                                     return True
 
                                 return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
 
                             @staticmethod
                             def _meta_info():
@@ -3235,15 +3110,9 @@ class PolicyManager(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.timer_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3267,33 +3136,19 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.action_sequence_number is not None:
                                 return True
 
                             if self.activate_dynamic_template is not None and self.activate_dynamic_template._has_data():
                                 return True
 
-                            if self.activate_dynamic_template is not None and self.activate_dynamic_template.is_presence():
-                                return True
-
                             if self.authenticate is not None and self.authenticate._has_data():
-                                return True
-
-                            if self.authenticate is not None and self.authenticate.is_presence():
                                 return True
 
                             if self.authorize is not None and self.authorize._has_data():
                                 return True
 
-                            if self.authorize is not None and self.authorize.is_presence():
-                                return True
-
                             if self.deactivate_dynamic_template is not None and self.deactivate_dynamic_template._has_data():
-                                return True
-
-                            if self.deactivate_dynamic_template is not None and self.deactivate_dynamic_template.is_presence():
                                 return True
 
                             if self.disconnect is not None:
@@ -3305,19 +3160,9 @@ class PolicyManager(object):
                             if self.set_timer is not None and self.set_timer._has_data():
                                 return True
 
-                            if self.set_timer is not None and self.set_timer.is_presence():
-                                return True
-
                             if self.stop_timer is not None and self.stop_timer._has_data():
                                 return True
 
-                            if self.stop_timer is not None and self.stop_timer.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3343,8 +3188,6 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.class_name is not None:
                             return True
 
@@ -3359,10 +3202,6 @@ class PolicyManager(object):
                         if self.class_execution_strategy is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3386,8 +3225,6 @@ class PolicyManager(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.event_type is not None:
                         return True
 
@@ -3402,10 +3239,6 @@ class PolicyManager(object):
                     if self.event_modematch_first is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3428,7 +3261,7 @@ class PolicyManager(object):
                 .. attribute:: class_type
                 
                 	Type of class\-map
-                	**type**\: :py:class:`PmapClassMapType_Enum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg.PmapClassMapType_Enum>`
+                	**type**\: :py:class:`PmapClassMapTypeEnum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_policymgr_cfg.PmapClassMapTypeEnum>`
                 
                 .. attribute:: bandwidth_remaining
                 
@@ -3605,18 +3438,12 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.unit is not None:
                             return True
 
                         if self.value is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3704,18 +3531,12 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.units is not None:
                                 return True
 
                             if self.value is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3768,18 +3589,12 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.units is not None:
                                 return True
 
                             if self.value is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3801,27 +3616,15 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.flow_idle_timeout is not None:
                             return True
 
                         if self.flow_rate is not None and self.flow_rate._has_data():
                             return True
 
-                        if self.flow_rate is not None and self.flow_rate.is_presence():
-                            return True
-
                         if self.rate is not None and self.rate._has_data():
                             return True
 
-                        if self.rate is not None and self.rate.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3890,8 +3693,6 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.history is not None:
                             return True
 
@@ -3904,10 +3705,6 @@ class PolicyManager(object):
                         if self.timeout is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3989,18 +3786,12 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.count_in_layer3 is not None:
                                 return True
 
                             if self.size is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4061,8 +3852,6 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.layer3 is not None:
                                 return True
 
@@ -4072,10 +3861,6 @@ class PolicyManager(object):
                             if self.packet is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4097,24 +3882,12 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.media_packet is not None and self.media_packet._has_data():
-                            return True
-
-                        if self.media_packet is not None and self.media_packet.is_presence():
                             return True
 
                         if self.rate is not None and self.rate._has_data():
                             return True
 
-                        if self.rate is not None and self.rate.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4167,18 +3940,12 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.unit is not None:
                             return True
 
                         if self.value is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4319,8 +4086,6 @@ class PolicyManager(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ipv4_address is not None:
                                     return True
 
@@ -4330,10 +4095,6 @@ class PolicyManager(object):
                                 if self.vrf is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4355,21 +4116,12 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.default is not None:
                                 return True
 
                             if self.next_hop is not None and self.next_hop._has_data():
                                 return True
 
-                            if self.next_hop is not None and self.next_hop.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4494,8 +4246,6 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.cos is not None:
                                 return True
 
@@ -4531,10 +4281,6 @@ class PolicyManager(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_policymgr_cfg as meta
@@ -4554,8 +4300,6 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.http_redirect is not None:
                             return True
 
@@ -4565,22 +4309,12 @@ class PolicyManager(object):
                         if self.pbr_forward is not None and self.pbr_forward._has_data():
                             return True
 
-                        if self.pbr_forward is not None and self.pbr_forward.is_presence():
-                            return True
-
                         if self.pbr_transmit is not None:
                             return True
 
                         if self.set is not None and self.set._has_data():
                             return True
 
-                        if self.set is not None and self.set.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4697,18 +4431,12 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.units is not None:
                                 return True
 
                             if self.value is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4868,8 +4596,6 @@ class PolicyManager(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.cos is not None:
                                     return True
 
@@ -4905,10 +4631,6 @@ class PolicyManager(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_policymgr_cfg as meta
@@ -4928,24 +4650,15 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.drop is not None:
                                 return True
 
                             if self.set is not None and self.set._has_data():
                                 return True
 
-                            if self.set is not None and self.set.is_presence():
-                                return True
-
                             if self.transmit is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5105,8 +4818,6 @@ class PolicyManager(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.cos is not None:
                                     return True
 
@@ -5142,10 +4853,6 @@ class PolicyManager(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_policymgr_cfg as meta
@@ -5165,24 +4872,15 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.drop is not None:
                                 return True
 
                             if self.set is not None and self.set._has_data():
                                 return True
 
-                            if self.set is not None and self.set.is_presence():
-                                return True
-
                             if self.transmit is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5235,18 +4933,12 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.units is not None:
                                 return True
 
                             if self.value is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5299,18 +4991,12 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.units is not None:
                                 return True
 
                             if self.value is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5363,18 +5049,12 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.units is not None:
                                 return True
 
                             if self.value is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5534,8 +5214,6 @@ class PolicyManager(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.cos is not None:
                                     return True
 
@@ -5571,10 +5249,6 @@ class PolicyManager(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_policymgr_cfg as meta
@@ -5594,24 +5268,15 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.drop is not None:
                                 return True
 
                             if self.set is not None and self.set._has_data():
                                 return True
 
-                            if self.set is not None and self.set.is_presence():
-                                return True
-
                             if self.transmit is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5633,54 +5298,27 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.burst is not None and self.burst._has_data():
-                            return True
-
-                        if self.burst is not None and self.burst.is_presence():
                             return True
 
                         if self.conform_action is not None and self.conform_action._has_data():
                             return True
 
-                        if self.conform_action is not None and self.conform_action.is_presence():
-                            return True
-
                         if self.exceed_action is not None and self.exceed_action._has_data():
-                            return True
-
-                        if self.exceed_action is not None and self.exceed_action.is_presence():
                             return True
 
                         if self.peak_burst is not None and self.peak_burst._has_data():
                             return True
 
-                        if self.peak_burst is not None and self.peak_burst.is_presence():
-                            return True
-
                         if self.peak_rate is not None and self.peak_rate._has_data():
-                            return True
-
-                        if self.peak_rate is not None and self.peak_rate.is_presence():
                             return True
 
                         if self.rate is not None and self.rate._has_data():
                             return True
 
-                        if self.rate is not None and self.rate.is_presence():
-                            return True
-
                         if self.violate_action is not None and self.violate_action._has_data():
                             return True
 
-                        if self.violate_action is not None and self.violate_action.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5733,18 +5371,12 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.unit is not None:
                             return True
 
                         if self.value is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5875,8 +5507,6 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.threshold_max_units is not None:
                             return True
 
@@ -5920,10 +5550,6 @@ class PolicyManager(object):
                                 if child is not None:
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -6044,18 +5670,12 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.snmp is not None:
                                 return True
 
                             if self.syslog is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6144,8 +5764,6 @@ class PolicyManager(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.discrete is not None:
                                     return True
 
@@ -6155,10 +5773,6 @@ class PolicyManager(object):
                                 if self.group_percent is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6180,21 +5794,12 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.severity is not None:
                                 return True
 
                             if self.type is not None and self.type._has_data():
                                 return True
 
-                            if self.type is not None and self.type.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6274,18 +5879,12 @@ class PolicyManager(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.average is not None:
                                     return True
 
                                 if self.immediate is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6352,8 +5951,6 @@ class PolicyManager(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.greater_than is not None:
                                     return True
 
@@ -6369,10 +5966,6 @@ class PolicyManager(object):
                                 if self.range is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6394,24 +5987,12 @@ class PolicyManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.trigger_type is not None and self.trigger_type._has_data():
-                                return True
-
-                            if self.trigger_type is not None and self.trigger_type.is_presence():
                                 return True
 
                             if self.trigger_value is not None and self.trigger_value._has_data():
                                 return True
 
-                            if self.trigger_value is not None and self.trigger_value.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6433,18 +6014,10 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.action is not None and self.action._has_data():
                             return True
 
-                        if self.action is not None and self.action.is_presence():
-                            return True
-
                         if self.alarm is not None and self.alarm._has_data():
-                            return True
-
-                        if self.alarm is not None and self.alarm.is_presence():
                             return True
 
                         if self.criterion_delay_factor is not None:
@@ -6468,13 +6041,6 @@ class PolicyManager(object):
                         if self.treshold is not None and self.treshold._has_data():
                             return True
 
-                        if self.treshold is not None and self.treshold.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -6528,18 +6094,12 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.policy_name is not None:
                             return True
 
                         if self.type is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -6664,8 +6224,6 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.cos is not None:
                             return True
 
@@ -6699,10 +6257,6 @@ class PolicyManager(object):
                         if self.srp_priority is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -6755,18 +6309,12 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.unit is not None:
                             return True
 
                         if self.value is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -6792,8 +6340,6 @@ class PolicyManager(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.class_name is not None:
                         return True
 
@@ -6803,13 +6349,7 @@ class PolicyManager(object):
                     if self.bandwidth_remaining is not None and self.bandwidth_remaining._has_data():
                         return True
 
-                    if self.bandwidth_remaining is not None and self.bandwidth_remaining.is_presence():
-                        return True
-
                     if self.cac_local is not None and self.cac_local._has_data():
-                        return True
-
-                    if self.cac_local is not None and self.cac_local.is_presence():
                         return True
 
                     if self.default_red is not None:
@@ -6818,43 +6358,25 @@ class PolicyManager(object):
                     if self.flow_params is not None and self.flow_params._has_data():
                         return True
 
-                    if self.flow_params is not None and self.flow_params.is_presence():
-                        return True
-
                     if self.fragment is not None:
                         return True
 
                     if self.metrics_ipcbr is not None and self.metrics_ipcbr._has_data():
                         return True
 
-                    if self.metrics_ipcbr is not None and self.metrics_ipcbr.is_presence():
-                        return True
-
                     if self.min_bandwidth is not None and self.min_bandwidth._has_data():
-                        return True
-
-                    if self.min_bandwidth is not None and self.min_bandwidth.is_presence():
                         return True
 
                     if self.pbr is not None and self.pbr._has_data():
                         return True
 
-                    if self.pbr is not None and self.pbr.is_presence():
-                        return True
-
                     if self.police is not None and self.police._has_data():
-                        return True
-
-                    if self.police is not None and self.police.is_presence():
                         return True
 
                     if self.priority_level is not None:
                         return True
 
                     if self.queue_limit is not None and self.queue_limit._has_data():
-                        return True
-
-                    if self.queue_limit is not None and self.queue_limit.is_presence():
                         return True
 
                     if self.random_detect is not None:
@@ -6865,34 +6387,18 @@ class PolicyManager(object):
                     if self.react is not None and self.react._has_data():
                         return True
 
-                    if self.react is not None and self.react.is_presence():
-                        return True
-
                     if self.service_fragment is not None:
                         return True
 
                     if self.service_policy is not None and self.service_policy._has_data():
                         return True
 
-                    if self.service_policy is not None and self.service_policy.is_presence():
-                        return True
-
                     if self.set is not None and self.set._has_data():
-                        return True
-
-                    if self.set is not None and self.set.is_presence():
                         return True
 
                     if self.shape is not None and self.shape._has_data():
                         return True
 
-                    if self.shape is not None and self.shape.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6916,8 +6422,6 @@ class PolicyManager(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
@@ -6939,10 +6443,6 @@ class PolicyManager(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_policymgr_cfg as meta
@@ -6960,17 +6460,11 @@ class PolicyManager(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.policy_map is not None:
                 for child_ref in self.policy_map:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -6990,24 +6484,12 @@ class PolicyManager(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.class_maps is not None and self.class_maps._has_data():
-            return True
-
-        if self.class_maps is not None and self.class_maps.is_presence():
             return True
 
         if self.policy_maps is not None and self.policy_maps._has_data():
             return True
 
-        if self.policy_maps is not None and self.policy_maps.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

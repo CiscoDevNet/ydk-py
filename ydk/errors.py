@@ -19,13 +19,45 @@
    Contains types representing the Exception hierarchy in YDK
    
 """
+from lxml import etree
+from enum import Enum
+
+
+class YPYErrorCode(Enum):
+    INVALID_UNION_VALUE = 'Cannot translate union value'
+    INVALID_ENCODE_VALUE = 'Cannot encode value'
+    INVALID_HIERARCHY_PARENT = 'Parent is not set. \
+                    Parent Hierarchy cannot be determined'
+    INVALID_HIERARCHY_KEY = 'Key value is not set. \
+                    Parent hierarchy cannot be constructed'
+    INVALID_RPC = 'Object is not an RPC, cannot execute non-RPC object.'
+    INVALID_MODIFY = 'Entity is read-only, cannot modify a read-only entity.'
+    SERVER_REJ = 'Server rejected request.'
+    SERVER_COMMIT_ERR = 'Server reported an error while committing change.'
+
 
 class YPYError(Exception):
     ''' Base Exception for YDK Errors '''
-    pass
+    def __init__(self, error_code=None, error_msg=None):
+        self.error_code = error_code
+        self.error_msg = error_msg
+
+    def __str__(self):
+        ret = []
+        if self.error_code is not None:
+            ret.append(self.error_code.value)
+        if self.error_msg is not None:
+            parser = etree.XMLParser(remove_blank_text=True)
+            root = etree.XML(self.error_msg.xml, parser)
+            for r in root.iter():
+                tag = r.tag[r.tag.rfind('}') + 1 :]
+                if r.text is not None:
+                    ret.append('\t{}: {}'.format(tag, r.text.strip()))
+        return '\n'.join(ret)
+
 
 class YPYDataValidationError(YPYError):
-    '''	
+    '''
     Exception for Client Side Data Validation
 
     Type Validation\n

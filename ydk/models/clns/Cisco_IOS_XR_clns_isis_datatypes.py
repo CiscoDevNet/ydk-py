@@ -20,98 +20,91 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class IsisAddressFamily_Enum(Enum):
+class IsisAddressFamilyEnum(Enum):
     """
-    IsisAddressFamily_Enum
+    IsisAddressFamilyEnum
 
     Isis address family
 
-    """
+    .. data:: IPV4 = 0
+
+    	IPv4
+
+    .. data:: IPV6 = 1
+
+    	IPv6
 
     """
 
-    IPv4
-
-    """
     IPV4 = 0
 
-    """
-
-    IPv6
-
-    """
     IPV6 = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_datatypes as meta
-        return meta._meta_table['IsisAddressFamily_Enum']
+        return meta._meta_table['IsisAddressFamilyEnum']
 
 
-class IsisInternalLevel_Enum(Enum):
+class IsisInternalLevelEnum(Enum):
     """
-    IsisInternalLevel_Enum
+    IsisInternalLevelEnum
 
     Isis internal level
 
-    """
+    .. data:: NOT_SET = 0
+
+    	Level not set
+
+    .. data:: LEVEL1 = 1
+
+    	Level1
+
+    .. data:: LEVEL2 = 2
+
+    	Level2
 
     """
 
-    Level not set
-
-    """
     NOT_SET = 0
 
-    """
-
-    Level1
-
-    """
     LEVEL1 = 1
 
-    """
-
-    Level2
-
-    """
     LEVEL2 = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_datatypes as meta
-        return meta._meta_table['IsisInternalLevel_Enum']
+        return meta._meta_table['IsisInternalLevelEnum']
 
 
-class IsisSubAddressFamily_Enum(Enum):
+class IsisSubAddressFamilyEnum(Enum):
     """
-    IsisSubAddressFamily_Enum
+    IsisSubAddressFamilyEnum
 
     Isis sub address family
 
-    """
+    .. data:: UNICAST = 0
+
+    	Unicast
+
+    .. data:: MULTICAST = 1
+
+    	Multicast
 
     """
 
-    Unicast
-
-    """
     UNICAST = 0
 
-    """
-
-    Multicast
-
-    """
     MULTICAST = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.clns._meta import _Cisco_IOS_XR_clns_isis_datatypes as meta
-        return meta._meta_table['IsisSubAddressFamily_Enum']
+        return meta._meta_table['IsisSubAddressFamilyEnum']
 
 
 

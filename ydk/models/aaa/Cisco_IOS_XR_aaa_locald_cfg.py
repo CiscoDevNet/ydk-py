@@ -24,47 +24,43 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class AaaLocaldTaskClass_Enum(Enum):
+class AaaLocaldTaskClassEnum(Enum):
     """
-    AaaLocaldTaskClass_Enum
+    AaaLocaldTaskClassEnum
 
     Aaa locald task class
 
-    """
+    .. data:: READ = 0
+
+    	Permits read operation for a Task ID
+
+    .. data:: WRITE = 1
+
+    	Permits write operation for a Task ID
+
+    .. data:: EXECUTE = 2
+
+    	Permits execute operation for a Task ID
+
+    .. data:: DEBUG = 3
+
+    	Permits debug operation for a Task ID
 
     """
 
-    Permits read operation for a Task ID
-
-    """
     READ = 0
 
-    """
-
-    Permits write operation for a Task ID
-
-    """
     WRITE = 1
 
-    """
-
-    Permits execute operation for a Task ID
-
-    """
     EXECUTE = 2
 
-    """
-
-    Permits debug operation for a Task ID
-
-    """
     DEBUG = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.aaa._meta import _Cisco_IOS_XR_aaa_locald_cfg as meta
-        return meta._meta_table['AaaLocaldTaskClass_Enum']
+        return meta._meta_table['AaaLocaldTaskClassEnum']
 
 
 

@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'Ipv4AclDscpNumber_Enum' : _MetaInfoEnum('Ipv4AclDscpNumber_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
+    'Ipv4AclDscpNumberEnum' : _MetaInfoEnum('Ipv4AclDscpNumberEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
         {
             'default':'DEFAULT',
             'af11':'AF11',
@@ -38,7 +38,7 @@ _meta_table = {
             'cs7':'CS7',
             'ef':'EF',
         }, 'Cisco-IOS-XR-ipv4-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-datatypes']),
-    'Ipv4AclTcpBitsNumber_Enum' : _MetaInfoEnum('Ipv4AclTcpBitsNumber_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
+    'Ipv4AclTcpBitsNumberEnum' : _MetaInfoEnum('Ipv4AclTcpBitsNumberEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
         {
             'established':'ESTABLISHED',
             'ack':'ACK',
@@ -48,17 +48,17 @@ _meta_table = {
             'syn':'SYN',
             'urg':'URG',
         }, 'Cisco-IOS-XR-ipv4-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-datatypes']),
-    'Ipv4AclTcpMatchOperatorEnum_Enum' : _MetaInfoEnum('Ipv4AclTcpMatchOperatorEnum_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
+    'Ipv4AclTcpMatchOperatorEnumEnum' : _MetaInfoEnum('Ipv4AclTcpMatchOperatorEnumEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
         {
             'match-all':'MATCH_ALL',
             'match-any':'MATCH_ANY',
         }, 'Cisco-IOS-XR-ipv4-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-datatypes']),
-    'Ipv4AclLoggingEnum_Enum' : _MetaInfoEnum('Ipv4AclLoggingEnum_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
+    'Ipv4AclLoggingEnumEnum' : _MetaInfoEnum('Ipv4AclLoggingEnumEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
         {
             'log':'LOG',
             'log-input':'LOG_INPUT',
         }, 'Cisco-IOS-XR-ipv4-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-datatypes']),
-    'Ipv4AclPrecedenceNumber_Enum' : _MetaInfoEnum('Ipv4AclPrecedenceNumber_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
+    'Ipv4AclPrecedenceNumberEnum' : _MetaInfoEnum('Ipv4AclPrecedenceNumberEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
         {
             'critical':'CRITICAL',
             'flash':'FLASH',
@@ -69,7 +69,7 @@ _meta_table = {
             'priority':'PRIORITY',
             'routine':'ROUTINE',
         }, 'Cisco-IOS-XR-ipv4-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-datatypes']),
-    'Ipv4AclProtocolNumber_Enum' : _MetaInfoEnum('Ipv4AclProtocolNumber_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
+    'Ipv4AclProtocolNumberEnum' : _MetaInfoEnum('Ipv4AclProtocolNumberEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
         {
             'ip':'IP',
             'icmp':'ICMP',
@@ -88,12 +88,12 @@ _meta_table = {
             'pcp':'PCP',
             'sctp':'SCTP',
         }, 'Cisco-IOS-XR-ipv4-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-datatypes']),
-    'Ipv4AclGrantEnum_Enum' : _MetaInfoEnum('Ipv4AclGrantEnum_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
+    'Ipv4AclGrantEnumEnum' : _MetaInfoEnum('Ipv4AclGrantEnumEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
         {
             'deny':'DENY',
             'permit':'PERMIT',
         }, 'Cisco-IOS-XR-ipv4-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-datatypes']),
-    'Ipv4AclPortNumber_Enum' : _MetaInfoEnum('Ipv4AclPortNumber_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
+    'Ipv4AclPortNumberEnum' : _MetaInfoEnum('Ipv4AclPortNumberEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
         {
             'echo':'ECHO',
             'discard':'DISCARD',
@@ -144,7 +144,7 @@ _meta_table = {
             'kshell':'KSHELL',
             'ldp':'LDP',
         }, 'Cisco-IOS-XR-ipv4-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-datatypes']),
-    'Ipv4AclIcmpTypeCodeEnum_Enum' : _MetaInfoEnum('Ipv4AclIcmpTypeCodeEnum_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
+    'Ipv4AclIcmpTypeCodeEnumEnum' : _MetaInfoEnum('Ipv4AclIcmpTypeCodeEnumEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
         {
             'echo-reply':'ECHO_REPLY',
             'network-unreachable':'NETWORK_UNREACHABLE',
@@ -191,7 +191,7 @@ _meta_table = {
             'conversion-error':'CONVERSION_ERROR',
             'mobile-redirect':'MOBILE_REDIRECT',
         }, 'Cisco-IOS-XR-ipv4-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-datatypes']),
-    'Ipv4AclOperatorEnum_Enum' : _MetaInfoEnum('Ipv4AclOperatorEnum_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
+    'Ipv4AclOperatorEnumEnum' : _MetaInfoEnum('Ipv4AclOperatorEnumEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
         {
             'equal':'EQUAL',
             'greater-than':'GREATER_THAN',
@@ -199,7 +199,7 @@ _meta_table = {
             'not-equal':'NOT_EQUAL',
             'range':'RANGE',
         }, 'Cisco-IOS-XR-ipv4-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-datatypes']),
-    'Ipv4AclIgmpNumber_Enum' : _MetaInfoEnum('Ipv4AclIgmpNumber_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
+    'Ipv4AclIgmpNumberEnum' : _MetaInfoEnum('Ipv4AclIgmpNumberEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
         {
             'host-query':'HOST_QUERY',
             'host-report':'HOST_REPORT',
@@ -212,7 +212,7 @@ _meta_table = {
             'mtrace':'MTRACE',
             'v3-report':'V3_REPORT',
         }, 'Cisco-IOS-XR-ipv4-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-datatypes']),
-    'Ipv4AclStatusEnum_Enum' : _MetaInfoEnum('Ipv4AclStatusEnum_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
+    'Ipv4AclStatusEnumEnum' : _MetaInfoEnum('Ipv4AclStatusEnumEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes',
         {
             'disabled':'DISABLED',
             'enabled':'ENABLED',

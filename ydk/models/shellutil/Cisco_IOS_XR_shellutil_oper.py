@@ -24,54 +24,49 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class TimeSource_Enum(Enum):
+class TimeSourceEnum(Enum):
     """
-    TimeSource_Enum
+    TimeSourceEnum
 
     Time source
 
-    """
+    .. data:: ERROR = 0
+
+    	Error
+
+    .. data:: NONE = 1
+
+    	Unsynchronized time
+
+    .. data:: NTP = 2
+
+    	Network time protocol
+
+    .. data:: MANUAL = 3
+
+    	User configured
+
+    .. data:: CALENDAR = 4
+
+    	Hardware calendar
 
     """
 
-    Error
-
-    """
     ERROR = 0
 
-    """
-
-    Unsynchronized time
-
-    """
     NONE = 1
 
-    """
-
-    Network time protocol
-
-    """
     NTP = 2
 
-    """
-
-    User configured
-
-    """
     MANUAL = 3
 
-    """
-
-    Hardware calendar
-
-    """
     CALENDAR = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.shellutil._meta import _Cisco_IOS_XR_shellutil_oper as meta
-        return meta._meta_table['TimeSource_Enum']
+        return meta._meta_table['TimeSourceEnum']
 
 
 
@@ -152,7 +147,7 @@ class SystemTime(object):
         .. attribute:: time_source
         
         	Time source
-        	**type**\: :py:class:`TimeSource_Enum <ydk.models.shellutil.Cisco_IOS_XR_shellutil_oper.TimeSource_Enum>`
+        	**type**\: :py:class:`TimeSourceEnum <ydk.models.shellutil.Cisco_IOS_XR_shellutil_oper.TimeSourceEnum>`
         
         .. attribute:: time_zone
         
@@ -205,8 +200,6 @@ class SystemTime(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.day is not None:
                 return True
 
@@ -237,10 +230,6 @@ class SystemTime(object):
             if self.year is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -289,18 +278,12 @@ class SystemTime(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.host_name is not None:
                 return True
 
             if self.uptime is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -320,24 +303,12 @@ class SystemTime(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.clock is not None and self.clock._has_data():
-            return True
-
-        if self.clock is not None and self.clock.is_presence():
             return True
 
         if self.uptime is not None and self.uptime._has_data():
             return True
 
-        if self.uptime is not None and self.uptime.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

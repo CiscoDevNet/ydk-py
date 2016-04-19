@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,40 +14,40 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'SrPrepend_Enum' : _MetaInfoEnum('SrPrepend_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'SrPrependEnum' : _MetaInfoEnum('SrPrependEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'none-type':'NONE_TYPE',
             'next-label':'NEXT_LABEL',
             'bgp-n-hop':'BGP_N_HOP',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'OtnDestination_Enum' : _MetaInfoEnum('OtnDestination_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'OtnDestinationEnum' : _MetaInfoEnum('OtnDestinationEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'un-number-ed':'UN_NUMBER_ED',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeSwitchingCap_Enum' : _MetaInfoEnum('MplsTeSwitchingCap_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTeSwitchingCapEnum' : _MetaInfoEnum('MplsTeSwitchingCapEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'psc1':'PSC1',
             'lsc':'LSC',
             'fsc':'FSC',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeBfdSessionDownAction_Enum' : _MetaInfoEnum('MplsTeBfdSessionDownAction_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTeBfdSessionDownActionEnum' : _MetaInfoEnum('MplsTeBfdSessionDownActionEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             're-setup':'RE_SETUP',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'RoutePriorityRole_Enum' : _MetaInfoEnum('RoutePriorityRole_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'RoutePriorityRoleEnum' : _MetaInfoEnum('RoutePriorityRoleEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'route-priority-role-head-back-up':'ROUTE_PRIORITY_ROLE_HEAD_BACK_UP',
             'route-priority-role-head-primary':'ROUTE_PRIORITY_ROLE_HEAD_PRIMARY',
             'route-priority-role-middle':'ROUTE_PRIORITY_ROLE_MIDDLE',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeSwitchingEncode_Enum' : _MetaInfoEnum('MplsTeSwitchingEncode_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTeSwitchingEncodeEnum' : _MetaInfoEnum('MplsTeSwitchingEncodeEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'none':'NONE',
             'packet':'PACKET',
             'ethernet':'ETHERNET',
             'sondet-sdh':'SONDET_SDH',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeLogFrrProtection_Enum' : _MetaInfoEnum('MplsTeLogFrrProtection_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTeLogFrrProtectionEnum' : _MetaInfoEnum('MplsTeLogFrrProtectionEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'frr-active-primary':'FRR_ACTIVE_PRIMARY',
             'backup':'BACKUP',
@@ -55,7 +55,7 @@ _meta_table = {
             'primary':'PRIMARY',
             'all':'ALL',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeTunnelAffinity_Enum' : _MetaInfoEnum('MplsTeTunnelAffinity_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTeTunnelAffinityEnum' : _MetaInfoEnum('MplsTeTunnelAffinityEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'include':'INCLUDE',
             'include-strict':'INCLUDE_STRICT',
@@ -63,11 +63,11 @@ _meta_table = {
             'exclude-all':'EXCLUDE_ALL',
             'ignore':'IGNORE',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'IetfMode_Enum' : _MetaInfoEnum('IetfMode_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'IetfModeEnum' : _MetaInfoEnum('IetfModeEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'standard':'STANDARD',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTePathOptionProperty_Enum' : _MetaInfoEnum('MplsTePathOptionProperty_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTePathOptionPropertyEnum' : _MetaInfoEnum('MplsTePathOptionPropertyEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'none':'NONE',
             'lockdown':'LOCKDOWN',
@@ -75,60 +75,60 @@ _meta_table = {
             'pce':'PCE',
             'segment-routing':'SEGMENT_ROUTING',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'GmplsttiMode_Enum' : _MetaInfoEnum('GmplsttiMode_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'GmplsttiModeEnum' : _MetaInfoEnum('GmplsttiModeEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'sm':'SM',
             'pm':'PM',
             'tcm':'TCM',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTePathSelectionInvalidationTimerExpire_Enum' : _MetaInfoEnum('MplsTePathSelectionInvalidationTimerExpire_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTePathSelectionInvalidationTimerExpireEnum' : _MetaInfoEnum('MplsTePathSelectionInvalidationTimerExpireEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'tunnel-action-tear':'TUNNEL_ACTION_TEAR',
             'tunnel-action-drop':'TUNNEL_ACTION_DROP',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeOtnApsProtection_Enum' : _MetaInfoEnum('MplsTeOtnApsProtection_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTeOtnApsProtectionEnum' : _MetaInfoEnum('MplsTeOtnApsProtectionEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             '1plus1-unidir-no-aps':'Y_1PLUS1_UNIDIR_NO_APS',
             '1plus1-unidir-aps':'Y_1PLUS1_UNIDIR_APS',
             '1plus1-bdir-aps':'Y_1PLUS1_BDIR_APS',
             '1plus1plus-r-bidir-aps':'Y_1PLUS1PLUS_R_BIDIR_APS',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeSwitchingEncoding_Enum' : _MetaInfoEnum('MplsTeSwitchingEncoding_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTeSwitchingEncodingEnum' : _MetaInfoEnum('MplsTeSwitchingEncodingEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'packet':'PACKET',
             'ethernet':'ETHERNET',
             'sondet-sdh':'SONDET_SDH',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeSigNameOption_Enum' : _MetaInfoEnum('MplsTeSigNameOption_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTeSigNameOptionEnum' : _MetaInfoEnum('MplsTeSigNameOptionEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'none':'NONE',
             'address':'ADDRESS',
             'name':'NAME',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeBackupBandwidthClass_Enum' : _MetaInfoEnum('MplsTeBackupBandwidthClass_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTeBackupBandwidthClassEnum' : _MetaInfoEnum('MplsTeBackupBandwidthClassEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'class0':'CLASS0',
             'class1':'CLASS1',
             'any-class':'ANY_CLASS',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeAffinityValue_Enum' : _MetaInfoEnum('MplsTeAffinityValue_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTeAffinityValueEnum' : _MetaInfoEnum('MplsTeAffinityValueEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'hex-value':'HEX_VALUE',
             'bit-position':'BIT_POSITION',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'OtnStaticUni_Enum' : _MetaInfoEnum('OtnStaticUni_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'OtnStaticUniEnum' : _MetaInfoEnum('OtnStaticUniEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'unknown':'UNKNOWN',
             'xc':'XC',
             'termination':'TERMINATION',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeOtnSncMode_Enum' : _MetaInfoEnum('MplsTeOtnSncMode_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTeOtnSncModeEnum' : _MetaInfoEnum('MplsTeOtnSncModeEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'snc-n':'SNC_N',
             'snc-i':'SNC_I',
             'snc-s':'SNC_S',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'OtnPayload_Enum' : _MetaInfoEnum('OtnPayload_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'OtnPayloadEnum' : _MetaInfoEnum('OtnPayloadEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'unknown':'UNKNOWN',
             'bmp':'BMP',
@@ -136,24 +136,24 @@ _meta_table = {
             'gmp':'GMP',
             'gfp-f-ext':'GFP_F_EXT',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'OspfAreaMode_Enum' : _MetaInfoEnum('OspfAreaMode_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'OspfAreaModeEnum' : _MetaInfoEnum('OspfAreaModeEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'ospf-int':'OSPF_INT',
             'ospfip-addr':'OSPFIP_ADDR',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeIgpProtocol_Enum' : _MetaInfoEnum('MplsTeIgpProtocol_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTeIgpProtocolEnum' : _MetaInfoEnum('MplsTeIgpProtocolEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'none':'NONE',
             'isis':'ISIS',
             'ospf':'OSPF',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTePathSelectionTiebreaker_Enum' : _MetaInfoEnum('MplsTePathSelectionTiebreaker_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTePathSelectionTiebreakerEnum' : _MetaInfoEnum('MplsTePathSelectionTiebreakerEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'min-fill':'MIN_FILL',
             'max-fill':'MAX_FILL',
             'random':'RANDOM',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTePathOption_Enum' : _MetaInfoEnum('MplsTePathOption_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTePathOptionEnum' : _MetaInfoEnum('MplsTePathOptionEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'not-set':'NOT_SET',
             'dynamic':'DYNAMIC',
@@ -162,12 +162,12 @@ _meta_table = {
             'no-ero':'NO_ERO',
             'sr':'SR',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'PathInvalidationAction_Enum' : _MetaInfoEnum('PathInvalidationAction_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'PathInvalidationActionEnum' : _MetaInfoEnum('PathInvalidationActionEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'tear':'TEAR',
             'drop':'DROP',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'OtnSignaledBandwidth_Enum' : _MetaInfoEnum('OtnSignaledBandwidth_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'OtnSignaledBandwidthEnum' : _MetaInfoEnum('OtnSignaledBandwidthEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'odu1':'ODU1',
             'odu2':'ODU2',
@@ -184,90 +184,90 @@ _meta_table = {
             'odu3e1':'ODU3E1',
             'odu3e2':'ODU3E2',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeAutorouteMetric_Enum' : _MetaInfoEnum('MplsTeAutorouteMetric_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTeAutorouteMetricEnum' : _MetaInfoEnum('MplsTeAutorouteMetricEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'relative':'RELATIVE',
             'absolute':'ABSOLUTE',
             'constant':'CONSTANT',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'BindingSegmentId_Enum' : _MetaInfoEnum('BindingSegmentId_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'BindingSegmentIdEnum' : _MetaInfoEnum('BindingSegmentIdEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'any-label':'ANY_LABEL',
             'specified-label':'SPECIFIED_LABEL',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTesrlgExclude_Enum' : _MetaInfoEnum('MplsTesrlgExclude_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTesrlgExcludeEnum' : _MetaInfoEnum('MplsTesrlgExcludeEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'mandatory':'MANDATORY',
             'preferred':'PREFERRED',
             'weighted':'WEIGHTED',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeBackupBandwidthPool_Enum' : _MetaInfoEnum('MplsTeBackupBandwidthPool_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTeBackupBandwidthPoolEnum' : _MetaInfoEnum('MplsTeBackupBandwidthPoolEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'any-pool':'ANY_POOL',
             'global-pool':'GLOBAL_POOL',
             'sub-pool':'SUB_POOL',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeSignaledLabel_Enum' : _MetaInfoEnum('MplsTeSignaledLabel_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTeSignaledLabelEnum' : _MetaInfoEnum('MplsTeSignaledLabelEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'not-set':'NOT_SET',
             'dwdm':'DWDM',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'BandwidthConstraint_Enum' : _MetaInfoEnum('BandwidthConstraint_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'BandwidthConstraintEnum' : _MetaInfoEnum('BandwidthConstraintEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'bandwidth-constraint-maximum-allocation-model':'BANDWIDTH_CONSTRAINT_MAXIMUM_ALLOCATION_MODEL',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTePathSelectionMetric_Enum' : _MetaInfoEnum('MplsTePathSelectionMetric_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTePathSelectionMetricEnum' : _MetaInfoEnum('MplsTePathSelectionMetricEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'igp':'IGP',
             'te':'TE',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTePathOptionProtection_Enum' : _MetaInfoEnum('MplsTePathOptionProtection_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTePathOptionProtectionEnum' : _MetaInfoEnum('MplsTePathOptionProtectionEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'active':'ACTIVE',
             'protecting':'PROTECTING',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'OtnSignaledBandwidthFlexFraming_Enum' : _MetaInfoEnum('OtnSignaledBandwidthFlexFraming_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'OtnSignaledBandwidthFlexFramingEnum' : _MetaInfoEnum('OtnSignaledBandwidthFlexFramingEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'cbr':'CBR',
             'framed-gfp-fixed':'FRAMED_GFP_FIXED',
             'framed-gfp-resize':'FRAMED_GFP_RESIZE',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeBandwidthLimit_Enum' : _MetaInfoEnum('MplsTeBandwidthLimit_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTeBandwidthLimitEnum' : _MetaInfoEnum('MplsTeBandwidthLimitEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'unlimited':'UNLIMITED',
             'limited':'LIMITED',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTePathSelectionSegmentRoutingAdjacencyProtection_Enum' : _MetaInfoEnum('MplsTePathSelectionSegmentRoutingAdjacencyProtection_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum' : _MetaInfoEnum('MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'not-set':'NOT_SET',
             'adj-unprotected':'ADJ_UNPROTECTED',
             'adj-protected':'ADJ_PROTECTED',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'LinkNextHop_Enum' : _MetaInfoEnum('LinkNextHop_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'LinkNextHopEnum' : _MetaInfoEnum('LinkNextHopEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'none':'NONE',
             'ipv4-address':'IPV4_ADDRESS',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsLcacFloodingIgp_Enum' : _MetaInfoEnum('MplsLcacFloodingIgp_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsLcacFloodingIgpEnum' : _MetaInfoEnum('MplsLcacFloodingIgpEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'ospf':'OSPF',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeBandwidthDste_Enum' : _MetaInfoEnum('MplsTeBandwidthDste_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTeBandwidthDsteEnum' : _MetaInfoEnum('MplsTeBandwidthDsteEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'standard-dste':'STANDARD_DSTE',
             'pre-standard-dste':'PRE_STANDARD_DSTE',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTePathDiversityConformance_Enum' : _MetaInfoEnum('MplsTePathDiversityConformance_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTePathDiversityConformanceEnum' : _MetaInfoEnum('MplsTePathDiversityConformanceEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'strict':'STRICT',
             'best-effort':'BEST_EFFORT',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeOtnApsProtectionMode_Enum' : _MetaInfoEnum('MplsTeOtnApsProtectionMode_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTeOtnApsProtectionModeEnum' : _MetaInfoEnum('MplsTeOtnApsProtectionModeEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'revertive':'REVERTIVE',
             'non-revertive':'NON_REVERTIVE',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeSwitchingIndex_Enum' : _MetaInfoEnum('MplsTeSwitchingIndex_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTeSwitchingIndexEnum' : _MetaInfoEnum('MplsTeSwitchingIndexEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg',
         {
             'link':'LINK',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
@@ -328,7 +328,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsTe.DiffServTrafficEngineering',
             False, 
             [
-            _MetaInfoClassMember('bandwidth-constraint-model', REFERENCE_ENUM_CLASS, 'BandwidthConstraint_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'BandwidthConstraint_Enum', 
+            _MetaInfoClassMember('bandwidth-constraint-model', REFERENCE_ENUM_CLASS, 'BandwidthConstraintEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'BandwidthConstraintEnum', 
                 [], [], 
                 '''                Diff-Serv Traffic-Engineering Bandwidth
                 Constraint Model
@@ -341,7 +341,7 @@ _meta_table = {
                 ''',
                 'classes',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('mode-ietf', REFERENCE_ENUM_CLASS, 'IetfMode_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'IetfMode_Enum', 
+            _MetaInfoClassMember('mode-ietf', REFERENCE_ENUM_CLASS, 'IetfModeEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'IetfModeEnum', 
                 [], [], 
                 '''                Diff-Serv Traffic-Engineering IETF mode
                 ''',
@@ -371,7 +371,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('value-type', REFERENCE_ENUM_CLASS, 'MplsTeAffinityValue_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeAffinityValue_Enum', 
+            _MetaInfoClassMember('value-type', REFERENCE_ENUM_CLASS, 'MplsTeAffinityValueEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeAffinityValueEnum', 
                 [], [], 
                 '''                Affinity value type
                 ''',
@@ -523,7 +523,7 @@ _meta_table = {
                 ''',
                 'affinity9',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
-            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinity_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity_Enum', 
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
                 [], [], 
                 '''                The type of the affinity entry
                 ''',
@@ -610,13 +610,13 @@ _meta_table = {
                 ''',
                 'name',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('protected-interface-type', REFERENCE_ENUM_CLASS, 'MplsTeSigNameOption_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSigNameOption_Enum', 
+            _MetaInfoClassMember('protected-interface-type', REFERENCE_ENUM_CLASS, 'MplsTeSigNameOptionEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSigNameOptionEnum', 
                 [], [], 
                 '''                Protected-interface address or name
                 ''',
                 'protected_interface_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('source-type', REFERENCE_ENUM_CLASS, 'MplsTeSigNameOption_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSigNameOption_Enum', 
+            _MetaInfoClassMember('source-type', REFERENCE_ENUM_CLASS, 'MplsTeSigNameOptionEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSigNameOptionEnum', 
                 [], [], 
                 '''                Source address or name
                 ''',
@@ -807,7 +807,7 @@ _meta_table = {
                 ''',
                 'class_or_pool_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('dste-type', REFERENCE_ENUM_CLASS, 'MplsTeBandwidthDste_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBandwidthDste_Enum', 
+            _MetaInfoClassMember('dste-type', REFERENCE_ENUM_CLASS, 'MplsTeBandwidthDsteEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBandwidthDsteEnum', 
                 [], [], 
                 '''                DSTE-standard flag
                 ''',
@@ -907,7 +907,7 @@ _meta_table = {
                 ''',
                 'affinity9',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
-            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinity_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity_Enum', 
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
                 [], [], 
                 '''                The type of the affinity entry
                 ''',
@@ -1109,7 +1109,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode',
             False, 
             [
-            _MetaInfoClassMember('connection-mode', REFERENCE_ENUM_CLASS, 'MplsTeOtnSncMode_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeOtnSncMode_Enum', 
+            _MetaInfoClassMember('connection-mode', REFERENCE_ENUM_CLASS, 'MplsTeOtnSncModeEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeOtnSncModeEnum', 
                 [], [], 
                 '''                The sub-network connection mode
                 ''',
@@ -1164,13 +1164,13 @@ _meta_table = {
                 ''',
                 'attribute_set_name',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
-            _MetaInfoClassMember('aps-protection-mode', REFERENCE_ENUM_CLASS, 'MplsTeOtnApsProtectionMode_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeOtnApsProtectionMode_Enum', 
+            _MetaInfoClassMember('aps-protection-mode', REFERENCE_ENUM_CLASS, 'MplsTeOtnApsProtectionModeEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeOtnApsProtectionModeEnum', 
                 [], [], 
                 '''                The APS protecion mode
                 ''',
                 'aps_protection_mode',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('aps-protection-type', REFERENCE_ENUM_CLASS, 'MplsTeOtnApsProtection_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeOtnApsProtection_Enum', 
+            _MetaInfoClassMember('aps-protection-type', REFERENCE_ENUM_CLASS, 'MplsTeOtnApsProtectionEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeOtnApsProtectionEnum', 
                 [], [], 
                 '''                The APS protecion type
                 ''',
@@ -1221,8 +1221,8 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.AffinityMask' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.AffinityMask',
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.AffinityMask' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.AffinityMask',
             False, 
             [
             _MetaInfoClassMember('affinity', ATTRIBUTE, 'str' , None, None, 
@@ -1244,8 +1244,8 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Bandwidth' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Bandwidth',
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Bandwidth' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Bandwidth',
             False, 
             [
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
@@ -1261,7 +1261,7 @@ _meta_table = {
                 ''',
                 'class_or_pool_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('dste-type', REFERENCE_ENUM_CLASS, 'MplsTeBandwidthDste_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBandwidthDste_Enum', 
+            _MetaInfoClassMember('dste-type', REFERENCE_ENUM_CLASS, 'MplsTeBandwidthDsteEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBandwidthDsteEnum', 
                 [], [], 
                 '''                DSTE-standard flag
                 ''',
@@ -1274,8 +1274,8 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.FastReroute' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.FastReroute',
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.FastReroute' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.FastReroute',
             False, 
             [
             _MetaInfoClassMember('bandwidth-protection', ATTRIBUTE, 'int' , None, None, 
@@ -1297,8 +1297,8 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Logging' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Logging',
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Logging' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Logging',
             False, 
             [
             _MetaInfoClassMember('all', ATTRIBUTE, 'Empty' , None, None, 
@@ -1362,8 +1362,8 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinities.NewStyleAffinity' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinities.NewStyleAffinity',
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities.NewStyleAffinity' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities.NewStyleAffinity',
             False, 
             [
             _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
@@ -1426,7 +1426,7 @@ _meta_table = {
                 ''',
                 'affinity9',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
-            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinity_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity_Enum', 
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
                 [], [], 
                 '''                The type of the affinity entry
                 ''',
@@ -1439,11 +1439,11 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinities' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinities',
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities',
             False, 
             [
-            _MetaInfoClassMember('new-style-affinity', REFERENCE_LIST, 'NewStyleAffinity' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinities.NewStyleAffinity', 
+            _MetaInfoClassMember('new-style-affinity', REFERENCE_LIST, 'NewStyleAffinity' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities.NewStyleAffinity', 
                 [], [], 
                 '''                Tunnel new style affinity attribute
                 ''',
@@ -1456,8 +1456,8 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Priority' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Priority',
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Priority' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Priority',
             False, 
             [
             _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
@@ -1479,8 +1479,8 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute',
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute',
             False, 
             [
             _MetaInfoClassMember('attribute-set-name', ATTRIBUTE, 'str' , None, None, 
@@ -1489,13 +1489,13 @@ _meta_table = {
                 ''',
                 'attribute_set_name',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
-            _MetaInfoClassMember('affinity-mask', REFERENCE_CLASS, 'AffinityMask' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.AffinityMask', 
+            _MetaInfoClassMember('affinity-mask', REFERENCE_CLASS, 'AffinityMask' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.AffinityMask', 
                 [], [], 
                 '''                Set the affinity flags and mask
                 ''',
                 'affinity_mask',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('bandwidth', REFERENCE_CLASS, 'Bandwidth' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Bandwidth', 
+            _MetaInfoClassMember('bandwidth', REFERENCE_CLASS, 'Bandwidth' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Bandwidth', 
                 [], [], 
                 '''                Tunnel bandwidth requirement
                 ''',
@@ -1510,7 +1510,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.FastReroute', 
+            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.FastReroute', 
                 [], [], 
                 '''                Specify MPLS tunnel can be fast-rerouted
                 ''',
@@ -1522,19 +1522,19 @@ _meta_table = {
                 ''',
                 'interface_bandwidth',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('logging', REFERENCE_CLASS, 'Logging' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Logging', 
+            _MetaInfoClassMember('logging', REFERENCE_CLASS, 'Logging' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Logging', 
                 [], [], 
                 '''                Log tunnel LSP messages
                 ''',
                 'logging',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('new-style-affinities', REFERENCE_CLASS, 'NewStyleAffinities' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinities', 
+            _MetaInfoClassMember('new-style-affinities', REFERENCE_CLASS, 'NewStyleAffinities' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities', 
                 [], [], 
                 '''                Tunnel new style affinity attributes table
                 ''',
                 'new_style_affinities',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('priority', REFERENCE_CLASS, 'Priority' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Priority', 
+            _MetaInfoClassMember('priority', REFERENCE_CLASS, 'Priority' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Priority', 
                 [], [], 
                 '''                Tunnel Setup and Hold Priorities
                 ''',
@@ -1553,11 +1553,11 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes',
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes',
             False, 
             [
-            _MetaInfoClassMember('p2mpte-attribute', REFERENCE_LIST, 'P2mpteAttribute' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute', 
+            _MetaInfoClassMember('p2mpte-attribute', REFERENCE_LIST, 'P2MpteAttribute' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute', 
                 [], [], 
                 '''                P2MP-TE Tunnel Attribute
                 ''',
@@ -1570,8 +1570,8 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.AffinityMask' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.AffinityMask',
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask',
             False, 
             [
             _MetaInfoClassMember('affinity', ATTRIBUTE, 'str' , None, None, 
@@ -1593,8 +1593,8 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Logging' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Logging',
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging',
             False, 
             [
             _MetaInfoClassMember('all', ATTRIBUTE, 'Empty' , None, None, 
@@ -1670,8 +1670,8 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinities.NewStyleAffinity' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinities.NewStyleAffinity',
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities.NewStyleAffinity' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities.NewStyleAffinity',
             False, 
             [
             _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
@@ -1734,7 +1734,7 @@ _meta_table = {
                 ''',
                 'affinity9',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
-            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinity_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity_Enum', 
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
                 [], [], 
                 '''                The type of the affinity entry
                 ''',
@@ -1747,11 +1747,11 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinities' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinities',
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities',
             False, 
             [
-            _MetaInfoClassMember('new-style-affinity', REFERENCE_LIST, 'NewStyleAffinity' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinities.NewStyleAffinity', 
+            _MetaInfoClassMember('new-style-affinity', REFERENCE_LIST, 'NewStyleAffinity' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities.NewStyleAffinity', 
                 [], [], 
                 '''                Tunnel new style affinity attribute
                 ''',
@@ -1764,8 +1764,8 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.PathSelectionInvalidation' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.PathSelectionInvalidation',
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.PathSelectionInvalidation' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.PathSelectionInvalidation',
             False, 
             [
             _MetaInfoClassMember('invalidation-timer', ATTRIBUTE, 'int' , None, None, 
@@ -1775,7 +1775,7 @@ _meta_table = {
                 ''',
                 'invalidation_timer',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('invalidation-timer-expire-type', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionInvalidationTimerExpire_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionInvalidationTimerExpire_Enum', 
+            _MetaInfoClassMember('invalidation-timer-expire-type', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionInvalidationTimerExpireEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionInvalidationTimerExpireEnum', 
                 [], [], 
                 '''                Path selection invalidation timer expire
                 type
@@ -1789,8 +1789,8 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index',
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index',
             False, 
             [
             _MetaInfoClassMember('index-number', ATTRIBUTE, 'int' , None, None, 
@@ -1805,7 +1805,7 @@ _meta_table = {
                 ''',
                 'mpls_label',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('prepend-type', REFERENCE_ENUM_CLASS, 'SrPrepend_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'SrPrepend_Enum', 
+            _MetaInfoClassMember('prepend-type', REFERENCE_ENUM_CLASS, 'SrPrependEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'SrPrependEnum', 
                 [], [], 
                 '''                Prepend type
                 ''',
@@ -1818,11 +1818,11 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes',
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes',
             False, 
             [
-            _MetaInfoClassMember('index', REFERENCE_LIST, 'Index' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index', 
+            _MetaInfoClassMember('index', REFERENCE_LIST, 'Index' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index', 
                 [], [], 
                 '''                Prepend index information
                 ''',
@@ -1835,8 +1835,8 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend',
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend',
             False, 
             [
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
@@ -1846,7 +1846,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('indexes', REFERENCE_CLASS, 'Indexes' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes', 
+            _MetaInfoClassMember('indexes', REFERENCE_CLASS, 'Indexes' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes', 
                 [], [], 
                 '''                Segment routing prepend index table
                 ''',
@@ -1859,8 +1859,8 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection',
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection',
             False, 
             [
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
@@ -1869,27 +1869,27 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-selection-invalidation', REFERENCE_CLASS, 'PathSelectionInvalidation' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.PathSelectionInvalidation', 
+            _MetaInfoClassMember('path-selection-invalidation', REFERENCE_CLASS, 'PathSelectionInvalidation' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.PathSelectionInvalidation', 
                 [], [], 
                 '''                Path selection invalidation configuration
                 ''',
                 'path_selection_invalidation',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-selection-metric', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionMetric_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetric_Enum', 
+            _MetaInfoClassMember('path-selection-metric', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionMetricEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetricEnum', 
                 [], [], 
                 '''                Path selection metric to use in path
                 calculation
                 ''',
                 'path_selection_metric',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-selection-segment-routing-adjacency-protection', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionSegmentRoutingAdjacencyProtection_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionSegmentRoutingAdjacencyProtection_Enum', 
+            _MetaInfoClassMember('path-selection-segment-routing-adjacency-protection', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum', 
                 [], [], 
                 '''                Segment routing adjacency protection type
                 to use in path calculation
                 ''',
                 'path_selection_segment_routing_adjacency_protection',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('segment-routing-prepend', REFERENCE_CLASS, 'SegmentRoutingPrepend' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend', 
+            _MetaInfoClassMember('segment-routing-prepend', REFERENCE_CLASS, 'SegmentRoutingPrepend' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend', 
                 [], [], 
                 '''                Path selection segment routing prepend
                 configuration
@@ -1903,8 +1903,8 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute',
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute',
             False, 
             [
             _MetaInfoClassMember('attribute-set-name', ATTRIBUTE, 'str' , None, None, 
@@ -1913,7 +1913,7 @@ _meta_table = {
                 ''',
                 'attribute_set_name',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
-            _MetaInfoClassMember('affinity-mask', REFERENCE_CLASS, 'AffinityMask' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.AffinityMask', 
+            _MetaInfoClassMember('affinity-mask', REFERENCE_CLASS, 'AffinityMask' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask', 
                 [], [], 
                 '''                Set the affinity flags and mask
                 ''',
@@ -1928,19 +1928,19 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('logging', REFERENCE_CLASS, 'Logging' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Logging', 
+            _MetaInfoClassMember('logging', REFERENCE_CLASS, 'Logging' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging', 
                 [], [], 
                 '''                Log tunnel LSP messages
                 ''',
                 'logging',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('new-style-affinities', REFERENCE_CLASS, 'NewStyleAffinities' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinities', 
+            _MetaInfoClassMember('new-style-affinities', REFERENCE_CLASS, 'NewStyleAffinities' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities', 
                 [], [], 
                 '''                Tunnel new style affinity attributes table
                 ''',
                 'new_style_affinities',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-selection', REFERENCE_CLASS, 'PathSelection' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection', 
+            _MetaInfoClassMember('path-selection', REFERENCE_CLASS, 'PathSelection' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection', 
                 [], [], 
                 '''                Configure path selection properties
                 ''',
@@ -1953,11 +1953,11 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes',
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes',
             False, 
             [
-            _MetaInfoClassMember('p2p-te-attribute', REFERENCE_LIST, 'P2pTeAttribute' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute', 
+            _MetaInfoClassMember('p2p-te-attribute', REFERENCE_LIST, 'P2PTeAttribute' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute', 
                 [], [], 
                 '''                P2P-TE Tunnel Attribute
                 ''',
@@ -2010,7 +2010,7 @@ _meta_table = {
                 ''',
                 'class_or_pool_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('dste-type', REFERENCE_ENUM_CLASS, 'MplsTeBandwidthDste_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBandwidthDste_Enum', 
+            _MetaInfoClassMember('dste-type', REFERENCE_ENUM_CLASS, 'MplsTeBandwidthDsteEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBandwidthDsteEnum', 
                 [], [], 
                 '''                DSTE-standard flag
                 ''',
@@ -2087,7 +2087,7 @@ _meta_table = {
                 ''',
                 'affinity9',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
-            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinity_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity_Enum', 
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
                 [], [], 
                 '''                The type of the affinity entry
                 ''',
@@ -2121,7 +2121,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.PathInvalidation',
             False, 
             [
-            _MetaInfoClassMember('path-invalidation-action', REFERENCE_ENUM_CLASS, 'PathInvalidationAction_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'PathInvalidationAction_Enum', 
+            _MetaInfoClassMember('path-invalidation-action', REFERENCE_ENUM_CLASS, 'PathInvalidationActionEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'PathInvalidationActionEnum', 
                 [], [], 
                 '''                Path Invalidation Action
                 ''',
@@ -2256,7 +2256,7 @@ _meta_table = {
                 ''',
                 'tunnel_id',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
-            _MetaInfoClassMember('conformance', REFERENCE_ENUM_CLASS, 'MplsTePathDiversityConformance_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathDiversityConformance_Enum', 
+            _MetaInfoClassMember('conformance', REFERENCE_ENUM_CLASS, 'MplsTePathDiversityConformanceEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathDiversityConformanceEnum', 
                 [], [], 
                 '''                The diversity conformance requirements
                 ''',
@@ -2314,7 +2314,7 @@ _meta_table = {
                 ''',
                 'srlg',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
-            _MetaInfoClassMember('conformance', REFERENCE_ENUM_CLASS, 'MplsTePathDiversityConformance_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathDiversityConformance_Enum', 
+            _MetaInfoClassMember('conformance', REFERENCE_ENUM_CLASS, 'MplsTePathDiversityConformanceEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathDiversityConformanceEnum', 
                 [], [], 
                 '''                The diversity conformance requirements
                 ''',
@@ -2438,13 +2438,13 @@ _meta_table = {
                 ''',
                 'otn_pp_attributes',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('p2mpte-attributes', REFERENCE_CLASS, 'P2mpteAttributes' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes', 
+            _MetaInfoClassMember('p2mpte-attributes', REFERENCE_CLASS, 'P2MpteAttributes' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes', 
                 [], [], 
                 '''                P2MP-TE Tunnel AttributeSets Table
                 ''',
                 'p2mpte_attributes',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('p2p-te-attributes', REFERENCE_CLASS, 'P2pTeAttributes' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes', 
+            _MetaInfoClassMember('p2p-te-attributes', REFERENCE_CLASS, 'P2PTeAttributes' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes', 
                 [], [], 
                 '''                P2P-TE Tunnel AttributeSets Table
                 ''',
@@ -2718,8 +2718,8 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel.TunnelRange' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel.TunnelRange',
+    'MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel.TunnelRange' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel.TunnelRange',
             False, 
             [
             _MetaInfoClassMember('max-tunnel-id', ATTRIBUTE, 'int' , None, None, 
@@ -2741,11 +2741,11 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel',
+    'MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel',
             False, 
             [
-            _MetaInfoClassMember('tunnel-range', REFERENCE_CLASS, 'TunnelRange' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel.TunnelRange', 
+            _MetaInfoClassMember('tunnel-range', REFERENCE_CLASS, 'TunnelRange' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel.TunnelRange', 
                 [], [], 
                 '''                Configure tunnel ID range for auto-tunnel
                 features
@@ -2759,8 +2759,8 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel.TunnelRange' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel.TunnelRange',
+    'MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel.TunnelRange' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel.TunnelRange',
             False, 
             [
             _MetaInfoClassMember('max-tunnel-id', ATTRIBUTE, 'int' , None, None, 
@@ -2782,11 +2782,11 @@ _meta_table = {
         'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel',
+    'MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel',
             False, 
             [
-            _MetaInfoClassMember('tunnel-range', REFERENCE_CLASS, 'TunnelRange' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel.TunnelRange', 
+            _MetaInfoClassMember('tunnel-range', REFERENCE_CLASS, 'TunnelRange' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel.TunnelRange', 
                 [], [], 
                 '''                Configure tunnel ID range for auto-tunnel
                 features
@@ -2857,13 +2857,13 @@ _meta_table = {
                 ''',
                 'mesh',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('p2mp-auto-tunnel', REFERENCE_CLASS, 'P2mpAutoTunnel' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel', 
+            _MetaInfoClassMember('p2mp-auto-tunnel', REFERENCE_CLASS, 'P2MpAutoTunnel' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel', 
                 [], [], 
                 '''                Configure P2MP auto-tunnel feature
                 ''',
                 'p2mp_auto_tunnel',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('p2p-auto-tunnel', REFERENCE_CLASS, 'P2pAutoTunnel' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel', 
+            _MetaInfoClassMember('p2p-auto-tunnel', REFERENCE_CLASS, 'P2PAutoTunnel' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel', 
                 [], [], 
                 '''                Configure P2P auto-tunnel feature
                 ''',
@@ -2887,7 +2887,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.BfdOverLsp.Head',
             False, 
             [
-            _MetaInfoClassMember('down-action', REFERENCE_ENUM_CLASS, 'MplsTeBfdSessionDownAction_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBfdSessionDownAction_Enum', 
+            _MetaInfoClassMember('down-action', REFERENCE_ENUM_CLASS, 'MplsTeBfdSessionDownActionEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBfdSessionDownActionEnum', 
                 [], [], 
                 '''                Specify BFD session down action
                 ''',
@@ -3015,7 +3015,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.PathInvalidation',
             False, 
             [
-            _MetaInfoClassMember('path-invalidation-action', REFERENCE_ENUM_CLASS, 'PathInvalidationAction_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'PathInvalidationAction_Enum', 
+            _MetaInfoClassMember('path-invalidation-action', REFERENCE_ENUM_CLASS, 'PathInvalidationActionEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'PathInvalidationActionEnum', 
                 [], [], 
                 '''                Path Invalidation Action
                 ''',
@@ -3123,7 +3123,7 @@ _meta_table = {
                 ''',
                 'class_type',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionMetric_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionMetricEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetricEnum', 
                 [], [], 
                 '''                Metric to use for ERO Expansion
                 ''',
@@ -3445,7 +3445,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.Queues.Queue',
             False, 
             [
-            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'RoutePriorityRole_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'RoutePriorityRole_Enum', 
+            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'RoutePriorityRoleEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'RoutePriorityRoleEnum', 
                 [], [], 
                 '''                Route Priority Tunnel Role
                 ''',
@@ -3800,7 +3800,7 @@ _meta_table = {
                 ''',
                 'log_all',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('log-frr-protection', REFERENCE_ENUM_CLASS, 'MplsTeLogFrrProtection_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeLogFrrProtection_Enum', 
+            _MetaInfoClassMember('log-frr-protection', REFERENCE_ENUM_CLASS, 'MplsTeLogFrrProtectionEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeLogFrrProtectionEnum', 
                 [], [], 
                 '''                Log FRR Protection messages
                 ''',
@@ -3902,13 +3902,13 @@ _meta_table = {
                 ''',
                 'path_selection_loose_metrics',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-selection-metric', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionMetric_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetric_Enum', 
+            _MetaInfoClassMember('path-selection-metric', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionMetricEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetricEnum', 
                 [], [], 
                 '''                Metric to use in path calculation
                 ''',
                 'path_selection_metric',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-selection-tiebreaker', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionTiebreaker_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionTiebreaker_Enum', 
+            _MetaInfoClassMember('path-selection-tiebreaker', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionTiebreakerEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionTiebreakerEnum', 
                 [], [], 
                 '''                CSPF tiebreaker to use in path calculation
                 ''',
@@ -4012,7 +4012,7 @@ _meta_table = {
                 ''',
                 'tcmid',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('tti-mode-type', REFERENCE_ENUM_CLASS, 'GmplsttiMode_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'GmplsttiMode_Enum', 
+            _MetaInfoClassMember('tti-mode-type', REFERENCE_ENUM_CLASS, 'GmplsttiModeEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'GmplsttiModeEnum', 
                 [], [], 
                 '''                Type of Trail Trace Identifier
                 ''',
@@ -4113,7 +4113,7 @@ _meta_table = {
                 ''',
                 'tcmid',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('tti-mode-type', REFERENCE_ENUM_CLASS, 'GmplsttiMode_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'GmplsttiMode_Enum', 
+            _MetaInfoClassMember('tti-mode-type', REFERENCE_ENUM_CLASS, 'GmplsttiModeEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'GmplsttiModeEnum', 
                 [], [], 
                 '''                Type of Trail Trace Identifier
                 ''',
@@ -4213,13 +4213,13 @@ _meta_table = {
                 ''',
                 'igp_instance_name',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
-            _MetaInfoClassMember('igp-type', REFERENCE_ENUM_CLASS, 'MplsTeIgpProtocol_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeIgpProtocol_Enum', 
+            _MetaInfoClassMember('igp-type', REFERENCE_ENUM_CLASS, 'MplsTeIgpProtocolEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeIgpProtocolEnum', 
                 [], [], 
                 '''                IGP type
                 ''',
                 'igp_type',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
-            _MetaInfoClassMember('ospf-area-type', REFERENCE_ENUM_CLASS, 'OspfAreaMode_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'OspfAreaMode_Enum', 
+            _MetaInfoClassMember('ospf-area-type', REFERENCE_ENUM_CLASS, 'OspfAreaModeEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'OspfAreaModeEnum', 
                 [], [], 
                 '''                OSPF area format
                 ''',
@@ -4271,7 +4271,7 @@ _meta_table = {
                 ''',
                 'destination',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('destination-type', REFERENCE_ENUM_CLASS, 'OtnDestination_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'OtnDestination_Enum', 
+            _MetaInfoClassMember('destination-type', REFERENCE_ENUM_CLASS, 'OtnDestinationEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'OtnDestinationEnum', 
                 [], [], 
                 '''                Destination type whether it is unicast or
                 unnumbered
@@ -4339,7 +4339,7 @@ _meta_table = {
                 ''',
                 'preference_level',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
-            _MetaInfoClassMember('lockdown', REFERENCE_ENUM_CLASS, 'MplsTePathOptionProperty_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionProperty_Enum', 
+            _MetaInfoClassMember('lockdown', REFERENCE_ENUM_CLASS, 'MplsTePathOptionPropertyEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionPropertyEnum', 
                 [], [], 
                 '''                Lockdown properties
                 ''',
@@ -4359,7 +4359,7 @@ _meta_table = {
                 ''',
                 'path_name',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsTePathOption_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOption_Enum', 
+            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsTePathOptionEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionEnum', 
                 [], [], 
                 '''                The type of the path option
                 ''',
@@ -4415,13 +4415,13 @@ _meta_table = {
                 ''',
                 'bitrate',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('od-uflex-framing-type', REFERENCE_ENUM_CLASS, 'OtnSignaledBandwidthFlexFraming_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'OtnSignaledBandwidthFlexFraming_Enum', 
+            _MetaInfoClassMember('od-uflex-framing-type', REFERENCE_ENUM_CLASS, 'OtnSignaledBandwidthFlexFramingEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'OtnSignaledBandwidthFlexFramingEnum', 
                 [], [], 
                 '''                Framing type in case of ODUflex signal type
                 ''',
                 'od_uflex_framing_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('signalled-bandwidth-type', REFERENCE_ENUM_CLASS, 'OtnSignaledBandwidth_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'OtnSignaledBandwidth_Enum', 
+            _MetaInfoClassMember('signalled-bandwidth-type', REFERENCE_ENUM_CLASS, 'OtnSignaledBandwidthEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'OtnSignaledBandwidthEnum', 
                 [], [], 
                 '''                The g.709 signal type requested
                 ''',
@@ -4444,7 +4444,7 @@ _meta_table = {
                 ''',
                 'egress_controller_if_index',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('egress-type', REFERENCE_ENUM_CLASS, 'OtnStaticUni_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'OtnStaticUni_Enum', 
+            _MetaInfoClassMember('egress-type', REFERENCE_ENUM_CLASS, 'OtnStaticUniEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'OtnStaticUniEnum', 
                 [], [], 
                 '''                Egress type whether it is xconnect or
                 terminated
@@ -4457,7 +4457,7 @@ _meta_table = {
                 ''',
                 'ingress_controller_name',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('ingress-type', REFERENCE_ENUM_CLASS, 'OtnStaticUni_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'OtnStaticUni_Enum', 
+            _MetaInfoClassMember('ingress-type', REFERENCE_ENUM_CLASS, 'OtnStaticUniEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'OtnStaticUniEnum', 
                 [], [], 
                 '''                Ingress type whether it is xconnect or
                 terminated
@@ -4521,7 +4521,7 @@ _meta_table = {
                 ''',
                 'path_protection_attribute_set_profile',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('payload', REFERENCE_ENUM_CLASS, 'OtnPayload_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'OtnPayload_Enum', 
+            _MetaInfoClassMember('payload', REFERENCE_ENUM_CLASS, 'OtnPayloadEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'OtnPayloadEnum', 
                 [], [], 
                 '''                The existence of this configuration indicates
                 the Payload type have been set for the tunnel
@@ -4700,7 +4700,7 @@ _meta_table = {
                 ''',
                 'dwdm_channel',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('lockdown', REFERENCE_ENUM_CLASS, 'MplsTePathOptionProperty_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionProperty_Enum', 
+            _MetaInfoClassMember('lockdown', REFERENCE_ENUM_CLASS, 'MplsTePathOptionPropertyEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionPropertyEnum', 
                 [], [], 
                 '''                Path option properties: must be Lockdown
                 ''',
@@ -4720,19 +4720,19 @@ _meta_table = {
                 ''',
                 'path_name',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsTePathOption_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOption_Enum', 
+            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsTePathOptionEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionEnum', 
                 [], [], 
                 '''                The type of the path option
                 ''',
                 'path_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('signaled-label', REFERENCE_ENUM_CLASS, 'MplsTeSignaledLabel_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSignaledLabel_Enum', 
+            _MetaInfoClassMember('signaled-label', REFERENCE_ENUM_CLASS, 'MplsTeSignaledLabelEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSignaledLabelEnum', 
                 [], [], 
                 '''                Signaled label type
                 ''',
                 'signaled_label',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('verbatim', REFERENCE_ENUM_CLASS, 'MplsTePathOptionProperty_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionProperty_Enum', 
+            _MetaInfoClassMember('verbatim', REFERENCE_ENUM_CLASS, 'MplsTePathOptionPropertyEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionPropertyEnum', 
                 [], [], 
                 '''                Path option properties: must be verbatim
                 if set
@@ -5026,7 +5026,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude',
             False, 
             [
-            _MetaInfoClassMember('srlg-mode', REFERENCE_ENUM_CLASS, 'MplsTesrlgExclude_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTesrlgExclude_Enum', 
+            _MetaInfoClassMember('srlg-mode', REFERENCE_ENUM_CLASS, 'MplsTesrlgExcludeEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTesrlgExcludeEnum', 
                 [], [], 
                 '''                Set exclude SRLG mode for auto-tunnel
                 backup on this TE link
@@ -5236,7 +5236,7 @@ _meta_table = {
                 ''',
                 'area_id',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('igp-type', REFERENCE_ENUM_CLASS, 'MplsLcacFloodingIgp_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsLcacFloodingIgp_Enum', 
+            _MetaInfoClassMember('igp-type', REFERENCE_ENUM_CLASS, 'MplsLcacFloodingIgpEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsLcacFloodingIgpEnum', 
                 [], [], 
                 '''                IGP type
                 ''',
@@ -5299,7 +5299,7 @@ _meta_table = {
                 ''',
                 'switching_id',
                 'Cisco-IOS-XR-mpls-te-cfg', True, [
-                    _MetaInfoClassMember('switching-id', REFERENCE_ENUM_CLASS, 'MplsTeSwitchingIndex_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSwitchingIndex_Enum', 
+                    _MetaInfoClassMember('switching-id', REFERENCE_ENUM_CLASS, 'MplsTeSwitchingIndexEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSwitchingIndexEnum', 
                         [], [], 
                         '''                        Switching index
                         ''',
@@ -5312,13 +5312,13 @@ _meta_table = {
                         'switching_id',
                         'Cisco-IOS-XR-mpls-te-cfg', True),
                 ]),
-            _MetaInfoClassMember('capability', REFERENCE_ENUM_CLASS, 'MplsTeSwitchingCap_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSwitchingCap_Enum', 
+            _MetaInfoClassMember('capability', REFERENCE_ENUM_CLASS, 'MplsTeSwitchingCapEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSwitchingCapEnum', 
                 [], [], 
                 '''                Set the local switching capability
                 ''',
                 'capability',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('encoding', REFERENCE_ENUM_CLASS, 'MplsTeSwitchingEncoding_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSwitchingEncoding_Enum', 
+            _MetaInfoClassMember('encoding', REFERENCE_ENUM_CLASS, 'MplsTeSwitchingEncodingEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSwitchingEncodingEnum', 
                 [], [], 
                 '''                Set the local encoding type
                 ''',
@@ -5469,7 +5469,7 @@ _meta_table = {
                 ''',
                 'next_hop_address',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('next-hop-type', REFERENCE_ENUM_CLASS, 'LinkNextHop_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'LinkNextHop_Enum', 
+            _MetaInfoClassMember('next-hop-type', REFERENCE_ENUM_CLASS, 'LinkNextHopEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'LinkNextHopEnum', 
                 [], [], 
                 '''                Next hop type
                 ''',
@@ -6262,24 +6262,24 @@ _meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAtt
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinities.NewStyleAffinity']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinities']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.AffinityMask']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Bandwidth']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.FastReroute']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Logging']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinities']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Priority']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinities.NewStyleAffinity']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinities']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.PathSelectionInvalidation']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.AffinityMask']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Logging']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinities']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities.NewStyleAffinity']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.AffinityMask']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Bandwidth']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.FastReroute']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Logging']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Priority']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities.NewStyleAffinity']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.PathSelectionInvalidation']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinities.NewStyleAffinity']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinities']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AffinityMask']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Bandwidth']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute']['meta_info']
@@ -6296,8 +6296,8 @@ _meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute']['
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers.Removal']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers']['meta_info']
@@ -6308,13 +6308,13 @@ _meta_table['MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers.Removal']['meta_info
 _meta_table['MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel.Mesh']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel.Mesh']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AutoTunnel.Mesh.TunnelRange']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel.Mesh']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel.TunnelRange']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel.TunnelRange']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel.TunnelRange']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel.TunnelRange']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AutoTunnel.Pcc.TunnelRange']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel.Pcc']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AutoTunnel.Backup']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AutoTunnel.Mesh']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AutoTunnel.Pcc']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.BfdOverLsp.Head']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.BfdOverLsp']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.BfdOverLsp.Tail']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.BfdOverLsp']['meta_info']

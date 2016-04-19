@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,49 +14,49 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'RcmdBagEnblDsbl_Enum' : _MetaInfoEnum('RcmdBagEnblDsbl_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdBagEnblDsblEnum' : _MetaInfoEnum('RcmdBagEnblDsblEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'dsbl':'DSBL',
             'enbl':'ENBL',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdBoolYesNo_Enum' : _MetaInfoEnum('RcmdBoolYesNo_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdBoolYesNoEnum' : _MetaInfoEnum('RcmdBoolYesNoEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'no':'NO',
             'yes':'YES',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdPriorityLevel_Enum' : _MetaInfoEnum('RcmdPriorityLevel_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdPriorityLevelEnum' : _MetaInfoEnum('RcmdPriorityLevelEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'critical':'CRITICAL',
             'high':'HIGH',
             'medium':'MEDIUM',
             'low':'LOW',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdSpfState_Enum' : _MetaInfoEnum('RcmdSpfState_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdSpfStateEnum' : _MetaInfoEnum('RcmdSpfStateEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'complete':'COMPLETE',
             'in-complete':'IN_COMPLETE',
             'collecting':'COLLECTING',
             'no-route-change':'NO_ROUTE_CHANGE',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdShowIpfrrLfa_Enum' : _MetaInfoEnum('RcmdShowIpfrrLfa_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdShowIpfrrLfaEnum' : _MetaInfoEnum('RcmdShowIpfrrLfaEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'none':'NONE',
             'local':'LOCAL',
             'remote':'REMOTE',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdShowPrcsState_Enum' : _MetaInfoEnum('RcmdShowPrcsState_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdShowPrcsStateEnum' : _MetaInfoEnum('RcmdShowPrcsStateEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'success':'SUCCESS',
             'cpu':'CPU',
             'memory':'MEMORY',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdShowCompId_Enum' : _MetaInfoEnum('RcmdShowCompId_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdShowCompIdEnum' : _MetaInfoEnum('RcmdShowCompIdEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'ospf':'OSPF',
             'isis':'ISIS',
             'un-known':'UN_KNOWN',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdShowLdpSessionState_Enum' : _MetaInfoEnum('RcmdShowLdpSessionState_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdShowLdpSessionStateEnum' : _MetaInfoEnum('RcmdShowLdpSessionStateEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'gr-down':'GR_DOWN',
             'gr-converging':'GR_CONVERGING',
@@ -66,13 +66,13 @@ _meta_table = {
             'retrying':'RETRYING',
             'total':'TOTAL',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdProtocolId_Enum' : _MetaInfoEnum('RcmdProtocolId_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdProtocolIdEnum' : _MetaInfoEnum('RcmdProtocolIdEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'ospf':'OSPF',
             'isis':'ISIS',
             'na':'NA',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdShowLdpConvState_Enum' : _MetaInfoEnum('RcmdShowLdpConvState_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdShowLdpConvStateEnum' : _MetaInfoEnum('RcmdShowLdpConvStateEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'not-full':'NOT_FULL',
             'fully-covered':'FULLY_COVERED',
@@ -80,41 +80,41 @@ _meta_table = {
             'coverage-below-threshold':'COVERAGE_BELOW_THRESHOLD',
             'coverage-flapping':'COVERAGE_FLAPPING',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdLinecardSpeed_Enum' : _MetaInfoEnum('RcmdLinecardSpeed_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdLinecardSpeedEnum' : _MetaInfoEnum('RcmdLinecardSpeedEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'other':'OTHER',
             'fastest':'FASTEST',
             'slowest':'SLOWEST',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdShowNode_Enum' : _MetaInfoEnum('RcmdShowNode_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdShowNodeEnum' : _MetaInfoEnum('RcmdShowNodeEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'unknown':'UNKNOWN',
             'lc':'LC',
             'rp':'RP',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdShowLdpNeighbourStatus_Enum' : _MetaInfoEnum('RcmdShowLdpNeighbourStatus_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdShowLdpNeighbourStatusEnum' : _MetaInfoEnum('RcmdShowLdpNeighbourStatusEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'down':'DOWN',
             'up':'UP',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdIsisSpf_Enum' : _MetaInfoEnum('RcmdIsisSpf_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdIsisSpfEnum' : _MetaInfoEnum('RcmdIsisSpfEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'full':'FULL',
             'incremental':'INCREMENTAL',
             'next-hop':'NEXT_HOP',
             'partial-route':'PARTIAL_ROUTE',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdShowRoutePathChange_Enum' : _MetaInfoEnum('RcmdShowRoutePathChange_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdShowRoutePathChangeEnum' : _MetaInfoEnum('RcmdShowRoutePathChangeEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'primary':'PRIMARY',
             'backup':'BACKUP',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdIsisLvl_Enum' : _MetaInfoEnum('RcmdIsisLvl_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdIsisLvlEnum' : _MetaInfoEnum('RcmdIsisLvlEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'l1':'L1',
             'l2':'L2',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdChange_Enum' : _MetaInfoEnum('RcmdChange_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdChangeEnum' : _MetaInfoEnum('RcmdChangeEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'none':'NONE',
             'add':'ADD',
@@ -122,7 +122,7 @@ _meta_table = {
             'modify':'MODIFY',
             'no-change':'NO_CHANGE',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdShowRoute_Enum' : _MetaInfoEnum('RcmdShowRoute_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdShowRouteEnum' : _MetaInfoEnum('RcmdShowRouteEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'ospf':'OSPF',
             'intra':'INTRA',
@@ -140,12 +140,12 @@ _meta_table = {
             'inter-area':'INTER_AREA',
             'default-attached':'DEFAULT_ATTACHED',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdLdpEvent_Enum' : _MetaInfoEnum('RcmdLdpEvent_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdLdpEventEnum' : _MetaInfoEnum('RcmdLdpEventEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'neighbor':'NEIGHBOR',
             'adjacency':'ADJACENCY',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdLsa_Enum' : _MetaInfoEnum('RcmdLsa_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdLsaEnum' : _MetaInfoEnum('RcmdLsaEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'unknown':'UNKNOWN',
             'router':'ROUTER',
@@ -156,7 +156,7 @@ _meta_table = {
             'multicast':'MULTICAST',
             'nssa':'NSSA',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdShowMem_Enum' : _MetaInfoEnum('RcmdShowMem_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdShowMemEnum' : _MetaInfoEnum('RcmdShowMemEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'standard':'STANDARD',
             'chunk':'CHUNK',
@@ -165,26 +165,26 @@ _meta_table = {
             'static':'STATIC',
             'unknown':'UNKNOWN',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdBagEnableDisable_Enum' : _MetaInfoEnum('RcmdBagEnableDisable_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdBagEnableDisableEnum' : _MetaInfoEnum('RcmdBagEnableDisableEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'disable':'DISABLE',
             'enable':'ENABLE',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdShowInstState_Enum' : _MetaInfoEnum('RcmdShowInstState_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdShowInstStateEnum' : _MetaInfoEnum('RcmdShowInstStateEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'unknown':'UNKNOWN',
             'active':'ACTIVE',
             'in-active':'IN_ACTIVE',
             'na':'NA',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdLsChange_Enum' : _MetaInfoEnum('RcmdLsChange_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdLsChangeEnum' : _MetaInfoEnum('RcmdLsChangeEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'new':'NEW',
             'delete':'DELETE',
             'modify':'MODIFY',
             'noop':'NOOP',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdShowIntfEvent_Enum' : _MetaInfoEnum('RcmdShowIntfEvent_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdShowIntfEventEnum' : _MetaInfoEnum('RcmdShowIntfEventEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'create':'CREATE',
             'delete':'DELETE',
@@ -210,7 +210,7 @@ _meta_table = {
                 ''',
                 'event_no',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
-            _MetaInfoClassMember('component', REFERENCE_ENUM_CLASS, 'RcmdShowCompId_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowCompId_Enum', 
+            _MetaInfoClassMember('component', REFERENCE_ENUM_CLASS, 'RcmdShowCompIdEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowCompIdEnum', 
                 [], [], 
                 '''                Component info
                 ''',
@@ -222,7 +222,7 @@ _meta_table = {
                 ''',
                 'event_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'RcmdShowIntfEvent_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIntfEvent_Enum', 
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'RcmdShowIntfEventEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIntfEventEnum', 
                 [], [], 
                 '''                Event Info
                 ''',
@@ -321,7 +321,7 @@ _meta_table = {
                 ''',
                 'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Priority
                 ''',
@@ -565,7 +565,7 @@ _meta_table = {
                 ''',
                 'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Priority
                 ''',
@@ -784,7 +784,7 @@ _meta_table = {
                 ''',
                 'serial_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
-            _MetaInfoClassMember('isis-level', REFERENCE_ENUM_CLASS, 'RcmdIsisLvl_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisLvl_Enum', 
+            _MetaInfoClassMember('isis-level', REFERENCE_ENUM_CLASS, 'RcmdIsisLvlEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisLvlEnum', 
                 [], [], 
                 '''                ISIS Level
                 ''',
@@ -891,7 +891,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
@@ -903,7 +903,7 @@ _meta_table = {
                 ''',
                 'lsa_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -973,7 +973,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
                 '''                Event Add/Delete
                 ''',
@@ -985,7 +985,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfa_Enum', 
+            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfaEnum', 
                 [], [], 
                 '''                Type of LFA
                 ''',
@@ -1020,7 +1020,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
                 '''                Event Add/Delete
                 ''',
@@ -1073,7 +1073,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -1102,7 +1102,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -1192,7 +1192,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
@@ -1204,7 +1204,7 @@ _meta_table = {
                 ''',
                 'lsa_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -1245,7 +1245,7 @@ _meta_table = {
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
                 '''                Event Add/Delete
                 ''',
@@ -1299,19 +1299,19 @@ _meta_table = {
                 ''',
                 'prefix_lenth',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Event processed priority
                 ''',
                 'priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-path-change-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoutePathChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoutePathChange_Enum', 
+            _MetaInfoClassMember('route-path-change-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoutePathChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoutePathChangeEnum', 
                 [], [], 
                 '''                Route Path Change Type
                 ''',
                 'route_path_change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoute_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRouteEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRouteEnum', 
                 [], [], 
                 '''                Route Type intra/inter/l1/l2
                 ''',
@@ -1419,7 +1419,7 @@ _meta_table = {
                 ''',
                 'high_priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('last-change-type', REFERENCE_ENUM_CLASS, 'RcmdChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChange_Enum', 
+            _MetaInfoClassMember('last-change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
                 '''                Last event Add/Delete
                 ''',
@@ -1437,13 +1437,13 @@ _meta_table = {
                 ''',
                 'last_event_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('last-priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('last-priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Last event processed priority
                 ''',
                 'last_priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('last-route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoute_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoute_Enum', 
+            _MetaInfoClassMember('last-route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRouteEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRouteEnum', 
                 [], [], 
                 '''                Last event Route Type
                 ''',
@@ -1548,7 +1548,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
@@ -1560,7 +1560,7 @@ _meta_table = {
                 ''',
                 'lsa_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -1630,7 +1630,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
                 '''                Event Add/Delete
                 ''',
@@ -1642,7 +1642,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfa_Enum', 
+            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfaEnum', 
                 [], [], 
                 '''                Type of LFA
                 ''',
@@ -1677,7 +1677,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
                 '''                Event Add/Delete
                 ''',
@@ -1730,7 +1730,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -1759,7 +1759,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -1849,7 +1849,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
@@ -1861,7 +1861,7 @@ _meta_table = {
                 ''',
                 'lsa_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -1902,7 +1902,7 @@ _meta_table = {
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
                 '''                Event Add/Delete
                 ''',
@@ -1956,19 +1956,19 @@ _meta_table = {
                 ''',
                 'prefix_lenth',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Event processed priority
                 ''',
                 'priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-path-change-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoutePathChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoutePathChange_Enum', 
+            _MetaInfoClassMember('route-path-change-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoutePathChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoutePathChangeEnum', 
                 [], [], 
                 '''                Route Path Change Type
                 ''',
                 'route_path_change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoute_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRouteEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRouteEnum', 
                 [], [], 
                 '''                Route Type intra/inter/l1/l2
                 ''',
@@ -2032,7 +2032,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspProcessed',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
@@ -2067,7 +2067,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspRegenerated',
             False, 
             [
-            _MetaInfoClassMember('isis-level', REFERENCE_ENUM_CLASS, 'RcmdIsisLvl_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisLvl_Enum', 
+            _MetaInfoClassMember('isis-level', REFERENCE_ENUM_CLASS, 'RcmdIsisLvlEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisLvlEnum', 
                 [], [], 
                 '''                ISIS Level
                 ''',
@@ -2212,7 +2212,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -2272,7 +2272,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -2820,7 +2820,7 @@ _meta_table = {
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Critical, High, Medium or Low
                 ''',
@@ -3054,7 +3054,7 @@ _meta_table = {
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Critical, High, Medium or Low
                 ''',
@@ -3101,7 +3101,7 @@ _meta_table = {
                 ''',
                 'is_data_complete',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('isis-level', REFERENCE_ENUM_CLASS, 'RcmdIsisLvl_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisLvl_Enum', 
+            _MetaInfoClassMember('isis-level', REFERENCE_ENUM_CLASS, 'RcmdIsisLvlEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisLvlEnum', 
                 [], [], 
                 '''                ISIS Level
                 ''',
@@ -3114,7 +3114,7 @@ _meta_table = {
                 ''',
                 'priority_summary',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'RcmdSpfState_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdSpfState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'RcmdSpfStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdSpfStateEnum', 
                 [], [], 
                 '''                SPF state
                 ''',
@@ -3144,7 +3144,7 @@ _meta_table = {
                 ''',
                 'trigger_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'RcmdIsisSpf_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisSpf_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'RcmdIsisSpfEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisSpfEnum', 
                 [], [], 
                 '''                Type of SPF
                 ''',
@@ -3161,7 +3161,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.TriggerLsp',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
@@ -3288,7 +3288,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspProcessed',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
@@ -3323,7 +3323,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspRegenerated',
             False, 
             [
-            _MetaInfoClassMember('isis-level', REFERENCE_ENUM_CLASS, 'RcmdIsisLvl_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisLvl_Enum', 
+            _MetaInfoClassMember('isis-level', REFERENCE_ENUM_CLASS, 'RcmdIsisLvlEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisLvlEnum', 
                 [], [], 
                 '''                ISIS Level
                 ''',
@@ -3468,7 +3468,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -3528,7 +3528,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -4076,7 +4076,7 @@ _meta_table = {
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Critical, High, Medium or Low
                 ''',
@@ -4310,7 +4310,7 @@ _meta_table = {
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Critical, High, Medium or Low
                 ''',
@@ -4357,7 +4357,7 @@ _meta_table = {
                 ''',
                 'is_data_complete',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('isis-level', REFERENCE_ENUM_CLASS, 'RcmdIsisLvl_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisLvl_Enum', 
+            _MetaInfoClassMember('isis-level', REFERENCE_ENUM_CLASS, 'RcmdIsisLvlEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisLvlEnum', 
                 [], [], 
                 '''                ISIS Level
                 ''',
@@ -4370,7 +4370,7 @@ _meta_table = {
                 ''',
                 'priority_summary',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'RcmdSpfState_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdSpfState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'RcmdSpfStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdSpfStateEnum', 
                 [], [], 
                 '''                SPF state
                 ''',
@@ -4400,7 +4400,7 @@ _meta_table = {
                 ''',
                 'trigger_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'RcmdIsisSpf_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisSpf_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'RcmdIsisSpfEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdIsisSpfEnum', 
                 [], [], 
                 '''                Type of SPF
                 ''',
@@ -4417,7 +4417,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.TriggerLsp',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
@@ -4642,7 +4642,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ldp.RemoteLfaS.RemoteLfa.Logs',
             False, 
             [
-            _MetaInfoClassMember('label-coverage-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpConvState_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpConvState_Enum', 
+            _MetaInfoClassMember('label-coverage-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpConvStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpConvStateEnum', 
                 [], [], 
                 '''                Label Coverage State
                 ''',
@@ -4725,7 +4725,7 @@ _meta_table = {
                 ''',
                 'route_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpSessionState_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpSessionState_Enum', 
+            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpSessionStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpSessionStateEnum', 
                 [], [], 
                 '''                Session State
                 ''',
@@ -4784,7 +4784,7 @@ _meta_table = {
                 ''',
                 'session_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpSessionState_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpSessionState_Enum', 
+            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpSessionStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpSessionStateEnum', 
                 [], [], 
                 '''                Session State
                 ''',
@@ -4826,7 +4826,7 @@ _meta_table = {
                 ''',
                 'event_id_xr',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('igp-protocol', REFERENCE_ENUM_CLASS, 'RcmdProtocolId_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdProtocolId_Enum', 
+            _MetaInfoClassMember('igp-protocol', REFERENCE_ENUM_CLASS, 'RcmdProtocolIdEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdProtocolIdEnum', 
                 [], [], 
                 '''                IGP Protocol
                 ''',
@@ -4891,7 +4891,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.Logs',
             False, 
             [
-            _MetaInfoClassMember('label-coverage-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpConvState_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpConvState_Enum', 
+            _MetaInfoClassMember('label-coverage-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpConvStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpConvStateEnum', 
                 [], [], 
                 '''                Label Coverage State
                 ''',
@@ -4974,7 +4974,7 @@ _meta_table = {
                 ''',
                 'route_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpSessionState_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpSessionState_Enum', 
+            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpSessionStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpSessionStateEnum', 
                 [], [], 
                 '''                Session State
                 ''',
@@ -5033,7 +5033,7 @@ _meta_table = {
                 ''',
                 'session_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpSessionState_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpSessionState_Enum', 
+            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpSessionStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpSessionStateEnum', 
                 [], [], 
                 '''                Session State
                 ''',
@@ -5075,7 +5075,7 @@ _meta_table = {
                 ''',
                 'event_id_xr',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('igp-protocol', REFERENCE_ENUM_CLASS, 'RcmdProtocolId_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdProtocolId_Enum', 
+            _MetaInfoClassMember('igp-protocol', REFERENCE_ENUM_CLASS, 'RcmdProtocolIdEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdProtocolIdEnum', 
                 [], [], 
                 '''                IGP Protocol
                 ''',
@@ -5164,7 +5164,7 @@ _meta_table = {
                 ''',
                 'event_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'RcmdLdpEvent_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLdpEvent_Enum', 
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'RcmdLdpEventEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLdpEventEnum', 
                 [], [], 
                 '''                Type of event
                 ''',
@@ -5182,7 +5182,7 @@ _meta_table = {
                 ''',
                 'lsr_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpNeighbourStatus_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpNeighbourStatus_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'RcmdShowLdpNeighbourStatusEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowLdpNeighbourStatusEnum', 
                 [], [], 
                 '''                Adjacency Session Status
                 ''',
@@ -5304,7 +5304,7 @@ _meta_table = {
                 ''',
                 'freed_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('memory-type', REFERENCE_ENUM_CLASS, 'RcmdShowMem_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowMem_Enum', 
+            _MetaInfoClassMember('memory-type', REFERENCE_ENUM_CLASS, 'RcmdShowMemEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowMemEnum', 
                 [], [], 
                 '''                Memory Type
                 ''',
@@ -5409,7 +5409,7 @@ _meta_table = {
                 ''',
                 'diag_mode',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fwd-referenced', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNo_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNo_Enum', 
+            _MetaInfoClassMember('fwd-referenced', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
                 [], [], 
                 '''                Forward Referenced
                 ''',
@@ -5433,13 +5433,13 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('node-state', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNo_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNo_Enum', 
+            _MetaInfoClassMember('node-state', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
                 [], [], 
                 '''                Node State
                 ''',
                 'node_state',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('node-type', REFERENCE_ENUM_CLASS, 'RcmdShowNode_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowNode_Enum', 
+            _MetaInfoClassMember('node-type', REFERENCE_ENUM_CLASS, 'RcmdShowNodeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowNodeEnum', 
                 [], [], 
                 '''                Node Type
                 ''',
@@ -5463,7 +5463,7 @@ _meta_table = {
                 ''',
                 'software_state',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'RcmdBagEnblDsbl_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBagEnblDsbl_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'RcmdBagEnblDsblEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBagEnblDsblEnum', 
                 [], [], 
                 '''                Status
                 ''',
@@ -5527,7 +5527,7 @@ _meta_table = {
                 ''',
                 'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Priority
                 ''',
@@ -5771,7 +5771,7 @@ _meta_table = {
                 ''',
                 'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Priority
                 ''',
@@ -6019,7 +6019,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
@@ -6031,7 +6031,7 @@ _meta_table = {
                 ''',
                 'lsa_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -6101,7 +6101,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
                 '''                Event Add/Delete
                 ''',
@@ -6113,7 +6113,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfa_Enum', 
+            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfaEnum', 
                 [], [], 
                 '''                Type of LFA
                 ''',
@@ -6148,7 +6148,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
                 '''                Event Add/Delete
                 ''',
@@ -6201,7 +6201,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -6230,7 +6230,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -6320,7 +6320,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
@@ -6332,7 +6332,7 @@ _meta_table = {
                 ''',
                 'lsa_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -6373,7 +6373,7 @@ _meta_table = {
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
                 '''                Event Add/Delete
                 ''',
@@ -6427,19 +6427,19 @@ _meta_table = {
                 ''',
                 'prefix_lenth',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Event processed priority
                 ''',
                 'priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-path-change-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoutePathChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoutePathChange_Enum', 
+            _MetaInfoClassMember('route-path-change-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoutePathChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoutePathChangeEnum', 
                 [], [], 
                 '''                Route Path Change Type
                 ''',
                 'route_path_change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoute_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRouteEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRouteEnum', 
                 [], [], 
                 '''                Route Type intra/inter/l1/l2
                 ''',
@@ -6547,7 +6547,7 @@ _meta_table = {
                 ''',
                 'high_priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('last-change-type', REFERENCE_ENUM_CLASS, 'RcmdChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChange_Enum', 
+            _MetaInfoClassMember('last-change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
                 '''                Last event Add/Delete
                 ''',
@@ -6565,13 +6565,13 @@ _meta_table = {
                 ''',
                 'last_event_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('last-priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('last-priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Last event processed priority
                 ''',
                 'last_priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('last-route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoute_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoute_Enum', 
+            _MetaInfoClassMember('last-route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRouteEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRouteEnum', 
                 [], [], 
                 '''                Last event Route Type
                 ''',
@@ -6676,7 +6676,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
@@ -6688,7 +6688,7 @@ _meta_table = {
                 ''',
                 'lsa_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -6758,7 +6758,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
                 '''                Event Add/Delete
                 ''',
@@ -6770,7 +6770,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfa_Enum', 
+            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfaEnum', 
                 [], [], 
                 '''                Type of LFA
                 ''',
@@ -6805,7 +6805,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
                 '''                Event Add/Delete
                 ''',
@@ -6858,7 +6858,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -6887,7 +6887,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -6977,7 +6977,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
@@ -6989,7 +6989,7 @@ _meta_table = {
                 ''',
                 'lsa_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -7030,7 +7030,7 @@ _meta_table = {
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
                 '''                Event Add/Delete
                 ''',
@@ -7084,19 +7084,19 @@ _meta_table = {
                 ''',
                 'prefix_lenth',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Event processed priority
                 ''',
                 'priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-path-change-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoutePathChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoutePathChange_Enum', 
+            _MetaInfoClassMember('route-path-change-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoutePathChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoutePathChangeEnum', 
                 [], [], 
                 '''                Route Path Change Type
                 ''',
                 'route_path_change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoute_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRouteEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRouteEnum', 
                 [], [], 
                 '''                Route Type intra/inter/l1/l2
                 ''',
@@ -7160,7 +7160,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.LsaProcessed',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
@@ -7172,7 +7172,7 @@ _meta_table = {
                 ''',
                 'lsa_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -7250,7 +7250,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -7310,7 +7310,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -7858,7 +7858,7 @@ _meta_table = {
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Critical, High, Medium or Low
                 ''',
@@ -7928,7 +7928,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.TriggerLsa',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
@@ -7940,7 +7940,7 @@ _meta_table = {
                 ''',
                 'lsa_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -8091,7 +8091,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -8151,7 +8151,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -8658,7 +8658,7 @@ _meta_table = {
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Critical, High, Medium or Low
                 ''',
@@ -8927,7 +8927,7 @@ _meta_table = {
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Critical, High, Medium or Low
                 ''',
@@ -8989,7 +8989,7 @@ _meta_table = {
                 ''',
                 'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'RcmdSpfState_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdSpfState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'RcmdSpfStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdSpfStateEnum', 
                 [], [], 
                 '''                SPF state
                 ''',
@@ -9096,7 +9096,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.LsaProcessed',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
@@ -9108,7 +9108,7 @@ _meta_table = {
                 ''',
                 'lsa_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -9186,7 +9186,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -9246,7 +9246,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -9794,7 +9794,7 @@ _meta_table = {
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Critical, High, Medium or Low
                 ''',
@@ -9864,7 +9864,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.TriggerLsa',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
@@ -9876,7 +9876,7 @@ _meta_table = {
                 ''',
                 'lsa_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -10027,7 +10027,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -10087,7 +10087,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -10594,7 +10594,7 @@ _meta_table = {
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Critical, High, Medium or Low
                 ''',
@@ -10863,7 +10863,7 @@ _meta_table = {
                 ''',
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Critical, High, Medium or Low
                 ''',
@@ -10925,7 +10925,7 @@ _meta_table = {
                 ''',
                 'start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'RcmdSpfState_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdSpfState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'RcmdSpfStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdSpfStateEnum', 
                 [], [], 
                 '''                SPF state
                 ''',
@@ -11066,7 +11066,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.LsaProcessed',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
@@ -11078,7 +11078,7 @@ _meta_table = {
                 ''',
                 'lsa_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -11148,7 +11148,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path.LfaPath',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
                 '''                Event Add/Delete
                 ''',
@@ -11160,7 +11160,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfa_Enum', 
+            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfaEnum', 
                 [], [], 
                 '''                Type of LFA
                 ''',
@@ -11195,7 +11195,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
                 '''                Event Add/Delete
                 ''',
@@ -11248,7 +11248,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -11277,7 +11277,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -11367,7 +11367,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TriggerLsa',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
@@ -11379,7 +11379,7 @@ _meta_table = {
                 ''',
                 'lsa_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -11420,7 +11420,7 @@ _meta_table = {
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
                 '''                Event Add/Delete
                 ''',
@@ -11474,19 +11474,19 @@ _meta_table = {
                 ''',
                 'prefix_lenth',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Event processed priority
                 ''',
                 'priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-path-change-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoutePathChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoutePathChange_Enum', 
+            _MetaInfoClassMember('route-path-change-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoutePathChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoutePathChangeEnum', 
                 [], [], 
                 '''                Route Path Change Type
                 ''',
                 'route_path_change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoute_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRouteEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRouteEnum', 
                 [], [], 
                 '''                Route Type intra/inter/l1/l2
                 ''',
@@ -11693,7 +11693,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.LsaProcessed',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
@@ -11705,7 +11705,7 @@ _meta_table = {
                 ''',
                 'lsa_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -11775,7 +11775,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path.LfaPath',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
                 '''                Event Add/Delete
                 ''',
@@ -11787,7 +11787,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfa_Enum', 
+            _MetaInfoClassMember('lfa-type', REFERENCE_ENUM_CLASS, 'RcmdShowIpfrrLfaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowIpfrrLfaEnum', 
                 [], [], 
                 '''                Type of LFA
                 ''',
@@ -11822,7 +11822,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
                 '''                Event Add/Delete
                 ''',
@@ -11875,7 +11875,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -11904,7 +11904,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeed_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'RcmdLinecardSpeedEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLinecardSpeedEnum', 
                 [], [], 
                 '''                Relative convergence speed
                 ''',
@@ -11994,7 +11994,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TriggerLsa',
             False, 
             [
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdLsChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsChangeEnum', 
                 [], [], 
                 '''                Add, Delete, Modify
                 ''',
@@ -12006,7 +12006,7 @@ _meta_table = {
                 ''',
                 'lsa_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsa_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'RcmdLsaEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdLsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -12047,7 +12047,7 @@ _meta_table = {
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
-            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChange_Enum', 
+            _MetaInfoClassMember('change-type', REFERENCE_ENUM_CLASS, 'RcmdChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdChangeEnum', 
                 [], [], 
                 '''                Event Add/Delete
                 ''',
@@ -12101,19 +12101,19 @@ _meta_table = {
                 ''',
                 'prefix_lenth',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Event processed priority
                 ''',
                 'priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-path-change-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoutePathChange_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoutePathChange_Enum', 
+            _MetaInfoClassMember('route-path-change-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoutePathChangeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoutePathChangeEnum', 
                 [], [], 
                 '''                Route Path Change Type
                 ''',
                 'route_path_change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRoute_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RcmdShowRouteEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowRouteEnum', 
                 [], [], 
                 '''                Route Type intra/inter/l1/l2
                 ''',
@@ -12296,13 +12296,13 @@ _meta_table = {
                 ''',
                 'arch_spf_run',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fwd-referenced', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNo_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNo_Enum', 
+            _MetaInfoClassMember('fwd-referenced', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
                 [], [], 
                 '''                Forward Referenced
                 ''',
                 'fwd_referenced',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('instance-deleted', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNo_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNo_Enum', 
+            _MetaInfoClassMember('instance-deleted', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
                 [], [], 
                 '''                Instance Deleted
                 ''',
@@ -12314,7 +12314,7 @@ _meta_table = {
                 ''',
                 'instance_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('instance-state', REFERENCE_ENUM_CLASS, 'RcmdShowInstState_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowInstState_Enum', 
+            _MetaInfoClassMember('instance-state', REFERENCE_ENUM_CLASS, 'RcmdShowInstStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowInstStateEnum', 
                 [], [], 
                 '''                Instance State
                 ''',
@@ -12468,7 +12468,7 @@ _meta_table = {
                 ''',
                 'process_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('protocol-id', REFERENCE_ENUM_CLASS, 'RcmdProtocolId_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdProtocolId_Enum', 
+            _MetaInfoClassMember('protocol-id', REFERENCE_ENUM_CLASS, 'RcmdProtocolIdEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdProtocolIdEnum', 
                 [], [], 
                 '''                Protocol id
                 ''',
@@ -12508,13 +12508,13 @@ _meta_table = {
                 ''',
                 'arch_spf_run',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fwd-referenced', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNo_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNo_Enum', 
+            _MetaInfoClassMember('fwd-referenced', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
                 [], [], 
                 '''                Forward Referenced
                 ''',
                 'fwd_referenced',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('instance-deleted', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNo_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNo_Enum', 
+            _MetaInfoClassMember('instance-deleted', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
                 [], [], 
                 '''                Instance Deleted
                 ''',
@@ -12526,7 +12526,7 @@ _meta_table = {
                 ''',
                 'instance_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('instance-state', REFERENCE_ENUM_CLASS, 'RcmdShowInstState_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowInstState_Enum', 
+            _MetaInfoClassMember('instance-state', REFERENCE_ENUM_CLASS, 'RcmdShowInstStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowInstStateEnum', 
                 [], [], 
                 '''                Instance State
                 ''',
@@ -12680,7 +12680,7 @@ _meta_table = {
                 ''',
                 'process_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('protocol-id', REFERENCE_ENUM_CLASS, 'RcmdProtocolId_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdProtocolId_Enum', 
+            _MetaInfoClassMember('protocol-id', REFERENCE_ENUM_CLASS, 'RcmdProtocolIdEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdProtocolIdEnum', 
                 [], [], 
                 '''                Protocol id
                 ''',
@@ -12720,13 +12720,13 @@ _meta_table = {
                 ''',
                 'arch_spf_run',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('fwd-referenced', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNo_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNo_Enum', 
+            _MetaInfoClassMember('fwd-referenced', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
                 [], [], 
                 '''                Forward Referenced
                 ''',
                 'fwd_referenced',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('instance-deleted', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNo_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNo_Enum', 
+            _MetaInfoClassMember('instance-deleted', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
                 [], [], 
                 '''                Instance Deleted
                 ''',
@@ -12738,7 +12738,7 @@ _meta_table = {
                 ''',
                 'instance_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('instance-state', REFERENCE_ENUM_CLASS, 'RcmdShowInstState_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowInstState_Enum', 
+            _MetaInfoClassMember('instance-state', REFERENCE_ENUM_CLASS, 'RcmdShowInstStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowInstStateEnum', 
                 [], [], 
                 '''                Instance State
                 ''',
@@ -12892,7 +12892,7 @@ _meta_table = {
                 ''',
                 'process_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('protocol-id', REFERENCE_ENUM_CLASS, 'RcmdProtocolId_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdProtocolId_Enum', 
+            _MetaInfoClassMember('protocol-id', REFERENCE_ENUM_CLASS, 'RcmdProtocolIdEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdProtocolIdEnum', 
                 [], [], 
                 '''                Protocol id
                 ''',
@@ -12955,13 +12955,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Server.Detail.ProtocolConfig.Priority',
             False, 
             [
-            _MetaInfoClassMember('disable', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNo_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNo_Enum', 
+            _MetaInfoClassMember('disable', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
                 [], [], 
                 '''                Enable/Disable cfg
                 ''',
                 'disable',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('priority-name', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('priority-name', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Priority Level
                 ''',
@@ -13156,7 +13156,7 @@ _meta_table = {
                 ''',
                 'last_process_start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('last-process-state', REFERENCE_ENUM_CLASS, 'RcmdShowPrcsState_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowPrcsState_Enum', 
+            _MetaInfoClassMember('last-process-state', REFERENCE_ENUM_CLASS, 'RcmdShowPrcsStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowPrcsStateEnum', 
                 [], [], 
                 '''                Process state
                 ''',
@@ -13235,7 +13235,7 @@ _meta_table = {
                 ''',
                 'spf_process_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'RcmdBagEnableDisable_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBagEnableDisable_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'RcmdBagEnableDisableEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBagEnableDisableEnum', 
                 [], [], 
                 '''                Server Status
                 ''',
@@ -13252,13 +13252,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Server.Normal.ProtocolConfig.Priority',
             False, 
             [
-            _MetaInfoClassMember('disable', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNo_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNo_Enum', 
+            _MetaInfoClassMember('disable', REFERENCE_ENUM_CLASS, 'RcmdBoolYesNoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBoolYesNoEnum', 
                 [], [], 
                 '''                Enable/Disable cfg
                 ''',
                 'disable',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('priority-name', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevel_Enum', 
+            _MetaInfoClassMember('priority-name', REFERENCE_ENUM_CLASS, 'RcmdPriorityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdPriorityLevelEnum', 
                 [], [], 
                 '''                Priority Level
                 ''',
@@ -13453,7 +13453,7 @@ _meta_table = {
                 ''',
                 'last_process_start_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('last-process-state', REFERENCE_ENUM_CLASS, 'RcmdShowPrcsState_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowPrcsState_Enum', 
+            _MetaInfoClassMember('last-process-state', REFERENCE_ENUM_CLASS, 'RcmdShowPrcsStateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdShowPrcsStateEnum', 
                 [], [], 
                 '''                Process state
                 ''',
@@ -13532,7 +13532,7 @@ _meta_table = {
                 ''',
                 'spf_process_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'RcmdBagEnableDisable_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBagEnableDisable_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'RcmdBagEnableDisableEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper', 'RcmdBagEnableDisableEnum', 
                 [], [], 
                 '''                Server Status
                 ''',

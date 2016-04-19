@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,13 +14,13 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'EgressFiltering_Enum' : _MetaInfoEnum('EgressFiltering_Enum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg',
+    'EgressFilteringEnum' : _MetaInfoEnum('EgressFilteringEnum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg',
         {
             'egress-filtering-type-strict':'EGRESS_FILTERING_TYPE_STRICT',
             'egress-filtering-type-disable':'EGRESS_FILTERING_TYPE_DISABLE',
             'egress-filtering-type-default':'EGRESS_FILTERING_TYPE_DEFAULT',
         }, 'Cisco-IOS-XR-l2-eth-infra-cfg', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-cfg']),
-    'L2ProtocolName_Enum' : _MetaInfoEnum('L2ProtocolName_Enum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg',
+    'L2ProtocolNameEnum' : _MetaInfoEnum('L2ProtocolNameEnum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg',
         {
             'cdp':'CDP',
             'stp':'STP',
@@ -28,12 +28,12 @@ _meta_table = {
             'pvst':'PVST',
             'cpsv':'CPSV',
         }, 'Cisco-IOS-XR-l2-eth-infra-cfg', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-cfg']),
-    'Filtering_Enum' : _MetaInfoEnum('Filtering_Enum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg',
+    'FilteringEnum' : _MetaInfoEnum('FilteringEnum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg',
         {
             'filtering-type-dot1q':'FILTERING_TYPE_DOT1Q',
             'filtering-type-dot1ad':'FILTERING_TYPE_DOT1AD',
         }, 'Cisco-IOS-XR-l2-eth-infra-cfg', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-cfg']),
-    'L2ProtocolMode_Enum' : _MetaInfoEnum('L2ProtocolMode_Enum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg',
+    'L2ProtocolModeEnum' : _MetaInfoEnum('L2ProtocolModeEnum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg',
         {
             'forward':'FORWARD',
             'drop':'DROP',
@@ -50,7 +50,7 @@ _meta_table = {
                 ''',
                 'level',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
-            _MetaInfoClassMember('mdid-format', REFERENCE_ENUM_CLASS, 'CfmMdidFormat_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg', 'CfmMdidFormat_Enum', 
+            _MetaInfoClassMember('mdid-format', REFERENCE_ENUM_CLASS, 'CfmMdidFormatEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg', 'CfmMdidFormatEnum', 
                 [], [], 
                 '''                Maintenance Domain ID Format
                 ''',
@@ -87,7 +87,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais.Transmission',
             False, 
             [
-            _MetaInfoClassMember('ais-interval', REFERENCE_ENUM_CLASS, 'CfmAisInterval_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes', 'CfmAisInterval_Enum', 
+            _MetaInfoClassMember('ais-interval', REFERENCE_ENUM_CLASS, 'CfmAisIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes', 'CfmAisIntervalEnum', 
                 [], [], 
                 '''                AIS Interval
                 ''',
@@ -127,7 +127,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval',
             False, 
             [
-            _MetaInfoClassMember('ccm-interval', REFERENCE_ENUM_CLASS, 'CfmCcmInterval_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes', 'CfmCcmInterval_Enum', 
+            _MetaInfoClassMember('ccm-interval', REFERENCE_ENUM_CLASS, 'CfmCcmIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes', 'CfmCcmIntervalEnum', 
                 [], [], 
                 '''                CCM Interval
                 ''',
@@ -250,7 +250,7 @@ _meta_table = {
                 ''',
                 'ccm_learning_enable',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
-            _MetaInfoClassMember('mip-policy', REFERENCE_ENUM_CLASS, 'CfmMipPolicy_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg', 'CfmMipPolicy_Enum', 
+            _MetaInfoClassMember('mip-policy', REFERENCE_ENUM_CLASS, 'CfmMipPolicyEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg', 'CfmMipPolicyEnum', 
                 [], [], 
                 '''                MIP Auto-creation Policy
                 ''',
@@ -287,13 +287,13 @@ _meta_table = {
                 ''',
                 'remote_ce_id',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
-            _MetaInfoClassMember('service-type', REFERENCE_ENUM_CLASS, 'CfmService_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg', 'CfmService_Enum', 
+            _MetaInfoClassMember('service-type', REFERENCE_ENUM_CLASS, 'CfmServiceEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg', 'CfmServiceEnum', 
                 [], [], 
                 '''                Type of Service
                 ''',
                 'service_type',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
-            _MetaInfoClassMember('short-ma-name-format', REFERENCE_ENUM_CLASS, 'CfmShortMaNameFormat_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg', 'CfmShortMaNameFormat_Enum', 
+            _MetaInfoClassMember('short-ma-name-format', REFERENCE_ENUM_CLASS, 'CfmShortMaNameFormatEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg', 'CfmShortMaNameFormatEnum', 
                 [], [], 
                 '''                Short MA Name Format
                 ''',
@@ -608,67 +608,67 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.Action',
             False, 
             [
-            _MetaInfoClassMember('capabilities-conflict', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum5_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum5_Enum', 
+            _MetaInfoClassMember('capabilities-conflict', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum5Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum5Enum', 
                 [], [], 
                 '''                Action to perform when a capabilities
                 conflict occurs
                 ''',
                 'capabilities_conflict',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('critical-event', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum2_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum2_Enum', 
+            _MetaInfoClassMember('critical-event', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum2Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum2Enum', 
                 [], [], 
                 '''                Action to perform when a critical event
                 occurs
                 ''',
                 'critical_event',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('discovery-timeout', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum5_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum5_Enum', 
+            _MetaInfoClassMember('discovery-timeout', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum5Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum5Enum', 
                 [], [], 
                 '''                Action to perform when discovery timeout
                 occurs
                 ''',
                 'discovery_timeout',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('dying-gasp', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum2_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum2_Enum', 
+            _MetaInfoClassMember('dying-gasp', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum2Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum2Enum', 
                 [], [], 
                 '''                Action to perform when a dying gasp occurs
                 ''',
                 'dying_gasp',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('high-threshold', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum1_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum1_Enum', 
+            _MetaInfoClassMember('high-threshold', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum1Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum1Enum', 
                 [], [], 
                 '''                Action to perform when a high-threshold
                 event occurs
                 ''',
                 'high_threshold',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('link-fault', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum5_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum5_Enum', 
+            _MetaInfoClassMember('link-fault', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum5Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum5Enum', 
                 [], [], 
                 '''                Action to perform when a link fault message
                 is received
                 ''',
                 'link_fault',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('remote-loopback', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum4_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum4_Enum', 
+            _MetaInfoClassMember('remote-loopback', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum4Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum4Enum', 
                 [], [], 
                 '''                Action to perform when remote loopback is
                 entered or exited
                 ''',
                 'remote_loopback',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('session-down', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum5_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum5_Enum', 
+            _MetaInfoClassMember('session-down', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum5Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum5Enum', 
                 [], [], 
                 '''                Action to perform when a session goes down
                 ''',
                 'session_down',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('session-up', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum4_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum4_Enum', 
+            _MetaInfoClassMember('session-up', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum4Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum4Enum', 
                 [], [], 
                 '''                Action to perform when a session comes up
                 ''',
                 'session_up',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('wiring-conflict', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum6_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum6_Enum', 
+            _MetaInfoClassMember('wiring-conflict', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum6Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum6Enum', 
                 [], [], 
                 '''                Action to perform when a wiring conflict
                 occurs
@@ -930,7 +930,7 @@ _meta_table = {
                 ''',
                 'mib_retrieval',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'EtherLinkOamProfileRequireModeEnum_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamProfileRequireModeEnum_Enum', 
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'EtherLinkOamProfileRequireModeEnumEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamProfileRequireModeEnumEnum', 
                 [], [], 
                 '''                Possible required OAM modes
                 ''',
@@ -965,7 +965,7 @@ _meta_table = {
                 ''',
                 'action',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('hello-interval', REFERENCE_ENUM_CLASS, 'EtherLinkOamProfileHelloIntervalEnum_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamProfileHelloIntervalEnum_Enum', 
+            _MetaInfoClassMember('hello-interval', REFERENCE_ENUM_CLASS, 'EtherLinkOamProfileHelloIntervalEnumEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamProfileHelloIntervalEnumEnum', 
                 [], [], 
                 '''                Possible Ethernet Link OAM hello intervals
                 ''',
@@ -983,7 +983,7 @@ _meta_table = {
                 ''',
                 'mib_retrieval',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'EtherLinkOamProfileModeEnum_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamProfileModeEnum_Enum', 
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'EtherLinkOamProfileModeEnumEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamProfileModeEnumEnum', 
                 [], [], 
                 '''                Set the OAM mode to passive
                 ''',

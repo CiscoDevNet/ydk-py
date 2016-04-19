@@ -25,289 +25,259 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class AaaAction_Enum(Enum):
+class AaaActionEnum(Enum):
     """
-    AaaAction_Enum
+    AaaActionEnum
 
     Aaa action
 
-    """
+    .. data:: ACCEPT = 1
+
+    	Accept
+
+    .. data:: REJECT = 2
+
+    	Reject
 
     """
 
-    Accept
-
-    """
     ACCEPT = 1
 
-    """
-
-    Reject
-
-    """
     REJECT = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.aaa._meta import _Cisco_IOS_XR_aaa_protocol_radius_cfg as meta
-        return meta._meta_table['AaaAction_Enum']
+        return meta._meta_table['AaaActionEnum']
 
 
-class AaaAuthentication_Enum(Enum):
+class AaaAuthenticationEnum(Enum):
     """
-    AaaAuthentication_Enum
+    AaaAuthenticationEnum
 
     Aaa authentication
 
-    """
+    .. data:: ALL = 101
+
+    	All
+
+    .. data:: ANY = 102
+
+    	Any
+
+    .. data:: SESSION_KEY = 103
+
+    	Session key
 
     """
 
-    All
-
-    """
     ALL = 101
 
-    """
-
-    Any
-
-    """
     ANY = 102
 
-    """
-
-    Session key
-
-    """
     SESSION_KEY = 103
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.aaa._meta import _Cisco_IOS_XR_aaa_protocol_radius_cfg as meta
-        return meta._meta_table['AaaAuthentication_Enum']
+        return meta._meta_table['AaaAuthenticationEnum']
 
 
-class AaaConfig_Enum(Enum):
+class AaaConfigEnum(Enum):
     """
-    AaaConfig_Enum
+    AaaConfigEnum
 
     Aaa config
 
-    """
+    .. data:: FALSE = 0
+
+    	False
+
+    .. data:: TRUE = 1
+
+    	True
 
     """
 
-    False
-
-    """
     FALSE = 0
 
-    """
-
-    True
-
-    """
     TRUE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.aaa._meta import _Cisco_IOS_XR_aaa_protocol_radius_cfg as meta
-        return meta._meta_table['AaaConfig_Enum']
+        return meta._meta_table['AaaConfigEnum']
 
 
-class AaaDscpValue_Enum(Enum):
+class AaaDscpValueEnum(Enum):
     """
-    AaaDscpValue_Enum
+    AaaDscpValueEnum
 
     Aaa dscp value
 
-    """
+    .. data:: AF11 = 10
+
+    	Match packets with AF11 DSCP
+
+    .. data:: AF12 = 12
+
+    	Match packets with AF12 DSCP
+
+    .. data:: AF13 = 14
+
+    	Match packets with AF13 DSCP
+
+    .. data:: AF21 = 18
+
+    	Match packets with AF21 DSCP
+
+    .. data:: AF22 = 20
+
+    	Match packets with AF22 DSCP
+
+    .. data:: AF23 = 22
+
+    	Match packets with AF23 DSCP
+
+    .. data:: AF31 = 26
+
+    	Match packets with AF31 DSCP
+
+    .. data:: AF32 = 28
+
+    	Match packets with AF32 DSCP
+
+    .. data:: AF33 = 30
+
+    	Match packets with AF33 DSCP
+
+    .. data:: AF41 = 34
+
+    	Match packets with AF41 DSCP
+
+    .. data:: AF42 = 36
+
+    	Match packets with AF42 DSCP
+
+    .. data:: AF43 = 38
+
+    	Match packets with AF43 DSCP
+
+    .. data:: CS1 = 8
+
+    	Match packets with CS1 DSCP
+
+    .. data:: CS2 = 16
+
+    	Match packets with CS2 DSCP
+
+    .. data:: CS3 = 24
+
+    	Match packets with CS3 DSCP
+
+    .. data:: CS4 = 32
+
+    	Match packets with CS4 DSCP
+
+    .. data:: CS5 = 40
+
+    	Match packets with CS5 DSCP
+
+    .. data:: CS6 = 48
+
+    	Match packets with CS6 DSCP
+
+    .. data:: CS7 = 56
+
+    	Match packets with CS7 DSCP
+
+    .. data:: DEFAULT = 0
+
+    	Match packets with 0000 DSCP
+
+    .. data:: EF = 46
+
+    	Match packets with EF DSCP
 
     """
 
-    Match packets with AF11 DSCP
-
-    """
     AF11 = 10
 
-    """
-
-    Match packets with AF12 DSCP
-
-    """
     AF12 = 12
 
-    """
-
-    Match packets with AF13 DSCP
-
-    """
     AF13 = 14
 
-    """
-
-    Match packets with AF21 DSCP
-
-    """
     AF21 = 18
 
-    """
-
-    Match packets with AF22 DSCP
-
-    """
     AF22 = 20
 
-    """
-
-    Match packets with AF23 DSCP
-
-    """
     AF23 = 22
 
-    """
-
-    Match packets with AF31 DSCP
-
-    """
     AF31 = 26
 
-    """
-
-    Match packets with AF32 DSCP
-
-    """
     AF32 = 28
 
-    """
-
-    Match packets with AF33 DSCP
-
-    """
     AF33 = 30
 
-    """
-
-    Match packets with AF41 DSCP
-
-    """
     AF41 = 34
 
-    """
-
-    Match packets with AF42 DSCP
-
-    """
     AF42 = 36
 
-    """
-
-    Match packets with AF43 DSCP
-
-    """
     AF43 = 38
 
-    """
-
-    Match packets with CS1 DSCP
-
-    """
     CS1 = 8
 
-    """
-
-    Match packets with CS2 DSCP
-
-    """
     CS2 = 16
 
-    """
-
-    Match packets with CS3 DSCP
-
-    """
     CS3 = 24
 
-    """
-
-    Match packets with CS4 DSCP
-
-    """
     CS4 = 32
 
-    """
-
-    Match packets with CS5 DSCP
-
-    """
     CS5 = 40
 
-    """
-
-    Match packets with CS6 DSCP
-
-    """
     CS6 = 48
 
-    """
-
-    Match packets with CS7 DSCP
-
-    """
     CS7 = 56
 
-    """
-
-    Match packets with 0000 DSCP
-
-    """
     DEFAULT = 0
 
-    """
-
-    Match packets with EF DSCP
-
-    """
     EF = 46
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.aaa._meta import _Cisco_IOS_XR_aaa_protocol_radius_cfg as meta
-        return meta._meta_table['AaaDscpValue_Enum']
+        return meta._meta_table['AaaDscpValueEnum']
 
 
-class AaaSelectKey_Enum(Enum):
+class AaaSelectKeyEnum(Enum):
     """
-    AaaSelectKey_Enum
+    AaaSelectKeyEnum
 
     Aaa select key
 
-    """
+    .. data:: SERVER_KEY = 1
+
+    	Server key
+
+    .. data:: SESSION_KEY = 2
+
+    	Session  key
 
     """
 
-    Server key
-
-    """
     SERVER_KEY = 1
 
-    """
-
-    Session  key
-
-    """
     SESSION_KEY = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.aaa._meta import _Cisco_IOS_XR_aaa_protocol_radius_cfg as meta
-        return meta._meta_table['AaaSelectKey_Enum']
+        return meta._meta_table['AaaSelectKeyEnum']
 
 
 

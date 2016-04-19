@@ -218,18 +218,12 @@ class PfilterMa(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.interface_name is not None:
                                     return True
 
                                 if self.acl_information is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -251,17 +245,11 @@ class PfilterMa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface is not None:
                                 for child_ref in self.interface:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -283,18 +271,9 @@ class PfilterMa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interfaces is not None and self.interfaces._has_data():
                             return True
 
-                        if self.interfaces is not None and self.interfaces.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -392,18 +371,12 @@ class PfilterMa(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.interface_name is not None:
                                     return True
 
                                 if self.acl_information is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -425,17 +398,11 @@ class PfilterMa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface is not None:
                                 for child_ref in self.interface:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -457,18 +424,9 @@ class PfilterMa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interfaces is not None and self.interfaces._has_data():
                             return True
 
-                        if self.interfaces is not None and self.interfaces.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -490,24 +448,12 @@ class PfilterMa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ipv4 is not None and self.ipv4._has_data():
-                        return True
-
-                    if self.ipv4 is not None and self.ipv4.is_presence():
                         return True
 
                     if self.ipv6 is not None and self.ipv6._has_data():
                         return True
 
-                    if self.ipv6 is not None and self.ipv6.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -529,21 +475,12 @@ class PfilterMa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.process is not None and self.process._has_data():
                     return True
 
-                if self.process is not None and self.process.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -563,17 +500,11 @@ class PfilterMa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -593,18 +524,9 @@ class PfilterMa(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

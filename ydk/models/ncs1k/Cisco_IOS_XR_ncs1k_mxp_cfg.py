@@ -24,105 +24,97 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class ClientDataRate_Enum(Enum):
+class ClientDataRateEnum(Enum):
     """
-    ClientDataRate_Enum
+    ClientDataRateEnum
 
     Client data rate
 
-    """
+    .. data:: TEN_GIG = 1
+
+    	TenGig
+
+    .. data:: FORTY_GIG = 2
+
+    	FortyGig
+
+    .. data:: HUNDRED_GIG = 3
+
+    	HundredGig
 
     """
 
-    TenGig
-
-    """
     TEN_GIG = 1
 
-    """
-
-    FortyGig
-
-    """
     FORTY_GIG = 2
 
-    """
-
-    HundredGig
-
-    """
     HUNDRED_GIG = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ncs1k._meta import _Cisco_IOS_XR_ncs1k_mxp_cfg as meta
-        return meta._meta_table['ClientDataRate_Enum']
+        return meta._meta_table['ClientDataRateEnum']
 
 
-class Fec_Enum(Enum):
+class FecEnum(Enum):
     """
-    Fec_Enum
+    FecEnum
 
     Fec
 
-    """
+    .. data:: SD7 = 1
+
+    	SoftDecision7
+
+    .. data:: SD20 = 2
+
+    	SoftDecision20
 
     """
 
-    SoftDecision7
-
-    """
     SD7 = 1
 
-    """
-
-    SoftDecision20
-
-    """
     SD20 = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ncs1k._meta import _Cisco_IOS_XR_ncs1k_mxp_cfg as meta
-        return meta._meta_table['Fec_Enum']
+        return meta._meta_table['FecEnum']
 
 
-class TrunkDataRate_Enum(Enum):
+class TrunkDataRateEnum(Enum):
     """
-    TrunkDataRate_Enum
+    TrunkDataRateEnum
 
     Trunk data rate
 
-    """
+    .. data:: HUNDRED_GIG = 2
+
+    	HundredGig
+
+    .. data:: TWO_HUNDRED_GIG = 3
+
+    	TwoHundredGig
+
+    .. data:: TWO_HUNDRED_FIFTY_GIG = 4
+
+    	TwoHundredFiftyGig
 
     """
 
-    HundredGig
-
-    """
     HUNDRED_GIG = 2
 
-    """
-
-    TwoHundredGig
-
-    """
     TWO_HUNDRED_GIG = 3
 
-    """
-
-    TwoHundredFiftyGig
-
-    """
     TWO_HUNDRED_FIFTY_GIG = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ncs1k._meta import _Cisco_IOS_XR_ncs1k_mxp_cfg as meta
-        return meta._meta_table['TrunkDataRate_Enum']
+        return meta._meta_table['TrunkDataRateEnum']
 
 
 
@@ -215,17 +207,17 @@ class HardwareModule(object):
                 .. attribute:: client_rate
                 
                 	Client Rate
-                	**type**\: :py:class:`ClientDataRate_Enum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg.ClientDataRate_Enum>`
+                	**type**\: :py:class:`ClientDataRateEnum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg.ClientDataRateEnum>`
                 
                 .. attribute:: fec
                 
                 	FEC
-                	**type**\: :py:class:`Fec_Enum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg.Fec_Enum>`
+                	**type**\: :py:class:`FecEnum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg.FecEnum>`
                 
                 .. attribute:: trunk_rate
                 
                 	TrunkRate
-                	**type**\: :py:class:`TrunkDataRate_Enum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg.TrunkDataRate_Enum>`
+                	**type**\: :py:class:`TrunkDataRateEnum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg.TrunkDataRateEnum>`
                 
                 
 
@@ -257,8 +249,6 @@ class HardwareModule(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.slice_id is not None:
                         return True
 
@@ -271,10 +261,6 @@ class HardwareModule(object):
                     if self.trunk_rate is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -296,17 +282,11 @@ class HardwareModule(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.value is not None:
                     for child_ref in self.value:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -328,21 +308,12 @@ class HardwareModule(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.location is not None:
                 return True
 
             if self.values is not None and self.values._has_data():
                 return True
 
-            if self.values is not None and self.values.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -362,17 +333,11 @@ class HardwareModule(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.node is not None:
             for child_ref in self.node:
                 if child_ref._has_data():
                     return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

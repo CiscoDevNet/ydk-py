@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,14 +14,14 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'Vc_Enum' : _MetaInfoEnum('Vc_Enum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
+    'VcEnum' : _MetaInfoEnum('VcEnum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
         {
             'layer3-vc':'LAYER3_VC',
             'layer2-vc':'LAYER2_VC',
             'layer2-vp':'LAYER2_VP',
             'vc-type-unknown':'VC_TYPE_UNKNOWN',
         }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
-    'VcEncap_Enum' : _MetaInfoEnum('VcEncap_Enum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
+    'VcEncapEnum' : _MetaInfoEnum('VcEncapEnum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
         {
             'ilmi':'ILMI',
             'qsaal':'QSAAL',
@@ -33,18 +33,18 @@ _meta_table = {
             'aal5':'AAL5',
             'encap-unknown':'ENCAP_UNKNOWN',
         }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
-    'VcManageLevel_Enum' : _MetaInfoEnum('VcManageLevel_Enum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
+    'VcManageLevelEnum' : _MetaInfoEnum('VcManageLevelEnum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
         {
             'manage':'MANAGE',
             'not-managed':'NOT_MANAGED',
         }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
-    'VcTestMode_Enum' : _MetaInfoEnum('VcTestMode_Enum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
+    'VcTestModeEnum' : _MetaInfoEnum('VcTestModeEnum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
         {
             'test-mode-none':'TEST_MODE_NONE',
             'loop':'LOOP',
             'reserved':'RESERVED',
         }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
-    'VpTrafShaping_Enum' : _MetaInfoEnum('VpTrafShaping_Enum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
+    'VpTrafShapingEnum' : _MetaInfoEnum('VpTrafShapingEnum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
         {
             'vp-cbr':'VP_CBR',
             'vp-vbr-nrt':'VP_VBR_NRT',
@@ -54,7 +54,7 @@ _meta_table = {
             'vp-ubr':'VP_UBR',
             'vp-traf-shaping-unknown':'VP_TRAF_SHAPING_UNKNOWN',
         }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
-    'VcState_Enum' : _MetaInfoEnum('VcState_Enum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
+    'VcStateEnum' : _MetaInfoEnum('VcStateEnum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
         {
             'initialized':'INITIALIZED',
             'modifying':'MODIFYING',
@@ -69,7 +69,7 @@ _meta_table = {
             'deleted':'DELETED',
             'state-unknown':'STATE_UNKNOWN',
         }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
-    'ClassLinkOamInheritLevel_Enum' : _MetaInfoEnum('ClassLinkOamInheritLevel_Enum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
+    'ClassLinkOamInheritLevelEnum' : _MetaInfoEnum('ClassLinkOamInheritLevelEnum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
         {
             'vc-configured-onvc':'VC_CONFIGURED_ONVC',
             'vc-class-onvc':'VC_CLASS_ONVC',
@@ -78,7 +78,7 @@ _meta_table = {
             'vc-global-default':'VC_GLOBAL_DEFAULT',
             'vc-inherit-level-unknown':'VC_INHERIT_LEVEL_UNKNOWN',
         }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
-    'VpState_Enum' : _MetaInfoEnum('VpState_Enum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
+    'VpStateEnum' : _MetaInfoEnum('VpStateEnum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
         {
             'vp-initialized':'VP_INITIALIZED',
             'vp-modifying':'VP_MODIFYING',
@@ -88,7 +88,7 @@ _meta_table = {
             'vp-deleted':'VP_DELETED',
             'vp-state-unknown':'VP_STATE_UNKNOWN',
         }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
-    'VcTrafShaping_Enum' : _MetaInfoEnum('VcTrafShaping_Enum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
+    'VcTrafShapingEnum' : _MetaInfoEnum('VcTrafShapingEnum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
         {
             'cbr':'CBR',
             'vbr-nrt':'VBR_NRT',
@@ -98,19 +98,19 @@ _meta_table = {
             'ubr':'UBR',
             'traf-shaping-unknown':'TRAF_SHAPING_UNKNOWN',
         }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
-    'VcCellPackingMode_Enum' : _MetaInfoEnum('VcCellPackingMode_Enum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
+    'VcCellPackingModeEnum' : _MetaInfoEnum('VcCellPackingModeEnum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
         {
             'vp':'VP',
             'vc':'VC',
             'port-mode':'PORT_MODE',
         }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
-    'VcmPort_Enum' : _MetaInfoEnum('VcmPort_Enum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
+    'VcmPortEnum' : _MetaInfoEnum('VcmPortEnum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
         {
             'port-type-layer-2':'PORT_TYPE_LAYER_2',
             'port-type-layer-3':'PORT_TYPE_LAYER_3',
             'port-type-unknown':'PORT_TYPE_UNKNOWN',
         }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
-    'VcInheritLevel_Enum' : _MetaInfoEnum('VcInheritLevel_Enum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
+    'VcInheritLevelEnum' : _MetaInfoEnum('VcInheritLevelEnum', 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper',
         {
             'directly-configured-onvc':'DIRECTLY_CONFIGURED_ONVC',
             'vc-class-configured-onvc':'VC_CLASS_CONFIGURED_ONVC',
@@ -161,7 +161,7 @@ _meta_table = {
                 ''',
                 'cell_packing',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('cell-packing-mode', REFERENCE_ENUM_CLASS, 'VcCellPackingMode_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcCellPackingMode_Enum', 
+            _MetaInfoClassMember('cell-packing-mode', REFERENCE_ENUM_CLASS, 'VcCellPackingModeEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcCellPackingModeEnum', 
                 [], [], 
                 '''                ATM cell packing mode
                 ''',
@@ -237,7 +237,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi',
             False, 
             [
-            _MetaInfoClassMember('ais-rdi-inherit-level', REFERENCE_ENUM_CLASS, 'ClassLinkOamInheritLevel_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'ClassLinkOamInheritLevel_Enum', 
+            _MetaInfoClassMember('ais-rdi-inherit-level', REFERENCE_ENUM_CLASS, 'ClassLinkOamInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'ClassLinkOamInheritLevelEnum', 
                 [], [], 
                 '''                AIS RDI inherit level
                 ''',
@@ -267,13 +267,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation',
             False, 
             [
-            _MetaInfoClassMember('encapsulation-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevel_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevel_Enum', 
+            _MetaInfoClassMember('encapsulation-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevelEnum', 
                 [], [], 
                 '''                Encapsulation inherit level
                 ''',
                 'encapsulation_inherit_level',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('encapsulation-type', REFERENCE_ENUM_CLASS, 'VcEncap_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcEncap_Enum', 
+            _MetaInfoClassMember('encapsulation-type', REFERENCE_ENUM_CLASS, 'VcEncapEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcEncapEnum', 
                 [], [], 
                 '''                Encapsulation type
                 ''',
@@ -308,13 +308,13 @@ _meta_table = {
                 ''',
                 'peak_output_rate',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('shaping-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevel_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevel_Enum', 
+            _MetaInfoClassMember('shaping-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevelEnum', 
                 [], [], 
                 '''                Shaping inherit level
                 ''',
                 'shaping_inherit_level',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('shaping-type', REFERENCE_ENUM_CLASS, 'VcTrafShaping_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcTrafShaping_Enum', 
+            _MetaInfoClassMember('shaping-type', REFERENCE_ENUM_CLASS, 'VcTrafShapingEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcTrafShapingEnum', 
                 [], [], 
                 '''                ATM VC traffic shaping type
                 ''',
@@ -343,13 +343,13 @@ _meta_table = {
                 ''',
                 'keep_vc_up',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('manage-inherit-level', REFERENCE_ENUM_CLASS, 'ClassLinkOamInheritLevel_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'ClassLinkOamInheritLevel_Enum', 
+            _MetaInfoClassMember('manage-inherit-level', REFERENCE_ENUM_CLASS, 'ClassLinkOamInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'ClassLinkOamInheritLevelEnum', 
                 [], [], 
                 '''                Manage inherit level
                 ''',
                 'manage_inherit_level',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('manage-level', REFERENCE_ENUM_CLASS, 'VcManageLevel_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcManageLevel_Enum', 
+            _MetaInfoClassMember('manage-level', REFERENCE_ENUM_CLASS, 'VcManageLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcManageLevelEnum', 
                 [], [], 
                 '''                Manage Level
                 ''',
@@ -384,7 +384,7 @@ _meta_table = {
                 ''',
                 'retry_frequency',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('retry-inherit-level', REFERENCE_ENUM_CLASS, 'ClassLinkOamInheritLevel_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'ClassLinkOamInheritLevel_Enum', 
+            _MetaInfoClassMember('retry-inherit-level', REFERENCE_ENUM_CLASS, 'ClassLinkOamInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'ClassLinkOamInheritLevelEnum', 
                 [], [], 
                 '''                Retry inherit level
                 ''',
@@ -448,13 +448,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported',
             False, 
             [
-            _MetaInfoClassMember('encapsulation-not-supported', REFERENCE_ENUM_CLASS, 'VcEncap_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcEncap_Enum', 
+            _MetaInfoClassMember('encapsulation-not-supported', REFERENCE_ENUM_CLASS, 'VcEncapEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcEncapEnum', 
                 [], [], 
                 '''                Encapsulation type not supported
                 ''',
                 'encapsulation_not_supported',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('not-supported-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevel_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevel_Enum', 
+            _MetaInfoClassMember('not-supported-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevelEnum', 
                 [], [], 
                 '''                NotSupportedInheritLevel
                 ''',
@@ -645,7 +645,7 @@ _meta_table = {
                 ''',
                 'main_interface',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('port-type', REFERENCE_ENUM_CLASS, 'VcmPort_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcmPort_Enum', 
+            _MetaInfoClassMember('port-type', REFERENCE_ENUM_CLASS, 'VcmPortEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcmPortEnum', 
                 [], [], 
                 '''                ATM interface port type
                 ''',
@@ -753,7 +753,7 @@ _meta_table = {
                 ''',
                 'cell_packing_data',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('encaps-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevel_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevel_Enum', 
+            _MetaInfoClassMember('encaps-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevelEnum', 
                 [], [], 
                 '''                Encapsulation inherit level - identifies if
                 encapsulation is set to default, configured on
@@ -761,13 +761,13 @@ _meta_table = {
                 ''',
                 'encaps_inherit_level',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'VcEncap_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcEncap_Enum', 
+            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'VcEncapEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcEncapEnum', 
                 [], [], 
                 '''                Encapsulation type
                 ''',
                 'encapsulation',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('internal-state', REFERENCE_ENUM_CLASS, 'VcState_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcState_Enum', 
+            _MetaInfoClassMember('internal-state', REFERENCE_ENUM_CLASS, 'VcStateEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcStateEnum', 
                 [], [], 
                 '''                VC Internal state
                 ''',
@@ -798,7 +798,7 @@ _meta_table = {
                 ''',
                 'peak_cell_rate',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('qos-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevel_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevel_Enum', 
+            _MetaInfoClassMember('qos-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevelEnum', 
                 [], [], 
                 '''                Quality of Service inherit level - identifies if
                 QoS is set to default, configured on the VC, or
@@ -812,7 +812,7 @@ _meta_table = {
                 ''',
                 'receive_mtu',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('shape', REFERENCE_ENUM_CLASS, 'VcTrafShaping_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcTrafShaping_Enum', 
+            _MetaInfoClassMember('shape', REFERENCE_ENUM_CLASS, 'VcTrafShapingEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcTrafShapingEnum', 
                 [], [], 
                 '''                ATM VC traffic shaping type
                 ''',
@@ -830,7 +830,7 @@ _meta_table = {
                 ''',
                 'sustained_cell_rate',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('test-mode', REFERENCE_ENUM_CLASS, 'VcTestMode_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcTestMode_Enum', 
+            _MetaInfoClassMember('test-mode', REFERENCE_ENUM_CLASS, 'VcTestModeEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcTestModeEnum', 
                 [], [], 
                 '''                VC test mode
                 ''',
@@ -842,7 +842,7 @@ _meta_table = {
                 ''',
                 'transmit_mtu',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'Vc_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'Vc_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'VcEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcEnum', 
                 [], [], 
                 '''                VC Type
                 ''',
@@ -968,7 +968,7 @@ _meta_table = {
                 ''',
                 'cell_packing_data',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('encaps-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevel_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevel_Enum', 
+            _MetaInfoClassMember('encaps-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevelEnum', 
                 [], [], 
                 '''                Encapsulation inherit level - identifies if
                 encapsulation is set to default, configured on
@@ -976,13 +976,13 @@ _meta_table = {
                 ''',
                 'encaps_inherit_level',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'VcEncap_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcEncap_Enum', 
+            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'VcEncapEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcEncapEnum', 
                 [], [], 
                 '''                Encapsulation type
                 ''',
                 'encapsulation',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('internal-state', REFERENCE_ENUM_CLASS, 'VcState_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcState_Enum', 
+            _MetaInfoClassMember('internal-state', REFERENCE_ENUM_CLASS, 'VcStateEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcStateEnum', 
                 [], [], 
                 '''                VC Internal state
                 ''',
@@ -1013,7 +1013,7 @@ _meta_table = {
                 ''',
                 'peak_cell_rate',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('qos-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevel_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevel_Enum', 
+            _MetaInfoClassMember('qos-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevelEnum', 
                 [], [], 
                 '''                Quality of Service inherit level - identifies if
                 QoS is set to default, configured on the VC, or
@@ -1027,7 +1027,7 @@ _meta_table = {
                 ''',
                 'receive_mtu',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('shape', REFERENCE_ENUM_CLASS, 'VcTrafShaping_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcTrafShaping_Enum', 
+            _MetaInfoClassMember('shape', REFERENCE_ENUM_CLASS, 'VcTrafShapingEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcTrafShapingEnum', 
                 [], [], 
                 '''                ATM VC traffic shaping type
                 ''',
@@ -1045,7 +1045,7 @@ _meta_table = {
                 ''',
                 'sustained_cell_rate',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('test-mode', REFERENCE_ENUM_CLASS, 'VcTestMode_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcTestMode_Enum', 
+            _MetaInfoClassMember('test-mode', REFERENCE_ENUM_CLASS, 'VcTestModeEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcTestModeEnum', 
                 [], [], 
                 '''                VC test mode
                 ''',
@@ -1057,7 +1057,7 @@ _meta_table = {
                 ''',
                 'transmit_mtu',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'Vc_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'Vc_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'VcEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcEnum', 
                 [], [], 
                 '''                VC Type
                 ''',
@@ -1164,7 +1164,7 @@ _meta_table = {
                 ''',
                 'f4oam_enabled',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('internal-state', REFERENCE_ENUM_CLASS, 'VpState_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VpState_Enum', 
+            _MetaInfoClassMember('internal-state', REFERENCE_ENUM_CLASS, 'VpStateEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VpStateEnum', 
                 [], [], 
                 '''                Internal state
                 ''',
@@ -1195,7 +1195,7 @@ _meta_table = {
                 ''',
                 'peak_cell_rate',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('shape', REFERENCE_ENUM_CLASS, 'VpTrafShaping_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VpTrafShaping_Enum', 
+            _MetaInfoClassMember('shape', REFERENCE_ENUM_CLASS, 'VpTrafShapingEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VpTrafShapingEnum', 
                 [], [], 
                 '''                ATM VP traffic shaping type
                 ''',

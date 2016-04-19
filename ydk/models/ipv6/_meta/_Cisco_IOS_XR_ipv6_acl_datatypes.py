@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,12 +14,12 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'Ipv6AclTcpMatchOperatorEnum_Enum' : _MetaInfoEnum('Ipv6AclTcpMatchOperatorEnum_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
+    'Ipv6AclTcpMatchOperatorEnumEnum' : _MetaInfoEnum('Ipv6AclTcpMatchOperatorEnumEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
         {
             'match-all':'MATCH_ALL',
             'match-any':'MATCH_ANY',
         }, 'Cisco-IOS-XR-ipv6-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-datatypes']),
-    'Ipv6AclIcmpTypeCodeEnum_Enum' : _MetaInfoEnum('Ipv6AclIcmpTypeCodeEnum_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
+    'Ipv6AclIcmpTypeCodeEnumEnum' : _MetaInfoEnum('Ipv6AclIcmpTypeCodeEnumEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
         {
             'administratively-prohibited':'ADMINISTRATIVELY_PROHIBITED',
             'host-unreachable':'HOST_UNREACHABLE',
@@ -36,7 +36,7 @@ _meta_table = {
             'router-advertisement':'ROUTER_ADVERTISEMENT',
             'redirect':'REDIRECT',
         }, 'Cisco-IOS-XR-ipv6-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-datatypes']),
-    'Ipv6AclProtocolNumber_Enum' : _MetaInfoEnum('Ipv6AclProtocolNumber_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
+    'Ipv6AclProtocolNumberEnum' : _MetaInfoEnum('Ipv6AclProtocolNumberEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
         {
             'ip':'IP',
             'icmp':'ICMP',
@@ -55,20 +55,20 @@ _meta_table = {
             'pcp':'PCP',
             'sctp':'SCTP',
         }, 'Cisco-IOS-XR-ipv6-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-datatypes']),
-    'Ipv6PrefixMatchMinLength_Enum' : _MetaInfoEnum('Ipv6PrefixMatchMinLength_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
+    'Ipv6PrefixMatchMinLengthEnum' : _MetaInfoEnum('Ipv6PrefixMatchMinLengthEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
         {
             'match-min-length':'MATCH_MIN_LENGTH',
         }, 'Cisco-IOS-XR-ipv6-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-datatypes']),
-    'Ipv6AclGrantEnum_Enum' : _MetaInfoEnum('Ipv6AclGrantEnum_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
+    'Ipv6AclGrantEnumEnum' : _MetaInfoEnum('Ipv6AclGrantEnumEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
         {
             'deny':'DENY',
             'permit':'PERMIT',
         }, 'Cisco-IOS-XR-ipv6-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-datatypes']),
-    'Ipv6PrefixMatchMaxLength_Enum' : _MetaInfoEnum('Ipv6PrefixMatchMaxLength_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
+    'Ipv6PrefixMatchMaxLengthEnum' : _MetaInfoEnum('Ipv6PrefixMatchMaxLengthEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
         {
             'match-max-length':'MATCH_MAX_LENGTH',
         }, 'Cisco-IOS-XR-ipv6-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-datatypes']),
-    'Ipv6AclPrecedenceNumber_Enum' : _MetaInfoEnum('Ipv6AclPrecedenceNumber_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
+    'Ipv6AclPrecedenceNumberEnum' : _MetaInfoEnum('Ipv6AclPrecedenceNumberEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
         {
             'critical':'CRITICAL',
             'flash':'FLASH',
@@ -79,7 +79,7 @@ _meta_table = {
             'priority':'PRIORITY',
             'routine':'ROUTINE',
         }, 'Cisco-IOS-XR-ipv6-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-datatypes']),
-    'Ipv6AclOperatorEnum_Enum' : _MetaInfoEnum('Ipv6AclOperatorEnum_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
+    'Ipv6AclOperatorEnumEnum' : _MetaInfoEnum('Ipv6AclOperatorEnumEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
         {
             'equal':'EQUAL',
             'greater-than':'GREATER_THAN',
@@ -87,7 +87,7 @@ _meta_table = {
             'not-equal':'NOT_EQUAL',
             'range':'RANGE',
         }, 'Cisco-IOS-XR-ipv6-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-datatypes']),
-    'Ipv6AclDscpNumber_Enum' : _MetaInfoEnum('Ipv6AclDscpNumber_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
+    'Ipv6AclDscpNumberEnum' : _MetaInfoEnum('Ipv6AclDscpNumberEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
         {
             'default':'DEFAULT',
             'af11':'AF11',
@@ -111,11 +111,11 @@ _meta_table = {
             'cs7':'CS7',
             'ef':'EF',
         }, 'Cisco-IOS-XR-ipv6-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-datatypes']),
-    'Ipv6PrefixMatchExactLength_Enum' : _MetaInfoEnum('Ipv6PrefixMatchExactLength_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
+    'Ipv6PrefixMatchExactLengthEnum' : _MetaInfoEnum('Ipv6PrefixMatchExactLengthEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
         {
             'match-exact-length':'MATCH_EXACT_LENGTH',
         }, 'Cisco-IOS-XR-ipv6-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-datatypes']),
-    'Ipv6AclPortNumber_Enum' : _MetaInfoEnum('Ipv6AclPortNumber_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
+    'Ipv6AclPortNumberEnum' : _MetaInfoEnum('Ipv6AclPortNumberEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
         {
             'echo':'ECHO',
             'discard':'DISCARD',
@@ -166,22 +166,22 @@ _meta_table = {
             'kshell':'KSHELL',
             'ldp':'LDP',
         }, 'Cisco-IOS-XR-ipv6-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-datatypes']),
-    'Ipv6AclLoggingEnum_Enum' : _MetaInfoEnum('Ipv6AclLoggingEnum_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
+    'Ipv6AclLoggingEnumEnum' : _MetaInfoEnum('Ipv6AclLoggingEnumEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
         {
             'log':'LOG',
             'log-input':'LOG_INPUT',
         }, 'Cisco-IOS-XR-ipv6-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-datatypes']),
-    'Ipv6AclTypeEnum_Enum' : _MetaInfoEnum('Ipv6AclTypeEnum_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
+    'Ipv6AclTypeEnumEnum' : _MetaInfoEnum('Ipv6AclTypeEnumEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
         {
             'acl':'ACL',
             'prefix-list':'PREFIX_LIST',
         }, 'Cisco-IOS-XR-ipv6-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-datatypes']),
-    'Ipv6AclStatusEnum_Enum' : _MetaInfoEnum('Ipv6AclStatusEnum_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
+    'Ipv6AclStatusEnumEnum' : _MetaInfoEnum('Ipv6AclStatusEnumEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
         {
             'disabled':'DISABLED',
             'enabled':'ENABLED',
         }, 'Cisco-IOS-XR-ipv6-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-datatypes']),
-    'Ipv6AclTcpBitsNumber_Enum' : _MetaInfoEnum('Ipv6AclTcpBitsNumber_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
+    'Ipv6AclTcpBitsNumberEnum' : _MetaInfoEnum('Ipv6AclTcpBitsNumberEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_datatypes',
         {
             'established':'ESTABLISHED',
             'ack':'ACK',

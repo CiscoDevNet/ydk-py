@@ -24,33 +24,31 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class LldpL3AddrProtocol_Enum(Enum):
+class LldpL3AddrProtocolEnum(Enum):
     """
-    LldpL3AddrProtocol_Enum
+    LldpL3AddrProtocolEnum
 
     Lldp l3 addr protocol
 
-    """
+    .. data:: IPV4 = 0
+
+    	IPv4
+
+    .. data:: IPV6 = 1
+
+    	IPv6
 
     """
 
-    IPv4
-
-    """
     IPV4 = 0
 
-    """
-
-    IPv6
-
-    """
     IPV6 = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-        return meta._meta_table['LldpL3AddrProtocol_Enum']
+        return meta._meta_table['LldpL3AddrProtocolEnum']
 
 
 
@@ -329,7 +327,7 @@ class Lldp(object):
                                 .. attribute:: address_type
                                 
                                 	AddressType
-                                	**type**\: :py:class:`LldpL3AddrProtocol_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocol_Enum>`
+                                	**type**\: :py:class:`LldpL3AddrProtocolEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocolEnum>`
                                 
                                 .. attribute:: ipv4_address
                                 
@@ -372,8 +370,6 @@ class Lldp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address_type is not None:
                                         return True
 
@@ -383,10 +379,6 @@ class Lldp(object):
                                     if self.ipv6_address is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -408,12 +400,7 @@ class Lldp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.address is not None and self.address._has_data():
-                                    return True
-
-                                if self.address is not None and self.address.is_presence():
                                     return True
 
                                 if self.if_num is not None:
@@ -422,10 +409,6 @@ class Lldp(object):
                                 if self.ma_subtype is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -447,17 +430,11 @@ class Lldp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.lldp_addr_entry is not None:
                                 for child_ref in self.lldp_addr_entry:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -481,8 +458,6 @@ class Lldp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_name is not None:
                             return True
 
@@ -493,9 +468,6 @@ class Lldp(object):
                             return True
 
                         if self.local_network_addresses is not None and self.local_network_addresses._has_data():
-                            return True
-
-                        if self.local_network_addresses is not None and self.local_network_addresses.is_presence():
                             return True
 
                         if self.port_description is not None:
@@ -521,10 +493,6 @@ class Lldp(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
@@ -544,17 +512,11 @@ class Lldp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -907,7 +869,7 @@ class Lldp(object):
                                             .. attribute:: address_type
                                             
                                             	AddressType
-                                            	**type**\: :py:class:`LldpL3AddrProtocol_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocol_Enum>`
+                                            	**type**\: :py:class:`LldpL3AddrProtocolEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocolEnum>`
                                             
                                             .. attribute:: ipv4_address
                                             
@@ -950,8 +912,6 @@ class Lldp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.address_type is not None:
                                                     return True
 
@@ -961,10 +921,6 @@ class Lldp(object):
                                                 if self.ipv6_address is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -986,12 +942,7 @@ class Lldp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.address is not None and self.address._has_data():
-                                                return True
-
-                                            if self.address is not None and self.address.is_presence():
                                                 return True
 
                                             if self.if_num is not None:
@@ -1000,10 +951,6 @@ class Lldp(object):
                                             if self.ma_subtype is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -1025,17 +972,11 @@ class Lldp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.lldp_addr_entry is not None:
                                             for child_ref in self.lldp_addr_entry:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -1057,8 +998,6 @@ class Lldp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.auto_negotiation is not None:
                                         return True
 
@@ -1069,9 +1008,6 @@ class Lldp(object):
                                         return True
 
                                     if self.network_addresses is not None and self.network_addresses._has_data():
-                                        return True
-
-                                    if self.network_addresses is not None and self.network_addresses.is_presence():
                                         return True
 
                                     if self.physical_media_capabilities is not None:
@@ -1095,10 +1031,6 @@ class Lldp(object):
                                     if self.time_remaining is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1283,8 +1215,6 @@ class Lldp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.oui is not None:
                                                 return True
 
@@ -1297,10 +1227,6 @@ class Lldp(object):
                                             if self.tlv_value is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -1322,17 +1248,11 @@ class Lldp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.lldp_org_def_tlv_entry is not None:
                                             for child_ref in self.lldp_org_def_tlv_entry:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -1408,18 +1328,12 @@ class Lldp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.tlv_type is not None:
                                                 return True
 
                                             if self.tlv_value is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -1441,17 +1355,11 @@ class Lldp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.lldp_unknown_tlv_entry is not None:
                                             for child_ref in self.lldp_unknown_tlv_entry:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -1473,8 +1381,6 @@ class Lldp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.chassis_id_len is not None:
                                         return True
 
@@ -1485,9 +1391,6 @@ class Lldp(object):
                                         return True
 
                                     if self.org_def_tlv_list is not None and self.org_def_tlv_list._has_data():
-                                        return True
-
-                                    if self.org_def_tlv_list is not None and self.org_def_tlv_list.is_presence():
                                         return True
 
                                     if self.port_id_len is not None:
@@ -1508,13 +1411,6 @@ class Lldp(object):
                                     if self.unknown_tlv_list is not None and self.unknown_tlv_list._has_data():
                                         return True
 
-                                    if self.unknown_tlv_list is not None and self.unknown_tlv_list.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1536,15 +1432,10 @@ class Lldp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.chassis_id is not None:
                                     return True
 
                                 if self.detail is not None and self.detail._has_data():
-                                    return True
-
-                                if self.detail is not None and self.detail.is_presence():
                                     return True
 
                                 if self.device_id is not None:
@@ -1562,9 +1453,6 @@ class Lldp(object):
                                 if self.mib is not None and self.mib._has_data():
                                     return True
 
-                                if self.mib is not None and self.mib.is_presence():
-                                    return True
-
                                 if self.platform is not None:
                                     return True
 
@@ -1577,10 +1465,6 @@ class Lldp(object):
                                 if self.receiving_parent_interface_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1602,8 +1486,6 @@ class Lldp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.device_id is not None:
                                 return True
 
@@ -1615,10 +1497,6 @@ class Lldp(object):
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1640,17 +1518,11 @@ class Lldp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.detail is not None:
                             for child_ref in self.detail:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1960,7 +1832,7 @@ class Lldp(object):
                                             .. attribute:: address_type
                                             
                                             	AddressType
-                                            	**type**\: :py:class:`LldpL3AddrProtocol_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocol_Enum>`
+                                            	**type**\: :py:class:`LldpL3AddrProtocolEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocolEnum>`
                                             
                                             .. attribute:: ipv4_address
                                             
@@ -2003,8 +1875,6 @@ class Lldp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.address_type is not None:
                                                     return True
 
@@ -2014,10 +1884,6 @@ class Lldp(object):
                                                 if self.ipv6_address is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -2039,12 +1905,7 @@ class Lldp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.address is not None and self.address._has_data():
-                                                return True
-
-                                            if self.address is not None and self.address.is_presence():
                                                 return True
 
                                             if self.if_num is not None:
@@ -2053,10 +1914,6 @@ class Lldp(object):
                                             if self.ma_subtype is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -2078,17 +1935,11 @@ class Lldp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.lldp_addr_entry is not None:
                                             for child_ref in self.lldp_addr_entry:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2110,8 +1961,6 @@ class Lldp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.auto_negotiation is not None:
                                         return True
 
@@ -2122,9 +1971,6 @@ class Lldp(object):
                                         return True
 
                                     if self.network_addresses is not None and self.network_addresses._has_data():
-                                        return True
-
-                                    if self.network_addresses is not None and self.network_addresses.is_presence():
                                         return True
 
                                     if self.physical_media_capabilities is not None:
@@ -2148,10 +1994,6 @@ class Lldp(object):
                                     if self.time_remaining is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2336,8 +2178,6 @@ class Lldp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.oui is not None:
                                                 return True
 
@@ -2350,10 +2190,6 @@ class Lldp(object):
                                             if self.tlv_value is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -2375,17 +2211,11 @@ class Lldp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.lldp_org_def_tlv_entry is not None:
                                             for child_ref in self.lldp_org_def_tlv_entry:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2461,18 +2291,12 @@ class Lldp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.tlv_type is not None:
                                                 return True
 
                                             if self.tlv_value is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -2494,17 +2318,11 @@ class Lldp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.lldp_unknown_tlv_entry is not None:
                                             for child_ref in self.lldp_unknown_tlv_entry:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2526,8 +2344,6 @@ class Lldp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.chassis_id_len is not None:
                                         return True
 
@@ -2538,9 +2354,6 @@ class Lldp(object):
                                         return True
 
                                     if self.org_def_tlv_list is not None and self.org_def_tlv_list._has_data():
-                                        return True
-
-                                    if self.org_def_tlv_list is not None and self.org_def_tlv_list.is_presence():
                                         return True
 
                                     if self.port_id_len is not None:
@@ -2561,13 +2374,6 @@ class Lldp(object):
                                     if self.unknown_tlv_list is not None and self.unknown_tlv_list._has_data():
                                         return True
 
-                                    if self.unknown_tlv_list is not None and self.unknown_tlv_list.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2589,15 +2395,10 @@ class Lldp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.chassis_id is not None:
                                     return True
 
                                 if self.detail is not None and self.detail._has_data():
-                                    return True
-
-                                if self.detail is not None and self.detail.is_presence():
                                     return True
 
                                 if self.device_id is not None:
@@ -2615,9 +2416,6 @@ class Lldp(object):
                                 if self.mib is not None and self.mib._has_data():
                                     return True
 
-                                if self.mib is not None and self.mib.is_presence():
-                                    return True
-
                                 if self.platform is not None:
                                     return True
 
@@ -2630,10 +2428,6 @@ class Lldp(object):
                                 if self.receiving_parent_interface_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2657,8 +2451,6 @@ class Lldp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.device_id is not None:
                                 return True
 
@@ -2667,10 +2459,6 @@ class Lldp(object):
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2692,17 +2480,11 @@ class Lldp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.device is not None:
                             for child_ref in self.device:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3019,7 +2801,7 @@ class Lldp(object):
                                             .. attribute:: address_type
                                             
                                             	AddressType
-                                            	**type**\: :py:class:`LldpL3AddrProtocol_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocol_Enum>`
+                                            	**type**\: :py:class:`LldpL3AddrProtocolEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocolEnum>`
                                             
                                             .. attribute:: ipv4_address
                                             
@@ -3062,8 +2844,6 @@ class Lldp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.address_type is not None:
                                                     return True
 
@@ -3073,10 +2853,6 @@ class Lldp(object):
                                                 if self.ipv6_address is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -3098,12 +2874,7 @@ class Lldp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.address is not None and self.address._has_data():
-                                                return True
-
-                                            if self.address is not None and self.address.is_presence():
                                                 return True
 
                                             if self.if_num is not None:
@@ -3112,10 +2883,6 @@ class Lldp(object):
                                             if self.ma_subtype is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3137,17 +2904,11 @@ class Lldp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.lldp_addr_entry is not None:
                                             for child_ref in self.lldp_addr_entry:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3169,8 +2930,6 @@ class Lldp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.auto_negotiation is not None:
                                         return True
 
@@ -3181,9 +2940,6 @@ class Lldp(object):
                                         return True
 
                                     if self.network_addresses is not None and self.network_addresses._has_data():
-                                        return True
-
-                                    if self.network_addresses is not None and self.network_addresses.is_presence():
                                         return True
 
                                     if self.physical_media_capabilities is not None:
@@ -3207,10 +2963,6 @@ class Lldp(object):
                                     if self.time_remaining is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3395,8 +3147,6 @@ class Lldp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.oui is not None:
                                                 return True
 
@@ -3409,10 +3159,6 @@ class Lldp(object):
                                             if self.tlv_value is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3434,17 +3180,11 @@ class Lldp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.lldp_org_def_tlv_entry is not None:
                                             for child_ref in self.lldp_org_def_tlv_entry:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3520,18 +3260,12 @@ class Lldp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.tlv_type is not None:
                                                 return True
 
                                             if self.tlv_value is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3553,17 +3287,11 @@ class Lldp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.lldp_unknown_tlv_entry is not None:
                                             for child_ref in self.lldp_unknown_tlv_entry:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3585,8 +3313,6 @@ class Lldp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.chassis_id_len is not None:
                                         return True
 
@@ -3597,9 +3323,6 @@ class Lldp(object):
                                         return True
 
                                     if self.org_def_tlv_list is not None and self.org_def_tlv_list._has_data():
-                                        return True
-
-                                    if self.org_def_tlv_list is not None and self.org_def_tlv_list.is_presence():
                                         return True
 
                                     if self.port_id_len is not None:
@@ -3620,13 +3343,6 @@ class Lldp(object):
                                     if self.unknown_tlv_list is not None and self.unknown_tlv_list._has_data():
                                         return True
 
-                                    if self.unknown_tlv_list is not None and self.unknown_tlv_list.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3648,15 +3364,10 @@ class Lldp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.chassis_id is not None:
                                     return True
 
                                 if self.detail is not None and self.detail._has_data():
-                                    return True
-
-                                if self.detail is not None and self.detail.is_presence():
                                     return True
 
                                 if self.device_id is not None:
@@ -3674,9 +3385,6 @@ class Lldp(object):
                                 if self.mib is not None and self.mib._has_data():
                                     return True
 
-                                if self.mib is not None and self.mib.is_presence():
-                                    return True
-
                                 if self.platform is not None:
                                     return True
 
@@ -3689,10 +3397,6 @@ class Lldp(object):
                                 if self.receiving_parent_interface_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3714,8 +3418,6 @@ class Lldp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.device_id is not None:
                                 return True
 
@@ -3727,10 +3429,6 @@ class Lldp(object):
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3752,17 +3450,11 @@ class Lldp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.summary is not None:
                             for child_ref in self.summary:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3784,30 +3476,15 @@ class Lldp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.details is not None and self.details._has_data():
-                        return True
-
-                    if self.details is not None and self.details.is_presence():
                         return True
 
                     if self.devices is not None and self.devices._has_data():
                         return True
 
-                    if self.devices is not None and self.devices.is_presence():
-                        return True
-
                     if self.summaries is not None and self.summaries._has_data():
                         return True
 
-                    if self.summaries is not None and self.summaries.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3932,8 +3609,6 @@ class Lldp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.aged_out_entries is not None:
                         return True
 
@@ -3969,10 +3644,6 @@ class Lldp(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
@@ -3992,33 +3663,18 @@ class Lldp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.interfaces is not None and self.interfaces._has_data():
                     return True
 
-                if self.interfaces is not None and self.interfaces.is_presence():
-                    return True
-
                 if self.neighbors is not None and self.neighbors._has_data():
-                    return True
-
-                if self.neighbors is not None and self.neighbors.is_presence():
                     return True
 
                 if self.statistics is not None and self.statistics._has_data():
                     return True
 
-                if self.statistics is not None and self.statistics.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4038,17 +3694,11 @@ class Lldp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -4068,18 +3718,9 @@ class Lldp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

@@ -24,396 +24,355 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class OpticsControllerState_Enum(Enum):
+class OpticsControllerStateEnum(Enum):
     """
-    OpticsControllerState_Enum
+    OpticsControllerStateEnum
 
     Optics controller state
 
-    """
+    .. data:: OPTICS_STATE_UP = 0
+
+    	Up
+
+    .. data:: OPTICS_STATE_DOWN = 1
+
+    	Down
+
+    .. data:: OPTICS_STATE_ADMIN_DOWN = 2
+
+    	Administratively Down
 
     """
 
-    Up
-
-    """
     OPTICS_STATE_UP = 0
 
-    """
-
-    Down
-
-    """
     OPTICS_STATE_DOWN = 1
 
-    """
-
-    Administratively Down
-
-    """
     OPTICS_STATE_ADMIN_DOWN = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-        return meta._meta_table['OpticsControllerState_Enum']
+        return meta._meta_table['OpticsControllerStateEnum']
 
 
-class OpticsFormFactor_Enum(Enum):
+class OpticsEnum(Enum):
     """
-    OpticsFormFactor_Enum
-
-    Optics form factor
-
-    """
-
-    """
-
-    Not set
-
-    """
-    NOT_SET = 0
-
-    """
-
-    Invalid
-
-    """
-    INVALID = 1
-
-    """
-
-    CPAK
-
-    """
-    CPAK = 2
-
-    """
-
-    CXP
-
-    """
-    CXP = 3
-
-    """
-
-    SFP+
-
-    """
-    SFP_PLUS = 4
-
-    """
-
-    QSFP
-
-    """
-    QSFP = 5
-
-    """
-
-    QSFP+
-
-    """
-    QSFP_PLUS = 6
-
-    """
-
-    QSFP28
-
-    """
-    QSFP28 = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-        return meta._meta_table['OpticsFormFactor_Enum']
-
-
-class OpticsLaserState_Enum(Enum):
-    """
-    OpticsLaserState_Enum
-
-    Optics laser state
-
-    """
-
-    """
-
-    On
-
-    """
-    ON = 0
-
-    """
-
-    Off
-
-    """
-    OFF = 1
-
-    """
-
-    Unknown
-
-    """
-    UNKNOWN = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-        return meta._meta_table['OpticsLaserState_Enum']
-
-
-class OpticsLedState_Enum(Enum):
-    """
-    OpticsLedState_Enum
-
-    Optics led state
-
-    """
-
-    """
-
-    Off
-
-    """
-    OFF = 0
-
-    """
-
-    Green
-
-    """
-    GREEN_ON = 1
-
-    """
-
-    Green Flashing
-
-    """
-    GREEN_FLASHING = 2
-
-    """
-
-    Yellow
-
-    """
-    YELLOW_ON = 3
-
-    """
-
-    Yellow Flashing
-
-    """
-    YELLOW_FLASHING = 4
-
-    """
-
-    Red
-
-    """
-    RED_ON = 5
-
-    """
-
-    Red Flashing
-
-    """
-    RED_FLASHING = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-        return meta._meta_table['OpticsLedState_Enum']
-
-
-class OpticsPhy_Enum(Enum):
-    """
-    OpticsPhy_Enum
-
-    Optics phy type
-
-    """
-
-    """
-
-    Not set
-
-    """
-    NOT_SET = 0
-
-    """
-
-    Invalid
-
-    """
-    INVALID = 1
-
-    """
-
-    Long reach 4 lanes
-
-    """
-    LONG_REACH_FOUR_LANES = 2
-
-    """
-
-    Short reach 10 lanes
-
-    """
-    SHORT_REACH_TEN_LANES = 3
-
-    """
-
-    Short reach 1 lane
-
-    """
-    SHORT_REACH_ONE_LANE = 4
-
-    """
-
-    Long reach 1 lane
-
-    """
-    LONG_REACH_ONE_LANE = 5
-
-    """
-
-    Short reach 4 lanes
-
-    """
-    SHORT_REACH_FOUR_LANES = 6
-
-    """
-
-    Copper 4 lanes
-
-    """
-    COPPER_FOUR_LANES = 7
-
-    """
-
-    Active optical cable
-
-    """
-    ACTIVE_OPTICAL_CABLE = 8
-
-    """
-
-    Long reach 4 lanes
-
-    """
-    FOURTY_GIG_E_LONG_REACH_FOUR_LANES = 9
-
-    """
-
-    Short reach 4 lanes
-
-    """
-    FOURTY_GIG_E_SHORT_REACH_FOUR_LANES = 10
-
-    """
-
-    CWDM 4 lanes
-
-    """
-    CWDM_FOUR_LANES = 11
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-        return meta._meta_table['OpticsPhy_Enum']
-
-
-class OpticsTas_Enum(Enum):
-    """
-    OpticsTas_Enum
-
-    Optics tas
-
-    """
-
-    """
-
-    Out Of Service
-
-    """
-    TAS_UI_OOS = 0
-
-    """
-
-    Maintenance
-
-    """
-    TAS_UI_MAIN = 1
-
-    """
-
-    In Service
-
-    """
-    TAS_UI_IS = 2
-
-    """
-
-    Automatic In Service
-
-    """
-    TAS_UI_AINS = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-        return meta._meta_table['OpticsTas_Enum']
-
-
-class Optics_Enum(Enum):
-    """
-    Optics_Enum
+    OpticsEnum
 
     Optics
 
-    """
+    .. data:: OPTICS_UNKNOWN = 0
+
+    	Unknow Optics Type
+
+    .. data:: OPTICS_GREY = 1
+
+    	Grey Optics
+
+    .. data:: OPTICS_DWDM = 2
+
+    	DWDM Optics
+
+    .. data:: OPTICS_CWDM = 3
+
+    	CWDM Optics
 
     """
 
-    Unknow Optics Type
-
-    """
     OPTICS_UNKNOWN = 0
 
-    """
-
-    Grey Optics
-
-    """
     OPTICS_GREY = 1
 
-    """
-
-    DWDM Optics
-
-    """
     OPTICS_DWDM = 2
 
-    """
-
-    CWDM Optics
-
-    """
     OPTICS_CWDM = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-        return meta._meta_table['Optics_Enum']
+        return meta._meta_table['OpticsEnum']
+
+
+class OpticsFormFactorEnum(Enum):
+    """
+    OpticsFormFactorEnum
+
+    Optics form factor
+
+    .. data:: NOT_SET = 0
+
+    	Not set
+
+    .. data:: INVALID = 1
+
+    	Invalid
+
+    .. data:: CPAK = 2
+
+    	CPAK
+
+    .. data:: CXP = 3
+
+    	CXP
+
+    .. data:: SFP_PLUS = 4
+
+    	SFP+
+
+    .. data:: QSFP = 5
+
+    	QSFP
+
+    .. data:: QSFP_PLUS = 6
+
+    	QSFP+
+
+    .. data:: QSFP28 = 7
+
+    	QSFP28
+
+    """
+
+    NOT_SET = 0
+
+    INVALID = 1
+
+    CPAK = 2
+
+    CXP = 3
+
+    SFP_PLUS = 4
+
+    QSFP = 5
+
+    QSFP_PLUS = 6
+
+    QSFP28 = 7
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsFormFactorEnum']
+
+
+class OpticsLaserStateEnum(Enum):
+    """
+    OpticsLaserStateEnum
+
+    Optics laser state
+
+    .. data:: ON = 0
+
+    	On
+
+    .. data:: OFF = 1
+
+    	Off
+
+    .. data:: UNKNOWN = 2
+
+    	Unknown
+
+    """
+
+    ON = 0
+
+    OFF = 1
+
+    UNKNOWN = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsLaserStateEnum']
+
+
+class OpticsLedStateEnum(Enum):
+    """
+    OpticsLedStateEnum
+
+    Optics led state
+
+    .. data:: OFF = 0
+
+    	Off
+
+    .. data:: GREEN_ON = 1
+
+    	Green
+
+    .. data:: GREEN_FLASHING = 2
+
+    	Green Flashing
+
+    .. data:: YELLOW_ON = 3
+
+    	Yellow
+
+    .. data:: YELLOW_FLASHING = 4
+
+    	Yellow Flashing
+
+    .. data:: RED_ON = 5
+
+    	Red
+
+    .. data:: RED_FLASHING = 6
+
+    	Red Flashing
+
+    """
+
+    OFF = 0
+
+    GREEN_ON = 1
+
+    GREEN_FLASHING = 2
+
+    YELLOW_ON = 3
+
+    YELLOW_FLASHING = 4
+
+    RED_ON = 5
+
+    RED_FLASHING = 6
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsLedStateEnum']
+
+
+class OpticsPhyEnum(Enum):
+    """
+    OpticsPhyEnum
+
+    Optics phy type
+
+    .. data:: NOT_SET = 0
+
+    	Not set
+
+    .. data:: INVALID = 1
+
+    	Invalid
+
+    .. data:: LONG_REACH_FOUR_LANES = 2
+
+    	Long reach 4 lanes
+
+    .. data:: SHORT_REACH_TEN_LANES = 3
+
+    	Short reach 10 lanes
+
+    .. data:: SHORT_REACH_ONE_LANE = 4
+
+    	Short reach 1 lane
+
+    .. data:: LONG_REACH_ONE_LANE = 5
+
+    	Long reach 1 lane
+
+    .. data:: SHORT_REACH_FOUR_LANES = 6
+
+    	Short reach 4 lanes
+
+    .. data:: COPPER_FOUR_LANES = 7
+
+    	Copper 4 lanes
+
+    .. data:: ACTIVE_OPTICAL_CABLE = 8
+
+    	Active optical cable
+
+    .. data:: FOURTY_GIG_E_LONG_REACH_FOUR_LANES = 9
+
+    	Long reach 4 lanes
+
+    .. data:: FOURTY_GIG_E_SHORT_REACH_FOUR_LANES = 10
+
+    	Short reach 4 lanes
+
+    .. data:: CWDM_FOUR_LANES = 11
+
+    	CWDM 4 lanes
+
+    """
+
+    NOT_SET = 0
+
+    INVALID = 1
+
+    LONG_REACH_FOUR_LANES = 2
+
+    SHORT_REACH_TEN_LANES = 3
+
+    SHORT_REACH_ONE_LANE = 4
+
+    LONG_REACH_ONE_LANE = 5
+
+    SHORT_REACH_FOUR_LANES = 6
+
+    COPPER_FOUR_LANES = 7
+
+    ACTIVE_OPTICAL_CABLE = 8
+
+    FOURTY_GIG_E_LONG_REACH_FOUR_LANES = 9
+
+    FOURTY_GIG_E_SHORT_REACH_FOUR_LANES = 10
+
+    CWDM_FOUR_LANES = 11
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsPhyEnum']
+
+
+class OpticsTasEnum(Enum):
+    """
+    OpticsTasEnum
+
+    Optics tas
+
+    .. data:: TAS_UI_OOS = 0
+
+    	Out Of Service
+
+    .. data:: TAS_UI_MAIN = 1
+
+    	Maintenance
+
+    .. data:: TAS_UI_IS = 2
+
+    	In Service
+
+    .. data:: TAS_UI_AINS = 3
+
+    	Automatic In Service
+
+    """
+
+    TAS_UI_OOS = 0
+
+    TAS_UI_MAIN = 1
+
+    TAS_UI_IS = 2
+
+    TAS_UI_AINS = 3
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsTasEnum']
 
 
 
@@ -605,8 +564,6 @@ class OpticsOper(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.frequency is not None:
                             return True
 
@@ -619,10 +576,6 @@ class OpticsOper(object):
                         if self.wavelength is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -644,8 +597,6 @@ class OpticsOper(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.dwdm_carrier_band is not None:
                         return True
 
@@ -660,10 +611,6 @@ class OpticsOper(object):
                     if self.dwdm_carrier_min is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -721,7 +668,7 @@ class OpticsOper(object):
                 .. attribute:: controller_state
                 
                 	Optics controller state\: Up, Down or Administratively Down
-                	**type**\: :py:class:`OpticsControllerState_Enum <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsControllerState_Enum>`
+                	**type**\: :py:class:`OpticsControllerStateEnum <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsControllerStateEnum>`
                 
                 .. attribute:: dgd_high_threshold
                 
@@ -763,7 +710,7 @@ class OpticsOper(object):
                 .. attribute:: form_factor
                 
                 	Optics form factor
-                	**type**\: :py:class:`OpticsFormFactor_Enum <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsFormFactor_Enum>`
+                	**type**\: :py:class:`OpticsFormFactorEnum <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsFormFactorEnum>`
                 
                 .. attribute:: grey_wavelength
                 
@@ -780,7 +727,7 @@ class OpticsOper(object):
                 .. attribute:: laser_state
                 
                 	Showing laser state.Either ON or OFF or unknown
-                	**type**\: :py:class:`OpticsLaserState_Enum <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsLaserState_Enum>`
+                	**type**\: :py:class:`OpticsLaserStateEnum <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsLaserStateEnum>`
                 
                 .. attribute:: lbc_high_threshold
                 
@@ -792,7 +739,7 @@ class OpticsOper(object):
                 .. attribute:: led_state
                 
                 	Showing Current Colour of led state
-                	**type**\: :py:class:`OpticsLedState_Enum <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsLedState_Enum>`
+                	**type**\: :py:class:`OpticsLedStateEnum <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsLedStateEnum>`
                 
                 .. attribute:: network_srlg_info
                 
@@ -822,7 +769,7 @@ class OpticsOper(object):
                 .. attribute:: optics_type
                 
                 	Optics type name
-                	**type**\: :py:class:`Optics_Enum <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.Optics_Enum>`
+                	**type**\: :py:class:`OpticsEnum <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsEnum>`
                 
                 .. attribute:: osnr_low_threshold
                 
@@ -837,7 +784,7 @@ class OpticsOper(object):
                 .. attribute:: phy_type
                 
                 	Optics physical type
-                	**type**\: :py:class:`OpticsPhy_Enum <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsPhy_Enum>`
+                	**type**\: :py:class:`OpticsPhyEnum <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsPhyEnum>`
                 
                 .. attribute:: pm_enable
                 
@@ -897,7 +844,7 @@ class OpticsOper(object):
                 .. attribute:: transport_admin_state
                 
                 	Transport Admin State
-                	**type**\: :py:class:`OpticsTas_Enum <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsTas_Enum>`
+                	**type**\: :py:class:`OpticsTasEnum <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsTasEnum>`
                 
                 .. attribute:: tx_high_threshold
                 
@@ -1059,8 +1006,6 @@ class OpticsOper(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.lane_index is not None:
                             return True
 
@@ -1076,10 +1021,6 @@ class OpticsOper(object):
                         if self.transmit_power is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1124,17 +1065,11 @@ class OpticsOper(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.network_srlg is not None:
                             for child in self.network_srlg:
                                 if child is not None:
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1190,7 +1125,7 @@ class OpticsOper(object):
                     .. attribute:: high_tx1lbc
                     
                     	High Tx1 laser bias current
-                    	**type**\: :py:class:`HighTx1lbc <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1lbc>`
+                    	**type**\: :py:class:`HighTx1Lbc <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Lbc>`
                     
                     .. attribute:: high_tx2_power
                     
@@ -1200,7 +1135,7 @@ class OpticsOper(object):
                     .. attribute:: high_tx2lbc
                     
                     	High Tx2 laser bias current
-                    	**type**\: :py:class:`HighTx2lbc <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2lbc>`
+                    	**type**\: :py:class:`HighTx2Lbc <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Lbc>`
                     
                     .. attribute:: high_tx3_power
                     
@@ -1210,7 +1145,7 @@ class OpticsOper(object):
                     .. attribute:: high_tx3lbc
                     
                     	High Tx3 laser bias current
-                    	**type**\: :py:class:`HighTx3lbc <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3lbc>`
+                    	**type**\: :py:class:`HighTx3Lbc <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Lbc>`
                     
                     .. attribute:: high_tx4_power
                     
@@ -1220,7 +1155,7 @@ class OpticsOper(object):
                     .. attribute:: high_tx4lbc
                     
                     	High Tx4 laser bias current
-                    	**type**\: :py:class:`HighTx4lbc <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4lbc>`
+                    	**type**\: :py:class:`HighTx4Lbc <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Lbc>`
                     
                     .. attribute:: high_tx_power
                     
@@ -1265,7 +1200,7 @@ class OpticsOper(object):
                     .. attribute:: low_tx1lbc
                     
                     	Low Tx1 laser bias current
-                    	**type**\: :py:class:`LowTx1lbc <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1lbc>`
+                    	**type**\: :py:class:`LowTx1Lbc <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Lbc>`
                     
                     .. attribute:: low_tx2_power
                     
@@ -1275,7 +1210,7 @@ class OpticsOper(object):
                     .. attribute:: low_tx2lbc
                     
                     	Low Tx2 laser bias current
-                    	**type**\: :py:class:`LowTx2lbc <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2lbc>`
+                    	**type**\: :py:class:`LowTx2Lbc <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Lbc>`
                     
                     .. attribute:: low_tx3_power
                     
@@ -1285,7 +1220,7 @@ class OpticsOper(object):
                     .. attribute:: low_tx3lbc
                     
                     	Low Tx3 laser bias current
-                    	**type**\: :py:class:`LowTx3lbc <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3lbc>`
+                    	**type**\: :py:class:`LowTx3Lbc <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Lbc>`
                     
                     .. attribute:: low_tx4_power
                     
@@ -1295,7 +1230,7 @@ class OpticsOper(object):
                     .. attribute:: low_tx4lbc
                     
                     	Low Tx4 laser bias current
-                    	**type**\: :py:class:`LowTx4lbc <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4lbc>`
+                    	**type**\: :py:class:`LowTx4Lbc <ydk.models.controller.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Lbc>`
                     
                     .. attribute:: low_tx_power
                     
@@ -1372,19 +1307,19 @@ class OpticsOper(object):
                         self.high_rx_power.parent = self
                         self.high_tx1_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Power()
                         self.high_tx1_power.parent = self
-                        self.high_tx1lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1lbc()
+                        self.high_tx1lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Lbc()
                         self.high_tx1lbc.parent = self
                         self.high_tx2_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Power()
                         self.high_tx2_power.parent = self
-                        self.high_tx2lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2lbc()
+                        self.high_tx2lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Lbc()
                         self.high_tx2lbc.parent = self
                         self.high_tx3_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Power()
                         self.high_tx3_power.parent = self
-                        self.high_tx3lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3lbc()
+                        self.high_tx3lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Lbc()
                         self.high_tx3lbc.parent = self
                         self.high_tx4_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Power()
                         self.high_tx4_power.parent = self
-                        self.high_tx4lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4lbc()
+                        self.high_tx4lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Lbc()
                         self.high_tx4lbc.parent = self
                         self.high_tx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTxPower()
                         self.high_tx_power.parent = self
@@ -1402,19 +1337,19 @@ class OpticsOper(object):
                         self.low_rx_power.parent = self
                         self.low_tx1_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Power()
                         self.low_tx1_power.parent = self
-                        self.low_tx1lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1lbc()
+                        self.low_tx1lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Lbc()
                         self.low_tx1lbc.parent = self
                         self.low_tx2_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Power()
                         self.low_tx2_power.parent = self
-                        self.low_tx2lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2lbc()
+                        self.low_tx2lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Lbc()
                         self.low_tx2lbc.parent = self
                         self.low_tx3_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Power()
                         self.low_tx3_power.parent = self
-                        self.low_tx3lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3lbc()
+                        self.low_tx3lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Lbc()
                         self.low_tx3lbc.parent = self
                         self.low_tx4_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power()
                         self.low_tx4_power.parent = self
-                        self.low_tx4lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4lbc()
+                        self.low_tx4lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Lbc()
                         self.low_tx4lbc.parent = self
                         self.low_tx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTxPower()
                         self.low_tx_power.parent = self
@@ -1480,18 +1415,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1542,18 +1471,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1604,18 +1527,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1666,18 +1583,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1728,18 +1639,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1790,18 +1695,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1852,8 +1751,6 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -1862,14 +1759,66 @@ class OpticsOper(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower']['meta_info']
+
+
+                    class HighTx1Lbc(object):
+                        """
+                        High Tx1 laser bias current
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.counter = None
+                            self.is_detected = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:high-tx1lbc'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.counter is not None:
+                                return True
+
+                            if self.is_detected is not None:
+                                return True
+
                             return False
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower']['meta_info']
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Lbc']['meta_info']
 
 
                     class HighTx1Power(object):
@@ -1914,8 +1863,6 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -1924,19 +1871,15 @@ class OpticsOper(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
                             return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Power']['meta_info']
 
 
-                    class HighTx1lbc(object):
+                    class HighTx2Lbc(object):
                         """
-                        High Tx1 laser bias current
+                        High Tx2 laser bias current
                         
                         .. attribute:: counter
                         
@@ -1967,7 +1910,7 @@ class OpticsOper(object):
                             if self.parent is None:
                                 raise YPYDataValidationError('parent is not set . Cannot derive path.')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:high-tx1lbc'
+                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:high-tx2lbc'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -1976,8 +1919,6 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -1986,14 +1927,10 @@ class OpticsOper(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1lbc']['meta_info']
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Lbc']['meta_info']
 
 
                     class HighTx2Power(object):
@@ -2038,8 +1975,6 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -2048,19 +1983,15 @@ class OpticsOper(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
                             return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Power']['meta_info']
 
 
-                    class HighTx2lbc(object):
+                    class HighTx3Lbc(object):
                         """
-                        High Tx2 laser bias current
+                        High Tx3 laser bias current
                         
                         .. attribute:: counter
                         
@@ -2091,7 +2022,7 @@ class OpticsOper(object):
                             if self.parent is None:
                                 raise YPYDataValidationError('parent is not set . Cannot derive path.')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:high-tx2lbc'
+                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:high-tx3lbc'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -2100,8 +2031,6 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -2110,14 +2039,10 @@ class OpticsOper(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2lbc']['meta_info']
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Lbc']['meta_info']
 
 
                     class HighTx3Power(object):
@@ -2162,8 +2087,6 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -2172,19 +2095,15 @@ class OpticsOper(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
                             return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Power']['meta_info']
 
 
-                    class HighTx3lbc(object):
+                    class HighTx4Lbc(object):
                         """
-                        High Tx3 laser bias current
+                        High Tx4 laser bias current
                         
                         .. attribute:: counter
                         
@@ -2215,7 +2134,7 @@ class OpticsOper(object):
                             if self.parent is None:
                                 raise YPYDataValidationError('parent is not set . Cannot derive path.')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:high-tx3lbc'
+                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:high-tx4lbc'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -2224,8 +2143,6 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -2234,14 +2151,10 @@ class OpticsOper(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3lbc']['meta_info']
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Lbc']['meta_info']
 
 
                     class HighTx4Power(object):
@@ -2286,86 +2199,18 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
                             return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Power']['meta_info']
-
-
-                    class HighTx4lbc(object):
-                        """
-                        High Tx4 laser bias current
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_detected
-                        
-                        	Is defect detected?
-                        	**type**\: bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'controller-optics-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.counter = None
-                            self.is_detected = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:high-tx4lbc'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.is_presence():
-                                return True
-                            if self.counter is not None:
-                                return True
-
-                            if self.is_detected is not None:
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4lbc']['meta_info']
 
 
                     class HighTxPower(object):
@@ -2410,18 +2255,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2472,18 +2311,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2534,18 +2367,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2596,18 +2423,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2658,18 +2479,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2720,18 +2535,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2782,8 +2591,6 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -2792,14 +2599,66 @@ class OpticsOper(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRxPower']['meta_info']
+
+
+                    class LowTx1Lbc(object):
+                        """
+                        Low Tx1 laser bias current
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.counter = None
+                            self.is_detected = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:low-tx1lbc'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.counter is not None:
+                                return True
+
+                            if self.is_detected is not None:
+                                return True
+
                             return False
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRxPower']['meta_info']
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Lbc']['meta_info']
 
 
                     class LowTx1Power(object):
@@ -2844,8 +2703,6 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -2854,19 +2711,15 @@ class OpticsOper(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
                             return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Power']['meta_info']
 
 
-                    class LowTx1lbc(object):
+                    class LowTx2Lbc(object):
                         """
-                        Low Tx1 laser bias current
+                        Low Tx2 laser bias current
                         
                         .. attribute:: counter
                         
@@ -2897,7 +2750,7 @@ class OpticsOper(object):
                             if self.parent is None:
                                 raise YPYDataValidationError('parent is not set . Cannot derive path.')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:low-tx1lbc'
+                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:low-tx2lbc'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -2906,8 +2759,6 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -2916,14 +2767,10 @@ class OpticsOper(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1lbc']['meta_info']
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Lbc']['meta_info']
 
 
                     class LowTx2Power(object):
@@ -2968,8 +2815,6 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -2978,19 +2823,15 @@ class OpticsOper(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
                             return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Power']['meta_info']
 
 
-                    class LowTx2lbc(object):
+                    class LowTx3Lbc(object):
                         """
-                        Low Tx2 laser bias current
+                        Low Tx3 laser bias current
                         
                         .. attribute:: counter
                         
@@ -3021,7 +2862,7 @@ class OpticsOper(object):
                             if self.parent is None:
                                 raise YPYDataValidationError('parent is not set . Cannot derive path.')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:low-tx2lbc'
+                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:low-tx3lbc'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -3030,8 +2871,6 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -3040,14 +2879,10 @@ class OpticsOper(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2lbc']['meta_info']
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Lbc']['meta_info']
 
 
                     class LowTx3Power(object):
@@ -3092,8 +2927,6 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -3102,19 +2935,15 @@ class OpticsOper(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
                             return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Power']['meta_info']
 
 
-                    class LowTx3lbc(object):
+                    class LowTx4Lbc(object):
                         """
-                        Low Tx3 laser bias current
+                        Low Tx4 laser bias current
                         
                         .. attribute:: counter
                         
@@ -3145,7 +2974,7 @@ class OpticsOper(object):
                             if self.parent is None:
                                 raise YPYDataValidationError('parent is not set . Cannot derive path.')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:low-tx3lbc'
+                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:low-tx4lbc'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -3154,8 +2983,6 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -3164,14 +2991,10 @@ class OpticsOper(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3lbc']['meta_info']
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Lbc']['meta_info']
 
 
                     class LowTx4Power(object):
@@ -3216,86 +3039,18 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
                             return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power']['meta_info']
-
-
-                    class LowTx4lbc(object):
-                        """
-                        Low Tx4 laser bias current
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_detected
-                        
-                        	Is defect detected?
-                        	**type**\: bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'controller-optics-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.counter = None
-                            self.is_detected = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:low-tx4lbc'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.is_presence():
-                                return True
-                            if self.counter is not None:
-                                return True
-
-                            if self.is_detected is not None:
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4lbc']['meta_info']
 
 
                     class LowTxPower(object):
@@ -3340,18 +3095,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3402,18 +3151,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3464,18 +3207,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3526,18 +3263,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3588,18 +3319,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3650,18 +3375,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3712,18 +3431,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3774,18 +3487,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3836,18 +3543,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3898,18 +3599,12 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
                             if self.is_detected is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3931,252 +3626,126 @@ class OpticsOper(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.hidgd is not None and self.hidgd._has_data():
-                            return True
-
-                        if self.hidgd is not None and self.hidgd.is_presence():
                             return True
 
                         if self.high_lbc is not None and self.high_lbc._has_data():
                             return True
 
-                        if self.high_lbc is not None and self.high_lbc.is_presence():
-                            return True
-
                         if self.high_rx1_power is not None and self.high_rx1_power._has_data():
-                            return True
-
-                        if self.high_rx1_power is not None and self.high_rx1_power.is_presence():
                             return True
 
                         if self.high_rx2_power is not None and self.high_rx2_power._has_data():
                             return True
 
-                        if self.high_rx2_power is not None and self.high_rx2_power.is_presence():
-                            return True
-
                         if self.high_rx3_power is not None and self.high_rx3_power._has_data():
-                            return True
-
-                        if self.high_rx3_power is not None and self.high_rx3_power.is_presence():
                             return True
 
                         if self.high_rx4_power is not None and self.high_rx4_power._has_data():
                             return True
 
-                        if self.high_rx4_power is not None and self.high_rx4_power.is_presence():
-                            return True
-
                         if self.high_rx_power is not None and self.high_rx_power._has_data():
-                            return True
-
-                        if self.high_rx_power is not None and self.high_rx_power.is_presence():
                             return True
 
                         if self.high_tx1_power is not None and self.high_tx1_power._has_data():
                             return True
 
-                        if self.high_tx1_power is not None and self.high_tx1_power.is_presence():
-                            return True
-
                         if self.high_tx1lbc is not None and self.high_tx1lbc._has_data():
-                            return True
-
-                        if self.high_tx1lbc is not None and self.high_tx1lbc.is_presence():
                             return True
 
                         if self.high_tx2_power is not None and self.high_tx2_power._has_data():
                             return True
 
-                        if self.high_tx2_power is not None and self.high_tx2_power.is_presence():
-                            return True
-
                         if self.high_tx2lbc is not None and self.high_tx2lbc._has_data():
-                            return True
-
-                        if self.high_tx2lbc is not None and self.high_tx2lbc.is_presence():
                             return True
 
                         if self.high_tx3_power is not None and self.high_tx3_power._has_data():
                             return True
 
-                        if self.high_tx3_power is not None and self.high_tx3_power.is_presence():
-                            return True
-
                         if self.high_tx3lbc is not None and self.high_tx3lbc._has_data():
-                            return True
-
-                        if self.high_tx3lbc is not None and self.high_tx3lbc.is_presence():
                             return True
 
                         if self.high_tx4_power is not None and self.high_tx4_power._has_data():
                             return True
 
-                        if self.high_tx4_power is not None and self.high_tx4_power.is_presence():
-                            return True
-
                         if self.high_tx4lbc is not None and self.high_tx4lbc._has_data():
-                            return True
-
-                        if self.high_tx4lbc is not None and self.high_tx4lbc.is_presence():
                             return True
 
                         if self.high_tx_power is not None and self.high_tx_power._has_data():
                             return True
 
-                        if self.high_tx_power is not None and self.high_tx_power.is_presence():
-                            return True
-
                         if self.imp_removal is not None and self.imp_removal._has_data():
-                            return True
-
-                        if self.imp_removal is not None and self.imp_removal.is_presence():
                             return True
 
                         if self.low_rx1_power is not None and self.low_rx1_power._has_data():
                             return True
 
-                        if self.low_rx1_power is not None and self.low_rx1_power.is_presence():
-                            return True
-
                         if self.low_rx2_power is not None and self.low_rx2_power._has_data():
-                            return True
-
-                        if self.low_rx2_power is not None and self.low_rx2_power.is_presence():
                             return True
 
                         if self.low_rx3_power is not None and self.low_rx3_power._has_data():
                             return True
 
-                        if self.low_rx3_power is not None and self.low_rx3_power.is_presence():
-                            return True
-
                         if self.low_rx4_power is not None and self.low_rx4_power._has_data():
-                            return True
-
-                        if self.low_rx4_power is not None and self.low_rx4_power.is_presence():
                             return True
 
                         if self.low_rx_power is not None and self.low_rx_power._has_data():
                             return True
 
-                        if self.low_rx_power is not None and self.low_rx_power.is_presence():
-                            return True
-
                         if self.low_tx1_power is not None and self.low_tx1_power._has_data():
-                            return True
-
-                        if self.low_tx1_power is not None and self.low_tx1_power.is_presence():
                             return True
 
                         if self.low_tx1lbc is not None and self.low_tx1lbc._has_data():
                             return True
 
-                        if self.low_tx1lbc is not None and self.low_tx1lbc.is_presence():
-                            return True
-
                         if self.low_tx2_power is not None and self.low_tx2_power._has_data():
-                            return True
-
-                        if self.low_tx2_power is not None and self.low_tx2_power.is_presence():
                             return True
 
                         if self.low_tx2lbc is not None and self.low_tx2lbc._has_data():
                             return True
 
-                        if self.low_tx2lbc is not None and self.low_tx2lbc.is_presence():
-                            return True
-
                         if self.low_tx3_power is not None and self.low_tx3_power._has_data():
-                            return True
-
-                        if self.low_tx3_power is not None and self.low_tx3_power.is_presence():
                             return True
 
                         if self.low_tx3lbc is not None and self.low_tx3lbc._has_data():
                             return True
 
-                        if self.low_tx3lbc is not None and self.low_tx3lbc.is_presence():
-                            return True
-
                         if self.low_tx4_power is not None and self.low_tx4_power._has_data():
-                            return True
-
-                        if self.low_tx4_power is not None and self.low_tx4_power.is_presence():
                             return True
 
                         if self.low_tx4lbc is not None and self.low_tx4lbc._has_data():
                             return True
 
-                        if self.low_tx4lbc is not None and self.low_tx4lbc.is_presence():
-                            return True
-
                         if self.low_tx_power is not None and self.low_tx_power._has_data():
-                            return True
-
-                        if self.low_tx_power is not None and self.low_tx_power.is_presence():
                             return True
 
                         if self.mea is not None and self.mea._has_data():
                             return True
 
-                        if self.mea is not None and self.mea.is_presence():
-                            return True
-
                         if self.oorcd is not None and self.oorcd._has_data():
-                            return True
-
-                        if self.oorcd is not None and self.oorcd.is_presence():
                             return True
 
                         if self.osnr is not None and self.osnr._has_data():
                             return True
 
-                        if self.osnr is not None and self.osnr.is_presence():
-                            return True
-
                         if self.rx_lol is not None and self.rx_lol._has_data():
-                            return True
-
-                        if self.rx_lol is not None and self.rx_lol.is_presence():
                             return True
 
                         if self.rx_los is not None and self.rx_los._has_data():
                             return True
 
-                        if self.rx_los is not None and self.rx_los.is_presence():
-                            return True
-
                         if self.tx_fault is not None and self.tx_fault._has_data():
-                            return True
-
-                        if self.tx_fault is not None and self.tx_fault.is_presence():
                             return True
 
                         if self.tx_lol is not None and self.tx_lol._has_data():
                             return True
 
-                        if self.tx_lol is not None and self.tx_lol.is_presence():
-                            return True
-
                         if self.tx_los is not None and self.tx_los._has_data():
-                            return True
-
-                        if self.tx_los is not None and self.tx_los.is_presence():
                             return True
 
                         if self.wvlool is not None and self.wvlool._has_data():
                             return True
 
-                        if self.wvlool is not None and self.wvlool.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4198,8 +3767,6 @@ class OpticsOper(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.cd is not None:
                         return True
 
@@ -4265,16 +3832,10 @@ class OpticsOper(object):
                     if self.network_srlg_info is not None and self.network_srlg_info._has_data():
                         return True
 
-                    if self.network_srlg_info is not None and self.network_srlg_info.is_presence():
-                        return True
-
                     if self.optical_signal_to_noise_ratio is not None:
                         return True
 
                     if self.optics_alarm_info is not None and self.optics_alarm_info._has_data():
-                        return True
-
-                    if self.optics_alarm_info is not None and self.optics_alarm_info.is_presence():
                         return True
 
                     if self.optics_module is not None:
@@ -4342,10 +3903,6 @@ class OpticsOper(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.controller._meta import _Cisco_IOS_XR_controller_optics_oper as meta
@@ -4365,27 +3922,15 @@ class OpticsOper(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
                 if self.optics_dwdm_carrrier_channel_map is not None and self.optics_dwdm_carrrier_channel_map._has_data():
                     return True
 
-                if self.optics_dwdm_carrrier_channel_map is not None and self.optics_dwdm_carrrier_channel_map.is_presence():
-                    return True
-
                 if self.optics_info is not None and self.optics_info._has_data():
                     return True
 
-                if self.optics_info is not None and self.optics_info.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4405,17 +3950,11 @@ class OpticsOper(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.optics_port is not None:
                 for child_ref in self.optics_port:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -4435,18 +3974,9 @@ class OpticsOper(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.optics_ports is not None and self.optics_ports._has_data():
             return True
 
-        if self.optics_ports is not None and self.optics_ports.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

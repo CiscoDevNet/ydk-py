@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,17 +14,17 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'BandwidthNotificationState_Enum' : _MetaInfoEnum('BandwidthNotificationState_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes',
+    'BandwidthNotificationStateEnum' : _MetaInfoEnum('BandwidthNotificationStateEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes',
         {
             'ok':'OK',
             'degraded':'DEGRADED',
         }, 'Cisco-IOS-XR-ethernet-cfm-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-datatypes']),
-    'CfmMepDir_Enum' : _MetaInfoEnum('CfmMepDir_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes',
+    'CfmMepDirEnum' : _MetaInfoEnum('CfmMepDirEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes',
         {
             'up':'UP',
             'down':'DOWN',
         }, 'Cisco-IOS-XR-ethernet-cfm-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-datatypes']),
-    'CfmCcmInterval_Enum' : _MetaInfoEnum('CfmCcmInterval_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes',
+    'CfmCcmIntervalEnum' : _MetaInfoEnum('CfmCcmIntervalEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes',
         {
             '3.3ms':'Y_3__DOT__3MS',
             '10ms':'Y_10MS',
@@ -34,7 +34,7 @@ _meta_table = {
             '1m':'Y_1M',
             '10m':'Y_10M',
         }, 'Cisco-IOS-XR-ethernet-cfm-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-datatypes']),
-    'CfmAisInterval_Enum' : _MetaInfoEnum('CfmAisInterval_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes',
+    'CfmAisIntervalEnum' : _MetaInfoEnum('CfmAisIntervalEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes',
         {
             '1s':'Y_1S',
             '1m':'Y_1M',

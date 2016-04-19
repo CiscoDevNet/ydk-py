@@ -92,15 +92,30 @@ class Exception(object):
         	Specify 'true' to compress core files dumped on this path, 'false' to not compress
         	**type**\: bool
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: file_path
         
         	Protocol and directory
         	**type**\: str
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: filename
         
         	Dump filename
         	**type**\: str
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         .. attribute:: higher_limit
         
@@ -109,12 +124,22 @@ class Exception(object):
         
         	**range:** 5..64
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: lower_limit
         
         	Lower limit.  This is required if Filename is specified
         	**type**\: int
         
         	**range:** 0..4
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         
 
@@ -145,8 +170,6 @@ class Exception(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.compress is not None:
                 return True
 
@@ -164,10 +187,6 @@ class Exception(object):
 
             return False
 
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return True
-
         @staticmethod
         def _meta_info():
             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_dumper_cfg as meta
@@ -183,15 +202,30 @@ class Exception(object):
         	Specify 'true' to compress core files dumped on this path, 'false' to not compress
         	**type**\: bool
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: file_path
         
         	Protocol and directory
         	**type**\: str
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: filename
         
         	Dump filename
         	**type**\: str
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         .. attribute:: higher_limit
         
@@ -200,12 +234,22 @@ class Exception(object):
         
         	**range:** 5..64
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: lower_limit
         
         	Lower limit.  This is required if Filename is specified
         	**type**\: int
         
         	**range:** 0..4
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         
 
@@ -236,8 +280,6 @@ class Exception(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.compress is not None:
                 return True
 
@@ -255,10 +297,6 @@ class Exception(object):
 
             return False
 
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return True
-
         @staticmethod
         def _meta_info():
             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_dumper_cfg as meta
@@ -274,15 +312,30 @@ class Exception(object):
         	Specify 'true' to compress core files dumped on this path, 'false' to not compress
         	**type**\: bool
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: file_path
         
         	Protocol and directory
         	**type**\: str
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: filename
         
         	Dump filename
         	**type**\: str
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         .. attribute:: higher_limit
         
@@ -291,12 +344,22 @@ class Exception(object):
         
         	**range:** 5..64
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: lower_limit
         
         	Lower limit.  This is required if Filename is specified
         	**type**\: int
         
         	**range:** 0..4
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         
 
@@ -327,8 +390,6 @@ class Exception(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.compress is not None:
                 return True
 
@@ -345,10 +406,6 @@ class Exception(object):
                 return True
 
             return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return True
 
         @staticmethod
         def _meta_info():
@@ -367,24 +424,13 @@ class Exception(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.choice1 is not None and self.choice1._has_data():
-            return True
-
-        if self.choice1 is not None and self.choice1.is_presence():
             return True
 
         if self.choice2 is not None and self.choice2._has_data():
             return True
 
-        if self.choice2 is not None and self.choice2.is_presence():
-            return True
-
         if self.choice3 is not None and self.choice3._has_data():
-            return True
-
-        if self.choice3 is not None and self.choice3.is_presence():
             return True
 
         if self.kernel_debugger is not None:
@@ -399,10 +445,6 @@ class Exception(object):
         if self.sparse_size is not None:
             return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

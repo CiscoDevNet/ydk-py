@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -241,7 +241,7 @@ _meta_table = {
                 ''',
                 'bucket_size',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('bucket-size-unit', REFERENCE_ENUM_CLASS, 'SlaBucketSize_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaBucketSize_Enum', 
+            _MetaInfoClassMember('bucket-size-unit', REFERENCE_ENUM_CLASS, 'SlaBucketSizeEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaBucketSizeEnum', 
                 [], [], 
                 '''                Whether bucket size is 'per-probe' or 'probes'
                 ''',
@@ -253,7 +253,7 @@ _meta_table = {
                 ''',
                 'buckets_archive',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetric_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetricEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetricEnum', 
                 [], [], 
                 '''                Type of metric to which this configuration
                 applies
@@ -345,7 +345,7 @@ _meta_table = {
                 ''',
                 'test_pattern_pad_hex_string',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('test-pattern-pad-scheme', REFERENCE_ENUM_CLASS, 'SlaOperTestPatternScheme_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperTestPatternScheme_Enum', 
+            _MetaInfoClassMember('test-pattern-pad-scheme', REFERENCE_ENUM_CLASS, 'SlaOperTestPatternSchemeEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperTestPatternSchemeEnum', 
                 [], [], 
                 '''                Test pattern scheme that is used in the packet
                 padding
@@ -369,7 +369,7 @@ _meta_table = {
                 ''',
                 'cos',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('priority-type', REFERENCE_ENUM_CLASS, 'SlaOperPacketPriority_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperPacketPriority_Enum', 
+            _MetaInfoClassMember('priority-type', REFERENCE_ENUM_CLASS, 'SlaOperPacketPriorityEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperPacketPriorityEnum', 
                 [], [], 
                 '''                PriorityType
                 ''',
@@ -514,7 +514,7 @@ _meta_table = {
                 ''',
                 'ondemand_operation_options',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('oper-type', REFERENCE_ENUM_CLASS, 'SlaOperOperation_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperOperation_Enum', 
+            _MetaInfoClassMember('oper-type', REFERENCE_ENUM_CLASS, 'SlaOperOperationEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperOperationEnum', 
                 [], [], 
                 '''                OperType
                 ''',
@@ -649,7 +649,7 @@ _meta_table = {
                 ''',
                 'bucket_size',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('bucket-size-unit', REFERENCE_ENUM_CLASS, 'SlaBucketSize_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaBucketSize_Enum', 
+            _MetaInfoClassMember('bucket-size-unit', REFERENCE_ENUM_CLASS, 'SlaBucketSizeEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaBucketSizeEnum', 
                 [], [], 
                 '''                Whether bucket size is 'per-probe' or 'probes'
                 ''',
@@ -661,7 +661,7 @@ _meta_table = {
                 ''',
                 'buckets_archive',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetric_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetricEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetricEnum', 
                 [], [], 
                 '''                Type of metric to which this configuration
                 applies
@@ -753,7 +753,7 @@ _meta_table = {
                 ''',
                 'test_pattern_pad_hex_string',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('test-pattern-pad-scheme', REFERENCE_ENUM_CLASS, 'SlaOperTestPatternScheme_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperTestPatternScheme_Enum', 
+            _MetaInfoClassMember('test-pattern-pad-scheme', REFERENCE_ENUM_CLASS, 'SlaOperTestPatternSchemeEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperTestPatternSchemeEnum', 
                 [], [], 
                 '''                Test pattern scheme that is used in the packet
                 padding
@@ -777,7 +777,7 @@ _meta_table = {
                 ''',
                 'cos',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('priority-type', REFERENCE_ENUM_CLASS, 'SlaOperPacketPriority_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperPacketPriority_Enum', 
+            _MetaInfoClassMember('priority-type', REFERENCE_ENUM_CLASS, 'SlaOperPacketPriorityEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperPacketPriorityEnum', 
                 [], [], 
                 '''                PriorityType
                 ''',
@@ -922,7 +922,7 @@ _meta_table = {
                 ''',
                 'ondemand_operation_options',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('oper-type', REFERENCE_ENUM_CLASS, 'SlaOperOperation_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperOperation_Enum', 
+            _MetaInfoClassMember('oper-type', REFERENCE_ENUM_CLASS, 'SlaOperOperationEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperOperationEnum', 
                 [], [], 
                 '''                OperType
                 ''',
@@ -1200,7 +1200,7 @@ _meta_table = {
                 ''',
                 'aggregated',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('bucket-type', REFERENCE_ENUM_CLASS, 'SlaOperBucket_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperBucket_Enum', 
+            _MetaInfoClassMember('bucket-type', REFERENCE_ENUM_CLASS, 'SlaOperBucketEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperBucketEnum', 
                 [], [], 
                 '''                BucketType
                 ''',
@@ -1478,7 +1478,7 @@ _meta_table = {
                 ''',
                 'bucket_size',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('bucket-size-unit', REFERENCE_ENUM_CLASS, 'SlaBucketSize_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaBucketSize_Enum', 
+            _MetaInfoClassMember('bucket-size-unit', REFERENCE_ENUM_CLASS, 'SlaBucketSizeEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaBucketSizeEnum', 
                 [], [], 
                 '''                Whether bucket size is 'per-probe' or 'probes'
                 ''',
@@ -1490,7 +1490,7 @@ _meta_table = {
                 ''',
                 'buckets_archive',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetric_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetricEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetricEnum', 
                 [], [], 
                 '''                Type of metric to which this configuration
                 applies
@@ -1621,7 +1621,7 @@ _meta_table = {
                 ''',
                 'ondemand_operation_options',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('oper-type', REFERENCE_ENUM_CLASS, 'SlaOperOperation_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperOperation_Enum', 
+            _MetaInfoClassMember('oper-type', REFERENCE_ENUM_CLASS, 'SlaOperOperationEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperOperationEnum', 
                 [], [], 
                 '''                OperType
                 ''',
@@ -1911,7 +1911,7 @@ _meta_table = {
                 ''',
                 'aggregated',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('bucket-type', REFERENCE_ENUM_CLASS, 'SlaOperBucket_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperBucket_Enum', 
+            _MetaInfoClassMember('bucket-type', REFERENCE_ENUM_CLASS, 'SlaOperBucketEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperBucketEnum', 
                 [], [], 
                 '''                BucketType
                 ''',
@@ -2189,7 +2189,7 @@ _meta_table = {
                 ''',
                 'bucket_size',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('bucket-size-unit', REFERENCE_ENUM_CLASS, 'SlaBucketSize_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaBucketSize_Enum', 
+            _MetaInfoClassMember('bucket-size-unit', REFERENCE_ENUM_CLASS, 'SlaBucketSizeEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaBucketSizeEnum', 
                 [], [], 
                 '''                Whether bucket size is 'per-probe' or 'probes'
                 ''',
@@ -2201,7 +2201,7 @@ _meta_table = {
                 ''',
                 'buckets_archive',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetric_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetricEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetricEnum', 
                 [], [], 
                 '''                Type of metric to which this configuration
                 applies
@@ -2332,7 +2332,7 @@ _meta_table = {
                 ''',
                 'ondemand_operation_options',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('oper-type', REFERENCE_ENUM_CLASS, 'SlaOperOperation_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperOperation_Enum', 
+            _MetaInfoClassMember('oper-type', REFERENCE_ENUM_CLASS, 'SlaOperOperationEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperOperationEnum', 
                 [], [], 
                 '''                OperType
                 ''',
@@ -2622,7 +2622,7 @@ _meta_table = {
                 ''',
                 'aggregated',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('bucket-type', REFERENCE_ENUM_CLASS, 'SlaOperBucket_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperBucket_Enum', 
+            _MetaInfoClassMember('bucket-type', REFERENCE_ENUM_CLASS, 'SlaOperBucketEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperBucketEnum', 
                 [], [], 
                 '''                BucketType
                 ''',
@@ -2900,7 +2900,7 @@ _meta_table = {
                 ''',
                 'bucket_size',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('bucket-size-unit', REFERENCE_ENUM_CLASS, 'SlaBucketSize_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaBucketSize_Enum', 
+            _MetaInfoClassMember('bucket-size-unit', REFERENCE_ENUM_CLASS, 'SlaBucketSizeEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaBucketSizeEnum', 
                 [], [], 
                 '''                Whether bucket size is 'per-probe' or 'probes'
                 ''',
@@ -2912,7 +2912,7 @@ _meta_table = {
                 ''',
                 'buckets_archive',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetric_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetricEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetricEnum', 
                 [], [], 
                 '''                Type of metric to which this configuration
                 applies
@@ -3043,7 +3043,7 @@ _meta_table = {
                 ''',
                 'ondemand_operation_options',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('oper-type', REFERENCE_ENUM_CLASS, 'SlaOperOperation_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperOperation_Enum', 
+            _MetaInfoClassMember('oper-type', REFERENCE_ENUM_CLASS, 'SlaOperOperationEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperOperationEnum', 
                 [], [], 
                 '''                OperType
                 ''',
@@ -3333,7 +3333,7 @@ _meta_table = {
                 ''',
                 'aggregated',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('bucket-type', REFERENCE_ENUM_CLASS, 'SlaOperBucket_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperBucket_Enum', 
+            _MetaInfoClassMember('bucket-type', REFERENCE_ENUM_CLASS, 'SlaOperBucketEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperBucketEnum', 
                 [], [], 
                 '''                BucketType
                 ''',
@@ -3611,7 +3611,7 @@ _meta_table = {
                 ''',
                 'bucket_size',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('bucket-size-unit', REFERENCE_ENUM_CLASS, 'SlaBucketSize_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaBucketSize_Enum', 
+            _MetaInfoClassMember('bucket-size-unit', REFERENCE_ENUM_CLASS, 'SlaBucketSizeEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaBucketSizeEnum', 
                 [], [], 
                 '''                Whether bucket size is 'per-probe' or 'probes'
                 ''',
@@ -3623,7 +3623,7 @@ _meta_table = {
                 ''',
                 'buckets_archive',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetric_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'SlaRecordableMetricEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaRecordableMetricEnum', 
                 [], [], 
                 '''                Type of metric to which this configuration
                 applies
@@ -3754,7 +3754,7 @@ _meta_table = {
                 ''',
                 'ondemand_operation_options',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('oper-type', REFERENCE_ENUM_CLASS, 'SlaOperOperation_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperOperation_Enum', 
+            _MetaInfoClassMember('oper-type', REFERENCE_ENUM_CLASS, 'SlaOperOperationEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'SlaOperOperationEnum', 
                 [], [], 
                 '''                OperType
                 ''',

@@ -28,335 +28,324 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class MplsLdpAdvertiseBgpacl_Enum(Enum):
+class MplsLdpAdvertiseBgpaclEnum(Enum):
     """
-    MplsLdpAdvertiseBgpacl_Enum
+    MplsLdpAdvertiseBgpaclEnum
 
     Mpls ldp advertise bgpacl
 
-    """
+    .. data:: PEER_ACL = 1
+
+    	BGP prefixes advertised to peers permitted by
+
+    	ACL
 
     """
 
-    BGP prefixes advertised to peers permitted by
-    ACL
-
-    """
     PEER_ACL = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-        return meta._meta_table['MplsLdpAdvertiseBgpacl_Enum']
+        return meta._meta_table['MplsLdpAdvertiseBgpaclEnum']
 
 
-class MplsLdpDownstreamOnDemand_Enum(Enum):
+class MplsLdpDownstreamOnDemandEnum(Enum):
     """
-    MplsLdpDownstreamOnDemand_Enum
+    MplsLdpDownstreamOnDemandEnum
 
     Mpls ldp downstream on demand
 
-    """
+    .. data:: PEER_ACL = 1
+
+    	Downstream on Demand peers permitted by ACL
 
     """
 
-    Downstream on Demand peers permitted by ACL
-
-    """
     PEER_ACL = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-        return meta._meta_table['MplsLdpDownstreamOnDemand_Enum']
+        return meta._meta_table['MplsLdpDownstreamOnDemandEnum']
 
 
-class MplsLdpExpNull_Enum(Enum):
+class MplsLdpExpNullEnum(Enum):
     """
-    MplsLdpExpNull_Enum
+    MplsLdpExpNullEnum
 
     Mpls ldp exp null
 
-    """
+    .. data:: ALL = 1
+
+    	Advertise explicit-null for all connected
+
+    	prefixes to all peers
+
+    .. data:: FOR = 2
+
+    	Advertise explicit-null for prefix(es)
+
+    	permitted by prefix ACL
+
+    .. data:: TO = 3
+
+    	Advertise explicit-null for all connected
+
+    	prefixes to peer(s) permitted by peer ACL
+
+    .. data:: FOR_TO = 4
+
+    	Advertise explicit-null for prefix(es)
+
+    	permitted by prefix ACL to peer(s) permitted by
+
+    	peer ACL
 
     """
 
-    Advertise explicit\-null for all connected
-    prefixes to all peers
-
-    """
     ALL = 1
 
-    """
-
-    Advertise explicit\-null for prefix(es)
-    permitted by prefix ACL
-
-    """
     FOR = 2
 
-    """
-
-    Advertise explicit\-null for all connected
-    prefixes to peer(s) permitted by peer ACL
-
-    """
     TO = 3
 
-    """
-
-    Advertise explicit\-null for prefix(es)
-    permitted by prefix ACL to peer(s) permitted by
-    peer ACL
-
-    """
     FOR_TO = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-        return meta._meta_table['MplsLdpExpNull_Enum']
+        return meta._meta_table['MplsLdpExpNullEnum']
 
 
-class MplsLdpLabelAdvertise_Enum(Enum):
+class MplsLdpLabelAdvertiseEnum(Enum):
     """
-    MplsLdpLabelAdvertise_Enum
+    MplsLdpLabelAdvertiseEnum
 
     Mpls ldp label advertise
 
-    """
+    .. data:: FOR = 1
+
+    	Advertise label for prefix(es) permitted by
+
+    	prefix ACL
+
+    .. data:: FOR_TO = 2
+
+    	Advertise label for prefix(es) permitted by
+
+    	prefix ACL to peer(s) permitted by peer ACL
 
     """
 
-    Advertise label for prefix(es) permitted by
-    prefix ACL
-
-    """
     FOR = 1
 
-    """
-
-    Advertise label for prefix(es) permitted by
-    prefix ACL to peer(s) permitted by peer ACL
-
-    """
     FOR_TO = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-        return meta._meta_table['MplsLdpLabelAdvertise_Enum']
+        return meta._meta_table['MplsLdpLabelAdvertiseEnum']
 
 
-class MplsLdpLabelAllocation_Enum(Enum):
+class MplsLdpLabelAllocationEnum(Enum):
     """
-    MplsLdpLabelAllocation_Enum
+    MplsLdpLabelAllocationEnum
 
     Mpls ldp label allocation
 
-    """
+    .. data:: ACL = 1
+
+    	Allocate label for prefixes permitted by ACL
+
+    .. data:: HOST = 2
+
+    	Allocate label for host routes only
 
     """
 
-    Allocate label for prefixes permitted by ACL
-
-    """
     ACL = 1
 
-    """
-
-    Allocate label for host routes only
-
-    """
     HOST = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-        return meta._meta_table['MplsLdpLabelAllocation_Enum']
+        return meta._meta_table['MplsLdpLabelAllocationEnum']
 
 
-class MplsLdpNbrPassword_Enum(Enum):
+class MplsLdpNbrPasswordEnum(Enum):
     """
-    MplsLdpNbrPassword_Enum
+    MplsLdpNbrPasswordEnum
 
     Mpls ldp nbr password
 
-    """
+    .. data:: DISABLE = 1
+
+    	Disable the global default password for this
+
+    	neighbor
+
+    .. data:: SPECIFIED = 2
+
+    	Specify a password for this neighbor
 
     """
 
-    Disable the global default password for this
-    neighbor
-
-    """
     DISABLE = 1
 
-    """
-
-    Specify a password for this neighbor
-
-    """
     SPECIFIED = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-        return meta._meta_table['MplsLdpNbrPassword_Enum']
+        return meta._meta_table['MplsLdpNbrPasswordEnum']
 
 
-class MplsLdpSessionProtection_Enum(Enum):
+class MplsLdpSessionProtectionEnum(Enum):
     """
-    MplsLdpSessionProtection_Enum
+    MplsLdpSessionProtectionEnum
 
     Mpls ldp session protection
 
-    """
+    .. data:: ALL = 1
+
+    	Protect all peer sessions
+
+    .. data:: FOR = 2
+
+    	Protect peer session(s) permitted by peer ACL
+
+    .. data:: ALL_WITH_DURATION = 3
+
+    	Protect all peer sessions and holdup protection
+
+    	for given duration
+
+    .. data:: FOR_WITH_DURATION = 4
+
+    	Protect peer session(s) permitted by peer ACL
+
+    	and holdup protection for given duration
+
+    .. data:: ALL_WITH_FOREVER = 5
+
+    	Protect all peer sessions and holdup protection
+
+    	forever
+
+    .. data:: FOR_WITH_FOREVER = 6
+
+    	Protect peer session(s) permitted by peer ACL
+
+    	and holdup protection forever
 
     """
 
-    Protect all peer sessions
-
-    """
     ALL = 1
 
-    """
-
-    Protect peer session(s) permitted by peer ACL
-
-    """
     FOR = 2
 
-    """
-
-    Protect all peer sessions and holdup protection
-    for given duration
-
-    """
     ALL_WITH_DURATION = 3
 
-    """
-
-    Protect peer session(s) permitted by peer ACL
-    and holdup protection for given duration
-
-    """
     FOR_WITH_DURATION = 4
 
-    """
-
-    Protect all peer sessions and holdup protection
-    forever
-
-    """
     ALL_WITH_FOREVER = 5
 
-    """
-
-    Protect peer session(s) permitted by peer ACL
-    and holdup protection forever
-
-    """
     FOR_WITH_FOREVER = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-        return meta._meta_table['MplsLdpSessionProtection_Enum']
+        return meta._meta_table['MplsLdpSessionProtectionEnum']
 
 
-class MplsLdpTargetedAccept_Enum(Enum):
+class MplsLdpTargetedAcceptEnum(Enum):
     """
-    MplsLdpTargetedAccept_Enum
+    MplsLdpTargetedAcceptEnum
 
     Mpls ldp targeted accept
 
-    """
+    .. data:: ALL = 1
+
+    	Accept targeted hello from all
+
+    .. data:: FROM = 2
+
+    	Accept targeted hello from peer ACL
 
     """
 
-    Accept targeted hello from all
-
-    """
     ALL = 1
 
-    """
-
-    Accept targeted hello from peer ACL
-
-    """
     FROM = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-        return meta._meta_table['MplsLdpTargetedAccept_Enum']
+        return meta._meta_table['MplsLdpTargetedAcceptEnum']
 
 
-class MplsLdpTransportAddress_Enum(Enum):
+class MplsLdpTransportAddressEnum(Enum):
     """
-    MplsLdpTransportAddress_Enum
+    MplsLdpTransportAddressEnum
 
     Mpls ldp transport address
 
-    """
+    .. data:: INTERFACE = 1
+
+    	Use interface IP address
+
+    .. data:: ADDRESS = 2
+
+    	Use given IP address
 
     """
 
-    Use interface IP address
-
-    """
     INTERFACE = 1
 
-    """
-
-    Use given IP address
-
-    """
     ADDRESS = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-        return meta._meta_table['MplsLdpTransportAddress_Enum']
+        return meta._meta_table['MplsLdpTransportAddressEnum']
 
 
-class MplsLdpafName_Enum(Enum):
+class MplsLdpafNameEnum(Enum):
     """
-    MplsLdpafName_Enum
+    MplsLdpafNameEnum
 
     Mpls ldpaf name
 
-    """
+    .. data:: IPV4 = 4
+
+    	IPv4
+
+    .. data:: IPV6 = 6
+
+    	IPv6
 
     """
 
-    IPv4
-
-    """
     IPV4 = 4
 
-    """
-
-    IPv6
-
-    """
     IPV6 = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-        return meta._meta_table['MplsLdpafName_Enum']
+        return meta._meta_table['MplsLdpafNameEnum']
 
 
 
@@ -468,7 +457,7 @@ class MplsLdp(object):
                 .. attribute:: af_name
                 
                 	Address Family type
-                	**type**\: :py:class:`MplsLdpafName_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafName_Enum>`
+                	**type**\: :py:class:`MplsLdpafNameEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
                 
                 .. attribute:: discovery
                 
@@ -559,7 +548,7 @@ class MplsLdp(object):
                         .. attribute:: accept_type
                         
                         	Type of acceptance
-                        	**type**\: :py:class:`MplsLdpTargetedAccept_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpTargetedAccept_Enum>`
+                        	**type**\: :py:class:`MplsLdpTargetedAcceptEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpTargetedAcceptEnum>`
                         
                         .. attribute:: peer_acl_name
                         
@@ -592,18 +581,12 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.accept_type is not None:
                                 return True
 
                             if self.peer_acl_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -625,21 +608,12 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.targeted_hello_accept is not None and self.targeted_hello_accept._has_data():
-                            return True
-
-                        if self.targeted_hello_accept is not None and self.targeted_hello_accept.is_presence():
                             return True
 
                         if self.transport_address is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -775,7 +749,7 @@ class MplsLdp(object):
                                 .. attribute:: explicit_null_type
                                 
                                 	Explicit Null command variant
-                                	**type**\: :py:class:`MplsLdpExpNull_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpExpNull_Enum>`
+                                	**type**\: :py:class:`MplsLdpExpNullEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpExpNullEnum>`
                                 
                                 .. attribute:: peer_acl_name
                                 
@@ -814,8 +788,6 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.explicit_null_type is not None:
                                         return True
 
@@ -825,10 +797,6 @@ class MplsLdp(object):
                                     if self.prefix_acl_name is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -900,15 +868,9 @@ class MplsLdp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interface_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -930,17 +892,11 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface is not None:
                                         for child_ref in self.interface:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1028,8 +984,6 @@ class MplsLdp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.label_space_id is not None:
                                             return True
 
@@ -1039,10 +993,6 @@ class MplsLdp(object):
                                         if self.prefix_acl_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -1064,17 +1014,11 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.peer_advertise_policy is not None:
                                         for child_ref in self.peer_advertise_policy:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1122,7 +1066,7 @@ class MplsLdp(object):
                                     .. attribute:: advertise_type
                                     
                                     	Label advertise type
-                                    	**type**\: :py:class:`MplsLdpLabelAdvertise_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpLabelAdvertise_Enum>`
+                                    	**type**\: :py:class:`MplsLdpLabelAdvertiseEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpLabelAdvertiseEnum>`
                                     
                                     .. attribute:: peer_acl_name
                                     
@@ -1158,8 +1102,6 @@ class MplsLdp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.prefix_acl_name is not None:
                                             return True
 
@@ -1169,10 +1111,6 @@ class MplsLdp(object):
                                         if self.peer_acl_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -1194,17 +1132,11 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.prefix_advertise_policy is not None:
                                         for child_ref in self.prefix_advertise_policy:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1226,39 +1158,21 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.disable is not None:
                                     return True
 
                                 if self.explicit_null is not None and self.explicit_null._has_data():
                                     return True
 
-                                if self.explicit_null is not None and self.explicit_null.is_presence():
-                                    return True
-
                                 if self.interfaces is not None and self.interfaces._has_data():
-                                    return True
-
-                                if self.interfaces is not None and self.interfaces.is_presence():
                                     return True
 
                                 if self.peer_advertise_policies is not None and self.peer_advertise_policies._has_data():
                                     return True
 
-                                if self.peer_advertise_policies is not None and self.peer_advertise_policies.is_presence():
-                                    return True
-
                                 if self.prefix_advertise_policies is not None and self.prefix_advertise_policies._has_data():
                                     return True
 
-                                if self.prefix_advertise_policies is not None and self.prefix_advertise_policies.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1275,7 +1189,7 @@ class MplsLdp(object):
                             .. attribute:: allocation_type
                             
                             	Label allocation type
-                            	**type**\: :py:class:`MplsLdpLabelAllocation_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpLabelAllocation_Enum>`
+                            	**type**\: :py:class:`MplsLdpLabelAllocationEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpLabelAllocationEnum>`
                             
                             .. attribute:: prefix_acl_name
                             
@@ -1308,18 +1222,12 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.allocation_type is not None:
                                     return True
 
                                 if self.prefix_acl_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1341,18 +1249,10 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.advertise is not None and self.advertise._has_data():
                                 return True
 
-                            if self.advertise is not None and self.advertise.is_presence():
-                                return True
-
                             if self.allocate is not None and self.allocate._has_data():
-                                return True
-
-                            if self.allocate is not None and self.allocate.is_presence():
                                 return True
 
                             if self.default_route is not None:
@@ -1361,10 +1261,6 @@ class MplsLdp(object):
                             if self.implicit_null_override is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1497,8 +1393,6 @@ class MplsLdp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.label_space_id is not None:
                                             return True
 
@@ -1508,10 +1402,6 @@ class MplsLdp(object):
                                         if self.prefix_acl_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -1533,17 +1423,11 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.peer_accept_policy is not None:
                                         for child_ref in self.peer_accept_policy:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1565,18 +1449,9 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.peer_accept_policies is not None and self.peer_accept_policies._has_data():
                                     return True
 
-                                if self.peer_accept_policies is not None and self.peer_accept_policies.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1598,18 +1473,9 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.accept is not None and self.accept._has_data():
                                 return True
 
-                            if self.accept is not None and self.accept.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1631,24 +1497,12 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.local is not None and self.local._has_data():
-                            return True
-
-                        if self.local is not None and self.local.is_presence():
                             return True
 
                         if self.remote is not None and self.remote._has_data():
                             return True
 
-                        if self.remote is not None and self.remote.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1746,18 +1600,12 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ip_address is not None:
                                     return True
 
                                 if self.targeted is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1779,17 +1627,11 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 for child_ref in self.address:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1811,18 +1653,9 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.addresses is not None and self.addresses._has_data():
                             return True
 
-                        if self.addresses is not None and self.addresses.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1897,7 +1730,7 @@ class MplsLdp(object):
                             .. attribute:: type
                             
                             	advertise to peer acl type
-                            	**type**\: :py:class:`MplsLdpAdvertiseBgpacl_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpAdvertiseBgpacl_Enum>`
+                            	**type**\: :py:class:`MplsLdpAdvertiseBgpaclEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpAdvertiseBgpaclEnum>`
                             
                             
 
@@ -1925,18 +1758,12 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.peer_acl_name is not None:
                                     return True
 
                                 if self.type is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1990,18 +1817,12 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.as_xx is not None:
                                     return True
 
                                 if self.as_yy is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2023,24 +1844,12 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.advertise_to is not None and self.advertise_to._has_data():
-                                return True
-
-                            if self.advertise_to is not None and self.advertise_to.is_presence():
                                 return True
 
                             if self.as_ is not None and self.as_._has_data():
                                 return True
 
-                            if self.as_ is not None and self.as_.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2062,18 +1871,9 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bgp is not None and self.bgp._has_data():
                             return True
 
-                        if self.bgp is not None and self.bgp.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2195,15 +1995,9 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.mesh_group_id is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2225,17 +2019,11 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.group_id is not None:
                                     for child_ref in self.group_id:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2257,21 +2045,12 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.group_all is not None:
                                 return True
 
                             if self.group_ids is not None and self.group_ids._has_data():
                                 return True
 
-                            if self.group_ids is not None and self.group_ids.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2293,18 +2072,9 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.auto_tunnel_mesh is not None and self.auto_tunnel_mesh._has_data():
                             return True
 
-                        if self.auto_tunnel_mesh is not None and self.auto_tunnel_mesh.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2326,15 +2096,10 @@ class MplsLdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.af_name is not None:
                         return True
 
                     if self.discovery is not None and self.discovery._has_data():
-                        return True
-
-                    if self.discovery is not None and self.discovery.is_presence():
                         return True
 
                     if self.enable is not None:
@@ -2343,31 +2108,15 @@ class MplsLdp(object):
                     if self.label is not None and self.label._has_data():
                         return True
 
-                    if self.label is not None and self.label.is_presence():
-                        return True
-
                     if self.neighbor is not None and self.neighbor._has_data():
-                        return True
-
-                    if self.neighbor is not None and self.neighbor.is_presence():
                         return True
 
                     if self.redistribution_protocol is not None and self.redistribution_protocol._has_data():
                         return True
 
-                    if self.redistribution_protocol is not None and self.redistribution_protocol.is_presence():
-                        return True
-
                     if self.traffic_engineering is not None and self.traffic_engineering._has_data():
                         return True
 
-                    if self.traffic_engineering is not None and self.traffic_engineering.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2387,17 +2136,11 @@ class MplsLdp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.af is not None:
                     for child_ref in self.af:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2506,15 +2249,9 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.maintain_on_local_reset is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2534,18 +2271,9 @@ class MplsLdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.helper_peer is not None and self.helper_peer._has_data():
                         return True
 
-                    if self.helper_peer is not None and self.helper_peer.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2682,15 +2410,9 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ipv4 is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2710,21 +2432,12 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.max_wait is not None:
                                 return True
 
                             if self.prefer is not None and self.prefer._has_data():
                                 return True
 
-                            if self.prefer is not None and self.prefer.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2744,21 +2457,12 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.tlv_compliance is not None:
                             return True
 
                         if self.transport_connection is not None and self.transport_connection._has_data():
                             return True
 
-                        if self.transport_connection is not None and self.transport_connection.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2838,7 +2542,7 @@ class MplsLdp(object):
                             .. attribute:: command_type
                             
                             	Command type for password configuration
-                            	**type**\: :py:class:`MplsLdpNbrPassword_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpNbrPassword_Enum>`
+                            	**type**\: :py:class:`MplsLdpNbrPasswordEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpNbrPasswordEnum>`
                             
                             .. attribute:: password
                             
@@ -2873,18 +2577,12 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.command_type is not None:
                                     return True
 
                                 if self.password is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2908,8 +2606,6 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.label_space_id is not None:
                                 return True
 
@@ -2919,13 +2615,6 @@ class MplsLdp(object):
                             if self.password is not None and self.password._has_data():
                                 return True
 
-                            if self.password is not None and self.password.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2945,17 +2634,11 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ldp_id is not None:
                             for child_ref in self.ldp_id:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2975,27 +2658,15 @@ class MplsLdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.dual_stack is not None and self.dual_stack._has_data():
-                        return True
-
-                    if self.dual_stack is not None and self.dual_stack.is_presence():
                         return True
 
                     if self.ldp_ids is not None and self.ldp_ids._has_data():
                         return True
 
-                    if self.ldp_ids is not None and self.ldp_ids.is_presence():
-                        return True
-
                     if self.password is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3046,7 +2717,7 @@ class MplsLdp(object):
                     .. attribute:: type
                     
                     	Downstream on demand type
-                    	**type**\: :py:class:`MplsLdpDownstreamOnDemand_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpDownstreamOnDemand_Enum>`
+                    	**type**\: :py:class:`MplsLdpDownstreamOnDemandEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpDownstreamOnDemandEnum>`
                     
                     
 
@@ -3072,18 +2743,12 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.peer_acl_name is not None:
                             return True
 
                         if self.type is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3111,7 +2776,7 @@ class MplsLdp(object):
                     .. attribute:: protection_type
                     
                     	Session protection type
-                    	**type**\: :py:class:`MplsLdpSessionProtection_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpSessionProtection_Enum>`
+                    	**type**\: :py:class:`MplsLdpSessionProtectionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpSessionProtectionEnum>`
                     
                     
 
@@ -3138,8 +2803,6 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.duration is not None:
                             return True
 
@@ -3149,10 +2812,6 @@ class MplsLdp(object):
                         if self.protection_type is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3172,24 +2831,12 @@ class MplsLdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.downstream_on_demand is not None and self.downstream_on_demand._has_data():
-                        return True
-
-                    if self.downstream_on_demand is not None and self.downstream_on_demand.is_presence():
                         return True
 
                     if self.protection is not None and self.protection._has_data():
                         return True
 
-                    if self.protection is not None and self.protection.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3209,18 +2856,10 @@ class MplsLdp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.graceful_restart is not None and self.graceful_restart._has_data():
                     return True
 
-                if self.graceful_restart is not None and self.graceful_restart.is_presence():
-                    return True
-
                 if self.neighbor is not None and self.neighbor._has_data():
-                    return True
-
-                if self.neighbor is not None and self.neighbor.is_presence():
                     return True
 
                 if self.router_id is not None:
@@ -3229,13 +2868,6 @@ class MplsLdp(object):
                 if self.session is not None and self.session._has_data():
                     return True
 
-                if self.session is not None and self.session.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3342,7 +2974,7 @@ class MplsLdp(object):
                         .. attribute:: af_name
                         
                         	Address Family name
-                        	**type**\: :py:class:`MplsLdpafName_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafName_Enum>`
+                        	**type**\: :py:class:`MplsLdpafNameEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
                         
                         .. attribute:: discovery
                         
@@ -3418,7 +3050,7 @@ class MplsLdp(object):
                                 .. attribute:: address_type
                                 
                                 	Transport address option
-                                	**type**\: :py:class:`MplsLdpTransportAddress_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpTransportAddress_Enum>`
+                                	**type**\: :py:class:`MplsLdpTransportAddressEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpTransportAddressEnum>`
                                 
                                 
 
@@ -3446,18 +3078,12 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address is not None:
                                         return True
 
                                     if self.address_type is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3479,18 +3105,9 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.transport_address is not None and self.transport_address._has_data():
                                     return True
 
-                                if self.transport_address is not None and self.transport_address.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3533,15 +3150,9 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.disable_auto_config is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3584,15 +3195,9 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.disable is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3616,15 +3221,10 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.af_name is not None:
                                 return True
 
                             if self.discovery is not None and self.discovery._has_data():
-                                return True
-
-                            if self.discovery is not None and self.discovery.is_presence():
                                 return True
 
                             if self.enable is not None:
@@ -3633,19 +3233,9 @@ class MplsLdp(object):
                             if self.igp is not None and self.igp._has_data():
                                 return True
 
-                            if self.igp is not None and self.igp.is_presence():
-                                return True
-
                             if self.mldp is not None and self.mldp._has_data():
                                 return True
 
-                            if self.mldp is not None and self.mldp.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3667,17 +3257,11 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.af is not None:
                             for child_ref in self.af:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3751,7 +3335,7 @@ class MplsLdp(object):
                             .. attribute:: dual_stack
                             
                             	Dual Stack Address Family Preference
-                            	**type**\: :py:class:`MplsLdpafName_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafName_Enum>`
+                            	**type**\: :py:class:`MplsLdpafNameEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
                             
                             .. attribute:: hold_time
                             
@@ -3794,8 +3378,6 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.dual_stack is not None:
                                     return True
 
@@ -3805,10 +3387,6 @@ class MplsLdp(object):
                                 if self.interval is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3830,21 +3408,12 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.disable_quick_start is not None:
                                 return True
 
                             if self.link_hello is not None and self.link_hello._has_data():
                                 return True
 
-                            if self.link_hello is not None and self.link_hello.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3961,18 +3530,12 @@ class MplsLdp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.disable is not None:
                                             return True
 
                                         if self.timeout is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3994,18 +3557,9 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.on_session_up is not None and self.on_session_up._has_data():
                                         return True
 
-                                    if self.on_session_up is not None and self.on_session_up.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -4027,18 +3581,9 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.delay is not None and self.delay._has_data():
                                     return True
 
-                                if self.delay is not None and self.delay.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4060,18 +3605,9 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.sync is not None and self.sync._has_data():
                                 return True
 
-                            if self.sync is not None and self.sync.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4093,24 +3629,12 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.discovery is not None and self.discovery._has_data():
-                            return True
-
-                        if self.discovery is not None and self.discovery.is_presence():
                             return True
 
                         if self.igp is not None and self.igp._has_data():
                             return True
 
-                        if self.igp is not None and self.igp.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4132,15 +3656,10 @@ class MplsLdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface_name is not None:
                         return True
 
                     if self.afs is not None and self.afs._has_data():
-                        return True
-
-                    if self.afs is not None and self.afs.is_presence():
                         return True
 
                     if self.enable is not None:
@@ -4149,13 +3668,6 @@ class MplsLdp(object):
                     if self.global_ is not None and self.global_._has_data():
                         return True
 
-                    if self.global_ is not None and self.global_.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4175,17 +3687,11 @@ class MplsLdp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.interface is not None:
                     for child_ref in self.interface:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4205,30 +3711,15 @@ class MplsLdp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.afs is not None and self.afs._has_data():
-                return True
-
-            if self.afs is not None and self.afs.is_presence():
                 return True
 
             if self.global_ is not None and self.global_._has_data():
                 return True
 
-            if self.global_ is not None and self.global_.is_presence():
-                return True
-
             if self.interfaces is not None and self.interfaces._has_data():
                 return True
 
-            if self.interfaces is not None and self.interfaces.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -4404,18 +3895,12 @@ class MplsLdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.hold_time is not None:
                         return True
 
                     if self.interval is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4466,18 +3951,12 @@ class MplsLdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.hold_time is not None:
                         return True
 
                     if self.interval is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4497,8 +3976,6 @@ class MplsLdp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.disable_instance_tlv is not None:
                     return True
 
@@ -4508,19 +3985,9 @@ class MplsLdp(object):
                 if self.link_hello is not None and self.link_hello._has_data():
                     return True
 
-                if self.link_hello is not None and self.link_hello.is_presence():
-                    return True
-
                 if self.targeted_hello is not None and self.targeted_hello._has_data():
                     return True
 
-                if self.targeted_hello is not None and self.targeted_hello.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4585,8 +4052,6 @@ class MplsLdp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.adjacency is not None:
                     return True
 
@@ -4602,10 +4067,6 @@ class MplsLdp(object):
                 if self.session_protection is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4646,15 +4107,9 @@ class MplsLdp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4712,8 +4167,6 @@ class MplsLdp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
@@ -4723,10 +4176,6 @@ class MplsLdp(object):
                 if self.reconnect_timeout is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4821,18 +4270,12 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.on_proc_restart is not None:
                             return True
 
                         if self.on_session_up is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4852,18 +4295,9 @@ class MplsLdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.delay is not None and self.delay._has_data():
                         return True
 
-                    if self.delay is not None and self.delay.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4883,18 +4317,9 @@ class MplsLdp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.sync is not None and self.sync._has_data():
                     return True
 
-                if self.sync is not None and self.sync.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4997,7 +4422,7 @@ class MplsLdp(object):
                         .. attribute:: af_name
                         
                         	Address Family name
-                        	**type**\: :py:class:`MplsLdpafName_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafName_Enum>`
+                        	**type**\: :py:class:`MplsLdpafNameEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
                         
                         .. attribute:: csc
                         
@@ -5085,15 +4510,9 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.enable_csc is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -5168,18 +4587,12 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.delete_delay is not None:
                                         return True
 
                                     if self.forward_delay is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5201,18 +4614,9 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.signaling is not None and self.signaling._has_data():
                                     return True
 
-                                if self.signaling is not None and self.signaling.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -5255,15 +4659,9 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.enable_mldp_recursive_fec is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -5306,15 +4704,9 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.enable_mo_frr is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -5336,15 +4728,10 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.af_name is not None:
                                 return True
 
                             if self.csc is not None and self.csc._has_data():
-                                return True
-
-                            if self.csc is not None and self.csc.is_presence():
                                 return True
 
                             if self.enable is not None:
@@ -5353,13 +4740,7 @@ class MplsLdp(object):
                             if self.make_before_break is not None and self.make_before_break._has_data():
                                 return True
 
-                            if self.make_before_break is not None and self.make_before_break.is_presence():
-                                return True
-
                             if self.mldp_recursive_fec is not None and self.mldp_recursive_fec._has_data():
-                                return True
-
-                            if self.mldp_recursive_fec is not None and self.mldp_recursive_fec.is_presence():
                                 return True
 
                             if self.mldp_rib_unicast_always is not None:
@@ -5368,13 +4749,6 @@ class MplsLdp(object):
                             if self.mo_frr is not None and self.mo_frr._has_data():
                                 return True
 
-                            if self.mo_frr is not None and self.mo_frr.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5394,17 +4768,11 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.af is not None:
                             for child_ref in self.af:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5424,18 +4792,9 @@ class MplsLdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.afs is not None and self.afs._has_data():
                         return True
 
-                    if self.afs is not None and self.afs.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5498,15 +4857,9 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.notifications is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5526,18 +4879,9 @@ class MplsLdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.logging is not None and self.logging._has_data():
                         return True
 
-                    if self.logging is not None and self.logging.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5629,7 +4973,7 @@ class MplsLdp(object):
                             .. attribute:: af_name
                             
                             	Address Family name
-                            	**type**\: :py:class:`MplsLdpafName_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafName_Enum>`
+                            	**type**\: :py:class:`MplsLdpafNameEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
                             
                             .. attribute:: csc
                             
@@ -5717,15 +5061,9 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.enable_csc is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5800,18 +5138,12 @@ class MplsLdp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.delete_delay is not None:
                                             return True
 
                                         if self.forward_delay is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -5833,18 +5165,9 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.signaling is not None and self.signaling._has_data():
                                         return True
 
-                                    if self.signaling is not None and self.signaling.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5887,15 +5210,9 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.enable_mldp_recursive_fec is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5938,15 +5255,9 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.enable_mo_frr is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5970,15 +5281,10 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.af_name is not None:
                                     return True
 
                                 if self.csc is not None and self.csc._has_data():
-                                    return True
-
-                                if self.csc is not None and self.csc.is_presence():
                                     return True
 
                                 if self.enable is not None:
@@ -5987,13 +5293,7 @@ class MplsLdp(object):
                                 if self.make_before_break is not None and self.make_before_break._has_data():
                                     return True
 
-                                if self.make_before_break is not None and self.make_before_break.is_presence():
-                                    return True
-
                                 if self.mldp_recursive_fec is not None and self.mldp_recursive_fec._has_data():
-                                    return True
-
-                                if self.mldp_recursive_fec is not None and self.mldp_recursive_fec.is_presence():
                                     return True
 
                                 if self.mldp_rib_unicast_always is not None:
@@ -6002,13 +5302,6 @@ class MplsLdp(object):
                                 if self.mo_frr is not None and self.mo_frr._has_data():
                                     return True
 
-                                if self.mo_frr is not None and self.mo_frr.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6030,17 +5323,11 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.af is not None:
                                 for child_ref in self.af:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6062,21 +5349,12 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.vrf_name is not None:
                             return True
 
                         if self.afs is not None and self.afs._has_data():
                             return True
 
-                        if self.afs is not None and self.afs.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -6096,17 +5374,11 @@ class MplsLdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.vrf is not None:
                         for child_ref in self.vrf:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6126,12 +5398,7 @@ class MplsLdp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.default_vrf is not None and self.default_vrf._has_data():
-                    return True
-
-                if self.default_vrf is not None and self.default_vrf.is_presence():
                     return True
 
                 if self.enable is not None:
@@ -6140,19 +5407,9 @@ class MplsLdp(object):
                 if self.mldp_global is not None and self.mldp_global._has_data():
                     return True
 
-                if self.mldp_global is not None and self.mldp_global.is_presence():
-                    return True
-
                 if self.vrfs is not None and self.vrfs._has_data():
                     return True
 
-                if self.vrfs is not None and self.vrfs.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -6193,15 +5450,9 @@ class MplsLdp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -6282,18 +5533,12 @@ class MplsLdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.initial_backoff_time is not None:
                         return True
 
                     if self.max_backoff_time is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6313,21 +5558,12 @@ class MplsLdp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.backoff_time is not None and self.backoff_time._has_data():
-                    return True
-
-                if self.backoff_time is not None and self.backoff_time.is_presence():
                     return True
 
                 if self.hold_time is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -6370,15 +5606,9 @@ class MplsLdp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.dscp is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -6398,69 +5628,36 @@ class MplsLdp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.disable_implicit_ipv4 is not None:
                 return True
 
             if self.discovery is not None and self.discovery._has_data():
                 return True
 
-            if self.discovery is not None and self.discovery.is_presence():
-                return True
-
             if self.enable_logging is not None and self.enable_logging._has_data():
-                return True
-
-            if self.enable_logging is not None and self.enable_logging.is_presence():
                 return True
 
             if self.entropy_label is not None and self.entropy_label._has_data():
                 return True
 
-            if self.entropy_label is not None and self.entropy_label.is_presence():
-                return True
-
             if self.graceful_restart is not None and self.graceful_restart._has_data():
-                return True
-
-            if self.graceful_restart is not None and self.graceful_restart.is_presence():
                 return True
 
             if self.igp is not None and self.igp._has_data():
                 return True
 
-            if self.igp is not None and self.igp.is_presence():
-                return True
-
             if self.mldp is not None and self.mldp._has_data():
-                return True
-
-            if self.mldp is not None and self.mldp.is_presence():
                 return True
 
             if self.nsr is not None and self.nsr._has_data():
                 return True
 
-            if self.nsr is not None and self.nsr.is_presence():
-                return True
-
             if self.session is not None and self.session._has_data():
-                return True
-
-            if self.session is not None and self.session.is_presence():
                 return True
 
             if self.signalling is not None and self.signalling._has_data():
                 return True
 
-            if self.signalling is not None and self.signalling.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -6573,7 +5770,7 @@ class MplsLdp(object):
                     .. attribute:: af_name
                     
                     	Address Family name
-                    	**type**\: :py:class:`MplsLdpafName_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafName_Enum>`
+                    	**type**\: :py:class:`MplsLdpafNameEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
                     
                     .. attribute:: discovery
                     
@@ -6641,15 +5838,9 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.transport_address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6778,7 +5969,7 @@ class MplsLdp(object):
                                     .. attribute:: explicit_null_type
                                     
                                     	Explicit Null command variant
-                                    	**type**\: :py:class:`MplsLdpExpNull_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpExpNull_Enum>`
+                                    	**type**\: :py:class:`MplsLdpExpNullEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpExpNullEnum>`
                                     
                                     .. attribute:: peer_acl_name
                                     
@@ -6817,8 +6008,6 @@ class MplsLdp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.explicit_null_type is not None:
                                             return True
 
@@ -6828,10 +6017,6 @@ class MplsLdp(object):
                                         if self.prefix_acl_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6903,15 +6088,9 @@ class MplsLdp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -6933,17 +6112,11 @@ class MplsLdp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interface is not None:
                                             for child_ref in self.interface:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7059,18 +6232,12 @@ class MplsLdp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.lsr_id is not None:
                                                     return True
 
                                                 if self.prefix_acl_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -7113,15 +6280,9 @@ class MplsLdp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.prefix_acl_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -7145,8 +6306,6 @@ class MplsLdp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.label_space_id is not None:
                                                 return True
 
@@ -7158,13 +6317,6 @@ class MplsLdp(object):
                                             if self.peer_advertise_policy_data is not None and self.peer_advertise_policy_data._has_data():
                                                 return True
 
-                                            if self.peer_advertise_policy_data is not None and self.peer_advertise_policy_data.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -7186,17 +6338,11 @@ class MplsLdp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.peer_advertise_policy is not None:
                                             for child_ref in self.peer_advertise_policy:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7218,33 +6364,18 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.disable is not None:
                                         return True
 
                                     if self.explicit_null is not None and self.explicit_null._has_data():
                                         return True
 
-                                    if self.explicit_null is not None and self.explicit_null.is_presence():
-                                        return True
-
                                     if self.interfaces is not None and self.interfaces._has_data():
-                                        return True
-
-                                    if self.interfaces is not None and self.interfaces.is_presence():
                                         return True
 
                                     if self.peer_advertise_policies is not None and self.peer_advertise_policies._has_data():
                                         return True
 
-                                    if self.peer_advertise_policies is not None and self.peer_advertise_policies.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -7261,7 +6392,7 @@ class MplsLdp(object):
                                 .. attribute:: allocation_type
                                 
                                 	Label allocation type
-                                	**type**\: :py:class:`MplsLdpLabelAllocation_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpLabelAllocation_Enum>`
+                                	**type**\: :py:class:`MplsLdpLabelAllocationEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpLabelAllocationEnum>`
                                 
                                 .. attribute:: prefix_acl_name
                                 
@@ -7294,18 +6425,12 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.allocation_type is not None:
                                         return True
 
                                     if self.prefix_acl_name is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -7327,18 +6452,10 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.advertise is not None and self.advertise._has_data():
                                     return True
 
-                                if self.advertise is not None and self.advertise.is_presence():
-                                    return True
-
                                 if self.allocate is not None and self.allocate._has_data():
-                                    return True
-
-                                if self.allocate is not None and self.allocate.is_presence():
                                     return True
 
                                 if self.default_route is not None:
@@ -7347,10 +6464,6 @@ class MplsLdp(object):
                                 if self.implicit_null_override is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7511,18 +6624,12 @@ class MplsLdp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.lsr_id is not None:
                                                     return True
 
                                                 if self.prefix_acl_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -7565,15 +6672,9 @@ class MplsLdp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.prefix_acl_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -7597,8 +6698,6 @@ class MplsLdp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.label_space_id is not None:
                                                 return True
 
@@ -7610,13 +6709,6 @@ class MplsLdp(object):
                                             if self.peer_accept_policy_data is not None and self.peer_accept_policy_data._has_data():
                                                 return True
 
-                                            if self.peer_accept_policy_data is not None and self.peer_accept_policy_data.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -7638,17 +6730,11 @@ class MplsLdp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.peer_accept_policy is not None:
                                             for child_ref in self.peer_accept_policy:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7670,18 +6756,9 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.peer_accept_policies is not None and self.peer_accept_policies._has_data():
                                         return True
 
-                                    if self.peer_accept_policies is not None and self.peer_accept_policies.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -7703,18 +6780,9 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.accept is not None and self.accept._has_data():
                                     return True
 
-                                if self.accept is not None and self.accept.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7736,24 +6804,12 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.local is not None and self.local._has_data():
-                                return True
-
-                            if self.local is not None and self.local.is_presence():
                                 return True
 
                             if self.remote is not None and self.remote._has_data():
                                 return True
 
-                            if self.remote is not None and self.remote.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7777,15 +6833,10 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.af_name is not None:
                             return True
 
                         if self.discovery is not None and self.discovery._has_data():
-                            return True
-
-                        if self.discovery is not None and self.discovery.is_presence():
                             return True
 
                         if self.enable is not None:
@@ -7794,13 +6845,6 @@ class MplsLdp(object):
                         if self.label is not None and self.label._has_data():
                             return True
 
-                        if self.label is not None and self.label.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -7822,17 +6866,11 @@ class MplsLdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.af is not None:
                         for child_ref in self.af:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7943,15 +6981,9 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.maintain_on_local_reset is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7973,18 +7005,9 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.helper_peer is not None and self.helper_peer._has_data():
                             return True
 
-                        if self.helper_peer is not None and self.helper_peer.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8094,7 +7117,7 @@ class MplsLdp(object):
                                 .. attribute:: command_type
                                 
                                 	Command type for password configuration
-                                	**type**\: :py:class:`MplsLdpNbrPassword_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpNbrPassword_Enum>`
+                                	**type**\: :py:class:`MplsLdpNbrPasswordEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpNbrPasswordEnum>`
                                 
                                 .. attribute:: password
                                 
@@ -8129,18 +7152,12 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.command_type is not None:
                                         return True
 
                                     if self.password is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8166,8 +7183,6 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.label_space_id is not None:
                                     return True
 
@@ -8177,13 +7192,6 @@ class MplsLdp(object):
                                 if self.password is not None and self.password._has_data():
                                     return True
 
-                                if self.password is not None and self.password.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8205,17 +7213,11 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ldp_id is not None:
                                 for child_ref in self.ldp_id:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8237,21 +7239,12 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ldp_ids is not None and self.ldp_ids._has_data():
-                            return True
-
-                        if self.ldp_ids is not None and self.ldp_ids.is_presence():
                             return True
 
                         if self.password is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8295,7 +7288,7 @@ class MplsLdp(object):
                         .. attribute:: type
                         
                         	Downstream on demand type
-                        	**type**\: :py:class:`MplsLdpDownstreamOnDemand_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpDownstreamOnDemand_Enum>`
+                        	**type**\: :py:class:`MplsLdpDownstreamOnDemandEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpDownstreamOnDemandEnum>`
                         
                         
 
@@ -8323,18 +7316,12 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.peer_acl_name is not None:
                                 return True
 
                             if self.type is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8356,18 +7343,9 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.downstream_on_demand is not None and self.downstream_on_demand._has_data():
                             return True
 
-                        if self.downstream_on_demand is not None and self.downstream_on_demand.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8389,18 +7367,10 @@ class MplsLdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.graceful_restart is not None and self.graceful_restart._has_data():
                         return True
 
-                    if self.graceful_restart is not None and self.graceful_restart.is_presence():
-                        return True
-
                     if self.neighbor is not None and self.neighbor._has_data():
-                        return True
-
-                    if self.neighbor is not None and self.neighbor.is_presence():
                         return True
 
                     if self.router_id is not None:
@@ -8409,13 +7379,6 @@ class MplsLdp(object):
                     if self.session is not None and self.session._has_data():
                         return True
 
-                    if self.session is not None and self.session.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -8516,7 +7479,7 @@ class MplsLdp(object):
                             .. attribute:: af_name
                             
                             	Address Family name
-                            	**type**\: :py:class:`MplsLdpafName_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafName_Enum>`
+                            	**type**\: :py:class:`MplsLdpafNameEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
                             
                             .. attribute:: discovery
                             
@@ -8578,7 +7541,7 @@ class MplsLdp(object):
                                     .. attribute:: address_type
                                     
                                     	Transport address option
-                                    	**type**\: :py:class:`MplsLdpTransportAddress_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpTransportAddress_Enum>`
+                                    	**type**\: :py:class:`MplsLdpTransportAddressEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpTransportAddressEnum>`
                                     
                                     
 
@@ -8606,18 +7569,12 @@ class MplsLdp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
                                         if self.address_type is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -8639,18 +7596,9 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.transport_address is not None and self.transport_address._has_data():
                                         return True
 
-                                    if self.transport_address is not None and self.transport_address.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8674,24 +7622,15 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.af_name is not None:
                                     return True
 
                                 if self.discovery is not None and self.discovery._has_data():
                                     return True
 
-                                if self.discovery is not None and self.discovery.is_presence():
-                                    return True
-
                                 if self.enable is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8713,17 +7652,11 @@ class MplsLdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.af is not None:
                                 for child_ref in self.af:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8747,24 +7680,15 @@ class MplsLdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_name is not None:
                             return True
 
                         if self.afs is not None and self.afs._has_data():
                             return True
 
-                        if self.afs is not None and self.afs.is_presence():
-                            return True
-
                         if self.enable is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8786,17 +7710,11 @@ class MplsLdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -8818,15 +7736,10 @@ class MplsLdp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.vrf_name is not None:
                     return True
 
                 if self.afs is not None and self.afs._has_data():
-                    return True
-
-                if self.afs is not None and self.afs.is_presence():
                     return True
 
                 if self.enable is not None:
@@ -8835,19 +7748,9 @@ class MplsLdp(object):
                 if self.global_ is not None and self.global_._has_data():
                     return True
 
-                if self.global_ is not None and self.global_.is_presence():
-                    return True
-
                 if self.interfaces is not None and self.interfaces._has_data():
                     return True
 
-                if self.interfaces is not None and self.interfaces.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -8867,17 +7770,11 @@ class MplsLdp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -8897,12 +7794,7 @@ class MplsLdp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.default_vrf is not None and self.default_vrf._has_data():
-            return True
-
-        if self.default_vrf is not None and self.default_vrf.is_presence():
             return True
 
         if self.enable is not None:
@@ -8911,19 +7803,9 @@ class MplsLdp(object):
         if self.global_ is not None and self.global_._has_data():
             return True
 
-        if self.global_ is not None and self.global_.is_presence():
-            return True
-
         if self.vrfs is not None and self.vrfs._has_data():
             return True
 
-        if self.vrfs is not None and self.vrfs.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

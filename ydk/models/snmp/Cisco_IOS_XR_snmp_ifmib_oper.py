@@ -24,33 +24,31 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class LinkUpDownStatus_Enum(Enum):
+class LinkUpDownStatusEnum(Enum):
     """
-    LinkUpDownStatus_Enum
+    LinkUpDownStatusEnum
 
     Link up down status
 
-    """
+    .. data:: ENABLED = 1
+
+    	LinkUpDown notification is enabled
+
+    .. data:: DISABLED = 2
+
+    	LinkUpDown notification is disabled
 
     """
 
-    LinkUpDown notification is enabled
-
-    """
     ENABLED = 1
 
-    """
-
-    LinkUpDown notification is disabled
-
-    """
     DISABLED = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.snmp._meta import _Cisco_IOS_XR_snmp_ifmib_oper as meta
-        return meta._meta_table['LinkUpDownStatus_Enum']
+        return meta._meta_table['LinkUpDownStatusEnum']
 
 
 

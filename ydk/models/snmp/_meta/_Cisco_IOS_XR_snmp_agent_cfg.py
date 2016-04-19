@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,18 +14,18 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'SnmpHashAlgorithm_Enum' : _MetaInfoEnum('SnmpHashAlgorithm_Enum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
+    'SnmpHashAlgorithmEnum' : _MetaInfoEnum('SnmpHashAlgorithmEnum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
         {
             'none':'NONE',
             'md5':'MD5',
             'sha':'SHA',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
-    'SnmpAccessLevel_Enum' : _MetaInfoEnum('SnmpAccessLevel_Enum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
+    'SnmpAccessLevelEnum' : _MetaInfoEnum('SnmpAccessLevelEnum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
         {
             'read-only':'READ_ONLY',
             'read-write':'READ_WRITE',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
-    'SnmpBulkstatSchema_Enum' : _MetaInfoEnum('SnmpBulkstatSchema_Enum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
+    'SnmpBulkstatSchemaEnum' : _MetaInfoEnum('SnmpBulkstatSchemaEnum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
         {
             'exact-interface':'EXACT_INTERFACE',
             'exact-oid':'EXACT_OID',
@@ -34,40 +34,40 @@ _meta_table = {
             'range-oid':'RANGE_OID',
             'repeat-oid':'REPEAT_OID',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
-    'GroupSnmpVersion_Enum' : _MetaInfoEnum('GroupSnmpVersion_Enum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
+    'GroupSnmpVersionEnum' : _MetaInfoEnum('GroupSnmpVersionEnum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
         {
             'v1':'V1',
             'v2c':'V2C',
             'v3':'V3',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
-    'SnmpOwnerAccess_Enum' : _MetaInfoEnum('SnmpOwnerAccess_Enum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
+    'SnmpOwnerAccessEnum' : _MetaInfoEnum('SnmpOwnerAccessEnum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
         {
             'sdr-owner':'SDR_OWNER',
             'system-owner':'SYSTEM_OWNER',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
-    'SnmpBulkstatFileFormat_Enum' : _MetaInfoEnum('SnmpBulkstatFileFormat_Enum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
+    'SnmpBulkstatFileFormatEnum' : _MetaInfoEnum('SnmpBulkstatFileFormatEnum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
         {
             'schema-ascii':'SCHEMA_ASCII',
             'bulk-ascii':'BULK_ASCII',
             'bulk-binary':'BULK_BINARY',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
-    'SnmpSecurityModel_Enum' : _MetaInfoEnum('SnmpSecurityModel_Enum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
+    'SnmpSecurityModelEnum' : _MetaInfoEnum('SnmpSecurityModelEnum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
         {
             'no-authentication':'NO_AUTHENTICATION',
             'authentication':'AUTHENTICATION',
             'privacy':'PRIVACY',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
-    'SnmpTos_Enum' : _MetaInfoEnum('SnmpTos_Enum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
+    'SnmpTosEnum' : _MetaInfoEnum('SnmpTosEnum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
         {
             'precedence':'PRECEDENCE',
             'dscp':'DSCP',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
-    'Snmpacl_Enum' : _MetaInfoEnum('Snmpacl_Enum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
+    'SnmpaclEnum' : _MetaInfoEnum('SnmpaclEnum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
         {
             'ipv4':'IPV4',
             'ipv6':'IPV6',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
-    'SnmpDscpValue_Enum' : _MetaInfoEnum('SnmpDscpValue_Enum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
+    'SnmpDscpValueEnum' : _MetaInfoEnum('SnmpDscpValueEnum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
         {
             'default':'DEFAULT',
             'af11':'AF11',
@@ -91,13 +91,13 @@ _meta_table = {
             'cs6':'CS6',
             'cs7':'CS7',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
-    'UserSnmpVersion_Enum' : _MetaInfoEnum('UserSnmpVersion_Enum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
+    'UserSnmpVersionEnum' : _MetaInfoEnum('UserSnmpVersionEnum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
         {
             'v1':'V1',
             'v2c':'V2C',
             'v3':'V3',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
-    'SnmpPrecedenceValue1_Enum' : _MetaInfoEnum('SnmpPrecedenceValue1_Enum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
+    'SnmpPrecedenceValue1Enum' : _MetaInfoEnum('SnmpPrecedenceValue1Enum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
         {
             'routine':'ROUTINE',
             'priority':'PRIORITY',
@@ -108,7 +108,7 @@ _meta_table = {
             'internet':'INTERNET',
             'network':'NETWORK',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
-    'SnmpPrivAlgorithm_Enum' : _MetaInfoEnum('SnmpPrivAlgorithm_Enum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
+    'SnmpPrivAlgorithmEnum' : _MetaInfoEnum('SnmpPrivAlgorithmEnum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
         {
             'none':'NONE',
             'des':'DES',
@@ -117,12 +117,12 @@ _meta_table = {
             'aes192':'AES192',
             'aes256':'AES256',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
-    'SnmpMibViewInclusion_Enum' : _MetaInfoEnum('SnmpMibViewInclusion_Enum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
+    'SnmpMibViewInclusionEnum' : _MetaInfoEnum('SnmpMibViewInclusionEnum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
         {
             'included':'INCLUDED',
             'excluded':'EXCLUDED',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
-    'SnmpContext_Enum' : _MetaInfoEnum('SnmpContext_Enum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
+    'SnmpContextEnum' : _MetaInfoEnum('SnmpContextEnum', 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg',
         {
             'vrf':'VRF',
             'bridge':'BRIDGE',
@@ -299,8 +299,8 @@ _meta_table = {
         'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
-    'Mib.MplsP2mpMib' : {
-        'meta_info' : _MetaInfoClass('Mib.MplsP2mpMib',
+    'Mib.MplsP2MpMib' : {
+        'meta_info' : _MetaInfoClass('Mib.MplsP2MpMib',
             False, 
             [
             _MetaInfoClassMember('cache-timer', ATTRIBUTE, 'int' , None, None, 
@@ -396,7 +396,7 @@ _meta_table = {
                 ''',
                 'mpls_frr_mib',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('mpls-p2mp-mib', REFERENCE_CLASS, 'MplsP2mpMib' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'Mib.MplsP2mpMib', 
+            _MetaInfoClassMember('mpls-p2mp-mib', REFERENCE_CLASS, 'MplsP2MpMib' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'Mib.MplsP2MpMib', 
                 [], [], 
                 '''                MPLS P2MP MIB configuration
                 ''',
@@ -437,13 +437,13 @@ _meta_table = {
                 ''',
                 'community_name',
                 'Cisco-IOS-XR-snmp-agent-cfg', True),
-            _MetaInfoClassMember('owner', REFERENCE_ENUM_CLASS, 'SnmpOwnerAccess_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpOwnerAccess_Enum', 
+            _MetaInfoClassMember('owner', REFERENCE_ENUM_CLASS, 'SnmpOwnerAccessEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpOwnerAccessEnum', 
                 [], [], 
                 '''                Logical Router or System owner access
                 ''',
                 'owner',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('priviledge', REFERENCE_ENUM_CLASS, 'SnmpAccessLevel_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpAccessLevel_Enum', 
+            _MetaInfoClassMember('priviledge', REFERENCE_ENUM_CLASS, 'SnmpAccessLevelEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpAccessLevelEnum', 
                 [], [], 
                 '''                Read/Write Access
                 ''',
@@ -455,7 +455,7 @@ _meta_table = {
                 ''',
                 'v4_access_list',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('v4acl-type', REFERENCE_ENUM_CLASS, 'Snmpacl_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'Snmpacl_Enum', 
+            _MetaInfoClassMember('v4acl-type', REFERENCE_ENUM_CLASS, 'SnmpaclEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpaclEnum', 
                 [], [], 
                 '''                Access-list type
                 ''',
@@ -467,7 +467,7 @@ _meta_table = {
                 ''',
                 'v6_access_list',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('v6acl-type', REFERENCE_ENUM_CLASS, 'Snmpacl_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'Snmpacl_Enum', 
+            _MetaInfoClassMember('v6acl-type', REFERENCE_ENUM_CLASS, 'SnmpaclEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpaclEnum', 
                 [], [], 
                 '''                Access-list type
                 ''',
@@ -514,13 +514,13 @@ _meta_table = {
                 ''',
                 'community_name',
                 'Cisco-IOS-XR-snmp-agent-cfg', True),
-            _MetaInfoClassMember('owner', REFERENCE_ENUM_CLASS, 'SnmpOwnerAccess_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpOwnerAccess_Enum', 
+            _MetaInfoClassMember('owner', REFERENCE_ENUM_CLASS, 'SnmpOwnerAccessEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpOwnerAccessEnum', 
                 [], [], 
                 '''                Logical Router or System owner access
                 ''',
                 'owner',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('priviledge', REFERENCE_ENUM_CLASS, 'SnmpAccessLevel_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpAccessLevel_Enum', 
+            _MetaInfoClassMember('priviledge', REFERENCE_ENUM_CLASS, 'SnmpAccessLevelEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpAccessLevelEnum', 
                 [], [], 
                 '''                Read/Write Access
                 ''',
@@ -532,7 +532,7 @@ _meta_table = {
                 ''',
                 'v4_access_list',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('v4acl-type', REFERENCE_ENUM_CLASS, 'Snmpacl_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'Snmpacl_Enum', 
+            _MetaInfoClassMember('v4acl-type', REFERENCE_ENUM_CLASS, 'SnmpaclEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpaclEnum', 
                 [], [], 
                 '''                Access-list type
                 ''',
@@ -544,7 +544,7 @@ _meta_table = {
                 ''',
                 'v6_access_list',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('v6acl-type', REFERENCE_ENUM_CLASS, 'Snmpacl_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'Snmpacl_Enum', 
+            _MetaInfoClassMember('v6acl-type', REFERENCE_ENUM_CLASS, 'SnmpaclEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpaclEnum', 
                 [], [], 
                 '''                Access-list type
                 ''',
@@ -818,7 +818,7 @@ _meta_table = {
                 ''',
                 'sub_interface',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'SnmpBulkstatSchema_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpBulkstatSchema_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'SnmpBulkstatSchemaEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpBulkstatSchemaEnum', 
                 [], [], 
                 '''                Type of the instance
                 ''',
@@ -947,7 +947,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('format', REFERENCE_ENUM_CLASS, 'SnmpBulkstatFileFormat_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpBulkstatFileFormat_Enum', 
+            _MetaInfoClassMember('format', REFERENCE_ENUM_CLASS, 'SnmpBulkstatFileFormatEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpBulkstatFileFormatEnum', 
                 [], [], 
                 '''                Format of the bulk data file
                 ''',
@@ -1068,7 +1068,7 @@ _meta_table = {
                 ''',
                 'context_mapping_name',
                 'Cisco-IOS-XR-snmp-agent-cfg', True),
-            _MetaInfoClassMember('context', REFERENCE_ENUM_CLASS, 'SnmpContext_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpContext_Enum', 
+            _MetaInfoClassMember('context', REFERENCE_ENUM_CLASS, 'SnmpContextEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpContextEnum', 
                 [], [], 
                 '''                SNMP context feature type
                 ''',
@@ -1839,14 +1839,14 @@ _meta_table = {
                 ''',
                 'read_view',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('security-model', REFERENCE_ENUM_CLASS, 'SnmpSecurityModel_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpSecurityModel_Enum', 
+            _MetaInfoClassMember('security-model', REFERENCE_ENUM_CLASS, 'SnmpSecurityModelEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpSecurityModelEnum', 
                 [], [], 
                 '''                security model like auth/noAuth/Priv
                 applicable for v3
                 ''',
                 'security_model',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('snmp-version', REFERENCE_ENUM_CLASS, 'GroupSnmpVersion_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'GroupSnmpVersion_Enum', 
+            _MetaInfoClassMember('snmp-version', REFERENCE_ENUM_CLASS, 'GroupSnmpVersionEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'GroupSnmpVersionEnum', 
                 [], [], 
                 '''                snmp version
                 ''',
@@ -1858,7 +1858,7 @@ _meta_table = {
                 ''',
                 'v4_access_list',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('v4acl-type', REFERENCE_ENUM_CLASS, 'Snmpacl_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'Snmpacl_Enum', 
+            _MetaInfoClassMember('v4acl-type', REFERENCE_ENUM_CLASS, 'SnmpaclEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpaclEnum', 
                 [], [], 
                 '''                Access-list type
                 ''',
@@ -1870,7 +1870,7 @@ _meta_table = {
                 ''',
                 'v6_access_list',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('v6acl-type', REFERENCE_ENUM_CLASS, 'Snmpacl_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'Snmpacl_Enum', 
+            _MetaInfoClassMember('v6acl-type', REFERENCE_ENUM_CLASS, 'SnmpaclEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpaclEnum', 
                 [], [], 
                 '''                Access-list type
                 ''',
@@ -1916,7 +1916,7 @@ _meta_table = {
                 ''',
                 'dscp',
                 'Cisco-IOS-XR-snmp-agent-cfg', False, [
-                    _MetaInfoClassMember('dscp', REFERENCE_ENUM_CLASS, 'SnmpDscpValue_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpDscpValue_Enum', 
+                    _MetaInfoClassMember('dscp', REFERENCE_ENUM_CLASS, 'SnmpDscpValueEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpDscpValueEnum', 
                         [], [], 
                         '''                        SNMP DSCP value
                         ''',
@@ -1935,7 +1935,7 @@ _meta_table = {
                 ''',
                 'precedence',
                 'Cisco-IOS-XR-snmp-agent-cfg', False, [
-                    _MetaInfoClassMember('precedence', REFERENCE_ENUM_CLASS, 'SnmpPrecedenceValue1_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpPrecedenceValue1_Enum', 
+                    _MetaInfoClassMember('precedence', REFERENCE_ENUM_CLASS, 'SnmpPrecedenceValue1Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpPrecedenceValue1Enum', 
                         [], [], 
                         '''                        SNMP Precedence value
                         ''',
@@ -1948,7 +1948,7 @@ _meta_table = {
                         'precedence',
                         'Cisco-IOS-XR-snmp-agent-cfg', False),
                 ]),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'SnmpTos_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpTos_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'SnmpTosEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpTosEnum', 
                 [], [], 
                 '''                SNMP TOS type DSCP or Precedence
                 ''',
@@ -1988,7 +1988,7 @@ _meta_table = {
                 ''',
                 'dscp',
                 'Cisco-IOS-XR-snmp-agent-cfg', False, [
-                    _MetaInfoClassMember('dscp', REFERENCE_ENUM_CLASS, 'SnmpDscpValue_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpDscpValue_Enum', 
+                    _MetaInfoClassMember('dscp', REFERENCE_ENUM_CLASS, 'SnmpDscpValueEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpDscpValueEnum', 
                         [], [], 
                         '''                        SNMP DSCP value
                         ''',
@@ -2007,7 +2007,7 @@ _meta_table = {
                 ''',
                 'precedence',
                 'Cisco-IOS-XR-snmp-agent-cfg', False, [
-                    _MetaInfoClassMember('precedence', REFERENCE_ENUM_CLASS, 'SnmpPrecedenceValue1_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpPrecedenceValue1_Enum', 
+                    _MetaInfoClassMember('precedence', REFERENCE_ENUM_CLASS, 'SnmpPrecedenceValue1Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpPrecedenceValue1Enum', 
                         [], [], 
                         '''                        SNMP Precedence value
                         ''',
@@ -2020,7 +2020,7 @@ _meta_table = {
                         'precedence',
                         'Cisco-IOS-XR-snmp-agent-cfg', False),
                 ]),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'SnmpTos_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpTos_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'SnmpTosEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpTosEnum', 
                 [], [], 
                 '''                SNMP TOS type DSCP or Precedence
                 ''',
@@ -2107,8 +2107,8 @@ _meta_table = {
         'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
-    'Snmp.Notification.Bgp.Bgp4mib' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.Bgp.Bgp4mib',
+    'Snmp.Notification.Bgp.Bgp4Mib' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.Bgp.Bgp4Mib',
             False, 
             [
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
@@ -2132,8 +2132,8 @@ _meta_table = {
         'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
-    'Snmp.Notification.Bgp.CiscoBgp4mib' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.Bgp.CiscoBgp4mib',
+    'Snmp.Notification.Bgp.CiscoBgp4Mib' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.Bgp.CiscoBgp4Mib',
             False, 
             [
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
@@ -2159,7 +2159,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Notification.Bgp',
             False, 
             [
-            _MetaInfoClassMember('bgp4mib', REFERENCE_CLASS, 'Bgp4mib' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.Bgp.Bgp4mib', 
+            _MetaInfoClassMember('bgp4mib', REFERENCE_CLASS, 'Bgp4Mib' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.Bgp.Bgp4Mib', 
                 [], [], 
                 '''                Enable BGP4-MIB and CISCO-BGP4-MIB IPv4-only
                 notifications: bgpEstablishedNotification,
@@ -2170,7 +2170,7 @@ _meta_table = {
                 ''',
                 'bgp4mib',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('cisco-bgp4mib', REFERENCE_CLASS, 'CiscoBgp4mib' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.Bgp.CiscoBgp4mib', 
+            _MetaInfoClassMember('cisco-bgp4mib', REFERENCE_CLASS, 'CiscoBgp4Mib' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.Bgp.CiscoBgp4Mib', 
                 [], [], 
                 '''                Enable CISCO-BGP4-MIB v2 notifications:
                 cbgpPeer2EstablishedNotification,
@@ -2315,115 +2315,115 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Notification.Isis',
             False, 
             [
-            _MetaInfoClassMember('adjacency-change', REFERENCE_ENUM_CLASS, 'IsisMibAdjacencyChangeBoolean_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibAdjacencyChangeBoolean_Enum', 
+            _MetaInfoClassMember('adjacency-change', REFERENCE_ENUM_CLASS, 'IsisMibAdjacencyChangeBooleanEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibAdjacencyChangeBooleanEnum', 
                 [], [], 
                 '''                Enable or disable
                 ''',
                 'adjacency_change',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('all', REFERENCE_ENUM_CLASS, 'IsisMibAllBoolean_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibAllBoolean_Enum', 
+            _MetaInfoClassMember('all', REFERENCE_ENUM_CLASS, 'IsisMibAllBooleanEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibAllBooleanEnum', 
                 [], [], 
                 '''                Enable all isisMIB notifications
                 ''',
                 'all',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('area-mismatch', REFERENCE_ENUM_CLASS, 'IsisMibAreaMismatchBoolean_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibAreaMismatchBoolean_Enum', 
+            _MetaInfoClassMember('area-mismatch', REFERENCE_ENUM_CLASS, 'IsisMibAreaMismatchBooleanEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibAreaMismatchBooleanEnum', 
                 [], [], 
                 '''                Enable or disable
                 ''',
                 'area_mismatch',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('attempt-to-exceed-max-sequence', REFERENCE_ENUM_CLASS, 'IsisMibAttemptToExceedMaxSequenceBoolean_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibAttemptToExceedMaxSequenceBoolean_Enum', 
+            _MetaInfoClassMember('attempt-to-exceed-max-sequence', REFERENCE_ENUM_CLASS, 'IsisMibAttemptToExceedMaxSequenceBooleanEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibAttemptToExceedMaxSequenceBooleanEnum', 
                 [], [], 
                 '''                Enable or disable
                 ''',
                 'attempt_to_exceed_max_sequence',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('authentication-failure', REFERENCE_ENUM_CLASS, 'IsisMibAuthenticationFailureBoolean_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibAuthenticationFailureBoolean_Enum', 
+            _MetaInfoClassMember('authentication-failure', REFERENCE_ENUM_CLASS, 'IsisMibAuthenticationFailureBooleanEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibAuthenticationFailureBooleanEnum', 
                 [], [], 
                 '''                Enable or disable
                 ''',
                 'authentication_failure',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('authentication-type-failure', REFERENCE_ENUM_CLASS, 'IsisMibAuthenticationTypeFailureBoolean_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibAuthenticationTypeFailureBoolean_Enum', 
+            _MetaInfoClassMember('authentication-type-failure', REFERENCE_ENUM_CLASS, 'IsisMibAuthenticationTypeFailureBooleanEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibAuthenticationTypeFailureBooleanEnum', 
                 [], [], 
                 '''                Enable or disable
                 ''',
                 'authentication_type_failure',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('corrupted-lsp-detected', REFERENCE_ENUM_CLASS, 'IsisMibCorruptedLspDetectedBoolean_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibCorruptedLspDetectedBoolean_Enum', 
+            _MetaInfoClassMember('corrupted-lsp-detected', REFERENCE_ENUM_CLASS, 'IsisMibCorruptedLspDetectedBooleanEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibCorruptedLspDetectedBooleanEnum', 
                 [], [], 
                 '''                Enable or disable
                 ''',
                 'corrupted_lsp_detected',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('database-overflow', REFERENCE_ENUM_CLASS, 'IsisMibDatabaseOverFlowBoolean_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibDatabaseOverFlowBoolean_Enum', 
+            _MetaInfoClassMember('database-overflow', REFERENCE_ENUM_CLASS, 'IsisMibDatabaseOverFlowBooleanEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibDatabaseOverFlowBooleanEnum', 
                 [], [], 
                 '''                Enable or disable
                 ''',
                 'database_overflow',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('id-length-mismatch', REFERENCE_ENUM_CLASS, 'IsisMibIdLengthMismatchBoolean_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibIdLengthMismatchBoolean_Enum', 
+            _MetaInfoClassMember('id-length-mismatch', REFERENCE_ENUM_CLASS, 'IsisMibIdLengthMismatchBooleanEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibIdLengthMismatchBooleanEnum', 
                 [], [], 
                 '''                Enable or disable
                 ''',
                 'id_length_mismatch',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('lsp-error-detected', REFERENCE_ENUM_CLASS, 'IsisMibLspErrorDetectedBoolean_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibLspErrorDetectedBoolean_Enum', 
+            _MetaInfoClassMember('lsp-error-detected', REFERENCE_ENUM_CLASS, 'IsisMibLspErrorDetectedBooleanEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibLspErrorDetectedBooleanEnum', 
                 [], [], 
                 '''                Enable or disable
                 ''',
                 'lsp_error_detected',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('lsp-too-large-to-propagate', REFERENCE_ENUM_CLASS, 'IsisMibLspTooLargeToPropagateBoolean_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibLspTooLargeToPropagateBoolean_Enum', 
+            _MetaInfoClassMember('lsp-too-large-to-propagate', REFERENCE_ENUM_CLASS, 'IsisMibLspTooLargeToPropagateBooleanEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibLspTooLargeToPropagateBooleanEnum', 
                 [], [], 
                 '''                Enable or disable
                 ''',
                 'lsp_too_large_to_propagate',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('manual-address-drops', REFERENCE_ENUM_CLASS, 'IsisMibManualAddressDropsBoolean_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibManualAddressDropsBoolean_Enum', 
+            _MetaInfoClassMember('manual-address-drops', REFERENCE_ENUM_CLASS, 'IsisMibManualAddressDropsBooleanEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibManualAddressDropsBooleanEnum', 
                 [], [], 
                 '''                Enable or disable
                 ''',
                 'manual_address_drops',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('max-area-address-mismatch', REFERENCE_ENUM_CLASS, 'IsisMibMaxAreaAddressMismatchBoolean_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibMaxAreaAddressMismatchBoolean_Enum', 
+            _MetaInfoClassMember('max-area-address-mismatch', REFERENCE_ENUM_CLASS, 'IsisMibMaxAreaAddressMismatchBooleanEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibMaxAreaAddressMismatchBooleanEnum', 
                 [], [], 
                 '''                Enable or disable
                 ''',
                 'max_area_address_mismatch',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('originated-lsp-buffer-size-mismatch', REFERENCE_ENUM_CLASS, 'IsisMibOriginatedLspBufferSizeMismatchBoolean_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibOriginatedLspBufferSizeMismatchBoolean_Enum', 
+            _MetaInfoClassMember('originated-lsp-buffer-size-mismatch', REFERENCE_ENUM_CLASS, 'IsisMibOriginatedLspBufferSizeMismatchBooleanEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibOriginatedLspBufferSizeMismatchBooleanEnum', 
                 [], [], 
                 '''                Enable or disable
                 ''',
                 'originated_lsp_buffer_size_mismatch',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('own-lsp-purge', REFERENCE_ENUM_CLASS, 'IsisMibOwnLspPurgeBoolean_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibOwnLspPurgeBoolean_Enum', 
+            _MetaInfoClassMember('own-lsp-purge', REFERENCE_ENUM_CLASS, 'IsisMibOwnLspPurgeBooleanEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibOwnLspPurgeBooleanEnum', 
                 [], [], 
                 '''                Enable or disable
                 ''',
                 'own_lsp_purge',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('protocols-supported-mismatch', REFERENCE_ENUM_CLASS, 'IsisMibProtocolsSupportedMismatchBoolean_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibProtocolsSupportedMismatchBoolean_Enum', 
+            _MetaInfoClassMember('protocols-supported-mismatch', REFERENCE_ENUM_CLASS, 'IsisMibProtocolsSupportedMismatchBooleanEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibProtocolsSupportedMismatchBooleanEnum', 
                 [], [], 
                 '''                Enable or disable
                 ''',
                 'protocols_supported_mismatch',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('rejected-adjacency', REFERENCE_ENUM_CLASS, 'IsisMibRejectedAdjacencyBoolean_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibRejectedAdjacencyBoolean_Enum', 
+            _MetaInfoClassMember('rejected-adjacency', REFERENCE_ENUM_CLASS, 'IsisMibRejectedAdjacencyBooleanEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibRejectedAdjacencyBooleanEnum', 
                 [], [], 
                 '''                Enable or disable
                 ''',
                 'rejected_adjacency',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('sequence-number-skip', REFERENCE_ENUM_CLASS, 'IsisMibSequenceNumberSkipBoolean_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibSequenceNumberSkipBoolean_Enum', 
+            _MetaInfoClassMember('sequence-number-skip', REFERENCE_ENUM_CLASS, 'IsisMibSequenceNumberSkipBooleanEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibSequenceNumberSkipBooleanEnum', 
                 [], [], 
                 '''                Enable or disable
                 ''',
                 'sequence_number_skip',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('version-skew', REFERENCE_ENUM_CLASS, 'IsisMibVersionSkewBoolean_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibVersionSkewBoolean_Enum', 
+            _MetaInfoClassMember('version-skew', REFERENCE_ENUM_CLASS, 'IsisMibVersionSkewBooleanEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMibVersionSkewBooleanEnum', 
                 [], [], 
                 '''                Enable or disable
                 ''',
@@ -2436,8 +2436,8 @@ _meta_table = {
         'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
-    'Snmp.Notification.L2vpn' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.L2vpn',
+    'Snmp.Notification.L2Vpn' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.L2Vpn',
             False, 
             [
             _MetaInfoClassMember('cisco', ATTRIBUTE, 'Empty' , None, None, 
@@ -2621,8 +2621,8 @@ _meta_table = {
         'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
-    'Snmp.Notification.MplsTeP2mp' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.MplsTeP2mp',
+    'Snmp.Notification.MplsTeP2Mp' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.MplsTeP2Mp',
             False, 
             [
             _MetaInfoClassMember('down', ATTRIBUTE, 'Empty' , None, None, 
@@ -3187,7 +3187,7 @@ _meta_table = {
                 ''',
                 'isis',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('l2vpn', REFERENCE_CLASS, 'L2vpn' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.L2vpn', 
+            _MetaInfoClassMember('l2vpn', REFERENCE_CLASS, 'L2Vpn' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.L2Vpn', 
                 [], [], 
                 '''                CISCO-IETF-PW-MIB notification configuration
                 ''',
@@ -3211,7 +3211,7 @@ _meta_table = {
                 ''',
                 'mpls_te',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('mpls-te-p2mp', REFERENCE_CLASS, 'MplsTeP2mp' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.MplsTeP2mp', 
+            _MetaInfoClassMember('mpls-te-p2mp', REFERENCE_CLASS, 'MplsTeP2Mp' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.MplsTeP2Mp', 
                 [], [], 
                 '''                CISCO-MPLS-TE-P2MP-STD-MIB notification
                 configuration
@@ -3596,7 +3596,7 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('security-level', REFERENCE_ENUM_CLASS, 'SnmpSecurityModel_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpSecurityModel_Enum', 
+            _MetaInfoClassMember('security-level', REFERENCE_ENUM_CLASS, 'SnmpSecurityModelEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpSecurityModelEnum', 
                 [], [], 
                 '''                Security level to be used noauth/auth/priv
                 ''',
@@ -3679,7 +3679,7 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('security-level', REFERENCE_ENUM_CLASS, 'SnmpSecurityModel_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpSecurityModel_Enum', 
+            _MetaInfoClassMember('security-level', REFERENCE_ENUM_CLASS, 'SnmpSecurityModelEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpSecurityModelEnum', 
                 [], [], 
                 '''                Security level to be used noauth/auth/priv
                 ''',
@@ -3762,7 +3762,7 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('security-level', REFERENCE_ENUM_CLASS, 'SnmpSecurityModel_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpSecurityModel_Enum', 
+            _MetaInfoClassMember('security-level', REFERENCE_ENUM_CLASS, 'SnmpSecurityModelEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpSecurityModelEnum', 
                 [], [], 
                 '''                Security level to be used noauth/auth/priv
                 ''',
@@ -3845,7 +3845,7 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('security-level', REFERENCE_ENUM_CLASS, 'SnmpSecurityModel_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpSecurityModel_Enum', 
+            _MetaInfoClassMember('security-level', REFERENCE_ENUM_CLASS, 'SnmpSecurityModelEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpSecurityModelEnum', 
                 [], [], 
                 '''                Security level to be used noauth/auth/priv
                 ''',
@@ -3985,7 +3985,7 @@ _meta_table = {
                 ''',
                 'user_name',
                 'Cisco-IOS-XR-snmp-agent-cfg', True),
-            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'SnmpHashAlgorithm_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpHashAlgorithm_Enum', 
+            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'SnmpHashAlgorithmEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpHashAlgorithmEnum', 
                 [], [], 
                 '''                The algorithm used md5 or sha
                 ''',
@@ -4010,7 +4010,7 @@ _meta_table = {
                 ''',
                 'group_name',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('owner', REFERENCE_ENUM_CLASS, 'SnmpOwnerAccess_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpOwnerAccess_Enum', 
+            _MetaInfoClassMember('owner', REFERENCE_ENUM_CLASS, 'SnmpOwnerAccessEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpOwnerAccessEnum', 
                 [], [], 
                 '''                The system access either SDROwner or
                 SystemOwner
@@ -4023,7 +4023,7 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('priv-algorithm', REFERENCE_ENUM_CLASS, 'SnmpPrivAlgorithm_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpPrivAlgorithm_Enum', 
+            _MetaInfoClassMember('priv-algorithm', REFERENCE_ENUM_CLASS, 'SnmpPrivAlgorithmEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpPrivAlgorithmEnum', 
                 [], [], 
                 '''                The algorithm used des56 or aes128 or aes192or
                 aes256 or 3des
@@ -4068,7 +4068,7 @@ _meta_table = {
                 ''',
                 'v4_access_list',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('v4acl-type', REFERENCE_ENUM_CLASS, 'Snmpacl_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'Snmpacl_Enum', 
+            _MetaInfoClassMember('v4acl-type', REFERENCE_ENUM_CLASS, 'SnmpaclEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpaclEnum', 
                 [], [], 
                 '''                Access-list type
                 ''',
@@ -4080,13 +4080,13 @@ _meta_table = {
                 ''',
                 'v6_access_list',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('v6acl-type', REFERENCE_ENUM_CLASS, 'Snmpacl_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'Snmpacl_Enum', 
+            _MetaInfoClassMember('v6acl-type', REFERENCE_ENUM_CLASS, 'SnmpaclEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpaclEnum', 
                 [], [], 
                 '''                Access-list type
                 ''',
                 'v6acl_type',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('version', REFERENCE_ENUM_CLASS, 'UserSnmpVersion_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'UserSnmpVersion_Enum', 
+            _MetaInfoClassMember('version', REFERENCE_ENUM_CLASS, 'UserSnmpVersionEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'UserSnmpVersionEnum', 
                 [], [], 
                 '''                SNMP version to be used. v1,v2c or v3
                 ''',
@@ -4132,7 +4132,7 @@ _meta_table = {
                 ''',
                 'view_name',
                 'Cisco-IOS-XR-snmp-agent-cfg', True),
-            _MetaInfoClassMember('view-inclusion', REFERENCE_ENUM_CLASS, 'SnmpMibViewInclusion_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpMibViewInclusion_Enum', 
+            _MetaInfoClassMember('view-inclusion', REFERENCE_ENUM_CLASS, 'SnmpMibViewInclusionEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpMibViewInclusionEnum', 
                 [], [], 
                 '''                MIB view to be included or excluded
                 ''',
@@ -4172,7 +4172,7 @@ _meta_table = {
                 ''',
                 'context_mapping_name',
                 'Cisco-IOS-XR-snmp-agent-cfg', True),
-            _MetaInfoClassMember('context', REFERENCE_ENUM_CLASS, 'SnmpContext_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpContext_Enum', 
+            _MetaInfoClassMember('context', REFERENCE_ENUM_CLASS, 'SnmpContextEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpContextEnum', 
                 [], [], 
                 '''                SNMP context feature type
                 ''',
@@ -4300,7 +4300,7 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('security-level', REFERENCE_ENUM_CLASS, 'SnmpSecurityModel_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpSecurityModel_Enum', 
+            _MetaInfoClassMember('security-level', REFERENCE_ENUM_CLASS, 'SnmpSecurityModelEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpSecurityModelEnum', 
                 [], [], 
                 '''                Security level to be used noauth/auth/priv
                 ''',
@@ -4383,7 +4383,7 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('security-level', REFERENCE_ENUM_CLASS, 'SnmpSecurityModel_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpSecurityModel_Enum', 
+            _MetaInfoClassMember('security-level', REFERENCE_ENUM_CLASS, 'SnmpSecurityModelEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpSecurityModelEnum', 
                 [], [], 
                 '''                Security level to be used noauth/auth/priv
                 ''',
@@ -4466,7 +4466,7 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('security-level', REFERENCE_ENUM_CLASS, 'SnmpSecurityModel_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpSecurityModel_Enum', 
+            _MetaInfoClassMember('security-level', REFERENCE_ENUM_CLASS, 'SnmpSecurityModelEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpSecurityModelEnum', 
                 [], [], 
                 '''                Security level to be used noauth/auth/priv
                 ''',
@@ -4549,7 +4549,7 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('security-level', REFERENCE_ENUM_CLASS, 'SnmpSecurityModel_Enum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpSecurityModel_Enum', 
+            _MetaInfoClassMember('security-level', REFERENCE_ENUM_CLASS, 'SnmpSecurityModelEnum' , 'ydk.models.snmp.Cisco_IOS_XR_snmp_agent_cfg', 'SnmpSecurityModelEnum', 
                 [], [], 
                 '''                Security level to be used noauth/auth/priv
                 ''',
@@ -4952,7 +4952,7 @@ _meta_table['Mib.InterfaceMib.Subsets']['meta_info'].parent =_meta_table['Mib.In
 _meta_table['Mib.EntityMib']['meta_info'].parent =_meta_table['Mib']['meta_info']
 _meta_table['Mib.InterfaceMib']['meta_info'].parent =_meta_table['Mib']['meta_info']
 _meta_table['Mib.MplsFrrMib']['meta_info'].parent =_meta_table['Mib']['meta_info']
-_meta_table['Mib.MplsP2mpMib']['meta_info'].parent =_meta_table['Mib']['meta_info']
+_meta_table['Mib.MplsP2MpMib']['meta_info'].parent =_meta_table['Mib']['meta_info']
 _meta_table['Mib.MplsTeExtMib']['meta_info'].parent =_meta_table['Mib']['meta_info']
 _meta_table['Mib.MplsTeExtStdMib']['meta_info'].parent =_meta_table['Mib']['meta_info']
 _meta_table['Mib.MplsTeMib']['meta_info'].parent =_meta_table['Mib']['meta_info']
@@ -5005,8 +5005,8 @@ _meta_table['Snmp.Groups.Group']['meta_info'].parent =_meta_table['Snmp.Groups']
 _meta_table['Snmp.Ipv4.Tos']['meta_info'].parent =_meta_table['Snmp.Ipv4']['meta_info']
 _meta_table['Snmp.Ipv6.Tos']['meta_info'].parent =_meta_table['Snmp.Ipv6']['meta_info']
 _meta_table['Snmp.Logging.Threshold']['meta_info'].parent =_meta_table['Snmp.Logging']['meta_info']
-_meta_table['Snmp.Notification.Bgp.Bgp4mib']['meta_info'].parent =_meta_table['Snmp.Notification.Bgp']['meta_info']
-_meta_table['Snmp.Notification.Bgp.CiscoBgp4mib']['meta_info'].parent =_meta_table['Snmp.Notification.Bgp']['meta_info']
+_meta_table['Snmp.Notification.Bgp.Bgp4Mib']['meta_info'].parent =_meta_table['Snmp.Notification.Bgp']['meta_info']
+_meta_table['Snmp.Notification.Bgp.CiscoBgp4Mib']['meta_info'].parent =_meta_table['Snmp.Notification.Bgp']['meta_info']
 _meta_table['Snmp.Notification.MplsTe.CiscoExtension']['meta_info'].parent =_meta_table['Snmp.Notification.MplsTe']['meta_info']
 _meta_table['Snmp.Notification.Ospf.Error']['meta_info'].parent =_meta_table['Snmp.Notification.Ospf']['meta_info']
 _meta_table['Snmp.Notification.Ospf.Lsa']['meta_info'].parent =_meta_table['Snmp.Notification.Ospf']['meta_info']
@@ -5023,11 +5023,11 @@ _meta_table['Snmp.Notification.EntityRedundancy']['meta_info'].parent =_meta_tab
 _meta_table['Snmp.Notification.EntityState']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.FruControl']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.Isis']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.L2vpn']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.L2Vpn']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.MplsFrr']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.MplsLdp']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.MplsTe']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.MplsTeP2mp']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.MplsTeP2Mp']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.Ntp']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.Oam']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.Ospf']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']

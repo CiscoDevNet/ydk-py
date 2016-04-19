@@ -24,47 +24,43 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class TransportService_Enum(Enum):
+class TransportServiceEnum(Enum):
     """
-    TransportService_Enum
+    TransportServiceEnum
 
     Transport service protocol
 
-    """
+    .. data:: UNKNOWN = 0
+
+    	Unknown service
+
+    .. data:: TELNET = 1
+
+    	Telnet
+
+    .. data:: RLOGIN = 2
+
+    	Remote login
+
+    .. data:: SSH = 3
+
+    	SSH
 
     """
 
-    Unknown service
-
-    """
     UNKNOWN = 0
 
-    """
-
-    Telnet
-
-    """
     TELNET = 1
 
-    """
-
-    Remote login
-
-    """
     RLOGIN = 2
 
-    """
-
-    SSH
-
-    """
     SSH = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.tty._meta import _Cisco_IOS_XR_tty_management_oper as meta
-        return meta._meta_table['TransportService_Enum']
+        return meta._meta_table['TransportServiceEnum']
 
 
 
@@ -101,7 +97,6 @@ class Ipv4_Identity(HostAfIdBase_Identity):
 
     def __init__(self):
         HostAfIdBase_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -122,7 +117,6 @@ class Ipv6_Identity(HostAfIdBase_Identity):
 
     def __init__(self):
         HostAfIdBase_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():

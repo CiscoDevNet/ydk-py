@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'OpticsThreshold_Enum' : _MetaInfoEnum('OpticsThreshold_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'OpticsThresholdEnum' : _MetaInfoEnum('OpticsThresholdEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'thresh-opt-min':'THRESH_OPT_MIN',
             'thresh-opr-min':'THRESH_OPR_MIN',
@@ -39,7 +39,7 @@ _meta_table = {
             'thresh-pcr-max':'THRESH_PCR_MAX',
             'thresh-pn-max':'THRESH_PN_MAX',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'OtnThreshold_Enum' : _MetaInfoEnum('OtnThreshold_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'OtnThresholdEnum' : _MetaInfoEnum('OtnThresholdEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'thresh-es-sm-ne':'THRESH_ES_SM_NE',
             'thresh-ses-sm-ne':'THRESH_SES_SM_NE',
@@ -74,7 +74,7 @@ _meta_table = {
             'thresh-sesr-pm-fe':'THRESH_SESR_PM_FE',
             'thresh-bber-pm-fe':'THRESH_BBER_PM_FE',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'OtnTcmThreshold_Enum' : _MetaInfoEnum('OtnTcmThreshold_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'OtnTcmThresholdEnum' : _MetaInfoEnum('OtnTcmThresholdEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'thresh-es-tcm-fe':'THRESH_ES_TCM_FE',
             'thresh-ses-tcm-fe':'THRESH_SES_TCM_FE',
@@ -93,19 +93,19 @@ _meta_table = {
             'thresh-sesr-tcm-ne':'THRESH_SESR_TCM_NE',
             'thresh-bber-tcm-ne':'THRESH_BBER_TCM_NE',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'StsThreshold_Enum' : _MetaInfoEnum('StsThreshold_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'StsThresholdEnum' : _MetaInfoEnum('StsThresholdEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'thresh-cv':'THRESH_CV',
             'thresh-es':'THRESH_ES',
             'thresh-ses':'THRESH_SES',
             'thresh-uas':'THRESH_UAS',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'FecReport_Enum' : _MetaInfoEnum('FecReport_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'FecReportEnum' : _MetaInfoEnum('FecReportEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'report-ec-bits':'REPORT_EC_BITS',
             'report-uc-words':'REPORT_UC_WORDS',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'HoVcThreshold_Enum' : _MetaInfoEnum('HoVcThreshold_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'HoVcThresholdEnum' : _MetaInfoEnum('HoVcThresholdEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'thresh-eb':'THRESH_EB',
             'thresh-es':'THRESH_ES',
@@ -116,7 +116,7 @@ _meta_table = {
             'thresh-bber':'THRESH_BBER',
             'thresh-uass':'THRESH_UASS',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'GfpThreshold_Enum' : _MetaInfoEnum('GfpThreshold_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'GfpThresholdEnum' : _MetaInfoEnum('GfpThresholdEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'thresh-rx-bit-err':'THRESH_RX_BIT_ERR',
             'thresh-rx-inv-typ':'THRESH_RX_INV_TYP',
@@ -124,12 +124,12 @@ _meta_table = {
             'thresh-rx-lfd':'THRESH_RX_LFD',
             'thresh-rx-csf':'THRESH_RX_CSF',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'Report_Enum' : _MetaInfoEnum('Report_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'ReportEnum' : _MetaInfoEnum('ReportEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'false':'FALSE',
             'true':'TRUE',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'OtnTcmReport_Enum' : _MetaInfoEnum('OtnTcmReport_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'OtnTcmReportEnum' : _MetaInfoEnum('OtnTcmReportEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'report-es-tcm-fe':'REPORT_ES_TCM_FE',
             'report-ses-tcm-fe':'REPORT_SES_TCM_FE',
@@ -148,7 +148,7 @@ _meta_table = {
             'report-sesr-tcm-ne':'REPORT_SESR_TCM_NE',
             'report-bber-tcm-ne':'REPORT_BBER_TCM_NE',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'OpticsReport_Enum' : _MetaInfoEnum('OpticsReport_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'OpticsReportEnum' : _MetaInfoEnum('OpticsReportEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'report-opt-min':'REPORT_OPT_MIN',
             'report-opr-min':'REPORT_OPR_MIN',
@@ -173,7 +173,7 @@ _meta_table = {
             'report-pcr-max':'REPORT_PCR_MAX',
             'report-pn-max':'REPORT_PN_MAX',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'GfpReport_Enum' : _MetaInfoEnum('GfpReport_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'GfpReportEnum' : _MetaInfoEnum('GfpReportEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'report-rx-bit-err':'REPORT_RX_BIT_ERR',
             'report-rx-inv-typ':'REPORT_RX_INV_TYP',
@@ -181,7 +181,7 @@ _meta_table = {
             'report-rx-lfd':'REPORT_RX_LFD',
             'report-rx-csf':'REPORT_RX_CSF',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'HoVcReport_Enum' : _MetaInfoEnum('HoVcReport_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'HoVcReportEnum' : _MetaInfoEnum('HoVcReportEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'report-eb':'REPORT_EB',
             'report-es':'REPORT_ES',
@@ -192,7 +192,7 @@ _meta_table = {
             'report-bber':'REPORT_BBER',
             'report-uass':'REPORT_UASS',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'StmReport_Enum' : _MetaInfoEnum('StmReport_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'StmReportEnum' : _MetaInfoEnum('StmReportEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'report-ebs':'REPORT_EBS',
             'report-ess':'REPORT_ESS',
@@ -219,7 +219,7 @@ _meta_table = {
             'report-bberl-fe':'REPORT_BBERL_FE',
             'report-uasl-fe':'REPORT_UASL_FE',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'EtherThreshold_Enum' : _MetaInfoEnum('EtherThreshold_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'EtherThresholdEnum' : _MetaInfoEnum('EtherThresholdEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'thresh-rx-pkt':'THRESH_RX_PKT',
             'thresh-stat-pkt':'THRESH_STAT_PKT',
@@ -290,19 +290,19 @@ _meta_table = {
             'thresh-out-pkts-512-1023-octets':'THRESH_OUT_PKTS_512_1023_OCTETS',
             'thresh-out-pkts-1024-1518-octets':'THRESH_OUT_PKTS_1024_1518_OCTETS',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'FecThreshold_Enum' : _MetaInfoEnum('FecThreshold_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'FecThresholdEnum' : _MetaInfoEnum('FecThresholdEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'thresh-ec-bits':'THRESH_EC_BITS',
             'thresh-uc-words':'THRESH_UC_WORDS',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'StsReport_Enum' : _MetaInfoEnum('StsReport_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'StsReportEnum' : _MetaInfoEnum('StsReportEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'report-cv':'REPORT_CV',
             'report-es':'REPORT_ES',
             'report-ses':'REPORT_SES',
             'report-uas':'REPORT_UAS',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'OtnReport_Enum' : _MetaInfoEnum('OtnReport_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'OtnReportEnum' : _MetaInfoEnum('OtnReportEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'report-es-sm-ne':'REPORT_ES_SM_NE',
             'report-ses-sm-ne':'REPORT_SES_SM_NE',
@@ -337,7 +337,7 @@ _meta_table = {
             'report-sesr-pm-fe':'REPORT_SESR_PM_FE',
             'report-bber-pm-fe':'REPORT_BBER_PM_FE',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'OcnThreshold_Enum' : _MetaInfoEnum('OcnThreshold_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'OcnThresholdEnum' : _MetaInfoEnum('OcnThresholdEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'thresh-sefss':'THRESH_SEFSS',
             'thresh-cvs':'THRESH_CVS',
@@ -354,7 +354,7 @@ _meta_table = {
             'thresh-sesl-fe':'THRESH_SESL_FE',
             'thresh-uasl-fe':'THRESH_UASL_FE',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'StmThreshold_Enum' : _MetaInfoEnum('StmThreshold_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'StmThresholdEnum' : _MetaInfoEnum('StmThresholdEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'thresh-ebs':'THRESH_EBS',
             'thresh-ess':'THRESH_ESS',
@@ -381,7 +381,7 @@ _meta_table = {
             'thresh-bberl-fe':'THRESH_BBERL_FE',
             'thresh-uasl-fe':'THRESH_UASL_FE',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'OcnReport_Enum' : _MetaInfoEnum('OcnReport_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'OcnReportEnum' : _MetaInfoEnum('OcnReportEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'report-sefss':'REPORT_SEFSS',
             'report-cvs':'REPORT_CVS',
@@ -398,7 +398,7 @@ _meta_table = {
             'report-sesl-fe':'REPORT_SESL_FE',
             'report-uasl-fe':'REPORT_UASL_FE',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'EtherReport_Enum' : _MetaInfoEnum('EtherReport_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'EtherReportEnum' : _MetaInfoEnum('EtherReportEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'report-rx-pkt':'REPORT_RX_PKT',
             'report-stat-pkt':'REPORT_STAT_PKT',
@@ -469,14 +469,14 @@ _meta_table = {
             'report-out-pkts-512-1023-octets':'REPORT_OUT_PKTS_512_1023_OCTETS',
             'report-out-pkts-1024-1518-octets':'REPORT_OUT_PKTS_1024_1518_OCTETS',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'PathThreshold_Enum' : _MetaInfoEnum('PathThreshold_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'PathThresholdEnum' : _MetaInfoEnum('PathThresholdEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'thresh-cv':'THRESH_CV',
             'thresh-es':'THRESH_ES',
             'thresh-ses':'THRESH_SES',
             'thresh-uas':'THRESH_UAS',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
-    'PathReport_Enum' : _MetaInfoEnum('PathReport_Enum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
+    'PathReportEnum' : _MetaInfoEnum('PathReportEnum', 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg',
         {
             'report-cv':'REPORT_CV',
             'report-es':'REPORT_ES',

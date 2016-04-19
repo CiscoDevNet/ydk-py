@@ -24,359 +24,334 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class OtnExpTtiTypeDapi_Enum(Enum):
+class OtnExpTtiTypeDapiEnum(Enum):
     """
-    OtnExpTtiTypeDapi_Enum
+    OtnExpTtiTypeDapiEnum
 
     Otn exp tti type dapi
 
-    """
+    .. data:: EXP_TTI_DAPI_ASCII__FWD_SLASH__DAPI_ASCII = 9
+
+    	Expected TTI DAPI ASCII string
 
     """
 
-    Expected TTI DAPI ASCII string
-
-    """
     EXP_TTI_DAPI_ASCII__FWD_SLASH__DAPI_ASCII = 9
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
-        return meta._meta_table['OtnExpTtiTypeDapi_Enum']
+        return meta._meta_table['OtnExpTtiTypeDapiEnum']
 
 
-class OtnExpTtiTypeFull_Enum(Enum):
+class OtnExpTtiTypeFullEnum(Enum):
     """
-    OtnExpTtiTypeFull_Enum
+    OtnExpTtiTypeFullEnum
 
     Otn exp tti type full
 
-    """
+    .. data:: EXP_TTI_FULL_ASCII__FWD_SLASH__FULL_ASCII = 5
+
+    	Expected TTI Full ASCII string
+
+    .. data:: EXP_TTI_HEX__FWD_SLASH__HEX = 7
+
+    	Expected TTI hex string
 
     """
 
-    Expected TTI Full ASCII string
-
-    """
     EXP_TTI_FULL_ASCII__FWD_SLASH__FULL_ASCII = 5
 
-    """
-
-    Expected TTI hex string
-
-    """
     EXP_TTI_HEX__FWD_SLASH__HEX = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
-        return meta._meta_table['OtnExpTtiTypeFull_Enum']
+        return meta._meta_table['OtnExpTtiTypeFullEnum']
 
 
-class OtnExpTtiTypeOs_Enum(Enum):
+class OtnExpTtiTypeOsEnum(Enum):
     """
-    OtnExpTtiTypeOs_Enum
+    OtnExpTtiTypeOsEnum
 
     Otn exp tti type os
 
-    """
+    .. data:: EXP_TTI_OS_ASCII__FWD_SLASH__OS_ASCII = 11
+
+    	Expected TTI OS ASCII string
+
+    .. data:: EXP_TTI_OS_HEX__FWD_SLASH__OS_HEX = 13
+
+    	Expected TTI OS HEX string
 
     """
 
-    Expected TTI OS ASCII string
-
-    """
     EXP_TTI_OS_ASCII__FWD_SLASH__OS_ASCII = 11
 
-    """
-
-    Expected TTI OS HEX string
-
-    """
     EXP_TTI_OS_HEX__FWD_SLASH__OS_HEX = 13
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
-        return meta._meta_table['OtnExpTtiTypeOs_Enum']
+        return meta._meta_table['OtnExpTtiTypeOsEnum']
 
 
-class OtnExpTtiTypeSapi_Enum(Enum):
+class OtnExpTtiTypeSapiEnum(Enum):
     """
-    OtnExpTtiTypeSapi_Enum
+    OtnExpTtiTypeSapiEnum
 
     Otn exp tti type sapi
 
-    """
+    .. data:: EXP_TTI_SAPI_ASCII__FWD_SLASH__SAPI_ASCII = 15
+
+    	Expected TTI SAPI ASCII string
 
     """
 
-    Expected TTI SAPI ASCII string
-
-    """
     EXP_TTI_SAPI_ASCII__FWD_SLASH__SAPI_ASCII = 15
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
-        return meta._meta_table['OtnExpTtiTypeSapi_Enum']
+        return meta._meta_table['OtnExpTtiTypeSapiEnum']
 
 
-class OtnLoopback_Enum(Enum):
+class OtnLoopbackEnum(Enum):
     """
-    OtnLoopback_Enum
+    OtnLoopbackEnum
 
     Otn loopback
 
-    """
+    .. data:: LINE = 2
+
+    	Line loopback
+
+    .. data:: INTERNAL = 4
+
+    	Internal loopback
 
     """
 
-    Line loopback
-
-    """
     LINE = 2
 
-    """
-
-    Internal loopback
-
-    """
     INTERNAL = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
-        return meta._meta_table['OtnLoopback_Enum']
+        return meta._meta_table['OtnLoopbackEnum']
 
 
-class OtnPerMon_Enum(Enum):
+class OtnPerMonEnum(Enum):
     """
-    OtnPerMon_Enum
+    OtnPerMonEnum
 
     Otn per mon
 
-    """
+    .. data:: DISABLE = 0
+
+    	Performance Monitoring Disabled
+
+    .. data:: ENABLE = 1
+
+    	Performance Monitoring Enabled
 
     """
 
-    Performance Monitoring Disabled
-
-    """
     DISABLE = 0
 
-    """
-
-    Performance Monitoring Enabled
-
-    """
     ENABLE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
-        return meta._meta_table['OtnPerMon_Enum']
+        return meta._meta_table['OtnPerMonEnum']
 
 
-class OtnSecAdminState_Enum(Enum):
+class OtnSecAdminStateEnum(Enum):
     """
-    OtnSecAdminState_Enum
+    OtnSecAdminStateEnum
 
     Otn sec admin state
 
-    """
+    .. data:: NORMAL = 0
+
+    	In normal state
+
+    .. data:: MAINTENANCE = 1
+
+    	Under maintenance
 
     """
 
-    In normal state
-
-    """
     NORMAL = 0
 
-    """
-
-    Under maintenance
-
-    """
     MAINTENANCE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
-        return meta._meta_table['OtnSecAdminState_Enum']
+        return meta._meta_table['OtnSecAdminStateEnum']
 
 
-class OtnSendTtiTypeDapi_Enum(Enum):
+class OtnSendTtiTypeDapiEnum(Enum):
     """
-    OtnSendTtiTypeDapi_Enum
+    OtnSendTtiTypeDapiEnum
 
     Otn send tti type dapi
 
-    """
+    .. data:: SEND_TTI_DAPI_ASCII__FWD_SLASH__DAPI_ASCII = 8
+
+    	Send TTI DAPI ASCII string
 
     """
 
-    Send TTI DAPI ASCII string
-
-    """
     SEND_TTI_DAPI_ASCII__FWD_SLASH__DAPI_ASCII = 8
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
-        return meta._meta_table['OtnSendTtiTypeDapi_Enum']
+        return meta._meta_table['OtnSendTtiTypeDapiEnum']
 
 
-class OtnSendTtiTypeFull_Enum(Enum):
+class OtnSendTtiTypeFullEnum(Enum):
     """
-    OtnSendTtiTypeFull_Enum
+    OtnSendTtiTypeFullEnum
 
     Otn send tti type full
 
-    """
+    .. data:: SEND_TTI_FULL_ASCII__FWD_SLASH__FULL_ASCII = 4
+
+    	Send TTI Full ASCII string
+
+    .. data:: SEND_TTI_HEX__FWD_SLASH__HEX = 6
+
+    	Send TTI hex string
 
     """
 
-    Send TTI Full ASCII string
-
-    """
     SEND_TTI_FULL_ASCII__FWD_SLASH__FULL_ASCII = 4
 
-    """
-
-    Send TTI hex string
-
-    """
     SEND_TTI_HEX__FWD_SLASH__HEX = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
-        return meta._meta_table['OtnSendTtiTypeFull_Enum']
+        return meta._meta_table['OtnSendTtiTypeFullEnum']
 
 
-class OtnSendTtiTypeOs_Enum(Enum):
+class OtnSendTtiTypeOsEnum(Enum):
     """
-    OtnSendTtiTypeOs_Enum
+    OtnSendTtiTypeOsEnum
 
     Otn send tti type os
 
-    """
+    .. data:: SEND_TTI_OS_ASCII__FWD_SLASH__OS_ASCII = 10
+
+    	Send TTI OS ASCII string
+
+    .. data:: SEND_TTI_OS_HEX__FWD_SLASH__OS_HEX = 12
+
+    	Send TTI OS HEX string
 
     """
 
-    Send TTI OS ASCII string
-
-    """
     SEND_TTI_OS_ASCII__FWD_SLASH__OS_ASCII = 10
 
-    """
-
-    Send TTI OS HEX string
-
-    """
     SEND_TTI_OS_HEX__FWD_SLASH__OS_HEX = 12
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
-        return meta._meta_table['OtnSendTtiTypeOs_Enum']
+        return meta._meta_table['OtnSendTtiTypeOsEnum']
 
 
-class OtnSendTtiTypeSapi_Enum(Enum):
+class OtnSendTtiTypeSapiEnum(Enum):
     """
-    OtnSendTtiTypeSapi_Enum
+    OtnSendTtiTypeSapiEnum
 
     Otn send tti type sapi
 
-    """
+    .. data:: SEND_TTI_SAPI_ASCII__FWD_SLASH__SAPI_ASCII = 14
+
+    	Send TTI SAPI ASCII string
 
     """
 
-    Send TTI SAPI ASCII string
-
-    """
     SEND_TTI_SAPI_ASCII__FWD_SLASH__SAPI_ASCII = 14
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
-        return meta._meta_table['OtnSendTtiTypeSapi_Enum']
+        return meta._meta_table['OtnSendTtiTypeSapiEnum']
 
 
-class OtuForwardErrorCorrection_Enum(Enum):
+class OtuForwardErrorCorrectionEnum(Enum):
     """
-    OtuForwardErrorCorrection_Enum
+    OtuForwardErrorCorrectionEnum
 
     Otu forward error correction
 
-    """
+    .. data:: NONE = 1
+
+    	No Fec
+
+    .. data:: STANDARD = 2
+
+    	Standard Fec
+
+    .. data:: ENHANCED_I7 = 4
+
+    	EnhancedI7 Fec
+
+    .. data:: ENHANCED_I4 = 8
+
+    	Enhanced I4 Fec
+
+    .. data:: ENHANCED_SWIZZLE = 16
+
+    	EnhancedSwizzle Fec
+
+    .. data:: ENHANCED_HG20 = 32
+
+    	EnhancedHG20 Fec
+
+    .. data:: ENHANCED_HG7 = 64
+
+    	EnhancedHG7 Fec
 
     """
 
-    No Fec
-
-    """
     NONE = 1
 
-    """
-
-    Standard Fec
-
-    """
     STANDARD = 2
 
-    """
-
-    EnhancedI7 Fec
-
-    """
     ENHANCED_I7 = 4
 
-    """
-
-    Enhanced I4 Fec
-
-    """
     ENHANCED_I4 = 8
 
-    """
-
-    EnhancedSwizzle Fec
-
-    """
     ENHANCED_SWIZZLE = 16
 
-    """
-
-    EnhancedHG20 Fec
-
-    """
     ENHANCED_HG20 = 32
 
-    """
-
-    EnhancedHG7 Fec
-
-    """
     ENHANCED_HG7 = 64
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_cfg as meta
-        return meta._meta_table['OtuForwardErrorCorrection_Enum']
+        return meta._meta_table['OtuForwardErrorCorrectionEnum']
 
 
 

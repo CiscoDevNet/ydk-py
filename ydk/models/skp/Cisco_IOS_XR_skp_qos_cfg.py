@@ -24,173 +24,162 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class QosFieldNotSupported_Enum(Enum):
+class QosFieldNotSupportedEnum(Enum):
     """
-    QosFieldNotSupported_Enum
+    QosFieldNotSupportedEnum
 
     Qos field not supported
 
-    """
+    .. data:: NOT_SUPPORTED = 0
+
+    	Dummy data type leave unspecified
 
     """
 
-    Dummy data type leave unspecified
-
-    """
     NOT_SUPPORTED = 0
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.skp._meta import _Cisco_IOS_XR_skp_qos_cfg as meta
-        return meta._meta_table['QosFieldNotSupported_Enum']
+        return meta._meta_table['QosFieldNotSupportedEnum']
 
 
-class QosPolicyAccount_Enum(Enum):
+class QosPolicyAccountEnum(Enum):
     """
-    QosPolicyAccount_Enum
+    QosPolicyAccountEnum
 
     Qos policy account
 
-    """
+    .. data:: NO_PREFERENCE = 0
+
+    	No account turn off preference
+
+    .. data:: LAYER2 = 1
+
+    	Turn on layer 2 accounting
+
+    .. data:: NO_LAYER2 = 2
+
+    	Turn off layer 2 accounting
+
+    .. data:: USER_DEFINED = 4
+
+    	User defined accounting
+
+    .. data:: LAYER1 = 8
+
+    	Turn on layer 1 accounting
 
     """
 
-    No account turn off preference
-
-    """
     NO_PREFERENCE = 0
 
-    """
-
-    Turn on layer 2 accounting
-
-    """
     LAYER2 = 1
 
-    """
-
-    Turn off layer 2 accounting
-
-    """
     NO_LAYER2 = 2
 
-    """
-
-    User defined accounting
-
-    """
     USER_DEFINED = 4
 
-    """
-
-    Turn on layer 1 accounting
-
-    """
     LAYER1 = 8
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.skp._meta import _Cisco_IOS_XR_skp_qos_cfg as meta
-        return meta._meta_table['QosPolicyAccount_Enum']
+        return meta._meta_table['QosPolicyAccountEnum']
 
 
-class Qosl2DataLink_Enum(Enum):
+class Qosl2DataLinkEnum(Enum):
     """
-    Qosl2DataLink_Enum
+    Qosl2DataLinkEnum
 
     Qosl2 data link
 
-    """
+    .. data:: AAL5 = 0
+
+    	ATM adaption layer AAL5
 
     """
 
-    ATM adaption layer AAL5
-
-    """
     AAL5 = 0
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.skp._meta import _Cisco_IOS_XR_skp_qos_cfg as meta
-        return meta._meta_table['Qosl2DataLink_Enum']
+        return meta._meta_table['Qosl2DataLinkEnum']
 
 
-class Qosl2Encap_Enum(Enum):
+class Qosl2EncapEnum(Enum):
     """
-    Qosl2Encap_Enum
+    Qosl2EncapEnum
 
     Qosl2 encap
 
-    """
+    .. data:: SNAP_PPPOA = 1
+
+    	snap-pppoa encap used between the DSLAM and CPE
+
+    .. data:: MUX_PPPOA = 2
+
+    	mux-pppoa encap used between the DSLAM and CPE
+
+    .. data:: SNAP1483_ROUTED = 3
+
+    	snap-1483routed encap used between the DSLAM
+
+    	and CPE
+
+    .. data:: MUX1483_ROUTED = 4
+
+    	mux-1483routed encap used between the DSLAM and
+
+    	CPE
+
+    .. data:: SNAP_RBE = 5
+
+    	snap-rbe encap used between the DSLAM and CPE
+
+    .. data:: SNAP_DOT1QRBE = 6
+
+    	snap-dot1q-rbe encap used between the DSLAM and
+
+    	CPE
+
+    .. data:: MUX_RBE = 7
+
+    	mux-rbe encap used between the DSLAM and CPE
+
+    .. data:: MUX_DOT1QRBE = 8
+
+    	mux-dot1q-rbe encap used between the DSLAM and
+
+    	CPE
 
     """
 
-    snap\-pppoa encap used between the DSLAM and CPE
-
-    """
     SNAP_PPPOA = 1
 
-    """
-
-    mux\-pppoa encap used between the DSLAM and CPE
-
-    """
     MUX_PPPOA = 2
 
-    """
-
-    snap\-1483routed encap used between the DSLAM
-    and CPE
-
-    """
     SNAP1483_ROUTED = 3
 
-    """
-
-    mux\-1483routed encap used between the DSLAM and
-    CPE
-
-    """
     MUX1483_ROUTED = 4
 
-    """
-
-    snap\-rbe encap used between the DSLAM and CPE
-
-    """
     SNAP_RBE = 5
 
-    """
-
-    snap\-dot1q\-rbe encap used between the DSLAM and
-    CPE
-
-    """
     SNAP_DOT1QRBE = 6
 
-    """
-
-    mux\-rbe encap used between the DSLAM and CPE
-
-    """
     MUX_RBE = 7
 
-    """
-
-    mux\-dot1q\-rbe encap used between the DSLAM and
-    CPE
-
-    """
     MUX_DOT1QRBE = 8
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.skp._meta import _Cisco_IOS_XR_skp_qos_cfg as meta
-        return meta._meta_table['Qosl2Encap_Enum']
+        return meta._meta_table['Qosl2EncapEnum']
 
 
 

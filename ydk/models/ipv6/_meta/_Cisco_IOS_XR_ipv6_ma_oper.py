@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,19 +14,19 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'Ipv6MaOperState_Enum' : _MetaInfoEnum('Ipv6MaOperState_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper',
+    'Ipv6MaOperStateEnum' : _MetaInfoEnum('Ipv6MaOperStateEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper',
         {
             'oper-up':'OPER_UP',
             'oper-down':'OPER_DOWN',
         }, 'Cisco-IOS-XR-ipv6-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ma-oper']),
-    'Ipv6MaIfLineState_Enum' : _MetaInfoEnum('Ipv6MaIfLineState_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper',
+    'Ipv6MaIfLineStateEnum' : _MetaInfoEnum('Ipv6MaIfLineStateEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper',
         {
             'down':'DOWN',
             'up':'UP',
             'unknown':'UNKNOWN',
             'error':'ERROR',
         }, 'Cisco-IOS-XR-ipv6-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ma-oper']),
-    'Ipv6MaIfAddrState_Enum' : _MetaInfoEnum('Ipv6MaIfAddrState_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper',
+    'Ipv6MaIfAddrStateEnum' : _MetaInfoEnum('Ipv6MaIfAddrStateEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper',
         {
             'active':'ACTIVE',
             'deprecated':'DEPRECATED',
@@ -336,7 +336,7 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrState_Enum', 
+            _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrStateEnum', 
                 [], [], 
                 '''                State of Address
                 ''',
@@ -377,7 +377,7 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrState_Enum', 
+            _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrStateEnum', 
                 [], [], 
                 '''                State of Address
                 ''',
@@ -424,7 +424,7 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfLineState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfLineState_Enum', 
+            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfLineStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfLineStateEnum', 
                 [], [], 
                 '''                State of Interface Line
                 ''',
@@ -506,7 +506,7 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrState_Enum', 
+            _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrStateEnum', 
                 [], [], 
                 '''                State of Address
                 ''',
@@ -672,7 +672,7 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrState_Enum', 
+            _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrStateEnum', 
                 [], [], 
                 '''                State of Address
                 ''',
@@ -865,7 +865,7 @@ _meta_table = {
                 ''',
                 'is_icmp_unreach_enabled',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfLineState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfLineState_Enum', 
+            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfLineStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfLineStateEnum', 
                 [], [], 
                 '''                State of Interface Line
                 ''',
@@ -901,7 +901,7 @@ _meta_table = {
                 ''',
                 'multicast_group',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('operation-state', REFERENCE_ENUM_CLASS, 'Ipv6MaOperState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaOperState_Enum', 
+            _MetaInfoClassMember('operation-state', REFERENCE_ENUM_CLASS, 'Ipv6MaOperStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaOperStateEnum', 
                 [], [], 
                 '''                IPv6 Operation State
                 ''',
@@ -960,7 +960,7 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrState_Enum', 
+            _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrStateEnum', 
                 [], [], 
                 '''                State of Address
                 ''',
@@ -1001,7 +1001,7 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrState_Enum', 
+            _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrStateEnum', 
                 [], [], 
                 '''                State of Address
                 ''',
@@ -1048,7 +1048,7 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfLineState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfLineState_Enum', 
+            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfLineStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfLineStateEnum', 
                 [], [], 
                 '''                State of Interface Line
                 ''',
@@ -1130,7 +1130,7 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrState_Enum', 
+            _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrStateEnum', 
                 [], [], 
                 '''                State of Address
                 ''',
@@ -1296,7 +1296,7 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrState_Enum', 
+            _MetaInfoClassMember('address-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfAddrStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrStateEnum', 
                 [], [], 
                 '''                State of Address
                 ''',
@@ -1489,7 +1489,7 @@ _meta_table = {
                 ''',
                 'is_icmp_unreach_enabled',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfLineState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfLineState_Enum', 
+            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'Ipv6MaIfLineStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfLineStateEnum', 
                 [], [], 
                 '''                State of Interface Line
                 ''',
@@ -1525,7 +1525,7 @@ _meta_table = {
                 ''',
                 'multicast_group',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('operation-state', REFERENCE_ENUM_CLASS, 'Ipv6MaOperState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaOperState_Enum', 
+            _MetaInfoClassMember('operation-state', REFERENCE_ENUM_CLASS, 'Ipv6MaOperStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaOperStateEnum', 
                 [], [], 
                 '''                IPv6 Operation State
                 ''',

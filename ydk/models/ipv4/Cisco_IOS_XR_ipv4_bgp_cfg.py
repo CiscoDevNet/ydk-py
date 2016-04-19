@@ -29,524 +29,485 @@ from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYDataValidationError
 
 
-from ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes import BgpAddressFamily_Enum
-from ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes import BgpNbrCapAdditionalPathsCfg_Enum
-from ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes import BgpTos_Enum
-from ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes import BgpUpdateFilterAction_Enum
-from ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes import BgpafAdditionalPathsCfg_Enum
+from ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes import BgpAddressFamilyEnum
+from ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes import BgpNbrCapAdditionalPathsCfgEnum
+from ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes import BgpTosEnum
+from ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes import BgpUpdateFilterActionEnum
+from ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes import BgpafAdditionalPathsCfgEnum
 
-class BgpAigpCfgPoi_Enum(Enum):
+class BgpAigpCfgEnum(Enum):
     """
-    BgpAigpCfgPoi_Enum
+    BgpAigpCfgEnum
+
+    Bgp aigp cfg
+
+    .. data:: ENABLE = 1
+
+    	Enable AIGP
+
+    .. data:: DISABLE = 2
+
+    	Disable AIGP
+
+    """
+
+    ENABLE = 1
+
+    DISABLE = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpAigpCfgEnum']
+
+
+class BgpAigpCfgPoiEnum(Enum):
+    """
+    BgpAigpCfgPoiEnum
 
     Bgp aigp cfg poi
 
-    """
+    .. data:: PRE_BEST_PATH = 1
+
+    	AIGP Pre-bestpath POI
+
+    .. data:: IGP_COST = 2
+
+    	AIGP igp-cost POI
 
     """
 
-    AIGP Pre\-bestpath POI
-
-    """
     PRE_BEST_PATH = 1
 
-    """
-
-    AIGP igp\-cost POI
-
-    """
     IGP_COST = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-        return meta._meta_table['BgpAigpCfgPoi_Enum']
+        return meta._meta_table['BgpAigpCfgPoiEnum']
 
 
-class BgpAigpCfg_Enum(Enum):
+class BgpBfdEnableModeEnum(Enum):
     """
-    BgpAigpCfg_Enum
-
-    Bgp aigp cfg
-
-    """
-
-    """
-
-    Enable AIGP
-
-    """
-    ENABLE = 1
-
-    """
-
-    Disable AIGP
-
-    """
-    DISABLE = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-        return meta._meta_table['BgpAigpCfg_Enum']
-
-
-class BgpBfdEnableMode_Enum(Enum):
-    """
-    BgpBfdEnableMode_Enum
+    BgpBfdEnableModeEnum
 
     Bgp bfd enable mode
 
-    """
+    .. data:: DISABLE = 0
+
+    	Disable Mode - Prevent inheritance
+
+    .. data:: DEFAULT = 1
+
+    	Default Mode - Default BFD behavior
+
+    .. data:: STRICT = 2
+
+    	Strict Mode - Hold down adj until BFD session
+
+    	up
 
     """
 
-    Disable Mode \- Prevent inheritance
-
-    """
     DISABLE = 0
 
-    """
-
-    Default Mode \- Default BFD behavior
-
-    """
     DEFAULT = 1
 
-    """
-
-    Strict Mode \- Hold down adj until BFD session
-    up
-
-    """
     STRICT = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-        return meta._meta_table['BgpBfdEnableMode_Enum']
+        return meta._meta_table['BgpBfdEnableModeEnum']
 
 
-class BgpClusterId_Enum(Enum):
+class BgpClusterIdEnum(Enum):
     """
-    BgpClusterId_Enum
+    BgpClusterIdEnum
 
     Bgp cluster id
 
-    """
+    .. data:: NUMBER = 1
+
+    	Number
+
+    .. data:: IPV4_ADDRESS = 2
+
+    	IPv4 Address
 
     """
 
-    Number
-
-    """
     NUMBER = 1
 
-    """
-
-    IPv4 Address
-
-    """
     IPV4_ADDRESS = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-        return meta._meta_table['BgpClusterId_Enum']
+        return meta._meta_table['BgpClusterIdEnum']
 
 
-class BgpFlowspecValidationCfg_Enum(Enum):
+class BgpFlowspecValidationCfgEnum(Enum):
     """
-    BgpFlowspecValidationCfg_Enum
+    BgpFlowspecValidationCfgEnum
 
     Bgp flowspec validation cfg
 
-    """
+    .. data:: ENABLE = 1
+
+    	Enable Flowspec validation
+
+    .. data:: DISABLE = 2
+
+    	Disable Flowspec validation
+
+    .. data:: REDIRECT_NEXHOP_DISABLE = 3
+
+    	Disable Flowspec redirect nexthop validation
 
     """
 
-    Enable Flowspec validation
-
-    """
     ENABLE = 1
 
-    """
-
-    Disable Flowspec validation
-
-    """
     DISABLE = 2
 
-    """
-
-    Disable Flowspec redirect nexthop validation
-
-    """
     REDIRECT_NEXHOP_DISABLE = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-        return meta._meta_table['BgpFlowspecValidationCfg_Enum']
+        return meta._meta_table['BgpFlowspecValidationCfgEnum']
 
 
-class BgpMvpnSfsSelect_Enum(Enum):
+class BgpMvpnSfsSelectEnum(Enum):
     """
-    BgpMvpnSfsSelect_Enum
+    BgpMvpnSfsSelectEnum
 
     Bgp mvpn sfs select
 
-    """
+    .. data:: ALL_PATHS = 1
+
+    	Select all paths as single forwarder PE
+
+    .. data:: HIGHEST_IP_ADDRESS = 2
+
+    	Select PE with highest address as single
+
+    	forwarder PE
 
     """
 
-    Select all paths as single forwarder PE
-
-    """
     ALL_PATHS = 1
 
-    """
-
-    Select PE with highest address as single
-    forwarder PE
-
-    """
     HIGHEST_IP_ADDRESS = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-        return meta._meta_table['BgpMvpnSfsSelect_Enum']
+        return meta._meta_table['BgpMvpnSfsSelectEnum']
 
 
-class BgpOrf_Enum(Enum):
+class BgpOrfEnum(Enum):
     """
-    BgpOrf_Enum
+    BgpOrfEnum
 
     Bgp orf
 
-    """
+    .. data:: NONE = 0
+
+    	No capability to send or receive
+
+    .. data:: RECEIVE = 1
+
+    	Receive ORF capability
+
+    .. data:: SEND = 2
+
+    	Send ORF capability
+
+    .. data:: BOTH = 3
+
+    	Send and receive ORF capability
 
     """
 
-    No capability to send or receive
-
-    """
     NONE = 0
 
-    """
-
-    Receive ORF capability
-
-    """
     RECEIVE = 1
 
-    """
-
-    Send ORF capability
-
-    """
     SEND = 2
 
-    """
-
-    Send and receive ORF capability
-
-    """
     BOTH = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-        return meta._meta_table['BgpOrf_Enum']
+        return meta._meta_table['BgpOrfEnum']
 
 
-class BgpReorgOpt_Enum(Enum):
+class BgpReorgOptEnum(Enum):
     """
-    BgpReorgOpt_Enum
+    BgpReorgOptEnum
 
     Bgp reorg opt
 
-    """
+    .. data:: BGP_CFG_ADV = 1
+
+    	Advertise translated routes
+
+    .. data:: BGP_CFG_ADV_REORG = 2
+
+    	Advertise Reorig routes
+
+    .. data:: BGP_CFG_ADV_DISABLE = 3
+
+    	Disable adv of routes
+
+    .. data:: BGP_CFG_ADV_LOCAL = 4
+
+    	Advertise local routes
 
     """
 
-    Advertise translated routes
-
-    """
     BGP_CFG_ADV = 1
 
-    """
-
-    Advertise Reorig routes
-
-    """
     BGP_CFG_ADV_REORG = 2
 
-    """
-
-    Disable adv of routes
-
-    """
     BGP_CFG_ADV_DISABLE = 3
 
-    """
-
-    Advertise local routes
-
-    """
     BGP_CFG_ADV_LOCAL = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-        return meta._meta_table['BgpReorgOpt_Enum']
+        return meta._meta_table['BgpReorgOptEnum']
 
 
-class BgpRouteDistinguisher_Enum(Enum):
+class BgpRouteDistinguisherEnum(Enum):
     """
-    BgpRouteDistinguisher_Enum
+    BgpRouteDistinguisherEnum
 
     Bgp route distinguisher
 
-    """
+    .. data:: AUTO = 1
+
+    	Automatically assigned
+
+    .. data:: AS = 2
+
+    	AS format RD
+
+    .. data:: FOUR_BYTE_AS = 3
+
+    	4-byte AS format RD
+
+    .. data:: IPV4_ADDRESS = 4
+
+    	IPv4 address format RD
 
     """
 
-    Automatically assigned
-
-    """
     AUTO = 1
 
-    """
-
-    AS format RD
-
-    """
     AS = 2
 
-    """
-
-    4\-byte AS format RD
-
-    """
     FOUR_BYTE_AS = 3
 
-    """
-
-    IPv4 address format RD
-
-    """
     IPV4_ADDRESS = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-        return meta._meta_table['BgpRouteDistinguisher_Enum']
+        return meta._meta_table['BgpRouteDistinguisherEnum']
 
 
-class BgpRpkiTransport_Enum(Enum):
+class BgpRpkiTransportEnum(Enum):
     """
-    BgpRpkiTransport_Enum
+    BgpRpkiTransportEnum
 
     Bgp rpki transport
 
-    """
+    .. data:: TCP = 0
+
+    	TCP Transport
+
+    .. data:: SSH = 1
+
+    	SSH Transport
 
     """
 
-    TCP Transport
-
-    """
     TCP = 0
 
-    """
-
-    SSH Transport
-
-    """
     SSH = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-        return meta._meta_table['BgpRpkiTransport_Enum']
+        return meta._meta_table['BgpRpkiTransportEnum']
 
 
-class BgpSendMcastAttrCfg_Enum(Enum):
+class BgpSendMcastAttrCfgEnum(Enum):
     """
-    BgpSendMcastAttrCfg_Enum
+    BgpSendMcastAttrCfgEnum
 
     Bgp send mcast attr cfg
 
-    """
+    .. data:: ENABLE = 1
+
+    	Enable SendMcastAttr
+
+    .. data:: DISABLE = 2
+
+    	Disable SendMcastAttr
 
     """
 
-    Enable SendMcastAttr
-
-    """
     ENABLE = 1
 
-    """
-
-    Disable SendMcastAttr
-
-    """
     DISABLE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-        return meta._meta_table['BgpSendMcastAttrCfg_Enum']
+        return meta._meta_table['BgpSendMcastAttrCfgEnum']
 
 
-class BgpSignal_Enum(Enum):
+class BgpSignalEnum(Enum):
     """
-    BgpSignal_Enum
+    BgpSignalEnum
 
     Bgp signal
 
-    """
+    .. data:: BGP_DISABLE = 1
+
+    	Signalling BGP disable
+
+    .. data:: LDP_DISABLE = 2
+
+    	Signalling LDP disable
 
     """
 
-    Signalling BGP disable
-
-    """
     BGP_DISABLE = 1
 
-    """
-
-    Signalling LDP disable
-
-    """
     LDP_DISABLE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-        return meta._meta_table['BgpSignal_Enum']
+        return meta._meta_table['BgpSignalEnum']
 
 
-class BgpSiteOfOrigin_Enum(Enum):
+class BgpSiteOfOriginEnum(Enum):
     """
-    BgpSiteOfOrigin_Enum
+    BgpSiteOfOriginEnum
 
     Bgp site of origin
 
-    """
+    .. data:: AS = 0
+
+    	AS format SoO
+
+    .. data:: IPV4_ADDRESS = 1
+
+    	IPv4 address format SoO
+
+    .. data:: FOUR_BYTE_AS = 2
+
+    	4-byte AS format SoO
 
     """
 
-    AS format SoO
-
-    """
     AS = 0
 
-    """
-
-    IPv4 address format SoO
-
-    """
     IPV4_ADDRESS = 1
 
-    """
-
-    4\-byte AS format SoO
-
-    """
     FOUR_BYTE_AS = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-        return meta._meta_table['BgpSiteOfOrigin_Enum']
+        return meta._meta_table['BgpSiteOfOriginEnum']
 
 
-class BgpTcpMode_Enum(Enum):
+class BgpTcpModeEnum(Enum):
     """
-    BgpTcpMode_Enum
+    BgpTcpModeEnum
 
     Bgp tcp mode
 
-    """
+    .. data:: EITHER = 0
+
+    	Either active or passive mode
+
+    .. data:: ACTIVE_ONLY = 1
+
+    	Active mode only
+
+    .. data:: PASSIVE_ONLY = 2
+
+    	Passive mode only
 
     """
 
-    Either active or passive mode
-
-    """
     EITHER = 0
 
-    """
-
-    Active mode only
-
-    """
     ACTIVE_ONLY = 1
 
-    """
-
-    Passive mode only
-
-    """
     PASSIVE_ONLY = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-        return meta._meta_table['BgpTcpMode_Enum']
+        return meta._meta_table['BgpTcpModeEnum']
 
 
-class BgpVrfRouteTarget_Enum(Enum):
+class BgpVrfRouteTargetEnum(Enum):
     """
-    BgpVrfRouteTarget_Enum
+    BgpVrfRouteTargetEnum
 
     Bgp vrf route target
 
-    """
+    .. data:: AS = 0
+
+    	AS format RT
+
+    .. data:: IPV4_ADDRESS = 1
+
+    	IPv4 address format RT
+
+    .. data:: FOUR_BYTE_AS = 2
+
+    	4-byte AS format RT
 
     """
 
-    AS format RT
-
-    """
     AS = 0
 
-    """
-
-    IPv4 address format RT
-
-    """
     IPV4_ADDRESS = 1
 
-    """
-
-    4\-byte AS format RT
-
-    """
     FOUR_BYTE_AS = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-        return meta._meta_table['BgpVrfRouteTarget_Enum']
+        return meta._meta_table['BgpVrfRouteTargetEnum']
 
 
 
@@ -833,7 +794,7 @@ class Bgp(object):
                                         .. attribute:: af_name
                                         
                                         	BGP AF group address family
-                                        	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                        	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                         
                                         .. attribute:: accept_own
                                         
@@ -863,7 +824,7 @@ class Bgp(object):
                                         .. attribute:: advertise_orf
                                         
                                         	Advertise ORF capability to the peer
-                                        	**type**\: :py:class:`BgpOrf_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpOrf_Enum>`
+                                        	**type**\: :py:class:`BgpOrfEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpOrfEnum>`
                                         
                                         .. attribute:: advertise_permanent_network
                                         
@@ -888,7 +849,7 @@ class Bgp(object):
                                         .. attribute:: aigp
                                         
                                         	Enable Accumulated IGP Metric for this neighbor
-                                        	**type**\: :py:class:`BgpAigpCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfg_Enum>`
+                                        	**type**\: :py:class:`BgpAigpCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
                                         
                                         .. attribute:: aigp_cost_community
                                         
@@ -898,7 +859,7 @@ class Bgp(object):
                                         .. attribute:: aigp_send_med
                                         
                                         	Enable/Disable sending AIGP in MED 
-                                        	**type**\: :py:class:`BgpAigpCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfg_Enum>`
+                                        	**type**\: :py:class:`BgpAigpCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
                                         
                                         .. attribute:: allow_as_in
                                         
@@ -932,7 +893,7 @@ class Bgp(object):
                                         .. attribute:: flowspec_validation
                                         
                                         	Config Flowspec validation for this neighbor
-                                        	**type**\: :py:class:`BgpFlowspecValidationCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpFlowspecValidationCfg_Enum>`
+                                        	**type**\: :py:class:`BgpFlowspecValidationCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpFlowspecValidationCfgEnum>`
                                         
                                         .. attribute:: import_
                                         
@@ -942,7 +903,7 @@ class Bgp(object):
                                         .. attribute:: l2vpn_signalling
                                         
                                         	Disable signalling type on the peer
-                                        	**type**\: :py:class:`BgpSignal_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSignal_Enum>`
+                                        	**type**\: :py:class:`BgpSignalEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSignalEnum>`
                                         
                                         .. attribute:: maximum_prefixes
                                         
@@ -1037,7 +998,7 @@ class Bgp(object):
                                         .. attribute:: send_multicast_attr
                                         
                                         	Config send multicast attribute for this neighbor
-                                        	**type**\: :py:class:`BgpSendMcastAttrCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSendMcastAttrCfg_Enum>`
+                                        	**type**\: :py:class:`BgpSendMcastAttrCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSendMcastAttrCfgEnum>`
                                         
                                         .. attribute:: site_of_origin
                                         
@@ -1120,12 +1081,12 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                            	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\: :py:class:`BgpReorgOpt_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt_Enum>`
+                                            	**type**\: :py:class:`BgpReorgOptEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             
 
@@ -1153,18 +1114,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
                                                 if self.reorg_option is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -1181,12 +1136,12 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                            	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\: :py:class:`BgpReorgOpt_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt_Enum>`
+                                            	**type**\: :py:class:`BgpReorgOptEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             
 
@@ -1214,18 +1169,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
                                                 if self.reorg_option is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -1242,12 +1191,12 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                            	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\: :py:class:`BgpReorgOpt_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt_Enum>`
+                                            	**type**\: :py:class:`BgpReorgOptEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             
 
@@ -1275,18 +1224,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
                                                 if self.reorg_option is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -1302,12 +1245,12 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                            	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\: :py:class:`BgpReorgOpt_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt_Enum>`
+                                            	**type**\: :py:class:`BgpReorgOptEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             
 
@@ -1335,18 +1278,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
                                                 if self.reorg_option is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -1362,12 +1299,12 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                            	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\: :py:class:`BgpReorgOpt_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt_Enum>`
+                                            	**type**\: :py:class:`BgpReorgOptEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             
 
@@ -1395,18 +1332,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
                                                 if self.reorg_option is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -1426,19 +1357,39 @@ class Bgp(object):
                                             
                                             	**range:** 0..255
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: cost_community_poi_type
                                             
                                             	Cost Community POI
-                                            	**type**\: :py:class:`BgpAigpCfgPoi_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgPoi_Enum>`
+                                            	**type**\: :py:class:`BgpAigpCfgPoiEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgPoiEnum>`
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
                                             
                                             .. attribute:: enable
                                             
                                             	TRUE to enable sending cost community, FALSE otherwise 
                                             	**type**\: bool
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: transitive
                                             
                                             	True to send transitive cost community FALSE otherwise
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
                                             	**type**\: bool
                                             
                                             
@@ -1471,8 +1422,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.cost_community_id is not None:
                                                     return True
 
@@ -1486,10 +1435,6 @@ class Bgp(object):
                                                     return True
 
                                                 return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return True
 
                                             @staticmethod
                                             def _meta_info():
@@ -1537,18 +1482,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.enable is not None:
                                                     return True
 
                                                 if self.route_policy_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -1604,8 +1543,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.import_reoriginate is not None:
                                                     return True
 
@@ -1615,10 +1552,6 @@ class Bgp(object):
                                                 if self.import_stitching is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -1637,12 +1570,22 @@ class Bgp(object):
                                             	Discard extra paths when limit is exceeded
                                             	**type**\: bool
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: prefix_limit
                                             
                                             	Maximum prefixes limit
                                             	**type**\: int
                                             
                                             	**range:** 1..4294967295
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
                                             
                                             .. attribute:: restart_time
                                             
@@ -1651,9 +1594,19 @@ class Bgp(object):
                                             
                                             	**range:** 0..65535
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: warning_only
                                             
                                             	TRUE to only give a warning message when limit is exceeded.  FALSE to accept max prefix limit only
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
                                             	**type**\: bool
                                             
                                             .. attribute:: warning_percentage
@@ -1662,6 +1615,11 @@ class Bgp(object):
                                             	**type**\: int
                                             
                                             	**range:** 1..100
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
                                             
                                             
 
@@ -1694,8 +1652,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.discard_extra_paths is not None:
                                                     return True
 
@@ -1712,10 +1668,6 @@ class Bgp(object):
                                                     return True
 
                                                 return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return True
 
                                             @staticmethod
                                             def _meta_info():
@@ -1768,18 +1720,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.stale_time_accept is not None:
                                                     return True
 
                                                 if self.stale_time_send is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -1797,9 +1743,19 @@ class Bgp(object):
                                             	TRUE to remove private AS from outbound updates .  FALSE to prevent remove\-private\-AS from being inherited
                                             	**type**\: bool
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: entire
                                             
                                             	TRUE to remove private AS from outbound updates if all ASes in aspath areprivate. FALSE to prevent remove\-private\-ASfrom being inherited
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
                                             	**type**\: bool
                                             
                                             
@@ -1830,8 +1786,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.enable is not None:
                                                     return True
 
@@ -1839,10 +1793,6 @@ class Bgp(object):
                                                     return True
 
                                                 return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return True
 
                                             @staticmethod
                                             def _meta_info():
@@ -1859,9 +1809,19 @@ class Bgp(object):
                                             	TRUE to remove private AS from inbound updates. FALSE to prevent remove\-private\-AS from being inherited
                                             	**type**\: bool
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: entire
                                             
                                             	TRUE to remove private AS from inbound updates if all ASes in aspath areprivate. FALSE to prevent remove\-private\-ASfrom being inherited
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
                                             	**type**\: bool
                                             
                                             
@@ -1892,8 +1852,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.enable is not None:
                                                     return True
 
@@ -1901,10 +1859,6 @@ class Bgp(object):
                                                     return True
 
                                                 return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return True
 
                                             @staticmethod
                                             def _meta_info():
@@ -1955,7 +1909,7 @@ class Bgp(object):
                                             .. attribute:: type
                                             
                                             	Type of Extended community
-                                            	**type**\: :py:class:`BgpSiteOfOrigin_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSiteOfOrigin_Enum>`
+                                            	**type**\: :py:class:`BgpSiteOfOriginEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSiteOfOriginEnum>`
                                             
                                             
 
@@ -1987,8 +1941,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.address is not None:
                                                     return True
 
@@ -2007,10 +1959,6 @@ class Bgp(object):
                                                 if self.type is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -2060,18 +2008,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.inbound_soft is not None:
                                                     return True
 
                                                 if self.soft_always is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -2095,8 +2037,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.af_name is not None:
                                                 return True
 
@@ -2109,19 +2049,10 @@ class Bgp(object):
                                             if self.advertise_disable is not None and self.advertise_disable._has_data():
                                                 return True
 
-                                            if self.advertise_disable is not None and self.advertise_disable.is_presence():
-                                                return True
-
                                             if self.advertise_local_v4 is not None and self.advertise_local_v4._has_data():
                                                 return True
 
-                                            if self.advertise_local_v4 is not None and self.advertise_local_v4.is_presence():
-                                                return True
-
                                             if self.advertise_local_v6 is not None and self.advertise_local_v6._has_data():
-                                                return True
-
-                                            if self.advertise_local_v6 is not None and self.advertise_local_v6.is_presence():
                                                 return True
 
                                             if self.advertise_orf is not None:
@@ -2133,13 +2064,7 @@ class Bgp(object):
                                             if self.advertise_v4 is not None and self.advertise_v4._has_data():
                                                 return True
 
-                                            if self.advertise_v4 is not None and self.advertise_v4.is_presence():
-                                                return True
-
                                             if self.advertise_v6 is not None and self.advertise_v6._has_data():
-                                                return True
-
-                                            if self.advertise_v6 is not None and self.advertise_v6.is_presence():
                                                 return True
 
                                             if self.af_group is not None:
@@ -2149,9 +2074,6 @@ class Bgp(object):
                                                 return True
 
                                             if self.aigp_cost_community is not None and self.aigp_cost_community._has_data():
-                                                return True
-
-                                            if self.aigp_cost_community is not None and self.aigp_cost_community.is_presence():
                                                 return True
 
                                             if self.aigp_send_med is not None:
@@ -2169,9 +2091,6 @@ class Bgp(object):
                                             if self.default_originate is not None and self.default_originate._has_data():
                                                 return True
 
-                                            if self.default_originate is not None and self.default_originate.is_presence():
-                                                return True
-
                                             if self.default_weight is not None:
                                                 return True
 
@@ -2181,16 +2100,10 @@ class Bgp(object):
                                             if self.import_ is not None and self.import_._has_data():
                                                 return True
 
-                                            if self.import_ is not None and self.import_.is_presence():
-                                                return True
-
                                             if self.l2vpn_signalling is not None:
                                                 return True
 
                                             if self.maximum_prefixes is not None and self.maximum_prefixes._has_data():
-                                                return True
-
-                                            if self.maximum_prefixes is not None and self.maximum_prefixes.is_presence():
                                                 return True
 
                                             if self.multipath is not None:
@@ -2200,9 +2113,6 @@ class Bgp(object):
                                                 return True
 
                                             if self.neighbor_af_long_lived_graceful_restart_stale_time is not None and self.neighbor_af_long_lived_graceful_restart_stale_time._has_data():
-                                                return True
-
-                                            if self.neighbor_af_long_lived_graceful_restart_stale_time is not None and self.neighbor_af_long_lived_graceful_restart_stale_time.is_presence():
                                                 return True
 
                                             if self.next_hop_self is not None:
@@ -2220,13 +2130,7 @@ class Bgp(object):
                                             if self.remove_private_as_entire_as_path is not None and self.remove_private_as_entire_as_path._has_data():
                                                 return True
 
-                                            if self.remove_private_as_entire_as_path is not None and self.remove_private_as_entire_as_path.is_presence():
-                                                return True
-
                                             if self.remove_private_as_entire_as_path_inbound is not None and self.remove_private_as_entire_as_path_inbound._has_data():
-                                                return True
-
-                                            if self.remove_private_as_entire_as_path_inbound is not None and self.remove_private_as_entire_as_path_inbound.is_presence():
                                                 return True
 
                                             if self.route_policy_in is not None:
@@ -2259,19 +2163,9 @@ class Bgp(object):
                                             if self.site_of_origin is not None and self.site_of_origin._has_data():
                                                 return True
 
-                                            if self.site_of_origin is not None and self.site_of_origin.is_presence():
-                                                return True
-
                                             if self.soft_reconfiguration is not None and self.soft_reconfiguration._has_data():
                                                 return True
 
-                                            if self.soft_reconfiguration is not None and self.soft_reconfiguration.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -2293,17 +2187,11 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.af_group_af is not None:
                                             for child_ref in self.af_group_af:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2327,21 +2215,12 @@ class Bgp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.af_group_name is not None:
                                         return True
 
                                     if self.af_group_afs is not None and self.af_group_afs._has_data():
                                         return True
 
-                                    if self.af_group_afs is not None and self.af_group_afs.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2363,17 +2242,11 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.af_group is not None:
                                     for child_ref in self.af_group:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2419,12 +2292,12 @@ class Bgp(object):
                                 .. attribute:: additional_paths_receive_capability
                                 
                                 	Advertise additional paths Receive capability
-                                	**type**\: :py:class:`BgpNbrCapAdditionalPathsCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfg_Enum>`
+                                	**type**\: :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
                                 
                                 .. attribute:: additional_paths_send_capability
                                 
                                 	Advertise additional paths Send capability
-                                	**type**\: :py:class:`BgpNbrCapAdditionalPathsCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfg_Enum>`
+                                	**type**\: :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
                                 
                                 .. attribute:: advertisement_interval
                                 
@@ -2434,7 +2307,7 @@ class Bgp(object):
                                 .. attribute:: bfd_enable_modes
                                 
                                 	Strict mode, Default mode or Disable to prevent inheritance from a parent
-                                	**type**\: :py:class:`BgpBfdEnableMode_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpBfdEnableMode_Enum>`
+                                	**type**\: :py:class:`BgpBfdEnableModeEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpBfdEnableModeEnum>`
                                 
                                 .. attribute:: bfd_minimum_interval
                                 
@@ -2597,7 +2470,7 @@ class Bgp(object):
                                 .. attribute:: session_open_mode
                                 
                                 	TCP mode to be used to establish BGP session
-                                	**type**\: :py:class:`BgpTcpMode_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpTcpMode_Enum>`
+                                	**type**\: :py:class:`BgpTcpModeEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpTcpModeEnum>`
                                 
                                 .. attribute:: shutdown
                                 
@@ -2726,12 +2599,22 @@ class Bgp(object):
                                     
                                     	**range:** 0..600
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: minimum_interval_msecs
                                     
                                     	Minimum advertisement interval time, msecs part
                                     	**type**\: int
                                     
                                     	**range:** 0..999
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -2761,8 +2644,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.minimum_interval is not None:
                                             return True
 
@@ -2770,10 +2651,6 @@ class Bgp(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -2842,15 +2719,9 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.server_id is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -2872,17 +2743,11 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.bmp_activate is not None:
                                             for child_ref in self.bmp_activate:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2934,18 +2799,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.max_hop_count is not None:
                                             return True
 
                                         if self.mpls_deactivation is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3038,18 +2897,12 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.as_prepends is not None:
                                                 return True
 
                                             if self.gshut_prepends_disable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3100,18 +2953,12 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.gshut_loc_pref_disable is not None:
                                                 return True
 
                                             if self.local_preference is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3133,8 +2980,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.enable is not None:
                                             return True
 
@@ -3144,19 +2989,9 @@ class Bgp(object):
                                         if self.graceful_maintenance_as_prepends is not None and self.graceful_maintenance_as_prepends._has_data():
                                             return True
 
-                                        if self.graceful_maintenance_as_prepends is not None and self.graceful_maintenance_as_prepends.is_presence():
-                                            return True
-
                                         if self.graceful_maintenance_local_preference is not None and self.graceful_maintenance_local_preference._has_data():
                                             return True
 
-                                        if self.graceful_maintenance_local_preference is not None and self.graceful_maintenance_local_preference.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3205,18 +3040,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.keychain_disable is not None:
                                             return True
 
                                         if self.keychain_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3265,18 +3094,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.local_address_disable is not None:
                                             return True
 
                                         if self.local_ip_address is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3353,8 +3176,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.as_xx is not None:
                                             return True
 
@@ -3373,10 +3194,6 @@ class Bgp(object):
                                         if self.replace_as is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3433,8 +3250,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.msg_buf_count is not None:
                                             return True
 
@@ -3444,10 +3259,6 @@ class Bgp(object):
                                         if self.msg_log_inherit_disable is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3504,8 +3315,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.msg_buf_count is not None:
                                             return True
 
@@ -3515,10 +3324,6 @@ class Bgp(object):
                                         if self.msg_log_inherit_disable is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3571,18 +3376,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.cluster_id_address is not None:
                                             return True
 
                                         if self.cluster_id_number is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3621,7 +3420,7 @@ class Bgp(object):
                                         .. attribute:: af_name
                                         
                                         	BGP neighbor group address family
-                                        	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                        	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                         
                                         .. attribute:: accept_own
                                         
@@ -3656,7 +3455,7 @@ class Bgp(object):
                                         .. attribute:: advertise_orf
                                         
                                         	Advertise ORF capability to the peer
-                                        	**type**\: :py:class:`BgpOrf_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpOrf_Enum>`
+                                        	**type**\: :py:class:`BgpOrfEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpOrfEnum>`
                                         
                                         .. attribute:: advertise_permanent_network
                                         
@@ -3681,7 +3480,7 @@ class Bgp(object):
                                         .. attribute:: aigp
                                         
                                         	Enable Accumulated IGP Metric for this neighbor
-                                        	**type**\: :py:class:`BgpAigpCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfg_Enum>`
+                                        	**type**\: :py:class:`BgpAigpCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
                                         
                                         .. attribute:: aigp_cost_community
                                         
@@ -3691,7 +3490,7 @@ class Bgp(object):
                                         .. attribute:: aigp_send_med
                                         
                                         	Enable/Disable sending AIGP in MED 
-                                        	**type**\: :py:class:`BgpAigpCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfg_Enum>`
+                                        	**type**\: :py:class:`BgpAigpCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
                                         
                                         .. attribute:: allow_as_in
                                         
@@ -3720,7 +3519,7 @@ class Bgp(object):
                                         .. attribute:: flowspec_validation
                                         
                                         	Config Flowspec validation for this neighbor
-                                        	**type**\: :py:class:`BgpFlowspecValidationCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpFlowspecValidationCfg_Enum>`
+                                        	**type**\: :py:class:`BgpFlowspecValidationCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpFlowspecValidationCfgEnum>`
                                         
                                         .. attribute:: import_
                                         
@@ -3730,7 +3529,7 @@ class Bgp(object):
                                         .. attribute:: l2vpn_signalling
                                         
                                         	Disable signalling type on the peer
-                                        	**type**\: :py:class:`BgpSignal_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSignal_Enum>`
+                                        	**type**\: :py:class:`BgpSignalEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSignalEnum>`
                                         
                                         .. attribute:: maximum_prefixes
                                         
@@ -3825,7 +3624,7 @@ class Bgp(object):
                                         .. attribute:: send_multicast_attr
                                         
                                         	Config send multicast attribute for this neighbor
-                                        	**type**\: :py:class:`BgpSendMcastAttrCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSendMcastAttrCfg_Enum>`
+                                        	**type**\: :py:class:`BgpSendMcastAttrCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSendMcastAttrCfgEnum>`
                                         
                                         .. attribute:: site_of_origin
                                         
@@ -3908,12 +3707,12 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                            	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\: :py:class:`BgpReorgOpt_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt_Enum>`
+                                            	**type**\: :py:class:`BgpReorgOptEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             
 
@@ -3941,18 +3740,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
                                                 if self.reorg_option is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -3969,12 +3762,12 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                            	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\: :py:class:`BgpReorgOpt_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt_Enum>`
+                                            	**type**\: :py:class:`BgpReorgOptEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             
 
@@ -4002,18 +3795,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
                                                 if self.reorg_option is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -4030,12 +3817,12 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                            	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\: :py:class:`BgpReorgOpt_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt_Enum>`
+                                            	**type**\: :py:class:`BgpReorgOptEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             
 
@@ -4063,18 +3850,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
                                                 if self.reorg_option is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -4090,12 +3871,12 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                            	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\: :py:class:`BgpReorgOpt_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt_Enum>`
+                                            	**type**\: :py:class:`BgpReorgOptEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             
 
@@ -4123,18 +3904,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
                                                 if self.reorg_option is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -4150,12 +3925,12 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                            	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\: :py:class:`BgpReorgOpt_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt_Enum>`
+                                            	**type**\: :py:class:`BgpReorgOptEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             
 
@@ -4183,18 +3958,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
                                                 if self.reorg_option is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -4214,19 +3983,39 @@ class Bgp(object):
                                             
                                             	**range:** 0..255
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: cost_community_poi_type
                                             
                                             	Cost Community POI
-                                            	**type**\: :py:class:`BgpAigpCfgPoi_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgPoi_Enum>`
+                                            	**type**\: :py:class:`BgpAigpCfgPoiEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgPoiEnum>`
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
                                             
                                             .. attribute:: enable
                                             
                                             	TRUE to enable sending cost community, FALSE otherwise 
                                             	**type**\: bool
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: transitive
                                             
                                             	True to send transitive cost community FALSE otherwise
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
                                             	**type**\: bool
                                             
                                             
@@ -4259,8 +4048,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.cost_community_id is not None:
                                                     return True
 
@@ -4274,10 +4061,6 @@ class Bgp(object):
                                                     return True
 
                                                 return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return True
 
                                             @staticmethod
                                             def _meta_info():
@@ -4325,18 +4108,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.enable is not None:
                                                     return True
 
                                                 if self.route_policy_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -4392,8 +4169,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.import_reoriginate is not None:
                                                     return True
 
@@ -4403,10 +4178,6 @@ class Bgp(object):
                                                 if self.import_stitching is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -4425,12 +4196,22 @@ class Bgp(object):
                                             	Discard extra paths when limit is exceeded
                                             	**type**\: bool
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: prefix_limit
                                             
                                             	Maximum prefixes limit
                                             	**type**\: int
                                             
                                             	**range:** 1..4294967295
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
                                             
                                             .. attribute:: restart_time
                                             
@@ -4439,9 +4220,19 @@ class Bgp(object):
                                             
                                             	**range:** 0..65535
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: warning_only
                                             
                                             	TRUE to only give a warning message when limit is exceeded.  FALSE to accept max prefix limit only
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
                                             	**type**\: bool
                                             
                                             .. attribute:: warning_percentage
@@ -4450,6 +4241,11 @@ class Bgp(object):
                                             	**type**\: int
                                             
                                             	**range:** 1..100
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
                                             
                                             
 
@@ -4482,8 +4278,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.discard_extra_paths is not None:
                                                     return True
 
@@ -4500,10 +4294,6 @@ class Bgp(object):
                                                     return True
 
                                                 return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return True
 
                                             @staticmethod
                                             def _meta_info():
@@ -4556,18 +4346,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.stale_time_accept is not None:
                                                     return True
 
                                                 if self.stale_time_send is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -4585,9 +4369,19 @@ class Bgp(object):
                                             	TRUE to remove private AS from outbound updates .  FALSE to prevent remove\-private\-AS from being inherited
                                             	**type**\: bool
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: entire
                                             
                                             	TRUE to remove private AS from outbound updates if all ASes in aspath areprivate. FALSE to prevent remove\-private\-ASfrom being inherited
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
                                             	**type**\: bool
                                             
                                             
@@ -4618,8 +4412,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.enable is not None:
                                                     return True
 
@@ -4627,10 +4419,6 @@ class Bgp(object):
                                                     return True
 
                                                 return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return True
 
                                             @staticmethod
                                             def _meta_info():
@@ -4647,9 +4435,19 @@ class Bgp(object):
                                             	TRUE to remove private AS from inbound updates. FALSE to prevent remove\-private\-AS from being inherited
                                             	**type**\: bool
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: entire
                                             
                                             	TRUE to remove private AS from inbound updates if all ASes in aspath areprivate. FALSE to prevent remove\-private\-ASfrom being inherited
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
                                             	**type**\: bool
                                             
                                             
@@ -4680,8 +4478,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.enable is not None:
                                                     return True
 
@@ -4689,10 +4485,6 @@ class Bgp(object):
                                                     return True
 
                                                 return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return True
 
                                             @staticmethod
                                             def _meta_info():
@@ -4743,7 +4535,7 @@ class Bgp(object):
                                             .. attribute:: type
                                             
                                             	Type of Extended community
-                                            	**type**\: :py:class:`BgpSiteOfOrigin_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSiteOfOrigin_Enum>`
+                                            	**type**\: :py:class:`BgpSiteOfOriginEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSiteOfOriginEnum>`
                                             
                                             
 
@@ -4775,8 +4567,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.address is not None:
                                                     return True
 
@@ -4795,10 +4585,6 @@ class Bgp(object):
                                                 if self.type is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -4848,18 +4634,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.inbound_soft is not None:
                                                     return True
 
                                                 if self.soft_always is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -4883,8 +4663,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.af_name is not None:
                                                 return True
 
@@ -4900,19 +4678,10 @@ class Bgp(object):
                                             if self.advertise_disable is not None and self.advertise_disable._has_data():
                                                 return True
 
-                                            if self.advertise_disable is not None and self.advertise_disable.is_presence():
-                                                return True
-
                                             if self.advertise_local_v4 is not None and self.advertise_local_v4._has_data():
                                                 return True
 
-                                            if self.advertise_local_v4 is not None and self.advertise_local_v4.is_presence():
-                                                return True
-
                                             if self.advertise_local_v6 is not None and self.advertise_local_v6._has_data():
-                                                return True
-
-                                            if self.advertise_local_v6 is not None and self.advertise_local_v6.is_presence():
                                                 return True
 
                                             if self.advertise_orf is not None:
@@ -4924,13 +4693,7 @@ class Bgp(object):
                                             if self.advertise_v4 is not None and self.advertise_v4._has_data():
                                                 return True
 
-                                            if self.advertise_v4 is not None and self.advertise_v4.is_presence():
-                                                return True
-
                                             if self.advertise_v6 is not None and self.advertise_v6._has_data():
-                                                return True
-
-                                            if self.advertise_v6 is not None and self.advertise_v6.is_presence():
                                                 return True
 
                                             if self.af_group is not None:
@@ -4940,9 +4703,6 @@ class Bgp(object):
                                                 return True
 
                                             if self.aigp_cost_community is not None and self.aigp_cost_community._has_data():
-                                                return True
-
-                                            if self.aigp_cost_community is not None and self.aigp_cost_community.is_presence():
                                                 return True
 
                                             if self.aigp_send_med is not None:
@@ -4957,9 +4717,6 @@ class Bgp(object):
                                             if self.default_originate is not None and self.default_originate._has_data():
                                                 return True
 
-                                            if self.default_originate is not None and self.default_originate.is_presence():
-                                                return True
-
                                             if self.default_weight is not None:
                                                 return True
 
@@ -4969,16 +4726,10 @@ class Bgp(object):
                                             if self.import_ is not None and self.import_._has_data():
                                                 return True
 
-                                            if self.import_ is not None and self.import_.is_presence():
-                                                return True
-
                                             if self.l2vpn_signalling is not None:
                                                 return True
 
                                             if self.maximum_prefixes is not None and self.maximum_prefixes._has_data():
-                                                return True
-
-                                            if self.maximum_prefixes is not None and self.maximum_prefixes.is_presence():
                                                 return True
 
                                             if self.multipath is not None:
@@ -4988,9 +4739,6 @@ class Bgp(object):
                                                 return True
 
                                             if self.neighbor_af_long_lived_graceful_restart_stale_time is not None and self.neighbor_af_long_lived_graceful_restart_stale_time._has_data():
-                                                return True
-
-                                            if self.neighbor_af_long_lived_graceful_restart_stale_time is not None and self.neighbor_af_long_lived_graceful_restart_stale_time.is_presence():
                                                 return True
 
                                             if self.next_hop_self is not None:
@@ -5008,13 +4756,7 @@ class Bgp(object):
                                             if self.remove_private_as_entire_as_path is not None and self.remove_private_as_entire_as_path._has_data():
                                                 return True
 
-                                            if self.remove_private_as_entire_as_path is not None and self.remove_private_as_entire_as_path.is_presence():
-                                                return True
-
                                             if self.remove_private_as_entire_as_path_inbound is not None and self.remove_private_as_entire_as_path_inbound._has_data():
-                                                return True
-
-                                            if self.remove_private_as_entire_as_path_inbound is not None and self.remove_private_as_entire_as_path_inbound.is_presence():
                                                 return True
 
                                             if self.route_policy_in is not None:
@@ -5047,19 +4789,9 @@ class Bgp(object):
                                             if self.site_of_origin is not None and self.site_of_origin._has_data():
                                                 return True
 
-                                            if self.site_of_origin is not None and self.site_of_origin.is_presence():
-                                                return True
-
                                             if self.soft_reconfiguration is not None and self.soft_reconfiguration._has_data():
                                                 return True
 
-                                            if self.soft_reconfiguration is not None and self.soft_reconfiguration.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -5081,17 +4813,11 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.neighbor_group_af is not None:
                                             for child_ref in self.neighbor_group_af:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -5142,18 +4868,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.password is not None:
                                             return True
 
                                         if self.password_disable is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -5207,18 +4927,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.bgp_receive_size is not None:
                                             return True
 
                                         if self.socket_receive_size is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -5271,18 +4985,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.as_xx is not None:
                                             return True
 
                                         if self.as_yy is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -5336,18 +5044,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.bgp_send_size is not None:
                                             return True
 
                                         if self.socket_send_size is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -5398,18 +5100,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.mss is not None:
                                             return True
 
                                         if self.tcpmss_disable is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -5470,8 +5166,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.hold_time is not None:
                                             return True
 
@@ -5481,10 +5175,6 @@ class Bgp(object):
                                         if self.min_accept_hold_time is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -5500,12 +5190,12 @@ class Bgp(object):
                                     .. attribute:: type
                                     
                                     	Set type of service
-                                    	**type**\: :py:class:`BgpTos_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTos_Enum>`
+                                    	**type**\: :py:class:`BgpTosEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTosEnum>`
                                     
                                     .. attribute:: value
                                     
                                     	TOS value to set
-                                    	**type**\: one of { :py:class:`BgpPrecedenceDscp_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscp_Enum>` | int }
+                                    	**type**\: one of { :py:class:`BgpPrecedenceDscpEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscpEnum>` | int }
                                     
                                     
 
@@ -5533,18 +5223,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.type is not None:
                                             return True
 
                                         if self.value is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -5601,12 +5285,22 @@ class Bgp(object):
                                         	TRUE to configure non\-circular buffer
                                         	**type**\: bool
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: number_of_buffers
                                         
                                         	Number of message buffers
                                         	**type**\: int
                                         
                                         	**range:** 0..25
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
                                         
                                         
 
@@ -5636,8 +5330,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.non_circular_buffer is not None:
                                                 return True
 
@@ -5645,10 +5337,6 @@ class Bgp(object):
                                                 return True
 
                                             return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return True
 
                                         @staticmethod
                                         def _meta_info():
@@ -5669,8 +5357,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.enable is not None:
                                             return True
 
@@ -5680,16 +5366,9 @@ class Bgp(object):
                                         if self.update_in_filtering_message_buffers is not None and self.update_in_filtering_message_buffers._has_data():
                                             return True
 
-                                        if self.update_in_filtering_message_buffers is not None and self.update_in_filtering_message_buffers.is_presence():
-                                            return True
-
                                         if self.update_in_filtering_syslog_disable is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -5713,8 +5392,6 @@ class Bgp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.neighbor_group_name is not None:
                                         return True
 
@@ -5725,9 +5402,6 @@ class Bgp(object):
                                         return True
 
                                     if self.advertisement_interval is not None and self.advertisement_interval._has_data():
-                                        return True
-
-                                    if self.advertisement_interval is not None and self.advertisement_interval.is_presence():
                                         return True
 
                                     if self.bfd_enable_modes is not None:
@@ -5742,9 +5416,6 @@ class Bgp(object):
                                     if self.bmp_activates is not None and self.bmp_activates._has_data():
                                         return True
 
-                                    if self.bmp_activates is not None and self.bmp_activates.is_presence():
-                                        return True
-
                                     if self.create is not None:
                                         return True
 
@@ -5752,9 +5423,6 @@ class Bgp(object):
                                         return True
 
                                     if self.ebgp_multihop is not None and self.ebgp_multihop._has_data():
-                                        return True
-
-                                    if self.ebgp_multihop is not None and self.ebgp_multihop.is_presence():
                                         return True
 
                                     if self.egress_peer_engineering is not None:
@@ -5766,9 +5434,6 @@ class Bgp(object):
                                     if self.graceful_maintenance is not None and self.graceful_maintenance._has_data():
                                         return True
 
-                                    if self.graceful_maintenance is not None and self.graceful_maintenance.is_presence():
-                                        return True
-
                                     if self.ignore_connected_check_ebgp is not None:
                                         return True
 
@@ -5778,37 +5443,19 @@ class Bgp(object):
                                     if self.keychain is not None and self.keychain._has_data():
                                         return True
 
-                                    if self.keychain is not None and self.keychain.is_presence():
-                                        return True
-
                                     if self.local_address is not None and self.local_address._has_data():
-                                        return True
-
-                                    if self.local_address is not None and self.local_address.is_presence():
                                         return True
 
                                     if self.local_as is not None and self.local_as._has_data():
                                         return True
 
-                                    if self.local_as is not None and self.local_as.is_presence():
-                                        return True
-
                                     if self.msg_log_in is not None and self.msg_log_in._has_data():
-                                        return True
-
-                                    if self.msg_log_in is not None and self.msg_log_in.is_presence():
                                         return True
 
                                     if self.msg_log_out is not None and self.msg_log_out._has_data():
                                         return True
 
-                                    if self.msg_log_out is not None and self.msg_log_out.is_presence():
-                                        return True
-
                                     if self.neighbor_cluster_id is not None and self.neighbor_cluster_id._has_data():
-                                        return True
-
-                                    if self.neighbor_cluster_id is not None and self.neighbor_cluster_id.is_presence():
                                         return True
 
                                     if self.neighbor_graceful_restart is not None:
@@ -5826,13 +5473,7 @@ class Bgp(object):
                                     if self.neighbor_group_afs is not None and self.neighbor_group_afs._has_data():
                                         return True
 
-                                    if self.neighbor_group_afs is not None and self.neighbor_group_afs.is_presence():
-                                        return True
-
                                     if self.password is not None and self.password._has_data():
-                                        return True
-
-                                    if self.password is not None and self.password.is_presence():
                                         return True
 
                                     if self.propagate_dmz_link_bandwidth is not None:
@@ -5841,13 +5482,7 @@ class Bgp(object):
                                     if self.receive_buffer_size is not None and self.receive_buffer_size._has_data():
                                         return True
 
-                                    if self.receive_buffer_size is not None and self.receive_buffer_size.is_presence():
-                                        return True
-
                                     if self.remote_as is not None and self.remote_as._has_data():
-                                        return True
-
-                                    if self.remote_as is not None and self.remote_as.is_presence():
                                         return True
 
                                     if self.rpki_bestpath_origin_as_allow_invalid is not None:
@@ -5857,9 +5492,6 @@ class Bgp(object):
                                         return True
 
                                     if self.send_buffer_size is not None and self.send_buffer_size._has_data():
-                                        return True
-
-                                    if self.send_buffer_size is not None and self.send_buffer_size.is_presence():
                                         return True
 
                                     if self.session_group_add_member is not None:
@@ -5877,19 +5509,10 @@ class Bgp(object):
                                     if self.tcpmss is not None and self.tcpmss._has_data():
                                         return True
 
-                                    if self.tcpmss is not None and self.tcpmss.is_presence():
-                                        return True
-
                                     if self.timers is not None and self.timers._has_data():
                                         return True
 
-                                    if self.timers is not None and self.timers.is_presence():
-                                        return True
-
                                     if self.tos is not None and self.tos._has_data():
-                                        return True
-
-                                    if self.tos is not None and self.tos.is_presence():
                                         return True
 
                                     if self.ttl_security is not None:
@@ -5898,16 +5521,9 @@ class Bgp(object):
                                     if self.update_in_filtering is not None and self.update_in_filtering._has_data():
                                         return True
 
-                                    if self.update_in_filtering is not None and self.update_in_filtering.is_presence():
-                                        return True
-
                                     if self.update_source_interface is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5929,17 +5545,11 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.neighbor_group is not None:
                                     for child_ref in self.neighbor_group:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -5983,12 +5593,12 @@ class Bgp(object):
                                 .. attribute:: additional_paths_receive_capability
                                 
                                 	Advertise additional paths Receive capability
-                                	**type**\: :py:class:`BgpNbrCapAdditionalPathsCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfg_Enum>`
+                                	**type**\: :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
                                 
                                 .. attribute:: additional_paths_send_capability
                                 
                                 	Advertise additional paths Send capability
-                                	**type**\: :py:class:`BgpNbrCapAdditionalPathsCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfg_Enum>`
+                                	**type**\: :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
                                 
                                 .. attribute:: advertisement_interval
                                 
@@ -5998,7 +5608,7 @@ class Bgp(object):
                                 .. attribute:: bfd_enable_modes
                                 
                                 	Strict mode, Default mode or Disable to prevent inheritance from a parent
-                                	**type**\: :py:class:`BgpBfdEnableMode_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpBfdEnableMode_Enum>`
+                                	**type**\: :py:class:`BgpBfdEnableModeEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpBfdEnableModeEnum>`
                                 
                                 .. attribute:: bfd_minimum_interval
                                 
@@ -6156,7 +5766,7 @@ class Bgp(object):
                                 .. attribute:: session_open_mode
                                 
                                 	TCP mode to be used to establish BGP session
-                                	**type**\: :py:class:`BgpTcpMode_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpTcpMode_Enum>`
+                                	**type**\: :py:class:`BgpTcpModeEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpTcpModeEnum>`
                                 
                                 .. attribute:: shutdown
                                 
@@ -6284,12 +5894,22 @@ class Bgp(object):
                                     
                                     	**range:** 0..600
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: minimum_interval_msecs
                                     
                                     	Minimum advertisement interval time, msecs part
                                     	**type**\: int
                                     
                                     	**range:** 0..999
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -6319,8 +5939,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.minimum_interval is not None:
                                             return True
 
@@ -6328,10 +5946,6 @@ class Bgp(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -6400,15 +6014,9 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.server_id is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -6430,17 +6038,11 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.bmp_activate is not None:
                                             for child_ref in self.bmp_activate:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6492,18 +6094,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.max_hop_count is not None:
                                             return True
 
                                         if self.mpls_deactivation is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6596,18 +6192,12 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.as_prepends is not None:
                                                 return True
 
                                             if self.gshut_prepends_disable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -6658,18 +6248,12 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.gshut_loc_pref_disable is not None:
                                                 return True
 
                                             if self.local_preference is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -6691,8 +6275,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.enable is not None:
                                             return True
 
@@ -6702,19 +6284,9 @@ class Bgp(object):
                                         if self.graceful_maintenance_as_prepends is not None and self.graceful_maintenance_as_prepends._has_data():
                                             return True
 
-                                        if self.graceful_maintenance_as_prepends is not None and self.graceful_maintenance_as_prepends.is_presence():
-                                            return True
-
                                         if self.graceful_maintenance_local_preference is not None and self.graceful_maintenance_local_preference._has_data():
                                             return True
 
-                                        if self.graceful_maintenance_local_preference is not None and self.graceful_maintenance_local_preference.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6763,18 +6335,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.keychain_disable is not None:
                                             return True
 
                                         if self.keychain_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6823,18 +6389,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.local_address_disable is not None:
                                             return True
 
                                         if self.local_ip_address is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6911,8 +6471,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.as_xx is not None:
                                             return True
 
@@ -6931,10 +6489,6 @@ class Bgp(object):
                                         if self.replace_as is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6991,8 +6545,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.msg_buf_count is not None:
                                             return True
 
@@ -7002,10 +6554,6 @@ class Bgp(object):
                                         if self.msg_log_inherit_disable is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7062,8 +6610,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.msg_buf_count is not None:
                                             return True
 
@@ -7073,10 +6619,6 @@ class Bgp(object):
                                         if self.msg_log_inherit_disable is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7115,7 +6657,7 @@ class Bgp(object):
                                         .. attribute:: af_name
                                         
                                         	BGP neighbor address family
-                                        	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                        	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                         
                                         .. attribute:: accept_own
                                         
@@ -7150,7 +6692,7 @@ class Bgp(object):
                                         .. attribute:: advertise_orf
                                         
                                         	Advertise ORF capability to the peer
-                                        	**type**\: :py:class:`BgpOrf_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpOrf_Enum>`
+                                        	**type**\: :py:class:`BgpOrfEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpOrfEnum>`
                                         
                                         .. attribute:: advertise_permanent_network
                                         
@@ -7175,7 +6717,7 @@ class Bgp(object):
                                         .. attribute:: aigp
                                         
                                         	Enable Accumulated IGP Metric for this neighbor
-                                        	**type**\: :py:class:`BgpAigpCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfg_Enum>`
+                                        	**type**\: :py:class:`BgpAigpCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
                                         
                                         .. attribute:: aigp_cost_community
                                         
@@ -7185,7 +6727,7 @@ class Bgp(object):
                                         .. attribute:: aigp_send_med
                                         
                                         	Enable/Disable sending AIGP in MED 
-                                        	**type**\: :py:class:`BgpAigpCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfg_Enum>`
+                                        	**type**\: :py:class:`BgpAigpCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
                                         
                                         .. attribute:: allow_as_in
                                         
@@ -7214,7 +6756,7 @@ class Bgp(object):
                                         .. attribute:: flowspec_validation
                                         
                                         	Config Flowspec validation for this neighbor
-                                        	**type**\: :py:class:`BgpFlowspecValidationCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpFlowspecValidationCfg_Enum>`
+                                        	**type**\: :py:class:`BgpFlowspecValidationCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpFlowspecValidationCfgEnum>`
                                         
                                         .. attribute:: import_
                                         
@@ -7224,7 +6766,7 @@ class Bgp(object):
                                         .. attribute:: l2vpn_signalling
                                         
                                         	Disable signalling type on the peer
-                                        	**type**\: :py:class:`BgpSignal_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSignal_Enum>`
+                                        	**type**\: :py:class:`BgpSignalEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSignalEnum>`
                                         
                                         .. attribute:: maximum_prefixes
                                         
@@ -7319,7 +6861,7 @@ class Bgp(object):
                                         .. attribute:: send_multicast_attr
                                         
                                         	Config send multicast attribute for this neighbor
-                                        	**type**\: :py:class:`BgpSendMcastAttrCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSendMcastAttrCfg_Enum>`
+                                        	**type**\: :py:class:`BgpSendMcastAttrCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSendMcastAttrCfgEnum>`
                                         
                                         .. attribute:: soft_reconfiguration
                                         
@@ -7395,12 +6937,12 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                            	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\: :py:class:`BgpReorgOpt_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt_Enum>`
+                                            	**type**\: :py:class:`BgpReorgOptEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             
 
@@ -7428,18 +6970,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
                                                 if self.reorg_option is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -7456,12 +6992,12 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                            	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\: :py:class:`BgpReorgOpt_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt_Enum>`
+                                            	**type**\: :py:class:`BgpReorgOptEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             
 
@@ -7489,18 +7025,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
                                                 if self.reorg_option is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -7517,12 +7047,12 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                            	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\: :py:class:`BgpReorgOpt_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt_Enum>`
+                                            	**type**\: :py:class:`BgpReorgOptEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             
 
@@ -7550,18 +7080,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
                                                 if self.reorg_option is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -7577,12 +7101,12 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                            	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\: :py:class:`BgpReorgOpt_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt_Enum>`
+                                            	**type**\: :py:class:`BgpReorgOptEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             
 
@@ -7610,18 +7134,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
                                                 if self.reorg_option is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -7637,12 +7155,12 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                            	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\: :py:class:`BgpReorgOpt_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt_Enum>`
+                                            	**type**\: :py:class:`BgpReorgOptEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             
 
@@ -7670,18 +7188,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
                                                 if self.reorg_option is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -7701,19 +7213,39 @@ class Bgp(object):
                                             
                                             	**range:** 0..255
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: cost_community_poi_type
                                             
                                             	Cost Community POI
-                                            	**type**\: :py:class:`BgpAigpCfgPoi_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgPoi_Enum>`
+                                            	**type**\: :py:class:`BgpAigpCfgPoiEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgPoiEnum>`
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
                                             
                                             .. attribute:: enable
                                             
                                             	TRUE to enable sending cost community, FALSE otherwise 
                                             	**type**\: bool
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: transitive
                                             
                                             	True to send transitive cost community FALSE otherwise
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
                                             	**type**\: bool
                                             
                                             
@@ -7746,8 +7278,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.cost_community_id is not None:
                                                     return True
 
@@ -7761,10 +7291,6 @@ class Bgp(object):
                                                     return True
 
                                                 return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return True
 
                                             @staticmethod
                                             def _meta_info():
@@ -7812,18 +7338,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.enable is not None:
                                                     return True
 
                                                 if self.route_policy_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -7879,8 +7399,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.import_reoriginate is not None:
                                                     return True
 
@@ -7890,10 +7408,6 @@ class Bgp(object):
                                                 if self.import_stitching is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -7912,12 +7426,22 @@ class Bgp(object):
                                             	Discard extra paths when limit is exceeded
                                             	**type**\: bool
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: prefix_limit
                                             
                                             	Maximum prefixes limit
                                             	**type**\: int
                                             
                                             	**range:** 1..4294967295
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
                                             
                                             .. attribute:: restart_time
                                             
@@ -7926,9 +7450,19 @@ class Bgp(object):
                                             
                                             	**range:** 0..65535
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: warning_only
                                             
                                             	TRUE to only give a warning message when limit is exceeded.  FALSE to accept max prefix limit only
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
                                             	**type**\: bool
                                             
                                             .. attribute:: warning_percentage
@@ -7937,6 +7471,11 @@ class Bgp(object):
                                             	**type**\: int
                                             
                                             	**range:** 1..100
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
                                             
                                             
 
@@ -7969,8 +7508,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.discard_extra_paths is not None:
                                                     return True
 
@@ -7987,10 +7524,6 @@ class Bgp(object):
                                                     return True
 
                                                 return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return True
 
                                             @staticmethod
                                             def _meta_info():
@@ -8043,18 +7576,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.stale_time_accept is not None:
                                                     return True
 
                                                 if self.stale_time_send is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -8072,9 +7599,19 @@ class Bgp(object):
                                             	TRUE to remove private AS from outbound updates .  FALSE to prevent remove\-private\-AS from being inherited
                                             	**type**\: bool
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: entire
                                             
                                             	TRUE to remove private AS from outbound updates if all ASes in aspath areprivate. FALSE to prevent remove\-private\-ASfrom being inherited
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
                                             	**type**\: bool
                                             
                                             
@@ -8105,8 +7642,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.enable is not None:
                                                     return True
 
@@ -8114,10 +7649,6 @@ class Bgp(object):
                                                     return True
 
                                                 return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return True
 
                                             @staticmethod
                                             def _meta_info():
@@ -8134,9 +7665,19 @@ class Bgp(object):
                                             	TRUE to remove private AS from inbound updates. FALSE to prevent remove\-private\-AS from being inherited
                                             	**type**\: bool
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: entire
                                             
                                             	TRUE to remove private AS from inbound updates if all ASes in aspath areprivate. FALSE to prevent remove\-private\-ASfrom being inherited
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
                                             	**type**\: bool
                                             
                                             
@@ -8167,8 +7708,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.enable is not None:
                                                     return True
 
@@ -8176,10 +7715,6 @@ class Bgp(object):
                                                     return True
 
                                                 return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return True
 
                                             @staticmethod
                                             def _meta_info():
@@ -8228,18 +7763,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.inbound_soft is not None:
                                                     return True
 
                                                 if self.soft_always is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -8263,8 +7792,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.af_name is not None:
                                                 return True
 
@@ -8280,19 +7807,10 @@ class Bgp(object):
                                             if self.advertise_disable is not None and self.advertise_disable._has_data():
                                                 return True
 
-                                            if self.advertise_disable is not None and self.advertise_disable.is_presence():
-                                                return True
-
                                             if self.advertise_local_v4 is not None and self.advertise_local_v4._has_data():
                                                 return True
 
-                                            if self.advertise_local_v4 is not None and self.advertise_local_v4.is_presence():
-                                                return True
-
                                             if self.advertise_local_v6 is not None and self.advertise_local_v6._has_data():
-                                                return True
-
-                                            if self.advertise_local_v6 is not None and self.advertise_local_v6.is_presence():
                                                 return True
 
                                             if self.advertise_orf is not None:
@@ -8304,13 +7822,7 @@ class Bgp(object):
                                             if self.advertise_v4 is not None and self.advertise_v4._has_data():
                                                 return True
 
-                                            if self.advertise_v4 is not None and self.advertise_v4.is_presence():
-                                                return True
-
                                             if self.advertise_v6 is not None and self.advertise_v6._has_data():
-                                                return True
-
-                                            if self.advertise_v6 is not None and self.advertise_v6.is_presence():
                                                 return True
 
                                             if self.af_group is not None:
@@ -8320,9 +7832,6 @@ class Bgp(object):
                                                 return True
 
                                             if self.aigp_cost_community is not None and self.aigp_cost_community._has_data():
-                                                return True
-
-                                            if self.aigp_cost_community is not None and self.aigp_cost_community.is_presence():
                                                 return True
 
                                             if self.aigp_send_med is not None:
@@ -8337,9 +7846,6 @@ class Bgp(object):
                                             if self.default_originate is not None and self.default_originate._has_data():
                                                 return True
 
-                                            if self.default_originate is not None and self.default_originate.is_presence():
-                                                return True
-
                                             if self.default_weight is not None:
                                                 return True
 
@@ -8349,16 +7855,10 @@ class Bgp(object):
                                             if self.import_ is not None and self.import_._has_data():
                                                 return True
 
-                                            if self.import_ is not None and self.import_.is_presence():
-                                                return True
-
                                             if self.l2vpn_signalling is not None:
                                                 return True
 
                                             if self.maximum_prefixes is not None and self.maximum_prefixes._has_data():
-                                                return True
-
-                                            if self.maximum_prefixes is not None and self.maximum_prefixes.is_presence():
                                                 return True
 
                                             if self.multipath is not None:
@@ -8368,9 +7868,6 @@ class Bgp(object):
                                                 return True
 
                                             if self.neighbor_af_long_lived_graceful_restart_stale_time is not None and self.neighbor_af_long_lived_graceful_restart_stale_time._has_data():
-                                                return True
-
-                                            if self.neighbor_af_long_lived_graceful_restart_stale_time is not None and self.neighbor_af_long_lived_graceful_restart_stale_time.is_presence():
                                                 return True
 
                                             if self.next_hop_self is not None:
@@ -8388,13 +7885,7 @@ class Bgp(object):
                                             if self.remove_private_as_entire_as_path is not None and self.remove_private_as_entire_as_path._has_data():
                                                 return True
 
-                                            if self.remove_private_as_entire_as_path is not None and self.remove_private_as_entire_as_path.is_presence():
-                                                return True
-
                                             if self.remove_private_as_entire_as_path_inbound is not None and self.remove_private_as_entire_as_path_inbound._has_data():
-                                                return True
-
-                                            if self.remove_private_as_entire_as_path_inbound is not None and self.remove_private_as_entire_as_path_inbound.is_presence():
                                                 return True
 
                                             if self.route_policy_in is not None:
@@ -8427,13 +7918,6 @@ class Bgp(object):
                                             if self.soft_reconfiguration is not None and self.soft_reconfiguration._has_data():
                                                 return True
 
-                                            if self.soft_reconfiguration is not None and self.soft_reconfiguration.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -8455,17 +7939,11 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.neighbor_af is not None:
                                             for child_ref in self.neighbor_af:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -8518,18 +7996,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.cluster_id_address is not None:
                                             return True
 
                                         if self.cluster_id_number is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -8580,18 +8052,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.password is not None:
                                             return True
 
                                         if self.password_disable is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -8645,18 +8111,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.bgp_receive_size is not None:
                                             return True
 
                                         if self.socket_receive_size is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -8709,18 +8169,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.as_xx is not None:
                                             return True
 
                                         if self.as_yy is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -8774,18 +8228,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.bgp_send_size is not None:
                                             return True
 
                                         if self.socket_send_size is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -8836,18 +8284,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.mss is not None:
                                             return True
 
                                         if self.tcpmss_disable is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -8908,8 +8350,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.hold_time is not None:
                                             return True
 
@@ -8919,10 +8359,6 @@ class Bgp(object):
                                         if self.min_accept_hold_time is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -8938,12 +8374,12 @@ class Bgp(object):
                                     .. attribute:: type
                                     
                                     	Set type of service
-                                    	**type**\: :py:class:`BgpTos_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTos_Enum>`
+                                    	**type**\: :py:class:`BgpTosEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTosEnum>`
                                     
                                     .. attribute:: value
                                     
                                     	TOS value to set
-                                    	**type**\: one of { :py:class:`BgpPrecedenceDscp_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscp_Enum>` | int }
+                                    	**type**\: one of { :py:class:`BgpPrecedenceDscpEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscpEnum>` | int }
                                     
                                     
 
@@ -8971,18 +8407,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.type is not None:
                                             return True
 
                                         if self.value is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -9039,12 +8469,22 @@ class Bgp(object):
                                         	TRUE to configure non\-circular buffer
                                         	**type**\: bool
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: number_of_buffers
                                         
                                         	Number of message buffers
                                         	**type**\: int
                                         
                                         	**range:** 0..25
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
                                         
                                         
 
@@ -9074,8 +8514,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.non_circular_buffer is not None:
                                                 return True
 
@@ -9083,10 +8521,6 @@ class Bgp(object):
                                                 return True
 
                                             return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return True
 
                                         @staticmethod
                                         def _meta_info():
@@ -9107,8 +8541,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.enable is not None:
                                             return True
 
@@ -9118,16 +8550,9 @@ class Bgp(object):
                                         if self.update_in_filtering_message_buffers is not None and self.update_in_filtering_message_buffers._has_data():
                                             return True
 
-                                        if self.update_in_filtering_message_buffers is not None and self.update_in_filtering_message_buffers.is_presence():
-                                            return True
-
                                         if self.update_in_filtering_syslog_disable is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -9151,8 +8576,6 @@ class Bgp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.neighbor_address is not None:
                                         return True
 
@@ -9163,9 +8586,6 @@ class Bgp(object):
                                         return True
 
                                     if self.advertisement_interval is not None and self.advertisement_interval._has_data():
-                                        return True
-
-                                    if self.advertisement_interval is not None and self.advertisement_interval.is_presence():
                                         return True
 
                                     if self.bfd_enable_modes is not None:
@@ -9180,16 +8600,10 @@ class Bgp(object):
                                     if self.bmp_activates is not None and self.bmp_activates._has_data():
                                         return True
 
-                                    if self.bmp_activates is not None and self.bmp_activates.is_presence():
-                                        return True
-
                                     if self.description is not None:
                                         return True
 
                                     if self.ebgp_multihop is not None and self.ebgp_multihop._has_data():
-                                        return True
-
-                                    if self.ebgp_multihop is not None and self.ebgp_multihop.is_presence():
                                         return True
 
                                     if self.egress_peer_engineering is not None:
@@ -9201,9 +8615,6 @@ class Bgp(object):
                                     if self.graceful_maintenance is not None and self.graceful_maintenance._has_data():
                                         return True
 
-                                    if self.graceful_maintenance is not None and self.graceful_maintenance.is_presence():
-                                        return True
-
                                     if self.ignore_connected_check_ebgp is not None:
                                         return True
 
@@ -9213,43 +8624,22 @@ class Bgp(object):
                                     if self.keychain is not None and self.keychain._has_data():
                                         return True
 
-                                    if self.keychain is not None and self.keychain.is_presence():
-                                        return True
-
                                     if self.local_address is not None and self.local_address._has_data():
-                                        return True
-
-                                    if self.local_address is not None and self.local_address.is_presence():
                                         return True
 
                                     if self.local_as is not None and self.local_as._has_data():
                                         return True
 
-                                    if self.local_as is not None and self.local_as.is_presence():
-                                        return True
-
                                     if self.msg_log_in is not None and self.msg_log_in._has_data():
-                                        return True
-
-                                    if self.msg_log_in is not None and self.msg_log_in.is_presence():
                                         return True
 
                                     if self.msg_log_out is not None and self.msg_log_out._has_data():
                                         return True
 
-                                    if self.msg_log_out is not None and self.msg_log_out.is_presence():
-                                        return True
-
                                     if self.neighbor_afs is not None and self.neighbor_afs._has_data():
                                         return True
 
-                                    if self.neighbor_afs is not None and self.neighbor_afs.is_presence():
-                                        return True
-
                                     if self.neighbor_cluster_id is not None and self.neighbor_cluster_id._has_data():
-                                        return True
-
-                                    if self.neighbor_cluster_id is not None and self.neighbor_cluster_id.is_presence():
                                         return True
 
                                     if self.neighbor_graceful_restart is not None:
@@ -9267,22 +8657,13 @@ class Bgp(object):
                                     if self.password is not None and self.password._has_data():
                                         return True
 
-                                    if self.password is not None and self.password.is_presence():
-                                        return True
-
                                     if self.propagate_dmz_link_bandwidth is not None:
                                         return True
 
                                     if self.receive_buffer_size is not None and self.receive_buffer_size._has_data():
                                         return True
 
-                                    if self.receive_buffer_size is not None and self.receive_buffer_size.is_presence():
-                                        return True
-
                                     if self.remote_as is not None and self.remote_as._has_data():
-                                        return True
-
-                                    if self.remote_as is not None and self.remote_as.is_presence():
                                         return True
 
                                     if self.rpki_bestpath_origin_as_allow_invalid is not None:
@@ -9292,9 +8673,6 @@ class Bgp(object):
                                         return True
 
                                     if self.send_buffer_size is not None and self.send_buffer_size._has_data():
-                                        return True
-
-                                    if self.send_buffer_size is not None and self.send_buffer_size.is_presence():
                                         return True
 
                                     if self.session_group_add_member is not None:
@@ -9312,19 +8690,10 @@ class Bgp(object):
                                     if self.tcpmss is not None and self.tcpmss._has_data():
                                         return True
 
-                                    if self.tcpmss is not None and self.tcpmss.is_presence():
-                                        return True
-
                                     if self.timers is not None and self.timers._has_data():
                                         return True
 
-                                    if self.timers is not None and self.timers.is_presence():
-                                        return True
-
                                     if self.tos is not None and self.tos._has_data():
-                                        return True
-
-                                    if self.tos is not None and self.tos.is_presence():
                                         return True
 
                                     if self.ttl_security is not None:
@@ -9333,16 +8702,9 @@ class Bgp(object):
                                     if self.update_in_filtering is not None and self.update_in_filtering._has_data():
                                         return True
 
-                                    if self.update_in_filtering is not None and self.update_in_filtering.is_presence():
-                                        return True
-
                                     if self.update_source_interface is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9364,17 +8726,11 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.neighbor is not None:
                                     for child_ref in self.neighbor:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -9420,12 +8776,12 @@ class Bgp(object):
                                 .. attribute:: additional_paths_receive_capability
                                 
                                 	Advertise additional paths Receive capability
-                                	**type**\: :py:class:`BgpNbrCapAdditionalPathsCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfg_Enum>`
+                                	**type**\: :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
                                 
                                 .. attribute:: additional_paths_send_capability
                                 
                                 	Advertise additional paths Send capability
-                                	**type**\: :py:class:`BgpNbrCapAdditionalPathsCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfg_Enum>`
+                                	**type**\: :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
                                 
                                 .. attribute:: advertisement_interval
                                 
@@ -9435,7 +8791,7 @@ class Bgp(object):
                                 .. attribute:: bfd_enable_modes
                                 
                                 	Strict mode, Default mode or Disable to prevent inheritance from a parent
-                                	**type**\: :py:class:`BgpBfdEnableMode_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpBfdEnableMode_Enum>`
+                                	**type**\: :py:class:`BgpBfdEnableModeEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpBfdEnableModeEnum>`
                                 
                                 .. attribute:: bfd_minimum_interval
                                 
@@ -9588,7 +8944,7 @@ class Bgp(object):
                                 .. attribute:: session_open_mode
                                 
                                 	TCP mode to be used to establish BGP session
-                                	**type**\: :py:class:`BgpTcpMode_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpTcpMode_Enum>`
+                                	**type**\: :py:class:`BgpTcpModeEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpTcpModeEnum>`
                                 
                                 .. attribute:: shutdown
                                 
@@ -9714,12 +9070,22 @@ class Bgp(object):
                                     
                                     	**range:** 0..600
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: minimum_interval_msecs
                                     
                                     	Minimum advertisement interval time, msecs part
                                     	**type**\: int
                                     
                                     	**range:** 0..999
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -9749,8 +9115,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.minimum_interval is not None:
                                             return True
 
@@ -9758,10 +9122,6 @@ class Bgp(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -9830,15 +9190,9 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.server_id is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -9860,17 +9214,11 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.bmp_activate is not None:
                                             for child_ref in self.bmp_activate:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -9922,18 +9270,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.max_hop_count is not None:
                                             return True
 
                                         if self.mpls_deactivation is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10026,18 +9368,12 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.as_prepends is not None:
                                                 return True
 
                                             if self.gshut_prepends_disable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -10088,18 +9424,12 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.gshut_loc_pref_disable is not None:
                                                 return True
 
                                             if self.local_preference is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -10121,8 +9451,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.enable is not None:
                                             return True
 
@@ -10132,19 +9460,9 @@ class Bgp(object):
                                         if self.graceful_maintenance_as_prepends is not None and self.graceful_maintenance_as_prepends._has_data():
                                             return True
 
-                                        if self.graceful_maintenance_as_prepends is not None and self.graceful_maintenance_as_prepends.is_presence():
-                                            return True
-
                                         if self.graceful_maintenance_local_preference is not None and self.graceful_maintenance_local_preference._has_data():
                                             return True
 
-                                        if self.graceful_maintenance_local_preference is not None and self.graceful_maintenance_local_preference.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10193,18 +9511,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.keychain_disable is not None:
                                             return True
 
                                         if self.keychain_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10253,18 +9565,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.local_address_disable is not None:
                                             return True
 
                                         if self.local_ip_address is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10341,8 +9647,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.as_xx is not None:
                                             return True
 
@@ -10361,10 +9665,6 @@ class Bgp(object):
                                         if self.replace_as is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10421,8 +9721,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.msg_buf_count is not None:
                                             return True
 
@@ -10432,10 +9730,6 @@ class Bgp(object):
                                         if self.msg_log_inherit_disable is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10492,8 +9786,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.msg_buf_count is not None:
                                             return True
 
@@ -10503,10 +9795,6 @@ class Bgp(object):
                                         if self.msg_log_inherit_disable is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10559,18 +9847,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.cluster_id_address is not None:
                                             return True
 
                                         if self.cluster_id_number is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10621,18 +9903,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.password is not None:
                                             return True
 
                                         if self.password_disable is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10686,18 +9962,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.bgp_receive_size is not None:
                                             return True
 
                                         if self.socket_receive_size is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10750,18 +10020,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.as_xx is not None:
                                             return True
 
                                         if self.as_yy is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10815,18 +10079,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.bgp_send_size is not None:
                                             return True
 
                                         if self.socket_send_size is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10877,18 +10135,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.mss is not None:
                                             return True
 
                                         if self.tcpmss_disable is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10949,8 +10201,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.hold_time is not None:
                                             return True
 
@@ -10960,10 +10210,6 @@ class Bgp(object):
                                         if self.min_accept_hold_time is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10979,12 +10225,12 @@ class Bgp(object):
                                     .. attribute:: type
                                     
                                     	Set type of service
-                                    	**type**\: :py:class:`BgpTos_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTos_Enum>`
+                                    	**type**\: :py:class:`BgpTosEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTosEnum>`
                                     
                                     .. attribute:: value
                                     
                                     	TOS value to set
-                                    	**type**\: one of { :py:class:`BgpPrecedenceDscp_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscp_Enum>` | int }
+                                    	**type**\: one of { :py:class:`BgpPrecedenceDscpEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscpEnum>` | int }
                                     
                                     
 
@@ -11012,18 +10258,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.type is not None:
                                             return True
 
                                         if self.value is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -11080,12 +10320,22 @@ class Bgp(object):
                                         	TRUE to configure non\-circular buffer
                                         	**type**\: bool
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: number_of_buffers
                                         
                                         	Number of message buffers
                                         	**type**\: int
                                         
                                         	**range:** 0..25
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
                                         
                                         
 
@@ -11115,8 +10365,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.non_circular_buffer is not None:
                                                 return True
 
@@ -11124,10 +10372,6 @@ class Bgp(object):
                                                 return True
 
                                             return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return True
 
                                         @staticmethod
                                         def _meta_info():
@@ -11148,8 +10392,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.enable is not None:
                                             return True
 
@@ -11159,16 +10401,9 @@ class Bgp(object):
                                         if self.update_in_filtering_message_buffers is not None and self.update_in_filtering_message_buffers._has_data():
                                             return True
 
-                                        if self.update_in_filtering_message_buffers is not None and self.update_in_filtering_message_buffers.is_presence():
-                                            return True
-
                                         if self.update_in_filtering_syslog_disable is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -11192,8 +10427,6 @@ class Bgp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.session_group_name is not None:
                                         return True
 
@@ -11204,9 +10437,6 @@ class Bgp(object):
                                         return True
 
                                     if self.advertisement_interval is not None and self.advertisement_interval._has_data():
-                                        return True
-
-                                    if self.advertisement_interval is not None and self.advertisement_interval.is_presence():
                                         return True
 
                                     if self.bfd_enable_modes is not None:
@@ -11221,9 +10451,6 @@ class Bgp(object):
                                     if self.bmp_activates is not None and self.bmp_activates._has_data():
                                         return True
 
-                                    if self.bmp_activates is not None and self.bmp_activates.is_presence():
-                                        return True
-
                                     if self.create is not None:
                                         return True
 
@@ -11231,9 +10458,6 @@ class Bgp(object):
                                         return True
 
                                     if self.ebgp_multihop is not None and self.ebgp_multihop._has_data():
-                                        return True
-
-                                    if self.ebgp_multihop is not None and self.ebgp_multihop.is_presence():
                                         return True
 
                                     if self.egress_peer_engineering is not None:
@@ -11245,9 +10469,6 @@ class Bgp(object):
                                     if self.graceful_maintenance is not None and self.graceful_maintenance._has_data():
                                         return True
 
-                                    if self.graceful_maintenance is not None and self.graceful_maintenance.is_presence():
-                                        return True
-
                                     if self.ignore_connected_check_ebgp is not None:
                                         return True
 
@@ -11257,37 +10478,19 @@ class Bgp(object):
                                     if self.keychain is not None and self.keychain._has_data():
                                         return True
 
-                                    if self.keychain is not None and self.keychain.is_presence():
-                                        return True
-
                                     if self.local_address is not None and self.local_address._has_data():
-                                        return True
-
-                                    if self.local_address is not None and self.local_address.is_presence():
                                         return True
 
                                     if self.local_as is not None and self.local_as._has_data():
                                         return True
 
-                                    if self.local_as is not None and self.local_as.is_presence():
-                                        return True
-
                                     if self.msg_log_in is not None and self.msg_log_in._has_data():
-                                        return True
-
-                                    if self.msg_log_in is not None and self.msg_log_in.is_presence():
                                         return True
 
                                     if self.msg_log_out is not None and self.msg_log_out._has_data():
                                         return True
 
-                                    if self.msg_log_out is not None and self.msg_log_out.is_presence():
-                                        return True
-
                                     if self.neighbor_cluster_id is not None and self.neighbor_cluster_id._has_data():
-                                        return True
-
-                                    if self.neighbor_cluster_id is not None and self.neighbor_cluster_id.is_presence():
                                         return True
 
                                     if self.neighbor_graceful_restart is not None:
@@ -11302,22 +10505,13 @@ class Bgp(object):
                                     if self.password is not None and self.password._has_data():
                                         return True
 
-                                    if self.password is not None and self.password.is_presence():
-                                        return True
-
                                     if self.propagate_dmz_link_bandwidth is not None:
                                         return True
 
                                     if self.receive_buffer_size is not None and self.receive_buffer_size._has_data():
                                         return True
 
-                                    if self.receive_buffer_size is not None and self.receive_buffer_size.is_presence():
-                                        return True
-
                                     if self.remote_as is not None and self.remote_as._has_data():
-                                        return True
-
-                                    if self.remote_as is not None and self.remote_as.is_presence():
                                         return True
 
                                     if self.rpki_bestpath_origin_as_allow_invalid is not None:
@@ -11327,9 +10521,6 @@ class Bgp(object):
                                         return True
 
                                     if self.send_buffer_size is not None and self.send_buffer_size._has_data():
-                                        return True
-
-                                    if self.send_buffer_size is not None and self.send_buffer_size.is_presence():
                                         return True
 
                                     if self.session_group_add_member is not None:
@@ -11347,19 +10538,10 @@ class Bgp(object):
                                     if self.tcpmss is not None and self.tcpmss._has_data():
                                         return True
 
-                                    if self.tcpmss is not None and self.tcpmss.is_presence():
-                                        return True
-
                                     if self.timers is not None and self.timers._has_data():
                                         return True
 
-                                    if self.timers is not None and self.timers.is_presence():
-                                        return True
-
                                     if self.tos is not None and self.tos._has_data():
-                                        return True
-
-                                    if self.tos is not None and self.tos.is_presence():
                                         return True
 
                                     if self.ttl_security is not None:
@@ -11368,16 +10550,9 @@ class Bgp(object):
                                     if self.update_in_filtering is not None and self.update_in_filtering._has_data():
                                         return True
 
-                                    if self.update_in_filtering is not None and self.update_in_filtering.is_presence():
-                                        return True
-
                                     if self.update_source_interface is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -11399,17 +10574,11 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.session_group is not None:
                                     for child_ref in self.session_group:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11431,36 +10600,18 @@ class Bgp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.af_groups is not None and self.af_groups._has_data():
-                                return True
-
-                            if self.af_groups is not None and self.af_groups.is_presence():
                                 return True
 
                             if self.neighbor_groups is not None and self.neighbor_groups._has_data():
                                 return True
 
-                            if self.neighbor_groups is not None and self.neighbor_groups.is_presence():
-                                return True
-
                             if self.neighbors is not None and self.neighbors._has_data():
-                                return True
-
-                            if self.neighbors is not None and self.neighbors.is_presence():
                                 return True
 
                             if self.session_groups is not None and self.session_groups._has_data():
                                 return True
 
-                            if self.session_groups is not None and self.session_groups.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -11986,18 +11137,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.as_xx is not None:
                                             return True
 
                                         if self.as_yy is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -12019,17 +11164,11 @@ class Bgp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.peer is not None:
                                         for child_ref in self.peer:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -12051,21 +11190,12 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.enable is not None:
                                     return True
 
                                 if self.peers is not None and self.peers._has_data():
                                     return True
 
-                                if self.peers is not None and self.peers.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -12177,7 +11307,7 @@ class Bgp(object):
                                         .. attribute:: filter_action
                                         
                                         	Filtering action
-                                        	**type**\: :py:class:`BgpUpdateFilterAction_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpUpdateFilterAction_Enum>`
+                                        	**type**\: :py:class:`BgpUpdateFilterActionEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpUpdateFilterActionEnum>`
                                         
                                         
 
@@ -12210,8 +11340,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.attribute_end is not None:
                                                 return True
 
@@ -12221,10 +11349,6 @@ class Bgp(object):
                                             if self.filter_action is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -12246,17 +11370,11 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.attribute_filter is not None:
                                             for child_ref in self.attribute_filter:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -12280,24 +11398,15 @@ class Bgp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.attribute_filter_group_name is not None:
                                         return True
 
                                     if self.attribute_filters is not None and self.attribute_filters._has_data():
                                         return True
 
-                                    if self.attribute_filters is not None and self.attribute_filters.is_presence():
-                                        return True
-
                                     if self.enable is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -12319,17 +11428,11 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.attribute_filter_group is not None:
                                     for child_ref in self.attribute_filter_group:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -12382,18 +11485,12 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.detection_multiplier is not None:
                                     return True
 
                                 if self.interval is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -12446,18 +11543,12 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.cluster_id_address is not None:
                                     return True
 
                                 if self.cluster_id_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -12510,18 +11601,12 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.as_xx is not None:
                                     return True
 
                                 if self.as_yy is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -12601,18 +11686,12 @@ class Bgp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.as_xx is not None:
                                         return True
 
                                     if self.as_yy is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -12634,17 +11713,11 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.confederation_peer_as is not None:
                                     for child_ref in self.confederation_peer_as:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -12683,12 +11756,12 @@ class Bgp(object):
                                 .. attribute:: af_name
                                 
                                 	Address family
-                                	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                 
                                 .. attribute:: additional_paths_receive
                                 
                                 	Advertise additional paths Receive capability
-                                	**type**\: :py:class:`BgpafAdditionalPathsCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfg_Enum>`
+                                	**type**\: :py:class:`BgpafAdditionalPathsCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfgEnum>`
                                 
                                 .. attribute:: additional_paths_selection
                                 
@@ -12698,7 +11771,7 @@ class Bgp(object):
                                 .. attribute:: additional_paths_send
                                 
                                 	Advertise additional paths Send capability
-                                	**type**\: :py:class:`BgpafAdditionalPathsCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfg_Enum>`
+                                	**type**\: :py:class:`BgpafAdditionalPathsCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfgEnum>`
                                 
                                 .. attribute:: aggregate_addresses
                                 
@@ -13076,7 +12149,7 @@ class Bgp(object):
                                     .. attribute:: selection
                                     
                                     	Enable/disable selection 
-                                    	**type**\: :py:class:`BgpafAdditionalPathsCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfg_Enum>`
+                                    	**type**\: :py:class:`BgpafAdditionalPathsCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfgEnum>`
                                     
                                     
 
@@ -13104,18 +12177,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.route_policy_name is not None:
                                             return True
 
                                         if self.selection is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -13217,8 +12284,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.aggregate_addr is not None:
                                                 return True
 
@@ -13237,10 +12302,6 @@ class Bgp(object):
                                             if self.summary_only is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -13262,17 +12323,11 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.aggregate_address is not None:
                                             for child_ref in self.aggregate_address:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -13321,18 +12376,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all is not None:
                                             return True
 
                                         if self.route_policy_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -13425,8 +12474,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.instance_name is not None:
                                                 return True
 
@@ -13439,10 +12486,6 @@ class Bgp(object):
                                             if self.route_policy_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -13464,17 +12507,11 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.application_route is not None:
                                             for child_ref in self.application_route:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -13494,6 +12531,11 @@ class Bgp(object):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: not_used
                                     
                                     	Not used
@@ -13501,10 +12543,20 @@ class Bgp(object):
                                     
                                     	**range:** 0..127
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: route_policy_name
                                     
                                     	Route policy name
                                     	**type**\: str
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -13535,8 +12587,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.default_metric is not None:
                                             return True
 
@@ -13547,10 +12597,6 @@ class Bgp(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -13569,6 +12615,11 @@ class Bgp(object):
                                     
                                     	**range:** 1..45
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: reuse_threshold
                                     
                                     	Value to start reusing a route
@@ -13576,10 +12627,20 @@ class Bgp(object):
                                     
                                     	**range:** 1..20000
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: route_policy_name
                                     
                                     	Route policy to specify criteria for dampening. This cannot be specified if any other parameters are specified
                                     	**type**\: str
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     .. attribute:: suppress_threshold
                                     
@@ -13588,12 +12649,22 @@ class Bgp(object):
                                     
                                     	**range:** 1..20000
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: suppress_time
                                     
                                     	Maximum duration to suppress a stable route (seconds)
                                     	**type**\: int
                                     
                                     	**range:** 1..255
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -13626,8 +12697,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.half_life is not None:
                                             return True
 
@@ -13644,10 +12713,6 @@ class Bgp(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -13687,7 +12752,7 @@ class Bgp(object):
                                         .. attribute:: cluster_type
                                         
                                         	Type of cluster\-id
-                                        	**type**\: :py:class:`BgpClusterId_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpClusterId_Enum>`
+                                        	**type**\: :py:class:`BgpClusterIdEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpClusterIdEnum>`
                                         
                                         .. attribute:: ipv4_address
                                         
@@ -13753,15 +12818,9 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.cluster_id_address is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -13808,15 +12867,9 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.cluster_id_number is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -13840,8 +12893,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.cluster_type is not None:
                                                 return True
 
@@ -13855,10 +12906,6 @@ class Bgp(object):
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -13880,17 +12927,11 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.disable_cluster_client_to_client_rr is not None:
                                             for child_ref in self.disable_cluster_client_to_client_rr:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -13951,8 +12992,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.external_routes is not None:
                                             return True
 
@@ -13962,10 +13001,6 @@ class Bgp(object):
                                         if self.local_routes is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -13986,12 +13021,22 @@ class Bgp(object):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: router_id
                                     
                                     	Router ID
                                     	**type**\: str
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -14021,8 +13066,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.as_ is not None:
                                             return True
 
@@ -14030,10 +13073,6 @@ class Bgp(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -14050,6 +13089,11 @@ class Bgp(object):
                                     	Order candidate multipaths by IGP metric
                                     	**type**\: bool
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: paths_value
                                     
                                     	Number of paths
@@ -14057,14 +13101,29 @@ class Bgp(object):
                                     
                                     	**range:** 2..64
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: selective
                                     
                                     	Allow multipaths only from marked neighbors
                                     	**type**\: bool
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: unequal_cost
                                     
                                     	UNUSED
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
                                     	**type**\: bool
                                     
                                     
@@ -14097,8 +13156,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.order_by_igp_metric is not None:
                                             return True
 
@@ -14112,10 +13169,6 @@ class Bgp(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -14132,6 +13185,11 @@ class Bgp(object):
                                     	Order candidate multipaths by IGP metric
                                     	**type**\: bool
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: paths_value
                                     
                                     	Number of paths
@@ -14139,14 +13197,29 @@ class Bgp(object):
                                     
                                     	**range:** 2..64
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: selective
                                     
                                     	Allow multipaths only from marked neighbors
                                     	**type**\: bool
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: unequal_cost
                                     
                                     	UNUSED
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
                                     	**type**\: bool
                                     
                                     
@@ -14179,8 +13252,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.order_by_igp_metric is not None:
                                             return True
 
@@ -14194,10 +13265,6 @@ class Bgp(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -14288,8 +13355,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.instance_name is not None:
                                                 return True
 
@@ -14302,10 +13367,6 @@ class Bgp(object):
                                             if self.route_policy_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -14327,17 +13388,11 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.eigrp_route is not None:
                                             for child_ref in self.eigrp_route:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -14355,6 +13410,11 @@ class Bgp(object):
                                     	Order candidate multipaths by IGP metric
                                     	**type**\: bool
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: paths_value
                                     
                                     	Number of paths
@@ -14362,14 +13422,29 @@ class Bgp(object):
                                     
                                     	**range:** 2..64
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: selective
                                     
                                     	Allow multipaths only from marked neighbors
                                     	**type**\: bool
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: unequal_cost
                                     
                                     	Allow multipaths to have different IGP metrics
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
                                     	**type**\: bool
                                     
                                     
@@ -14402,8 +13477,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.order_by_igp_metric is not None:
                                             return True
 
@@ -14417,10 +13490,6 @@ class Bgp(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -14439,12 +13508,22 @@ class Bgp(object):
                                     
                                     	**range:** 0..999
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: seconds
                                     
                                     	Delay, seconds part
                                     	**type**\: int
                                     
                                     	**range:** 0..10
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -14474,8 +13553,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.milliseconds is not None:
                                             return True
 
@@ -14483,10 +13560,6 @@ class Bgp(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -14578,8 +13651,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.instance_name is not None:
                                                 return True
 
@@ -14592,10 +13663,6 @@ class Bgp(object):
                                             if self.route_policy_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -14617,17 +13684,11 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.isis_route is not None:
                                             for child_ref in self.isis_route:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -14647,12 +13708,22 @@ class Bgp(object):
                                     
                                     	**range:** 0..999
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: seconds
                                     
                                     	Delay, seconds part
                                     	**type**\: int
                                     
                                     	**range:** 0..10
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -14682,8 +13753,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.milliseconds is not None:
                                             return True
 
@@ -14691,10 +13760,6 @@ class Bgp(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -14742,18 +13807,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.label_allocation_mode is not None:
                                             return True
 
                                         if self.route_policy_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -14773,10 +13832,20 @@ class Bgp(object):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: route_policy_name
                                     
                                     	Route policy name
                                     	**type**\: str
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -14806,8 +13875,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.default_metric is not None:
                                             return True
 
@@ -14815,10 +13882,6 @@ class Bgp(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -14837,6 +13900,11 @@ class Bgp(object):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: not_used
                                     
                                     	Not used
@@ -14844,10 +13912,20 @@ class Bgp(object):
                                     
                                     	**range:** 0..127
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: route_policy_name
                                     
                                     	Route policy name
                                     	**type**\: str
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -14878,8 +13956,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.default_metric is not None:
                                             return True
 
@@ -14890,10 +13966,6 @@ class Bgp(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -14984,8 +14056,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.instance_name is not None:
                                                 return True
 
@@ -14998,10 +14068,6 @@ class Bgp(object):
                                             if self.route_policy_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -15023,17 +14089,11 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.ospf_route is not None:
                                             for child_ref in self.ospf_route:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -15083,18 +14143,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.all is not None:
                                             return True
 
                                         if self.route_policy_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -15114,6 +14168,11 @@ class Bgp(object):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: not_used
                                     
                                     	Not used
@@ -15121,10 +14180,20 @@ class Bgp(object):
                                     
                                     	**range:** 0..127
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: route_policy_name
                                     
                                     	Route policy name
                                     	**type**\: str
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -15155,8 +14224,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.default_metric is not None:
                                             return True
 
@@ -15167,10 +14234,6 @@ class Bgp(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -15259,8 +14322,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.network_addr is not None:
                                                 return True
 
@@ -15273,10 +14334,6 @@ class Bgp(object):
                                             if self.route_policy_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -15298,17 +14355,11 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.sourced_network is not None:
                                             for child_ref in self.sourced_network:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -15328,6 +14379,11 @@ class Bgp(object):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: not_used
                                     
                                     	Not used
@@ -15335,10 +14391,20 @@ class Bgp(object):
                                     
                                     	**range:** 0..127
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: route_policy_name
                                     
                                     	Route policy name
                                     	**type**\: str
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -15369,8 +14435,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.default_metric is not None:
                                             return True
 
@@ -15381,10 +14445,6 @@ class Bgp(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -15403,6 +14463,11 @@ class Bgp(object):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: not_used
                                     
                                     	Not used
@@ -15410,10 +14475,20 @@ class Bgp(object):
                                     
                                     	**range:** 0..127
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: route_policy_name
                                     
                                     	Route policy name
                                     	**type**\: str
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -15444,8 +14519,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.default_metric is not None:
                                             return True
 
@@ -15456,10 +14529,6 @@ class Bgp(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -15548,18 +14617,12 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.label_allocation_mode is not None:
                                                 return True
 
                                             if self.route_policy_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -15581,15 +14644,10 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.enable is not None:
                                             return True
 
                                         if self.label_mode is not None and self.label_mode._has_data():
-                                            return True
-
-                                        if self.label_mode is not None and self.label_mode.is_presence():
                                             return True
 
                                         if self.source_rt_import_policy is not None:
@@ -15598,10 +14656,6 @@ class Bgp(object):
                                         if self.table_policy is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -15625,8 +14679,6 @@ class Bgp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.af_name is not None:
                                         return True
 
@@ -15636,28 +14688,16 @@ class Bgp(object):
                                     if self.additional_paths_selection is not None and self.additional_paths_selection._has_data():
                                         return True
 
-                                    if self.additional_paths_selection is not None and self.additional_paths_selection.is_presence():
-                                        return True
-
                                     if self.additional_paths_send is not None:
                                         return True
 
                                     if self.aggregate_addresses is not None and self.aggregate_addresses._has_data():
                                         return True
 
-                                    if self.aggregate_addresses is not None and self.aggregate_addresses.is_presence():
-                                        return True
-
                                     if self.allocate_label is not None and self.allocate_label._has_data():
                                         return True
 
-                                    if self.allocate_label is not None and self.allocate_label.is_presence():
-                                        return True
-
                                     if self.application_routes is not None and self.application_routes._has_data():
-                                        return True
-
-                                    if self.application_routes is not None and self.application_routes.is_presence():
                                         return True
 
                                     if self.attribute_download is not None:
@@ -15669,13 +14709,7 @@ class Bgp(object):
                                     if self.connected_routes is not None and self.connected_routes._has_data():
                                         return True
 
-                                    if self.connected_routes is not None and self.connected_routes.is_presence():
-                                        return True
-
                                     if self.dampening is not None and self.dampening._has_data():
-                                        return True
-
-                                    if self.dampening is not None and self.dampening.is_presence():
                                         return True
 
                                     if self.disable_as_path_loop_check is not None:
@@ -15687,22 +14721,13 @@ class Bgp(object):
                                     if self.disable_cluster_client_to_client_rrs is not None and self.disable_cluster_client_to_client_rrs._has_data():
                                         return True
 
-                                    if self.disable_cluster_client_to_client_rrs is not None and self.disable_cluster_client_to_client_rrs.is_presence():
-                                        return True
-
                                     if self.disable_default_martian_check is not None:
                                         return True
 
                                     if self.distance is not None and self.distance._has_data():
                                         return True
 
-                                    if self.distance is not None and self.distance.is_presence():
-                                        return True
-
                                     if self.domain_distinguisher is not None and self.domain_distinguisher._has_data():
-                                        return True
-
-                                    if self.domain_distinguisher is not None and self.domain_distinguisher.is_presence():
                                         return True
 
                                     if self.dynamic_med_interval is not None:
@@ -15711,19 +14736,10 @@ class Bgp(object):
                                     if self.ebgp is not None and self.ebgp._has_data():
                                         return True
 
-                                    if self.ebgp is not None and self.ebgp.is_presence():
-                                        return True
-
                                     if self.eibgp is not None and self.eibgp._has_data():
                                         return True
 
-                                    if self.eibgp is not None and self.eibgp.is_presence():
-                                        return True
-
                                     if self.eigrp_routes is not None and self.eigrp_routes._has_data():
-                                        return True
-
-                                    if self.eigrp_routes is not None and self.eigrp_routes.is_presence():
                                         return True
 
                                     if self.enable is not None:
@@ -15735,13 +14751,7 @@ class Bgp(object):
                                     if self.ibgp is not None and self.ibgp._has_data():
                                         return True
 
-                                    if self.ibgp is not None and self.ibgp.is_presence():
-                                        return True
-
                                     if self.import_delay is not None and self.import_delay._has_data():
-                                        return True
-
-                                    if self.import_delay is not None and self.import_delay.is_presence():
                                         return True
 
                                     if self.inter_as_install is not None:
@@ -15750,19 +14760,10 @@ class Bgp(object):
                                     if self.isis_routes is not None and self.isis_routes._has_data():
                                         return True
 
-                                    if self.isis_routes is not None and self.isis_routes.is_presence():
-                                        return True
-
                                     if self.label_delay is not None and self.label_delay._has_data():
                                         return True
 
-                                    if self.label_delay is not None and self.label_delay.is_presence():
-                                        return True
-
                                     if self.label_mode is not None and self.label_mode._has_data():
-                                        return True
-
-                                    if self.label_mode is not None and self.label_mode.is_presence():
                                         return True
 
                                     if self.label_retain is not None:
@@ -15774,13 +14775,7 @@ class Bgp(object):
                                     if self.lisp_routes is not None and self.lisp_routes._has_data():
                                         return True
 
-                                    if self.lisp_routes is not None and self.lisp_routes.is_presence():
-                                        return True
-
                                     if self.mobile_routes is not None and self.mobile_routes._has_data():
-                                        return True
-
-                                    if self.mobile_routes is not None and self.mobile_routes.is_presence():
                                         return True
 
                                     if self.next_hop_critical_trigger_delay is not None:
@@ -15798,9 +14793,6 @@ class Bgp(object):
                                     if self.ospf_routes is not None and self.ospf_routes._has_data():
                                         return True
 
-                                    if self.ospf_routes is not None and self.ospf_routes.is_presence():
-                                        return True
-
                                     if self.permanent_network is not None:
                                         return True
 
@@ -15810,13 +14802,7 @@ class Bgp(object):
                                     if self.retain_rt is not None and self.retain_rt._has_data():
                                         return True
 
-                                    if self.retain_rt is not None and self.retain_rt.is_presence():
-                                        return True
-
                                     if self.rip_routes is not None and self.rip_routes._has_data():
-                                        return True
-
-                                    if self.rip_routes is not None and self.rip_routes.is_presence():
                                         return True
 
                                     if self.rpki_bestpath_origin_as_allow_invalid is not None:
@@ -15840,19 +14826,10 @@ class Bgp(object):
                                     if self.sourced_networks is not None and self.sourced_networks._has_data():
                                         return True
 
-                                    if self.sourced_networks is not None and self.sourced_networks.is_presence():
-                                        return True
-
                                     if self.static_routes is not None and self.static_routes._has_data():
                                         return True
 
-                                    if self.static_routes is not None and self.static_routes.is_presence():
-                                        return True
-
                                     if self.subscriber_routes is not None and self.subscriber_routes._has_data():
-                                        return True
-
-                                    if self.subscriber_routes is not None and self.subscriber_routes.is_presence():
                                         return True
 
                                     if self.table_policy is not None:
@@ -15870,16 +14847,9 @@ class Bgp(object):
                                     if self.vrf_all is not None and self.vrf_all._has_data():
                                         return True
 
-                                    if self.vrf_all is not None and self.vrf_all.is_presence():
-                                        return True
-
                                     if self.wait_rib_install is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -15901,17 +14871,11 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.global_af is not None:
                                     for child_ref in self.global_af:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -15961,18 +14925,12 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.all_neighbors is not None:
                                     return True
 
                                 if self.retain_routes is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16033,8 +14991,6 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.hold_time is not None:
                                     return True
 
@@ -16044,10 +15000,6 @@ class Bgp(object):
                                 if self.min_accept_hold_time is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16092,15 +15044,9 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.maximum_neighbors is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16170,15 +15116,9 @@ class Bgp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_name is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -16200,17 +15140,11 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.mpls_activated_interface is not None:
                                     for child_ref in self.mpls_activated_interface:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16263,18 +15197,12 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bgp_receive_size is not None:
                                     return True
 
                                 if self.socket_receive_size is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16396,7 +15324,7 @@ class Bgp(object):
                                     .. attribute:: transport
                                     
                                     	RPKI server transport
-                                    	**type**\: :py:class:`BgpRpkiTransport_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpRpkiTransport_Enum>`
+                                    	**type**\: :py:class:`BgpRpkiTransportEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpRpkiTransportEnum>`
                                     
                                     
 
@@ -16424,18 +15352,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.port is not None:
                                             return True
 
                                         if self.transport is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -16459,8 +15381,6 @@ class Bgp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.server is not None:
                                         return True
 
@@ -16485,16 +15405,9 @@ class Bgp(object):
                                     if self.transport is not None and self.transport._has_data():
                                         return True
 
-                                    if self.transport is not None and self.transport.is_presence():
-                                        return True
-
                                     if self.username is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -16516,17 +15429,11 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.rpki_server is not None:
                                     for child_ref in self.rpki_server:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16624,8 +15531,6 @@ class Bgp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.addrress is not None:
                                         return True
 
@@ -16638,10 +15543,6 @@ class Bgp(object):
                                     if self.minimum is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -16663,17 +15564,11 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.rpki_static_route is not None:
                                     for child_ref in self.rpki_static_route:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16726,18 +15621,12 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bgp_send_size is not None:
                                     return True
 
                                 if self.socket_send_size is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16789,18 +15678,12 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.always is not None:
                                     return True
 
                                 if self.delay is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16859,8 +15742,6 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.desynchronize is not None:
                                     return True
 
@@ -16870,10 +15751,6 @@ class Bgp(object):
                                 if self.formatted_messages is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16895,18 +15772,10 @@ class Bgp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.as_league is not None and self.as_league._has_data():
                                 return True
 
-                            if self.as_league is not None and self.as_league.is_presence():
-                                return True
-
                             if self.attribute_filter_groups is not None and self.attribute_filter_groups._has_data():
-                                return True
-
-                            if self.attribute_filter_groups is not None and self.attribute_filter_groups.is_presence():
                                 return True
 
                             if self.best_path_aigp_ignore is not None:
@@ -16936,25 +15805,13 @@ class Bgp(object):
                             if self.bfd is not None and self.bfd._has_data():
                                 return True
 
-                            if self.bfd is not None and self.bfd.is_presence():
-                                return True
-
                             if self.cluster_id is not None and self.cluster_id._has_data():
-                                return True
-
-                            if self.cluster_id is not None and self.cluster_id.is_presence():
                                 return True
 
                             if self.confederation_domain is not None and self.confederation_domain._has_data():
                                 return True
 
-                            if self.confederation_domain is not None and self.confederation_domain.is_presence():
-                                return True
-
                             if self.confederation_peer_ases is not None and self.confederation_peer_ases._has_data():
-                                return True
-
-                            if self.confederation_peer_ases is not None and self.confederation_peer_ases.is_presence():
                                 return True
 
                             if self.default_info_originate is not None:
@@ -16984,22 +15841,13 @@ class Bgp(object):
                             if self.global_afs is not None and self.global_afs._has_data():
                                 return True
 
-                            if self.global_afs is not None and self.global_afs.is_presence():
-                                return True
-
                             if self.global_graceful_maintenance_activate is not None and self.global_graceful_maintenance_activate._has_data():
-                                return True
-
-                            if self.global_graceful_maintenance_activate is not None and self.global_graceful_maintenance_activate.is_presence():
                                 return True
 
                             if self.global_scan_time is not None:
                                 return True
 
                             if self.global_timers is not None and self.global_timers._has_data():
-                                return True
-
-                            if self.global_timers is not None and self.global_timers.is_presence():
                                 return True
 
                             if self.graceful_reset is not None:
@@ -17029,16 +15877,10 @@ class Bgp(object):
                             if self.limits is not None and self.limits._has_data():
                                 return True
 
-                            if self.limits is not None and self.limits.is_presence():
-                                return True
-
                             if self.local_preference is not None:
                                 return True
 
                             if self.mpls_activated_interfaces is not None and self.mpls_activated_interfaces._has_data():
-                                return True
-
-                            if self.mpls_activated_interfaces is not None and self.mpls_activated_interfaces.is_presence():
                                 return True
 
                             if self.multi_path_as_path_ignore_onwards is not None:
@@ -17062,9 +15904,6 @@ class Bgp(object):
                             if self.receive_socket_buffer_sizes is not None and self.receive_socket_buffer_sizes._has_data():
                                 return True
 
-                            if self.receive_socket_buffer_sizes is not None and self.receive_socket_buffer_sizes.is_presence():
-                                return True
-
                             if self.router_id is not None:
                                 return True
 
@@ -17086,25 +15925,13 @@ class Bgp(object):
                             if self.rpki_servers is not None and self.rpki_servers._has_data():
                                 return True
 
-                            if self.rpki_servers is not None and self.rpki_servers.is_presence():
-                                return True
-
                             if self.rpki_static_routes is not None and self.rpki_static_routes._has_data():
-                                return True
-
-                            if self.rpki_static_routes is not None and self.rpki_static_routes.is_presence():
                                 return True
 
                             if self.send_socket_buffer_sizes is not None and self.send_socket_buffer_sizes._has_data():
                                 return True
 
-                            if self.send_socket_buffer_sizes is not None and self.send_socket_buffer_sizes.is_presence():
-                                return True
-
                             if self.update_delay is not None and self.update_delay._has_data():
-                                return True
-
-                            if self.update_delay is not None and self.update_delay.is_presence():
                                 return True
 
                             if self.update_error_handling_basic_ebgp_disable is not None:
@@ -17128,13 +15955,6 @@ class Bgp(object):
                             if self.write_limit is not None and self.write_limit._has_data():
                                 return True
 
-                            if self.write_limit is not None and self.write_limit.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -17156,24 +15976,12 @@ class Bgp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bgp_entity is not None and self.bgp_entity._has_data():
-                            return True
-
-                        if self.bgp_entity is not None and self.bgp_entity.is_presence():
                             return True
 
                         if self.global_ is not None and self.global_._has_data():
                             return True
 
-                        if self.global_ is not None and self.global_.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -17483,18 +16291,12 @@ class Bgp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.detection_multiplier is not None:
                                         return True
 
                                     if self.interval is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -17555,8 +16357,6 @@ class Bgp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.hold_time is not None:
                                         return True
 
@@ -17566,10 +16366,6 @@ class Bgp(object):
                                     if self.min_accept_hold_time is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -17618,18 +16414,12 @@ class Bgp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.label_allocation_mode is not None:
                                         return True
 
                                     if self.route_policy_name is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -17699,15 +16489,9 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interface_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -17729,17 +16513,11 @@ class Bgp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.mpls_activated_interface is not None:
                                         for child_ref in self.mpls_activated_interface:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -17792,18 +16570,12 @@ class Bgp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.bgp_receive_size is not None:
                                         return True
 
                                     if self.socket_receive_size is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -17854,7 +16626,7 @@ class Bgp(object):
                                 .. attribute:: type
                                 
                                 	Type of RD
-                                	**type**\: :py:class:`BgpRouteDistinguisher_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpRouteDistinguisher_Enum>`
+                                	**type**\: :py:class:`BgpRouteDistinguisherEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpRouteDistinguisherEnum>`
                                 
                                 
 
@@ -17886,8 +16658,6 @@ class Bgp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address is not None:
                                         return True
 
@@ -17906,10 +16676,6 @@ class Bgp(object):
                                     if self.type is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -17962,18 +16728,12 @@ class Bgp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.bgp_send_size is not None:
                                         return True
 
                                     if self.socket_send_size is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -18012,12 +16772,12 @@ class Bgp(object):
                                     .. attribute:: af_name
                                     
                                     	Address family
-                                    	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                    	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                     
                                     .. attribute:: additional_paths_receive
                                     
                                     	Advertise additional paths Receive capability
-                                    	**type**\: :py:class:`BgpafAdditionalPathsCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfg_Enum>`
+                                    	**type**\: :py:class:`BgpafAdditionalPathsCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfgEnum>`
                                     
                                     .. attribute:: additional_paths_selection
                                     
@@ -18027,7 +16787,7 @@ class Bgp(object):
                                     .. attribute:: additional_paths_send
                                     
                                     	Advertise additional paths Send capability
-                                    	**type**\: :py:class:`BgpafAdditionalPathsCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfg_Enum>`
+                                    	**type**\: :py:class:`BgpafAdditionalPathsCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfgEnum>`
                                     
                                     .. attribute:: aggregate_addresses
                                     
@@ -18243,7 +17003,7 @@ class Bgp(object):
                                         .. attribute:: selection
                                         
                                         	Enable/disable selection 
-                                        	**type**\: :py:class:`BgpafAdditionalPathsCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfg_Enum>`
+                                        	**type**\: :py:class:`BgpafAdditionalPathsCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfgEnum>`
                                         
                                         
 
@@ -18271,18 +17031,12 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.route_policy_name is not None:
                                                 return True
 
                                             if self.selection is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -18384,8 +17138,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.aggregate_addr is not None:
                                                     return True
 
@@ -18404,10 +17156,6 @@ class Bgp(object):
                                                 if self.summary_only is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -18429,17 +17177,11 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.aggregate_address is not None:
                                                 for child_ref in self.aggregate_address:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -18488,18 +17230,12 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.all is not None:
                                                 return True
 
                                             if self.route_policy_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -18519,6 +17255,11 @@ class Bgp(object):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: not_used
                                         
                                         	Not used
@@ -18526,10 +17267,20 @@ class Bgp(object):
                                         
                                         	**range:** 0..127
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: route_policy_name
                                         
                                         	Route policy name
                                         	**type**\: str
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
                                         
                                         
 
@@ -18560,8 +17311,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.default_metric is not None:
                                                 return True
 
@@ -18572,10 +17321,6 @@ class Bgp(object):
                                                 return True
 
                                             return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return True
 
                                         @staticmethod
                                         def _meta_info():
@@ -18594,6 +17339,11 @@ class Bgp(object):
                                         
                                         	**range:** 1..45
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: reuse_threshold
                                         
                                         	Value to start reusing a route
@@ -18601,10 +17351,20 @@ class Bgp(object):
                                         
                                         	**range:** 1..20000
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: route_policy_name
                                         
                                         	Route policy to specify criteria for dampening. This cannot be specified if any other parameters are specified
                                         	**type**\: str
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
                                         
                                         .. attribute:: suppress_threshold
                                         
@@ -18613,12 +17373,22 @@ class Bgp(object):
                                         
                                         	**range:** 1..20000
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: suppress_time
                                         
                                         	Maximum duration to suppress a stable route (seconds)
                                         	**type**\: int
                                         
                                         	**range:** 1..255
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
                                         
                                         
 
@@ -18651,8 +17421,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.half_life is not None:
                                                 return True
 
@@ -18669,10 +17437,6 @@ class Bgp(object):
                                                 return True
 
                                             return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return True
 
                                         @staticmethod
                                         def _meta_info():
@@ -18732,8 +17496,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.external_routes is not None:
                                                 return True
 
@@ -18743,10 +17505,6 @@ class Bgp(object):
                                             if self.local_routes is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -18764,6 +17522,11 @@ class Bgp(object):
                                         	Order candidate multipaths by IGP metric
                                         	**type**\: bool
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: paths_value
                                         
                                         	Number of paths
@@ -18771,14 +17534,29 @@ class Bgp(object):
                                         
                                         	**range:** 2..64
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: selective
                                         
                                         	Allow multipaths only from marked neighbors
                                         	**type**\: bool
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: unequal_cost
                                         
                                         	UNUSED
+                                        	**type**\: bool
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
                                         	**type**\: bool
                                         
                                         
@@ -18811,8 +17589,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.order_by_igp_metric is not None:
                                                 return True
 
@@ -18826,10 +17602,6 @@ class Bgp(object):
                                                 return True
 
                                             return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return True
 
                                         @staticmethod
                                         def _meta_info():
@@ -18846,6 +17618,11 @@ class Bgp(object):
                                         	Order candidate multipaths by IGP metric
                                         	**type**\: bool
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: paths_value
                                         
                                         	Number of paths
@@ -18853,14 +17630,29 @@ class Bgp(object):
                                         
                                         	**range:** 2..64
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: selective
                                         
                                         	Allow multipaths only from marked neighbors
                                         	**type**\: bool
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: unequal_cost
                                         
                                         	UNUSED
+                                        	**type**\: bool
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
                                         	**type**\: bool
                                         
                                         
@@ -18893,8 +17685,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.order_by_igp_metric is not None:
                                                 return True
 
@@ -18908,10 +17698,6 @@ class Bgp(object):
                                                 return True
 
                                             return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return True
 
                                         @staticmethod
                                         def _meta_info():
@@ -19002,8 +17788,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.instance_name is not None:
                                                     return True
 
@@ -19016,10 +17800,6 @@ class Bgp(object):
                                                 if self.route_policy_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -19041,17 +17821,11 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.eigrp_route is not None:
                                                 for child_ref in self.eigrp_route:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -19069,6 +17843,11 @@ class Bgp(object):
                                         	Order candidate multipaths by IGP metric
                                         	**type**\: bool
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: paths_value
                                         
                                         	Number of paths
@@ -19076,14 +17855,29 @@ class Bgp(object):
                                         
                                         	**range:** 2..64
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: selective
                                         
                                         	Allow multipaths only from marked neighbors
                                         	**type**\: bool
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: unequal_cost
                                         
                                         	Allow multipaths to have different IGP metrics
+                                        	**type**\: bool
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
                                         	**type**\: bool
                                         
                                         
@@ -19116,8 +17910,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.order_by_igp_metric is not None:
                                                 return True
 
@@ -19131,10 +17923,6 @@ class Bgp(object):
                                                 return True
 
                                             return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return True
 
                                         @staticmethod
                                         def _meta_info():
@@ -19182,18 +17970,12 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.label_allocation_mode is not None:
                                                 return True
 
                                             if self.route_policy_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -19213,10 +17995,20 @@ class Bgp(object):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: route_policy_name
                                         
                                         	Route policy name
                                         	**type**\: str
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
                                         
                                         
 
@@ -19246,8 +18038,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.default_metric is not None:
                                                 return True
 
@@ -19255,10 +18045,6 @@ class Bgp(object):
                                                 return True
 
                                             return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return True
 
                                         @staticmethod
                                         def _meta_info():
@@ -19277,6 +18063,11 @@ class Bgp(object):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: not_used
                                         
                                         	Not used
@@ -19284,10 +18075,20 @@ class Bgp(object):
                                         
                                         	**range:** 0..127
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: route_policy_name
                                         
                                         	Route policy name
                                         	**type**\: str
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
                                         
                                         
 
@@ -19318,8 +18119,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.default_metric is not None:
                                                 return True
 
@@ -19330,10 +18129,6 @@ class Bgp(object):
                                                 return True
 
                                             return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return True
 
                                         @staticmethod
                                         def _meta_info():
@@ -19348,7 +18143,7 @@ class Bgp(object):
                                         .. attribute:: single_forwarder_selection
                                         
                                         	Select MVPN single forwarder selection
-                                        	**type**\: :py:class:`BgpMvpnSfsSelect_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpMvpnSfsSelect_Enum>`
+                                        	**type**\: :py:class:`BgpMvpnSfsSelectEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpMvpnSfsSelectEnum>`
                                         
                                         
 
@@ -19375,15 +18170,9 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.single_forwarder_selection is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -19475,8 +18264,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.instance_name is not None:
                                                     return True
 
@@ -19489,10 +18276,6 @@ class Bgp(object):
                                                 if self.route_policy_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -19514,17 +18297,11 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.ospf_route is not None:
                                                 for child_ref in self.ospf_route:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -19544,6 +18321,11 @@ class Bgp(object):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: not_used
                                         
                                         	Not used
@@ -19551,10 +18333,20 @@ class Bgp(object):
                                         
                                         	**range:** 0..127
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: route_policy_name
                                         
                                         	Route policy name
                                         	**type**\: str
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
                                         
                                         
 
@@ -19585,8 +18377,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.default_metric is not None:
                                                 return True
 
@@ -19597,10 +18387,6 @@ class Bgp(object):
                                                 return True
 
                                             return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return True
 
                                         @staticmethod
                                         def _meta_info():
@@ -19689,8 +18475,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.network_addr is not None:
                                                     return True
 
@@ -19703,10 +18487,6 @@ class Bgp(object):
                                                 if self.route_policy_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -19728,17 +18508,11 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.sourced_network is not None:
                                                 for child_ref in self.sourced_network:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -19758,6 +18532,11 @@ class Bgp(object):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: not_used
                                         
                                         	Not used
@@ -19765,10 +18544,20 @@ class Bgp(object):
                                         
                                         	**range:** 0..127
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: route_policy_name
                                         
                                         	Route policy name
                                         	**type**\: str
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
                                         
                                         
 
@@ -19799,8 +18588,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.default_metric is not None:
                                                 return True
 
@@ -19811,10 +18598,6 @@ class Bgp(object):
                                                 return True
 
                                             return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return True
 
                                         @staticmethod
                                         def _meta_info():
@@ -19833,6 +18616,11 @@ class Bgp(object):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: not_used
                                         
                                         	Not used
@@ -19840,10 +18628,20 @@ class Bgp(object):
                                         
                                         	**range:** 0..127
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: route_policy_name
                                         
                                         	Route policy name
                                         	**type**\: str
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
                                         
                                         
 
@@ -19874,8 +18672,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.default_metric is not None:
                                                 return True
 
@@ -19886,10 +18682,6 @@ class Bgp(object):
                                                 return True
 
                                             return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return True
 
                                         @staticmethod
                                         def _meta_info():
@@ -19912,8 +18704,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.af_name is not None:
                                             return True
 
@@ -19923,22 +18713,13 @@ class Bgp(object):
                                         if self.additional_paths_selection is not None and self.additional_paths_selection._has_data():
                                             return True
 
-                                        if self.additional_paths_selection is not None and self.additional_paths_selection.is_presence():
-                                            return True
-
                                         if self.additional_paths_send is not None:
                                             return True
 
                                         if self.aggregate_addresses is not None and self.aggregate_addresses._has_data():
                                             return True
 
-                                        if self.aggregate_addresses is not None and self.aggregate_addresses.is_presence():
-                                            return True
-
                                         if self.allocate_label is not None and self.allocate_label._has_data():
-                                            return True
-
-                                        if self.allocate_label is not None and self.allocate_label.is_presence():
                                             return True
 
                                         if self.allow_vpn_default_originate is not None:
@@ -19953,13 +18734,7 @@ class Bgp(object):
                                         if self.connected_routes is not None and self.connected_routes._has_data():
                                             return True
 
-                                        if self.connected_routes is not None and self.connected_routes.is_presence():
-                                            return True
-
                                         if self.dampening is not None and self.dampening._has_data():
-                                            return True
-
-                                        if self.dampening is not None and self.dampening.is_presence():
                                             return True
 
                                         if self.disable_as_path_loop_check is not None:
@@ -19968,28 +18743,16 @@ class Bgp(object):
                                         if self.distance is not None and self.distance._has_data():
                                             return True
 
-                                        if self.distance is not None and self.distance.is_presence():
-                                            return True
-
                                         if self.dynamic_med_interval is not None:
                                             return True
 
                                         if self.ebgp is not None and self.ebgp._has_data():
                                             return True
 
-                                        if self.ebgp is not None and self.ebgp.is_presence():
-                                            return True
-
                                         if self.eibgp is not None and self.eibgp._has_data():
                                             return True
 
-                                        if self.eibgp is not None and self.eibgp.is_presence():
-                                            return True
-
                                         if self.eigrp_routes is not None and self.eigrp_routes._has_data():
-                                            return True
-
-                                        if self.eigrp_routes is not None and self.eigrp_routes.is_presence():
                                             return True
 
                                         if self.enable is not None:
@@ -19998,40 +18761,22 @@ class Bgp(object):
                                         if self.ibgp is not None and self.ibgp._has_data():
                                             return True
 
-                                        if self.ibgp is not None and self.ibgp.is_presence():
-                                            return True
-
                                         if self.label_mode is not None and self.label_mode._has_data():
-                                            return True
-
-                                        if self.label_mode is not None and self.label_mode.is_presence():
                                             return True
 
                                         if self.lisp_routes is not None and self.lisp_routes._has_data():
                                             return True
 
-                                        if self.lisp_routes is not None and self.lisp_routes.is_presence():
-                                            return True
-
                                         if self.mobile_routes is not None and self.mobile_routes._has_data():
                                             return True
 
-                                        if self.mobile_routes is not None and self.mobile_routes.is_presence():
-                                            return True
-
                                         if self.mvpn is not None and self.mvpn._has_data():
-                                            return True
-
-                                        if self.mvpn is not None and self.mvpn.is_presence():
                                             return True
 
                                         if self.next_hop_resolution_prefix_length_minimum is not None:
                                             return True
 
                                         if self.ospf_routes is not None and self.ospf_routes._has_data():
-                                            return True
-
-                                        if self.ospf_routes is not None and self.ospf_routes.is_presence():
                                             return True
 
                                         if self.permanent_network is not None:
@@ -20043,37 +18788,21 @@ class Bgp(object):
                                         if self.rip_routes is not None and self.rip_routes._has_data():
                                             return True
 
-                                        if self.rip_routes is not None and self.rip_routes.is_presence():
-                                            return True
-
                                         if self.rt_download is not None:
                                             return True
 
                                         if self.sourced_networks is not None and self.sourced_networks._has_data():
                                             return True
 
-                                        if self.sourced_networks is not None and self.sourced_networks.is_presence():
-                                            return True
-
                                         if self.static_routes is not None and self.static_routes._has_data():
-                                            return True
-
-                                        if self.static_routes is not None and self.static_routes.is_presence():
                                             return True
 
                                         if self.subscriber_routes is not None and self.subscriber_routes._has_data():
                                             return True
 
-                                        if self.subscriber_routes is not None and self.subscriber_routes.is_presence():
-                                            return True
-
                                         if self.table_policy is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -20095,17 +18824,11 @@ class Bgp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.vrf_global_af is not None:
                                         for child_ref in self.vrf_global_af:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -20127,8 +18850,6 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.best_path_aigp_ignore is not None:
                                     return True
 
@@ -20154,9 +18875,6 @@ class Bgp(object):
                                     return True
 
                                 if self.bfd is not None and self.bfd._has_data():
-                                    return True
-
-                                if self.bfd is not None and self.bfd.is_presence():
                                     return True
 
                                 if self.default_info_originate is not None:
@@ -20186,16 +18904,10 @@ class Bgp(object):
                                 if self.global_timers is not None and self.global_timers._has_data():
                                     return True
 
-                                if self.global_timers is not None and self.global_timers.is_presence():
-                                    return True
-
                                 if self.igp_redist_internal is not None:
                                     return True
 
                                 if self.label_mode is not None and self.label_mode._has_data():
-                                    return True
-
-                                if self.label_mode is not None and self.label_mode.is_presence():
                                     return True
 
                                 if self.local_preference is not None:
@@ -20204,22 +18916,13 @@ class Bgp(object):
                                 if self.mpls_activated_interfaces is not None and self.mpls_activated_interfaces._has_data():
                                     return True
 
-                                if self.mpls_activated_interfaces is not None and self.mpls_activated_interfaces.is_presence():
-                                    return True
-
                                 if self.multi_path_as_path_ignore_onwards is not None:
                                     return True
 
                                 if self.receive_socket_buffer_sizes is not None and self.receive_socket_buffer_sizes._has_data():
                                     return True
 
-                                if self.receive_socket_buffer_sizes is not None and self.receive_socket_buffer_sizes.is_presence():
-                                    return True
-
                                 if self.route_distinguisher is not None and self.route_distinguisher._has_data():
-                                    return True
-
-                                if self.route_distinguisher is not None and self.route_distinguisher.is_presence():
                                     return True
 
                                 if self.router_id is not None:
@@ -20228,19 +18931,9 @@ class Bgp(object):
                                 if self.send_socket_buffer_sizes is not None and self.send_socket_buffer_sizes._has_data():
                                     return True
 
-                                if self.send_socket_buffer_sizes is not None and self.send_socket_buffer_sizes.is_presence():
-                                    return True
-
                                 if self.vrf_global_afs is not None and self.vrf_global_afs._has_data():
                                     return True
 
-                                if self.vrf_global_afs is not None and self.vrf_global_afs.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -20284,12 +18977,12 @@ class Bgp(object):
                                 .. attribute:: additional_paths_receive_capability
                                 
                                 	Advertise additional paths Receive capability
-                                	**type**\: :py:class:`BgpNbrCapAdditionalPathsCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfg_Enum>`
+                                	**type**\: :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
                                 
                                 .. attribute:: additional_paths_send_capability
                                 
                                 	Advertise additional paths Send capability
-                                	**type**\: :py:class:`BgpNbrCapAdditionalPathsCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfg_Enum>`
+                                	**type**\: :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
                                 
                                 .. attribute:: advertisement_interval
                                 
@@ -20299,7 +18992,7 @@ class Bgp(object):
                                 .. attribute:: bfd_enable_modes
                                 
                                 	Strict mode, Default mode or Disable to prevent inheritance from a parent
-                                	**type**\: :py:class:`BgpBfdEnableMode_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpBfdEnableMode_Enum>`
+                                	**type**\: :py:class:`BgpBfdEnableModeEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpBfdEnableModeEnum>`
                                 
                                 .. attribute:: bfd_minimum_interval
                                 
@@ -20442,7 +19135,7 @@ class Bgp(object):
                                 .. attribute:: session_open_mode
                                 
                                 	TCP mode to be used to establish BGP session
-                                	**type**\: :py:class:`BgpTcpMode_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpTcpMode_Enum>`
+                                	**type**\: :py:class:`BgpTcpModeEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpTcpModeEnum>`
                                 
                                 .. attribute:: shutdown
                                 
@@ -20573,12 +19266,22 @@ class Bgp(object):
                                     
                                     	**range:** 0..600
                                     
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
                                     .. attribute:: minimum_interval_msecs
                                     
                                     	Minimum advertisement interval time, msecs part
                                     	**type**\: int
                                     
                                     	**range:** 0..999
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
                                     
                                     
 
@@ -20608,8 +19311,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.minimum_interval is not None:
                                             return True
 
@@ -20617,10 +19318,6 @@ class Bgp(object):
                                             return True
 
                                         return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return True
 
                                     @staticmethod
                                     def _meta_info():
@@ -20689,15 +19386,9 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.server_id is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -20719,17 +19410,11 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.bmp_activate is not None:
                                             for child_ref in self.bmp_activate:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -20781,18 +19466,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.max_hop_count is not None:
                                             return True
 
                                         if self.mpls_deactivation is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -20885,18 +19564,12 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.as_prepends is not None:
                                                 return True
 
                                             if self.gshut_prepends_disable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -20947,18 +19620,12 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.gshut_loc_pref_disable is not None:
                                                 return True
 
                                             if self.local_preference is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -20980,8 +19647,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.enable is not None:
                                             return True
 
@@ -20991,19 +19656,9 @@ class Bgp(object):
                                         if self.graceful_maintenance_as_prepends is not None and self.graceful_maintenance_as_prepends._has_data():
                                             return True
 
-                                        if self.graceful_maintenance_as_prepends is not None and self.graceful_maintenance_as_prepends.is_presence():
-                                            return True
-
                                         if self.graceful_maintenance_local_preference is not None and self.graceful_maintenance_local_preference._has_data():
                                             return True
 
-                                        if self.graceful_maintenance_local_preference is not None and self.graceful_maintenance_local_preference.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21052,18 +19707,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.keychain_disable is not None:
                                             return True
 
                                         if self.keychain_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21112,18 +19761,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.local_address_disable is not None:
                                             return True
 
                                         if self.local_ip_address is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21200,8 +19843,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.as_xx is not None:
                                             return True
 
@@ -21220,10 +19861,6 @@ class Bgp(object):
                                         if self.replace_as is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21280,8 +19917,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.msg_buf_count is not None:
                                             return True
 
@@ -21291,10 +19926,6 @@ class Bgp(object):
                                         if self.msg_log_inherit_disable is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21351,8 +19982,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.msg_buf_count is not None:
                                             return True
 
@@ -21362,10 +19991,6 @@ class Bgp(object):
                                         if self.msg_log_inherit_disable is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21418,18 +20043,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.cluster_id_address is not None:
                                             return True
 
                                         if self.cluster_id_number is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21480,18 +20099,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.password is not None:
                                             return True
 
                                         if self.password_disable is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21545,18 +20158,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.bgp_receive_size is not None:
                                             return True
 
                                         if self.socket_receive_size is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21609,18 +20216,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.as_xx is not None:
                                             return True
 
                                         if self.as_yy is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21674,18 +20275,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.bgp_send_size is not None:
                                             return True
 
                                         if self.socket_send_size is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21736,18 +20331,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.mss is not None:
                                             return True
 
                                         if self.tcpmss_disable is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21808,8 +20397,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.hold_time is not None:
                                             return True
 
@@ -21819,10 +20406,6 @@ class Bgp(object):
                                         if self.min_accept_hold_time is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21838,12 +20421,12 @@ class Bgp(object):
                                     .. attribute:: type
                                     
                                     	Set type of service
-                                    	**type**\: :py:class:`BgpTos_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTos_Enum>`
+                                    	**type**\: :py:class:`BgpTosEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTosEnum>`
                                     
                                     .. attribute:: value
                                     
                                     	TOS value to set
-                                    	**type**\: one of { :py:class:`BgpPrecedenceDscp_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscp_Enum>` | int }
+                                    	**type**\: one of { :py:class:`BgpPrecedenceDscpEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscpEnum>` | int }
                                     
                                     
 
@@ -21871,18 +20454,12 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.type is not None:
                                             return True
 
                                         if self.value is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21939,12 +20516,22 @@ class Bgp(object):
                                         	TRUE to configure non\-circular buffer
                                         	**type**\: bool
                                         
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
                                         .. attribute:: number_of_buffers
                                         
                                         	Number of message buffers
                                         	**type**\: int
                                         
                                         	**range:** 0..25
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
                                         
                                         
 
@@ -21974,8 +20561,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.non_circular_buffer is not None:
                                                 return True
 
@@ -21983,10 +20568,6 @@ class Bgp(object):
                                                 return True
 
                                             return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return True
 
                                         @staticmethod
                                         def _meta_info():
@@ -22007,8 +20588,6 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.enable is not None:
                                             return True
 
@@ -22018,16 +20597,9 @@ class Bgp(object):
                                         if self.update_in_filtering_message_buffers is not None and self.update_in_filtering_message_buffers._has_data():
                                             return True
 
-                                        if self.update_in_filtering_message_buffers is not None and self.update_in_filtering_message_buffers.is_presence():
-                                            return True
-
                                         if self.update_in_filtering_syslog_disable is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -22066,7 +20638,7 @@ class Bgp(object):
                                         .. attribute:: af_name
                                         
                                         	BGP neighbor address family
-                                        	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                        	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                         
                                         .. attribute:: accept_own
                                         
@@ -22101,7 +20673,7 @@ class Bgp(object):
                                         .. attribute:: advertise_orf
                                         
                                         	Advertise ORF capability to the peer
-                                        	**type**\: :py:class:`BgpOrf_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpOrf_Enum>`
+                                        	**type**\: :py:class:`BgpOrfEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpOrfEnum>`
                                         
                                         .. attribute:: advertise_permanent_network
                                         
@@ -22126,7 +20698,7 @@ class Bgp(object):
                                         .. attribute:: aigp
                                         
                                         	Enable Accumulated IGP Metric for this neighbor
-                                        	**type**\: :py:class:`BgpAigpCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfg_Enum>`
+                                        	**type**\: :py:class:`BgpAigpCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
                                         
                                         .. attribute:: aigp_cost_community
                                         
@@ -22136,7 +20708,7 @@ class Bgp(object):
                                         .. attribute:: aigp_send_med
                                         
                                         	Enable/Disable sending AIGP in MED 
-                                        	**type**\: :py:class:`BgpAigpCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfg_Enum>`
+                                        	**type**\: :py:class:`BgpAigpCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
                                         
                                         .. attribute:: allow_as_in
                                         
@@ -22165,7 +20737,7 @@ class Bgp(object):
                                         .. attribute:: flowspec_validation
                                         
                                         	Config Flowspec validation for this neighbor
-                                        	**type**\: :py:class:`BgpFlowspecValidationCfg_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpFlowspecValidationCfg_Enum>`
+                                        	**type**\: :py:class:`BgpFlowspecValidationCfgEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpFlowspecValidationCfgEnum>`
                                         
                                         .. attribute:: import_
                                         
@@ -22329,12 +20901,12 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                            	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\: :py:class:`BgpReorgOpt_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt_Enum>`
+                                            	**type**\: :py:class:`BgpReorgOptEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             
 
@@ -22362,18 +20934,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
                                                 if self.reorg_option is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -22390,12 +20956,12 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                            	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\: :py:class:`BgpReorgOpt_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt_Enum>`
+                                            	**type**\: :py:class:`BgpReorgOptEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             
 
@@ -22423,18 +20989,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
                                                 if self.reorg_option is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -22451,12 +21011,12 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                            	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\: :py:class:`BgpReorgOpt_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt_Enum>`
+                                            	**type**\: :py:class:`BgpReorgOptEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             
 
@@ -22484,18 +21044,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
                                                 if self.reorg_option is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -22511,12 +21065,12 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                            	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\: :py:class:`BgpReorgOpt_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt_Enum>`
+                                            	**type**\: :py:class:`BgpReorgOptEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             
 
@@ -22544,18 +21098,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
                                                 if self.reorg_option is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -22571,12 +21119,12 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\: :py:class:`BgpAddressFamily_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamily_Enum>`
+                                            	**type**\: :py:class:`BgpAddressFamilyEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\: :py:class:`BgpReorgOpt_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOpt_Enum>`
+                                            	**type**\: :py:class:`BgpReorgOptEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             
 
@@ -22604,18 +21152,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.af_name is not None:
                                                     return True
 
                                                 if self.reorg_option is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -22635,19 +21177,39 @@ class Bgp(object):
                                             
                                             	**range:** 0..255
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: cost_community_poi_type
                                             
                                             	Cost Community POI
-                                            	**type**\: :py:class:`BgpAigpCfgPoi_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgPoi_Enum>`
+                                            	**type**\: :py:class:`BgpAigpCfgPoiEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgPoiEnum>`
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
                                             
                                             .. attribute:: enable
                                             
                                             	TRUE to enable sending cost community, FALSE otherwise 
                                             	**type**\: bool
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: transitive
                                             
                                             	True to send transitive cost community FALSE otherwise
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
                                             	**type**\: bool
                                             
                                             
@@ -22680,8 +21242,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.cost_community_id is not None:
                                                     return True
 
@@ -22695,10 +21255,6 @@ class Bgp(object):
                                                     return True
 
                                                 return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return True
 
                                             @staticmethod
                                             def _meta_info():
@@ -22746,18 +21302,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.enable is not None:
                                                     return True
 
                                                 if self.route_policy_name is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -22813,8 +21363,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.import_reoriginate is not None:
                                                     return True
 
@@ -22824,10 +21372,6 @@ class Bgp(object):
                                                 if self.import_stitching is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -22846,12 +21390,22 @@ class Bgp(object):
                                             	Discard extra paths when limit is exceeded
                                             	**type**\: bool
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: prefix_limit
                                             
                                             	Maximum prefixes limit
                                             	**type**\: int
                                             
                                             	**range:** 1..4294967295
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
                                             
                                             .. attribute:: restart_time
                                             
@@ -22860,9 +21414,19 @@ class Bgp(object):
                                             
                                             	**range:** 0..65535
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: warning_only
                                             
                                             	TRUE to only give a warning message when limit is exceeded.  FALSE to accept max prefix limit only
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
                                             	**type**\: bool
                                             
                                             .. attribute:: warning_percentage
@@ -22871,6 +21435,11 @@ class Bgp(object):
                                             	**type**\: int
                                             
                                             	**range:** 1..100
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
                                             
                                             
 
@@ -22903,8 +21472,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.discard_extra_paths is not None:
                                                     return True
 
@@ -22921,10 +21488,6 @@ class Bgp(object):
                                                     return True
 
                                                 return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return True
 
                                             @staticmethod
                                             def _meta_info():
@@ -22977,18 +21540,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.stale_time_accept is not None:
                                                     return True
 
                                                 if self.stale_time_send is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -23006,9 +21563,19 @@ class Bgp(object):
                                             	TRUE to remove private AS from outbound updates .  FALSE to prevent remove\-private\-AS from being inherited
                                             	**type**\: bool
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: entire
                                             
                                             	TRUE to remove private AS from outbound updates if all ASes in aspath areprivate. FALSE to prevent remove\-private\-ASfrom being inherited
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
                                             	**type**\: bool
                                             
                                             
@@ -23039,8 +21606,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.enable is not None:
                                                     return True
 
@@ -23048,10 +21613,6 @@ class Bgp(object):
                                                     return True
 
                                                 return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return True
 
                                             @staticmethod
                                             def _meta_info():
@@ -23068,9 +21629,19 @@ class Bgp(object):
                                             	TRUE to remove private AS from inbound updates. FALSE to prevent remove\-private\-AS from being inherited
                                             	**type**\: bool
                                             
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
                                             .. attribute:: entire
                                             
                                             	TRUE to remove private AS from inbound updates if all ASes in aspath areprivate. FALSE to prevent remove\-private\-ASfrom being inherited
+                                            	**type**\: bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
                                             	**type**\: bool
                                             
                                             
@@ -23101,8 +21672,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.enable is not None:
                                                     return True
 
@@ -23110,10 +21679,6 @@ class Bgp(object):
                                                     return True
 
                                                 return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return True
 
                                             @staticmethod
                                             def _meta_info():
@@ -23164,7 +21729,7 @@ class Bgp(object):
                                             .. attribute:: type
                                             
                                             	Type of Extended community
-                                            	**type**\: :py:class:`BgpSiteOfOrigin_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSiteOfOrigin_Enum>`
+                                            	**type**\: :py:class:`BgpSiteOfOriginEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSiteOfOriginEnum>`
                                             
                                             
 
@@ -23196,8 +21761,6 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.address is not None:
                                                     return True
 
@@ -23216,10 +21779,6 @@ class Bgp(object):
                                                 if self.type is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -23269,18 +21828,12 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.inbound_soft is not None:
                                                     return True
 
                                                 if self.soft_always is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -23304,8 +21857,6 @@ class Bgp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.af_name is not None:
                                                 return True
 
@@ -23321,19 +21872,10 @@ class Bgp(object):
                                             if self.advertise_disable is not None and self.advertise_disable._has_data():
                                                 return True
 
-                                            if self.advertise_disable is not None and self.advertise_disable.is_presence():
-                                                return True
-
                                             if self.advertise_local_v4 is not None and self.advertise_local_v4._has_data():
                                                 return True
 
-                                            if self.advertise_local_v4 is not None and self.advertise_local_v4.is_presence():
-                                                return True
-
                                             if self.advertise_local_v6 is not None and self.advertise_local_v6._has_data():
-                                                return True
-
-                                            if self.advertise_local_v6 is not None and self.advertise_local_v6.is_presence():
                                                 return True
 
                                             if self.advertise_orf is not None:
@@ -23345,13 +21887,7 @@ class Bgp(object):
                                             if self.advertise_v4 is not None and self.advertise_v4._has_data():
                                                 return True
 
-                                            if self.advertise_v4 is not None and self.advertise_v4.is_presence():
-                                                return True
-
                                             if self.advertise_v6 is not None and self.advertise_v6._has_data():
-                                                return True
-
-                                            if self.advertise_v6 is not None and self.advertise_v6.is_presence():
                                                 return True
 
                                             if self.af_group is not None:
@@ -23361,9 +21897,6 @@ class Bgp(object):
                                                 return True
 
                                             if self.aigp_cost_community is not None and self.aigp_cost_community._has_data():
-                                                return True
-
-                                            if self.aigp_cost_community is not None and self.aigp_cost_community.is_presence():
                                                 return True
 
                                             if self.aigp_send_med is not None:
@@ -23378,9 +21911,6 @@ class Bgp(object):
                                             if self.default_originate is not None and self.default_originate._has_data():
                                                 return True
 
-                                            if self.default_originate is not None and self.default_originate.is_presence():
-                                                return True
-
                                             if self.default_weight is not None:
                                                 return True
 
@@ -23390,13 +21920,7 @@ class Bgp(object):
                                             if self.import_ is not None and self.import_._has_data():
                                                 return True
 
-                                            if self.import_ is not None and self.import_.is_presence():
-                                                return True
-
                                             if self.maximum_prefixes is not None and self.maximum_prefixes._has_data():
-                                                return True
-
-                                            if self.maximum_prefixes is not None and self.maximum_prefixes.is_presence():
                                                 return True
 
                                             if self.multipath is not None:
@@ -23406,9 +21930,6 @@ class Bgp(object):
                                                 return True
 
                                             if self.neighbor_af_long_lived_graceful_restart_stale_time is not None and self.neighbor_af_long_lived_graceful_restart_stale_time._has_data():
-                                                return True
-
-                                            if self.neighbor_af_long_lived_graceful_restart_stale_time is not None and self.neighbor_af_long_lived_graceful_restart_stale_time.is_presence():
                                                 return True
 
                                             if self.next_hop_self is not None:
@@ -23426,13 +21947,7 @@ class Bgp(object):
                                             if self.remove_private_as_entire_as_path is not None and self.remove_private_as_entire_as_path._has_data():
                                                 return True
 
-                                            if self.remove_private_as_entire_as_path is not None and self.remove_private_as_entire_as_path.is_presence():
-                                                return True
-
                                             if self.remove_private_as_entire_as_path_inbound is not None and self.remove_private_as_entire_as_path_inbound._has_data():
-                                                return True
-
-                                            if self.remove_private_as_entire_as_path_inbound is not None and self.remove_private_as_entire_as_path_inbound.is_presence():
                                                 return True
 
                                             if self.route_policy_in is not None:
@@ -23456,19 +21971,9 @@ class Bgp(object):
                                             if self.site_of_origin is not None and self.site_of_origin._has_data():
                                                 return True
 
-                                            if self.site_of_origin is not None and self.site_of_origin.is_presence():
-                                                return True
-
                                             if self.soft_reconfiguration is not None and self.soft_reconfiguration._has_data():
                                                 return True
 
-                                            if self.soft_reconfiguration is not None and self.soft_reconfiguration.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -23490,17 +21995,11 @@ class Bgp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.vrf_neighbor_af is not None:
                                             for child_ref in self.vrf_neighbor_af:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -23524,8 +22023,6 @@ class Bgp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.neighbor_address is not None:
                                         return True
 
@@ -23536,9 +22033,6 @@ class Bgp(object):
                                         return True
 
                                     if self.advertisement_interval is not None and self.advertisement_interval._has_data():
-                                        return True
-
-                                    if self.advertisement_interval is not None and self.advertisement_interval.is_presence():
                                         return True
 
                                     if self.bfd_enable_modes is not None:
@@ -23553,16 +22047,10 @@ class Bgp(object):
                                     if self.bmp_activates is not None and self.bmp_activates._has_data():
                                         return True
 
-                                    if self.bmp_activates is not None and self.bmp_activates.is_presence():
-                                        return True
-
                                     if self.description is not None:
                                         return True
 
                                     if self.ebgp_multihop is not None and self.ebgp_multihop._has_data():
-                                        return True
-
-                                    if self.ebgp_multihop is not None and self.ebgp_multihop.is_presence():
                                         return True
 
                                     if self.egress_peer_engineering is not None:
@@ -23574,9 +22062,6 @@ class Bgp(object):
                                     if self.graceful_maintenance is not None and self.graceful_maintenance._has_data():
                                         return True
 
-                                    if self.graceful_maintenance is not None and self.graceful_maintenance.is_presence():
-                                        return True
-
                                     if self.ignore_connected_check_ebgp is not None:
                                         return True
 
@@ -23586,37 +22071,19 @@ class Bgp(object):
                                     if self.keychain is not None and self.keychain._has_data():
                                         return True
 
-                                    if self.keychain is not None and self.keychain.is_presence():
-                                        return True
-
                                     if self.local_address is not None and self.local_address._has_data():
-                                        return True
-
-                                    if self.local_address is not None and self.local_address.is_presence():
                                         return True
 
                                     if self.local_as is not None and self.local_as._has_data():
                                         return True
 
-                                    if self.local_as is not None and self.local_as.is_presence():
-                                        return True
-
                                     if self.msg_log_in is not None and self.msg_log_in._has_data():
-                                        return True
-
-                                    if self.msg_log_in is not None and self.msg_log_in.is_presence():
                                         return True
 
                                     if self.msg_log_out is not None and self.msg_log_out._has_data():
                                         return True
 
-                                    if self.msg_log_out is not None and self.msg_log_out.is_presence():
-                                        return True
-
                                     if self.neighbor_cluster_id is not None and self.neighbor_cluster_id._has_data():
-                                        return True
-
-                                    if self.neighbor_cluster_id is not None and self.neighbor_cluster_id.is_presence():
                                         return True
 
                                     if self.neighbor_graceful_restart is not None:
@@ -23634,28 +22101,16 @@ class Bgp(object):
                                     if self.password is not None and self.password._has_data():
                                         return True
 
-                                    if self.password is not None and self.password.is_presence():
-                                        return True
-
                                     if self.propagate_dmz_link_bandwidth is not None:
                                         return True
 
                                     if self.receive_buffer_size is not None and self.receive_buffer_size._has_data():
                                         return True
 
-                                    if self.receive_buffer_size is not None and self.receive_buffer_size.is_presence():
-                                        return True
-
                                     if self.remote_as is not None and self.remote_as._has_data():
                                         return True
 
-                                    if self.remote_as is not None and self.remote_as.is_presence():
-                                        return True
-
                                     if self.send_buffer_size is not None and self.send_buffer_size._has_data():
-                                        return True
-
-                                    if self.send_buffer_size is not None and self.send_buffer_size.is_presence():
                                         return True
 
                                     if self.session_group_add_member is not None:
@@ -23673,19 +22128,10 @@ class Bgp(object):
                                     if self.tcpmss is not None and self.tcpmss._has_data():
                                         return True
 
-                                    if self.tcpmss is not None and self.tcpmss.is_presence():
-                                        return True
-
                                     if self.timers is not None and self.timers._has_data():
                                         return True
 
-                                    if self.timers is not None and self.timers.is_presence():
-                                        return True
-
                                     if self.tos is not None and self.tos._has_data():
-                                        return True
-
-                                    if self.tos is not None and self.tos.is_presence():
                                         return True
 
                                     if self.ttl_security is not None:
@@ -23694,22 +22140,12 @@ class Bgp(object):
                                     if self.update_in_filtering is not None and self.update_in_filtering._has_data():
                                         return True
 
-                                    if self.update_in_filtering is not None and self.update_in_filtering.is_presence():
-                                        return True
-
                                     if self.update_source_interface is not None:
                                         return True
 
                                     if self.vrf_neighbor_afs is not None and self.vrf_neighbor_afs._has_data():
                                         return True
 
-                                    if self.vrf_neighbor_afs is not None and self.vrf_neighbor_afs.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -23731,17 +22167,11 @@ class Bgp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.vrf_neighbor is not None:
                                     for child_ref in self.vrf_neighbor:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -23765,27 +22195,15 @@ class Bgp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.vrf_name is not None:
                                 return True
 
                             if self.vrf_global is not None and self.vrf_global._has_data():
                                 return True
 
-                            if self.vrf_global is not None and self.vrf_global.is_presence():
-                                return True
-
                             if self.vrf_neighbors is not None and self.vrf_neighbors._has_data():
                                 return True
 
-                            if self.vrf_neighbors is not None and self.vrf_neighbors.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -23807,17 +22225,11 @@ class Bgp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.vrf is not None:
                             for child_ref in self.vrf:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -23841,8 +22253,6 @@ class Bgp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.as_ is not None:
                         return True
 
@@ -23852,19 +22262,9 @@ class Bgp(object):
                     if self.default_vrf is not None and self.default_vrf._has_data():
                         return True
 
-                    if self.default_vrf is not None and self.default_vrf.is_presence():
-                        return True
-
                     if self.vrfs is not None and self.vrfs._has_data():
                         return True
 
-                    if self.vrfs is not None and self.vrfs.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -23888,8 +22288,6 @@ class Bgp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.as_ is not None:
                     return True
 
@@ -23898,10 +22296,6 @@ class Bgp(object):
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -23923,8 +22317,6 @@ class Bgp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.instance_name is not None:
                 return True
 
@@ -23933,10 +22325,6 @@ class Bgp(object):
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -23956,17 +22344,11 @@ class Bgp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.instance is not None:
             for child_ref in self.instance:
                 if child_ref._has_data():
                     return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -24132,18 +22514,12 @@ class BmpServers(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.host is not None:
                     return True
 
                 if self.port is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -24196,18 +22572,12 @@ class BmpServers(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.delay is not None:
                     return True
 
                 if self.spread is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -24223,12 +22593,12 @@ class BmpServers(object):
             .. attribute:: type
             
             	Set type of service
-            	**type**\: :py:class:`BgpTos_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTos_Enum>`
+            	**type**\: :py:class:`BgpTosEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTosEnum>`
             
             .. attribute:: value
             
             	TOS value to set
-            	**type**\: one of { :py:class:`BgpPrecedenceDscp_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscp_Enum>` | int }
+            	**type**\: one of { :py:class:`BgpPrecedenceDscpEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscpEnum>` | int }
             
             
 
@@ -24256,18 +22626,12 @@ class BmpServers(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.type is not None:
                     return True
 
                 if self.value is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -24289,8 +22653,6 @@ class BmpServers(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.server_id is not None:
                 return True
 
@@ -24303,16 +22665,10 @@ class BmpServers(object):
             if self.host_port is not None and self.host_port._has_data():
                 return True
 
-            if self.host_port is not None and self.host_port.is_presence():
-                return True
-
             if self.initial_delay is not None:
                 return True
 
             if self.initial_refresh_delay is not None and self.initial_refresh_delay._has_data():
-                return True
-
-            if self.initial_refresh_delay is not None and self.initial_refresh_delay.is_presence():
                 return True
 
             if self.shutdown is not None:
@@ -24324,19 +22680,12 @@ class BmpServers(object):
             if self.tos is not None and self.tos._has_data():
                 return True
 
-            if self.tos is not None and self.tos.is_presence():
-                return True
-
             if self.update_source_interface is not None:
                 return True
 
             if self.vrf is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -24356,17 +22705,11 @@ class BmpServers(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.bmp_server is not None:
             for child_ref in self.bmp_server:
                 if child_ref._has_data():
                     return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

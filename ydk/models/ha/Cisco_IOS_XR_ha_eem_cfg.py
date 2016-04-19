@@ -24,120 +24,112 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class EventManagerChecksum_Enum(Enum):
+class EventManagerChecksumEnum(Enum):
     """
-    EventManagerChecksum_Enum
+    EventManagerChecksumEnum
 
     Event manager checksum
 
-    """
+    .. data:: SHA_1 = 1
+
+    	Use SHA-1 checksum
+
+    .. data:: MD5 = 2
+
+    	Use MD5 checksum
 
     """
 
-    Use SHA\-1 checksum
-
-    """
     SHA_1 = 1
 
-    """
-
-    Use MD5 checksum
-
-    """
     MD5 = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ha._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
-        return meta._meta_table['EventManagerChecksum_Enum']
+        return meta._meta_table['EventManagerChecksumEnum']
 
 
-class EventManagerPolicyMode_Enum(Enum):
+class EventManagerPolicyEnum(Enum):
     """
-    EventManagerPolicyMode_Enum
-
-    Event manager policy mode
-
-    """
-
-    """
-
-    Cisco Signature
-
-    """
-    CISCO = 1
-
-    """
-
-    Trust Signature
-
-    """
-    TRUST = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ha._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
-        return meta._meta_table['EventManagerPolicyMode_Enum']
-
-
-class EventManagerPolicySec_Enum(Enum):
-    """
-    EventManagerPolicySec_Enum
-
-    Event manager policy sec
-
-    """
-
-    """
-
-    Cisco Signature
-
-    """
-    RSA_2048 = 2
-
-    """
-
-    Trust Signature
-
-    """
-    TRUST = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ha._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
-        return meta._meta_table['EventManagerPolicySec_Enum']
-
-
-class EventManagerPolicy_Enum(Enum):
-    """
-    EventManagerPolicy_Enum
+    EventManagerPolicyEnum
 
     Event manager policy
 
-    """
+    .. data:: SYSTEM = 0
+
+    	Event manager system policy
+
+    .. data:: USER = 1
+
+    	Event manager user policy
 
     """
 
-    Event manager system policy
-
-    """
     SYSTEM = 0
 
-    """
-
-    Event manager user policy
-
-    """
     USER = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ha._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
-        return meta._meta_table['EventManagerPolicy_Enum']
+        return meta._meta_table['EventManagerPolicyEnum']
+
+
+class EventManagerPolicyModeEnum(Enum):
+    """
+    EventManagerPolicyModeEnum
+
+    Event manager policy mode
+
+    .. data:: CISCO = 1
+
+    	Cisco Signature
+
+    .. data:: TRUST = 2
+
+    	Trust Signature
+
+    """
+
+    CISCO = 1
+
+    TRUST = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ha._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
+        return meta._meta_table['EventManagerPolicyModeEnum']
+
+
+class EventManagerPolicySecEnum(Enum):
+    """
+    EventManagerPolicySecEnum
+
+    Event manager policy sec
+
+    .. data:: RSA_2048 = 2
+
+    	Cisco Signature
+
+    .. data:: TRUST = 3
+
+    	Trust Signature
+
+    """
+
+    RSA_2048 = 2
+
+    TRUST = 3
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ha._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
+        return meta._meta_table['EventManagerPolicySecEnum']
 
 
 
@@ -268,18 +260,12 @@ class EventManager(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.environment_name is not None:
                     return True
 
                 if self.environment_value is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -299,17 +285,11 @@ class EventManager(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.environment is not None:
                 for child_ref in self.environment:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -360,7 +340,7 @@ class EventManager(object):
             .. attribute:: checksum_type
             
             	Specify Embedded Event Manager policy checksum
-            	**type**\: :py:class:`EventManagerChecksum_Enum <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManagerChecksum_Enum>`
+            	**type**\: :py:class:`EventManagerChecksumEnum <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManagerChecksumEnum>`
             
             .. attribute:: persist_time
             
@@ -372,17 +352,17 @@ class EventManager(object):
             .. attribute:: policy_security_level
             
             	Event Manager policy security Level
-            	**type**\: :py:class:`EventManagerPolicySec_Enum <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicySec_Enum>`
+            	**type**\: :py:class:`EventManagerPolicySecEnum <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicySecEnum>`
             
             .. attribute:: policy_security_mode
             
             	Specify Embedded Event Manager policy security mode
-            	**type**\: :py:class:`EventManagerPolicyMode_Enum <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicyMode_Enum>`
+            	**type**\: :py:class:`EventManagerPolicyModeEnum <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicyModeEnum>`
             
             .. attribute:: policy_type
             
             	Event manager type of this policy
-            	**type**\: :py:class:`EventManagerPolicy_Enum <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicy_Enum>`
+            	**type**\: :py:class:`EventManagerPolicyEnum <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicyEnum>`
             
             .. attribute:: username
             
@@ -421,8 +401,6 @@ class EventManager(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.policy_name is not None:
                     return True
 
@@ -449,10 +427,6 @@ class EventManager(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.ha._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
@@ -470,17 +444,11 @@ class EventManager(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.policy is not None:
                 for child_ref in self.policy:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -578,18 +546,12 @@ class EventManager(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.thread_class_name is not None:
                         return True
 
                     if self.num_threads is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -609,17 +571,11 @@ class EventManager(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.thread_class is not None:
                     for child_ref in self.thread_class:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -639,18 +595,9 @@ class EventManager(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.thread_classes is not None and self.thread_classes._has_data():
                 return True
 
-            if self.thread_classes is not None and self.thread_classes.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -670,8 +617,6 @@ class EventManager(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.directory_user_library is not None:
             return True
 
@@ -681,13 +626,7 @@ class EventManager(object):
         if self.environments is not None and self.environments._has_data():
             return True
 
-        if self.environments is not None and self.environments.is_presence():
-            return True
-
         if self.policies is not None and self.policies._has_data():
-            return True
-
-        if self.policies is not None and self.policies.is_presence():
             return True
 
         if self.refresh_time is not None:
@@ -699,13 +638,6 @@ class EventManager(object):
         if self.scheduler_script is not None and self.scheduler_script._has_data():
             return True
 
-        if self.scheduler_script is not None and self.scheduler_script.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

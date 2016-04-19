@@ -26,525 +26,471 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class EfpPayloadEtype_Enum(Enum):
+class EfpPayloadEtypeEnum(Enum):
     """
-    EfpPayloadEtype_Enum
+    EfpPayloadEtypeEnum
 
     Payload ethertype match
 
-    """
+    .. data:: PAYLOAD_ETHERTYPE_ANY = 0
+
+    	Any
+
+    .. data:: PAYLOAD_ETHERTYPE_IP = 1
+
+    	IP
+
+    .. data:: PAYLOAD_ETHERTYPE_PPPOE = 2
+
+    	PPPoE
 
     """
 
-    Any
-
-    """
     PAYLOAD_ETHERTYPE_ANY = 0
 
-    """
-
-    IP
-
-    """
     PAYLOAD_ETHERTYPE_IP = 1
 
-    """
-
-    PPPoE
-
-    """
     PAYLOAD_ETHERTYPE_PPPOE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
-        return meta._meta_table['EfpPayloadEtype_Enum']
+        return meta._meta_table['EfpPayloadEtypeEnum']
 
 
-class EfpTagEtype_Enum(Enum):
+class EfpTagEtypeEnum(Enum):
     """
-    EfpTagEtype_Enum
+    EfpTagEtypeEnum
 
     Tag ethertype
 
-    """
+    .. data:: UNTAGGED = 0
+
+    	Untagged
+
+    .. data:: DOT1Q = 33024
+
+    	Dot1Q
+
+    .. data:: DOT1AD = 34984
+
+    	Dot1ad
 
     """
 
-    Untagged
-
-    """
     UNTAGGED = 0
 
-    """
-
-    Dot1Q
-
-    """
     DOT1Q = 33024
 
-    """
-
-    Dot1ad
-
-    """
     DOT1AD = 34984
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
-        return meta._meta_table['EfpTagEtype_Enum']
+        return meta._meta_table['EfpTagEtypeEnum']
 
 
-class EfpTagPriority_Enum(Enum):
+class EfpTagPriorityEnum(Enum):
     """
-    EfpTagPriority_Enum
+    EfpTagPriorityEnum
 
     Priority
 
-    """
+    .. data:: PRIORITY0 = 0
+
+    	Priority 0
+
+    .. data:: PRIORITY1 = 1
+
+    	Priority 1
+
+    .. data:: PRIORITY2 = 2
+
+    	Priority 2
+
+    .. data:: PRIORITY3 = 3
+
+    	Priority 3
+
+    .. data:: PRIORITY4 = 4
+
+    	Priority 4
+
+    .. data:: PRIORITY5 = 5
+
+    	Priority 5
+
+    .. data:: PRIORITY6 = 6
+
+    	Priority 6
+
+    .. data:: PRIORITY7 = 7
+
+    	Priority 7
+
+    .. data:: PRIORITY_ANY = 8
+
+    	Any priority
 
     """
 
-    Priority 0
-
-    """
     PRIORITY0 = 0
 
-    """
-
-    Priority 1
-
-    """
     PRIORITY1 = 1
 
-    """
-
-    Priority 2
-
-    """
     PRIORITY2 = 2
 
-    """
-
-    Priority 3
-
-    """
     PRIORITY3 = 3
 
-    """
-
-    Priority 4
-
-    """
     PRIORITY4 = 4
 
-    """
-
-    Priority 5
-
-    """
     PRIORITY5 = 5
 
-    """
-
-    Priority 6
-
-    """
     PRIORITY6 = 6
 
-    """
-
-    Priority 7
-
-    """
     PRIORITY7 = 7
 
-    """
-
-    Any priority
-
-    """
     PRIORITY_ANY = 8
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
-        return meta._meta_table['EfpTagPriority_Enum']
+        return meta._meta_table['EfpTagPriorityEnum']
 
 
-class EthCapsUcastMacMode_Enum(Enum):
+class EthCapsUcastMacModeEnum(Enum):
     """
-    EthCapsUcastMacMode_Enum
+    EthCapsUcastMacModeEnum
 
     Eth caps ucast mac mode
 
-    """
+    .. data:: RESERVED = 0
+
+    	Reserved
+
+    .. data:: PERMIT = 1
+
+    	Permit
 
     """
 
-    Reserved
-
-    """
     RESERVED = 0
 
-    """
-
-    Permit
-
-    """
     PERMIT = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
-        return meta._meta_table['EthCapsUcastMacMode_Enum']
+        return meta._meta_table['EthCapsUcastMacModeEnum']
 
 
-class EthFiltering_Enum(Enum):
+class EthFilteringEnum(Enum):
     """
-    EthFiltering_Enum
+    EthFilteringEnum
 
     Ethernet frame filtering
 
-    """
+    .. data:: NO_FILTERING = 0
+
+    	No IEEE 802.1Q/802.1ad/MAC relay multicast MAC
+
+    	address filtering
+
+    .. data:: DOT1Q_FILTERING = 1
+
+    	IEEE 802.1q C-VLAN filtering
+
+    .. data:: DOT1AD_FILTERING = 2
+
+    	IEEE 802.1ad S-VLAN filtering
+
+    .. data:: TWO_PORT_MAC_RELAY_FILTERING = 3
+
+    	IEEE 802.1aj 2-Port MAC relay filtering
 
     """
 
-    No IEEE 802.1Q/802.1ad/MAC relay multicast MAC
-    address filtering
-
-    """
     NO_FILTERING = 0
 
-    """
-
-    IEEE 802.1q C\-VLAN filtering
-
-    """
     DOT1Q_FILTERING = 1
 
-    """
-
-    IEEE 802.1ad S\-VLAN filtering
-
-    """
     DOT1AD_FILTERING = 2
 
-    """
-
-    IEEE 802.1aj 2\-Port MAC relay filtering
-
-    """
     TWO_PORT_MAC_RELAY_FILTERING = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
-        return meta._meta_table['EthFiltering_Enum']
+        return meta._meta_table['EthFilteringEnum']
 
 
-class ImStateEnum_Enum(Enum):
+class ImStateEnumEnum(Enum):
     """
-    ImStateEnum_Enum
+    ImStateEnumEnum
 
     Im state enum
 
-    """
+    .. data:: IM_STATE_NOT_READY = 0
+
+    	im state not ready
+
+    .. data:: IM_STATE_ADMIN_DOWN = 1
+
+    	im state admin down
+
+    .. data:: IM_STATE_DOWN = 2
+
+    	im state down
+
+    .. data:: IM_STATE_UP = 3
+
+    	im state up
+
+    .. data:: IM_STATE_SHUTDOWN = 4
+
+    	im state shutdown
+
+    .. data:: IM_STATE_ERR_DISABLE = 5
+
+    	im state err disable
+
+    .. data:: IM_STATE_DOWN_IMMEDIATE = 6
+
+    	im state down immediate
+
+    .. data:: IM_STATE_DOWN_IMMEDIATE_ADMIN = 7
+
+    	im state down immediate admin
+
+    .. data:: IM_STATE_DOWN_GRACEFUL = 8
+
+    	im state down graceful
+
+    .. data:: IM_STATE_BEGIN_SHUTDOWN = 9
+
+    	im state begin shutdown
+
+    .. data:: IM_STATE_END_SHUTDOWN = 10
+
+    	im state end shutdown
+
+    .. data:: IM_STATE_BEGIN_ERROR_DISABLE = 11
+
+    	im state begin error disable
+
+    .. data:: IM_STATE_END_ERROR_DISABLE = 12
+
+    	im state end error disable
+
+    .. data:: IM_STATE_BEGIN_DOWN_GRACEFUL = 13
+
+    	im state begin down graceful
+
+    .. data:: IM_STATE_RESET = 14
+
+    	im state reset
+
+    .. data:: IM_STATE_OPERATIONAL = 15
+
+    	im state operational
+
+    .. data:: IM_STATE_NOT_OPERATIONAL = 16
+
+    	im state not operational
+
+    .. data:: IM_STATE_UNKNOWN = 17
+
+    	im state unknown
+
+    .. data:: IM_STATE_LAST = 18
+
+    	im state last
 
     """
 
-    im state not ready
-
-    """
     IM_STATE_NOT_READY = 0
 
-    """
-
-    im state admin down
-
-    """
     IM_STATE_ADMIN_DOWN = 1
 
-    """
-
-    im state down
-
-    """
     IM_STATE_DOWN = 2
 
-    """
-
-    im state up
-
-    """
     IM_STATE_UP = 3
 
-    """
-
-    im state shutdown
-
-    """
     IM_STATE_SHUTDOWN = 4
 
-    """
-
-    im state err disable
-
-    """
     IM_STATE_ERR_DISABLE = 5
 
-    """
-
-    im state down immediate
-
-    """
     IM_STATE_DOWN_IMMEDIATE = 6
 
-    """
-
-    im state down immediate admin
-
-    """
     IM_STATE_DOWN_IMMEDIATE_ADMIN = 7
 
-    """
-
-    im state down graceful
-
-    """
     IM_STATE_DOWN_GRACEFUL = 8
 
-    """
-
-    im state begin shutdown
-
-    """
     IM_STATE_BEGIN_SHUTDOWN = 9
 
-    """
-
-    im state end shutdown
-
-    """
     IM_STATE_END_SHUTDOWN = 10
 
-    """
-
-    im state begin error disable
-
-    """
     IM_STATE_BEGIN_ERROR_DISABLE = 11
 
-    """
-
-    im state end error disable
-
-    """
     IM_STATE_END_ERROR_DISABLE = 12
 
-    """
-
-    im state begin down graceful
-
-    """
     IM_STATE_BEGIN_DOWN_GRACEFUL = 13
 
-    """
-
-    im state reset
-
-    """
     IM_STATE_RESET = 14
 
-    """
-
-    im state operational
-
-    """
     IM_STATE_OPERATIONAL = 15
 
-    """
-
-    im state not operational
-
-    """
     IM_STATE_NOT_OPERATIONAL = 16
 
-    """
-
-    im state unknown
-
-    """
     IM_STATE_UNKNOWN = 17
 
-    """
-
-    im state last
-
-    """
     IM_STATE_LAST = 18
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
-        return meta._meta_table['ImStateEnum_Enum']
+        return meta._meta_table['ImStateEnumEnum']
 
 
-class VlanEncaps_Enum(Enum):
+class VlanEncapsEnum(Enum):
     """
-    VlanEncaps_Enum
+    VlanEncapsEnum
 
     VLAN encapsulation
 
-    """
+    .. data:: NO_ENCAPSULATION = 0
+
+    	No encapsulation
+
+    .. data:: DOT1Q = 1
+
+    	IEEE 802.1Q encapsulation
+
+    .. data:: QINQ = 2
+
+    	Double 802.1Q encapsulation
+
+    .. data:: QIN_ANY = 3
+
+    	Double 802.1Q wildcarded encapsulation
+
+    .. data:: DOT1Q_NATIVE = 4
+
+    	IEEE 802.1Q native VLAN encapsulation
+
+    .. data:: DOT1AD = 5
+
+    	IEEE 802.1ad encapsulation
+
+    .. data:: DOT1AD_NATIVE = 6
+
+    	IEEE 802.1ad native VLAN encapsulation
+
+    .. data:: SERVICE_INSTANCE = 7
+
+    	Ethernet Service Instance
+
+    .. data:: DOT1AD_DOT1Q = 8
+
+    	IEEE 802.1ad 802.1Q encapsulation
+
+    .. data:: DOT1AD_ANY = 9
+
+    	IEEE 802.1ad wildcard 802.1Q encapsulation
 
     """
 
-    No encapsulation
-
-    """
     NO_ENCAPSULATION = 0
 
-    """
-
-    IEEE 802.1Q encapsulation
-
-    """
     DOT1Q = 1
 
-    """
-
-    Double 802.1Q encapsulation
-
-    """
     QINQ = 2
 
-    """
-
-    Double 802.1Q wildcarded encapsulation
-
-    """
     QIN_ANY = 3
 
-    """
-
-    IEEE 802.1Q native VLAN encapsulation
-
-    """
     DOT1Q_NATIVE = 4
 
-    """
-
-    IEEE 802.1ad encapsulation
-
-    """
     DOT1AD = 5
 
-    """
-
-    IEEE 802.1ad native VLAN encapsulation
-
-    """
     DOT1AD_NATIVE = 6
 
-    """
-
-    Ethernet Service Instance
-
-    """
     SERVICE_INSTANCE = 7
 
-    """
-
-    IEEE 802.1ad 802.1Q encapsulation
-
-    """
     DOT1AD_DOT1Q = 8
 
-    """
-
-    IEEE 802.1ad wildcard 802.1Q encapsulation
-
-    """
     DOT1AD_ANY = 9
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
-        return meta._meta_table['VlanEncaps_Enum']
+        return meta._meta_table['VlanEncapsEnum']
 
 
-class VlanQinqOuterEtype_Enum(Enum):
+class VlanQinqOuterEtypeEnum(Enum):
     """
-    VlanQinqOuterEtype_Enum
+    VlanQinqOuterEtypeEnum
 
     QinQ Outer Tag Ethertype
 
-    """
+    .. data:: ETHER_TYPE8100 = 33024
+
+    	Dot1Q (0x8100)
+
+    .. data:: ETHER_TYPE9100 = 37120
+
+    	0x9100
+
+    .. data:: ETHER_TYPE9200 = 37376
+
+    	0x9200
 
     """
 
-    Dot1Q (0x8100)
-
-    """
     ETHER_TYPE8100 = 33024
 
-    """
-
-    0x9100
-
-    """
     ETHER_TYPE9100 = 37120
 
-    """
-
-    0x9200
-
-    """
     ETHER_TYPE9200 = 37376
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
-        return meta._meta_table['VlanQinqOuterEtype_Enum']
+        return meta._meta_table['VlanQinqOuterEtypeEnum']
 
 
-class VlanService_Enum(Enum):
+class VlanServiceEnum(Enum):
     """
-    VlanService_Enum
+    VlanServiceEnum
 
     Layer 2 vs. Layer 3 Terminated Service
 
-    """
+    .. data:: VLAN_SERVICE_L2 = 1
+
+    	Layer 2 Transport Service
+
+    .. data:: VLAN_SERVICE_L3 = 2
+
+    	Layer 3 Terminated Service
 
     """
 
-    Layer 2 Transport Service
-
-    """
     VLAN_SERVICE_L2 = 1
 
-    """
-
-    Layer 3 Terminated Service
-
-    """
     VLAN_SERVICE_L3 = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
-        return meta._meta_table['VlanService_Enum']
+        return meta._meta_table['VlanServiceEnum']
 
 
 
@@ -693,7 +639,7 @@ class EthernetEncapsulation(object):
                         .. attribute:: mode
                         
                         	Unicast MAC mode
-                        	**type**\: :py:class:`EthCapsUcastMacMode_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EthCapsUcastMacMode_Enum>`
+                        	**type**\: :py:class:`EthCapsUcastMacModeEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EthCapsUcastMacModeEnum>`
                         
                         
 
@@ -721,18 +667,12 @@ class EthernetEncapsulation(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.mac_address is not None:
                                 return True
 
                             if self.mode is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -756,8 +696,6 @@ class EthernetEncapsulation(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_name is not None:
                             return True
 
@@ -766,10 +704,6 @@ class EthernetEncapsulation(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -791,17 +725,11 @@ class EthernetEncapsulation(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.unicast_mac_filter is not None:
                         for child_ref in self.unicast_mac_filter:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -823,21 +751,12 @@ class EthernetEncapsulation(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.unicast_mac_filters is not None and self.unicast_mac_filters._has_data():
                     return True
 
-                if self.unicast_mac_filters is not None and self.unicast_mac_filters.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -857,17 +776,11 @@ class EthernetEncapsulation(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -887,18 +800,9 @@ class EthernetEncapsulation(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -1052,8 +956,6 @@ class MacAccounting(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bytes is not None:
                         return True
 
@@ -1063,10 +965,6 @@ class MacAccounting(object):
                     if self.packets is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1127,8 +1025,6 @@ class MacAccounting(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bytes is not None:
                         return True
 
@@ -1138,10 +1034,6 @@ class MacAccounting(object):
                     if self.packets is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1214,8 +1106,6 @@ class MacAccounting(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.is_egress_enabled is not None:
                         return True
 
@@ -1231,10 +1121,6 @@ class MacAccounting(object):
                     if self.number_available_on_node is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1256,8 +1142,6 @@ class MacAccounting(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.interface_name is not None:
                     return True
 
@@ -1274,13 +1158,6 @@ class MacAccounting(object):
                 if self.state is not None and self.state._has_data():
                     return True
 
-                if self.state is not None and self.state.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1300,17 +1177,11 @@ class MacAccounting(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1330,18 +1201,9 @@ class MacAccounting(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.interfaces is not None and self.interfaces._has_data():
             return True
 
-        if self.interfaces is not None and self.interfaces.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -1502,12 +1364,12 @@ class Vlan(object):
                     .. attribute:: service
                     
                     	Service type
-                    	**type**\: :py:class:`VlanService_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.VlanService_Enum>`
+                    	**type**\: :py:class:`VlanServiceEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.VlanServiceEnum>`
                     
                     .. attribute:: state
                     
                     	Interface state
-                    	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.ImStateEnum_Enum>`
+                    	**type**\: :py:class:`ImStateEnumEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.ImStateEnumEnum>`
                     
                     .. attribute:: switched_mtu
                     
@@ -1543,7 +1405,7 @@ class Vlan(object):
                         .. attribute:: dot1ad_dot1q_stack
                         
                         	802.1ad 802.1Q stack value
-                        	**type**\: :py:class:`Dot1adDot1qStack <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1adDot1qStack>`
+                        	**type**\: :py:class:`Dot1AdDot1QStack <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1AdDot1QStack>`
                         
                         .. attribute:: dot1ad_native_tag
                         
@@ -1600,7 +1462,7 @@ class Vlan(object):
                         .. attribute:: vlan_encapsulation
                         
                         	VLANEncapsulation
-                        	**type**\: :py:class:`VlanEncaps_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.VlanEncaps_Enum>`
+                        	**type**\: :py:class:`VlanEncapsEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.VlanEncapsEnum>`
                         
                         
 
@@ -1611,7 +1473,7 @@ class Vlan(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.dot1ad_dot1q_stack = Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1adDot1qStack()
+                            self.dot1ad_dot1q_stack = Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1AdDot1QStack()
                             self.dot1ad_dot1q_stack.parent = self
                             self.dot1ad_native_tag = None
                             self.dot1ad_outer_tag = None
@@ -1626,7 +1488,7 @@ class Vlan(object):
                             self.vlan_encapsulation = None
 
 
-                        class Dot1adDot1qStack(object):
+                        class Dot1AdDot1QStack(object):
                             """
                             802.1ad 802.1Q stack value
                             
@@ -1670,8 +1532,6 @@ class Vlan(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.outer_tag is not None:
                                     return True
 
@@ -1680,14 +1540,10 @@ class Vlan(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
-                                return meta._meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1adDot1qStack']['meta_info']
+                                return meta._meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1AdDot1QStack']['meta_info']
 
 
                         class ServiceInstanceDetails(object):
@@ -1724,7 +1580,7 @@ class Vlan(object):
                             .. attribute:: payload_ethertype
                             
                             	Payload Ethertype to match
-                            	**type**\: :py:class:`EfpPayloadEtype_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpPayloadEtype_Enum>`
+                            	**type**\: :py:class:`EfpPayloadEtypeEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpPayloadEtypeEnum>`
                             
                             .. attribute:: pushe
                             
@@ -1806,7 +1662,7 @@ class Vlan(object):
                                     .. attribute:: ethertype
                                     
                                     	Ethertype of tag
-                                    	**type**\: :py:class:`EfpTagEtype_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype_Enum>`
+                                    	**type**\: :py:class:`EfpTagEtypeEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtypeEnum>`
                                     
                                     .. attribute:: vlan_id
                                     
@@ -1841,18 +1697,12 @@ class Vlan(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.ethertype is not None:
                                             return True
 
                                         if self.vlan_id is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -1874,17 +1724,11 @@ class Vlan(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.local_traffic_tag is not None:
                                         for child_ref in self.local_traffic_tag:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1900,7 +1744,7 @@ class Vlan(object):
                                 .. attribute:: ethertype
                                 
                                 	Ethertype of tag
-                                	**type**\: :py:class:`EfpTagEtype_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype_Enum>`
+                                	**type**\: :py:class:`EfpTagEtypeEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtypeEnum>`
                                 
                                 .. attribute:: vlan_id
                                 
@@ -1935,18 +1779,12 @@ class Vlan(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ethertype is not None:
                                         return True
 
                                     if self.vlan_id is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1962,12 +1800,12 @@ class Vlan(object):
                                 .. attribute:: ethertype
                                 
                                 	Ethertype of tag to match
-                                	**type**\: :py:class:`EfpTagEtype_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype_Enum>`
+                                	**type**\: :py:class:`EfpTagEtypeEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtypeEnum>`
                                 
                                 .. attribute:: priority
                                 
                                 	Priority to match
-                                	**type**\: :py:class:`EfpTagPriority_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagPriority_Enum>`
+                                	**type**\: :py:class:`EfpTagPriorityEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagPriorityEnum>`
                                 
                                 .. attribute:: vlan_range
                                 
@@ -2034,18 +1872,12 @@ class Vlan(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.vlan_id_high is not None:
                                             return True
 
                                         if self.vlan_id_low is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2067,8 +1899,6 @@ class Vlan(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ethertype is not None:
                                         return True
 
@@ -2080,10 +1910,6 @@ class Vlan(object):
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2105,8 +1931,6 @@ class Vlan(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.destination_mac_match is not None:
                                     return True
 
@@ -2120,9 +1944,6 @@ class Vlan(object):
                                     return True
 
                                 if self.local_traffic_stack is not None and self.local_traffic_stack._has_data():
-                                    return True
-
-                                if self.local_traffic_stack is not None and self.local_traffic_stack.is_presence():
                                     return True
 
                                 if self.payload_ethertype is not None:
@@ -2144,10 +1965,6 @@ class Vlan(object):
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2200,18 +2017,12 @@ class Vlan(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.outer_tag is not None:
                                     return True
 
                                 if self.second_tag is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2233,12 +2044,7 @@ class Vlan(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.dot1ad_dot1q_stack is not None and self.dot1ad_dot1q_stack._has_data():
-                                return True
-
-                            if self.dot1ad_dot1q_stack is not None and self.dot1ad_dot1q_stack.is_presence():
                                 return True
 
                             if self.dot1ad_native_tag is not None:
@@ -2259,13 +2065,7 @@ class Vlan(object):
                             if self.service_instance_details is not None and self.service_instance_details._has_data():
                                 return True
 
-                            if self.service_instance_details is not None and self.service_instance_details.is_presence():
-                                return True
-
                             if self.stack is not None and self.stack._has_data():
-                                return True
-
-                            if self.stack is not None and self.stack.is_presence():
                                 return True
 
                             if self.tag is not None:
@@ -2274,10 +2074,6 @@ class Vlan(object):
                             if self.vlan_encapsulation is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2301,15 +2097,10 @@ class Vlan(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface is not None:
                             return True
 
                         if self.encapsulation_details is not None and self.encapsulation_details._has_data():
-                            return True
-
-                        if self.encapsulation_details is not None and self.encapsulation_details.is_presence():
                             return True
 
                         if self.interface_xr is not None:
@@ -2332,10 +2123,6 @@ class Vlan(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
@@ -2355,17 +2142,11 @@ class Vlan(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2446,17 +2227,17 @@ class Vlan(object):
                     .. attribute:: second_tag
                     
                     	The second tag
-                    	**type**\: one of { :py:class:`VlanTagOrAny_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAny_Enum>` | int }
+                    	**type**\: one of { :py:class:`VlanTagOrAnyEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>` | int }
                     
                     .. attribute:: service
                     
                     	Service type
-                    	**type**\: :py:class:`VlanService_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.VlanService_Enum>`
+                    	**type**\: :py:class:`VlanServiceEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.VlanServiceEnum>`
                     
                     .. attribute:: state
                     
                     	Interface state
-                    	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.ImStateEnum_Enum>`
+                    	**type**\: :py:class:`ImStateEnumEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.ImStateEnumEnum>`
                     
                     .. attribute:: switched_mtu
                     
@@ -2494,7 +2275,7 @@ class Vlan(object):
                         .. attribute:: dot1ad_dot1q_stack
                         
                         	802.1ad 802.1Q stack value
-                        	**type**\: :py:class:`Dot1adDot1qStack <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1adDot1qStack>`
+                        	**type**\: :py:class:`Dot1AdDot1QStack <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1AdDot1QStack>`
                         
                         .. attribute:: dot1ad_native_tag
                         
@@ -2551,7 +2332,7 @@ class Vlan(object):
                         .. attribute:: vlan_encapsulation
                         
                         	VLANEncapsulation
-                        	**type**\: :py:class:`VlanEncaps_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.VlanEncaps_Enum>`
+                        	**type**\: :py:class:`VlanEncapsEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.VlanEncapsEnum>`
                         
                         
 
@@ -2562,7 +2343,7 @@ class Vlan(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.dot1ad_dot1q_stack = Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1adDot1qStack()
+                            self.dot1ad_dot1q_stack = Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1AdDot1QStack()
                             self.dot1ad_dot1q_stack.parent = self
                             self.dot1ad_native_tag = None
                             self.dot1ad_outer_tag = None
@@ -2577,7 +2358,7 @@ class Vlan(object):
                             self.vlan_encapsulation = None
 
 
-                        class Dot1adDot1qStack(object):
+                        class Dot1AdDot1QStack(object):
                             """
                             802.1ad 802.1Q stack value
                             
@@ -2621,8 +2402,6 @@ class Vlan(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.outer_tag is not None:
                                     return True
 
@@ -2631,14 +2410,10 @@ class Vlan(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
-                                return meta._meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1adDot1qStack']['meta_info']
+                                return meta._meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1AdDot1QStack']['meta_info']
 
 
                         class ServiceInstanceDetails(object):
@@ -2675,7 +2450,7 @@ class Vlan(object):
                             .. attribute:: payload_ethertype
                             
                             	Payload Ethertype to match
-                            	**type**\: :py:class:`EfpPayloadEtype_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpPayloadEtype_Enum>`
+                            	**type**\: :py:class:`EfpPayloadEtypeEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpPayloadEtypeEnum>`
                             
                             .. attribute:: pushe
                             
@@ -2757,7 +2532,7 @@ class Vlan(object):
                                     .. attribute:: ethertype
                                     
                                     	Ethertype of tag
-                                    	**type**\: :py:class:`EfpTagEtype_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype_Enum>`
+                                    	**type**\: :py:class:`EfpTagEtypeEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtypeEnum>`
                                     
                                     .. attribute:: vlan_id
                                     
@@ -2792,18 +2567,12 @@ class Vlan(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.ethertype is not None:
                                             return True
 
                                         if self.vlan_id is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2825,17 +2594,11 @@ class Vlan(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.local_traffic_tag is not None:
                                         for child_ref in self.local_traffic_tag:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2851,7 +2614,7 @@ class Vlan(object):
                                 .. attribute:: ethertype
                                 
                                 	Ethertype of tag
-                                	**type**\: :py:class:`EfpTagEtype_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype_Enum>`
+                                	**type**\: :py:class:`EfpTagEtypeEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtypeEnum>`
                                 
                                 .. attribute:: vlan_id
                                 
@@ -2886,18 +2649,12 @@ class Vlan(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ethertype is not None:
                                         return True
 
                                     if self.vlan_id is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2913,12 +2670,12 @@ class Vlan(object):
                                 .. attribute:: ethertype
                                 
                                 	Ethertype of tag to match
-                                	**type**\: :py:class:`EfpTagEtype_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype_Enum>`
+                                	**type**\: :py:class:`EfpTagEtypeEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtypeEnum>`
                                 
                                 .. attribute:: priority
                                 
                                 	Priority to match
-                                	**type**\: :py:class:`EfpTagPriority_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagPriority_Enum>`
+                                	**type**\: :py:class:`EfpTagPriorityEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagPriorityEnum>`
                                 
                                 .. attribute:: vlan_range
                                 
@@ -2985,18 +2742,12 @@ class Vlan(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.vlan_id_high is not None:
                                             return True
 
                                         if self.vlan_id_low is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3018,8 +2769,6 @@ class Vlan(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ethertype is not None:
                                         return True
 
@@ -3031,10 +2780,6 @@ class Vlan(object):
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3056,8 +2801,6 @@ class Vlan(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.destination_mac_match is not None:
                                     return True
 
@@ -3071,9 +2814,6 @@ class Vlan(object):
                                     return True
 
                                 if self.local_traffic_stack is not None and self.local_traffic_stack._has_data():
-                                    return True
-
-                                if self.local_traffic_stack is not None and self.local_traffic_stack.is_presence():
                                     return True
 
                                 if self.payload_ethertype is not None:
@@ -3095,10 +2835,6 @@ class Vlan(object):
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3151,18 +2887,12 @@ class Vlan(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.outer_tag is not None:
                                     return True
 
                                 if self.second_tag is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3184,12 +2914,7 @@ class Vlan(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.dot1ad_dot1q_stack is not None and self.dot1ad_dot1q_stack._has_data():
-                                return True
-
-                            if self.dot1ad_dot1q_stack is not None and self.dot1ad_dot1q_stack.is_presence():
                                 return True
 
                             if self.dot1ad_native_tag is not None:
@@ -3210,13 +2935,7 @@ class Vlan(object):
                             if self.service_instance_details is not None and self.service_instance_details._has_data():
                                 return True
 
-                            if self.service_instance_details is not None and self.service_instance_details.is_presence():
-                                return True
-
                             if self.stack is not None and self.stack._has_data():
-                                return True
-
-                            if self.stack is not None and self.stack.is_presence():
                                 return True
 
                             if self.tag is not None:
@@ -3225,10 +2944,6 @@ class Vlan(object):
                             if self.vlan_encapsulation is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3250,12 +2965,7 @@ class Vlan(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.encapsulation_details is not None and self.encapsulation_details._has_data():
-                            return True
-
-                        if self.encapsulation_details is not None and self.encapsulation_details.is_presence():
                             return True
 
                         if self.first_tag is not None:
@@ -3287,10 +2997,6 @@ class Vlan(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_oper as meta
@@ -3310,17 +3016,11 @@ class Vlan(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.tag_allocation is not None:
                         for child_ref in self.tag_allocation:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3391,7 +3091,7 @@ class Vlan(object):
                     .. attribute:: mac_filtering
                     
                     	IEEE 802.1Q/802.1ad multicast MAC address filtering
-                    	**type**\: :py:class:`EthFiltering_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EthFiltering_Enum>`
+                    	**type**\: :py:class:`EthFilteringEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.EthFilteringEnum>`
                     
                     .. attribute:: mtu
                     
@@ -3403,12 +3103,12 @@ class Vlan(object):
                     .. attribute:: qinq_outer_ether_type
                     
                     	QinQ Outer Tag Ether Type
-                    	**type**\: :py:class:`VlanQinqOuterEtype_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.VlanQinqOuterEtype_Enum>`
+                    	**type**\: :py:class:`VlanQinqOuterEtypeEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.VlanQinqOuterEtypeEnum>`
                     
                     .. attribute:: state
                     
                     	Interface state
-                    	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.ImStateEnum_Enum>`
+                    	**type**\: :py:class:`ImStateEnumEnum <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper.ImStateEnumEnum>`
                     
                     .. attribute:: untagged_interface
                     
@@ -3555,8 +3255,6 @@ class Vlan(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.admin_down is not None:
                                     return True
 
@@ -3566,10 +3264,6 @@ class Vlan(object):
                                 if self.up is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3591,8 +3285,6 @@ class Vlan(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.dot1q_count is not None:
                                 return True
 
@@ -3605,19 +3297,12 @@ class Vlan(object):
                             if self.state_counters is not None and self.state_counters._has_data():
                                 return True
 
-                            if self.state_counters is not None and self.state_counters.is_presence():
-                                return True
-
                             if self.total_count is not None:
                                 return True
 
                             if self.untagged_count is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3741,8 +3426,6 @@ class Vlan(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.admin_down is not None:
                                     return True
 
@@ -3752,10 +3435,6 @@ class Vlan(object):
                                 if self.up is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3777,8 +3456,6 @@ class Vlan(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.dot1q_count is not None:
                                 return True
 
@@ -3791,19 +3468,12 @@ class Vlan(object):
                             if self.state_counters is not None and self.state_counters._has_data():
                                 return True
 
-                            if self.state_counters is not None and self.state_counters.is_presence():
-                                return True
-
                             if self.total_count is not None:
                                 return True
 
                             if self.untagged_count is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3827,8 +3497,6 @@ class Vlan(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface is not None:
                             return True
 
@@ -3841,13 +3509,7 @@ class Vlan(object):
                         if self.layer2_sub_interfaces is not None and self.layer2_sub_interfaces._has_data():
                             return True
 
-                        if self.layer2_sub_interfaces is not None and self.layer2_sub_interfaces.is_presence():
-                            return True
-
                         if self.layer3_sub_interfaces is not None and self.layer3_sub_interfaces._has_data():
-                            return True
-
-                        if self.layer3_sub_interfaces is not None and self.layer3_sub_interfaces.is_presence():
                             return True
 
                         if self.mac_filtering is not None:
@@ -3865,10 +3527,6 @@ class Vlan(object):
                         if self.untagged_interface is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3890,17 +3548,11 @@ class Vlan(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.trunk is not None:
                         for child_ref in self.trunk:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3922,33 +3574,18 @@ class Vlan(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_id is not None:
                     return True
 
                 if self.interfaces is not None and self.interfaces._has_data():
                     return True
 
-                if self.interfaces is not None and self.interfaces.is_presence():
-                    return True
-
                 if self.tag_allocations is not None and self.tag_allocations._has_data():
-                    return True
-
-                if self.tag_allocations is not None and self.tag_allocations.is_presence():
                     return True
 
                 if self.trunks is not None and self.trunks._has_data():
                     return True
 
-                if self.trunks is not None and self.trunks.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3968,17 +3605,11 @@ class Vlan(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3998,18 +3629,9 @@ class Vlan(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

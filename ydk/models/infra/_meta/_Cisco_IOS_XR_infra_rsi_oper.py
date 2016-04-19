@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'Priority_Enum' : _MetaInfoEnum('Priority_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper',
+    'PriorityEnum' : _MetaInfoEnum('PriorityEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper',
         {
             'critical':'CRITICAL',
             'high':'HIGH',
@@ -22,7 +22,7 @@ _meta_table = {
             'low':'LOW',
             'very-low':'VERY_LOW',
         }, 'Cisco-IOS-XR-infra-rsi-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rsi-oper']),
-    'Source_Enum' : _MetaInfoEnum('Source_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper',
+    'SourceEnum' : _MetaInfoEnum('SourceEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper',
         {
             'configured':'CONFIGURED',
             'from-group':'FROM_GROUP',
@@ -146,7 +146,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Srlg.Nodes.Node.Groups.Group.SrlgAttribute',
             False, 
             [
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'Priority_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'Priority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PriorityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'PriorityEnum', 
                 [], [], 
                 '''                Priority
                 ''',
@@ -227,7 +227,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Srlg.Nodes.Node.InheritNodes.InheritNode.SrlgAttribute',
             False, 
             [
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'Priority_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'Priority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PriorityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'PriorityEnum', 
                 [], [], 
                 '''                Priority
                 ''',
@@ -308,13 +308,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.SrlgAttribute',
             False, 
             [
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'Priority_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'Priority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PriorityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'PriorityEnum', 
                 [], [], 
                 '''                Priority
                 ''',
                 'priority',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
-            _MetaInfoClassMember('source', REFERENCE_ENUM_CLASS, 'Source_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'Source_Enum', 
+            _MetaInfoClassMember('source', REFERENCE_ENUM_CLASS, 'SourceEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_oper', 'SourceEnum', 
                 [], [], 
                 '''                Source
                 ''',

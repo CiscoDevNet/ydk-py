@@ -136,8 +136,6 @@ class FileSystem(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.flags is not None:
                     return True
 
@@ -153,10 +151,6 @@ class FileSystem(object):
                 if self.type is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -178,8 +172,6 @@ class FileSystem(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node_name is not None:
                 return True
 
@@ -188,10 +180,6 @@ class FileSystem(object):
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -211,17 +199,11 @@ class FileSystem(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.node is not None:
             for child_ref in self.node:
                 if child_ref._has_data():
                     return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

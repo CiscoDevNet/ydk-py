@@ -146,8 +146,6 @@ class Exception(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.compress is not None:
                 return True
 
@@ -163,10 +161,6 @@ class Exception(object):
             if self.lower_limit is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -235,8 +229,6 @@ class Exception(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.compress is not None:
                 return True
 
@@ -252,10 +244,6 @@ class Exception(object):
             if self.lower_limit is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -324,8 +312,6 @@ class Exception(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.compress is not None:
                 return True
 
@@ -341,10 +327,6 @@ class Exception(object):
             if self.lower_limit is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -364,24 +346,13 @@ class Exception(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.choice1 is not None and self.choice1._has_data():
-            return True
-
-        if self.choice1 is not None and self.choice1.is_presence():
             return True
 
         if self.choice2 is not None and self.choice2._has_data():
             return True
 
-        if self.choice2 is not None and self.choice2.is_presence():
-            return True
-
         if self.choice3 is not None and self.choice3._has_data():
-            return True
-
-        if self.choice3 is not None and self.choice3.is_presence():
             return True
 
         if self.kernel_debugger is not None:
@@ -396,10 +367,6 @@ class Exception(object):
         if self.sparse_size is not None:
             return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

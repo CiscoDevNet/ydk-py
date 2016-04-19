@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'QosCapsOperationEnum_Enum' : _MetaInfoEnum('QosCapsOperationEnum_Enum', 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper',
+    'QosCapsOperationEnumEnum' : _MetaInfoEnum('QosCapsOperationEnumEnum', 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper',
         {
             'add':'ADD',
             'remove':'REMOVE',
@@ -22,7 +22,7 @@ _meta_table = {
             'modify':'MODIFY',
             'unknown':'UNKNOWN',
         }, 'Cisco-IOS-XR-qos-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-oper']),
-    'QosMaSatCapsTypeEnum_Enum' : _MetaInfoEnum('QosMaSatCapsTypeEnum_Enum', 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper',
+    'QosMaSatCapsTypeEnumEnum' : _MetaInfoEnum('QosMaSatCapsTypeEnumEnum', 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper',
         {
             'input':'INPUT',
             'output':'OUTPUT',
@@ -464,7 +464,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -487,7 +487,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -510,7 +510,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -685,7 +685,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -776,7 +776,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.Input.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -921,7 +921,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -1394,7 +1394,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.MemberInterfaces.MemberInterface.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -1417,7 +1417,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.MemberInterfaces.MemberInterface.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -1440,7 +1440,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.MemberInterfaces.MemberInterface.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -1615,7 +1615,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -1706,7 +1706,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.MemberInterfaces.MemberInterface.Output.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -1851,7 +1851,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -2324,7 +2324,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -2347,7 +2347,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -2370,7 +2370,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -2545,7 +2545,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -2636,7 +2636,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -2781,7 +2781,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -3254,7 +3254,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -3277,7 +3277,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -3300,7 +3300,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -3475,7 +3475,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -3566,7 +3566,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -3711,7 +3711,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -4279,7 +4279,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -4302,7 +4302,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -4325,7 +4325,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -4500,7 +4500,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -4591,7 +4591,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -4736,7 +4736,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -5209,7 +5209,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -5232,7 +5232,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -5255,7 +5255,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -5430,7 +5430,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -5521,7 +5521,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -5666,7 +5666,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -6187,7 +6187,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -6210,7 +6210,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -6233,7 +6233,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -6408,7 +6408,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -6499,7 +6499,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.Output.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -6644,7 +6644,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -7117,7 +7117,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -7140,7 +7140,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -7163,7 +7163,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -7338,7 +7338,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -7429,7 +7429,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -7574,7 +7574,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -8047,7 +8047,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -8070,7 +8070,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -8093,7 +8093,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -8268,7 +8268,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -8359,7 +8359,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.InterfaceTable.Interface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -8504,7 +8504,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -9092,7 +9092,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -9115,7 +9115,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -9138,7 +9138,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -9313,7 +9313,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -9404,7 +9404,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Input.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -9549,7 +9549,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -10022,7 +10022,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.MemberInterfaces.MemberInterface.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -10045,7 +10045,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.MemberInterfaces.MemberInterface.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -10068,7 +10068,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.MemberInterfaces.MemberInterface.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -10243,7 +10243,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -10334,7 +10334,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.MemberInterfaces.MemberInterface.Output.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -10479,7 +10479,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -10952,7 +10952,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -10975,7 +10975,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -10998,7 +10998,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -11173,7 +11173,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -11264,7 +11264,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -11409,7 +11409,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -11882,7 +11882,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -11905,7 +11905,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -11928,7 +11928,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -12103,7 +12103,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -12194,7 +12194,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -12339,7 +12339,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -12907,7 +12907,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -12930,7 +12930,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -12953,7 +12953,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -13128,7 +13128,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -13219,7 +13219,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -13364,7 +13364,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -13837,7 +13837,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -13860,7 +13860,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -13883,7 +13883,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -14058,7 +14058,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -14149,7 +14149,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -14294,7 +14294,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -14815,7 +14815,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -14838,7 +14838,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -14861,7 +14861,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -15036,7 +15036,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -15127,7 +15127,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Output.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -15272,7 +15272,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -15745,7 +15745,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -15768,7 +15768,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -15791,7 +15791,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -15966,7 +15966,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -16057,7 +16057,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -16202,7 +16202,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -16675,7 +16675,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -16698,7 +16698,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -16721,7 +16721,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -16896,7 +16896,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -16987,7 +16987,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -17132,7 +17132,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -17777,7 +17777,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -17800,7 +17800,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -17823,7 +17823,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -17998,7 +17998,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -18089,7 +18089,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.Input.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -18234,7 +18234,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -18707,7 +18707,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.MemberInterfaces.MemberInterface.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -18730,7 +18730,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.MemberInterfaces.MemberInterface.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -18753,7 +18753,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.MemberInterfaces.MemberInterface.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -18928,7 +18928,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -19019,7 +19019,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.MemberInterfaces.MemberInterface.Output.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -19164,7 +19164,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -19637,7 +19637,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -19660,7 +19660,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -19683,7 +19683,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -19858,7 +19858,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -19949,7 +19949,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -20094,7 +20094,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -20567,7 +20567,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -20590,7 +20590,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -20613,7 +20613,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -20788,7 +20788,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -20879,7 +20879,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -21024,7 +21024,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -21592,7 +21592,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -21615,7 +21615,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -21638,7 +21638,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -21813,7 +21813,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -21904,7 +21904,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -22049,7 +22049,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -22522,7 +22522,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -22545,7 +22545,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -22568,7 +22568,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -22743,7 +22743,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -22834,7 +22834,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -22979,7 +22979,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -23500,7 +23500,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -23523,7 +23523,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -23546,7 +23546,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -23721,7 +23721,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -23812,7 +23812,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.Output.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -23957,7 +23957,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -24430,7 +24430,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -24453,7 +24453,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -24476,7 +24476,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -24651,7 +24651,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -24742,7 +24742,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -24887,7 +24887,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -25360,7 +25360,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -25383,7 +25383,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -25406,7 +25406,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -25581,7 +25581,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -25672,7 +25672,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -25817,7 +25817,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -26405,7 +26405,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatistics.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -26428,7 +26428,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatistics.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -26451,7 +26451,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatistics.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -26626,7 +26626,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -26717,7 +26717,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatistics.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.Input.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -26862,7 +26862,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -27335,7 +27335,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatistics.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.MemberInterfaces.MemberInterface.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -27358,7 +27358,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatistics.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.MemberInterfaces.MemberInterface.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -27381,7 +27381,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatistics.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.MemberInterfaces.MemberInterface.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -27556,7 +27556,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -27647,7 +27647,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatistics.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.MemberInterfaces.MemberInterface.Output.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -27792,7 +27792,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -28265,7 +28265,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatistics.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -28288,7 +28288,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatistics.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -28311,7 +28311,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatistics.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -28486,7 +28486,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -28577,7 +28577,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatistics.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -28722,7 +28722,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -29195,7 +29195,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatistics.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -29218,7 +29218,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatistics.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -29241,7 +29241,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatistics.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -29416,7 +29416,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -29507,7 +29507,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatistics.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Output.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -29652,7 +29652,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -30220,7 +30220,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatistics.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -30243,7 +30243,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatistics.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -30266,7 +30266,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatistics.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -30441,7 +30441,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -30532,7 +30532,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatistics.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.Output.Statistics.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -30677,7 +30677,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -30831,7 +30831,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatus.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.Input.Status',
             False, 
             [
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'QosMaSatCapsTypeEnum_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper', 'QosMaSatCapsTypeEnum_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'QosMaSatCapsTypeEnumEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper', 'QosMaSatCapsTypeEnumEnum', 
                 [], [], 
                 '''                Satellite caps type
                 ''',
@@ -30843,7 +30843,7 @@ _meta_table = {
                 ''',
                 'error_message',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('last-operation', REFERENCE_ENUM_CLASS, 'QosCapsOperationEnum_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper', 'QosCapsOperationEnum_Enum', 
+            _MetaInfoClassMember('last-operation', REFERENCE_ENUM_CLASS, 'QosCapsOperationEnumEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper', 'QosCapsOperationEnumEnum', 
                 [], [], 
                 '''                Previous caps operation
                 ''',
@@ -30890,7 +30890,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatus.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.MemberInterfaces.MemberInterface.Input.Status',
             False, 
             [
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'QosMaSatCapsTypeEnum_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper', 'QosMaSatCapsTypeEnum_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'QosMaSatCapsTypeEnumEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper', 'QosMaSatCapsTypeEnumEnum', 
                 [], [], 
                 '''                Satellite caps type
                 ''',
@@ -30902,7 +30902,7 @@ _meta_table = {
                 ''',
                 'error_message',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('last-operation', REFERENCE_ENUM_CLASS, 'QosCapsOperationEnum_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper', 'QosCapsOperationEnum_Enum', 
+            _MetaInfoClassMember('last-operation', REFERENCE_ENUM_CLASS, 'QosCapsOperationEnumEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper', 'QosCapsOperationEnumEnum', 
                 [], [], 
                 '''                Previous caps operation
                 ''',
@@ -30949,7 +30949,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatus.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.MemberInterfaces.MemberInterface.Output.Status',
             False, 
             [
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'QosMaSatCapsTypeEnum_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper', 'QosMaSatCapsTypeEnum_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'QosMaSatCapsTypeEnumEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper', 'QosMaSatCapsTypeEnumEnum', 
                 [], [], 
                 '''                Satellite caps type
                 ''',
@@ -30961,7 +30961,7 @@ _meta_table = {
                 ''',
                 'error_message',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('last-operation', REFERENCE_ENUM_CLASS, 'QosCapsOperationEnum_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper', 'QosCapsOperationEnum_Enum', 
+            _MetaInfoClassMember('last-operation', REFERENCE_ENUM_CLASS, 'QosCapsOperationEnumEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper', 'QosCapsOperationEnumEnum', 
                 [], [], 
                 '''                Previous caps operation
                 ''',
@@ -31056,7 +31056,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatus.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.Output.Status',
             False, 
             [
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'QosMaSatCapsTypeEnum_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper', 'QosMaSatCapsTypeEnum_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'QosMaSatCapsTypeEnumEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper', 'QosMaSatCapsTypeEnumEnum', 
                 [], [], 
                 '''                Satellite caps type
                 ''',
@@ -31068,7 +31068,7 @@ _meta_table = {
                 ''',
                 'error_message',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('last-operation', REFERENCE_ENUM_CLASS, 'QosCapsOperationEnum_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper', 'QosCapsOperationEnum_Enum', 
+            _MetaInfoClassMember('last-operation', REFERENCE_ENUM_CLASS, 'QosCapsOperationEnumEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper', 'QosCapsOperationEnumEnum', 
                 [], [], 
                 '''                Previous caps operation
                 ''',
@@ -31115,7 +31115,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.NvSatellite.NvSatelliteStatus.NvSatelliteIds.NvSatelliteId.NvSatelliteInterfaces.NvSatelliteInterface.Status',
             False, 
             [
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'QosMaSatCapsTypeEnum_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper', 'QosMaSatCapsTypeEnum_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'QosMaSatCapsTypeEnumEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper', 'QosMaSatCapsTypeEnumEnum', 
                 [], [], 
                 '''                Satellite caps type
                 ''',
@@ -31127,7 +31127,7 @@ _meta_table = {
                 ''',
                 'error_message',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('last-operation', REFERENCE_ENUM_CLASS, 'QosCapsOperationEnum_Enum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper', 'QosCapsOperationEnum_Enum', 
+            _MetaInfoClassMember('last-operation', REFERENCE_ENUM_CLASS, 'QosCapsOperationEnumEnum' , 'ydk.models.qos.Cisco_IOS_XR_qos_ma_oper', 'QosCapsOperationEnumEnum', 
                 [], [], 
                 '''                Previous caps operation
                 ''',
@@ -31732,7 +31732,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.QosGlobal.VoQ.VoQStatistics.VoQTable.VoQinterface.OutputVoQ.LocationvoQs.LocationvoQ.VoQStats.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -31755,7 +31755,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.QosGlobal.VoQ.VoQStatistics.VoQTable.VoQinterface.OutputVoQ.LocationvoQs.LocationvoQ.VoQStats.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -31778,7 +31778,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.QosGlobal.VoQ.VoQStatistics.VoQTable.VoQinterface.OutputVoQ.LocationvoQs.LocationvoQ.VoQStats.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -31953,7 +31953,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -32044,7 +32044,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.QosGlobal.VoQ.VoQStatistics.VoQTable.VoQinterface.OutputVoQ.LocationvoQs.LocationvoQ.VoQStats.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -32189,7 +32189,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -32685,7 +32685,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.QosGlobal.VoQ.VoQStatistics.VoQTable.VoQinterface.OutputVoQ.VoQStats.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -32708,7 +32708,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.QosGlobal.VoQ.VoQStatistics.VoQTable.VoQinterface.OutputVoQ.VoQStats.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -32731,7 +32731,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.QosGlobal.VoQ.VoQStatistics.VoQTable.VoQinterface.OutputVoQ.VoQStats.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -32906,7 +32906,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -32997,7 +32997,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.QosGlobal.VoQ.VoQStatistics.VoQTable.VoQinterface.OutputVoQ.VoQStats.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -33142,7 +33142,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -33620,7 +33620,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.QosGlobal.VoQ.VoQStatistics.VoQTable.VoQinterface.VoQMemberInterfaces.VoQMemberInterface.VoQoutput.VoQStats.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -33643,7 +33643,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.QosGlobal.VoQ.VoQStatistics.VoQTable.VoQinterface.VoQMemberInterfaces.VoQMemberInterface.VoQoutput.VoQStats.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -33666,7 +33666,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.QosGlobal.VoQ.VoQStatistics.VoQTable.VoQinterface.VoQMemberInterfaces.VoQMemberInterface.VoQoutput.VoQStats.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
-            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnit_Enum', 
+            _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                unit
                 ''',
@@ -33841,7 +33841,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'Wred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'Wred_Enum', 
+            _MetaInfoClassMember('wred-type', REFERENCE_ENUM_CLASS, 'WredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'WredEnum', 
                 [], [], 
                 '''                WRED type DSCP, EXP, PREC etc.
                 ''',
@@ -33932,7 +33932,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Qos.QosGlobal.VoQ.VoQStatistics.VoQTable.VoQinterface.VoQMemberInterfaces.VoQMemberInterface.VoQoutput.VoQStats.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacState_Enum', 
+            _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'CacStateEnum', 
                 [], [], 
                 '''                CACState
                 ''',
@@ -34077,7 +34077,7 @@ _meta_table = {
                 ''',
                 'satid',
                 'Cisco-IOS-XR-ncs5500-pi-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyState_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'PolicyStateEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_pi_oper', 'PolicyStateEnum', 
                 [], [], 
                 '''                State
                 ''',

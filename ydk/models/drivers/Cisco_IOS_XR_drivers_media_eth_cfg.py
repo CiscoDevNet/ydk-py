@@ -24,221 +24,205 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class EthernetAutoNegotiation_Enum(Enum):
+class EthernetAutoNegotiationEnum(Enum):
     """
-    EthernetAutoNegotiation_Enum
+    EthernetAutoNegotiationEnum
 
     Ethernet auto negotiation
 
-    """
+    .. data:: TRUE = 1
+
+    	IEEE Standard auto-negotiation
+
+    .. data:: OVERRIDE = 2
+
+    	Auto-negotiation with configuration override
 
     """
 
-    IEEE Standard auto\-negotiation
-
-    """
     TRUE = 1
 
-    """
-
-    Auto\-negotiation with configuration override
-
-    """
     OVERRIDE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.drivers._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
-        return meta._meta_table['EthernetAutoNegotiation_Enum']
+        return meta._meta_table['EthernetAutoNegotiationEnum']
 
 
-class EthernetDuplex_Enum(Enum):
+class EthernetDuplexEnum(Enum):
     """
-    EthernetDuplex_Enum
+    EthernetDuplexEnum
 
     Ethernet duplex
 
-    """
+    .. data:: FULL = 0
+
+    	Full duplex
+
+    .. data:: HALF = 1
+
+    	Half duplex
 
     """
 
-    Full duplex
-
-    """
     FULL = 0
 
-    """
-
-    Half duplex
-
-    """
     HALF = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.drivers._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
-        return meta._meta_table['EthernetDuplex_Enum']
+        return meta._meta_table['EthernetDuplexEnum']
 
 
-class EthernetFec_Enum(Enum):
+class EthernetFecEnum(Enum):
     """
-    EthernetFec_Enum
+    EthernetFecEnum
 
     Ethernet fec
 
-    """
+    .. data:: NONE = 0
+
+    	Disable any FEC enabled on the interface
+
+    .. data:: STANDARD = 1
+
+    	Enable standard (Reed-Solomon) FEC
 
     """
 
-    Disable any FEC enabled on the interface
-
-    """
     NONE = 0
 
-    """
-
-    Enable standard (Reed\-Solomon) FEC
-
-    """
     STANDARD = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.drivers._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
-        return meta._meta_table['EthernetFec_Enum']
+        return meta._meta_table['EthernetFecEnum']
 
 
-class EthernetFlowCtrl_Enum(Enum):
+class EthernetFlowCtrlEnum(Enum):
     """
-    EthernetFlowCtrl_Enum
+    EthernetFlowCtrlEnum
 
     Ethernet flow ctrl
 
-    """
+    .. data:: INGRESS = 0
+
+    	Ingress flow control (sending pause frames)
+
+    .. data:: EGRESS = 1
+
+    	Egress flow control (received pause frames)
+
+    .. data:: BIDIRECTIONAL = 2
+
+    	Bi-direction flow control
 
     """
 
-    Ingress flow control (sending pause frames)
-
-    """
     INGRESS = 0
 
-    """
-
-    Egress flow control (received pause frames)
-
-    """
     EGRESS = 1
 
-    """
-
-    Bi\-direction flow control
-
-    """
     BIDIRECTIONAL = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.drivers._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
-        return meta._meta_table['EthernetFlowCtrl_Enum']
+        return meta._meta_table['EthernetFlowCtrlEnum']
 
 
-class EthernetIpg_Enum(Enum):
+class EthernetIpgEnum(Enum):
     """
-    EthernetIpg_Enum
+    EthernetIpgEnum
 
     Ethernet ipg
 
-    """
+    .. data:: NON_STANDARD = 16
+
+    	Non standard IPG
 
     """
 
-    Non standard IPG
-
-    """
     NON_STANDARD = 16
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.drivers._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
-        return meta._meta_table['EthernetIpg_Enum']
+        return meta._meta_table['EthernetIpgEnum']
 
 
-class EthernetLoopback_Enum(Enum):
+class EthernetLoopbackEnum(Enum):
     """
-    EthernetLoopback_Enum
+    EthernetLoopbackEnum
 
     Ethernet loopback
 
-    """
+    .. data:: EXTERNAL = 0
+
+    	External loopback (using loopback connector)
+
+    .. data:: INTERNAL = 1
+
+    	Internal loopback
+
+    .. data:: LINE = 2
+
+    	Line loopback
 
     """
 
-    External loopback (using loopback connector)
-
-    """
     EXTERNAL = 0
 
-    """
-
-    Internal loopback
-
-    """
     INTERNAL = 1
 
-    """
-
-    Line loopback
-
-    """
     LINE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.drivers._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
-        return meta._meta_table['EthernetLoopback_Enum']
+        return meta._meta_table['EthernetLoopbackEnum']
 
 
-class EthernetSpeed_Enum(Enum):
+class EthernetSpeedEnum(Enum):
     """
-    EthernetSpeed_Enum
+    EthernetSpeedEnum
 
     Ethernet speed
 
-    """
+    .. data:: Y_10 = 10
+
+    	10Mbits/s
+
+    .. data:: Y_100 = 100
+
+    	100Mbits/s
+
+    .. data:: Y_1000 = 1000
+
+    	1Gbits/s
 
     """
 
-    10Mbits/s
-
-    """
     Y_10 = 10
 
-    """
-
-    100Mbits/s
-
-    """
     Y_100 = 100
 
-    """
-
-    1Gbits/s
-
-    """
     Y_1000 = 1000
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.drivers._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
-        return meta._meta_table['EthernetSpeed_Enum']
+        return meta._meta_table['EthernetSpeedEnum']
 
 
 

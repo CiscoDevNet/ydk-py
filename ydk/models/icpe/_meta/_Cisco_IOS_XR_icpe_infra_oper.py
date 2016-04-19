@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'IcpeOperSdacpSessState_Enum' : _MetaInfoEnum('IcpeOperSdacpSessState_Enum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
+    'IcpeOperSdacpSessStateEnum' : _MetaInfoEnum('IcpeOperSdacpSessStateEnum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
         {
             'icpe-oper-sdacp-sess-state-not-created':'ICPE_OPER_SDACP_SESS_STATE_NOT_CREATED',
             'icpe-oper-sdacp-sess-state-created':'ICPE_OPER_SDACP_SESS_STATE_CREATED',
@@ -24,7 +24,7 @@ _meta_table = {
             'icpe-oper-sdacp-sess-state-up':'ICPE_OPER_SDACP_SESS_STATE_UP',
             'icpe-oper-sdacp-sess-state-issu':'ICPE_OPER_SDACP_SESS_STATE_ISSU',
         }, 'Cisco-IOS-XR-icpe-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper']),
-    'IcpeGcoOperControlReason_Enum' : _MetaInfoEnum('IcpeGcoOperControlReason_Enum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
+    'IcpeGcoOperControlReasonEnum' : _MetaInfoEnum('IcpeGcoOperControlReasonEnum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
         {
             'icpe-gco-oper-control-reason-unknown-error':'ICPE_GCO_OPER_CONTROL_REASON_UNKNOWN_ERROR',
             'icpe-gco-oper-control-reason-wrong-chassis-type':'ICPE_GCO_OPER_CONTROL_REASON_WRONG_CHASSIS_TYPE',
@@ -32,27 +32,27 @@ _meta_table = {
             'icpe-gco-oper-control-reason-needs-to-upgrade':'ICPE_GCO_OPER_CONTROL_REASON_NEEDS_TO_UPGRADE',
             'icpe-gco-oper-control-reason-none':'ICPE_GCO_OPER_CONTROL_REASON_NONE',
         }, 'Cisco-IOS-XR-icpe-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper']),
-    'IcpeOpmSyncFsmState_Enum' : _MetaInfoEnum('IcpeOpmSyncFsmState_Enum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
+    'IcpeOpmSyncFsmStateEnum' : _MetaInfoEnum('IcpeOpmSyncFsmStateEnum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
         {
             'icpe-opm-sync-fsm-state-split-brain':'ICPE_OPM_SYNC_FSM_STATE_SPLIT_BRAIN',
             'icpe-opm-sync-fsm-state-waiting':'ICPE_OPM_SYNC_FSM_STATE_WAITING',
             'icpe-opm-sync-fsm-state-whole-brain':'ICPE_OPM_SYNC_FSM_STATE_WHOLE_BRAIN',
         }, 'Cisco-IOS-XR-icpe-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper']),
-    'IcpeOpmArbitrationFsmState_Enum' : _MetaInfoEnum('IcpeOpmArbitrationFsmState_Enum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
+    'IcpeOpmArbitrationFsmStateEnum' : _MetaInfoEnum('IcpeOpmArbitrationFsmStateEnum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
         {
             'icpe-opm-arbitration-fsm-state-unarbitrated':'ICPE_OPM_ARBITRATION_FSM_STATE_UNARBITRATED',
             'icpe-opm-arbitration-fsm-state-waiting':'ICPE_OPM_ARBITRATION_FSM_STATE_WAITING',
             'icpe-opm-arbitration-fsm-state-arbitrating':'ICPE_OPM_ARBITRATION_FSM_STATE_ARBITRATING',
             'icpe-opm-arbitration-fsm-state-arbitrated':'ICPE_OPM_ARBITRATION_FSM_STATE_ARBITRATED',
         }, 'Cisco-IOS-XR-icpe-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper']),
-    'IcpeOperInstallState_Enum' : _MetaInfoEnum('IcpeOperInstallState_Enum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
+    'IcpeOperInstallStateEnum' : _MetaInfoEnum('IcpeOperInstallStateEnum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
         {
             'icpe-oper-install-state-stable':'ICPE_OPER_INSTALL_STATE_STABLE',
             'icpe-oper-install-state-transferring':'ICPE_OPER_INSTALL_STATE_TRANSFERRING',
             'icpe-oper-install-state-transferred':'ICPE_OPER_INSTALL_STATE_TRANSFERRED',
             'icpe-oper-install-state-installing':'ICPE_OPER_INSTALL_STATE_INSTALLING',
         }, 'Cisco-IOS-XR-icpe-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper']),
-    'IcpeOpmTransportState_Enum' : _MetaInfoEnum('IcpeOpmTransportState_Enum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
+    'IcpeOpmTransportStateEnum' : _MetaInfoEnum('IcpeOpmTransportStateEnum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
         {
             'icpe-opm-transport-state-disconnected':'ICPE_OPM_TRANSPORT_STATE_DISCONNECTED',
             'icpe-opm-transport-state-iccp-unavailable':'ICPE_OPM_TRANSPORT_STATE_ICCP_UNAVAILABLE',
@@ -63,14 +63,14 @@ _meta_table = {
             'icpe-opm-transport-state-waiting-for-app-connect-response':'ICPE_OPM_TRANSPORT_STATE_WAITING_FOR_APP_CONNECT_RESPONSE',
             'icpe-opm-transport-state-connected':'ICPE_OPM_TRANSPORT_STATE_CONNECTED',
         }, 'Cisco-IOS-XR-icpe-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper']),
-    'IcpeOperDiscdLinkState_Enum' : _MetaInfoEnum('IcpeOperDiscdLinkState_Enum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
+    'IcpeOperDiscdLinkStateEnum' : _MetaInfoEnum('IcpeOperDiscdLinkStateEnum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
         {
             'icpe-oper-discd-link-state-stopped':'ICPE_OPER_DISCD_LINK_STATE_STOPPED',
             'icpe-oper-discd-link-state-probing':'ICPE_OPER_DISCD_LINK_STATE_PROBING',
             'icpe-oper-discd-link-state-configuring':'ICPE_OPER_DISCD_LINK_STATE_CONFIGURING',
             'icpe-oper-discd-link-state-ready':'ICPE_OPER_DISCD_LINK_STATE_READY',
         }, 'Cisco-IOS-XR-icpe-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper']),
-    'IcpeOperConflict_Enum' : _MetaInfoEnum('IcpeOperConflict_Enum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
+    'IcpeOperConflictEnum' : _MetaInfoEnum('IcpeOperConflictEnum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
         {
             'icpe-oper-conflict-not-calculated':'ICPE_OPER_CONFLICT_NOT_CALCULATED',
             'icpe-oper-conflict-no-conflict':'ICPE_OPER_CONFLICT_NO_CONFLICT',
@@ -111,7 +111,7 @@ _meta_table = {
             'icpe-oper-conflict-multiple-serial-number':'ICPE_OPER_CONFLICT_MULTIPLE_SERIAL_NUMBER',
             'icpe-oper-conflict-multiple-mac-address':'ICPE_OPER_CONFLICT_MULTIPLE_MAC_ADDRESS',
         }, 'Cisco-IOS-XR-icpe-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper']),
-    'IcpeOpmResyncFsmState_Enum' : _MetaInfoEnum('IcpeOpmResyncFsmState_Enum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
+    'IcpeOpmResyncFsmStateEnum' : _MetaInfoEnum('IcpeOpmResyncFsmStateEnum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
         {
             'icpe-opm-resync-fsm-state-not-open':'ICPE_OPM_RESYNC_FSM_STATE_NOT_OPEN',
             'icpe-opm-resync-fsm-state-stable':'ICPE_OPM_RESYNC_FSM_STATE_STABLE',
@@ -119,13 +119,13 @@ _meta_table = {
             'icpe-opm-resync-fsm-state-queued':'ICPE_OPM_RESYNC_FSM_STATE_QUEUED',
             'icpe-opm-resync-fsm-state-resync-req':'ICPE_OPM_RESYNC_FSM_STATE_RESYNC_REQ',
         }, 'Cisco-IOS-XR-icpe-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper']),
-    'IcpeOperPort_Enum' : _MetaInfoEnum('IcpeOperPort_Enum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
+    'IcpeOperPortEnum' : _MetaInfoEnum('IcpeOperPortEnum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
         {
             'icpe-oper-port-unknown':'ICPE_OPER_PORT_UNKNOWN',
             'icpe-oper-port-gigabit-ethernet':'ICPE_OPER_PORT_GIGABIT_ETHERNET',
             'icpe-oper-port-ten-gig-e':'ICPE_OPER_PORT_TEN_GIG_E',
         }, 'Cisco-IOS-XR-icpe-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper']),
-    'IcpeOpmAuthFsmState_Enum' : _MetaInfoEnum('IcpeOpmAuthFsmState_Enum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
+    'IcpeOpmAuthFsmStateEnum' : _MetaInfoEnum('IcpeOpmAuthFsmStateEnum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
         {
             'icpe-opm-auth-fsm-state-unauth':'ICPE_OPM_AUTH_FSM_STATE_UNAUTH',
             'icpe-opm-auth-fsm-state-waiting':'ICPE_OPM_AUTH_FSM_STATE_WAITING',
@@ -133,20 +133,20 @@ _meta_table = {
             'icpe-opm-auth-fsm-state-waiting-for-reply':'ICPE_OPM_AUTH_FSM_STATE_WAITING_FOR_REPLY',
             'icpe-opm-auth-fsm-state-authed':'ICPE_OPM_AUTH_FSM_STATE_AUTHED',
         }, 'Cisco-IOS-XR-icpe-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper']),
-    'IcpeOpmController_Enum' : _MetaInfoEnum('IcpeOpmController_Enum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
+    'IcpeOpmControllerEnum' : _MetaInfoEnum('IcpeOpmControllerEnum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
         {
             'icpe-opm-controller-unknown':'ICPE_OPM_CONTROLLER_UNKNOWN',
             'icpe-opm-controller-primary':'ICPE_OPM_CONTROLLER_PRIMARY',
             'icpe-opm-controller-secondary':'ICPE_OPM_CONTROLLER_SECONDARY',
         }, 'Cisco-IOS-XR-icpe-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper']),
-    'IcpeOperFabricPort_Enum' : _MetaInfoEnum('IcpeOperFabricPort_Enum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
+    'IcpeOperFabricPortEnum' : _MetaInfoEnum('IcpeOperFabricPortEnum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
         {
             'icpe-oper-fabric-port-unknown':'ICPE_OPER_FABRIC_PORT_UNKNOWN',
             'icpe-oper-fabric-port-n-v-fabric-gig-e':'ICPE_OPER_FABRIC_PORT_N_V_FABRIC_GIG_E',
             'icpe-oper-fabric-port-n-v-fabric-ten-gig-e':'ICPE_OPER_FABRIC_PORT_N_V_FABRIC_TEN_GIG_E',
             'icpe-oper-fabric-port-n-v-fabric-hundred-gig-e':'ICPE_OPER_FABRIC_PORT_N_V_FABRIC_HUNDRED_GIG_E',
         }, 'Cisco-IOS-XR-icpe-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper']),
-    'IcpeOperVerCheckState_Enum' : _MetaInfoEnum('IcpeOperVerCheckState_Enum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
+    'IcpeOperVerCheckStateEnum' : _MetaInfoEnum('IcpeOperVerCheckStateEnum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
         {
             'icpe-oper-ver-check-state-unknown':'ICPE_OPER_VER_CHECK_STATE_UNKNOWN',
             'icpe-oper-ver-check-state-not-compatible':'ICPE_OPER_VER_CHECK_STATE_NOT_COMPATIBLE',
@@ -154,14 +154,14 @@ _meta_table = {
             'icpe-oper-ver-check-state-compatible-older':'ICPE_OPER_VER_CHECK_STATE_COMPATIBLE_OLDER',
             'icpe-oper-ver-check-state-compatible-newer':'ICPE_OPER_VER_CHECK_STATE_COMPATIBLE_NEWER',
         }, 'Cisco-IOS-XR-icpe-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper']),
-    'IcpeOpticalSyncState_Enum' : _MetaInfoEnum('IcpeOpticalSyncState_Enum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
+    'IcpeOpticalSyncStateEnum' : _MetaInfoEnum('IcpeOpticalSyncStateEnum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
         {
             'icpe-optical-sync-state-unknown':'ICPE_OPTICAL_SYNC_STATE_UNKNOWN',
             'icpe-optical-sync-state-syncing':'ICPE_OPTICAL_SYNC_STATE_SYNCING',
             'icpe-optical-sync-state-synced':'ICPE_OPTICAL_SYNC_STATE_SYNCED',
             'icpe-optical-sync-state-not-connected':'ICPE_OPTICAL_SYNC_STATE_NOT_CONNECTED',
         }, 'Cisco-IOS-XR-icpe-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper']),
-    'IcpeOpmChanFsmState_Enum' : _MetaInfoEnum('IcpeOpmChanFsmState_Enum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
+    'IcpeOpmChanFsmStateEnum' : _MetaInfoEnum('IcpeOpmChanFsmStateEnum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
         {
             'icpe-opm-chan-fsm-state-down':'ICPE_OPM_CHAN_FSM_STATE_DOWN',
             'icpe-opm-chan-fsm-state-closed':'ICPE_OPM_CHAN_FSM_STATE_CLOSED',
@@ -169,7 +169,7 @@ _meta_table = {
             'icpe-opm-chan-fsm-state-opened':'ICPE_OPM_CHAN_FSM_STATE_OPENED',
             'icpe-opm-chan-fsm-state-open':'ICPE_OPM_CHAN_FSM_STATE_OPEN',
         }, 'Cisco-IOS-XR-icpe-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper']),
-    'IcpeOpmSessState_Enum' : _MetaInfoEnum('IcpeOpmSessState_Enum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
+    'IcpeOpmSessStateEnum' : _MetaInfoEnum('IcpeOpmSessStateEnum', 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper',
         {
             'icpe-opm-sess-state-disconnected':'ICPE_OPM_SESS_STATE_DISCONNECTED',
             'icpe-opm-sess-state-connecting':'ICPE_OPM_SESS_STATE_CONNECTING',
@@ -498,7 +498,7 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('port-type', REFERENCE_ENUM_CLASS, 'IcpeOperFabricPort_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperFabricPort_Enum', 
+            _MetaInfoClassMember('port-type', REFERENCE_ENUM_CLASS, 'IcpeOperFabricPortEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperFabricPortEnum', 
                 [], [], 
                 '''                Port type
                 ''',
@@ -545,7 +545,7 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('port-type', REFERENCE_ENUM_CLASS, 'IcpeOperFabricPort_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperFabricPort_Enum', 
+            _MetaInfoClassMember('port-type', REFERENCE_ENUM_CLASS, 'IcpeOperFabricPortEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperFabricPortEnum', 
                 [], [], 
                 '''                Port type
                 ''',
@@ -628,7 +628,7 @@ _meta_table = {
                 ''',
                 'conflict_context',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('conflict-reason', REFERENCE_ENUM_CLASS, 'IcpeOperConflict_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperConflict_Enum', 
+            _MetaInfoClassMember('conflict-reason', REFERENCE_ENUM_CLASS, 'IcpeOperConflictEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperConflictEnum', 
                 [], [], 
                 '''                Conflict reason
                 ''',
@@ -640,7 +640,7 @@ _meta_table = {
                 ''',
                 'interface_handle',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'IcpeOperDiscdLinkState_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperDiscdLinkState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'IcpeOperDiscdLinkStateEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperDiscdLinkStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -663,7 +663,7 @@ _meta_table = {
                 ''',
                 'conflict_context',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('conflict-reason', REFERENCE_ENUM_CLASS, 'IcpeOperConflict_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperConflict_Enum', 
+            _MetaInfoClassMember('conflict-reason', REFERENCE_ENUM_CLASS, 'IcpeOperConflictEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperConflictEnum', 
                 [], [], 
                 '''                Conflict reason
                 ''',
@@ -681,7 +681,7 @@ _meta_table = {
                 ''',
                 'low_port',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('port-type', REFERENCE_ENUM_CLASS, 'IcpeOperPort_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperPort_Enum', 
+            _MetaInfoClassMember('port-type', REFERENCE_ENUM_CLASS, 'IcpeOperPortEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperPortEnum', 
                 [], [], 
                 '''                Port type
                 ''',
@@ -716,7 +716,7 @@ _meta_table = {
                 ''',
                 'conflict_context',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('conflict-reason', REFERENCE_ENUM_CLASS, 'IcpeOperConflict_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperConflict_Enum', 
+            _MetaInfoClassMember('conflict-reason', REFERENCE_ENUM_CLASS, 'IcpeOperConflictEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperConflictEnum', 
                 [], [], 
                 '''                Conflict reason
                 ''',
@@ -799,7 +799,7 @@ _meta_table = {
                 ''',
                 'name',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('sync-state', REFERENCE_ENUM_CLASS, 'IcpeOpticalSyncState_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOpticalSyncState_Enum', 
+            _MetaInfoClassMember('sync-state', REFERENCE_ENUM_CLASS, 'IcpeOpticalSyncStateEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOpticalSyncStateEnum', 
                 [], [], 
                 '''                Sync state
                 ''',
@@ -822,7 +822,7 @@ _meta_table = {
                 ''',
                 'application',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('chassis-sync-state', REFERENCE_ENUM_CLASS, 'IcpeOpticalSyncState_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOpticalSyncState_Enum', 
+            _MetaInfoClassMember('chassis-sync-state', REFERENCE_ENUM_CLASS, 'IcpeOpticalSyncStateEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOpticalSyncStateEnum', 
                 [], [], 
                 '''                Chassis sync state
                 ''',
@@ -904,7 +904,7 @@ _meta_table = {
                 ''',
                 'conflict_context',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('conflict-reason', REFERENCE_ENUM_CLASS, 'IcpeOperConflict_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperConflict_Enum', 
+            _MetaInfoClassMember('conflict-reason', REFERENCE_ENUM_CLASS, 'IcpeOperConflictEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperConflictEnum', 
                 [], [], 
                 '''                Conflict reason
                 ''',
@@ -934,7 +934,7 @@ _meta_table = {
                 ''',
                 'host_treating_as_active',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('install-state', REFERENCE_ENUM_CLASS, 'IcpeOperInstallState_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperInstallState_Enum', 
+            _MetaInfoClassMember('install-state', REFERENCE_ENUM_CLASS, 'IcpeOperInstallStateEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperInstallStateEnum', 
                 [], [], 
                 '''                Install state
                 ''',
@@ -1060,13 +1060,13 @@ _meta_table = {
                 ''',
                 'satellite_treating_as_active',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('sdacp-session-failure-reason', REFERENCE_ENUM_CLASS, 'IcpeGcoOperControlReason_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeGcoOperControlReason_Enum', 
+            _MetaInfoClassMember('sdacp-session-failure-reason', REFERENCE_ENUM_CLASS, 'IcpeGcoOperControlReasonEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeGcoOperControlReasonEnum', 
                 [], [], 
                 '''                SDACP session failure reason
                 ''',
                 'sdacp_session_failure_reason',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('sdacp-session-state', REFERENCE_ENUM_CLASS, 'IcpeOperSdacpSessState_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperSdacpSessState_Enum', 
+            _MetaInfoClassMember('sdacp-session-state', REFERENCE_ENUM_CLASS, 'IcpeOperSdacpSessStateEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperSdacpSessStateEnum', 
                 [], [], 
                 '''                SDACP session state
                 ''',
@@ -1078,7 +1078,7 @@ _meta_table = {
                 ''',
                 'type',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('version-check-state', REFERENCE_ENUM_CLASS, 'IcpeOperVerCheckState_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperVerCheckState_Enum', 
+            _MetaInfoClassMember('version-check-state', REFERENCE_ENUM_CLASS, 'IcpeOperVerCheckStateEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperVerCheckStateEnum', 
                 [], [], 
                 '''                Version check state
                 ''',
@@ -1265,7 +1265,7 @@ _meta_table = {
                 ''',
                 'conflict_context',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('conflict-reason', REFERENCE_ENUM_CLASS, 'IcpeOperConflict_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperConflict_Enum', 
+            _MetaInfoClassMember('conflict-reason', REFERENCE_ENUM_CLASS, 'IcpeOperConflictEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperConflictEnum', 
                 [], [], 
                 '''                Conflict reason
                 ''',
@@ -1458,7 +1458,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel',
             False, 
             [
-            _MetaInfoClassMember('chan-state', REFERENCE_ENUM_CLASS, 'IcpeOpmChanFsmState_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOpmChanFsmState_Enum', 
+            _MetaInfoClassMember('chan-state', REFERENCE_ENUM_CLASS, 'IcpeOpmChanFsmStateEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOpmChanFsmStateEnum', 
                 [], [], 
                 '''                Chan state
                 ''',
@@ -1500,7 +1500,7 @@ _meta_table = {
                 ''',
                 'normal_messages_sent',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('resync-state', REFERENCE_ENUM_CLASS, 'IcpeOpmResyncFsmState_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOpmResyncFsmState_Enum', 
+            _MetaInfoClassMember('resync-state', REFERENCE_ENUM_CLASS, 'IcpeOpmResyncFsmStateEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOpmResyncFsmStateEnum', 
                 [], [], 
                 '''                Resync state
                 ''',
@@ -1552,13 +1552,13 @@ _meta_table = {
                 ''',
                 'iccp_group',
                 'Cisco-IOS-XR-icpe-infra-oper', True),
-            _MetaInfoClassMember('arbitration-state', REFERENCE_ENUM_CLASS, 'IcpeOpmArbitrationFsmState_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOpmArbitrationFsmState_Enum', 
+            _MetaInfoClassMember('arbitration-state', REFERENCE_ENUM_CLASS, 'IcpeOpmArbitrationFsmStateEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOpmArbitrationFsmStateEnum', 
                 [], [], 
                 '''                Arbitration state
                 ''',
                 'arbitration_state',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('authentication-state', REFERENCE_ENUM_CLASS, 'IcpeOpmAuthFsmState_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOpmAuthFsmState_Enum', 
+            _MetaInfoClassMember('authentication-state', REFERENCE_ENUM_CLASS, 'IcpeOpmAuthFsmStateEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOpmAuthFsmStateEnum', 
                 [], [], 
                 '''                Authentication state
                 ''',
@@ -1582,13 +1582,13 @@ _meta_table = {
                 ''',
                 'isolated',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('primacy', REFERENCE_ENUM_CLASS, 'IcpeOpmController_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOpmController_Enum', 
+            _MetaInfoClassMember('primacy', REFERENCE_ENUM_CLASS, 'IcpeOpmControllerEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOpmControllerEnum', 
                 [], [], 
                 '''                Primacy
                 ''',
                 'primacy',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('protocol-state', REFERENCE_ENUM_CLASS, 'IcpeOpmSessState_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOpmSessState_Enum', 
+            _MetaInfoClassMember('protocol-state', REFERENCE_ENUM_CLASS, 'IcpeOpmSessStateEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOpmSessStateEnum', 
                 [], [], 
                 '''                Protocol state
                 ''',
@@ -1600,7 +1600,7 @@ _meta_table = {
                 ''',
                 'protocol_state_timestamp',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('synchronization-state', REFERENCE_ENUM_CLASS, 'IcpeOpmSyncFsmState_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOpmSyncFsmState_Enum', 
+            _MetaInfoClassMember('synchronization-state', REFERENCE_ENUM_CLASS, 'IcpeOpmSyncFsmStateEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOpmSyncFsmStateEnum', 
                 [], [], 
                 '''                Synchronization state
                 ''',
@@ -1612,7 +1612,7 @@ _meta_table = {
                 ''',
                 'system_mac',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('transport-state', REFERENCE_ENUM_CLASS, 'IcpeOpmTransportState_Enum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOpmTransportState_Enum', 
+            _MetaInfoClassMember('transport-state', REFERENCE_ENUM_CLASS, 'IcpeOpmTransportStateEnum' , 'ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOpmTransportStateEnum', 
                 [], [], 
                 '''                Transport state
                 ''',

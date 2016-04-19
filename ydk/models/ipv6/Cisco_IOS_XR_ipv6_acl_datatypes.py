@@ -20,1186 +20,1087 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class Ipv6AclDscpNumber_Enum(Enum):
+class Ipv6AclDscpNumberEnum(Enum):
     """
-    Ipv6AclDscpNumber_Enum
+    Ipv6AclDscpNumberEnum
 
     Ipv6 acl dscp number
 
-    """
+    .. data:: DEFAULT = 0
+
+    	Default DSCP
+
+    .. data:: AF11 = 10
+
+    	Match packets with AF11 DSCP
+
+    .. data:: AF12 = 12
+
+    	Match packets with AF12 DSCP
+
+    .. data:: AF13 = 14
+
+    	Match packets with AF13 DSCP
+
+    .. data:: AF21 = 18
+
+    	Match packets with AF21 DSCP
+
+    .. data:: AF22 = 20
+
+    	Match packets with AF22 DSCP
+
+    .. data:: AF23 = 22
+
+    	Match packets with AF23 DSCP
+
+    .. data:: AF31 = 26
+
+    	Match packets with AF31 DSCP
+
+    .. data:: AF32 = 28
+
+    	Match packets with AF32 DSCP
+
+    .. data:: AF33 = 30
+
+    	Match packets with AF33 DSCP
+
+    .. data:: AF41 = 34
+
+    	Match packets with AF41 DSCP
+
+    .. data:: AF42 = 36
+
+    	Match packets with AF42 DSCP
+
+    .. data:: AF43 = 38
+
+    	Match packets with AF43 DSCP
+
+    .. data:: CS1 = 8
+
+    	Match packets with CS1 (precedence 1) DSCP
+
+    .. data:: CS2 = 16
+
+    	Match packets with CS2 (precedence 2) DSCP
+
+    .. data:: CS3 = 24
+
+    	Match packets with CS3 (precedence 3) DSCP
+
+    .. data:: CS4 = 32
+
+    	Match packets with CS4 (precedence 4) DSCP
+
+    .. data:: CS5 = 40
+
+    	Match packets with CS5 (precedence 5) DSCP
+
+    .. data:: CS6 = 48
+
+    	Match packets with CS6 (precedence 6) DSCP
+
+    .. data:: CS7 = 56
+
+    	Match packets with CS7 (precedence 7) DSCP
+
+    .. data:: EF = 46
+
+    	Match packets with EF DSCP
 
     """
 
-    Default DSCP
-
-    """
     DEFAULT = 0
 
-    """
-
-    Match packets with AF11 DSCP
-
-    """
     AF11 = 10
 
-    """
-
-    Match packets with AF12 DSCP
-
-    """
     AF12 = 12
 
-    """
-
-    Match packets with AF13 DSCP
-
-    """
     AF13 = 14
 
-    """
-
-    Match packets with AF21 DSCP
-
-    """
     AF21 = 18
 
-    """
-
-    Match packets with AF22 DSCP
-
-    """
     AF22 = 20
 
-    """
-
-    Match packets with AF23 DSCP
-
-    """
     AF23 = 22
 
-    """
-
-    Match packets with AF31 DSCP
-
-    """
     AF31 = 26
 
-    """
-
-    Match packets with AF32 DSCP
-
-    """
     AF32 = 28
 
-    """
-
-    Match packets with AF33 DSCP
-
-    """
     AF33 = 30
 
-    """
-
-    Match packets with AF41 DSCP
-
-    """
     AF41 = 34
 
-    """
-
-    Match packets with AF42 DSCP
-
-    """
     AF42 = 36
 
-    """
-
-    Match packets with AF43 DSCP
-
-    """
     AF43 = 38
 
-    """
-
-    Match packets with CS1 (precedence 1) DSCP
-
-    """
     CS1 = 8
 
-    """
-
-    Match packets with CS2 (precedence 2) DSCP
-
-    """
     CS2 = 16
 
-    """
-
-    Match packets with CS3 (precedence 3) DSCP
-
-    """
     CS3 = 24
 
-    """
-
-    Match packets with CS4 (precedence 4) DSCP
-
-    """
     CS4 = 32
 
-    """
-
-    Match packets with CS5 (precedence 5) DSCP
-
-    """
     CS5 = 40
 
-    """
-
-    Match packets with CS6 (precedence 6) DSCP
-
-    """
     CS6 = 48
 
-    """
-
-    Match packets with CS7 (precedence 7) DSCP
-
-    """
     CS7 = 56
 
-    """
-
-    Match packets with EF DSCP
-
-    """
     EF = 46
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
-        return meta._meta_table['Ipv6AclDscpNumber_Enum']
+        return meta._meta_table['Ipv6AclDscpNumberEnum']
 
 
-class Ipv6AclGrantEnum_Enum(Enum):
+class Ipv6AclGrantEnumEnum(Enum):
     """
-    Ipv6AclGrantEnum_Enum
+    Ipv6AclGrantEnumEnum
 
     Ipv6 acl grant enum
 
-    """
+    .. data:: DENY = 0
+
+    	Deny
+
+    .. data:: PERMIT = 1
+
+    	Permit
 
     """
 
-    Deny
-
-    """
     DENY = 0
 
-    """
-
-    Permit
-
-    """
     PERMIT = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
-        return meta._meta_table['Ipv6AclGrantEnum_Enum']
+        return meta._meta_table['Ipv6AclGrantEnumEnum']
 
 
-class Ipv6AclIcmpTypeCodeEnum_Enum(Enum):
+class Ipv6AclIcmpTypeCodeEnumEnum(Enum):
     """
-    Ipv6AclIcmpTypeCodeEnum_Enum
+    Ipv6AclIcmpTypeCodeEnumEnum
 
     Ipv6 acl icmp type code enum
 
-    """
+    .. data:: ADMINISTRATIVELY_PROHIBITED = 65537
+
+    	Administratively prohibited
+
+    .. data:: HOST_UNREACHABLE = 65539
+
+    	Host unreachable
+
+    .. data:: PORT_UNREACHABLE = 65540
+
+    	Port unreachable
+
+    .. data:: UNREACHABLE = 131071
+
+    	All unreachables
+
+    .. data:: REASSEMBLY_TIMEOUT = 196609
+
+    	Reassembly timeout
+
+    .. data:: TIME_EXCEEDED = 262143
+
+    	All time exceeds
+
+    .. data:: OPTION_MISSING = 262145
+
+    	Parameter required but not present
+
+    .. data:: NO_ROOM_FOR_OPTION = 262146
+
+    	Parameter required but no room
+
+    .. data:: PARAMETER_PROBLEM = 327679
+
+    	All parameter problems
+
+    .. data:: ECHO = 8388608
+
+    	Echo ping
+
+    .. data:: ECHO_REPLY = 8454144
+
+    	Echo reply
+
+    .. data:: ROUTER_SOLICITATION = 8716288
+
+    	Router discovery solicitations
+
+    .. data:: ROUTER_ADVERTISEMENT = 8781824
+
+    	Router discovery advertisements
+
+    .. data:: REDIRECT = 8978432
+
+    	All redirects
 
     """
 
-    Administratively prohibited
-
-    """
     ADMINISTRATIVELY_PROHIBITED = 65537
 
-    """
-
-    Host unreachable
-
-    """
     HOST_UNREACHABLE = 65539
 
-    """
-
-    Port unreachable
-
-    """
     PORT_UNREACHABLE = 65540
 
-    """
-
-    All unreachables
-
-    """
     UNREACHABLE = 131071
 
-    """
-
-    Reassembly timeout
-
-    """
     REASSEMBLY_TIMEOUT = 196609
 
-    """
-
-    All time exceeds
-
-    """
     TIME_EXCEEDED = 262143
 
-    """
-
-    Parameter required but not present
-
-    """
     OPTION_MISSING = 262145
 
-    """
-
-    Parameter required but no room
-
-    """
     NO_ROOM_FOR_OPTION = 262146
 
-    """
-
-    All parameter problems
-
-    """
     PARAMETER_PROBLEM = 327679
 
-    """
-
-    Echo ping
-
-    """
     ECHO = 8388608
 
-    """
-
-    Echo reply
-
-    """
     ECHO_REPLY = 8454144
 
-    """
-
-    Router discovery solicitations
-
-    """
     ROUTER_SOLICITATION = 8716288
 
-    """
-
-    Router discovery advertisements
-
-    """
     ROUTER_ADVERTISEMENT = 8781824
 
-    """
-
-    All redirects
-
-    """
     REDIRECT = 8978432
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
-        return meta._meta_table['Ipv6AclIcmpTypeCodeEnum_Enum']
+        return meta._meta_table['Ipv6AclIcmpTypeCodeEnumEnum']
 
 
-class Ipv6AclLoggingEnum_Enum(Enum):
+class Ipv6AclLoggingEnumEnum(Enum):
     """
-    Ipv6AclLoggingEnum_Enum
+    Ipv6AclLoggingEnumEnum
 
     Ipv6 acl logging enum
 
-    """
+    .. data:: LOG = 1
+
+    	Log matches against this entry
+
+    .. data:: LOG_INPUT = 2
+
+    	Log matches against this entry, including input
+
+    	interface
 
     """
 
-    Log matches against this entry
-
-    """
     LOG = 1
 
-    """
-
-    Log matches against this entry, including input
-    interface
-
-    """
     LOG_INPUT = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
-        return meta._meta_table['Ipv6AclLoggingEnum_Enum']
+        return meta._meta_table['Ipv6AclLoggingEnumEnum']
 
 
-class Ipv6AclOperatorEnum_Enum(Enum):
+class Ipv6AclOperatorEnumEnum(Enum):
     """
-    Ipv6AclOperatorEnum_Enum
+    Ipv6AclOperatorEnumEnum
 
     Ipv6 acl operator enum
 
-    """
+    .. data:: EQUAL = 1
+
+    	Match only packets on a given port number
+
+    .. data:: GREATER_THAN = 2
+
+    	Match only packet with a greater port number
+
+    .. data:: LESS_THAN = 3
+
+    	Match only packet with a lower port number
+
+    .. data:: NOT_EQUAL = 4
+
+    	Match only packets not on a given port number
+
+    .. data:: RANGE = 5
+
+    	Match only packets in the range of port numbers
 
     """
 
-    Match only packets on a given port number
-
-    """
     EQUAL = 1
 
-    """
-
-    Match only packet with a greater port number
-
-    """
     GREATER_THAN = 2
 
-    """
-
-    Match only packet with a lower port number
-
-    """
     LESS_THAN = 3
 
-    """
-
-    Match only packets not on a given port number
-
-    """
     NOT_EQUAL = 4
 
-    """
-
-    Match only packets in the range of port numbers
-
-    """
     RANGE = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
-        return meta._meta_table['Ipv6AclOperatorEnum_Enum']
+        return meta._meta_table['Ipv6AclOperatorEnumEnum']
 
 
-class Ipv6AclPortNumber_Enum(Enum):
+class Ipv6AclPortNumberEnum(Enum):
     """
-    Ipv6AclPortNumber_Enum
+    Ipv6AclPortNumberEnum
 
     Ipv6 acl port number
 
-    """
+    .. data:: ECHO = 7
+
+    	Match on the 'echo' port number
+
+    .. data:: DISCARD = 9
+
+    	Match on the 'discard' port number
+
+    .. data:: DAYTIME = 13
+
+    	Match on the 'daytime' port number (TCP/SCTP
+
+    	only)
+
+    .. data:: CHAR_GEN = 19
+
+    	Match on the 'chargen' port number (TCP/SCTP
+
+    	only)
+
+    .. data:: FTP_DATA = 20
+
+    	Match on the FTP data connections port number
+
+    	(TCP/SCTP only)
+
+    .. data:: FTP = 21
+
+    	Match on the 'ftp' port number (TCP/SCTP only)
+
+    .. data:: TELNET = 23
+
+    	Match on the 'telnet' port number (TCP/SCTP
+
+    	only)
+
+    .. data:: SMTP = 25
+
+    	Match on the 'smtp' port number (TCP/SCTP
+
+    	only)
+
+    .. data:: TIME = 37
+
+    	Match on the 'time' port number
+
+    .. data:: NAME_SERVER = 42
+
+    	Match on the IEN116 name service port number
+
+    	(UDP only)
+
+    .. data:: WHO_IS = 43
+
+    	Match on the 'nicname' port number (TCP/SCTP
+
+    	only)
+
+    .. data:: TACACS = 49
+
+    	Match on the 'tacacs' port number
+
+    .. data:: DNS = 53
+
+    	Match on the 'dns' port number
+
+    .. data:: BOOT_PS = 67
+
+    	Match on the Bootstrap Protocol server port
+
+    	number (UDP only)
+
+    .. data:: BOOT_PC = 68
+
+    	Match on the Bootstrap Protocol client port
+
+    	number (UDP only)
+
+    .. data:: TFTP = 69
+
+    	Match on the 'tftp' port number (UDP only)
+
+    .. data:: GOPHER = 70
+
+    	Match on the 'gopher' port number (TCP/SCTP
+
+    	only)
+
+    .. data:: FINGER = 79
+
+    	Match on the 'finger' port number (TCP/SCTP
+
+    	only)
+
+    .. data:: WWW = 80
+
+    	Match on the 'http' port number (TCP/SCTP
+
+    	only)
+
+    .. data:: HOST_NAME = 101
+
+    	Match on the NIC hostname server port number
+
+    	(TCP/SCTP only)
+
+    .. data:: POP2 = 109
+
+    	Match on the 'pop2' port number (TCP/SCTP
+
+    	only)
+
+    .. data:: POP3 = 110
+
+    	Match on the 'pop3' port number (TCP/SCTP
+
+    	only)
+
+    .. data:: SUN_RPC = 111
+
+    	Match on the Sun RPC port number
+
+    .. data:: IDENT = 113
+
+    	Match on the 'ident' port number (TCP/SCTP
+
+    	only)
+
+    .. data:: NNTP = 119
+
+    	Match on the 'nntp' port number (TCP/SCTP
+
+    	only)
+
+    .. data:: NTP = 123
+
+    	Match on the 'ntp' port number (UDP only)
+
+    .. data:: NET_BIOS_NS = 137
+
+    	Match on the NetBIOS name service port number
+
+    	(UDP only)
+
+    .. data:: NET_BIOS_DGS = 138
+
+    	Match on the NetBIOS datagram service port
+
+    	number (UDP only)
+
+    .. data:: NET_BIOS_SS = 139
+
+    	Match on the NetBIOS session service port
+
+    	number (UDP only)
+
+    .. data:: SNMP = 161
+
+    	Match on the 'snmp' port number (UDP only)
+
+    .. data:: SNMP_TRAP = 162
+
+    	Match on the SNMP traps port number (UDP only)
+
+    .. data:: XDMCP = 177
+
+    	Match on the 'xdmcp' port number (UDP only)
+
+    .. data:: BGP = 179
+
+    	Match on the 'bgp' port number (TCP/SCTP only)
+
+    .. data:: IRC = 194
+
+    	Match on the 'irc' port number (TCP/SCTP only)
+
+    .. data:: DNSIX = 195
+
+    	Match on the DNSIX security protocol auditing
+
+    	port number (UDP only)
+
+    .. data:: MOBILE_IP = 434
+
+    	Match on the mobile IP registration port
+
+    	number (UDP only)
+
+    .. data:: PIM_AUTO_RP = 496
+
+    	Match on the PIM Auto-RP port number
+
+    .. data:: ISAKMP = 500
+
+    	Match on the 'isakmp' port number (UDP only)
+
+    .. data:: EXEC_OR_BIFF = 512
+
+    	Match on the port used by TCP/SCTP for 'exec'
+
+    	and by UDP for 'biff'
+
+    .. data:: LOGIN_OR_WHO = 513
+
+    	Match on the port used by TCP/SCTP for 'login'
+
+    	and by UDP for 'rwho'
+
+    .. data:: CMD_OR_SYSLOG = 514
+
+    	Match on the port used by TCP/SCTP for 'rcmd'
+
+    	and by UDP for 'syslog'
+
+    .. data:: LPD = 515
+
+    	Match on the 'lpd' port number (TCP/SCTP only)
+
+    .. data:: TALK = 517
+
+    	Match on the 'talk' port number
+
+    .. data:: RIP = 520
+
+    	Match on the 'rip' port number (UDP only)
+
+    .. data:: UUCP = 540
+
+    	Match on the 'uucp' port number (TCP/SCTP
+
+    	only)
+
+    .. data:: KLOGIN = 543
+
+    	Match on the Kerberos login port number
+
+    	(TCP/SCTP only)
+
+    .. data:: KSHELL = 544
+
+    	Match on the Kerberos shell port number
+
+    	(TCP/SCTP only)
+
+    .. data:: LDP = 646
+
+    	Match on the LDP port
 
     """
 
-    Match on the 'echo' port number
-
-    """
     ECHO = 7
 
-    """
-
-    Match on the 'discard' port number
-
-    """
     DISCARD = 9
 
-    """
-
-    Match on the 'daytime' port number (TCP/SCTP
-    only)
-
-    """
     DAYTIME = 13
 
-    """
-
-    Match on the 'chargen' port number (TCP/SCTP
-    only)
-
-    """
     CHAR_GEN = 19
 
-    """
-
-    Match on the FTP data connections port number
-    (TCP/SCTP only)
-
-    """
     FTP_DATA = 20
 
-    """
-
-    Match on the 'ftp' port number (TCP/SCTP only)
-
-    """
     FTP = 21
 
-    """
-
-    Match on the 'telnet' port number (TCP/SCTP
-    only)
-
-    """
     TELNET = 23
 
-    """
-
-    Match on the 'smtp' port number (TCP/SCTP
-    only)
-
-    """
     SMTP = 25
 
-    """
-
-    Match on the 'time' port number
-
-    """
     TIME = 37
 
-    """
-
-    Match on the IEN116 name service port number
-    (UDP only)
-
-    """
     NAME_SERVER = 42
 
-    """
-
-    Match on the 'nicname' port number (TCP/SCTP
-    only)
-
-    """
     WHO_IS = 43
 
-    """
-
-    Match on the 'tacacs' port number
-
-    """
     TACACS = 49
 
-    """
-
-    Match on the 'dns' port number
-
-    """
     DNS = 53
 
-    """
-
-    Match on the Bootstrap Protocol server port
-    number (UDP only)
-
-    """
     BOOT_PS = 67
 
-    """
-
-    Match on the Bootstrap Protocol client port
-    number (UDP only)
-
-    """
     BOOT_PC = 68
 
-    """
-
-    Match on the 'tftp' port number (UDP only)
-
-    """
     TFTP = 69
 
-    """
-
-    Match on the 'gopher' port number (TCP/SCTP
-    only)
-
-    """
     GOPHER = 70
 
-    """
-
-    Match on the 'finger' port number (TCP/SCTP
-    only)
-
-    """
     FINGER = 79
 
-    """
-
-    Match on the 'http' port number (TCP/SCTP
-    only)
-
-    """
     WWW = 80
 
-    """
-
-    Match on the NIC hostname server port number
-    (TCP/SCTP only)
-
-    """
     HOST_NAME = 101
 
-    """
-
-    Match on the 'pop2' port number (TCP/SCTP
-    only)
-
-    """
     POP2 = 109
 
-    """
-
-    Match on the 'pop3' port number (TCP/SCTP
-    only)
-
-    """
     POP3 = 110
 
-    """
-
-    Match on the Sun RPC port number
-
-    """
     SUN_RPC = 111
 
-    """
-
-    Match on the 'ident' port number (TCP/SCTP
-    only)
-
-    """
     IDENT = 113
 
-    """
-
-    Match on the 'nntp' port number (TCP/SCTP
-    only)
-
-    """
     NNTP = 119
 
-    """
-
-    Match on the 'ntp' port number (UDP only)
-
-    """
     NTP = 123
 
-    """
-
-    Match on the NetBIOS name service port number
-    (UDP only)
-
-    """
     NET_BIOS_NS = 137
 
-    """
-
-    Match on the NetBIOS datagram service port
-    number (UDP only)
-
-    """
     NET_BIOS_DGS = 138
 
-    """
-
-    Match on the NetBIOS session service port
-    number (UDP only)
-
-    """
     NET_BIOS_SS = 139
 
-    """
-
-    Match on the 'snmp' port number (UDP only)
-
-    """
     SNMP = 161
 
-    """
-
-    Match on the SNMP traps port number (UDP only)
-
-    """
     SNMP_TRAP = 162
 
-    """
-
-    Match on the 'xdmcp' port number (UDP only)
-
-    """
     XDMCP = 177
 
-    """
-
-    Match on the 'bgp' port number (TCP/SCTP only)
-
-    """
     BGP = 179
 
-    """
-
-    Match on the 'irc' port number (TCP/SCTP only)
-
-    """
     IRC = 194
 
-    """
-
-    Match on the DNSIX security protocol auditing
-    port number (UDP only)
-
-    """
     DNSIX = 195
 
-    """
-
-    Match on the mobile IP registration port
-    number (UDP only)
-
-    """
     MOBILE_IP = 434
 
-    """
-
-    Match on the PIM Auto\-RP port number
-
-    """
     PIM_AUTO_RP = 496
 
-    """
-
-    Match on the 'isakmp' port number (UDP only)
-
-    """
     ISAKMP = 500
 
-    """
-
-    Match on the port used by TCP/SCTP for 'exec'
-    and by UDP for 'biff'
-
-    """
     EXEC_OR_BIFF = 512
 
-    """
-
-    Match on the port used by TCP/SCTP for 'login'
-    and by UDP for 'rwho'
-
-    """
     LOGIN_OR_WHO = 513
 
-    """
-
-    Match on the port used by TCP/SCTP for 'rcmd'
-    and by UDP for 'syslog'
-
-    """
     CMD_OR_SYSLOG = 514
 
-    """
-
-    Match on the 'lpd' port number (TCP/SCTP only)
-
-    """
     LPD = 515
 
-    """
-
-    Match on the 'talk' port number
-
-    """
     TALK = 517
 
-    """
-
-    Match on the 'rip' port number (UDP only)
-
-    """
     RIP = 520
 
-    """
-
-    Match on the 'uucp' port number (TCP/SCTP
-    only)
-
-    """
     UUCP = 540
 
-    """
-
-    Match on the Kerberos login port number
-    (TCP/SCTP only)
-
-    """
     KLOGIN = 543
 
-    """
-
-    Match on the Kerberos shell port number
-    (TCP/SCTP only)
-
-    """
     KSHELL = 544
 
-    """
-
-    Match on the LDP port
-
-    """
     LDP = 646
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
-        return meta._meta_table['Ipv6AclPortNumber_Enum']
+        return meta._meta_table['Ipv6AclPortNumberEnum']
 
 
-class Ipv6AclPrecedenceNumber_Enum(Enum):
+class Ipv6AclPrecedenceNumberEnum(Enum):
     """
-    Ipv6AclPrecedenceNumber_Enum
+    Ipv6AclPrecedenceNumberEnum
 
     Ipv6 acl precedence number
 
-    """
+    .. data:: CRITICAL = 5
+
+    	Match packets with critical precedence
+
+    .. data:: FLASH = 3
+
+    	Match packets with flash precedence
+
+    .. data:: FLASH_OVERRIDE = 4
+
+    	Match packets with flash override precedence
+
+    .. data:: IMMEDIATE = 2
+
+    	Match packets with immediate precedence
+
+    .. data:: INTERNET = 6
+
+    	Match packets with internetwork control
+
+    	precedence
+
+    .. data:: NETWORK = 7
+
+    	Match packets with network control precedence
+
+    .. data:: PRIORITY = 1
+
+    	Match packets with priority precedence
+
+    .. data:: ROUTINE = 0
+
+    	Match packets with routine precedence
 
     """
 
-    Match packets with critical precedence
-
-    """
     CRITICAL = 5
 
-    """
-
-    Match packets with flash precedence
-
-    """
     FLASH = 3
 
-    """
-
-    Match packets with flash override precedence
-
-    """
     FLASH_OVERRIDE = 4
 
-    """
-
-    Match packets with immediate precedence
-
-    """
     IMMEDIATE = 2
 
-    """
-
-    Match packets with internetwork control
-    precedence
-
-    """
     INTERNET = 6
 
-    """
-
-    Match packets with network control precedence
-
-    """
     NETWORK = 7
 
-    """
-
-    Match packets with priority precedence
-
-    """
     PRIORITY = 1
 
-    """
-
-    Match packets with routine precedence
-
-    """
     ROUTINE = 0
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
-        return meta._meta_table['Ipv6AclPrecedenceNumber_Enum']
+        return meta._meta_table['Ipv6AclPrecedenceNumberEnum']
 
 
-class Ipv6AclProtocolNumber_Enum(Enum):
+class Ipv6AclProtocolNumberEnum(Enum):
     """
-    Ipv6AclProtocolNumber_Enum
+    Ipv6AclProtocolNumberEnum
 
     Ipv6 acl protocol number
 
-    """
+    .. data:: IP = 0
+
+    	Any IP protocol
+
+    .. data:: ICMP = 1
+
+    	Internet Control Message Protocol
+
+    .. data:: IGMP = 2
+
+    	Internet Gateway Message Protocol
+
+    .. data:: IP_IN_IP = 4
+
+    	IP in IP tunneling
+
+    .. data:: TCP = 6
+
+    	Transport Control Protocol
+
+    .. data:: IGRP = 9
+
+    	Cisco's IGRP Routing Protocol
+
+    .. data:: UDP = 17
+
+    	User Datagram Protocol
+
+    .. data:: GRE = 47
+
+    	Cisco's GRE tunneling
+
+    .. data:: ESP = 50
+
+    	Encapsulation Security Protocol
+
+    .. data:: AHP = 51
+
+    	Authentication Header Protocol
+
+    .. data:: EIGRP = 88
+
+    	Cisco's EIGRP Routing Protocol
+
+    .. data:: OSPF = 89
+
+    	OSPF Routing Protocol
+
+    .. data:: NOS = 94
+
+    	KA9Q NOS Compatible IP over IP tunneling
+
+    .. data:: PIM = 103
+
+    	Protocol Independent Multicast
+
+    .. data:: PCP = 108
+
+    	Payload Compression Protocol
+
+    .. data:: SCTP = 132
+
+    	Stream Control Transmission Protocol
 
     """
 
-    Any IP protocol
-
-    """
     IP = 0
 
-    """
-
-    Internet Control Message Protocol
-
-    """
     ICMP = 1
 
-    """
-
-    Internet Gateway Message Protocol
-
-    """
     IGMP = 2
 
-    """
-
-    IP in IP tunneling
-
-    """
     IP_IN_IP = 4
 
-    """
-
-    Transport Control Protocol
-
-    """
     TCP = 6
 
-    """
-
-    Cisco's IGRP Routing Protocol
-
-    """
     IGRP = 9
 
-    """
-
-    User Datagram Protocol
-
-    """
     UDP = 17
 
-    """
-
-    Cisco's GRE tunneling
-
-    """
     GRE = 47
 
-    """
-
-    Encapsulation Security Protocol
-
-    """
     ESP = 50
 
-    """
-
-    Authentication Header Protocol
-
-    """
     AHP = 51
 
-    """
-
-    Cisco's EIGRP Routing Protocol
-
-    """
     EIGRP = 88
 
-    """
-
-    OSPF Routing Protocol
-
-    """
     OSPF = 89
 
-    """
-
-    KA9Q NOS Compatible IP over IP tunneling
-
-    """
     NOS = 94
 
-    """
-
-    Protocol Independent Multicast
-
-    """
     PIM = 103
 
-    """
-
-    Payload Compression Protocol
-
-    """
     PCP = 108
 
-    """
-
-    Stream Control Transmission Protocol
-
-    """
     SCTP = 132
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
-        return meta._meta_table['Ipv6AclProtocolNumber_Enum']
+        return meta._meta_table['Ipv6AclProtocolNumberEnum']
 
 
-class Ipv6AclStatusEnum_Enum(Enum):
+class Ipv6AclStatusEnumEnum(Enum):
     """
-    Ipv6AclStatusEnum_Enum
+    Ipv6AclStatusEnumEnum
 
     Ipv6 acl status enum
 
-    """
+    .. data:: DISABLED = 0
+
+    	Disabled
+
+    .. data:: ENABLED = 1
+
+    	Enabled
 
     """
 
-    Disabled
-
-    """
     DISABLED = 0
 
-    """
-
-    Enabled
-
-    """
     ENABLED = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
-        return meta._meta_table['Ipv6AclStatusEnum_Enum']
+        return meta._meta_table['Ipv6AclStatusEnumEnum']
 
 
-class Ipv6AclTcpBitsNumber_Enum(Enum):
+class Ipv6AclTcpBitsNumberEnum(Enum):
     """
-    Ipv6AclTcpBitsNumber_Enum
+    Ipv6AclTcpBitsNumberEnum
 
     Ipv6 acl tcp bits number
 
-    """
+    .. data:: ESTABLISHED = 20
+
+    	Match established connections (0x14)
+
+    .. data:: ACK = 16
+
+    	Match on the ACK bit (0x10)
+
+    .. data:: RST = 4
+
+    	Match on the RST bit (0x04)
+
+    .. data:: FIN = 1
+
+    	Match on the FIN bit (0x01)
+
+    .. data:: PSH = 8
+
+    	Match on the PSH bit (0x08)
+
+    .. data:: SYN = 2
+
+    	Match on the SYN bit (0x02)
+
+    .. data:: URG = 32
+
+    	Match on the URG bit (0x20)
 
     """
 
-    Match established connections (0x14)
-
-    """
     ESTABLISHED = 20
 
-    """
-
-    Match on the ACK bit (0x10)
-
-    """
     ACK = 16
 
-    """
-
-    Match on the RST bit (0x04)
-
-    """
     RST = 4
 
-    """
-
-    Match on the FIN bit (0x01)
-
-    """
     FIN = 1
 
-    """
-
-    Match on the PSH bit (0x08)
-
-    """
     PSH = 8
 
-    """
-
-    Match on the SYN bit (0x02)
-
-    """
     SYN = 2
 
-    """
-
-    Match on the URG bit (0x20)
-
-    """
     URG = 32
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
-        return meta._meta_table['Ipv6AclTcpBitsNumber_Enum']
+        return meta._meta_table['Ipv6AclTcpBitsNumberEnum']
 
 
-class Ipv6AclTcpMatchOperatorEnum_Enum(Enum):
+class Ipv6AclTcpMatchOperatorEnumEnum(Enum):
     """
-    Ipv6AclTcpMatchOperatorEnum_Enum
+    Ipv6AclTcpMatchOperatorEnumEnum
 
     Ipv6 acl tcp match operator enum
 
-    """
+    .. data:: MATCH_ALL = 1
+
+    	Match only packet with all the given TCP bits
+
+    .. data:: MATCH_ANY = 3
+
+    	Match only packet with any of the given TCP
+
+    	bits
 
     """
 
-    Match only packet with all the given TCP bits
-
-    """
     MATCH_ALL = 1
 
-    """
-
-    Match only packet with any of the given TCP
-    bits
-
-    """
     MATCH_ANY = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
-        return meta._meta_table['Ipv6AclTcpMatchOperatorEnum_Enum']
+        return meta._meta_table['Ipv6AclTcpMatchOperatorEnumEnum']
 
 
-class Ipv6AclTypeEnum_Enum(Enum):
+class Ipv6AclTypeEnumEnum(Enum):
     """
-    Ipv6AclTypeEnum_Enum
+    Ipv6AclTypeEnumEnum
 
     Ipv6 acl type enum
 
-    """
+    .. data:: ACL = 1
+
+    	ACL
+
+    .. data:: PREFIX_LIST = 2
+
+    	Prefix List
 
     """
 
-    ACL
-
-    """
     ACL = 1
 
-    """
-
-    Prefix List
-
-    """
     PREFIX_LIST = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
-        return meta._meta_table['Ipv6AclTypeEnum_Enum']
+        return meta._meta_table['Ipv6AclTypeEnumEnum']
 
 
-class Ipv6PrefixMatchExactLength_Enum(Enum):
+class Ipv6PrefixMatchExactLengthEnum(Enum):
     """
-    Ipv6PrefixMatchExactLength_Enum
+    Ipv6PrefixMatchExactLengthEnum
 
     Ipv6 prefix match exact length
 
-    """
+    .. data:: MATCH_EXACT_LENGTH = 1
+
+    	Prefix Length Exact match
 
     """
 
-    Prefix Length Exact match
-
-    """
     MATCH_EXACT_LENGTH = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
-        return meta._meta_table['Ipv6PrefixMatchExactLength_Enum']
+        return meta._meta_table['Ipv6PrefixMatchExactLengthEnum']
 
 
-class Ipv6PrefixMatchMaxLength_Enum(Enum):
+class Ipv6PrefixMatchMaxLengthEnum(Enum):
     """
-    Ipv6PrefixMatchMaxLength_Enum
+    Ipv6PrefixMatchMaxLengthEnum
 
     Ipv6 prefix match max length
 
-    """
+    .. data:: MATCH_MAX_LENGTH = 3
+
+    	Enable matching of Prefix Lengths lesser than
+
+    	MaxPrefixLength
 
     """
 
-    Enable matching of Prefix Lengths lesser than
-    MaxPrefixLength
-
-    """
     MATCH_MAX_LENGTH = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
-        return meta._meta_table['Ipv6PrefixMatchMaxLength_Enum']
+        return meta._meta_table['Ipv6PrefixMatchMaxLengthEnum']
 
 
-class Ipv6PrefixMatchMinLength_Enum(Enum):
+class Ipv6PrefixMatchMinLengthEnum(Enum):
     """
-    Ipv6PrefixMatchMinLength_Enum
+    Ipv6PrefixMatchMinLengthEnum
 
     Ipv6 prefix match min length
 
-    """
+    .. data:: MATCH_MIN_LENGTH = 2
+
+    	Enable matching of Prefix Lengths greater than
+
+    	MinPrefixLength
 
     """
 
-    Enable matching of Prefix Lengths greater than
-    MinPrefixLength
-
-    """
     MATCH_MIN_LENGTH = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_acl_datatypes as meta
-        return meta._meta_table['Ipv6PrefixMatchMinLength_Enum']
+        return meta._meta_table['Ipv6PrefixMatchMinLengthEnum']
 
 
 

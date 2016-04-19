@@ -133,8 +133,6 @@ class NetconfYang(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.absolute_timeout is not None:
                     return True
 
@@ -144,10 +142,6 @@ class NetconfYang(object):
                 if self.limit is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -188,15 +182,9 @@ class NetconfYang(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -216,27 +204,15 @@ class NetconfYang(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.rate_limit is not None:
                 return True
 
             if self.session is not None and self.session._has_data():
                 return True
 
-            if self.session is not None and self.session.is_presence():
-                return True
-
             if self.ssh is not None and self.ssh._has_data():
                 return True
 
-            if self.ssh is not None and self.ssh.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -256,18 +232,9 @@ class NetconfYang(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.agent is not None and self.agent._has_data():
             return True
 
-        if self.agent is not None and self.agent.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

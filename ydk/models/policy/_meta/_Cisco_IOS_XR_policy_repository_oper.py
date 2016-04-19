@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'Group_Enum' : _MetaInfoEnum('Group_Enum', 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper',
+    'GroupEnum' : _MetaInfoEnum('GroupEnum', 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper',
         {
             'address-family-group':'ADDRESS_FAMILY_GROUP',
             'session-group':'SESSION_GROUP',
@@ -22,12 +22,12 @@ _meta_table = {
             'neighbor':'NEIGHBOR',
             'error-group':'ERROR_GROUP',
         }, 'Cisco-IOS-XR-policy-repository-oper', _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper']),
-    'AttachPointDirection_Enum' : _MetaInfoEnum('AttachPointDirection_Enum', 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper',
+    'AttachPointDirectionEnum' : _MetaInfoEnum('AttachPointDirectionEnum', 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper',
         {
             'in':'IN',
             'out':'OUT',
         }, 'Cisco-IOS-XR-policy-repository-oper', _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper']),
-    'SubAddressFamily_Enum' : _MetaInfoEnum('SubAddressFamily_Enum', 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper',
+    'SubAddressFamilyEnum' : _MetaInfoEnum('SubAddressFamilyEnum', 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper',
         {
             'unicast':'UNICAST',
             'multicast':'MULTICAST',
@@ -43,7 +43,7 @@ _meta_table = {
             'saf-none':'SAF_NONE',
             'saf-unknown':'SAF_UNKNOWN',
         }, 'Cisco-IOS-XR-policy-repository-oper', _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper']),
-    'AddressFamily_Enum' : _MetaInfoEnum('AddressFamily_Enum', 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper',
+    'AddressFamilyEnum' : _MetaInfoEnum('AddressFamilyEnum', 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper',
         {
             'ipv4':'IPV4',
             'ipv6':'IPV6',
@@ -52,7 +52,7 @@ _meta_table = {
             'af-unknown':'AF_UNKNOWN',
             'ls':'LS',
         }, 'Cisco-IOS-XR-policy-repository-oper', _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper']),
-    'ObjectStatus_Enum' : _MetaInfoEnum('ObjectStatus_Enum', 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper',
+    'ObjectStatusEnum' : _MetaInfoEnum('ObjectStatusEnum', 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper',
         {
             'active':'ACTIVE',
             'inactive':'INACTIVE',
@@ -152,7 +152,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Policies.RoutePolicies.RoutePolicy.Attached.Binding',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Address Family Identifier
                 ''',
@@ -184,13 +184,13 @@ _meta_table = {
                 ''',
                 'attached_policy',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirection_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirectionEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirectionEnum', 
                 [], [], 
                 '''                Direction In or Out
                 ''',
                 'direction',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'Group_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'Group_Enum', 
+            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'GroupEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'GroupEnum', 
                 [], [], 
                 '''                Neighbor Group 
                 ''',
@@ -220,7 +220,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Neighbor IP Address Family
                 ''',
@@ -256,7 +256,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamilyEnum', 
                 [], [], 
                 '''                Subsequent Address Family Identifier
                 ''',
@@ -463,7 +463,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatus_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatusEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatusEnum', 
                 [], [], 
                 '''                Active, Inactive, or Unused
                 ''',
@@ -649,7 +649,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.AsPath.Sets.Set.Attached.Binding',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Address Family Identifier
                 ''',
@@ -681,13 +681,13 @@ _meta_table = {
                 ''',
                 'attached_policy',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirection_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirectionEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirectionEnum', 
                 [], [], 
                 '''                Direction In or Out
                 ''',
                 'direction',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'Group_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'Group_Enum', 
+            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'GroupEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'GroupEnum', 
                 [], [], 
                 '''                Neighbor Group 
                 ''',
@@ -717,7 +717,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Neighbor IP Address Family
                 ''',
@@ -753,7 +753,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamilyEnum', 
                 [], [], 
                 '''                Subsequent Address Family Identifier
                 ''',
@@ -809,7 +809,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatus_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatusEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatusEnum', 
                 [], [], 
                 '''                Active, Inactive, or Unused
                 ''',
@@ -988,7 +988,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Community.Sets.Set.Attached.Binding',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Address Family Identifier
                 ''',
@@ -1020,13 +1020,13 @@ _meta_table = {
                 ''',
                 'attached_policy',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirection_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirectionEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirectionEnum', 
                 [], [], 
                 '''                Direction In or Out
                 ''',
                 'direction',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'Group_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'Group_Enum', 
+            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'GroupEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'GroupEnum', 
                 [], [], 
                 '''                Neighbor Group 
                 ''',
@@ -1056,7 +1056,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Neighbor IP Address Family
                 ''',
@@ -1092,7 +1092,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamilyEnum', 
                 [], [], 
                 '''                Subsequent Address Family Identifier
                 ''',
@@ -1148,7 +1148,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatus_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatusEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatusEnum', 
                 [], [], 
                 '''                Active, Inactive, or Unused
                 ''',
@@ -1310,7 +1310,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached.Binding',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Address Family Identifier
                 ''',
@@ -1342,13 +1342,13 @@ _meta_table = {
                 ''',
                 'attached_policy',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirection_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirectionEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirectionEnum', 
                 [], [], 
                 '''                Direction In or Out
                 ''',
                 'direction',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'Group_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'Group_Enum', 
+            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'GroupEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'GroupEnum', 
                 [], [], 
                 '''                Neighbor Group 
                 ''',
@@ -1378,7 +1378,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Neighbor IP Address Family
                 ''',
@@ -1414,7 +1414,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamilyEnum', 
                 [], [], 
                 '''                Subsequent Address Family Identifier
                 ''',
@@ -1470,7 +1470,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatus_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatusEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatusEnum', 
                 [], [], 
                 '''                Active, Inactive, or Unused
                 ''',
@@ -1642,7 +1642,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached.Binding',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Address Family Identifier
                 ''',
@@ -1674,13 +1674,13 @@ _meta_table = {
                 ''',
                 'attached_policy',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirection_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirectionEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirectionEnum', 
                 [], [], 
                 '''                Direction In or Out
                 ''',
                 'direction',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'Group_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'Group_Enum', 
+            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'GroupEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'GroupEnum', 
                 [], [], 
                 '''                Neighbor Group 
                 ''',
@@ -1710,7 +1710,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Neighbor IP Address Family
                 ''',
@@ -1746,7 +1746,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamilyEnum', 
                 [], [], 
                 '''                Subsequent Address Family Identifier
                 ''',
@@ -1802,7 +1802,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatus_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatusEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatusEnum', 
                 [], [], 
                 '''                Active, Inactive, or Unused
                 ''',
@@ -1981,7 +1981,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached.Binding',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Address Family Identifier
                 ''',
@@ -2013,13 +2013,13 @@ _meta_table = {
                 ''',
                 'attached_policy',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirection_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirectionEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirectionEnum', 
                 [], [], 
                 '''                Direction In or Out
                 ''',
                 'direction',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'Group_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'Group_Enum', 
+            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'GroupEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'GroupEnum', 
                 [], [], 
                 '''                Neighbor Group 
                 ''',
@@ -2049,7 +2049,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Neighbor IP Address Family
                 ''',
@@ -2085,7 +2085,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamilyEnum', 
                 [], [], 
                 '''                Subsequent Address Family Identifier
                 ''',
@@ -2141,7 +2141,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatus_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatusEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatusEnum', 
                 [], [], 
                 '''                Active, Inactive, or Unused
                 ''',
@@ -2320,7 +2320,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached.Binding',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Address Family Identifier
                 ''',
@@ -2352,13 +2352,13 @@ _meta_table = {
                 ''',
                 'attached_policy',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirection_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirectionEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirectionEnum', 
                 [], [], 
                 '''                Direction In or Out
                 ''',
                 'direction',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'Group_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'Group_Enum', 
+            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'GroupEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'GroupEnum', 
                 [], [], 
                 '''                Neighbor Group 
                 ''',
@@ -2388,7 +2388,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Neighbor IP Address Family
                 ''',
@@ -2424,7 +2424,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamilyEnum', 
                 [], [], 
                 '''                Subsequent Address Family Identifier
                 ''',
@@ -2480,7 +2480,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatus_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatusEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatusEnum', 
                 [], [], 
                 '''                Active, Inactive, or Unused
                 ''',
@@ -2659,7 +2659,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached.Binding',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Address Family Identifier
                 ''',
@@ -2691,13 +2691,13 @@ _meta_table = {
                 ''',
                 'attached_policy',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirection_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirectionEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirectionEnum', 
                 [], [], 
                 '''                Direction In or Out
                 ''',
                 'direction',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'Group_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'Group_Enum', 
+            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'GroupEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'GroupEnum', 
                 [], [], 
                 '''                Neighbor Group 
                 ''',
@@ -2727,7 +2727,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Neighbor IP Address Family
                 ''',
@@ -2763,7 +2763,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamilyEnum', 
                 [], [], 
                 '''                Subsequent Address Family Identifier
                 ''',
@@ -2819,7 +2819,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatus_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatusEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatusEnum', 
                 [], [], 
                 '''                Active, Inactive, or Unused
                 ''',
@@ -2998,7 +2998,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached.Binding',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Address Family Identifier
                 ''',
@@ -3030,13 +3030,13 @@ _meta_table = {
                 ''',
                 'attached_policy',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirection_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirectionEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirectionEnum', 
                 [], [], 
                 '''                Direction In or Out
                 ''',
                 'direction',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'Group_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'Group_Enum', 
+            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'GroupEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'GroupEnum', 
                 [], [], 
                 '''                Neighbor Group 
                 ''',
@@ -3066,7 +3066,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Neighbor IP Address Family
                 ''',
@@ -3102,7 +3102,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamilyEnum', 
                 [], [], 
                 '''                Subsequent Address Family Identifier
                 ''',
@@ -3158,7 +3158,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatus_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatusEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatusEnum', 
                 [], [], 
                 '''                Active, Inactive, or Unused
                 ''',
@@ -3337,7 +3337,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.OspfArea.Sets.Set.Attached.Binding',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Address Family Identifier
                 ''',
@@ -3369,13 +3369,13 @@ _meta_table = {
                 ''',
                 'attached_policy',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirection_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirectionEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirectionEnum', 
                 [], [], 
                 '''                Direction In or Out
                 ''',
                 'direction',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'Group_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'Group_Enum', 
+            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'GroupEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'GroupEnum', 
                 [], [], 
                 '''                Neighbor Group 
                 ''',
@@ -3405,7 +3405,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Neighbor IP Address Family
                 ''',
@@ -3441,7 +3441,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamilyEnum', 
                 [], [], 
                 '''                Subsequent Address Family Identifier
                 ''',
@@ -3497,7 +3497,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatus_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatusEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatusEnum', 
                 [], [], 
                 '''                Active, Inactive, or Unused
                 ''',
@@ -3676,7 +3676,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Prefix.Sets.Set.Attached.Binding',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Address Family Identifier
                 ''',
@@ -3708,13 +3708,13 @@ _meta_table = {
                 ''',
                 'attached_policy',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirection_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirectionEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirectionEnum', 
                 [], [], 
                 '''                Direction In or Out
                 ''',
                 'direction',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'Group_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'Group_Enum', 
+            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'GroupEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'GroupEnum', 
                 [], [], 
                 '''                Neighbor Group 
                 ''',
@@ -3744,7 +3744,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Neighbor IP Address Family
                 ''',
@@ -3780,7 +3780,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamilyEnum', 
                 [], [], 
                 '''                Subsequent Address Family Identifier
                 ''',
@@ -3836,7 +3836,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatus_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatusEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatusEnum', 
                 [], [], 
                 '''                Active, Inactive, or Unused
                 ''',
@@ -4015,7 +4015,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Rd.Sets.Set.Attached.Binding',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Address Family Identifier
                 ''',
@@ -4047,13 +4047,13 @@ _meta_table = {
                 ''',
                 'attached_policy',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirection_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirectionEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirectionEnum', 
                 [], [], 
                 '''                Direction In or Out
                 ''',
                 'direction',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'Group_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'Group_Enum', 
+            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'GroupEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'GroupEnum', 
                 [], [], 
                 '''                Neighbor Group 
                 ''',
@@ -4083,7 +4083,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Neighbor IP Address Family
                 ''',
@@ -4119,7 +4119,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamilyEnum', 
                 [], [], 
                 '''                Subsequent Address Family Identifier
                 ''',
@@ -4175,7 +4175,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatus_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatusEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatusEnum', 
                 [], [], 
                 '''                Active, Inactive, or Unused
                 ''',
@@ -4354,7 +4354,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Tag.Sets.Set.Attached.Binding',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Address Family Identifier
                 ''',
@@ -4386,13 +4386,13 @@ _meta_table = {
                 ''',
                 'attached_policy',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirection_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirectionEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirectionEnum', 
                 [], [], 
                 '''                Direction In or Out
                 ''',
                 'direction',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'Group_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'Group_Enum', 
+            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'GroupEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'GroupEnum', 
                 [], [], 
                 '''                Neighbor Group 
                 ''',
@@ -4422,7 +4422,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamily_Enum', 
+            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
                 [], [], 
                 '''                Neighbor IP Address Family
                 ''',
@@ -4458,7 +4458,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamily_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamilyEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamilyEnum', 
                 [], [], 
                 '''                Subsequent Address Family Identifier
                 ''',
@@ -4514,7 +4514,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatus_Enum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatusEnum' , 'ydk.models.policy.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatusEnum', 
                 [], [], 
                 '''                Active, Inactive, or Unused
                 ''',

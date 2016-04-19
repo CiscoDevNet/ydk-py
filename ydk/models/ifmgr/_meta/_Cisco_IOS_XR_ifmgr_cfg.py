@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,18 +14,18 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'InterfaceModeEnum_Enum' : _MetaInfoEnum('InterfaceModeEnum_Enum', 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg',
+    'InterfaceModeEnumEnum' : _MetaInfoEnum('InterfaceModeEnumEnum', 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg',
         {
             'default':'DEFAULT',
             'point-to-point':'POINT_TO_POINT',
             'multipoint':'MULTIPOINT',
             'l2-transport':'L2_TRANSPORT',
         }, 'Cisco-IOS-XR-ifmgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ifmgr-cfg']),
-    'SecondaryAdminStateEnum_Enum' : _MetaInfoEnum('SecondaryAdminStateEnum_Enum', 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg',
+    'SecondaryAdminStateEnumEnum' : _MetaInfoEnum('SecondaryAdminStateEnumEnum', 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg',
         {
             'maintenance':'MAINTENANCE',
         }, 'Cisco-IOS-XR-ifmgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ifmgr-cfg']),
-    'LinkStatusEnum_Enum' : _MetaInfoEnum('LinkStatusEnum_Enum', 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg',
+    'LinkStatusEnumEnum' : _MetaInfoEnum('LinkStatusEnumEnum', 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg',
         {
             'default':'DEFAULT',
             'disable':'DISABLE',
@@ -35,7 +35,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('GlobalInterfaceConfiguration',
             False, 
             [
-            _MetaInfoClassMember('link-status', REFERENCE_ENUM_CLASS, 'LinkStatusEnum_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'LinkStatusEnum_Enum', 
+            _MetaInfoClassMember('link-status', REFERENCE_ENUM_CLASS, 'LinkStatusEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'LinkStatusEnumEnum', 
                 [], [], 
                 '''                Enable or disable link-status messages
                 ''',
@@ -52,13 +52,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Afs.Af',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'VrfAddressFamily_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'VrfAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'VrfAddressFamilyEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'VrfAddressFamilyEnum', 
                 [], [], 
                 '''                Address-family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-infra-rsi-cfg', True),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'VrfSubAddressFamily_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'VrfSubAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'VrfSubAddressFamilyEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'VrfSubAddressFamilyEnum', 
                 [], [], 
                 '''                Sub-address-family
                 ''',
@@ -75,13 +75,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Afs.AfTopologyName',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'VrfAddressFamily_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'VrfAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'VrfAddressFamilyEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'VrfAddressFamilyEnum', 
                 [], [], 
                 '''                Address-family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-infra-rsi-cfg', True),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'VrfSubAddressFamily_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'VrfSubAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'VrfSubAddressFamilyEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_rsi_cfg', 'VrfSubAddressFamilyEnum', 
                 [], [], 
                 '''                Sub-address-family
                 ''',
@@ -225,7 +225,7 @@ _meta_table = {
                 ''',
                 'sustained_cell_rate',
                 'Cisco-IOS-XR-atm-vcm-cfg', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'AtmPvcShaping_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes', 'AtmPvcShaping_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'AtmPvcShapingEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes', 'AtmPvcShapingEnum', 
                 [], [], 
                 '''                Traffic shaping type
                 ''',
@@ -242,7 +242,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc',
             False, 
             [
-            _MetaInfoClassMember('pv-ctype', REFERENCE_ENUM_CLASS, 'AtmPvcData_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes', 'AtmPvcData_Enum', 
+            _MetaInfoClassMember('pv-ctype', REFERENCE_ENUM_CLASS, 'AtmPvcDataEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes', 'AtmPvcDataEnum', 
                 [], [], 
                 '''                PVC type
                 ''',
@@ -273,7 +273,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-atm-vcm-cfg', False),
-            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'AtmPvcEncapsulation_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes', 'AtmPvcEncapsulation_Enum', 
+            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'AtmPvcEncapsulationEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes', 'AtmPvcEncapsulationEnum', 
                 [], [], 
                 '''                Configure encapsulation
                 ''',
@@ -297,7 +297,7 @@ _meta_table = {
                 ''',
                 'shape',
                 'Cisco-IOS-XR-atm-vcm-cfg', False),
-            _MetaInfoClassMember('test-mode', REFERENCE_ENUM_CLASS, 'AtmPvcTestMode_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg', 'AtmPvcTestMode_Enum', 
+            _MetaInfoClassMember('test-mode', REFERENCE_ENUM_CLASS, 'AtmPvcTestModeEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg', 'AtmPvcTestModeEnum', 
                 [], [], 
                 '''                Configure the PVC test mode
                 ''',
@@ -379,7 +379,7 @@ _meta_table = {
                 ''',
                 'sustained_cell_rate',
                 'Cisco-IOS-XR-atm-vcm-cfg', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'AtmPvcShaping_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes', 'AtmPvcShaping_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'AtmPvcShapingEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes', 'AtmPvcShapingEnum', 
                 [], [], 
                 '''                Traffic shaping type
                 ''',
@@ -427,7 +427,7 @@ _meta_table = {
                 ''',
                 'shape',
                 'Cisco-IOS-XR-atm-vcm-cfg', False),
-            _MetaInfoClassMember('test-mode', REFERENCE_ENUM_CLASS, 'AtmPvpTestMode_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg', 'AtmPvpTestMode_Enum', 
+            _MetaInfoClassMember('test-mode', REFERENCE_ENUM_CLASS, 'AtmPvpTestModeEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg', 'AtmPvpTestModeEnum', 
                 [], [], 
                 '''                Configure the PVP test mode
                 ''',
@@ -479,7 +479,7 @@ _meta_table = {
                 ''',
                 'sustained_cell_rate',
                 'Cisco-IOS-XR-atm-vcm-cfg', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'AtmVpShaping_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes', 'AtmVpShaping_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'AtmVpShapingEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_common_datatypes', 'AtmVpShapingEnum', 
                 [], [], 
                 '''                Traffic shaping type
                 ''',
@@ -554,7 +554,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Atm',
             False, 
             [
-            _MetaInfoClassMember('max-vpi-bits', REFERENCE_ENUM_CLASS, 'AtmVpiBitsMode_Enum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg', 'AtmVpiBitsMode_Enum', 
+            _MetaInfoClassMember('max-vpi-bits', REFERENCE_ENUM_CLASS, 'AtmVpiBitsModeEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_cfg', 'AtmVpiBitsModeEnum', 
                 [], [], 
                 '''                Support 12-bits VPI cell format
                 ''',
@@ -720,7 +720,7 @@ _meta_table = {
                 ''',
                 'address_family',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'BfdMode_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg', 'BfdMode_Enum', 
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'BfdModeEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg', 'BfdModeEnum', 
                 [], [], 
                 '''                Configuration of BFDoBM mode [cisco|ietf]
                 ''',
@@ -737,7 +737,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Bundle.BundleLoadBalancing.HashFunction',
             False, 
             [
-            _MetaInfoClassMember('hash-type', REFERENCE_ENUM_CLASS, 'BundleLoadBalance_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg', 'BundleLoadBalance_Enum', 
+            _MetaInfoClassMember('hash-type', REFERENCE_ENUM_CLASS, 'BundleLoadBalanceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg', 'BundleLoadBalanceEnum', 
                 [], [], 
                 '''                The specified hash function to use
                 ''',
@@ -792,7 +792,7 @@ _meta_table = {
                 ''',
                 'links',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
-            _MetaInfoClassMember('max-active-links-mode', REFERENCE_ENUM_CLASS, 'BundleMaximumActiveLinksMode_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg', 'BundleMaximumActiveLinksMode_Enum', 
+            _MetaInfoClassMember('max-active-links-mode', REFERENCE_ENUM_CLASS, 'BundleMaximumActiveLinksModeEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg', 'BundleMaximumActiveLinksModeEnum', 
                 [], [], 
                 '''                Maximum active links mode
                 ''',
@@ -901,7 +901,7 @@ _meta_table = {
                 ''',
                 'bundle_id',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
-            _MetaInfoClassMember('port-activity', REFERENCE_ENUM_CLASS, 'BundlePortActivity_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg', 'BundlePortActivity_Enum', 
+            _MetaInfoClassMember('port-activity', REFERENCE_ENUM_CLASS, 'BundlePortActivityEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg', 'BundlePortActivityEnum', 
                 [], [], 
                 '''                Port Activity
                 ''',
@@ -955,8 +955,8 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Input.ServicePolicy' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Input.ServicePolicy',
+    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input.ServicePolicy' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input.ServicePolicy',
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
@@ -965,7 +965,7 @@ _meta_table = {
                 ''',
                 'service_policy_name',
                 'Cisco-IOS-XR-ncs5500-qos-cfg', True),
-            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccount_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosPolicyAccount_Enum', 
+            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosPolicyAccountEnum', 
                 [], [], 
                 '''                Turn off L2 or L3 accounting.
                 ''',
@@ -977,19 +977,19 @@ _meta_table = {
                 ''',
                 'l1_user_defined',
                 'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('policy-merge', REFERENCE_ENUM_CLASS, 'QosFieldNotSupported_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupported_Enum', 
+            _MetaInfoClassMember('policy-merge', REFERENCE_ENUM_CLASS, 'QosFieldNotSupportedEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupportedEnum', 
                 [], [], 
                 '''                Not supported (Leave unspecified).
                 ''',
                 'policy_merge',
                 'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('resource-id', REFERENCE_ENUM_CLASS, 'QosFieldNotSupported_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupported_Enum', 
+            _MetaInfoClassMember('resource-id', REFERENCE_ENUM_CLASS, 'QosFieldNotSupportedEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupportedEnum', 
                 [], [], 
                 '''                Not supported (Leave unspecified).
                 ''',
                 'resource_id',
                 'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('service-fragment-parent-policy', REFERENCE_ENUM_CLASS, 'QosFieldNotSupported_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupported_Enum', 
+            _MetaInfoClassMember('service-fragment-parent-policy', REFERENCE_ENUM_CLASS, 'QosFieldNotSupportedEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupportedEnum', 
                 [], [], 
                 '''                Not supported (Leave unspecified).
                 ''',
@@ -1001,7 +1001,7 @@ _meta_table = {
                 ''',
                 'spi_name',
                 'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('subscriber-parent-policy', REFERENCE_ENUM_CLASS, 'QosFieldNotSupported_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupported_Enum', 
+            _MetaInfoClassMember('subscriber-parent-policy', REFERENCE_ENUM_CLASS, 'QosFieldNotSupportedEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupportedEnum', 
                 [], [], 
                 '''                Not supported (Leave unspecified).
                 ''',
@@ -1014,11 +1014,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Input' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Input',
+    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input',
             False, 
             [
-            _MetaInfoClassMember('service-policy', REFERENCE_LIST, 'ServicePolicy' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Input.ServicePolicy', 
+            _MetaInfoClassMember('service-policy', REFERENCE_LIST, 'ServicePolicy' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input.ServicePolicy', 
                 [], [], 
                 '''                Service policy details
                 ''',
@@ -1031,8 +1031,8 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Output.ServicePolicy' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Output.ServicePolicy',
+    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output.ServicePolicy' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output.ServicePolicy',
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
@@ -1041,7 +1041,7 @@ _meta_table = {
                 ''',
                 'service_policy_name',
                 'Cisco-IOS-XR-ncs5500-qos-cfg', True),
-            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccount_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosPolicyAccount_Enum', 
+            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosPolicyAccountEnum', 
                 [], [], 
                 '''                Turn off L2 or L3 accounting.
                 ''',
@@ -1053,19 +1053,19 @@ _meta_table = {
                 ''',
                 'l1_user_defined',
                 'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('policy-merge', REFERENCE_ENUM_CLASS, 'QosFieldNotSupported_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupported_Enum', 
+            _MetaInfoClassMember('policy-merge', REFERENCE_ENUM_CLASS, 'QosFieldNotSupportedEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupportedEnum', 
                 [], [], 
                 '''                Not supported (Leave unspecified).
                 ''',
                 'policy_merge',
                 'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('resource-id', REFERENCE_ENUM_CLASS, 'QosFieldNotSupported_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupported_Enum', 
+            _MetaInfoClassMember('resource-id', REFERENCE_ENUM_CLASS, 'QosFieldNotSupportedEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupportedEnum', 
                 [], [], 
                 '''                Not supported (Leave unspecified).
                 ''',
                 'resource_id',
                 'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('service-fragment-parent-policy', REFERENCE_ENUM_CLASS, 'QosFieldNotSupported_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupported_Enum', 
+            _MetaInfoClassMember('service-fragment-parent-policy', REFERENCE_ENUM_CLASS, 'QosFieldNotSupportedEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupportedEnum', 
                 [], [], 
                 '''                Not supported (Leave unspecified).
                 ''',
@@ -1077,7 +1077,7 @@ _meta_table = {
                 ''',
                 'spi_name',
                 'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('subscriber-parent-policy', REFERENCE_ENUM_CLASS, 'QosFieldNotSupported_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupported_Enum', 
+            _MetaInfoClassMember('subscriber-parent-policy', REFERENCE_ENUM_CLASS, 'QosFieldNotSupportedEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupportedEnum', 
                 [], [], 
                 '''                Not supported (Leave unspecified).
                 ''',
@@ -1090,11 +1090,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Output' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Output',
+    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output',
             False, 
             [
-            _MetaInfoClassMember('service-policy', REFERENCE_LIST, 'ServicePolicy' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Output.ServicePolicy', 
+            _MetaInfoClassMember('service-policy', REFERENCE_LIST, 'ServicePolicy' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output.ServicePolicy', 
                 [], [], 
                 '''                Service policy details
                 ''',
@@ -1107,8 +1107,8 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos',
+    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos',
             False, 
             [
             _MetaInfoClassMember('actual-rate-down', ATTRIBUTE, 'int' , None, None, 
@@ -1123,13 +1123,13 @@ _meta_table = {
                 ''',
                 'actual_rate_up',
                 'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Input', 
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input', 
                 [], [], 
                 '''                Ingress service policy
                 ''',
                 'input',
                 'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Output', 
+            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output', 
                 [], [], 
                 '''                Egress service policy
                 ''',
@@ -1142,8 +1142,8 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Input.ServicePolicy' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Input.ServicePolicy',
+    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input.ServicePolicy' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input.ServicePolicy',
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
@@ -1152,7 +1152,7 @@ _meta_table = {
                 ''',
                 'service_policy_name',
                 'Cisco-IOS-XR-skp-qos-cfg', True),
-            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccount_Enum' , 'ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg', 'QosPolicyAccount_Enum', 
+            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg', 'QosPolicyAccountEnum', 
                 [], [], 
                 '''                Turn off L2 or L3 accounting.
                 ''',
@@ -1164,7 +1164,7 @@ _meta_table = {
                 ''',
                 'l1_user_defined',
                 'Cisco-IOS-XR-skp-qos-cfg', False),
-            _MetaInfoClassMember('policy-merge', REFERENCE_ENUM_CLASS, 'QosFieldNotSupported_Enum' , 'ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg', 'QosFieldNotSupported_Enum', 
+            _MetaInfoClassMember('policy-merge', REFERENCE_ENUM_CLASS, 'QosFieldNotSupportedEnum' , 'ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg', 'QosFieldNotSupportedEnum', 
                 [], [], 
                 '''                Not supported (Leave unspecified).
                 ''',
@@ -1202,11 +1202,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Input' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Input',
+    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input',
             False, 
             [
-            _MetaInfoClassMember('service-policy', REFERENCE_LIST, 'ServicePolicy' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Input.ServicePolicy', 
+            _MetaInfoClassMember('service-policy', REFERENCE_LIST, 'ServicePolicy' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input.ServicePolicy', 
                 [], [], 
                 '''                Service policy details
                 ''',
@@ -1219,8 +1219,8 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.L2Overhead.Account' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.L2Overhead.Account',
+    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead.Account' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead.Account',
             False, 
             [
             _MetaInfoClassMember('atm-cell-tax', ATTRIBUTE, 'bool' , None, None, 
@@ -1230,13 +1230,13 @@ _meta_table = {
                 ''',
                 'atm_cell_tax',
                 'Cisco-IOS-XR-skp-qos-cfg', False),
-            _MetaInfoClassMember('data-link-type', REFERENCE_ENUM_CLASS, 'Qosl2DataLink_Enum' , 'ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg', 'Qosl2DataLink_Enum', 
+            _MetaInfoClassMember('data-link-type', REFERENCE_ENUM_CLASS, 'Qosl2DataLinkEnum' , 'ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg', 'Qosl2DataLinkEnum', 
                 [], [], 
                 '''                Data link type
                 ''',
                 'data_link_type',
                 'Cisco-IOS-XR-skp-qos-cfg', False),
-            _MetaInfoClassMember('encap-type', REFERENCE_ENUM_CLASS, 'Qosl2Encap_Enum' , 'ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg', 'Qosl2Encap_Enum', 
+            _MetaInfoClassMember('encap-type', REFERENCE_ENUM_CLASS, 'Qosl2EncapEnum' , 'ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg', 'Qosl2EncapEnum', 
                 [], [], 
                 '''                Encap used between the DSLAM and CPE
                 ''',
@@ -1255,11 +1255,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.L2Overhead' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.L2Overhead',
+    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead',
             False, 
             [
-            _MetaInfoClassMember('account', REFERENCE_CLASS, 'Account' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.L2Overhead.Account', 
+            _MetaInfoClassMember('account', REFERENCE_CLASS, 'Account' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead.Account', 
                 [], [], 
                 '''                Access Loop Encapsulation
                 ''',
@@ -1278,8 +1278,8 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Output.ServicePolicy' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Output.ServicePolicy',
+    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output.ServicePolicy' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output.ServicePolicy',
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
@@ -1288,7 +1288,7 @@ _meta_table = {
                 ''',
                 'service_policy_name',
                 'Cisco-IOS-XR-skp-qos-cfg', True),
-            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccount_Enum' , 'ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg', 'QosPolicyAccount_Enum', 
+            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg', 'QosPolicyAccountEnum', 
                 [], [], 
                 '''                Turn off L2 or L3 accounting.
                 ''',
@@ -1300,7 +1300,7 @@ _meta_table = {
                 ''',
                 'l1_user_defined',
                 'Cisco-IOS-XR-skp-qos-cfg', False),
-            _MetaInfoClassMember('policy-merge', REFERENCE_ENUM_CLASS, 'QosFieldNotSupported_Enum' , 'ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg', 'QosFieldNotSupported_Enum', 
+            _MetaInfoClassMember('policy-merge', REFERENCE_ENUM_CLASS, 'QosFieldNotSupportedEnum' , 'ydk.models.skp.Cisco_IOS_XR_skp_qos_cfg', 'QosFieldNotSupportedEnum', 
                 [], [], 
                 '''                Not supported (Leave unspecified).
                 ''',
@@ -1338,11 +1338,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Output' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Output',
+    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output',
             False, 
             [
-            _MetaInfoClassMember('service-policy', REFERENCE_LIST, 'ServicePolicy' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Output.ServicePolicy', 
+            _MetaInfoClassMember('service-policy', REFERENCE_LIST, 'ServicePolicy' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output.ServicePolicy', 
                 [], [], 
                 '''                Service policy details
                 ''',
@@ -1355,8 +1355,8 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos',
+    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos',
             False, 
             [
             _MetaInfoClassMember('actual-rate-down', ATTRIBUTE, 'int' , None, None, 
@@ -1371,13 +1371,13 @@ _meta_table = {
                 ''',
                 'actual_rate_up',
                 'Cisco-IOS-XR-skp-qos-cfg', False),
-            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Input', 
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input', 
                 [], [], 
                 '''                Ingress service policy
                 ''',
                 'input',
                 'Cisco-IOS-XR-skp-qos-cfg', False),
-            _MetaInfoClassMember('l2-overhead', REFERENCE_CLASS, 'L2Overhead' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.L2Overhead', 
+            _MetaInfoClassMember('l2-overhead', REFERENCE_CLASS, 'L2Overhead' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead', 
                 [], [], 
                 '''                Layer 2 overhead accounting
                 ''',
@@ -1389,7 +1389,7 @@ _meta_table = {
                 ''',
                 'minimum_bandwidth',
                 'Cisco-IOS-XR-skp-qos-cfg', False),
-            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Output', 
+            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output', 
                 [], [], 
                 '''                Egress service policy
                 ''',
@@ -1552,7 +1552,7 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.Dampening.Args_Enum' : _MetaInfoEnum('Args_Enum', 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg',
+    'InterfaceConfigurations.InterfaceConfiguration.Dampening.ArgsEnum' : _MetaInfoEnum('ArgsEnum', 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg',
         {
             'default-values':'DEFAULT_VALUES',
             'specify-half-life':'SPECIFY_HALF_LIFE',
@@ -1563,7 +1563,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dampening',
             False, 
             [
-            _MetaInfoClassMember('args', REFERENCE_ENUM_CLASS, 'Args_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dampening.Args_Enum', 
+            _MetaInfoClassMember('args', REFERENCE_ENUM_CLASS, 'ArgsEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dampening.ArgsEnum', 
                 [], [], 
                 '''                Dampening Arguments
                 ''',
@@ -1740,7 +1740,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Ethernet',
             False, 
             [
-            _MetaInfoClassMember('auto-negotiation', REFERENCE_ENUM_CLASS, 'EthernetAutoNegotiation_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg', 'EthernetAutoNegotiation_Enum', 
+            _MetaInfoClassMember('auto-negotiation', REFERENCE_ENUM_CLASS, 'EthernetAutoNegotiationEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg', 'EthernetAutoNegotiationEnum', 
                 [], [], 
                 '''                Link auto-negotiation
                 ''',
@@ -1753,31 +1753,31 @@ _meta_table = {
                 ''',
                 'carrier_delay',
                 'Cisco-IOS-XR-drivers-media-eth-cfg', False),
-            _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'EthernetDuplex_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg', 'EthernetDuplex_Enum', 
+            _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'EthernetDuplexEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg', 'EthernetDuplexEnum', 
                 [], [], 
                 '''                Configure duplex operational mode
                 ''',
                 'duplex',
                 'Cisco-IOS-XR-drivers-media-eth-cfg', False),
-            _MetaInfoClassMember('flow-control', REFERENCE_ENUM_CLASS, 'EthernetFlowCtrl_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg', 'EthernetFlowCtrl_Enum', 
+            _MetaInfoClassMember('flow-control', REFERENCE_ENUM_CLASS, 'EthernetFlowCtrlEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg', 'EthernetFlowCtrlEnum', 
                 [], [], 
                 '''                Configure flow-control mode
                 ''',
                 'flow_control',
                 'Cisco-IOS-XR-drivers-media-eth-cfg', False),
-            _MetaInfoClassMember('forward-error-correction', REFERENCE_ENUM_CLASS, 'EthernetFec_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg', 'EthernetFec_Enum', 
+            _MetaInfoClassMember('forward-error-correction', REFERENCE_ENUM_CLASS, 'EthernetFecEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg', 'EthernetFecEnum', 
                 [], [], 
                 '''                Forward Error Correction
                 ''',
                 'forward_error_correction',
                 'Cisco-IOS-XR-drivers-media-eth-cfg', False),
-            _MetaInfoClassMember('inter-packet-gap', REFERENCE_ENUM_CLASS, 'EthernetIpg_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg', 'EthernetIpg_Enum', 
+            _MetaInfoClassMember('inter-packet-gap', REFERENCE_ENUM_CLASS, 'EthernetIpgEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg', 'EthernetIpgEnum', 
                 [], [], 
                 '''                Inter-packet gap
                 ''',
                 'inter_packet_gap',
                 'Cisco-IOS-XR-drivers-media-eth-cfg', False),
-            _MetaInfoClassMember('loopback', REFERENCE_ENUM_CLASS, 'EthernetLoopback_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg', 'EthernetLoopback_Enum', 
+            _MetaInfoClassMember('loopback', REFERENCE_ENUM_CLASS, 'EthernetLoopbackEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg', 'EthernetLoopbackEnum', 
                 [], [], 
                 '''                Configure loopback mode
                 ''',
@@ -1795,7 +1795,7 @@ _meta_table = {
                 ''',
                 'signal_fail_bit_error_rate',
                 'Cisco-IOS-XR-drivers-media-eth-cfg', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'EthernetSpeed_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg', 'EthernetSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'EthernetSpeedEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_cfg', 'EthernetSpeedEnum', 
                 [], [], 
                 '''                Set the ethernet speed on an interface
                 ''',
@@ -1826,7 +1826,7 @@ _meta_table = {
                 ''',
                 'additional_range1_low',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('additional-range1-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvp_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvp_Enum', 
+                    _MetaInfoClassMember('additional-range1-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvpEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvpEnum', 
                         [], [], 
                         '''                        Low value of first additional range for tag
                         match
@@ -1855,7 +1855,7 @@ _meta_table = {
                 ''',
                 'additional_range2_low',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('additional-range2-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvp_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvp_Enum', 
+                    _MetaInfoClassMember('additional-range2-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvpEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvpEnum', 
                         [], [], 
                         '''                        Low value of second additional range for tag
                         match
@@ -1884,7 +1884,7 @@ _meta_table = {
                 ''',
                 'additional_range3_low',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('additional-range3-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvp_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvp_Enum', 
+                    _MetaInfoClassMember('additional-range3-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvpEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvpEnum', 
                         [], [], 
                         '''                        Low value of third additional range for tag
                         match
@@ -1913,7 +1913,7 @@ _meta_table = {
                 ''',
                 'additional_range4_low',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('additional-range4-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvp_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvp_Enum', 
+                    _MetaInfoClassMember('additional-range4-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvpEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvpEnum', 
                         [], [], 
                         '''                        Low value of forth additional range for tag
                         match
@@ -1942,7 +1942,7 @@ _meta_table = {
                 ''',
                 'additional_range5_low',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('additional-range5-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvp_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvp_Enum', 
+                    _MetaInfoClassMember('additional-range5-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvpEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvpEnum', 
                         [], [], 
                         '''                        Low value of fifth additional range for tag
                         match
@@ -1971,7 +1971,7 @@ _meta_table = {
                 ''',
                 'additional_range6_low',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('additional-range6-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvp_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvp_Enum', 
+                    _MetaInfoClassMember('additional-range6-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvpEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvpEnum', 
                         [], [], 
                         '''                        Low value of sixth additional range for tag
                         match
@@ -2000,7 +2000,7 @@ _meta_table = {
                 ''',
                 'additional_range7_low',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('additional-range7-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvp_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvp_Enum', 
+                    _MetaInfoClassMember('additional-range7-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvpEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvpEnum', 
                         [], [], 
                         '''                        Low value of seventh additional range for tag
                         match
@@ -2029,7 +2029,7 @@ _meta_table = {
                 ''',
                 'additional_range8_low',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('additional-range8-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvp_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvp_Enum', 
+                    _MetaInfoClassMember('additional-range8-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvpEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvpEnum', 
                         [], [], 
                         '''                        Low value of eighth additional range for tag
                         match
@@ -2082,7 +2082,7 @@ _meta_table = {
                 ''',
                 'inner_range1_low',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('inner-range1-low', REFERENCE_ENUM_CLASS, 'VlanTagOrAny_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrAny_Enum', 
+                    _MetaInfoClassMember('inner-range1-low', REFERENCE_ENUM_CLASS, 'VlanTagOrAnyEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrAnyEnum', 
                         [], [], 
                         '''                        Low value of first range for inner tag match
                         ''',
@@ -2095,7 +2095,7 @@ _meta_table = {
                         'inner_range1_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                 ]),
-            _MetaInfoClassMember('inner-tag-type', REFERENCE_ENUM_CLASS, 'Match_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'Match_Enum', 
+            _MetaInfoClassMember('inner-tag-type', REFERENCE_ENUM_CLASS, 'MatchEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'MatchEnum', 
                 [], [], 
                 '''                Type of tag for inner match (if present)
                 ''',
@@ -2114,7 +2114,7 @@ _meta_table = {
                 ''',
                 'outer_range1_high',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('outer-range1-high', REFERENCE_ENUM_CLASS, 'VlanTagOrNative_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrNative_Enum', 
+                    _MetaInfoClassMember('outer-range1-high', REFERENCE_ENUM_CLASS, 'VlanTagOrNativeEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrNativeEnum', 
                         [], [], 
                         '''                        High value of first range for outer tag match
                         ''',
@@ -2133,7 +2133,7 @@ _meta_table = {
                 ''',
                 'outer_range1_low',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('outer-range1-low', REFERENCE_ENUM_CLASS, 'VlanTagOrAny_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrAny_Enum', 
+                    _MetaInfoClassMember('outer-range1-low', REFERENCE_ENUM_CLASS, 'VlanTagOrAnyEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrAnyEnum', 
                         [], [], 
                         '''                        Low value of first range for outer tag match
                         ''',
@@ -2146,7 +2146,7 @@ _meta_table = {
                         'outer_range1_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                 ]),
-            _MetaInfoClassMember('outer-tag-type', REFERENCE_ENUM_CLASS, 'Match_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'Match_Enum', 
+            _MetaInfoClassMember('outer-tag-type', REFERENCE_ENUM_CLASS, 'MatchEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'MatchEnum', 
                 [], [], 
                 '''                Whether to match all unmatched packets,
                 untagged packets or tagged packets, and if
@@ -2155,7 +2155,7 @@ _meta_table = {
                 ''',
                 'outer_tag_type',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False),
-            _MetaInfoClassMember('payload-ethertype-match', REFERENCE_ENUM_CLASS, 'EthertypeMatch_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'EthertypeMatch_Enum', 
+            _MetaInfoClassMember('payload-ethertype-match', REFERENCE_ENUM_CLASS, 'EthertypeMatchEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'EthertypeMatchEnum', 
                 [], [], 
                 '''                Which payload ethertype values to match
                 ''',
@@ -2189,7 +2189,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.AisUp.Transmission',
             False, 
             [
-            _MetaInfoClassMember('ais-interval', REFERENCE_ENUM_CLASS, 'CfmAisInterval_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes', 'CfmAisInterval_Enum', 
+            _MetaInfoClassMember('ais-interval', REFERENCE_ENUM_CLASS, 'CfmAisIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes', 'CfmAisIntervalEnum', 
                 [], [], 
                 '''                AIS Interval
                 ''',
@@ -2229,7 +2229,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep.LossMeasurementCounters',
             False, 
             [
-            _MetaInfoClassMember('cfg-type', REFERENCE_ENUM_CLASS, 'CfmLmCountersCfg_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg', 'CfmLmCountersCfg_Enum', 
+            _MetaInfoClassMember('cfg-type', REFERENCE_ENUM_CLASS, 'CfmLmCountersCfgEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg', 'CfmLmCountersCfgEnum', 
                 [], [], 
                 '''                Aggregate, List, or Range
                 ''',
@@ -2489,65 +2489,65 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.Action',
             False, 
             [
-            _MetaInfoClassMember('capabilities-conflict', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnumEfd_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEfd_Enum', 
+            _MetaInfoClassMember('capabilities-conflict', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnumEfdEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEfdEnum', 
                 [], [], 
                 '''                Action to perform when a capabilities conflict
                 occurs
                 ''',
                 'capabilities_conflict',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('critical-event', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum_Enum', 
+            _MetaInfoClassMember('critical-event', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnumEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEnum', 
                 [], [], 
                 '''                Action to perform when a critical event occurs
                 ''',
                 'critical_event',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('discovery-timeout', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnumEfd_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEfd_Enum', 
+            _MetaInfoClassMember('discovery-timeout', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnumEfdEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEfdEnum', 
                 [], [], 
                 '''                Action to perform when discovery timeout
                 occurs
                 ''',
                 'discovery_timeout',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('dying-gasp', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum_Enum', 
+            _MetaInfoClassMember('dying-gasp', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnumEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEnum', 
                 [], [], 
                 '''                Action to perform when a dying gasp occurs
                 ''',
                 'dying_gasp',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('high-threshold', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum_Enum', 
+            _MetaInfoClassMember('high-threshold', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnumEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEnum', 
                 [], [], 
                 '''                Action to perform when a high-threshold event
                 occurs
                 ''',
                 'high_threshold',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('link-fault', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnumEfd_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEfd_Enum', 
+            _MetaInfoClassMember('link-fault', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnumEfdEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEfdEnum', 
                 [], [], 
                 '''                Action to perform when a link fault occurs
                 ''',
                 'link_fault',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('remote-loopback', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionPrimEnum_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionPrimEnum_Enum', 
+            _MetaInfoClassMember('remote-loopback', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionPrimEnumEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionPrimEnumEnum', 
                 [], [], 
                 '''                Action to perform when remote loopback is
                 entered or exited
                 ''',
                 'remote_loopback',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('session-down', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnumEfd_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEfd_Enum', 
+            _MetaInfoClassMember('session-down', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnumEfdEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEfdEnum', 
                 [], [], 
                 '''                Action to perform when a session comes down
                 ''',
                 'session_down',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('session-up', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionPrimEnum_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionPrimEnum_Enum', 
+            _MetaInfoClassMember('session-up', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionPrimEnumEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionPrimEnumEnum', 
                 [], [], 
                 '''                Action to perform when a session comes up
                 ''',
                 'session_up',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('wiring-conflict', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnumEfd_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEfd_Enum', 
+            _MetaInfoClassMember('wiring-conflict', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnumEfdEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEfdEnum', 
                 [], [], 
                 '''                Action to perform when a wiring conflict
                 occurs
@@ -2808,7 +2808,7 @@ _meta_table = {
                 ''',
                 'mib_retrieval',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'EtherLinkOamInterfaceRequireModeEnum_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamInterfaceRequireModeEnum_Enum', 
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'EtherLinkOamInterfaceRequireModeEnumEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamInterfaceRequireModeEnumEnum', 
                 [], [], 
                 '''                Possible required peer modes
                 ''',
@@ -2838,7 +2838,7 @@ _meta_table = {
                 ''',
                 'action',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('hello-interval', REFERENCE_ENUM_CLASS, 'EtherLinkOamInterfaceHelloIntervalEnum_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamInterfaceHelloIntervalEnum_Enum', 
+            _MetaInfoClassMember('hello-interval', REFERENCE_ENUM_CLASS, 'EtherLinkOamInterfaceHelloIntervalEnumEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamInterfaceHelloIntervalEnumEnum', 
                 [], [], 
                 '''                Possible Ethernet Link OAM hello intervals
                 ''',
@@ -2856,7 +2856,7 @@ _meta_table = {
                 ''',
                 'mib_retrieval',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'EtherLinkOamInterfaceModeEnum_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamInterfaceModeEnum_Enum', 
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'EtherLinkOamInterfaceModeEnumEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamInterfaceModeEnumEnum', 
                 [], [], 
                 '''                Possible Ethernet Link OAM modes
                 ''',
@@ -2923,7 +2923,7 @@ _meta_table = {
                 ''',
                 'ether_link_oam_enable',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('filtering', REFERENCE_ENUM_CLASS, 'Filtering_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg', 'Filtering_Enum', 
+            _MetaInfoClassMember('filtering', REFERENCE_ENUM_CLASS, 'FilteringEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg', 'FilteringEnum', 
                 [], [], 
                 '''                Ingress Ethernet frame filtering
                 ''',
@@ -2954,7 +2954,7 @@ _meta_table = {
                 ''',
                 'additional_range1_low',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('additional-range1-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvp_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvp_Enum', 
+                    _MetaInfoClassMember('additional-range1-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvpEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvpEnum', 
                         [], [], 
                         '''                        Low value of first additional range for tag
                         match
@@ -2983,7 +2983,7 @@ _meta_table = {
                 ''',
                 'additional_range2_low',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('additional-range2-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvp_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvp_Enum', 
+                    _MetaInfoClassMember('additional-range2-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvpEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvpEnum', 
                         [], [], 
                         '''                        Low value of second additional range for tag
                         match
@@ -3012,7 +3012,7 @@ _meta_table = {
                 ''',
                 'additional_range3_low',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('additional-range3-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvp_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvp_Enum', 
+                    _MetaInfoClassMember('additional-range3-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvpEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvpEnum', 
                         [], [], 
                         '''                        Low value of third additional range for tag
                         match
@@ -3041,7 +3041,7 @@ _meta_table = {
                 ''',
                 'additional_range4_low',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('additional-range4-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvp_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvp_Enum', 
+                    _MetaInfoClassMember('additional-range4-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvpEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvpEnum', 
                         [], [], 
                         '''                        Low value of forth additional range for tag
                         match
@@ -3070,7 +3070,7 @@ _meta_table = {
                 ''',
                 'additional_range5_low',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('additional-range5-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvp_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvp_Enum', 
+                    _MetaInfoClassMember('additional-range5-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvpEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvpEnum', 
                         [], [], 
                         '''                        Low value of fifth additional range for tag
                         match
@@ -3099,7 +3099,7 @@ _meta_table = {
                 ''',
                 'additional_range6_low',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('additional-range6-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvp_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvp_Enum', 
+                    _MetaInfoClassMember('additional-range6-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvpEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvpEnum', 
                         [], [], 
                         '''                        Low value of sixth additional range for tag
                         match
@@ -3128,7 +3128,7 @@ _meta_table = {
                 ''',
                 'additional_range7_low',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('additional-range7-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvp_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvp_Enum', 
+                    _MetaInfoClassMember('additional-range7-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvpEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvpEnum', 
                         [], [], 
                         '''                        Low value of seventh additional range for tag
                         match
@@ -3157,7 +3157,7 @@ _meta_table = {
                 ''',
                 'additional_range8_low',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('additional-range8-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvp_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvp_Enum', 
+                    _MetaInfoClassMember('additional-range8-low', REFERENCE_ENUM_CLASS, 'VlanTagOrCvpEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrCvpEnum', 
                         [], [], 
                         '''                        Low value of eighth additional range for tag
                         match
@@ -3210,7 +3210,7 @@ _meta_table = {
                 ''',
                 'inner_range1_low',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('inner-range1-low', REFERENCE_ENUM_CLASS, 'VlanTagOrAny_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrAny_Enum', 
+                    _MetaInfoClassMember('inner-range1-low', REFERENCE_ENUM_CLASS, 'VlanTagOrAnyEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrAnyEnum', 
                         [], [], 
                         '''                        Low value of first range for inner tag match
                         ''',
@@ -3223,7 +3223,7 @@ _meta_table = {
                         'inner_range1_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                 ]),
-            _MetaInfoClassMember('inner-tag-type', REFERENCE_ENUM_CLASS, 'Match_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'Match_Enum', 
+            _MetaInfoClassMember('inner-tag-type', REFERENCE_ENUM_CLASS, 'MatchEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'MatchEnum', 
                 [], [], 
                 '''                Type of tag for inner match (if present)
                 ''',
@@ -3242,7 +3242,7 @@ _meta_table = {
                 ''',
                 'outer_range1_high',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('outer-range1-high', REFERENCE_ENUM_CLASS, 'VlanTagOrNative_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrNative_Enum', 
+                    _MetaInfoClassMember('outer-range1-high', REFERENCE_ENUM_CLASS, 'VlanTagOrNativeEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrNativeEnum', 
                         [], [], 
                         '''                        High value of first range for outer tag match
                         ''',
@@ -3261,7 +3261,7 @@ _meta_table = {
                 ''',
                 'outer_range1_low',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('outer-range1-low', REFERENCE_ENUM_CLASS, 'VlanTagOrAny_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrAny_Enum', 
+                    _MetaInfoClassMember('outer-range1-low', REFERENCE_ENUM_CLASS, 'VlanTagOrAnyEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrAnyEnum', 
                         [], [], 
                         '''                        Low value of first range for outer tag match
                         ''',
@@ -3274,7 +3274,7 @@ _meta_table = {
                         'outer_range1_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                 ]),
-            _MetaInfoClassMember('outer-tag-type', REFERENCE_ENUM_CLASS, 'Match_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'Match_Enum', 
+            _MetaInfoClassMember('outer-tag-type', REFERENCE_ENUM_CLASS, 'MatchEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'MatchEnum', 
                 [], [], 
                 '''                Whether to match all unmatched packets,
                 untagged packets or tagged packets, and if
@@ -3283,7 +3283,7 @@ _meta_table = {
                 ''',
                 'outer_tag_type',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False),
-            _MetaInfoClassMember('payload-ethertype-match', REFERENCE_ENUM_CLASS, 'EthertypeMatch_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'EthertypeMatch_Enum', 
+            _MetaInfoClassMember('payload-ethertype-match', REFERENCE_ENUM_CLASS, 'EthertypeMatchEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'EthertypeMatchEnum', 
                 [], [], 
                 '''                Which payload ethertype values to match
                 ''',
@@ -3306,7 +3306,7 @@ _meta_table = {
                 ''',
                 'inner_vlan_id',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False),
-            _MetaInfoClassMember('outer-tag-type', REFERENCE_ENUM_CLASS, 'Vlan_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'Vlan_Enum', 
+            _MetaInfoClassMember('outer-tag-type', REFERENCE_ENUM_CLASS, 'VlanEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanEnum', 
                 [], [], 
                 '''                Type of outer tag
                 ''',
@@ -3329,7 +3329,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.EthernetService.Rewrite',
             False, 
             [
-            _MetaInfoClassMember('inner-tag-type', REFERENCE_ENUM_CLASS, 'Match_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'Match_Enum', 
+            _MetaInfoClassMember('inner-tag-type', REFERENCE_ENUM_CLASS, 'MatchEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'MatchEnum', 
                 [], [], 
                 '''                Type of innermost tag to be pushed
                 ''',
@@ -3341,7 +3341,7 @@ _meta_table = {
                 ''',
                 'inner_tag_value',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False),
-            _MetaInfoClassMember('outer-tag-type', REFERENCE_ENUM_CLASS, 'Match_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'Match_Enum', 
+            _MetaInfoClassMember('outer-tag-type', REFERENCE_ENUM_CLASS, 'MatchEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'MatchEnum', 
                 [], [], 
                 '''                Type of outermost tag to be pushed
                 ''',
@@ -3353,7 +3353,7 @@ _meta_table = {
                 ''',
                 'outer_tag_value',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False),
-            _MetaInfoClassMember('rewrite-type', REFERENCE_ENUM_CLASS, 'Rewrite_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'Rewrite_Enum', 
+            _MetaInfoClassMember('rewrite-type', REFERENCE_ENUM_CLASS, 'RewriteEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'RewriteEnum', 
                 [], [], 
                 '''                The type of rewrite to perform
                 ''',
@@ -3393,6 +3393,63 @@ _meta_table = {
             'Cisco-IOS-XR-l2-eth-infra-cfg',
             'ethernet-service',
             _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Ipv4Arp' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Ipv4Arp',
+            False, 
+            [
+            _MetaInfoClassMember('gratuitous-ignore', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Ignore the receipt of Gratuitous ARP packets on
+                the interface
+                ''',
+                'gratuitous_ignore',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
+            _MetaInfoClassMember('learning-disable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Disable the dynamic learning of ARP entries on
+                the interface
+                ''',
+                'learning_disable',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
+            _MetaInfoClassMember('learning-local', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable the dynamic learning of ARP entries(for
+                local subnet) on the interface
+                ''',
+                'learning_local',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
+            _MetaInfoClassMember('local-proxy-arp', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Local Proxy ARP configuration
+                ''',
+                'local_proxy_arp',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
+            _MetaInfoClassMember('proxy-arp', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Proxy ARP configuration
+                ''',
+                'proxy_arp',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
+            _MetaInfoClassMember('purge-delay', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Time to delay purging arp entries when the
+                interface goes down
+                ''',
+                'purge_delay',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
+            _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
+                [(30, 2144448000)], [], 
+                '''                Number of seconds for ARP cache timeout
+                ''',
+                'timeout',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-arp-cfg',
+            'ipv4arp',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg'],
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
@@ -3551,13 +3608,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Bgp.Qppb.Input',
             False, 
             [
-            _MetaInfoClassMember('destination', REFERENCE_ENUM_CLASS, 'Ipv4InterfaceQppb_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg', 'Ipv4InterfaceQppb_Enum', 
+            _MetaInfoClassMember('destination', REFERENCE_ENUM_CLASS, 'Ipv4InterfaceQppbEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg', 'Ipv4InterfaceQppbEnum', 
                 [], [], 
                 '''                QPPB configuration on destination
                 ''',
                 'destination',
                 'Cisco-IOS-XR-ipv4-io-cfg', False),
-            _MetaInfoClassMember('source', REFERENCE_ENUM_CLASS, 'Ipv4InterfaceQppb_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg', 'Ipv4InterfaceQppb_Enum', 
+            _MetaInfoClassMember('source', REFERENCE_ENUM_CLASS, 'Ipv4InterfaceQppbEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg', 'Ipv4InterfaceQppbEnum', 
                 [], [], 
                 '''                QPPB configuration on source
                 ''',
@@ -3725,21 +3782,21 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Verify',
             False, 
             [
-            _MetaInfoClassMember('default-ping', REFERENCE_ENUM_CLASS, 'Ipv4DefaultPing_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg', 'Ipv4DefaultPing_Enum', 
+            _MetaInfoClassMember('default-ping', REFERENCE_ENUM_CLASS, 'Ipv4DefaultPingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg', 'Ipv4DefaultPingEnum', 
                 [], [], 
                 '''                Allow default route to match when checking
                 source address
                 ''',
                 'default_ping',
                 'Cisco-IOS-XR-ipv4-io-cfg', False),
-            _MetaInfoClassMember('reachable', REFERENCE_ENUM_CLASS, 'Ipv4Reachable_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg', 'Ipv4Reachable_Enum', 
+            _MetaInfoClassMember('reachable', REFERENCE_ENUM_CLASS, 'Ipv4ReachableEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg', 'Ipv4ReachableEnum', 
                 [], [], 
                 '''                Source is reachable via any interface or
                 interface on which packet was received
                 ''',
                 'reachable',
                 'Cisco-IOS-XR-ipv4-io-cfg', False),
-            _MetaInfoClassMember('self-ping', REFERENCE_ENUM_CLASS, 'Ipv4SelfPing_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg', 'Ipv4SelfPing_Enum', 
+            _MetaInfoClassMember('self-ping', REFERENCE_ENUM_CLASS, 'Ipv4SelfPingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_cfg', 'Ipv4SelfPingEnum', 
                 [], [], 
                 '''                Allow router to ping itself (opens
                 vulnerability in verification)
@@ -4019,63 +4076,6 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.Ipv4arp' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Ipv4arp',
-            False, 
-            [
-            _MetaInfoClassMember('gratuitous-ignore', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Ignore the receipt of Gratuitous ARP packets on
-                the interface
-                ''',
-                'gratuitous_ignore',
-                'Cisco-IOS-XR-ipv4-arp-cfg', False),
-            _MetaInfoClassMember('learning-disable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Disable the dynamic learning of ARP entries on
-                the interface
-                ''',
-                'learning_disable',
-                'Cisco-IOS-XR-ipv4-arp-cfg', False),
-            _MetaInfoClassMember('learning-local', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable the dynamic learning of ARP entries(for
-                local subnet) on the interface
-                ''',
-                'learning_local',
-                'Cisco-IOS-XR-ipv4-arp-cfg', False),
-            _MetaInfoClassMember('local-proxy-arp', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Local Proxy ARP configuration
-                ''',
-                'local_proxy_arp',
-                'Cisco-IOS-XR-ipv4-arp-cfg', False),
-            _MetaInfoClassMember('proxy-arp', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Proxy ARP configuration
-                ''',
-                'proxy_arp',
-                'Cisco-IOS-XR-ipv4-arp-cfg', False),
-            _MetaInfoClassMember('purge-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Time to delay purging arp entries when the
-                interface goes down
-                ''',
-                'purge_delay',
-                'Cisco-IOS-XR-ipv4-arp-cfg', False),
-            _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [(30, 2144448000)], [], 
-                '''                Number of seconds for ARP cache timeout
-                ''',
-                'timeout',
-                'Cisco-IOS-XR-ipv4-arp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-arp-cfg',
-            'ipv4arp',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
     'InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.DuplicateAddressDetection' : {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.DuplicateAddressDetection',
             False, 
@@ -4121,7 +4121,7 @@ _meta_table = {
                 ''',
                 'expiry_minute',
                 'Cisco-IOS-XR-ipv6-nd-cfg', False),
-            _MetaInfoClassMember('expiry-month', REFERENCE_ENUM_CLASS, 'Ipv6ndMonth_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg', 'Ipv6ndMonth_Enum', 
+            _MetaInfoClassMember('expiry-month', REFERENCE_ENUM_CLASS, 'Ipv6NdMonthEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg', 'Ipv6NdMonthEnum', 
                 [], [], 
                 '''                Month to expire valid lifetime
                 ''',
@@ -4171,7 +4171,7 @@ _meta_table = {
                 ''',
                 'pref_expiry_minute',
                 'Cisco-IOS-XR-ipv6-nd-cfg', False),
-            _MetaInfoClassMember('pref-expiry-month', REFERENCE_ENUM_CLASS, 'Ipv6ndMonth_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg', 'Ipv6ndMonth_Enum', 
+            _MetaInfoClassMember('pref-expiry-month', REFERENCE_ENUM_CLASS, 'Ipv6NdMonthEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg', 'Ipv6NdMonthEnum', 
                 [], [], 
                 '''                Month to expire preferred lifetime
                 ''',
@@ -4345,19 +4345,19 @@ _meta_table = {
                 ''',
                 'redirect',
                 'Cisco-IOS-XR-ipv6-nd-cfg', False),
-            _MetaInfoClassMember('router-preference', REFERENCE_ENUM_CLASS, 'Ipv6NdRouterPref_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg', 'Ipv6NdRouterPref_Enum', 
+            _MetaInfoClassMember('router-preference', REFERENCE_ENUM_CLASS, 'Ipv6NdRouterPrefEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg', 'Ipv6NdRouterPrefEnum', 
                 [], [], 
                 '''                RA Router Preference
                 ''',
                 'router_preference',
                 'Cisco-IOS-XR-ipv6-nd-cfg', False),
-            _MetaInfoClassMember('srp-multicast-encapsulation', REFERENCE_ENUM_CLASS, 'Ipv6srpEncapsulation_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg', 'Ipv6srpEncapsulation_Enum', 
+            _MetaInfoClassMember('srp-multicast-encapsulation', REFERENCE_ENUM_CLASS, 'Ipv6SrpEncapsulationEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg', 'Ipv6SrpEncapsulationEnum', 
                 [], [], 
                 '''                Set SRP multicast prefer encapsulation
                 ''',
                 'srp_multicast_encapsulation',
                 'Cisco-IOS-XR-ipv6-nd-cfg', False),
-            _MetaInfoClassMember('srp-unicast-encapsulation', REFERENCE_ENUM_CLASS, 'Ipv6srpEncapsulation_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg', 'Ipv6srpEncapsulation_Enum', 
+            _MetaInfoClassMember('srp-unicast-encapsulation', REFERENCE_ENUM_CLASS, 'Ipv6SrpEncapsulationEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg', 'Ipv6SrpEncapsulationEnum', 
                 [], [], 
                 '''                Set SRP unicast prefer encapsulation
                 ''',
@@ -4685,13 +4685,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.BgpQosPolicyPropagation',
             False, 
             [
-            _MetaInfoClassMember('destination', REFERENCE_ENUM_CLASS, 'Ipv6Qppb_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg', 'Ipv6Qppb_Enum', 
+            _MetaInfoClassMember('destination', REFERENCE_ENUM_CLASS, 'Ipv6QppbEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg', 'Ipv6QppbEnum', 
                 [], [], 
                 '''                QPPB configuration on destination
                 ''',
                 'destination',
                 'Cisco-IOS-XR-ipv6-ma-cfg', False),
-            _MetaInfoClassMember('source', REFERENCE_ENUM_CLASS, 'Ipv6Qppb_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg', 'Ipv6Qppb_Enum', 
+            _MetaInfoClassMember('source', REFERENCE_ENUM_CLASS, 'Ipv6QppbEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg', 'Ipv6QppbEnum', 
                 [], [], 
                 '''                QPPB configuration on source
                 ''',
@@ -4742,19 +4742,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Verify',
             False, 
             [
-            _MetaInfoClassMember('default-ping', REFERENCE_ENUM_CLASS, 'Ipv6DefaultPing_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg', 'Ipv6DefaultPing_Enum', 
+            _MetaInfoClassMember('default-ping', REFERENCE_ENUM_CLASS, 'Ipv6DefaultPingEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg', 'Ipv6DefaultPingEnum', 
                 [], [], 
                 '''                Allow Default Route
                 ''',
                 'default_ping',
                 'Cisco-IOS-XR-ipv6-ma-cfg', False),
-            _MetaInfoClassMember('reachable', REFERENCE_ENUM_CLASS, 'Ipv6Reachable_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg', 'Ipv6Reachable_Enum', 
+            _MetaInfoClassMember('reachable', REFERENCE_ENUM_CLASS, 'Ipv6ReachableEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg', 'Ipv6ReachableEnum', 
                 [], [], 
                 '''                Source Reachable Interface
                 ''',
                 'reachable',
                 'Cisco-IOS-XR-ipv6-ma-cfg', False),
-            _MetaInfoClassMember('self-ping', REFERENCE_ENUM_CLASS, 'Ipv6SelfPing_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg', 'Ipv6SelfPing_Enum', 
+            _MetaInfoClassMember('self-ping', REFERENCE_ENUM_CLASS, 'Ipv6SelfPingEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_cfg', 'Ipv6SelfPingEnum', 
                 [], [], 
                 '''                Allow Self Ping
                 ''',
@@ -5037,7 +5037,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.L2Transport.L2EthernetFeatures',
             False, 
             [
-            _MetaInfoClassMember('egress-filtering', REFERENCE_ENUM_CLASS, 'EgressFiltering_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg', 'EgressFiltering_Enum', 
+            _MetaInfoClassMember('egress-filtering', REFERENCE_ENUM_CLASS, 'EgressFilteringEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg', 'EgressFilteringEnum', 
                 [], [], 
                 '''                Egress Ethernet filtering
                 ''',
@@ -5061,13 +5061,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.L2Transport.L2Protocols.L2Protocol',
             False, 
             [
-            _MetaInfoClassMember('l2-protocol-name', REFERENCE_ENUM_CLASS, 'L2ProtocolName_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg', 'L2ProtocolName_Enum', 
+            _MetaInfoClassMember('l2-protocol-name', REFERENCE_ENUM_CLASS, 'L2ProtocolNameEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg', 'L2ProtocolNameEnum', 
                 [], [], 
                 '''                Protocol name
                 ''',
                 'l2_protocol_name',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', True),
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'L2ProtocolMode_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg', 'L2ProtocolMode_Enum', 
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'L2ProtocolModeEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg', 'L2ProtocolModeEnum', 
                 [], [], 
                 '''                How to handle the protocol's packets
                 ''',
@@ -5110,7 +5110,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.L2Transport.SpanMonitorSessions.SpanMonitorSession.Attachment',
             False, 
             [
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'SpanTrafficDirection_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg', 'SpanTrafficDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'SpanTrafficDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg', 'SpanTrafficDirectionEnum', 
                 [], [], 
                 '''                Specify the direction of traffic to replicate
                 (optional)
@@ -5140,7 +5140,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.L2Transport.SpanMonitorSessions.SpanMonitorSession',
             False, 
             [
-            _MetaInfoClassMember('session-class', REFERENCE_ENUM_CLASS, 'SpanSessionClass_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClass_Enum', 
+            _MetaInfoClassMember('session-class', REFERENCE_ENUM_CLASS, 'SpanSessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClassEnum', 
                 [], [], 
                 '''                Session Class
                 ''',
@@ -5165,7 +5165,7 @@ _meta_table = {
                 ''',
                 'mirror_first',
                 'Cisco-IOS-XR-Ethernet-SPAN-cfg', False),
-            _MetaInfoClassMember('mirror-interval', REFERENCE_ENUM_CLASS, 'SpanMirrorInterval_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg', 'SpanMirrorInterval_Enum', 
+            _MetaInfoClassMember('mirror-interval', REFERENCE_ENUM_CLASS, 'SpanMirrorIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg', 'SpanMirrorIntervalEnum', 
                 [], [], 
                 '''                Specify the mirror interval
                 ''',
@@ -5266,7 +5266,7 @@ _meta_table = {
                 ''',
                 'cisco_ext',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
-            _MetaInfoClassMember('cisco-ext-type', REFERENCE_ENUM_CLASS, 'BundleCiscoExtTypes_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg', 'BundleCiscoExtTypes_Enum', 
+            _MetaInfoClassMember('cisco-ext-type', REFERENCE_ENUM_CLASS, 'BundleCiscoExtTypesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg', 'BundleCiscoExtTypesEnum', 
                 [], [], 
                 '''                Specific Cisco extension to enable / disable
                 ''',
@@ -5315,7 +5315,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Lacp',
             False, 
             [
-            _MetaInfoClassMember('churn-logging', REFERENCE_ENUM_CLASS, 'ChurnLogging_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg', 'ChurnLogging_Enum', 
+            _MetaInfoClassMember('churn-logging', REFERENCE_ENUM_CLASS, 'ChurnLoggingEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg', 'ChurnLoggingEnum', 
                 [], [], 
                 '''                Log churn notifications on the specified
                 system(s)
@@ -5356,7 +5356,7 @@ _meta_table = {
                 ''',
                 'period_short',
                 'Cisco-IOS-XR-bundlemgr-cfg', False, [
-                    _MetaInfoClassMember('period-short', REFERENCE_ENUM_CLASS, 'PeriodShortEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg', 'PeriodShortEnum_Enum', 
+                    _MetaInfoClassMember('period-short', REFERENCE_ENUM_CLASS, 'PeriodShortEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg', 'PeriodShortEnumEnum', 
                         [], [], 
                         '''                        LACP period to request from the partner (LACP
                         standard short period, or rate in milliseconds
@@ -5516,7 +5516,7 @@ _meta_table = {
                 ''',
                 'link_threshold',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
-            _MetaInfoClassMember('maximize-by', REFERENCE_ENUM_CLASS, 'MlacpMaximizeParameter_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg', 'MlacpMaximizeParameter_Enum', 
+            _MetaInfoClassMember('maximize-by', REFERENCE_ENUM_CLASS, 'MlacpMaximizeParameterEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg', 'MlacpMaximizeParameterEnum', 
                 [], [], 
                 '''                The paramenter which should be maximized
                 ''',
@@ -5561,7 +5561,7 @@ _meta_table = {
                 ''',
                 'recovery_delay',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
-            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'MlacpSwitchover_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg', 'MlacpSwitchover_Enum', 
+            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'MlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_cfg', 'MlacpSwitchoverEnum', 
                 [], [], 
                 '''                Set the type of mLACP switchover to use for
                 this bundle
@@ -5615,7 +5615,7 @@ _meta_table = {
                 ''',
                 'class_or_pool_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('dste-type', REFERENCE_ENUM_CLASS, 'MplsTeBandwidthDste_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBandwidthDste_Enum', 
+            _MetaInfoClassMember('dste-type', REFERENCE_ENUM_CLASS, 'MplsTeBandwidthDsteEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBandwidthDsteEnum', 
                 [], [], 
                 '''                DSTE-standard flag
                 ''',
@@ -5638,7 +5638,7 @@ _meta_table = {
                 ''',
                 'preference_level',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
-            _MetaInfoClassMember('lockdown', REFERENCE_ENUM_CLASS, 'MplsTePathOptionProperty_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionProperty_Enum', 
+            _MetaInfoClassMember('lockdown', REFERENCE_ENUM_CLASS, 'MplsTePathOptionPropertyEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionPropertyEnum', 
                 [], [], 
                 '''                Path option properties
                 ''',
@@ -5658,13 +5658,13 @@ _meta_table = {
                 ''',
                 'path_name',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsTePathOption_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOption_Enum', 
+            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsTePathOptionEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionEnum', 
                 [], [], 
                 '''                The type of the path option
                 ''',
                 'path_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('verbatim', REFERENCE_ENUM_CLASS, 'MplsTePathOptionProperty_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionProperty_Enum', 
+            _MetaInfoClassMember('verbatim', REFERENCE_ENUM_CLASS, 'MplsTePathOptionPropertyEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionPropertyEnum', 
                 [], [], 
                 '''                Path option properties
                 ''',
@@ -5694,8 +5694,8 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.S2lLogging' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.S2lLogging',
+    'InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.S2LLogging' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.S2LLogging',
             False, 
             [
             _MetaInfoClassMember('s2l-insufficient-bw-messsage', ATTRIBUTE, 'Empty' , None, None, 
@@ -5760,7 +5760,7 @@ _meta_table = {
                 ''',
                 'path_options',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('s2l-logging', REFERENCE_CLASS, 'S2lLogging' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.S2lLogging', 
+            _MetaInfoClassMember('s2l-logging', REFERENCE_CLASS, 'S2LLogging' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.S2LLogging', 
                 [], [], 
                 '''                Log tunnel destination s2l messages
                 ''',
@@ -5919,7 +5919,7 @@ _meta_table = {
                 ''',
                 'affinity9',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
-            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinity_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity_Enum', 
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
                 [], [], 
                 '''                The type of the affinity entry
                 ''',
@@ -6018,7 +6018,7 @@ _meta_table = {
                 ''',
                 'new_style_affinities',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-selection-metric', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionMetric_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetric_Enum', 
+            _MetaInfoClassMember('path-selection-metric', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionMetricEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetricEnum', 
                 [], [], 
                 '''                Path selection configuration for this specific
                 tunnel
@@ -6502,7 +6502,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures.Cfm',
             False, 
             [
-            _MetaInfoClassMember('continuity-check-interval', REFERENCE_ENUM_CLASS, 'CfmCcmInterval_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes', 'CfmCcmInterval_Enum', 
+            _MetaInfoClassMember('continuity-check-interval', REFERENCE_ENUM_CLASS, 'CfmCcmIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes', 'CfmCcmIntervalEnum', 
                 [], [], 
                 '''                Continuity-Check Interval
                 ''',
@@ -6810,13 +6810,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Optics.OpticsDwdmCarrier',
             False, 
             [
-            _MetaInfoClassMember('grid-type', REFERENCE_ENUM_CLASS, 'OpticsDwdmCarrierGrid_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg', 'OpticsDwdmCarrierGrid_Enum', 
+            _MetaInfoClassMember('grid-type', REFERENCE_ENUM_CLASS, 'OpticsDwdmCarrierGridEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg', 'OpticsDwdmCarrierGridEnum', 
                 [], [], 
                 '''                DWDM Channel Grid Type
                 ''',
                 'grid_type',
                 'Cisco-IOS-XR-controller-optics-cfg', False),
-            _MetaInfoClassMember('param-type', REFERENCE_ENUM_CLASS, 'OpticsDwdmCarrierParam_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg', 'OpticsDwdmCarrierParam_Enum', 
+            _MetaInfoClassMember('param-type', REFERENCE_ENUM_CLASS, 'OpticsDwdmCarrierParamEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg', 'OpticsDwdmCarrierParamEnum', 
                 [], [], 
                 '''                DWDM Channel Parameter Type ITU-Channel or
                 Frequency or Wavelength
@@ -6912,7 +6912,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Optics.RxThresholds.RxThreshold',
             False, 
             [
-            _MetaInfoClassMember('rx-threshold-type', REFERENCE_ENUM_CLASS, 'Threshold_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg', 'Threshold_Enum', 
+            _MetaInfoClassMember('rx-threshold-type', REFERENCE_ENUM_CLASS, 'ThresholdEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg', 'ThresholdEnum', 
                 [], [], 
                 '''                Low or high rx threshold
                 ''',
@@ -6952,7 +6952,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Optics.TxThresholds.TxThreshold',
             False, 
             [
-            _MetaInfoClassMember('tx-threshold-type', REFERENCE_ENUM_CLASS, 'Threshold_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg', 'Threshold_Enum', 
+            _MetaInfoClassMember('tx-threshold-type', REFERENCE_ENUM_CLASS, 'ThresholdEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg', 'ThresholdEnum', 
                 [], [], 
                 '''                Low or high tx threshold
                 ''',
@@ -7044,7 +7044,7 @@ _meta_table = {
                 ''',
                 'optics_lbc_high_threshold',
                 'Cisco-IOS-XR-controller-optics-cfg', False),
-            _MetaInfoClassMember('optics-loopback', REFERENCE_ENUM_CLASS, 'OpticsLoopback_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg', 'OpticsLoopback_Enum', 
+            _MetaInfoClassMember('optics-loopback', REFERENCE_ENUM_CLASS, 'OpticsLoopbackEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_optics_cfg', 'OpticsLoopbackEnum', 
                 [], [], 
                 '''                Configure optics loopback mode 
                 ''',
@@ -7187,7 +7187,7 @@ _meta_table = {
                 ''',
                 'hex_string',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
-            _MetaInfoClassMember('string-type', REFERENCE_ENUM_CLASS, 'OtnExpTtiTypeFull_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnExpTtiTypeFull_Enum', 
+            _MetaInfoClassMember('string-type', REFERENCE_ENUM_CLASS, 'OtnExpTtiTypeFullEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnExpTtiTypeFullEnum', 
                 [], [], 
                 '''                TTI string type (FULL ASCII or  DAPI ASCII or
                 SAPI ASCII or hex format or OS ASCII or OS
@@ -7212,7 +7212,7 @@ _meta_table = {
                 ''',
                 'sapi_ascii_string',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
-            _MetaInfoClassMember('string-type', REFERENCE_ENUM_CLASS, 'OtnExpTtiTypeSapi_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnExpTtiTypeSapi_Enum', 
+            _MetaInfoClassMember('string-type', REFERENCE_ENUM_CLASS, 'OtnExpTtiTypeSapiEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnExpTtiTypeSapiEnum', 
                 [], [], 
                 '''                TTI string type (FULL ASCII or  DAPI ASCII or
                 SAPI ASCII or hex format or OS ASCII or OS
@@ -7237,7 +7237,7 @@ _meta_table = {
                 ''',
                 'dapi_ascii_string',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
-            _MetaInfoClassMember('string-type', REFERENCE_ENUM_CLASS, 'OtnExpTtiTypeDapi_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnExpTtiTypeDapi_Enum', 
+            _MetaInfoClassMember('string-type', REFERENCE_ENUM_CLASS, 'OtnExpTtiTypeDapiEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnExpTtiTypeDapiEnum', 
                 [], [], 
                 '''                TTI string type (FULL ASCII or  DAPI ASCII or
                 SAPI ASCII or hex format or OS ASCII or OS
@@ -7268,7 +7268,7 @@ _meta_table = {
                 ''',
                 'oshex_string',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
-            _MetaInfoClassMember('string-type', REFERENCE_ENUM_CLASS, 'OtnExpTtiTypeOs_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnExpTtiTypeOs_Enum', 
+            _MetaInfoClassMember('string-type', REFERENCE_ENUM_CLASS, 'OtnExpTtiTypeOsEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnExpTtiTypeOsEnum', 
                 [], [], 
                 '''                TTI string type (FULL ASCII or  DAPI ASCII or
                 SAPI ASCII or hex format or OS ASCII or OS
@@ -7300,7 +7300,7 @@ _meta_table = {
                 ''',
                 'hex_string',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
-            _MetaInfoClassMember('string-type', REFERENCE_ENUM_CLASS, 'OtnSendTtiTypeFull_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnSendTtiTypeFull_Enum', 
+            _MetaInfoClassMember('string-type', REFERENCE_ENUM_CLASS, 'OtnSendTtiTypeFullEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnSendTtiTypeFullEnum', 
                 [], [], 
                 '''                TTI string type (FULL ASCII or  DAPI ASCII or
                 SAPI ASCII or hex format or OS ASCII or OS
@@ -7325,7 +7325,7 @@ _meta_table = {
                 ''',
                 'sapi_ascii_string',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
-            _MetaInfoClassMember('string-type', REFERENCE_ENUM_CLASS, 'OtnSendTtiTypeSapi_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnSendTtiTypeSapi_Enum', 
+            _MetaInfoClassMember('string-type', REFERENCE_ENUM_CLASS, 'OtnSendTtiTypeSapiEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnSendTtiTypeSapiEnum', 
                 [], [], 
                 '''                TTI string type (FULL ASCII or  DAPI ASCII or
                 SAPI ASCII or hex format or OS ASCII or OS
@@ -7350,7 +7350,7 @@ _meta_table = {
                 ''',
                 'dapi_ascii_string',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
-            _MetaInfoClassMember('string-type', REFERENCE_ENUM_CLASS, 'OtnSendTtiTypeDapi_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnSendTtiTypeDapi_Enum', 
+            _MetaInfoClassMember('string-type', REFERENCE_ENUM_CLASS, 'OtnSendTtiTypeDapiEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnSendTtiTypeDapiEnum', 
                 [], [], 
                 '''                TTI string type (FULL ASCII or  DAPI ASCII or
                 SAPI ASCII or hex format or OS ASCII or OS
@@ -7381,7 +7381,7 @@ _meta_table = {
                 ''',
                 'oshex_string',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
-            _MetaInfoClassMember('string-type', REFERENCE_ENUM_CLASS, 'OtnSendTtiTypeOs_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnSendTtiTypeOs_Enum', 
+            _MetaInfoClassMember('string-type', REFERENCE_ENUM_CLASS, 'OtnSendTtiTypeOsEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnSendTtiTypeOsEnum', 
                 [], [], 
                 '''                TTI string type (FULL ASCII or  DAPI ASCII or
                 SAPI ASCII or hex format or OS ASCII or OS
@@ -7545,7 +7545,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Otu',
             False, 
             [
-            _MetaInfoClassMember('fec', REFERENCE_ENUM_CLASS, 'OtuForwardErrorCorrection_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtuForwardErrorCorrection_Enum', 
+            _MetaInfoClassMember('fec', REFERENCE_ENUM_CLASS, 'OtuForwardErrorCorrectionEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtuForwardErrorCorrectionEnum', 
                 [], [], 
                 '''                Configure forward error correction
                 ''',
@@ -7557,7 +7557,7 @@ _meta_table = {
                 ''',
                 'gcc',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
-            _MetaInfoClassMember('loopback', REFERENCE_ENUM_CLASS, 'OtnLoopback_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnLoopback_Enum', 
+            _MetaInfoClassMember('loopback', REFERENCE_ENUM_CLASS, 'OtnLoopbackEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnLoopbackEnum', 
                 [], [], 
                 '''                Type of Loopback
                 ''',
@@ -7620,7 +7620,7 @@ _meta_table = {
                 ''',
                 'otn_send_ttitcmos',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
-            _MetaInfoClassMember('performance-monitoring', REFERENCE_ENUM_CLASS, 'OtnPerMon_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnPerMon_Enum', 
+            _MetaInfoClassMember('performance-monitoring', REFERENCE_ENUM_CLASS, 'OtnPerMonEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnPerMonEnum', 
                 [], [], 
                 '''                Configure performance monitoring
                 ''',
@@ -7638,7 +7638,7 @@ _meta_table = {
                 ''',
                 'sd',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
-            _MetaInfoClassMember('secondary-admin-state', REFERENCE_ENUM_CLASS, 'OtnSecAdminState_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnSecAdminState_Enum', 
+            _MetaInfoClassMember('secondary-admin-state', REFERENCE_ENUM_CLASS, 'OtnSecAdminStateEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_cfg', 'OtnSecAdminStateEnum', 
                 [], [], 
                 '''                Configure secondary admin state 
                 ''',
@@ -7701,7 +7701,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24.Hour24Ether.Hour24EtherReports.Hour24EtherReport',
             False, 
             [
-            _MetaInfoClassMember('ether-report', REFERENCE_ENUM_CLASS, 'EtherReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'EtherReport_Enum', 
+            _MetaInfoClassMember('ether-report', REFERENCE_ENUM_CLASS, 'EtherReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'EtherReportEnum', 
                 [], [], 
                 '''                Ether Report Type
                 ''',
@@ -7735,7 +7735,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24.Hour24Ether.Hour24EtherThresholds.Hour24EtherThreshold',
             False, 
             [
-            _MetaInfoClassMember('ether-threshold', REFERENCE_ENUM_CLASS, 'EtherThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'EtherThreshold_Enum', 
+            _MetaInfoClassMember('ether-threshold', REFERENCE_ENUM_CLASS, 'EtherThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'EtherThresholdEnum', 
                 [], [], 
                 '''                Ether Threshold Type
                 ''',
@@ -7815,7 +7815,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether.Minute15EtherReports.Minute15EtherReport',
             False, 
             [
-            _MetaInfoClassMember('ether-report', REFERENCE_ENUM_CLASS, 'EtherReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'EtherReport_Enum', 
+            _MetaInfoClassMember('ether-report', REFERENCE_ENUM_CLASS, 'EtherReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'EtherReportEnum', 
                 [], [], 
                 '''                Ether Report Type
                 ''',
@@ -7849,7 +7849,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether.Minute15EtherThresholds.Minute15EtherThreshold',
             False, 
             [
-            _MetaInfoClassMember('ether-threshold', REFERENCE_ENUM_CLASS, 'EtherThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'EtherThreshold_Enum', 
+            _MetaInfoClassMember('ether-threshold', REFERENCE_ENUM_CLASS, 'EtherThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'EtherThresholdEnum', 
                 [], [], 
                 '''                Ether Threshold Type
                 ''',
@@ -7925,17 +7925,17 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcReports.HoVcHour24hoVcReport' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcReports.HoVcHour24hoVcReport',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcReports.HoVcHour24HoVcReport' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcReports.HoVcHour24HoVcReport',
             False, 
             [
-            _MetaInfoClassMember('ho-vc-report', REFERENCE_ENUM_CLASS, 'HoVcReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'HoVcReport_Enum', 
+            _MetaInfoClassMember('ho-vc-report', REFERENCE_ENUM_CLASS, 'HoVcReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'HoVcReportEnum', 
                 [], [], 
                 '''                ho_vc Report Type
                 ''',
                 'ho_vc_report',
                 'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'Report_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'Report_Enum', 
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'ReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'ReportEnum', 
                 [], [], 
                 '''                ho_vc Report
                 ''',
@@ -7948,11 +7948,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcReports' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcReports',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcReports' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcReports',
             False, 
             [
-            _MetaInfoClassMember('ho-vc-hour24ho-vc-report', REFERENCE_LIST, 'HoVcHour24hoVcReport' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcReports.HoVcHour24hoVcReport', 
+            _MetaInfoClassMember('ho-vc-hour24ho-vc-report', REFERENCE_LIST, 'HoVcHour24HoVcReport' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcReports.HoVcHour24HoVcReport', 
                 [], [], 
                 '''                none
                 ''',
@@ -7965,11 +7965,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcThresholds.HoVcHour24hoVcThreshold' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcThresholds.HoVcHour24hoVcThreshold',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcThresholds.HoVcHour24HoVcThreshold' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcThresholds.HoVcHour24HoVcThreshold',
             False, 
             [
-            _MetaInfoClassMember('ho-vc-threshold', REFERENCE_ENUM_CLASS, 'HoVcThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'HoVcThreshold_Enum', 
+            _MetaInfoClassMember('ho-vc-threshold', REFERENCE_ENUM_CLASS, 'HoVcThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'HoVcThresholdEnum', 
                 [], [], 
                 '''                ho_vc Threshold Type
                 ''',
@@ -7988,11 +7988,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcThresholds' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcThresholds',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcThresholds' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcThresholds',
             False, 
             [
-            _MetaInfoClassMember('ho-vc-hour24ho-vc-threshold', REFERENCE_LIST, 'HoVcHour24hoVcThreshold' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcThresholds.HoVcHour24hoVcThreshold', 
+            _MetaInfoClassMember('ho-vc-hour24ho-vc-threshold', REFERENCE_LIST, 'HoVcHour24HoVcThreshold' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcThresholds.HoVcHour24HoVcThreshold', 
                 [], [], 
                 '''                none
                 ''',
@@ -8005,17 +8005,17 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc',
             False, 
             [
-            _MetaInfoClassMember('ho-vc-hour24ho-vc-reports', REFERENCE_CLASS, 'HoVcHour24hoVcReports' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcReports', 
+            _MetaInfoClassMember('ho-vc-hour24ho-vc-reports', REFERENCE_CLASS, 'HoVcHour24HoVcReports' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcReports', 
                 [], [], 
                 '''                set ho_vc TCA reporting status
                 ''',
                 'ho_vc_hour24ho_vc_reports',
                 'Cisco-IOS-XR-pmengine-cfg', False),
-            _MetaInfoClassMember('ho-vc-hour24ho-vc-thresholds', REFERENCE_CLASS, 'HoVcHour24hoVcThresholds' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcThresholds', 
+            _MetaInfoClassMember('ho-vc-hour24ho-vc-thresholds', REFERENCE_CLASS, 'HoVcHour24HoVcThresholds' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcThresholds', 
                 [], [], 
                 '''                Configure threshold on ho_vc parameters
                 ''',
@@ -8032,7 +8032,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24',
             False, 
             [
-            _MetaInfoClassMember('ho-vc-hour24ho-vc', REFERENCE_CLASS, 'HoVcHour24hoVc' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc', 
+            _MetaInfoClassMember('ho-vc-hour24ho-vc', REFERENCE_CLASS, 'HoVcHour24HoVc' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc', 
                 [], [], 
                 '''                Configure ho_vc performance monitoring
                 ''',
@@ -8045,17 +8045,17 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcReports.HoVcMinute15hoVcReport' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcReports.HoVcMinute15hoVcReport',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcReports.HoVcMinute15HoVcReport' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcReports.HoVcMinute15HoVcReport',
             False, 
             [
-            _MetaInfoClassMember('ho-vc-report', REFERENCE_ENUM_CLASS, 'HoVcReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'HoVcReport_Enum', 
+            _MetaInfoClassMember('ho-vc-report', REFERENCE_ENUM_CLASS, 'HoVcReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'HoVcReportEnum', 
                 [], [], 
                 '''                ho_vc Report Type
                 ''',
                 'ho_vc_report',
                 'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'Report_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'Report_Enum', 
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'ReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'ReportEnum', 
                 [], [], 
                 '''                ho_vc Report
                 ''',
@@ -8068,11 +8068,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcReports' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcReports',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcReports' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcReports',
             False, 
             [
-            _MetaInfoClassMember('ho-vc-minute15ho-vc-report', REFERENCE_LIST, 'HoVcMinute15hoVcReport' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcReports.HoVcMinute15hoVcReport', 
+            _MetaInfoClassMember('ho-vc-minute15ho-vc-report', REFERENCE_LIST, 'HoVcMinute15HoVcReport' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcReports.HoVcMinute15HoVcReport', 
                 [], [], 
                 '''                none
                 ''',
@@ -8085,11 +8085,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcThresholds.HoVcMinute15hoVcThreshold' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcThresholds.HoVcMinute15hoVcThreshold',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcThresholds.HoVcMinute15HoVcThreshold' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcThresholds.HoVcMinute15HoVcThreshold',
             False, 
             [
-            _MetaInfoClassMember('ho-vc-threshold', REFERENCE_ENUM_CLASS, 'HoVcThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'HoVcThreshold_Enum', 
+            _MetaInfoClassMember('ho-vc-threshold', REFERENCE_ENUM_CLASS, 'HoVcThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'HoVcThresholdEnum', 
                 [], [], 
                 '''                ho_vc Threshold Type
                 ''',
@@ -8108,11 +8108,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcThresholds' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcThresholds',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcThresholds' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcThresholds',
             False, 
             [
-            _MetaInfoClassMember('ho-vc-minute15ho-vc-threshold', REFERENCE_LIST, 'HoVcMinute15hoVcThreshold' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcThresholds.HoVcMinute15hoVcThreshold', 
+            _MetaInfoClassMember('ho-vc-minute15ho-vc-threshold', REFERENCE_LIST, 'HoVcMinute15HoVcThreshold' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcThresholds.HoVcMinute15HoVcThreshold', 
                 [], [], 
                 '''                none
                 ''',
@@ -8125,17 +8125,17 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc',
             False, 
             [
-            _MetaInfoClassMember('ho-vc-minute15ho-vc-reports', REFERENCE_CLASS, 'HoVcMinute15hoVcReports' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcReports', 
+            _MetaInfoClassMember('ho-vc-minute15ho-vc-reports', REFERENCE_CLASS, 'HoVcMinute15HoVcReports' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcReports', 
                 [], [], 
                 '''                set ho_vc TCA reporting status
                 ''',
                 'ho_vc_minute15ho_vc_reports',
                 'Cisco-IOS-XR-pmengine-cfg', False),
-            _MetaInfoClassMember('ho-vc-minute15ho-vc-thresholds', REFERENCE_CLASS, 'HoVcMinute15hoVcThresholds' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcThresholds', 
+            _MetaInfoClassMember('ho-vc-minute15ho-vc-thresholds', REFERENCE_CLASS, 'HoVcMinute15HoVcThresholds' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcThresholds', 
                 [], [], 
                 '''                Configure threshold on ho_vc parameters
                 ''',
@@ -8152,7 +8152,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15',
             False, 
             [
-            _MetaInfoClassMember('ho-vc-minute15ho-vc', REFERENCE_CLASS, 'HoVcMinute15hoVc' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc', 
+            _MetaInfoClassMember('ho-vc-minute15ho-vc', REFERENCE_CLASS, 'HoVcMinute15HoVc' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc', 
                 [], [], 
                 '''                Configure ho_vc performance monitoring
                 ''',
@@ -8165,11 +8165,114 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecReports.Hour24FecReport' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecReports.Hour24FecReport',
+            False, 
+            [
+            _MetaInfoClassMember('fec-report', REFERENCE_ENUM_CLASS, 'FecReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'FecReportEnum', 
+                [], [], 
+                '''                Fec Report type
+                ''',
+                'fec_report',
+                'Cisco-IOS-XR-pmengine-cfg', True),
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'ReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'ReportEnum', 
+                [], [], 
+                '''                Fec Report
+                ''',
+                'enable',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'hour24fec-report',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecReports' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecReports',
+            False, 
+            [
+            _MetaInfoClassMember('hour24fec-report', REFERENCE_LIST, 'Hour24FecReport' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecReports.Hour24FecReport', 
+                [], [], 
+                '''                none
+                ''',
+                'hour24fec_report',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'hour24fec-reports',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds.Hour24FecThreshold' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds.Hour24FecThreshold',
+            False, 
+            [
+            _MetaInfoClassMember('fec-threshold', REFERENCE_ENUM_CLASS, 'FecThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'FecThresholdEnum', 
+                [], [], 
+                '''                Fec Threshold Type
+                ''',
+                'fec_threshold',
+                'Cisco-IOS-XR-pmengine-cfg', True),
+            _MetaInfoClassMember('fec-threshold-value', ATTRIBUTE, 'str' , None, None, 
+                [(0, 16)], [], 
+                '''                Fec threshold value
+                ''',
+                'fec_threshold_value',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'hour24fec-threshold',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds',
+            False, 
+            [
+            _MetaInfoClassMember('hour24fec-threshold', REFERENCE_LIST, 'Hour24FecThreshold' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds.Hour24FecThreshold', 
+                [], [], 
+                '''                none
+                ''',
+                'hour24fec_threshold',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'hour24fec-thresholds',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec',
+            False, 
+            [
+            _MetaInfoClassMember('hour24fec-reports', REFERENCE_CLASS, 'Hour24FecReports' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecReports', 
+                [], [], 
+                '''                set fec TCA reporting status
+                ''',
+                'hour24fec_reports',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            _MetaInfoClassMember('hour24fec-thresholds', REFERENCE_CLASS, 'Hour24FecThresholds' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds', 
+                [], [], 
+                '''                Configure fec threshold
+                ''',
+                'hour24fec_thresholds',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'hour24fec',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
     'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsReports.Hour24OpticsReport' : {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsReports.Hour24OpticsReport',
             False, 
             [
-            _MetaInfoClassMember('optics-report', REFERENCE_ENUM_CLASS, 'OpticsReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OpticsReport_Enum', 
+            _MetaInfoClassMember('optics-report', REFERENCE_ENUM_CLASS, 'OpticsReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OpticsReportEnum', 
                 [], [], 
                 '''                Optics Report Type
                 ''',
@@ -8203,7 +8306,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsThresholds.Hour24OpticsThreshold',
             False, 
             [
-            _MetaInfoClassMember('optics-threshold', REFERENCE_ENUM_CLASS, 'OpticsThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OpticsThreshold_Enum', 
+            _MetaInfoClassMember('optics-threshold', REFERENCE_ENUM_CLASS, 'OpticsThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OpticsThresholdEnum', 
                 [], [], 
                 '''                Optics Threshold Type
                 ''',
@@ -8262,120 +8365,17 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecReports.Hour24fecReport' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecReports.Hour24fecReport',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnReports.Hour24OtnReport' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnReports.Hour24OtnReport',
             False, 
             [
-            _MetaInfoClassMember('fec-report', REFERENCE_ENUM_CLASS, 'FecReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'FecReport_Enum', 
-                [], [], 
-                '''                Fec Report type
-                ''',
-                'fec_report',
-                'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'Report_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'Report_Enum', 
-                [], [], 
-                '''                Fec Report
-                ''',
-                'enable',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'hour24fec-report',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecReports' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecReports',
-            False, 
-            [
-            _MetaInfoClassMember('hour24fec-report', REFERENCE_LIST, 'Hour24fecReport' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecReports.Hour24fecReport', 
-                [], [], 
-                '''                none
-                ''',
-                'hour24fec_report',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'hour24fec-reports',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecThresholds.Hour24fecThreshold' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecThresholds.Hour24fecThreshold',
-            False, 
-            [
-            _MetaInfoClassMember('fec-threshold', REFERENCE_ENUM_CLASS, 'FecThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'FecThreshold_Enum', 
-                [], [], 
-                '''                Fec Threshold Type
-                ''',
-                'fec_threshold',
-                'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('fec-threshold-value', ATTRIBUTE, 'str' , None, None, 
-                [(0, 16)], [], 
-                '''                Fec threshold value
-                ''',
-                'fec_threshold_value',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'hour24fec-threshold',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecThresholds' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecThresholds',
-            False, 
-            [
-            _MetaInfoClassMember('hour24fec-threshold', REFERENCE_LIST, 'Hour24fecThreshold' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecThresholds.Hour24fecThreshold', 
-                [], [], 
-                '''                none
-                ''',
-                'hour24fec_threshold',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'hour24fec-thresholds',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec',
-            False, 
-            [
-            _MetaInfoClassMember('hour24fec-reports', REFERENCE_CLASS, 'Hour24fecReports' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecReports', 
-                [], [], 
-                '''                set fec TCA reporting status
-                ''',
-                'hour24fec_reports',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            _MetaInfoClassMember('hour24fec-thresholds', REFERENCE_CLASS, 'Hour24fecThresholds' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecThresholds', 
-                [], [], 
-                '''                Configure fec threshold
-                ''',
-                'hour24fec_thresholds',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'hour24fec',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnReports.Hour24otnReport' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnReports.Hour24otnReport',
-            False, 
-            [
-            _MetaInfoClassMember('otn-report', REFERENCE_ENUM_CLASS, 'OtnReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnReport_Enum', 
+            _MetaInfoClassMember('otn-report', REFERENCE_ENUM_CLASS, 'OtnReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnReportEnum', 
                 [], [], 
                 '''                Otn Report Type
                 ''',
                 'otn_report',
                 'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'Report_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'Report_Enum', 
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'ReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'ReportEnum', 
                 [], [], 
                 '''                Otn Report
                 ''',
@@ -8388,11 +8388,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnReports' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnReports',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnReports' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnReports',
             False, 
             [
-            _MetaInfoClassMember('hour24otn-report', REFERENCE_LIST, 'Hour24otnReport' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnReports.Hour24otnReport', 
+            _MetaInfoClassMember('hour24otn-report', REFERENCE_LIST, 'Hour24OtnReport' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnReports.Hour24OtnReport', 
                 [], [], 
                 '''                none
                 ''',
@@ -8405,11 +8405,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnThresholds.Hour24otnThreshold' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnThresholds.Hour24otnThreshold',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds.Hour24OtnThreshold' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds.Hour24OtnThreshold',
             False, 
             [
-            _MetaInfoClassMember('otn-threshold', REFERENCE_ENUM_CLASS, 'OtnThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnThreshold_Enum', 
+            _MetaInfoClassMember('otn-threshold', REFERENCE_ENUM_CLASS, 'OtnThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnThresholdEnum', 
                 [], [], 
                 '''                Otn Threshold Type
                 ''',
@@ -8428,11 +8428,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnThresholds' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnThresholds',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds',
             False, 
             [
-            _MetaInfoClassMember('hour24otn-threshold', REFERENCE_LIST, 'Hour24otnThreshold' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnThresholds.Hour24otnThreshold', 
+            _MetaInfoClassMember('hour24otn-threshold', REFERENCE_LIST, 'Hour24OtnThreshold' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds.Hour24OtnThreshold', 
                 [], [], 
                 '''                none
                 ''',
@@ -8445,17 +8445,17 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn',
             False, 
             [
-            _MetaInfoClassMember('hour24otn-reports', REFERENCE_CLASS, 'Hour24otnReports' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnReports', 
+            _MetaInfoClassMember('hour24otn-reports', REFERENCE_CLASS, 'Hour24OtnReports' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnReports', 
                 [], [], 
                 '''                set otn TCA reporting status
                 ''',
                 'hour24otn_reports',
                 'Cisco-IOS-XR-pmengine-cfg', False),
-            _MetaInfoClassMember('hour24otn-thresholds', REFERENCE_CLASS, 'Hour24otnThresholds' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnThresholds', 
+            _MetaInfoClassMember('hour24otn-thresholds', REFERENCE_CLASS, 'Hour24OtnThresholds' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds', 
                 [], [], 
                 '''                Configure threshold on otn parameters
                 ''',
@@ -8478,13 +8478,13 @@ _meta_table = {
                 ''',
                 'hour24_optics',
                 'Cisco-IOS-XR-pmengine-cfg', False),
-            _MetaInfoClassMember('hour24fec', REFERENCE_CLASS, 'Hour24fec' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec', 
+            _MetaInfoClassMember('hour24fec', REFERENCE_CLASS, 'Hour24Fec' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec', 
                 [], [], 
                 '''                Configure fec g709 performance monitoring
                 ''',
                 'hour24fec',
                 'Cisco-IOS-XR-pmengine-cfg', False),
-            _MetaInfoClassMember('hour24otn', REFERENCE_CLASS, 'Hour24otn' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn', 
+            _MetaInfoClassMember('hour24otn', REFERENCE_CLASS, 'Hour24Otn' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn', 
                 [], [], 
                 '''                configure otn g709 performance monitoring
                 ''',
@@ -8501,7 +8501,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp.Hour24GfpReports.Hour24GfpReport',
             False, 
             [
-            _MetaInfoClassMember('gfp-report', REFERENCE_ENUM_CLASS, 'GfpReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'GfpReport_Enum', 
+            _MetaInfoClassMember('gfp-report', REFERENCE_ENUM_CLASS, 'GfpReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'GfpReportEnum', 
                 [], [], 
                 '''                Gfp Report Type
                 ''',
@@ -8535,7 +8535,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp.Hour24GfpThresholds.Hour24GfpThreshold',
             False, 
             [
-            _MetaInfoClassMember('gfp-threshold', REFERENCE_ENUM_CLASS, 'GfpThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'GfpThreshold_Enum', 
+            _MetaInfoClassMember('gfp-threshold', REFERENCE_ENUM_CLASS, 'GfpThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'GfpThresholdEnum', 
                 [], [], 
                 '''                Gfp Threshold Type
                 ''',
@@ -8611,137 +8611,17 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathReports.Hour24otnPathReport' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathReports.Hour24otnPathReport',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports.Hour24OtnTcmReport' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports.Hour24OtnTcmReport',
             False, 
             [
-            _MetaInfoClassMember('otn-report', REFERENCE_ENUM_CLASS, 'OtnReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnReport_Enum', 
+            _MetaInfoClassMember('otn-report', REFERENCE_ENUM_CLASS, 'OtnTcmReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnTcmReportEnum', 
                 [], [], 
                 '''                Otn Report Type
                 ''',
                 'otn_report',
                 'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'Report_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'Report_Enum', 
-                [], [], 
-                '''                Otn Report
-                ''',
-                'enable',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'hour24otn-path-report',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathReports' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathReports',
-            False, 
-            [
-            _MetaInfoClassMember('hour24otn-path-report', REFERENCE_LIST, 'Hour24otnPathReport' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathReports.Hour24otnPathReport', 
-                [], [], 
-                '''                none
-                ''',
-                'hour24otn_path_report',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'hour24otn-path-reports',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathThresholds.Hour24otnPathThreshold' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathThresholds.Hour24otnPathThreshold',
-            False, 
-            [
-            _MetaInfoClassMember('otn-threshold', REFERENCE_ENUM_CLASS, 'OtnThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnThreshold_Enum', 
-                [], [], 
-                '''                Otn Threshold Type
-                ''',
-                'otn_threshold',
-                'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('otn-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Otn Threshold Value
-                ''',
-                'otn_threshold_value',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'hour24otn-path-threshold',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathThresholds' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathThresholds',
-            False, 
-            [
-            _MetaInfoClassMember('hour24otn-path-threshold', REFERENCE_LIST, 'Hour24otnPathThreshold' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathThresholds.Hour24otnPathThreshold', 
-                [], [], 
-                '''                none
-                ''',
-                'hour24otn_path_threshold',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'hour24otn-path-thresholds',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath',
-            False, 
-            [
-            _MetaInfoClassMember('hour24otn-path-reports', REFERENCE_CLASS, 'Hour24otnPathReports' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathReports', 
-                [], [], 
-                '''                set otn TCA reporting status
-                ''',
-                'hour24otn_path_reports',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            _MetaInfoClassMember('hour24otn-path-thresholds', REFERENCE_CLASS, 'Hour24otnPathThresholds' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathThresholds', 
-                [], [], 
-                '''                Configure threshold on otn parameters
-                ''',
-                'hour24otn_path_thresholds',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'hour24otn-path',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path',
-            False, 
-            [
-            _MetaInfoClassMember('hour24otn-path', REFERENCE_CLASS, 'Hour24otnPath' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath', 
-                [], [], 
-                '''                configure otn g709 performance monitoring
-                ''',
-                'hour24otn_path',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'hour24-path',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmReports.Hour24otnTcmReport' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmReports.Hour24otnTcmReport',
-            False, 
-            [
-            _MetaInfoClassMember('otn-report', REFERENCE_ENUM_CLASS, 'OtnTcmReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnTcmReport_Enum', 
-                [], [], 
-                '''                Otn Report Type
-                ''',
-                'otn_report',
-                'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'Report_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'Report_Enum', 
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'ReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'ReportEnum', 
                 [], [], 
                 '''                Otn Report
                 ''',
@@ -8754,11 +8634,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmReports' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmReports',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports',
             False, 
             [
-            _MetaInfoClassMember('hour24otn-tcm-report', REFERENCE_LIST, 'Hour24otnTcmReport' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmReports.Hour24otnTcmReport', 
+            _MetaInfoClassMember('hour24otn-tcm-report', REFERENCE_LIST, 'Hour24OtnTcmReport' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports.Hour24OtnTcmReport', 
                 [], [], 
                 '''                none
                 ''',
@@ -8771,11 +8651,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmThresholds.Hour24otnTcmThreshold' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmThresholds.Hour24otnTcmThreshold',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds.Hour24OtnTcmThreshold' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds.Hour24OtnTcmThreshold',
             False, 
             [
-            _MetaInfoClassMember('otn-threshold', REFERENCE_ENUM_CLASS, 'OtnTcmThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnTcmThreshold_Enum', 
+            _MetaInfoClassMember('otn-threshold', REFERENCE_ENUM_CLASS, 'OtnTcmThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnTcmThresholdEnum', 
                 [], [], 
                 '''                Otn Threshold Type
                 ''',
@@ -8794,11 +8674,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmThresholds' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmThresholds',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds',
             False, 
             [
-            _MetaInfoClassMember('hour24otn-tcm-threshold', REFERENCE_LIST, 'Hour24otnTcmThreshold' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmThresholds.Hour24otnTcmThreshold', 
+            _MetaInfoClassMember('hour24otn-tcm-threshold', REFERENCE_LIST, 'Hour24OtnTcmThreshold' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds.Hour24OtnTcmThreshold', 
                 [], [], 
                 '''                none
                 ''',
@@ -8811,8 +8691,8 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm',
             False, 
             [
             _MetaInfoClassMember('tcm-number', ATTRIBUTE, 'int' , None, None, 
@@ -8821,13 +8701,13 @@ _meta_table = {
                 ''',
                 'tcm_number',
                 'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('hour24otn-tcm-reports', REFERENCE_CLASS, 'Hour24otnTcmReports' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmReports', 
+            _MetaInfoClassMember('hour24otn-tcm-reports', REFERENCE_CLASS, 'Hour24OtnTcmReports' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports', 
                 [], [], 
                 '''                set otn TCA reporting status
                 ''',
                 'hour24otn_tcm_reports',
                 'Cisco-IOS-XR-pmengine-cfg', False),
-            _MetaInfoClassMember('hour24otn-tcm-thresholds', REFERENCE_CLASS, 'Hour24otnTcmThresholds' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmThresholds', 
+            _MetaInfoClassMember('hour24otn-tcm-thresholds', REFERENCE_CLASS, 'Hour24OtnTcmThresholds' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds', 
                 [], [], 
                 '''                Configure threshold on otn parameters
                 ''',
@@ -8840,11 +8720,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms',
             False, 
             [
-            _MetaInfoClassMember('hour24otn-tcm', REFERENCE_LIST, 'Hour24otnTcm' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm', 
+            _MetaInfoClassMember('hour24otn-tcm', REFERENCE_LIST, 'Hour24OtnTcm' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm', 
                 [], [], 
                 '''                configure otn g709 tcm's performance
                 monitoring
@@ -8858,11 +8738,234 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports.Hour24OtnPathReport' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports.Hour24OtnPathReport',
+            False, 
+            [
+            _MetaInfoClassMember('otn-report', REFERENCE_ENUM_CLASS, 'OtnReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnReportEnum', 
+                [], [], 
+                '''                Otn Report Type
+                ''',
+                'otn_report',
+                'Cisco-IOS-XR-pmengine-cfg', True),
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'ReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'ReportEnum', 
+                [], [], 
+                '''                Otn Report
+                ''',
+                'enable',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'hour24otn-path-report',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports',
+            False, 
+            [
+            _MetaInfoClassMember('hour24otn-path-report', REFERENCE_LIST, 'Hour24OtnPathReport' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports.Hour24OtnPathReport', 
+                [], [], 
+                '''                none
+                ''',
+                'hour24otn_path_report',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'hour24otn-path-reports',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathThresholds.Hour24OtnPathThreshold' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathThresholds.Hour24OtnPathThreshold',
+            False, 
+            [
+            _MetaInfoClassMember('otn-threshold', REFERENCE_ENUM_CLASS, 'OtnThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnThresholdEnum', 
+                [], [], 
+                '''                Otn Threshold Type
+                ''',
+                'otn_threshold',
+                'Cisco-IOS-XR-pmengine-cfg', True),
+            _MetaInfoClassMember('otn-threshold-value', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Otn Threshold Value
+                ''',
+                'otn_threshold_value',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'hour24otn-path-threshold',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathThresholds' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathThresholds',
+            False, 
+            [
+            _MetaInfoClassMember('hour24otn-path-threshold', REFERENCE_LIST, 'Hour24OtnPathThreshold' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathThresholds.Hour24OtnPathThreshold', 
+                [], [], 
+                '''                none
+                ''',
+                'hour24otn_path_threshold',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'hour24otn-path-thresholds',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath',
+            False, 
+            [
+            _MetaInfoClassMember('hour24otn-path-reports', REFERENCE_CLASS, 'Hour24OtnPathReports' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports', 
+                [], [], 
+                '''                set otn TCA reporting status
+                ''',
+                'hour24otn_path_reports',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            _MetaInfoClassMember('hour24otn-path-thresholds', REFERENCE_CLASS, 'Hour24OtnPathThresholds' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathThresholds', 
+                [], [], 
+                '''                Configure threshold on otn parameters
+                ''',
+                'hour24otn_path_thresholds',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'hour24otn-path',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path',
+            False, 
+            [
+            _MetaInfoClassMember('hour24otn-path', REFERENCE_CLASS, 'Hour24OtnPath' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath', 
+                [], [], 
+                '''                configure otn g709 performance monitoring
+                ''',
+                'hour24otn_path',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'hour24-path',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecReports.Minute15FecReport' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecReports.Minute15FecReport',
+            False, 
+            [
+            _MetaInfoClassMember('fec-report', REFERENCE_ENUM_CLASS, 'FecReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'FecReportEnum', 
+                [], [], 
+                '''                Fec Report Type
+                ''',
+                'fec_report',
+                'Cisco-IOS-XR-pmengine-cfg', True),
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'ReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'ReportEnum', 
+                [], [], 
+                '''                Fec Report
+                ''',
+                'enable',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'minute15fec-report',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecReports' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecReports',
+            False, 
+            [
+            _MetaInfoClassMember('minute15fec-report', REFERENCE_LIST, 'Minute15FecReport' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecReports.Minute15FecReport', 
+                [], [], 
+                '''                none
+                ''',
+                'minute15fec_report',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'minute15fec-reports',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds.Minute15FecThreshold' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds.Minute15FecThreshold',
+            False, 
+            [
+            _MetaInfoClassMember('fec-threshold', REFERENCE_ENUM_CLASS, 'FecThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'FecThresholdEnum', 
+                [], [], 
+                '''                Fec Threshold Type
+                ''',
+                'fec_threshold',
+                'Cisco-IOS-XR-pmengine-cfg', True),
+            _MetaInfoClassMember('fec-threshold-value', ATTRIBUTE, 'str' , None, None, 
+                [(0, 16)], [], 
+                '''                Fec Threshold Value
+                ''',
+                'fec_threshold_value',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'minute15fec-threshold',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds',
+            False, 
+            [
+            _MetaInfoClassMember('minute15fec-threshold', REFERENCE_LIST, 'Minute15FecThreshold' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds.Minute15FecThreshold', 
+                [], [], 
+                '''                none
+                ''',
+                'minute15fec_threshold',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'minute15fec-thresholds',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec',
+            False, 
+            [
+            _MetaInfoClassMember('minute15fec-reports', REFERENCE_CLASS, 'Minute15FecReports' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecReports', 
+                [], [], 
+                '''                set fec TCA reporting status
+                ''',
+                'minute15fec_reports',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            _MetaInfoClassMember('minute15fec-thresholds', REFERENCE_CLASS, 'Minute15FecThresholds' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds', 
+                [], [], 
+                '''                Configure fec threshold
+                ''',
+                'minute15fec_thresholds',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'minute15fec',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
     'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsReports.Minute15OpticsReport' : {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsReports.Minute15OpticsReport',
             False, 
             [
-            _MetaInfoClassMember('optics-report', REFERENCE_ENUM_CLASS, 'OpticsReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OpticsReport_Enum', 
+            _MetaInfoClassMember('optics-report', REFERENCE_ENUM_CLASS, 'OpticsReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OpticsReportEnum', 
                 [], [], 
                 '''                Optics Report Type
                 ''',
@@ -8896,7 +8999,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsThresholds.Minute15OpticsThreshold',
             False, 
             [
-            _MetaInfoClassMember('optics-threshold', REFERENCE_ENUM_CLASS, 'OpticsThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OpticsThreshold_Enum', 
+            _MetaInfoClassMember('optics-threshold', REFERENCE_ENUM_CLASS, 'OpticsThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OpticsThresholdEnum', 
                 [], [], 
                 '''                Optics Threshold Type
                 ''',
@@ -8955,114 +9058,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecReports.Minute15fecReport' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecReports.Minute15fecReport',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Min15OtnThreshes.Min15OtnThresh' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Min15OtnThreshes.Min15OtnThresh',
             False, 
             [
-            _MetaInfoClassMember('fec-report', REFERENCE_ENUM_CLASS, 'FecReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'FecReport_Enum', 
-                [], [], 
-                '''                Fec Report Type
-                ''',
-                'fec_report',
-                'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'Report_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'Report_Enum', 
-                [], [], 
-                '''                Fec Report
-                ''',
-                'enable',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'minute15fec-report',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecReports' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecReports',
-            False, 
-            [
-            _MetaInfoClassMember('minute15fec-report', REFERENCE_LIST, 'Minute15fecReport' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecReports.Minute15fecReport', 
-                [], [], 
-                '''                none
-                ''',
-                'minute15fec_report',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'minute15fec-reports',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecThresholds.Minute15fecThreshold' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecThresholds.Minute15fecThreshold',
-            False, 
-            [
-            _MetaInfoClassMember('fec-threshold', REFERENCE_ENUM_CLASS, 'FecThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'FecThreshold_Enum', 
-                [], [], 
-                '''                Fec Threshold Type
-                ''',
-                'fec_threshold',
-                'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('fec-threshold-value', ATTRIBUTE, 'str' , None, None, 
-                [(0, 16)], [], 
-                '''                Fec Threshold Value
-                ''',
-                'fec_threshold_value',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'minute15fec-threshold',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecThresholds' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecThresholds',
-            False, 
-            [
-            _MetaInfoClassMember('minute15fec-threshold', REFERENCE_LIST, 'Minute15fecThreshold' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecThresholds.Minute15fecThreshold', 
-                [], [], 
-                '''                none
-                ''',
-                'minute15fec_threshold',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'minute15fec-thresholds',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec',
-            False, 
-            [
-            _MetaInfoClassMember('minute15fec-reports', REFERENCE_CLASS, 'Minute15fecReports' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecReports', 
-                [], [], 
-                '''                set fec TCA reporting status
-                ''',
-                'minute15fec_reports',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            _MetaInfoClassMember('minute15fec-thresholds', REFERENCE_CLASS, 'Minute15fecThresholds' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecThresholds', 
-                [], [], 
-                '''                Configure fec threshold
-                ''',
-                'minute15fec_thresholds',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'minute15fec',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Min15OtnThreshes.Min15OtnThresh' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Min15OtnThreshes.Min15OtnThresh',
-            False, 
-            [
-            _MetaInfoClassMember('otn-threshold', REFERENCE_ENUM_CLASS, 'OtnThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnThreshold_Enum', 
+            _MetaInfoClassMember('otn-threshold', REFERENCE_ENUM_CLASS, 'OtnThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnThresholdEnum', 
                 [], [], 
                 '''                Otn Threshold Type
                 ''',
@@ -9081,11 +9081,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Min15OtnThreshes' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Min15OtnThreshes',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Min15OtnThreshes' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Min15OtnThreshes',
             False, 
             [
-            _MetaInfoClassMember('min15-otn-thresh', REFERENCE_LIST, 'Min15OtnThresh' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Min15OtnThreshes.Min15OtnThresh', 
+            _MetaInfoClassMember('min15-otn-thresh', REFERENCE_LIST, 'Min15OtnThresh' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Min15OtnThreshes.Min15OtnThresh', 
                 [], [], 
                 '''                none
                 ''',
@@ -9098,17 +9098,17 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Minute15otnReports.Minute15otnReport' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Minute15otnReports.Minute15otnReport',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Minute15OtnReports.Minute15OtnReport' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Minute15OtnReports.Minute15OtnReport',
             False, 
             [
-            _MetaInfoClassMember('otn-report', REFERENCE_ENUM_CLASS, 'OtnReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnReport_Enum', 
+            _MetaInfoClassMember('otn-report', REFERENCE_ENUM_CLASS, 'OtnReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnReportEnum', 
                 [], [], 
                 '''                Otn Report Type
                 ''',
                 'otn_report',
                 'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'Report_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'Report_Enum', 
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'ReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'ReportEnum', 
                 [], [], 
                 '''                Otn Report
                 ''',
@@ -9121,11 +9121,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Minute15otnReports' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Minute15otnReports',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Minute15OtnReports' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Minute15OtnReports',
             False, 
             [
-            _MetaInfoClassMember('minute15otn-report', REFERENCE_LIST, 'Minute15otnReport' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Minute15otnReports.Minute15otnReport', 
+            _MetaInfoClassMember('minute15otn-report', REFERENCE_LIST, 'Minute15OtnReport' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Minute15OtnReports.Minute15OtnReport', 
                 [], [], 
                 '''                none
                 ''',
@@ -9138,17 +9138,17 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn',
             False, 
             [
-            _MetaInfoClassMember('min15-otn-threshes', REFERENCE_CLASS, 'Min15OtnThreshes' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Min15OtnThreshes', 
+            _MetaInfoClassMember('min15-otn-threshes', REFERENCE_CLASS, 'Min15OtnThreshes' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Min15OtnThreshes', 
                 [], [], 
                 '''                Configure threshold on otn parameters
                 ''',
                 'min15_otn_threshes',
                 'Cisco-IOS-XR-pmengine-cfg', False),
-            _MetaInfoClassMember('minute15otn-reports', REFERENCE_CLASS, 'Minute15otnReports' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Minute15otnReports', 
+            _MetaInfoClassMember('minute15otn-reports', REFERENCE_CLASS, 'Minute15OtnReports' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Minute15OtnReports', 
                 [], [], 
                 '''                set otn TCA reporting status
                 ''',
@@ -9171,13 +9171,13 @@ _meta_table = {
                 ''',
                 'minute15_optics',
                 'Cisco-IOS-XR-pmengine-cfg', False),
-            _MetaInfoClassMember('minute15fec', REFERENCE_CLASS, 'Minute15fec' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec', 
+            _MetaInfoClassMember('minute15fec', REFERENCE_CLASS, 'Minute15Fec' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec', 
                 [], [], 
                 '''                Configure fec g709 performance monitoring
                 ''',
                 'minute15fec',
                 'Cisco-IOS-XR-pmengine-cfg', False),
-            _MetaInfoClassMember('minute15otn', REFERENCE_CLASS, 'Minute15otn' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn', 
+            _MetaInfoClassMember('minute15otn', REFERENCE_CLASS, 'Minute15Otn' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn', 
                 [], [], 
                 '''                configure otn g709 performance monitoring
                 ''',
@@ -9194,7 +9194,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp.Minute15GfpReports.Minute15GfpReport',
             False, 
             [
-            _MetaInfoClassMember('gfp-report', REFERENCE_ENUM_CLASS, 'GfpReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'GfpReport_Enum', 
+            _MetaInfoClassMember('gfp-report', REFERENCE_ENUM_CLASS, 'GfpReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'GfpReportEnum', 
                 [], [], 
                 '''                Gfp Report Type
                 ''',
@@ -9228,7 +9228,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp.Minute15GfpThresholds.Minute15GfpThreshold',
             False, 
             [
-            _MetaInfoClassMember('gfp-threshold', REFERENCE_ENUM_CLASS, 'GfpThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'GfpThreshold_Enum', 
+            _MetaInfoClassMember('gfp-threshold', REFERENCE_ENUM_CLASS, 'GfpThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'GfpThresholdEnum', 
                 [], [], 
                 '''                Gfp Threshold Type
                 ''',
@@ -9304,131 +9304,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Min15OtnPathThreshes.Min15OtnPathThresh' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Min15OtnPathThreshes.Min15OtnPathThresh',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Min15OtnTcmThreshes.Min15OtnTcmThresh' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Min15OtnTcmThreshes.Min15OtnTcmThresh',
             False, 
             [
-            _MetaInfoClassMember('otn-threshold', REFERENCE_ENUM_CLASS, 'OtnThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnThreshold_Enum', 
-                [], [], 
-                '''                Otn Threshold Type
-                ''',
-                'otn_threshold',
-                'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('otn-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Otn Threshold Value
-                ''',
-                'otn_threshold_value',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'min15-otn-path-thresh',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Min15OtnPathThreshes' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Min15OtnPathThreshes',
-            False, 
-            [
-            _MetaInfoClassMember('min15-otn-path-thresh', REFERENCE_LIST, 'Min15OtnPathThresh' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Min15OtnPathThreshes.Min15OtnPathThresh', 
-                [], [], 
-                '''                none
-                ''',
-                'min15_otn_path_thresh',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'min15-otn-path-threshes',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Minute15otnPathReports.Minute15otnPathReport' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Minute15otnPathReports.Minute15otnPathReport',
-            False, 
-            [
-            _MetaInfoClassMember('otn-report', REFERENCE_ENUM_CLASS, 'OtnReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnReport_Enum', 
-                [], [], 
-                '''                Otn Report Type
-                ''',
-                'otn_report',
-                'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'Report_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'Report_Enum', 
-                [], [], 
-                '''                Otn Report
-                ''',
-                'enable',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'minute15otn-path-report',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Minute15otnPathReports' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Minute15otnPathReports',
-            False, 
-            [
-            _MetaInfoClassMember('minute15otn-path-report', REFERENCE_LIST, 'Minute15otnPathReport' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Minute15otnPathReports.Minute15otnPathReport', 
-                [], [], 
-                '''                none
-                ''',
-                'minute15otn_path_report',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'minute15otn-path-reports',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath',
-            False, 
-            [
-            _MetaInfoClassMember('min15-otn-path-threshes', REFERENCE_CLASS, 'Min15OtnPathThreshes' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Min15OtnPathThreshes', 
-                [], [], 
-                '''                Configure threshold on otn parameters
-                ''',
-                'min15_otn_path_threshes',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            _MetaInfoClassMember('minute15otn-path-reports', REFERENCE_CLASS, 'Minute15otnPathReports' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Minute15otnPathReports', 
-                [], [], 
-                '''                set otn TCA reporting status
-                ''',
-                'minute15otn_path_reports',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'minute15otn-path',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path',
-            False, 
-            [
-            _MetaInfoClassMember('minute15otn-path', REFERENCE_CLASS, 'Minute15otnPath' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath', 
-                [], [], 
-                '''                configure otn g709 performance monitoring
-                ''',
-                'minute15otn_path',
-                'Cisco-IOS-XR-pmengine-cfg', False),
-            ],
-            'Cisco-IOS-XR-pmengine-cfg',
-            'minute15-path',
-            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Min15OtnTcmThreshes.Min15OtnTcmThresh' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Min15OtnTcmThreshes.Min15OtnTcmThresh',
-            False, 
-            [
-            _MetaInfoClassMember('otn-threshold', REFERENCE_ENUM_CLASS, 'OtnTcmThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnTcmThreshold_Enum', 
+            _MetaInfoClassMember('otn-threshold', REFERENCE_ENUM_CLASS, 'OtnTcmThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnTcmThresholdEnum', 
                 [], [], 
                 '''                Otn Threshold Type
                 ''',
@@ -9447,11 +9327,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Min15OtnTcmThreshes' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Min15OtnTcmThreshes',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Min15OtnTcmThreshes' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Min15OtnTcmThreshes',
             False, 
             [
-            _MetaInfoClassMember('min15-otn-tcm-thresh', REFERENCE_LIST, 'Min15OtnTcmThresh' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Min15OtnTcmThreshes.Min15OtnTcmThresh', 
+            _MetaInfoClassMember('min15-otn-tcm-thresh', REFERENCE_LIST, 'Min15OtnTcmThresh' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Min15OtnTcmThreshes.Min15OtnTcmThresh', 
                 [], [], 
                 '''                none
                 ''',
@@ -9464,17 +9344,17 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Minute15otnTcmReports.Minute15otnTcmReport' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Minute15otnTcmReports.Minute15otnTcmReport',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Minute15OtnTcmReports.Minute15OtnTcmReport' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Minute15OtnTcmReports.Minute15OtnTcmReport',
             False, 
             [
-            _MetaInfoClassMember('otn-report', REFERENCE_ENUM_CLASS, 'OtnTcmReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnTcmReport_Enum', 
+            _MetaInfoClassMember('otn-report', REFERENCE_ENUM_CLASS, 'OtnTcmReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnTcmReportEnum', 
                 [], [], 
                 '''                Otn Report Type
                 ''',
                 'otn_report',
                 'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'Report_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'Report_Enum', 
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'ReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'ReportEnum', 
                 [], [], 
                 '''                Otn Report
                 ''',
@@ -9487,11 +9367,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Minute15otnTcmReports' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Minute15otnTcmReports',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Minute15OtnTcmReports' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Minute15OtnTcmReports',
             False, 
             [
-            _MetaInfoClassMember('minute15otn-tcm-report', REFERENCE_LIST, 'Minute15otnTcmReport' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Minute15otnTcmReports.Minute15otnTcmReport', 
+            _MetaInfoClassMember('minute15otn-tcm-report', REFERENCE_LIST, 'Minute15OtnTcmReport' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Minute15OtnTcmReports.Minute15OtnTcmReport', 
                 [], [], 
                 '''                none
                 ''',
@@ -9504,8 +9384,8 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm',
             False, 
             [
             _MetaInfoClassMember('tcm-number', ATTRIBUTE, 'int' , None, None, 
@@ -9514,13 +9394,13 @@ _meta_table = {
                 ''',
                 'tcm_number',
                 'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('min15-otn-tcm-threshes', REFERENCE_CLASS, 'Min15OtnTcmThreshes' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Min15OtnTcmThreshes', 
+            _MetaInfoClassMember('min15-otn-tcm-threshes', REFERENCE_CLASS, 'Min15OtnTcmThreshes' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Min15OtnTcmThreshes', 
                 [], [], 
                 '''                Configure threshold on otn parameters
                 ''',
                 'min15_otn_tcm_threshes',
                 'Cisco-IOS-XR-pmengine-cfg', False),
-            _MetaInfoClassMember('minute15otn-tcm-reports', REFERENCE_CLASS, 'Minute15otnTcmReports' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Minute15otnTcmReports', 
+            _MetaInfoClassMember('minute15otn-tcm-reports', REFERENCE_CLASS, 'Minute15OtnTcmReports' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Minute15OtnTcmReports', 
                 [], [], 
                 '''                set otn TCA reporting status
                 ''',
@@ -9533,11 +9413,11 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms',
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms',
             False, 
             [
-            _MetaInfoClassMember('minute15otn-tcm', REFERENCE_LIST, 'Minute15otnTcm' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm', 
+            _MetaInfoClassMember('minute15otn-tcm', REFERENCE_LIST, 'Minute15OtnTcm' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm', 
                 [], [], 
                 '''                configure otn g709 tcm's performance
                 monitoring
@@ -9551,17 +9431,137 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Min15OtnPathThreshes.Min15OtnPathThresh' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Min15OtnPathThreshes.Min15OtnPathThresh',
+            False, 
+            [
+            _MetaInfoClassMember('otn-threshold', REFERENCE_ENUM_CLASS, 'OtnThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnThresholdEnum', 
+                [], [], 
+                '''                Otn Threshold Type
+                ''',
+                'otn_threshold',
+                'Cisco-IOS-XR-pmengine-cfg', True),
+            _MetaInfoClassMember('otn-threshold-value', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Otn Threshold Value
+                ''',
+                'otn_threshold_value',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'min15-otn-path-thresh',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Min15OtnPathThreshes' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Min15OtnPathThreshes',
+            False, 
+            [
+            _MetaInfoClassMember('min15-otn-path-thresh', REFERENCE_LIST, 'Min15OtnPathThresh' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Min15OtnPathThreshes.Min15OtnPathThresh', 
+                [], [], 
+                '''                none
+                ''',
+                'min15_otn_path_thresh',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'min15-otn-path-threshes',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports.Minute15OtnPathReport' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports.Minute15OtnPathReport',
+            False, 
+            [
+            _MetaInfoClassMember('otn-report', REFERENCE_ENUM_CLASS, 'OtnReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OtnReportEnum', 
+                [], [], 
+                '''                Otn Report Type
+                ''',
+                'otn_report',
+                'Cisco-IOS-XR-pmengine-cfg', True),
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'ReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'ReportEnum', 
+                [], [], 
+                '''                Otn Report
+                ''',
+                'enable',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'minute15otn-path-report',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports',
+            False, 
+            [
+            _MetaInfoClassMember('minute15otn-path-report', REFERENCE_LIST, 'Minute15OtnPathReport' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports.Minute15OtnPathReport', 
+                [], [], 
+                '''                none
+                ''',
+                'minute15otn_path_report',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'minute15otn-path-reports',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath',
+            False, 
+            [
+            _MetaInfoClassMember('min15-otn-path-threshes', REFERENCE_CLASS, 'Min15OtnPathThreshes' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Min15OtnPathThreshes', 
+                [], [], 
+                '''                Configure threshold on otn parameters
+                ''',
+                'min15_otn_path_threshes',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            _MetaInfoClassMember('minute15otn-path-reports', REFERENCE_CLASS, 'Minute15OtnPathReports' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports', 
+                [], [], 
+                '''                set otn TCA reporting status
+                ''',
+                'minute15otn_path_reports',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'minute15otn-path',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path',
+            False, 
+            [
+            _MetaInfoClassMember('minute15otn-path', REFERENCE_CLASS, 'Minute15OtnPath' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath', 
+                [], [], 
+                '''                configure otn g709 performance monitoring
+                ''',
+                'minute15otn_path',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'minute15-path',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
     'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24.OcHour24Ocn.OcHour24OcnReports.OcHour24OcnReport' : {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24.OcHour24Ocn.OcHour24OcnReports.OcHour24OcnReport',
             False, 
             [
-            _MetaInfoClassMember('ocn-report', REFERENCE_ENUM_CLASS, 'OcnReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OcnReport_Enum', 
+            _MetaInfoClassMember('ocn-report', REFERENCE_ENUM_CLASS, 'OcnReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OcnReportEnum', 
                 [], [], 
                 '''                Ocn Report Type
                 ''',
                 'ocn_report',
                 'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'Report_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'Report_Enum', 
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'ReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'ReportEnum', 
                 [], [], 
                 '''                Ocn Report
                 ''',
@@ -9595,7 +9595,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24.OcHour24Ocn.OcHour24OcnThresholds.OcHour24OcnThreshold',
             False, 
             [
-            _MetaInfoClassMember('ocn-threshold', REFERENCE_ENUM_CLASS, 'OcnThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OcnThreshold_Enum', 
+            _MetaInfoClassMember('ocn-threshold', REFERENCE_ENUM_CLASS, 'OcnThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OcnThresholdEnum', 
                 [], [], 
                 '''                Ocn Threshold Type
                 ''',
@@ -9675,13 +9675,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15.OcMinute15Ocn.OcMinute15OcnReports.OcMinute15OcnReport',
             False, 
             [
-            _MetaInfoClassMember('ocn-report', REFERENCE_ENUM_CLASS, 'OcnReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OcnReport_Enum', 
+            _MetaInfoClassMember('ocn-report', REFERENCE_ENUM_CLASS, 'OcnReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OcnReportEnum', 
                 [], [], 
                 '''                Ocn Report Type
                 ''',
                 'ocn_report',
                 'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'Report_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'Report_Enum', 
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'ReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'ReportEnum', 
                 [], [], 
                 '''                Ocn Report
                 ''',
@@ -9715,7 +9715,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15.OcMinute15Ocn.OcMinute15OcnThresholds.OcMinute15OcnThreshold',
             False, 
             [
-            _MetaInfoClassMember('ocn-threshold', REFERENCE_ENUM_CLASS, 'OcnThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OcnThreshold_Enum', 
+            _MetaInfoClassMember('ocn-threshold', REFERENCE_ENUM_CLASS, 'OcnThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OcnThresholdEnum', 
                 [], [], 
                 '''                Ocn Threshold Type
                 ''',
@@ -9795,7 +9795,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Ocn.SonetHour24OcnReports.SonetHour24OcnReport',
             False, 
             [
-            _MetaInfoClassMember('ocn-report', REFERENCE_ENUM_CLASS, 'OcnReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OcnReport_Enum', 
+            _MetaInfoClassMember('ocn-report', REFERENCE_ENUM_CLASS, 'OcnReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OcnReportEnum', 
                 [], [], 
                 '''                Ocn Report Type
                 ''',
@@ -9829,7 +9829,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Ocn.SonetHour24OcnThresholds.SonetHour24OcnThreshold',
             False, 
             [
-            _MetaInfoClassMember('ocn-threshold', REFERENCE_ENUM_CLASS, 'OcnThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OcnThreshold_Enum', 
+            _MetaInfoClassMember('ocn-threshold', REFERENCE_ENUM_CLASS, 'OcnThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OcnThresholdEnum', 
                 [], [], 
                 '''                Ocn Threshold Type
                 ''',
@@ -9892,7 +9892,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path.SonetHour24PathReports.SonetHour24PathReport',
             False, 
             [
-            _MetaInfoClassMember('path-report', REFERENCE_ENUM_CLASS, 'PathReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'PathReport_Enum', 
+            _MetaInfoClassMember('path-report', REFERENCE_ENUM_CLASS, 'PathReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'PathReportEnum', 
                 [], [], 
                 '''                Path Report Type
                 ''',
@@ -9926,7 +9926,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path.SonetHour24PathThresholds.SonetHour24PathThreshold',
             False, 
             [
-            _MetaInfoClassMember('path-threshold', REFERENCE_ENUM_CLASS, 'PathThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'PathThreshold_Enum', 
+            _MetaInfoClassMember('path-threshold', REFERENCE_ENUM_CLASS, 'PathThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'PathThresholdEnum', 
                 [], [], 
                 '''                Path Threshold Type
                 ''',
@@ -10012,7 +10012,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Ocn.SonetMinute15OcnReports.SonetMinute15OcnReport',
             False, 
             [
-            _MetaInfoClassMember('ocn-report', REFERENCE_ENUM_CLASS, 'OcnReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OcnReport_Enum', 
+            _MetaInfoClassMember('ocn-report', REFERENCE_ENUM_CLASS, 'OcnReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OcnReportEnum', 
                 [], [], 
                 '''                Ocn Report Type
                 ''',
@@ -10046,7 +10046,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Ocn.SonetMinute15OcnThresholds.SonetMinute15OcnThreshold',
             False, 
             [
-            _MetaInfoClassMember('ocn-threshold', REFERENCE_ENUM_CLASS, 'OcnThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OcnThreshold_Enum', 
+            _MetaInfoClassMember('ocn-threshold', REFERENCE_ENUM_CLASS, 'OcnThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'OcnThresholdEnum', 
                 [], [], 
                 '''                Ocn Threshold Type
                 ''',
@@ -10109,7 +10109,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Path.SonetMinute15PathReports.SonetMinute15PathReport',
             False, 
             [
-            _MetaInfoClassMember('path-report', REFERENCE_ENUM_CLASS, 'PathReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'PathReport_Enum', 
+            _MetaInfoClassMember('path-report', REFERENCE_ENUM_CLASS, 'PathReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'PathReportEnum', 
                 [], [], 
                 '''                Path Report Type
                 ''',
@@ -10143,7 +10143,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Path.SonetMinute15PathThresholds.SonetMinute15PathThreshold',
             False, 
             [
-            _MetaInfoClassMember('path-threshold', REFERENCE_ENUM_CLASS, 'PathThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'PathThreshold_Enum', 
+            _MetaInfoClassMember('path-threshold', REFERENCE_ENUM_CLASS, 'PathThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'PathThresholdEnum', 
                 [], [], 
                 '''                Path Threshold Type
                 ''',
@@ -10229,13 +10229,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24.StmHour24Stm.StmHour24StmReports.StmHour24StmReport',
             False, 
             [
-            _MetaInfoClassMember('stm-report', REFERENCE_ENUM_CLASS, 'StmReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'StmReport_Enum', 
+            _MetaInfoClassMember('stm-report', REFERENCE_ENUM_CLASS, 'StmReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'StmReportEnum', 
                 [], [], 
                 '''                Stm Report Type
                 ''',
                 'stm_report',
                 'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'Report_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'Report_Enum', 
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'ReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'ReportEnum', 
                 [], [], 
                 '''                Stm Report
                 ''',
@@ -10269,7 +10269,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24.StmHour24Stm.StmHour24StmThresholds.StmHour24StmThreshold',
             False, 
             [
-            _MetaInfoClassMember('stm-threshold', REFERENCE_ENUM_CLASS, 'StmThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'StmThreshold_Enum', 
+            _MetaInfoClassMember('stm-threshold', REFERENCE_ENUM_CLASS, 'StmThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'StmThresholdEnum', 
                 [], [], 
                 '''                Stm Threshold Type
                 ''',
@@ -10349,13 +10349,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmMinute15.StmMinute15Stm.StmMinute15StmReports.StmMinute15StmReport',
             False, 
             [
-            _MetaInfoClassMember('stm-report', REFERENCE_ENUM_CLASS, 'StmReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'StmReport_Enum', 
+            _MetaInfoClassMember('stm-report', REFERENCE_ENUM_CLASS, 'StmReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'StmReportEnum', 
                 [], [], 
                 '''                Stm Report Type
                 ''',
                 'stm_report',
                 'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'Report_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'Report_Enum', 
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'ReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'ReportEnum', 
                 [], [], 
                 '''                Stm Report
                 ''',
@@ -10389,7 +10389,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmMinute15.StmMinute15Stm.StmMinute15StmThresholds.StmMinute15StmThreshold',
             False, 
             [
-            _MetaInfoClassMember('stm-threshold', REFERENCE_ENUM_CLASS, 'StmThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'StmThreshold_Enum', 
+            _MetaInfoClassMember('stm-threshold', REFERENCE_ENUM_CLASS, 'StmThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'StmThresholdEnum', 
                 [], [], 
                 '''                Stm Threshold Type
                 ''',
@@ -10469,13 +10469,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24.StsHour24Path.StsHour24PathReports.StsHour24PathReport',
             False, 
             [
-            _MetaInfoClassMember('path-report', REFERENCE_ENUM_CLASS, 'StsReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'StsReport_Enum', 
+            _MetaInfoClassMember('path-report', REFERENCE_ENUM_CLASS, 'StsReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'StsReportEnum', 
                 [], [], 
                 '''                Path Report Type
                 ''',
                 'path_report',
                 'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'Report_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'Report_Enum', 
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'ReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'ReportEnum', 
                 [], [], 
                 '''                Path Report
                 ''',
@@ -10509,7 +10509,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24.StsHour24Path.StsHour24PathThresholds.StsHour24PathThreshold',
             False, 
             [
-            _MetaInfoClassMember('path-threshold', REFERENCE_ENUM_CLASS, 'StsThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'StsThreshold_Enum', 
+            _MetaInfoClassMember('path-threshold', REFERENCE_ENUM_CLASS, 'StsThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'StsThresholdEnum', 
                 [], [], 
                 '''                Path Threshold Type
                 ''',
@@ -10589,13 +10589,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsMinute15.StsMinute15Path.StsMinute15PathReports.StsMinute15PathReport',
             False, 
             [
-            _MetaInfoClassMember('path-report', REFERENCE_ENUM_CLASS, 'StsReport_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'StsReport_Enum', 
+            _MetaInfoClassMember('path-report', REFERENCE_ENUM_CLASS, 'StsReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'StsReportEnum', 
                 [], [], 
                 '''                Path Report Type
                 ''',
                 'path_report',
                 'Cisco-IOS-XR-pmengine-cfg', True),
-            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'Report_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'Report_Enum', 
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'ReportEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'ReportEnum', 
                 [], [], 
                 '''                Path Report
                 ''',
@@ -10629,7 +10629,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsMinute15.StsMinute15Path.StsMinute15PathThresholds.StsMinute15PathThreshold',
             False, 
             [
-            _MetaInfoClassMember('path-threshold', REFERENCE_ENUM_CLASS, 'StsThreshold_Enum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'StsThreshold_Enum', 
+            _MetaInfoClassMember('path-threshold', REFERENCE_ENUM_CLASS, 'StsThresholdEnum' , 'ydk.models.pmengine.Cisco_IOS_XR_pmengine_cfg', 'StsThresholdEnum', 
                 [], [], 
                 '''                Path Threshold Type
                 ''',
@@ -10752,7 +10752,7 @@ _meta_table = {
                 ''',
                 'hour24_path',
                 'Cisco-IOS-XR-pmengine-cfg', False),
-            _MetaInfoClassMember('hour24otn-tcms', REFERENCE_CLASS, 'Hour24otnTcms' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms', 
+            _MetaInfoClassMember('hour24otn-tcms', REFERENCE_CLASS, 'Hour24OtnTcms' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms', 
                 [], [], 
                 '''                Configure pm parameters of tcm's 24 hour
                 interval
@@ -10777,7 +10777,7 @@ _meta_table = {
                 ''',
                 'minute15_path',
                 'Cisco-IOS-XR-pmengine-cfg', False),
-            _MetaInfoClassMember('minute15otn-tcms', REFERENCE_CLASS, 'Minute15otnTcms' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms', 
+            _MetaInfoClassMember('minute15otn-tcms', REFERENCE_CLASS, 'Minute15OtnTcms' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms', 
                 [], [], 
                 '''                set opr min threshold
                 ''',
@@ -10888,7 +10888,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.SpanMonitorSessions.SpanMonitorSession.Attachment',
             False, 
             [
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'SpanTrafficDirection_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg', 'SpanTrafficDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'SpanTrafficDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg', 'SpanTrafficDirectionEnum', 
                 [], [], 
                 '''                Specify the direction of traffic to replicate
                 (optional)
@@ -10918,7 +10918,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.SpanMonitorSessions.SpanMonitorSession',
             False, 
             [
-            _MetaInfoClassMember('session-class', REFERENCE_ENUM_CLASS, 'SpanSessionClass_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClass_Enum', 
+            _MetaInfoClassMember('session-class', REFERENCE_ENUM_CLASS, 'SpanSessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClassEnum', 
                 [], [], 
                 '''                Session Class
                 ''',
@@ -10943,7 +10943,7 @@ _meta_table = {
                 ''',
                 'mirror_first',
                 'Cisco-IOS-XR-Ethernet-SPAN-cfg', False),
-            _MetaInfoClassMember('mirror-interval', REFERENCE_ENUM_CLASS, 'SpanMirrorInterval_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg', 'SpanMirrorInterval_Enum', 
+            _MetaInfoClassMember('mirror-interval', REFERENCE_ENUM_CLASS, 'SpanMirrorIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg', 'SpanMirrorIntervalEnum', 
                 [], [], 
                 '''                Specify the mirror interval
                 ''',
@@ -11564,7 +11564,7 @@ _meta_table = {
                 ''',
                 'constant_metric',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'MplsTeAutorouteMetric_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeAutorouteMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'MplsTeAutorouteMetricEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeAutorouteMetricEnum', 
                 [], [], 
                 '''                Autoroute tunnel metric type
                 ''',
@@ -11663,7 +11663,7 @@ _meta_table = {
                 ''',
                 'constant_metric',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'MplsTeAutorouteMetric_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeAutorouteMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'MplsTeAutorouteMetricEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeAutorouteMetricEnum', 
                 [], [], 
                 '''                Autoroute tunnel metric type
                 ''',
@@ -11729,26 +11729,26 @@ _meta_table = {
                 ''',
                 'backup_bandwidth',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('class-type', REFERENCE_ENUM_CLASS, 'MplsTeBackupBandwidthClass_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBackupBandwidthClass_Enum', 
+            _MetaInfoClassMember('class-type', REFERENCE_ENUM_CLASS, 'MplsTeBackupBandwidthClassEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBackupBandwidthClassEnum', 
                 [], [], 
                 '''                Backup bandwidth class type, relevant only if
                 DSTEType is StandardDSTE
                 ''',
                 'class_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('dste-type', REFERENCE_ENUM_CLASS, 'MplsTeBandwidthDste_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBandwidthDste_Enum', 
+            _MetaInfoClassMember('dste-type', REFERENCE_ENUM_CLASS, 'MplsTeBandwidthDsteEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBandwidthDsteEnum', 
                 [], [], 
                 '''                DSTE-standard flag
                 ''',
                 'dste_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('limit-type', REFERENCE_ENUM_CLASS, 'MplsTeBandwidthLimit_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBandwidthLimit_Enum', 
+            _MetaInfoClassMember('limit-type', REFERENCE_ENUM_CLASS, 'MplsTeBandwidthLimitEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBandwidthLimitEnum', 
                 [], [], 
                 '''                Backup bandwidth limit type
                 ''',
                 'limit_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('pool-type', REFERENCE_ENUM_CLASS, 'MplsTeBackupBandwidthPool_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBackupBandwidthPool_Enum', 
+            _MetaInfoClassMember('pool-type', REFERENCE_ENUM_CLASS, 'MplsTeBackupBandwidthPoolEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBackupBandwidthPoolEnum', 
                 [], [], 
                 '''                Backup bandwidth pool type, relevant only if
                 DSTEType is PreStandardDSTE
@@ -11779,7 +11779,7 @@ _meta_table = {
                 ''',
                 'class_or_pool_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('dste-type', REFERENCE_ENUM_CLASS, 'MplsTeBandwidthDste_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBandwidthDste_Enum', 
+            _MetaInfoClassMember('dste-type', REFERENCE_ENUM_CLASS, 'MplsTeBandwidthDsteEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBandwidthDsteEnum', 
                 [], [], 
                 '''                DSTE-standard flag
                 ''',
@@ -11996,7 +11996,7 @@ _meta_table = {
                 ''',
                 'label_value',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('segment-id-type', REFERENCE_ENUM_CLASS, 'BindingSegmentId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'BindingSegmentId_Enum', 
+            _MetaInfoClassMember('segment-id-type', REFERENCE_ENUM_CLASS, 'BindingSegmentIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'BindingSegmentIdEnum', 
                 [], [], 
                 '''                MPLS label value type
                 ''',
@@ -12127,7 +12127,7 @@ _meta_table = {
                 ''',
                 'affinity9',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
-            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinity_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity_Enum', 
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
                 [], [], 
                 '''                The type of the affinity entry
                 ''',
@@ -12161,7 +12161,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathInvalidation',
             False, 
             [
-            _MetaInfoClassMember('path-invalidation-action', REFERENCE_ENUM_CLASS, 'PathInvalidationAction_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'PathInvalidationAction_Enum', 
+            _MetaInfoClassMember('path-invalidation-action', REFERENCE_ENUM_CLASS, 'PathInvalidationActionEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'PathInvalidationActionEnum', 
                 [], [], 
                 '''                Path Invalidation Action
                 ''',
@@ -12214,7 +12214,7 @@ _meta_table = {
                 ''',
                 'igp_instance',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('igp-type', REFERENCE_ENUM_CLASS, 'MplsTeIgpProtocol_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeIgpProtocol_Enum', 
+            _MetaInfoClassMember('igp-type', REFERENCE_ENUM_CLASS, 'MplsTeIgpProtocolEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeIgpProtocolEnum', 
                 [], [], 
                 '''                IGP type
                 ''',
@@ -12226,7 +12226,7 @@ _meta_table = {
                 ''',
                 'interface',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('lockdown', REFERENCE_ENUM_CLASS, 'MplsTePathOptionProperty_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionProperty_Enum', 
+            _MetaInfoClassMember('lockdown', REFERENCE_ENUM_CLASS, 'MplsTePathOptionPropertyEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionPropertyEnum', 
                 [], [], 
                 '''                Lockdown properties
                 ''',
@@ -12264,13 +12264,13 @@ _meta_table = {
                 ''',
                 'path_property',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsTePathOption_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOption_Enum', 
+            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsTePathOptionEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionEnum', 
                 [], [], 
                 '''                The type of the path option
                 ''',
                 'path_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('pce', REFERENCE_ENUM_CLASS, 'MplsTePathOptionProperty_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionProperty_Enum', 
+            _MetaInfoClassMember('pce', REFERENCE_ENUM_CLASS, 'MplsTePathOptionPropertyEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionPropertyEnum', 
                 [], [], 
                 '''                PCE properties
                 ''',
@@ -12290,13 +12290,13 @@ _meta_table = {
                 ''',
                 'protected_by_preference_level',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'MplsTePathOptionProperty_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionProperty_Enum', 
+            _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'MplsTePathOptionPropertyEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionPropertyEnum', 
                 [], [], 
                 '''                SegmentRouting properties
                 ''',
                 'segment_routing',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('verbatim', REFERENCE_ENUM_CLASS, 'MplsTePathOptionProperty_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionProperty_Enum', 
+            _MetaInfoClassMember('verbatim', REFERENCE_ENUM_CLASS, 'MplsTePathOptionPropertyEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionPropertyEnum', 
                 [], [], 
                 '''                Verbatim properties
                 ''',
@@ -12330,7 +12330,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects.PathOptionProtect',
             False, 
             [
-            _MetaInfoClassMember('protection', REFERENCE_ENUM_CLASS, 'MplsTePathOptionProtection_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionProtection_Enum', 
+            _MetaInfoClassMember('protection', REFERENCE_ENUM_CLASS, 'MplsTePathOptionProtectionEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionProtectionEnum', 
                 [], [], 
                 '''                Protection type for this path
                 ''',
@@ -12433,13 +12433,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching.Endpoint',
             False, 
             [
-            _MetaInfoClassMember('capability', REFERENCE_ENUM_CLASS, 'MplsTeSwitchingCap_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSwitchingCap_Enum', 
+            _MetaInfoClassMember('capability', REFERENCE_ENUM_CLASS, 'MplsTeSwitchingCapEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSwitchingCapEnum', 
                 [], [], 
                 '''                Switching capability
                 ''',
                 'capability',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('encoding', REFERENCE_ENUM_CLASS, 'MplsTeSwitchingEncode_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSwitchingEncode_Enum', 
+            _MetaInfoClassMember('encoding', REFERENCE_ENUM_CLASS, 'MplsTeSwitchingEncodeEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSwitchingEncodeEnum', 
                 [], [], 
                 '''                LSP encoding
                 ''',
@@ -12456,13 +12456,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching.Transit',
             False, 
             [
-            _MetaInfoClassMember('capability', REFERENCE_ENUM_CLASS, 'MplsTeSwitchingCap_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSwitchingCap_Enum', 
+            _MetaInfoClassMember('capability', REFERENCE_ENUM_CLASS, 'MplsTeSwitchingCapEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSwitchingCapEnum', 
                 [], [], 
                 '''                Switching capability
                 ''',
                 'capability',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('encoding', REFERENCE_ENUM_CLASS, 'MplsTeSwitchingEncode_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSwitchingEncode_Enum', 
+            _MetaInfoClassMember('encoding', REFERENCE_ENUM_CLASS, 'MplsTeSwitchingEncodeEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSwitchingEncodeEnum', 
                 [], [], 
                 '''                LSP encoding
                 ''',
@@ -12630,7 +12630,7 @@ _meta_table = {
                 ''',
                 'path_selection_hop_limit',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-selection-metric', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionMetric_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetric_Enum', 
+            _MetaInfoClassMember('path-selection-metric', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionMetricEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetricEnum', 
                 [], [], 
                 '''                Path selection metric configuration for this
                 specific tunnel
@@ -12705,7 +12705,7 @@ _meta_table = {
                 ''',
                 'second_tag',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False, [
-                    _MetaInfoClassMember('second-tag', REFERENCE_ENUM_CLASS, 'VlanTagOrNull_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrNull_Enum', 
+                    _MetaInfoClassMember('second-tag', REFERENCE_ENUM_CLASS, 'VlanTagOrNullEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrNullEnum', 
                         [], [], 
                         '''                        Second VLAN tag value. The any value may only
                         be used for Layer 2 subinterfaces
@@ -12720,7 +12720,7 @@ _meta_table = {
                         'second_tag',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                 ]),
-            _MetaInfoClassMember('vlan-type', REFERENCE_ENUM_CLASS, 'Vlan_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'Vlan_Enum', 
+            _MetaInfoClassMember('vlan-type', REFERENCE_ENUM_CLASS, 'VlanEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanEnum', 
                 [], [], 
                 '''                Whether this sub-interface is dot1ad or dot1Q
                 ''',
@@ -12761,7 +12761,7 @@ _meta_table = {
                 ''',
                 'vlan_identifier',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False),
-            _MetaInfoClassMember('vlan-type', REFERENCE_ENUM_CLASS, 'Vlan_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'Vlan_Enum', 
+            _MetaInfoClassMember('vlan-type', REFERENCE_ENUM_CLASS, 'VlanEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanEnum', 
                 [], [], 
                 '''                Whether this interface is dot1ad or dot1Q
                 ''',
@@ -12774,7 +12774,7 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration.TunnelingEthertype_Enum' : _MetaInfoEnum('TunnelingEthertype_Enum', 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg',
+    'InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration.TunnelingEthertypeEnum' : _MetaInfoEnum('TunnelingEthertypeEnum', 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg',
         {
             '0x9100':'Y_0X9100',
             '0x9200':'Y_0X9200',
@@ -12790,7 +12790,7 @@ _meta_table = {
                 ''',
                 'native_vlan_identifier',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False),
-            _MetaInfoClassMember('tunneling-ethertype', REFERENCE_ENUM_CLASS, 'TunnelingEthertype_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration.TunnelingEthertype_Enum', 
+            _MetaInfoClassMember('tunneling-ethertype', REFERENCE_ENUM_CLASS, 'TunnelingEthertypeEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration.TunnelingEthertypeEnum', 
                 [], [], 
                 '''                The outer ethertype used in Q-in-Q frames. The
                 default value is 0x8100
@@ -12808,7 +12808,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Wanphy',
             False, 
             [
-            _MetaInfoClassMember('lan-mode', REFERENCE_ENUM_CLASS, 'WanphyLanMode_Enum' , 'ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_cfg', 'WanphyLanMode_Enum', 
+            _MetaInfoClassMember('lan-mode', REFERENCE_ENUM_CLASS, 'WanphyLanModeEnum' , 'ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_cfg', 'WanphyLanModeEnum', 
                 [], [], 
                 '''                Configure LAN Mode
                 ''',
@@ -12914,7 +12914,7 @@ _meta_table = {
                 ''',
                 'threshold_sf_ber',
                 'Cisco-IOS-XR-wanphy-ui-cfg', False),
-            _MetaInfoClassMember('wan-mode', REFERENCE_ENUM_CLASS, 'WanphyWanMode_Enum' , 'ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_cfg', 'WanphyWanMode_Enum', 
+            _MetaInfoClassMember('wan-mode', REFERENCE_ENUM_CLASS, 'WanphyWanModeEnum' , 'ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_cfg', 'WanphyWanModeEnum', 
                 [], [], 
                 '''                Configure WAN Mode
                 ''',
@@ -12986,13 +12986,13 @@ _meta_table = {
                 ''',
                 'cdp',
                 'Cisco-IOS-XR-cdp-cfg', False),
-            _MetaInfoClassMember('Cisco-IOS-XR-ncs5500-qos-cfg_qos', REFERENCE_CLASS, 'CiscoIOSXRNcs5500QosCfg_qos' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos', 
+            _MetaInfoClassMember('Cisco-IOS-XR-ncs5500-qos-cfg_qos', REFERENCE_CLASS, 'CiscoIosXrNcs5500QosCfg_Qos' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos', 
                 [], [], 
                 '''                Interface QOS configuration
                 ''',
                 'cisco_ios_xr_ncs5500_qos_cfg_qos',
                 'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('Cisco-IOS-XR-skp-qos-cfg_qos', REFERENCE_CLASS, 'CiscoIOSXRSkpQosCfg_qos' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos', 
+            _MetaInfoClassMember('Cisco-IOS-XR-skp-qos-cfg_qos', REFERENCE_CLASS, 'CiscoIosXrSkpQosCfg_Qos' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos', 
                 [], [], 
                 '''                Interface QOS configuration
                 ''',
@@ -13054,7 +13054,7 @@ _meta_table = {
                 ''',
                 'ethernet_service',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False),
-            _MetaInfoClassMember('interface-mode-non-physical', REFERENCE_ENUM_CLASS, 'InterfaceModeEnum_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceModeEnum_Enum', 
+            _MetaInfoClassMember('interface-mode-non-physical', REFERENCE_ENUM_CLASS, 'InterfaceModeEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceModeEnumEnum', 
                 [], [], 
                 '''                The mode in which an interface is running. The
                 existence of this object causes the creation of
@@ -13090,7 +13090,7 @@ _meta_table = {
                 ''',
                 'ipv4_packet_filter',
                 'Cisco-IOS-XR-ip-pfilter-cfg', False),
-            _MetaInfoClassMember('ipv4arp', REFERENCE_CLASS, 'Ipv4arp' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Ipv4arp', 
+            _MetaInfoClassMember('ipv4arp', REFERENCE_CLASS, 'Ipv4Arp' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Ipv4Arp', 
                 [], [], 
                 '''                Configure Address Resolution Protocol
                 ''',
@@ -13228,7 +13228,7 @@ _meta_table = {
                 ''',
                 'pseudowire_iw',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
-            _MetaInfoClassMember('secondary-admin-state', REFERENCE_ENUM_CLASS, 'SecondaryAdminStateEnum_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'SecondaryAdminStateEnum_Enum', 
+            _MetaInfoClassMember('secondary-admin-state', REFERENCE_ENUM_CLASS, 'SecondaryAdminStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_cfg', 'SecondaryAdminStateEnumEnum', 
                 [], [], 
                 '''                The secondary admin state of the interface
                 ''',
@@ -13340,16 +13340,16 @@ _meta_table['InterfaceConfigurations.InterfaceConfiguration.Bundle.BundleLoadBal
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Bundle.MaximumActive']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Bundle']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Bundle.MinimumActive']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Bundle']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.BundleMember.Id']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.BundleMember']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Input.ServicePolicy']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Input']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Output.ServicePolicy']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Output']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Input']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos.Output']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Input.ServicePolicy']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Input']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.L2Overhead.Account']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.L2Overhead']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Output.ServicePolicy']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Output']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Input']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.L2Overhead']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos.Output']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input.ServicePolicy']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output.ServicePolicy']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input.ServicePolicy']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead.Account']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output.ServicePolicy']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub.Distance']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub.Metric']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub.Timers']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub']['meta_info']
@@ -13438,7 +13438,7 @@ _meta_table['InterfaceConfigurations.InterfaceConfiguration.Lldp.Transmit']['met
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Mlacp.Maximize']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Mlacp']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.PathOptions.PathOption']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.PathOptions']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.PathOptions']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.S2lLogging']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.S2LLogging']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.NewStyleAffinities.NewStyleAffinity']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.NewStyleAffinities']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.AffinityMask']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes']['meta_info']
@@ -13509,76 +13509,76 @@ _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagemen
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether.Minute15EtherReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether.Minute15EtherThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcReports.HoVcHour24hoVcReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcReports']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcThresholds.HoVcHour24hoVcThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcThresholds']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc.HoVcHour24hoVcThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24hoVc']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcReports.HoVcMinute15hoVcReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcReports']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcThresholds.HoVcMinute15hoVcThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcThresholds']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc.HoVcMinute15hoVcThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15hoVc']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcReports.HoVcHour24HoVcReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcReports']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcThresholds.HoVcHour24HoVcThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcThresholds']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcReports.HoVcMinute15HoVcReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcReports']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcThresholds.HoVcMinute15HoVcThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcThresholds']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecReports.Hour24FecReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecReports']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds.Hour24FecThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsReports.Hour24OpticsReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsReports']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsThresholds.Hour24OpticsThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsThresholds']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecReports.Hour24fecReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecReports']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecThresholds.Hour24fecThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecThresholds']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec.Hour24fecThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnReports.Hour24otnReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnReports']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnThresholds.Hour24otnThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnThresholds']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn.Hour24otnThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnReports.Hour24OtnReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnReports']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds.Hour24OtnThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24fec']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24otn']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp.Hour24GfpReports.Hour24GfpReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp.Hour24GfpReports']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp.Hour24GfpThresholds.Hour24GfpThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp.Hour24GfpThresholds']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp.Hour24GfpReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp.Hour24GfpThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathReports.Hour24otnPathReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathReports']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathThresholds.Hour24otnPathThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathThresholds']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath.Hour24otnPathThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24otnPath']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmReports.Hour24otnTcmReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmReports']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmThresholds.Hour24otnTcmThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmThresholds']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm.Hour24otnTcmThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms.Hour24otnTcm']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports.Hour24OtnTcmReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds.Hour24OtnTcmThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports.Hour24OtnPathReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathThresholds.Hour24OtnPathThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathThresholds']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecReports.Minute15FecReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecReports']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds.Minute15FecThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsReports.Minute15OpticsReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsReports']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsThresholds.Minute15OpticsThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsThresholds']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecReports.Minute15fecReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecReports']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecThresholds.Minute15fecThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecThresholds']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec.Minute15fecThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Min15OtnThreshes.Min15OtnThresh']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Min15OtnThreshes']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Minute15otnReports.Minute15otnReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Minute15otnReports']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Min15OtnThreshes']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn.Minute15otnReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Min15OtnThreshes.Min15OtnThresh']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Min15OtnThreshes']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Minute15OtnReports.Minute15OtnReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Minute15OtnReports']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Min15OtnThreshes']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Minute15OtnReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15fec']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15otn']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp.Minute15GfpReports.Minute15GfpReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp.Minute15GfpReports']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp.Minute15GfpThresholds.Minute15GfpThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp.Minute15GfpThresholds']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp.Minute15GfpReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp.Minute15GfpThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Min15OtnPathThreshes.Min15OtnPathThresh']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Min15OtnPathThreshes']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Minute15otnPathReports.Minute15otnPathReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Minute15otnPathReports']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Min15OtnPathThreshes']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath.Minute15otnPathReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15otnPath']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Min15OtnTcmThreshes.Min15OtnTcmThresh']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Min15OtnTcmThreshes']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Minute15otnTcmReports.Minute15otnTcmReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Minute15otnTcmReports']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Min15OtnTcmThreshes']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm.Minute15otnTcmReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms.Minute15otnTcm']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Min15OtnTcmThreshes.Min15OtnTcmThresh']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Min15OtnTcmThreshes']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Minute15OtnTcmReports.Minute15OtnTcmReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Minute15OtnTcmReports']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Min15OtnTcmThreshes']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Minute15OtnTcmReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Min15OtnPathThreshes.Min15OtnPathThresh']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Min15OtnPathThreshes']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports.Minute15OtnPathReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Min15OtnPathThreshes']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24.OcHour24Ocn.OcHour24OcnReports.OcHour24OcnReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24.OcHour24Ocn.OcHour24OcnReports']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24.OcHour24Ocn.OcHour24OcnThresholds.OcHour24OcnThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24.OcHour24Ocn.OcHour24OcnThresholds']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24.OcHour24Ocn.OcHour24OcnReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24.OcHour24Ocn']['meta_info']
@@ -13635,12 +13635,12 @@ _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagemen
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24otnTcms']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15otnTcms']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
@@ -13705,8 +13705,8 @@ _meta_table['InterfaceConfigurations.InterfaceConfiguration.Bfd']['meta_info'].p
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Bundle']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.BundleMember']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Cdp']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRNcs5500QosCfg_qos']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIOSXRSkpQosCfg_qos']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Dagrs']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Dampening']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Encapsulation']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
@@ -13715,10 +13715,10 @@ _meta_table['InterfaceConfigurations.InterfaceConfiguration.Ethernet']['meta_inf
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.EthernetBng']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.EthernetService']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv4Arp']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv4Network']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv4NetworkForwarding']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv4PacketFilter']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv4arp']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Network']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6PacketFilter']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']

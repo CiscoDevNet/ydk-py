@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,13 +14,13 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'CdpDuplex_Enum' : _MetaInfoEnum('CdpDuplex_Enum', 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper',
+    'CdpDuplexEnum' : _MetaInfoEnum('CdpDuplexEnum', 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper',
         {
             'cdp-dplx-none':'CDP_DPLX_NONE',
             'cdp-dplx-half':'CDP_DPLX_HALF',
             'cdp-dplx-full':'CDP_DPLX_FULL',
         }, 'Cisco-IOS-XR-cdp-oper', _yang_ns._namespaces['Cisco-IOS-XR-cdp-oper']),
-    'CdpL3AddrProtocol_Enum' : _MetaInfoEnum('CdpL3AddrProtocol_Enum', 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper',
+    'CdpL3AddrProtocolEnum' : _MetaInfoEnum('CdpL3AddrProtocolEnum', 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper',
         {
             'ipv4':'IPV4',
             'ipv6':'IPV6',
@@ -88,7 +88,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address',
             False, 
             [
-            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'CdpL3AddrProtocol_Enum' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'CdpL3AddrProtocol_Enum', 
+            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'CdpL3AddrProtocolEnum' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'CdpL3AddrProtocolEnum', 
                 [], [], 
                 '''                AddressType
                 ''',
@@ -185,7 +185,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail',
             False, 
             [
-            _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'CdpDuplex_Enum' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'CdpDuplex_Enum', 
+            _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'CdpDuplexEnum' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'CdpDuplexEnum', 
                 [], [], 
                 '''                Duplex setting
                 ''',
@@ -344,7 +344,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address',
             False, 
             [
-            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'CdpL3AddrProtocol_Enum' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'CdpL3AddrProtocol_Enum', 
+            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'CdpL3AddrProtocolEnum' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'CdpL3AddrProtocolEnum', 
                 [], [], 
                 '''                AddressType
                 ''',
@@ -441,7 +441,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail',
             False, 
             [
-            _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'CdpDuplex_Enum' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'CdpDuplex_Enum', 
+            _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'CdpDuplexEnum' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'CdpDuplexEnum', 
                 [], [], 
                 '''                Duplex setting
                 ''',
@@ -594,7 +594,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address',
             False, 
             [
-            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'CdpL3AddrProtocol_Enum' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'CdpL3AddrProtocol_Enum', 
+            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'CdpL3AddrProtocolEnum' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'CdpL3AddrProtocolEnum', 
                 [], [], 
                 '''                AddressType
                 ''',
@@ -691,7 +691,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail',
             False, 
             [
-            _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'CdpDuplex_Enum' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'CdpDuplex_Enum', 
+            _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'CdpDuplexEnum' , 'ydk.models.cdp.Cisco_IOS_XR_cdp_oper', 'CdpDuplexEnum', 
                 [], [], 
                 '''                Duplex setting
                 ''',

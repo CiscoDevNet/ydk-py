@@ -31,1305 +31,1205 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class BackupDisable_Enum(Enum):
+class BackupDisableEnum(Enum):
     """
-    BackupDisable_Enum
+    BackupDisableEnum
 
     Backup disable
 
-    """
+    .. data:: NEVER = 0
+
+    	Never
+
+    .. data:: DELAY = 1
+
+    	Delay seconds
 
     """
 
-    Never
-
-    """
     NEVER = 0
 
-    """
-
-    Delay seconds
-
-    """
     DELAY = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['BackupDisable_Enum']
+        return meta._meta_table['BackupDisableEnum']
 
 
-class BgpRouteDistinguisher_Enum(Enum):
+class BgpRouteDistinguisherEnum(Enum):
     """
-    BgpRouteDistinguisher_Enum
+    BgpRouteDistinguisherEnum
 
     Bgp route distinguisher
 
-    """
+    .. data:: AUTO = 1
+
+    	RD automatically assigned
+
+    .. data:: TWO_BYTE_AS = 2
+
+    	RD in 2 byte AS:nn format
+
+    .. data:: FOUR_BYTE_AS = 3
+
+    	RD in 4 byte AS:nn format
+
+    .. data:: IPV4_ADDRESS = 4
+
+    	RD in IpV4address
 
     """
 
-    RD automatically assigned
-
-    """
     AUTO = 1
 
-    """
-
-    RD in 2 byte AS\:nn format
-
-    """
     TWO_BYTE_AS = 2
 
-    """
-
-    RD in 4 byte AS\:nn format
-
-    """
     FOUR_BYTE_AS = 3
 
-    """
-
-    RD in IpV4address
-
-    """
     IPV4_ADDRESS = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['BgpRouteDistinguisher_Enum']
+        return meta._meta_table['BgpRouteDistinguisherEnum']
 
 
-class BgpRouteTargetFormat_Enum(Enum):
+class BgpRouteTargetFormatEnum(Enum):
     """
-    BgpRouteTargetFormat_Enum
+    BgpRouteTargetFormatEnum
 
     Bgp route target format
 
-    """
+    .. data:: NONE = 0
+
+    	No route target
+
+    .. data:: TWO_BYTE_AS = 1
+
+    	2 Byte AS:nn format
+
+    .. data:: FOUR_BYTE_AS = 2
+
+    	4 byte AS:nn format
+
+    .. data:: IPV4_ADDRESS = 3
+
+    	IP:nn format
 
     """
 
-    No route target
-
-    """
     NONE = 0
 
-    """
-
-    2 Byte AS\:nn format
-
-    """
     TWO_BYTE_AS = 1
 
-    """
-
-    4 byte AS\:nn format
-
-    """
     FOUR_BYTE_AS = 2
 
-    """
-
-    IP\:nn format
-
-    """
     IPV4_ADDRESS = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['BgpRouteTargetFormat_Enum']
+        return meta._meta_table['BgpRouteTargetFormatEnum']
 
 
-class BgpRouteTargetRole_Enum(Enum):
+class BgpRouteTargetRoleEnum(Enum):
     """
-    BgpRouteTargetRole_Enum
+    BgpRouteTargetRoleEnum
 
     Bgp route target role
 
-    """
+    .. data:: BOTH = 0
+
+    	Both Import and export roles
+
+    .. data:: IMPORT = 1
+
+    	Import role
+
+    .. data:: EXPORT = 2
+
+    	Export role
 
     """
 
-    Both Import and export roles
-
-    """
     BOTH = 0
 
-    """
-
-    Import role
-
-    """
     IMPORT = 1
 
-    """
-
-    Export role
-
-    """
     EXPORT = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['BgpRouteTargetRole_Enum']
+        return meta._meta_table['BgpRouteTargetRoleEnum']
 
 
-class BridgeDomainTransportMode_Enum(Enum):
+class BridgeDomainTransportModeEnum(Enum):
     """
-    BridgeDomainTransportMode_Enum
+    BridgeDomainTransportModeEnum
 
     Bridge domain transport mode
 
-    """
+    .. data:: VLAN_PASSTHROUGH = 3
+
+    	Vlan tagged passthrough mode
 
     """
 
-    Vlan tagged passthrough mode
-
-    """
     VLAN_PASSTHROUGH = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['BridgeDomainTransportMode_Enum']
+        return meta._meta_table['BridgeDomainTransportModeEnum']
 
 
-class ControlWord_Enum(Enum):
+class ControlWordEnum(Enum):
     """
-    ControlWord_Enum
+    ControlWordEnum
 
     Control word
 
-    """
+    .. data:: ENABLE = 1
+
+    	Enable control word
+
+    .. data:: DISABLE = 2
+
+    	Disable control word
 
     """
 
-    Enable control word
-
-    """
     ENABLE = 1
 
-    """
-
-    Disable control word
-
-    """
     DISABLE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['ControlWord_Enum']
+        return meta._meta_table['ControlWordEnum']
 
 
-class ErpPort1_Enum(Enum):
+class ErpPort1Enum(Enum):
     """
-    ErpPort1_Enum
+    ErpPort1Enum
 
     Erp port1
 
-    """
+    .. data:: PORT0 = 0
+
+    	ERP main port 0
+
+    .. data:: PORT1 = 1
+
+    	ERP main port 1
 
     """
 
-    ERP main port 0
-
-    """
     PORT0 = 0
 
-    """
-
-    ERP main port 1
-
-    """
     PORT1 = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['ErpPort1_Enum']
+        return meta._meta_table['ErpPort1Enum']
 
 
-class ErpPort_Enum(Enum):
+class ErpPortEnum(Enum):
     """
-    ErpPort_Enum
+    ErpPortEnum
 
     Erp port
 
-    """
+    .. data:: NONE = 1
+
+    	ERP port type none
+
+    .. data:: VIRTUAL = 2
+
+    	ERP port type virtual
+
+    .. data:: INTERFACE = 3
+
+    	ERP port type interface
 
     """
 
-    ERP port type none
-
-    """
     NONE = 1
 
-    """
-
-    ERP port type virtual
-
-    """
     VIRTUAL = 2
 
-    """
-
-    ERP port type interface
-
-    """
     INTERFACE = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['ErpPort_Enum']
+        return meta._meta_table['ErpPortEnum']
 
 
-class Erpaps_Enum(Enum):
+class ErpapsEnum(Enum):
     """
-    Erpaps_Enum
+    ErpapsEnum
 
     Erpaps
 
-    """
+    .. data:: INTERFACE = 1
+
+    	ERP APS type interface
+
+    .. data:: BRIDGE_DOMAIN = 2
+
+    	ERP APS type bridge domain
+
+    .. data:: XCONNECT = 3
+
+    	ERP APS type xconnect
+
+    .. data:: NONE = 4
+
+    	ERP APS type none
 
     """
 
-    ERP APS type interface
-
-    """
     INTERFACE = 1
 
-    """
-
-    ERP APS type bridge domain
-
-    """
     BRIDGE_DOMAIN = 2
 
-    """
-
-    ERP APS type xconnect
-
-    """
     XCONNECT = 3
 
-    """
-
-    ERP APS type none
-
-    """
     NONE = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['Erpaps_Enum']
+        return meta._meta_table['ErpapsEnum']
 
 
-class FlowLabelLoadBalance_Enum(Enum):
+class FlowLabelLoadBalanceEnum(Enum):
     """
-    FlowLabelLoadBalance_Enum
+    FlowLabelLoadBalanceEnum
 
     Flow label load balance
 
-    """
+    .. data:: OFF = 0
+
+    	Flow Label load balance is off
+
+    .. data:: RECEIVE = 1
+
+    	Delete Flow Label on receive side
+
+    .. data:: TRANSMIT = 2
+
+    	Insert Flow Label on transmit side
+
+    .. data:: BOTH = 3
+
+    	Insert/Delete  Flow Label on transmit/receive
+
+    	side
 
     """
 
-    Flow Label load balance is off
-
-    """
     OFF = 0
 
-    """
-
-    Delete Flow Label on receive side
-
-    """
     RECEIVE = 1
 
-    """
-
-    Insert Flow Label on transmit side
-
-    """
     TRANSMIT = 2
 
-    """
-
-    Insert/Delete  Flow Label on transmit/receive
-    side
-
-    """
     BOTH = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['FlowLabelLoadBalance_Enum']
+        return meta._meta_table['FlowLabelLoadBalanceEnum']
 
 
-class FlowLabelTlvCode_Enum(Enum):
+class FlowLabelTlvCodeEnum(Enum):
     """
-    FlowLabelTlvCode_Enum
+    FlowLabelTlvCodeEnum
 
     Flow label tlv code
 
-    """
+    .. data:: Y_17 = 4
+
+    	Set Flow Label Legacy TLV code (DEPRECATED)
+
+    .. data:: DISABLE = 8
+
+    	Disable Sending Flow Label Legacy TLV
 
     """
 
-    Set Flow Label Legacy TLV code (DEPRECATED)
-
-    """
     Y_17 = 4
 
-    """
-
-    Disable Sending Flow Label Legacy TLV
-
-    """
     DISABLE = 8
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['FlowLabelTlvCode_Enum']
+        return meta._meta_table['FlowLabelTlvCodeEnum']
 
 
-class InterfaceProfile_Enum(Enum):
+class InterfaceProfileEnum(Enum):
     """
-    InterfaceProfile_Enum
+    InterfaceProfileEnum
 
     Interface profile
 
-    """
+    .. data:: SNOOP = 1
+
+    	Set the snooping
+
+    .. data:: DHCP_PROTOCOL = 2
+
+    	disable DHCP protocol
 
     """
 
-    Set the snooping
-
-    """
     SNOOP = 1
 
-    """
-
-    disable DHCP protocol
-
-    """
     DHCP_PROTOCOL = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['InterfaceProfile_Enum']
+        return meta._meta_table['InterfaceProfileEnum']
 
 
-class InterfaceTrafficFlood_Enum(Enum):
+class InterfaceTrafficFloodEnum(Enum):
     """
-    InterfaceTrafficFlood_Enum
+    InterfaceTrafficFloodEnum
 
     Interface traffic flood
 
-    """
+    .. data:: TRAFFIC_FLOODING = 0
+
+    	Traffic flooding
+
+    .. data:: ENABLE_FLOODING = 1
+
+    	Enable Flooding
+
+    .. data:: DISABLE_FLOODING = 2
+
+    	Disable flooding
 
     """
 
-    Traffic flooding
-
-    """
     TRAFFIC_FLOODING = 0
 
-    """
-
-    Enable Flooding
-
-    """
     ENABLE_FLOODING = 1
 
-    """
-
-    Disable flooding
-
-    """
     DISABLE_FLOODING = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['InterfaceTrafficFlood_Enum']
+        return meta._meta_table['InterfaceTrafficFloodEnum']
 
 
-class Interworking_Enum(Enum):
+class InterworkingEnum(Enum):
     """
-    Interworking_Enum
+    InterworkingEnum
 
     Interworking
 
-    """
+    .. data:: ETHERNET = 1
+
+    	Ethernet interworking
+
+    .. data:: IPV4 = 3
+
+    	IPv4 interworking
 
     """
 
-    Ethernet interworking
-
-    """
     ETHERNET = 1
 
-    """
-
-    IPv4 interworking
-
-    """
     IPV4 = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['Interworking_Enum']
+        return meta._meta_table['InterworkingEnum']
 
 
-class L2Encapsulation_Enum(Enum):
+class L2EncapsulationEnum(Enum):
     """
-    L2Encapsulation_Enum
+    L2EncapsulationEnum
 
     L2 encapsulation
 
-    """
+    .. data:: VLAN = 4
+
+    	Vlan tagged mode
+
+    .. data:: ETHERNET = 5
+
+    	Ethernet port mode
 
     """
 
-    Vlan tagged mode
-
-    """
     VLAN = 4
 
-    """
-
-    Ethernet port mode
-
-    """
     ETHERNET = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['L2Encapsulation_Enum']
+        return meta._meta_table['L2EncapsulationEnum']
 
 
-class L2tpCookieSize_Enum(Enum):
+class L2TpCookieSizeEnum(Enum):
     """
-    L2tpCookieSize_Enum
+    L2TpCookieSizeEnum
 
     L2tp cookie size
 
-    """
+    .. data:: ZERO = 0
+
+    	Cookie size is zero bytes
+
+    .. data:: FOUR = 4
+
+    	Cookie size is four bytes
+
+    .. data:: EIGHT = 8
+
+    	Cookie size is eight bytes
 
     """
 
-    Cookie size is zero bytes
-
-    """
     ZERO = 0
 
-    """
-
-    Cookie size is four bytes
-
-    """
     FOUR = 4
 
-    """
-
-    Cookie size is eight bytes
-
-    """
     EIGHT = 8
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['L2tpCookieSize_Enum']
+        return meta._meta_table['L2TpCookieSizeEnum']
 
 
-class L2tpSignalingProtocol_Enum(Enum):
+class L2TpSignalingProtocolEnum(Enum):
     """
-    L2tpSignalingProtocol_Enum
+    L2TpSignalingProtocolEnum
 
     L2tp signaling protocol
 
-    """
+    .. data:: NONE = 1
+
+    	No signaling
+
+    .. data:: L2TPV3 = 2
+
+    	L2TPv3
 
     """
 
-    No signaling
-
-    """
     NONE = 1
 
-    """
-
-    L2TPv3
-
-    """
     L2TPV3 = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['L2tpSignalingProtocol_Enum']
+        return meta._meta_table['L2TpSignalingProtocolEnum']
 
 
-class L2tpv3Sequencing_Enum(Enum):
+class L2Tpv3SequencingEnum(Enum):
     """
-    L2tpv3Sequencing_Enum
+    L2Tpv3SequencingEnum
 
     L2tpv3 sequencing
 
-    """
+    .. data:: OFF = 0
+
+    	Sequencing is off
+
+    .. data:: BOTH = 4
+
+    	Sequencing on both transmit and receive side
 
     """
 
-    Sequencing is off
-
-    """
     OFF = 0
 
-    """
-
-    Sequencing on both transmit and receive side
-
-    """
     BOTH = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['L2tpv3Sequencing_Enum']
+        return meta._meta_table['L2Tpv3SequencingEnum']
 
 
-class L2vpnCapabilityMode_Enum(Enum):
+class L2VpnCapabilityModeEnum(Enum):
     """
-    L2vpnCapabilityMode_Enum
+    L2VpnCapabilityModeEnum
 
     L2vpn capability mode
 
-    """
+    .. data:: HIGH_MODE = 1
+
+    	Compute global capability as the highest node
+
+    	capability
+
+    .. data:: SINGLE_MODE = 2
+
+    	Disable global capability re-computation
 
     """
 
-    Compute global capability as the highest node
-    capability
-
-    """
     HIGH_MODE = 1
 
-    """
-
-    Disable global capability re\-computation
-
-    """
     SINGLE_MODE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['L2vpnCapabilityMode_Enum']
+        return meta._meta_table['L2VpnCapabilityModeEnum']
 
 
-class L2vpnLogging_Enum(Enum):
+class L2VpnLoggingEnum(Enum):
     """
-    L2vpnLogging_Enum
+    L2VpnLoggingEnum
 
     L2vpn logging
 
-    """
+    .. data:: ENABLE = 1
+
+    	enable logging
+
+    .. data:: DISABLE = 2
+
+    	disable logging
 
     """
 
-    enable logging
-
-    """
     ENABLE = 1
 
-    """
-
-    disable logging
-
-    """
     DISABLE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['L2vpnLogging_Enum']
+        return meta._meta_table['L2VpnLoggingEnum']
 
 
-class L2vpnVerification_Enum(Enum):
+class L2VpnVerificationEnum(Enum):
     """
-    L2vpnVerification_Enum
+    L2VpnVerificationEnum
 
     L2vpn verification
 
-    """
+    .. data:: ENABLE = 1
+
+    	enable verification
+
+    .. data:: DISABLE = 2
+
+    	disable verification
 
     """
 
-    enable verification
-
-    """
     ENABLE = 1
 
-    """
-
-    disable verification
-
-    """
     DISABLE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['L2vpnVerification_Enum']
+        return meta._meta_table['L2VpnVerificationEnum']
 
 
-class LdpVplsId_Enum(Enum):
+class LdpVplsIdEnum(Enum):
     """
-    LdpVplsId_Enum
+    LdpVplsIdEnum
 
     Ldp vpls id
 
-    """
+    .. data:: TWO_BYTE_AS = 10
+
+    	VPLS-ID in 2 byte AS:nn format
+
+    .. data:: IPV4_ADDRESS = 266
+
+    	VPLS-ID in IPv4 IP:nn format
 
     """
 
-    VPLS\-ID in 2 byte AS\:nn format
-
-    """
     TWO_BYTE_AS = 10
 
-    """
-
-    VPLS\-ID in IPv4 IP\:nn format
-
-    """
     IPV4_ADDRESS = 266
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['LdpVplsId_Enum']
+        return meta._meta_table['LdpVplsIdEnum']
 
 
-class LoadBalance_Enum(Enum):
+class LoadBalanceEnum(Enum):
     """
-    LoadBalance_Enum
+    LoadBalanceEnum
 
     Load balance
 
-    """
+    .. data:: SOURCE_DEST_MAC = 1
+
+    	Source and Destination MAC hashing
+
+    .. data:: SOURCE_DEST_IP = 2
+
+    	Source and Destination IP hashing
+
+    .. data:: PSEUDOWIRE_LABEL = 4
+
+    	PW Label hashing
 
     """
 
-    Source and Destination MAC hashing
-
-    """
     SOURCE_DEST_MAC = 1
 
-    """
-
-    Source and Destination IP hashing
-
-    """
     SOURCE_DEST_IP = 2
 
-    """
-
-    PW Label hashing
-
-    """
     PSEUDOWIRE_LABEL = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['LoadBalance_Enum']
+        return meta._meta_table['LoadBalanceEnum']
 
 
-class MacAging_Enum(Enum):
+class MacAgingEnum(Enum):
     """
-    MacAging_Enum
+    MacAgingEnum
 
     Mac aging
 
-    """
+    .. data:: ABSOLUTE = 1
+
+    	Absolute aging type
+
+    .. data:: INACTIVITY = 2
+
+    	Inactivity aging type
 
     """
 
-    Absolute aging type
-
-    """
     ABSOLUTE = 1
 
-    """
-
-    Inactivity aging type
-
-    """
     INACTIVITY = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['MacAging_Enum']
+        return meta._meta_table['MacAgingEnum']
 
 
-class MacLearn_Enum(Enum):
+class MacLearnEnum(Enum):
     """
-    MacLearn_Enum
+    MacLearnEnum
 
     Mac learn
 
-    """
+    .. data:: DEFAULT_LEARNING = 0
+
+    	Mac Learning
+
+    .. data:: ENABLE_LEARNING = 1
+
+    	Enable Learning
+
+    .. data:: DISABLE_LEARNING = 2
+
+    	Disable Learning
 
     """
 
-    Mac Learning
-
-    """
     DEFAULT_LEARNING = 0
 
-    """
-
-    Enable Learning
-
-    """
     ENABLE_LEARNING = 1
 
-    """
-
-    Disable Learning
-
-    """
     DISABLE_LEARNING = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['MacLearn_Enum']
+        return meta._meta_table['MacLearnEnum']
 
 
-class MacLimitAction_Enum(Enum):
+class MacLimitActionEnum(Enum):
     """
-    MacLimitAction_Enum
+    MacLimitActionEnum
 
     Mac limit action
 
-    """
+    .. data:: NONE = 0
+
+    	No action
+
+    .. data:: FLOOD = 1
+
+    	Flood Mac Limit Action
+
+    .. data:: NO_FLOOD = 2
+
+    	NoFlood Mac Limit Action
+
+    .. data:: SHUTDOWN = 3
+
+    	Shutdown Mac Limit Action
 
     """
 
-    No action
-
-    """
     NONE = 0
 
-    """
-
-    Flood Mac Limit Action
-
-    """
     FLOOD = 1
 
-    """
-
-    NoFlood Mac Limit Action
-
-    """
     NO_FLOOD = 2
 
-    """
-
-    Shutdown Mac Limit Action
-
-    """
     SHUTDOWN = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['MacLimitAction_Enum']
+        return meta._meta_table['MacLimitActionEnum']
 
 
-class MacNotification_Enum(Enum):
+class MacNotificationEnum(Enum):
     """
-    MacNotification_Enum
+    MacNotificationEnum
 
     Mac notification
 
-    """
+    .. data:: NO_NOTIF = 0
+
+    	No_Notification Trap
+
+    .. data:: SYSLOG = 1
+
+    	syslog message
+
+    .. data:: TRAP = 2
+
+    	Snmp Trap
+
+    .. data:: SYSLOG_SNMP = 3
+
+    	Syslog_snmp Trap
 
     """
 
-    No\_Notification Trap
-
-    """
     NO_NOTIF = 0
 
-    """
-
-    syslog message
-
-    """
     SYSLOG = 1
 
-    """
-
-    Snmp Trap
-
-    """
     TRAP = 2
 
-    """
-
-    Syslog\_snmp Trap
-
-    """
     SYSLOG_SNMP = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['MacNotification_Enum']
+        return meta._meta_table['MacNotificationEnum']
 
 
-class MacSecureAction_Enum(Enum):
+class MacSecureActionEnum(Enum):
     """
-    MacSecureAction_Enum
+    MacSecureActionEnum
 
     Mac secure action
 
-    """
+    .. data:: RESTRICT = 1
+
+    	MAC Secure Action Restrict
+
+    .. data:: NONE = 2
+
+    	No Action
+
+    .. data:: SHUTDOWN = 3
+
+    	MAC Secure Action Shutdown
 
     """
 
-    MAC Secure Action Restrict
-
-    """
     RESTRICT = 1
 
-    """
-
-    No Action
-
-    """
     NONE = 2
 
-    """
-
-    MAC Secure Action Shutdown
-
-    """
     SHUTDOWN = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['MacSecureAction_Enum']
+        return meta._meta_table['MacSecureActionEnum']
 
 
-class MacWithdrawBehavior_Enum(Enum):
+class MacWithdrawBehaviorEnum(Enum):
     """
-    MacWithdrawBehavior_Enum
+    MacWithdrawBehaviorEnum
 
     Mac withdraw behavior
 
-    """
+    .. data:: LEGACY = 1
+
+    	MAC Withdrawal sent on state-down (legacy)
+
+    .. data:: OPTIMIZED = 2
+
+    	Optimized MAC Withdrawal
 
     """
 
-    MAC Withdrawal sent on state\-down (legacy)
-
-    """
     LEGACY = 1
 
-    """
-
-    Optimized MAC Withdrawal
-
-    """
     OPTIMIZED = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['MacWithdrawBehavior_Enum']
+        return meta._meta_table['MacWithdrawBehaviorEnum']
 
 
-class MplsSequencing_Enum(Enum):
+class MplsSequencingEnum(Enum):
     """
-    MplsSequencing_Enum
+    MplsSequencingEnum
 
     Mpls sequencing
 
-    """
+    .. data:: OFF = 0
+
+    	Sequencing is off
+
+    .. data:: TRANSMIT = 1
+
+    	Sequencing on transmit side
+
+    .. data:: RECEIVE = 2
+
+    	Sequencing on receive side
+
+    .. data:: BOTH = 4
+
+    	Sequencing on both transmit and receive side
 
     """
 
-    Sequencing is off
-
-    """
     OFF = 0
 
-    """
-
-    Sequencing on transmit side
-
-    """
     TRANSMIT = 1
 
-    """
-
-    Sequencing on receive side
-
-    """
     RECEIVE = 2
 
-    """
-
-    Sequencing on both transmit and receive side
-
-    """
     BOTH = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['MplsSequencing_Enum']
+        return meta._meta_table['MplsSequencingEnum']
 
 
-class MplsSignalingProtocol_Enum(Enum):
+class MplsSignalingProtocolEnum(Enum):
     """
-    MplsSignalingProtocol_Enum
+    MplsSignalingProtocolEnum
 
     Mpls signaling protocol
 
-    """
+    .. data:: NONE = 1
+
+    	No signaling
+
+    .. data:: LDP = 4
+
+    	LDP
 
     """
 
-    No signaling
-
-    """
     NONE = 1
 
-    """
-
-    LDP
-
-    """
     LDP = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['MplsSignalingProtocol_Enum']
+        return meta._meta_table['MplsSignalingProtocolEnum']
 
 
-class PortDownFlush_Enum(Enum):
+class PortDownFlushEnum(Enum):
     """
-    PortDownFlush_Enum
+    PortDownFlushEnum
 
     Port down flush
 
-    """
+    .. data:: PORT_DOWN_FLUSH = 0
+
+    	MAC Port Down Flush
+
+    .. data:: ENABLE_PORT_DOWN_FLUSH = 1
+
+    	Enable Port Down Flush
+
+    .. data:: DISABLE_PORT_DOWN_FLUSH = 2
+
+    	Disable Port Down Flush
 
     """
 
-    MAC Port Down Flush
-
-    """
     PORT_DOWN_FLUSH = 0
 
-    """
-
-    Enable Port Down Flush
-
-    """
     ENABLE_PORT_DOWN_FLUSH = 1
 
-    """
-
-    Disable Port Down Flush
-
-    """
     DISABLE_PORT_DOWN_FLUSH = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['PortDownFlush_Enum']
+        return meta._meta_table['PortDownFlushEnum']
 
 
-class PreferredPath_Enum(Enum):
+class PreferredPathEnum(Enum):
     """
-    PreferredPath_Enum
+    PreferredPathEnum
 
     Preferred path
 
-    """
+    .. data:: TE_TUNNEL = 2
+
+    	TE Tunnel
+
+    .. data:: IP_TUNNEL = 3
+
+    	IP Tunnel
+
+    .. data:: TP_TUNNEL = 4
+
+    	TP Tunnel
 
     """
 
-    TE Tunnel
-
-    """
     TE_TUNNEL = 2
 
-    """
-
-    IP Tunnel
-
-    """
     IP_TUNNEL = 3
 
-    """
-
-    TP Tunnel
-
-    """
     TP_TUNNEL = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['PreferredPath_Enum']
+        return meta._meta_table['PreferredPathEnum']
 
 
-class PwSwitchingPointTlv_Enum(Enum):
+class PwSwitchingPointTlvEnum(Enum):
     """
-    PwSwitchingPointTlv_Enum
+    PwSwitchingPointTlvEnum
 
     Pw switching point tlv
 
-    """
+    .. data:: HIDE = 2
+
+    	Hide TLV
 
     """
 
-    Hide TLV
-
-    """
     HIDE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['PwSwitchingPointTlv_Enum']
+        return meta._meta_table['PwSwitchingPointTlvEnum']
 
 
-class RplRole_Enum(Enum):
+class RplRoleEnum(Enum):
     """
-    RplRole_Enum
+    RplRoleEnum
 
     Rpl role
 
-    """
+    .. data:: OWNER = 1
+
+    	ERP RPL owner
+
+    .. data:: NEIGHBOR = 2
+
+    	ERP RPL neighbor
+
+    .. data:: NEXT_NEIGHBOR = 3
+
+    	ERP RPL next neighbor
 
     """
 
-    ERP RPL owner
-
-    """
     OWNER = 1
 
-    """
-
-    ERP RPL neighbor
-
-    """
     NEIGHBOR = 2
 
-    """
-
-    ERP RPL next neighbor
-
-    """
     NEXT_NEIGHBOR = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['RplRole_Enum']
+        return meta._meta_table['RplRoleEnum']
 
 
-class StormControl_Enum(Enum):
+class StormControlEnum(Enum):
     """
-    StormControl_Enum
+    StormControlEnum
 
     Storm control
 
-    """
+    .. data:: UNICAST = 1
+
+    	Unknown-unicast Storm Control
+
+    .. data:: MULTICAST = 2
+
+    	Multicast Storm Control
+
+    .. data:: BROADCAST = 4
+
+    	Broadcast Storm Control
 
     """
 
-    Unknown\-unicast Storm Control
-
-    """
     UNICAST = 1
 
-    """
-
-    Multicast Storm Control
-
-    """
     MULTICAST = 2
 
-    """
-
-    Broadcast Storm Control
-
-    """
     BROADCAST = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['StormControl_Enum']
+        return meta._meta_table['StormControlEnum']
 
 
-class TransportMode_Enum(Enum):
+class TransportModeEnum(Enum):
     """
-    TransportMode_Enum
+    TransportModeEnum
 
     Transport mode
 
-    """
+    .. data:: ETHERNET = 1
+
+    	Ethernet port mode
+
+    .. data:: VLAN = 2
+
+    	Vlan tagged mode
+
+    .. data:: VLAN_PASSTHROUGH = 3
+
+    	Vlan tagged passthrough mode
 
     """
 
-    Ethernet port mode
-
-    """
     ETHERNET = 1
 
-    """
-
-    Vlan tagged mode
-
-    """
     VLAN = 2
 
-    """
-
-    Vlan tagged passthrough mode
-
-    """
     VLAN_PASSTHROUGH = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['TransportMode_Enum']
+        return meta._meta_table['TransportModeEnum']
 
 
-class TypeOfServiceMode_Enum(Enum):
+class TypeOfServiceModeEnum(Enum):
     """
-    TypeOfServiceMode_Enum
+    TypeOfServiceModeEnum
 
     Type of service mode
 
-    """
+    .. data:: NONE = 0
+
+    	Do not reflect the type of service
+
+    .. data:: REFLECT = 1
+
+    	Reflect the type of service
 
     """
 
-    Do not reflect the type of service
-
-    """
     NONE = 0
 
-    """
-
-    Reflect the type of service
-
-    """
     REFLECT = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['TypeOfServiceMode_Enum']
+        return meta._meta_table['TypeOfServiceModeEnum']
 
 
-class VccvVerification_Enum(Enum):
+class VccvVerificationEnum(Enum):
     """
-    VccvVerification_Enum
+    VccvVerificationEnum
 
     Vccv verification
 
-    """
+    .. data:: NONE = 0
+
+    	No connectivity verification over VCCV
+
+    .. data:: LSP_PING = 2
+
+    	LSP Ping over VCCV
 
     """
 
-    No connectivity verification over VCCV
-
-    """
     NONE = 0
 
-    """
-
-    LSP Ping over VCCV
-
-    """
     LSP_PING = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['VccvVerification_Enum']
+        return meta._meta_table['VccvVerificationEnum']
 
 
 
@@ -1614,8 +1514,6 @@ class Evpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bytes1 is not None:
                                 return True
 
@@ -1631,10 +1529,6 @@ class Evpn(object):
                             if self.bytes89 is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1717,18 +1611,12 @@ class Evpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.primary is not None:
                                     return True
 
                                 if self.secondary is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1750,21 +1638,12 @@ class Evpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.enable is not None:
                                 return True
 
                             if self.service_list is not None and self.service_list._has_data():
                                 return True
 
-                            if self.service_list is not None and self.service_list.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1786,8 +1665,6 @@ class Evpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.backbone_source_mac is not None:
                             return True
 
@@ -1803,22 +1680,12 @@ class Evpn(object):
                         if self.identifier_type0 is not None and self.identifier_type0._has_data():
                             return True
 
-                        if self.identifier_type0 is not None and self.identifier_type0.is_presence():
-                            return True
-
                         if self.load_balancing_per_service is not None:
                             return True
 
                         if self.manual_service_carving is not None and self.manual_service_carving._has_data():
                             return True
 
-                        if self.manual_service_carving is not None and self.manual_service_carving.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1878,8 +1745,6 @@ class Evpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.enable is not None:
                             return True
 
@@ -1889,10 +1754,6 @@ class Evpn(object):
                         if self.evpnac_recovery is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1914,30 +1775,18 @@ class Evpn(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface_name is not None:
                         return True
 
                     if self.ethernet_segment is not None and self.ethernet_segment._has_data():
                         return True
 
-                    if self.ethernet_segment is not None and self.ethernet_segment.is_presence():
-                        return True
-
                     if self.evpnac_timers is not None and self.evpnac_timers._has_data():
-                        return True
-
-                    if self.evpnac_timers is not None and self.evpnac_timers.is_presence():
                         return True
 
                     if self.mac_flush is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1957,17 +1806,11 @@ class Evpn(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.evpn_interface is not None:
                     for child_ref in self.evpn_interface:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2014,18 +1857,12 @@ class Evpn(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
                 if self.evpn_flow_label is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2098,8 +1935,6 @@ class Evpn(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
@@ -2115,10 +1950,6 @@ class Evpn(object):
                 if self.evpn_recovery is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2190,7 +2021,7 @@ class Evpn(object):
                 .. attribute:: type
                 
                 	Router Distinguisher Type
-                	**type**\: :py:class:`BgpRouteDistinguisher_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisher_Enum>`
+                	**type**\: :py:class:`BgpRouteDistinguisherEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
                 
                 
 
@@ -2219,8 +2050,6 @@ class Evpn(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.addr_index is not None:
                         return True
 
@@ -2236,10 +2065,6 @@ class Evpn(object):
                     if self.type is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2259,21 +2084,12 @@ class Evpn(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
                 if self.evpn_route_distinguisher is not None and self.evpn_route_distinguisher._has_data():
                     return True
 
-                if self.evpn_route_distinguisher is not None and self.evpn_route_distinguisher.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2382,18 +2198,12 @@ class Evpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.enable is not None:
                             return True
 
                         if self.evi_flow_label is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2472,7 +2282,7 @@ class Evpn(object):
                         .. attribute:: type
                         
                         	Router Distinguisher Type
-                        	**type**\: :py:class:`BgpRouteDistinguisher_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisher_Enum>`
+                        	**type**\: :py:class:`BgpRouteDistinguisherEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
                         
                         
 
@@ -2503,8 +2313,6 @@ class Evpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.addr_index is not None:
                                 return True
 
@@ -2520,10 +2328,6 @@ class Evpn(object):
                             if self.type is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2562,12 +2366,12 @@ class Evpn(object):
                             .. attribute:: format
                             
                             	Format of the route target
-                            	**type**\: :py:class:`BgpRouteTargetFormat_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormat_Enum>`
+                            	**type**\: :py:class:`BgpRouteTargetFormatEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormatEnum>`
                             
                             .. attribute:: role
                             
                             	Role of the router target type
-                            	**type**\: :py:class:`BgpRouteTargetRole_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRole_Enum>`
+                            	**type**\: :py:class:`BgpRouteTargetRoleEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRoleEnum>`
                             
                             .. attribute:: ipv4_address
                             
@@ -2646,18 +2450,12 @@ class Evpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.addr_index is not None:
                                         return True
 
                                     if self.address is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2714,18 +2512,12 @@ class Evpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.as_ is not None:
                                         return True
 
                                     if self.as_index is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2751,8 +2543,6 @@ class Evpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.format is not None:
                                     return True
 
@@ -2769,10 +2559,6 @@ class Evpn(object):
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2794,17 +2580,11 @@ class Evpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.evpn_route_target is not None:
                                 for child_ref in self.evpn_route_target:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2826,27 +2606,15 @@ class Evpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.enable is not None:
                             return True
 
                         if self.evpn_route_distinguisher is not None and self.evpn_route_distinguisher._has_data():
                             return True
 
-                        if self.evpn_route_distinguisher is not None and self.evpn_route_distinguisher.is_presence():
-                            return True
-
                         if self.evpn_route_targets is not None and self.evpn_route_targets._has_data():
                             return True
 
-                        if self.evpn_route_targets is not None and self.evpn_route_targets.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2868,27 +2636,15 @@ class Evpn(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.eviid is not None:
                         return True
 
                     if self.evi_load_balancing is not None and self.evi_load_balancing._has_data():
                         return True
 
-                    if self.evi_load_balancing is not None and self.evi_load_balancing.is_presence():
-                        return True
-
                     if self.evpnevibgp_auto_discovery is not None and self.evpnevibgp_auto_discovery._has_data():
                         return True
 
-                    if self.evpnevibgp_auto_discovery is not None and self.evpnevibgp_auto_discovery.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2908,17 +2664,11 @@ class Evpn(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.evpnevi is not None:
                     for child_ref in self.evpnevi:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2938,42 +2688,21 @@ class Evpn(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.evpn_interfaces is not None and self.evpn_interfaces._has_data():
-                return True
-
-            if self.evpn_interfaces is not None and self.evpn_interfaces.is_presence():
                 return True
 
             if self.evpn_load_balancing is not None and self.evpn_load_balancing._has_data():
                 return True
 
-            if self.evpn_load_balancing is not None and self.evpn_load_balancing.is_presence():
-                return True
-
             if self.evpn_timers is not None and self.evpn_timers._has_data():
-                return True
-
-            if self.evpn_timers is not None and self.evpn_timers.is_presence():
                 return True
 
             if self.evpnbgp_auto_discovery is not None and self.evpnbgp_auto_discovery._has_data():
                 return True
 
-            if self.evpnbgp_auto_discovery is not None and self.evpnbgp_auto_discovery.is_presence():
-                return True
-
             if self.evpnevis is not None and self.evpnevis._has_data():
                 return True
 
-            if self.evpnevis is not None and self.evpnevis.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3014,15 +2743,9 @@ class Evpn(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.draft_04 is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3042,27 +2765,15 @@ class Evpn(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.enable is not None:
             return True
 
         if self.evpn_tables is not None and self.evpn_tables._has_data():
             return True
 
-        if self.evpn_tables is not None and self.evpn_tables.is_presence():
-            return True
-
         if self.standard_version is not None and self.standard_version._has_data():
             return True
 
-        if self.standard_version is not None and self.standard_version.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -3196,18 +2907,12 @@ class GenericInterfaceLists(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface_name is not None:
                         return True
 
                     if self.enable is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3229,17 +2934,11 @@ class GenericInterfaceLists(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.interface is not None:
                     for child_ref in self.interface:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3261,8 +2960,6 @@ class GenericInterfaceLists(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.generic_interface_list_name is not None:
                 return True
 
@@ -3272,13 +2969,6 @@ class GenericInterfaceLists(object):
             if self.interfaces is not None and self.interfaces._has_data():
                 return True
 
-            if self.interfaces is not None and self.interfaces.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3298,17 +2988,11 @@ class GenericInterfaceLists(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.generic_interface is not None:
             for child_ref in self.generic_interface:
                 if child_ref._has_data():
                     return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -3317,24 +3001,24 @@ class GenericInterfaceLists(object):
         return meta._meta_table['GenericInterfaceLists']['meta_info']
 
 
-class L2vpn(object):
+class L2Vpn(object):
     """
     L2VPN configuration
     
     .. attribute:: auto_discovery
     
     	Global auto\-discovery attributes
-    	**type**\: :py:class:`AutoDiscovery <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.AutoDiscovery>`
+    	**type**\: :py:class:`AutoDiscovery <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.AutoDiscovery>`
     
     .. attribute:: capability
     
     	L2VPN Capability Mode
-    	**type**\: :py:class:`L2vpnCapabilityMode_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpnCapabilityMode_Enum>`
+    	**type**\: :py:class:`L2VpnCapabilityModeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnCapabilityModeEnum>`
     
     .. attribute:: database
     
     	L2VPN databases
-    	**type**\: :py:class:`Database <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database>`
+    	**type**\: :py:class:`Database <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database>`
     
     .. attribute:: enable
     
@@ -3351,7 +3035,7 @@ class L2vpn(object):
     .. attribute:: load_balance
     
     	Enable flow load balancing on l2vpn bridges
-    	**type**\: :py:class:`LoadBalance_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.LoadBalance_Enum>`
+    	**type**\: :py:class:`LoadBalanceEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.LoadBalanceEnum>`
     
     .. attribute:: mspw_description
     
@@ -3368,7 +3052,7 @@ class L2vpn(object):
     .. attribute:: neighbor
     
     	L2VPN neighbor submode
-    	**type**\: :py:class:`Neighbor <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Neighbor>`
+    	**type**\: :py:class:`Neighbor <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Neighbor>`
     
     .. attribute:: nsr
     
@@ -3378,7 +3062,7 @@ class L2vpn(object):
     .. attribute:: pbb
     
     	L2VPN PBB Global
-    	**type**\: :py:class:`Pbb <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Pbb>`
+    	**type**\: :py:class:`Pbb <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Pbb>`
     
     .. attribute:: pw_grouping
     
@@ -3388,7 +3072,7 @@ class L2vpn(object):
     .. attribute:: pw_routing
     
     	Pseudowire\-routing attributes
-    	**type**\: :py:class:`PwRouting <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.PwRouting>`
+    	**type**\: :py:class:`PwRouting <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.PwRouting>`
     
     .. attribute:: pw_status_disable
     
@@ -3405,7 +3089,7 @@ class L2vpn(object):
     .. attribute:: snmp
     
     	SNMP related configuration
-    	**type**\: :py:class:`Snmp <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Snmp>`
+    	**type**\: :py:class:`Snmp <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Snmp>`
     
     .. attribute:: tcn_propagation
     
@@ -3415,7 +3099,7 @@ class L2vpn(object):
     .. attribute:: utility
     
     	L2VPN utilities
-    	**type**\: :py:class:`Utility <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Utility>`
+    	**type**\: :py:class:`Utility <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Utility>`
     
     
 
@@ -3425,30 +3109,30 @@ class L2vpn(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.auto_discovery = L2vpn.AutoDiscovery()
+        self.auto_discovery = L2Vpn.AutoDiscovery()
         self.auto_discovery.parent = self
         self.capability = None
-        self.database = L2vpn.Database()
+        self.database = L2Vpn.Database()
         self.database.parent = self
         self.enable = None
         self.l2vpn_router_id = None
         self.load_balance = None
         self.mspw_description = None
         self.mtu_mismatch_ignore = None
-        self.neighbor = L2vpn.Neighbor()
+        self.neighbor = L2Vpn.Neighbor()
         self.neighbor.parent = self
         self.nsr = None
-        self.pbb = L2vpn.Pbb()
+        self.pbb = L2Vpn.Pbb()
         self.pbb.parent = self
         self.pw_grouping = None
-        self.pw_routing = L2vpn.PwRouting()
+        self.pw_routing = L2Vpn.PwRouting()
         self.pw_routing.parent = self
         self.pw_status_disable = None
         self.pwoam_refresh = None
-        self.snmp = L2vpn.Snmp()
+        self.snmp = L2Vpn.Snmp()
         self.snmp.parent = self
         self.tcn_propagation = None
-        self.utility = L2vpn.Utility()
+        self.utility = L2Vpn.Utility()
         self.utility.parent = self
 
 
@@ -3459,7 +3143,7 @@ class L2vpn(object):
         .. attribute:: bgp_signaling
         
         	Global bgp signaling attributes
-        	**type**\: :py:class:`BgpSignaling <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.AutoDiscovery.BgpSignaling>`
+        	**type**\: :py:class:`BgpSignaling <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.AutoDiscovery.BgpSignaling>`
         
         
 
@@ -3470,7 +3154,7 @@ class L2vpn(object):
 
         def __init__(self):
             self.parent = None
-            self.bgp_signaling = L2vpn.AutoDiscovery.BgpSignaling()
+            self.bgp_signaling = L2Vpn.AutoDiscovery.BgpSignaling()
             self.bgp_signaling.parent = self
 
 
@@ -3506,21 +3190,15 @@ class L2vpn(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.mtu_mismatch_ignore is not None:
                     return True
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                return meta._meta_table['L2vpn.AutoDiscovery.BgpSignaling']['meta_info']
+                return meta._meta_table['L2Vpn.AutoDiscovery.BgpSignaling']['meta_info']
 
         @property
         def _common_path(self):
@@ -3534,24 +3212,15 @@ class L2vpn(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.bgp_signaling is not None and self.bgp_signaling._has_data():
                 return True
 
-            if self.bgp_signaling is not None and self.bgp_signaling.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
         def _meta_info():
             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-            return meta._meta_table['L2vpn.AutoDiscovery']['meta_info']
+            return meta._meta_table['L2Vpn.AutoDiscovery']['meta_info']
 
 
     class Database(object):
@@ -3561,27 +3230,27 @@ class L2vpn(object):
         .. attribute:: bridge_domain_groups
         
         	List of bridge  groups
-        	**type**\: :py:class:`BridgeDomainGroups <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups>`
+        	**type**\: :py:class:`BridgeDomainGroups <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups>`
         
         .. attribute:: g8032_rings
         
         	List of G8032 Ring
-        	**type**\: :py:class:`G8032Rings <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.G8032Rings>`
+        	**type**\: :py:class:`G8032Rings <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings>`
         
         .. attribute:: pseudowire_classes
         
         	List of pseudowire classes
-        	**type**\: :py:class:`PseudowireClasses <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.PseudowireClasses>`
+        	**type**\: :py:class:`PseudowireClasses <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses>`
         
         .. attribute:: redundancy
         
         	Redundancy groups
-        	**type**\: :py:class:`Redundancy <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.Redundancy>`
+        	**type**\: :py:class:`Redundancy <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.Redundancy>`
         
         .. attribute:: xconnect_groups
         
         	List of xconnect groups
-        	**type**\: :py:class:`XconnectGroups <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups>`
+        	**type**\: :py:class:`XconnectGroups <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups>`
         
         
 
@@ -3592,15 +3261,15 @@ class L2vpn(object):
 
         def __init__(self):
             self.parent = None
-            self.bridge_domain_groups = L2vpn.Database.BridgeDomainGroups()
+            self.bridge_domain_groups = L2Vpn.Database.BridgeDomainGroups()
             self.bridge_domain_groups.parent = self
-            self.g8032_rings = L2vpn.Database.G8032Rings()
+            self.g8032_rings = L2Vpn.Database.G8032Rings()
             self.g8032_rings.parent = self
-            self.pseudowire_classes = L2vpn.Database.PseudowireClasses()
+            self.pseudowire_classes = L2Vpn.Database.PseudowireClasses()
             self.pseudowire_classes.parent = self
-            self.redundancy = L2vpn.Database.Redundancy()
+            self.redundancy = L2Vpn.Database.Redundancy()
             self.redundancy.parent = self
-            self.xconnect_groups = L2vpn.Database.XconnectGroups()
+            self.xconnect_groups = L2Vpn.Database.XconnectGroups()
             self.xconnect_groups.parent = self
 
 
@@ -3611,7 +3280,7 @@ class L2vpn(object):
             .. attribute:: bridge_domain_group
             
             	Bridge group
-            	**type**\: list of :py:class:`BridgeDomainGroup <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup>`
+            	**type**\: list of :py:class:`BridgeDomainGroup <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup>`
             
             
 
@@ -3641,7 +3310,7 @@ class L2vpn(object):
                 .. attribute:: bridge_domains
                 
                 	List of Bridge Domain
-                	**type**\: :py:class:`BridgeDomains <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains>`
+                	**type**\: :py:class:`BridgeDomains <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains>`
                 
                 
 
@@ -3653,7 +3322,7 @@ class L2vpn(object):
                 def __init__(self):
                     self.parent = None
                     self.name = None
-                    self.bridge_domains = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains()
+                    self.bridge_domains = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains()
                     self.bridge_domains.parent = self
 
 
@@ -3664,7 +3333,7 @@ class L2vpn(object):
                     .. attribute:: bridge_domain
                     
                     	bridge domain
-                    	**type**\: list of :py:class:`BridgeDomain <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain>`
+                    	**type**\: list of :py:class:`BridgeDomain <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain>`
                     
                     
 
@@ -3694,22 +3363,22 @@ class L2vpn(object):
                         .. attribute:: bd_attachment_circuits
                         
                         	Attachment Circuit table
-                        	**type**\: :py:class:`BdAttachmentCircuits <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits>`
+                        	**type**\: :py:class:`BdAttachmentCircuits <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits>`
                         
                         .. attribute:: bd_pseudowires
                         
                         	List of pseudowires
-                        	**type**\: :py:class:`BdPseudowires <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires>`
+                        	**type**\: :py:class:`BdPseudowires <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires>`
                         
                         .. attribute:: bd_storm_controls
                         
                         	Storm Control
-                        	**type**\: :py:class:`BdStormControls <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls>`
+                        	**type**\: :py:class:`BdStormControls <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls>`
                         
                         .. attribute:: bridge_domain_mac
                         
                         	MAC configuration commands
-                        	**type**\: :py:class:`BridgeDomainMac <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac>`
+                        	**type**\: :py:class:`BridgeDomainMac <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac>`
                         
                         .. attribute:: bridge_domain_mtu
                         
@@ -3721,7 +3390,7 @@ class L2vpn(object):
                         .. attribute:: bridge_domain_pbb
                         
                         	Bridge Domain PBB
-                        	**type**\: :py:class:`BridgeDomainPbb <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb>`
+                        	**type**\: :py:class:`BridgeDomainPbb <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb>`
                         
                         .. attribute:: coupled_mode
                         
@@ -3731,7 +3400,7 @@ class L2vpn(object):
                         .. attribute:: dai
                         
                         	Dynamic ARP Inspection
-                        	**type**\: :py:class:`Dai <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai>`
+                        	**type**\: :py:class:`Dai <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai>`
                         
                         .. attribute:: dhcp
                         
@@ -3765,12 +3434,12 @@ class L2vpn(object):
                         .. attribute:: ip_source_guard
                         
                         	IP Source Guard
-                        	**type**\: :py:class:`IpSourceGuard <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard>`
+                        	**type**\: :py:class:`IpSourceGuard <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard>`
                         
                         .. attribute:: member_vnis
                         
                         	Bridge Domain VxLAN Network Identifier Table
-                        	**type**\: :py:class:`MemberVnis <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis>`
+                        	**type**\: :py:class:`MemberVnis <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis>`
                         
                         .. attribute:: mld_snooping
                         
@@ -3782,12 +3451,12 @@ class L2vpn(object):
                         .. attribute:: nv_satellite
                         
                         	nV Satellite
-                        	**type**\: :py:class:`NvSatellite <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite>`
+                        	**type**\: :py:class:`NvSatellite <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite>`
                         
                         .. attribute:: routed_interfaces
                         
                         	Bridge Domain Routed Interface Table
-                        	**type**\: :py:class:`RoutedInterfaces <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces>`
+                        	**type**\: :py:class:`RoutedInterfaces <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces>`
                         
                         .. attribute:: shutdown
                         
@@ -3797,12 +3466,12 @@ class L2vpn(object):
                         .. attribute:: transport_mode
                         
                         	Bridge Domain Transport mode
-                        	**type**\: :py:class:`BridgeDomainTransportMode_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BridgeDomainTransportMode_Enum>`
+                        	**type**\: :py:class:`BridgeDomainTransportModeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BridgeDomainTransportModeEnum>`
                         
                         .. attribute:: vfis
                         
                         	Specify the virtual forwarding interface name
-                        	**type**\: :py:class:`Vfis <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis>`
+                        	**type**\: :py:class:`Vfis <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis>`
                         
                         
 
@@ -3814,37 +3483,37 @@ class L2vpn(object):
                         def __init__(self):
                             self.parent = None
                             self.name = None
-                            self.bd_attachment_circuits = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits()
+                            self.bd_attachment_circuits = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits()
                             self.bd_attachment_circuits.parent = self
-                            self.bd_pseudowires = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires()
+                            self.bd_pseudowires = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires()
                             self.bd_pseudowires.parent = self
-                            self.bd_storm_controls = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls()
+                            self.bd_storm_controls = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls()
                             self.bd_storm_controls.parent = self
-                            self.bridge_domain_mac = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac()
+                            self.bridge_domain_mac = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac()
                             self.bridge_domain_mac.parent = self
                             self.bridge_domain_mtu = None
-                            self.bridge_domain_pbb = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb()
+                            self.bridge_domain_pbb = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb()
                             self.bridge_domain_pbb.parent = self
                             self.coupled_mode = None
-                            self.dai = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai()
+                            self.dai = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai()
                             self.dai.parent = self
                             self.dhcp = None
                             self.flooding = None
                             self.flooding_unknown_unicast = None
                             self.igmp_snooping = None
                             self.igmp_snooping_disable = None
-                            self.ip_source_guard = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard()
+                            self.ip_source_guard = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard()
                             self.ip_source_guard.parent = self
-                            self.member_vnis = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis()
+                            self.member_vnis = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis()
                             self.member_vnis.parent = self
                             self.mld_snooping = None
-                            self.nv_satellite = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite()
+                            self.nv_satellite = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite()
                             self.nv_satellite.parent = self
-                            self.routed_interfaces = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces()
+                            self.routed_interfaces = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces()
                             self.routed_interfaces.parent = self
                             self.shutdown = None
                             self.transport_mode = None
-                            self.vfis = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis()
+                            self.vfis = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis()
                             self.vfis.parent = self
 
 
@@ -3855,7 +3524,7 @@ class L2vpn(object):
                             .. attribute:: bd_attachment_circuit
                             
                             	Name of the Attachment Circuit
-                            	**type**\: list of :py:class:`BdAttachmentCircuit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit>`
+                            	**type**\: list of :py:class:`BdAttachmentCircuit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit>`
                             
                             
 
@@ -3885,22 +3554,22 @@ class L2vpn(object):
                                 .. attribute:: bdac_storm_control_types
                                 
                                 	Storm Control
-                                	**type**\: :py:class:`BdacStormControlTypes <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes>`
+                                	**type**\: :py:class:`BdacStormControlTypes <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes>`
                                 
                                 .. attribute:: interface_dai
                                 
                                 	L2 Interface Dynamic ARP Inspection
-                                	**type**\: :py:class:`InterfaceDai <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai>`
+                                	**type**\: :py:class:`InterfaceDai <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai>`
                                 
                                 .. attribute:: interface_flooding
                                 
                                 	Enable or Disable Flooding
-                                	**type**\: :py:class:`InterfaceTrafficFlood_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFlood_Enum>`
+                                	**type**\: :py:class:`InterfaceTrafficFloodEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFloodEnum>`
                                 
                                 .. attribute:: interface_flooding_unknown_unicast
                                 
                                 	Enable or Disable Unknown Unicast Flooding
-                                	**type**\: :py:class:`InterfaceTrafficFlood_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFlood_Enum>`
+                                	**type**\: :py:class:`InterfaceTrafficFloodEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFloodEnum>`
                                 
                                 .. attribute:: interface_igmp_snoop
                                 
@@ -3912,12 +3581,12 @@ class L2vpn(object):
                                 .. attribute:: interface_ip_source_guard
                                 
                                 	IP Source Guard
-                                	**type**\: :py:class:`InterfaceIpSourceGuard <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard>`
+                                	**type**\: :py:class:`InterfaceIpSourceGuard <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard>`
                                 
                                 .. attribute:: interface_mac
                                 
                                 	MAC configuration commands
-                                	**type**\: :py:class:`InterfaceMac <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac>`
+                                	**type**\: :py:class:`InterfaceMac <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac>`
                                 
                                 .. attribute:: interface_mld_snoop
                                 
@@ -3929,17 +3598,17 @@ class L2vpn(object):
                                 .. attribute:: interface_profile
                                 
                                 	Attach a DHCP profile
-                                	**type**\: :py:class:`InterfaceProfile <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile>`
+                                	**type**\: :py:class:`InterfaceProfile <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile>`
                                 
                                 .. attribute:: split_horizon
                                 
                                 	Split Horizon
-                                	**type**\: :py:class:`SplitHorizon <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon>`
+                                	**type**\: :py:class:`SplitHorizon <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon>`
                                 
                                 .. attribute:: static_mac_addresses
                                 
                                 	Static Mac Address Table
-                                	**type**\: :py:class:`StaticMacAddresses <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses>`
+                                	**type**\: :py:class:`StaticMacAddresses <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses>`
                                 
                                 
 
@@ -3951,23 +3620,23 @@ class L2vpn(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.name = None
-                                    self.bdac_storm_control_types = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes()
+                                    self.bdac_storm_control_types = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes()
                                     self.bdac_storm_control_types.parent = self
-                                    self.interface_dai = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai()
+                                    self.interface_dai = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai()
                                     self.interface_dai.parent = self
                                     self.interface_flooding = None
                                     self.interface_flooding_unknown_unicast = None
                                     self.interface_igmp_snoop = None
-                                    self.interface_ip_source_guard = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard()
+                                    self.interface_ip_source_guard = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard()
                                     self.interface_ip_source_guard.parent = self
-                                    self.interface_mac = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac()
+                                    self.interface_mac = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac()
                                     self.interface_mac.parent = self
                                     self.interface_mld_snoop = None
-                                    self.interface_profile = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile()
+                                    self.interface_profile = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile()
                                     self.interface_profile.parent = self
-                                    self.split_horizon = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon()
+                                    self.split_horizon = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon()
                                     self.split_horizon.parent = self
-                                    self.static_mac_addresses = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses()
+                                    self.static_mac_addresses = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses()
                                     self.static_mac_addresses.parent = self
 
 
@@ -3978,7 +3647,7 @@ class L2vpn(object):
                                     .. attribute:: bdac_storm_control_type
                                     
                                     	Storm Control Type
-                                    	**type**\: list of :py:class:`BdacStormControlType <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType>`
+                                    	**type**\: list of :py:class:`BdacStormControlType <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType>`
                                     
                                     
 
@@ -4001,12 +3670,12 @@ class L2vpn(object):
                                         .. attribute:: sctype
                                         
                                         	Storm Control Type
-                                        	**type**\: :py:class:`StormControl_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.StormControl_Enum>`
+                                        	**type**\: :py:class:`StormControlEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.StormControlEnum>`
                                         
                                         .. attribute:: storm_control_unit
                                         
                                         	Specify units for Storm Control Configuration
-                                        	**type**\: :py:class:`StormControlUnit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit>`
+                                        	**type**\: :py:class:`StormControlUnit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit>`
                                         
                                         
 
@@ -4018,7 +3687,7 @@ class L2vpn(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.sctype = None
-                                            self.storm_control_unit = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit()
+                                            self.storm_control_unit = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit()
                                             self.storm_control_unit.parent = self
 
 
@@ -4066,8 +3735,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.kbits_per_sec is not None:
                                                     return True
 
@@ -4076,14 +3743,10 @@ class L2vpn(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -4101,27 +3764,18 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.sctype is not None:
                                                 return True
 
                                             if self.storm_control_unit is not None and self.storm_control_unit._has_data():
                                                 return True
 
-                                            if self.storm_control_unit is not None and self.storm_control_unit.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -4137,8 +3791,6 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.bdac_storm_control_type is not None:
                                             for child_ref in self.bdac_storm_control_type:
                                                 if child_ref._has_data():
@@ -4146,14 +3798,10 @@ class L2vpn(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes']['meta_info']
 
 
                                 class InterfaceDai(object):
@@ -4173,12 +3821,12 @@ class L2vpn(object):
                                     .. attribute:: interface_dai_address_validation
                                     
                                     	Address Validation
-                                    	**type**\: :py:class:`InterfaceDaiAddressValidation <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation>`
+                                    	**type**\: :py:class:`InterfaceDaiAddressValidation <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation>`
                                     
                                     .. attribute:: logging
                                     
                                     	Logging Type
-                                    	**type**\: :py:class:`L2vpnLogging_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpnLogging_Enum>`
+                                    	**type**\: :py:class:`L2VpnLoggingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
                                     
                                     
 
@@ -4191,7 +3839,7 @@ class L2vpn(object):
                                         self.parent = None
                                         self.disable = None
                                         self.enable = None
-                                        self.interface_dai_address_validation = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation()
+                                        self.interface_dai_address_validation = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation()
                                         self.interface_dai_address_validation.parent = self
                                         self.logging = None
 
@@ -4203,7 +3851,7 @@ class L2vpn(object):
                                         .. attribute:: destination_mac_verification
                                         
                                         	Destination MAC Verification
-                                        	**type**\: :py:class:`L2vpnVerification_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpnVerification_Enum>`
+                                        	**type**\: :py:class:`L2VpnVerificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
                                         
                                         .. attribute:: enable
                                         
@@ -4213,12 +3861,12 @@ class L2vpn(object):
                                         .. attribute:: ipv4_verification
                                         
                                         	IPv4 Verification
-                                        	**type**\: :py:class:`L2vpnVerification_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpnVerification_Enum>`
+                                        	**type**\: :py:class:`L2VpnVerificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
                                         
                                         .. attribute:: source_mac_verification
                                         
                                         	Source MAC Verification
-                                        	**type**\: :py:class:`L2vpnVerification_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpnVerification_Enum>`
+                                        	**type**\: :py:class:`L2VpnVerificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
                                         
                                         
 
@@ -4248,8 +3896,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.destination_mac_verification is not None:
                                                 return True
 
@@ -4264,14 +3910,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -4287,8 +3929,6 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.disable is not None:
                                             return True
 
@@ -4298,22 +3938,15 @@ class L2vpn(object):
                                         if self.interface_dai_address_validation is not None and self.interface_dai_address_validation._has_data():
                                             return True
 
-                                        if self.interface_dai_address_validation is not None and self.interface_dai_address_validation.is_presence():
-                                            return True
-
                                         if self.logging is not None:
                                             return True
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai']['meta_info']
 
 
                                 class InterfaceIpSourceGuard(object):
@@ -4333,7 +3966,7 @@ class L2vpn(object):
                                     .. attribute:: logging
                                     
                                     	Logging Type
-                                    	**type**\: :py:class:`L2vpnLogging_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpnLogging_Enum>`
+                                    	**type**\: :py:class:`L2VpnLoggingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
                                     
                                     
 
@@ -4362,8 +3995,6 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.disable is not None:
                                             return True
 
@@ -4375,14 +4006,10 @@ class L2vpn(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard']['meta_info']
 
 
                                 class InterfaceMac(object):
@@ -4392,27 +4019,27 @@ class L2vpn(object):
                                     .. attribute:: interface_mac_aging
                                     
                                     	MAC\-Aging configuration commands
-                                    	**type**\: :py:class:`InterfaceMacAging <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging>`
+                                    	**type**\: :py:class:`InterfaceMacAging <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging>`
                                     
                                     .. attribute:: interface_mac_learning
                                     
                                     	Enable Mac Learning
-                                    	**type**\: :py:class:`MacLearn_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLearn_Enum>`
+                                    	**type**\: :py:class:`MacLearnEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
                                     
                                     .. attribute:: interface_mac_limit
                                     
                                     	MAC\-Limit configuration commands
-                                    	**type**\: :py:class:`InterfaceMacLimit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit>`
+                                    	**type**\: :py:class:`InterfaceMacLimit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit>`
                                     
                                     .. attribute:: interface_mac_port_down_flush
                                     
                                     	Enable/Disable MAC Flush When Port goes down
-                                    	**type**\: :py:class:`PortDownFlush_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.PortDownFlush_Enum>`
+                                    	**type**\: :py:class:`PortDownFlushEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.PortDownFlushEnum>`
                                     
                                     .. attribute:: interface_mac_secure
                                     
                                     	MAC Secure
-                                    	**type**\: :py:class:`InterfaceMacSecure <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure>`
+                                    	**type**\: :py:class:`InterfaceMacSecure <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure>`
                                     
                                     
 
@@ -4423,13 +4050,13 @@ class L2vpn(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.interface_mac_aging = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging()
+                                        self.interface_mac_aging = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging()
                                         self.interface_mac_aging.parent = self
                                         self.interface_mac_learning = None
-                                        self.interface_mac_limit = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit()
+                                        self.interface_mac_limit = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit()
                                         self.interface_mac_limit.parent = self
                                         self.interface_mac_port_down_flush = None
-                                        self.interface_mac_secure = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure()
+                                        self.interface_mac_secure = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure()
                                         self.interface_mac_secure.parent = self
 
 
@@ -4447,7 +4074,7 @@ class L2vpn(object):
                                         .. attribute:: interface_mac_aging_type
                                         
                                         	MAC address aging type
-                                        	**type**\: :py:class:`MacAging_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacAging_Enum>`
+                                        	**type**\: :py:class:`MacAgingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
                                         
                                         
 
@@ -4475,8 +4102,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_mac_aging_time is not None:
                                                 return True
 
@@ -4485,14 +4110,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging']['meta_info']
 
 
                                     class InterfaceMacLimit(object):
@@ -4502,7 +4123,7 @@ class L2vpn(object):
                                         .. attribute:: interface_mac_limit_action
                                         
                                         	Interface MAC address limit enforcement action
-                                        	**type**\: :py:class:`MacLimitAction_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLimitAction_Enum>`
+                                        	**type**\: :py:class:`MacLimitActionEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLimitActionEnum>`
                                         
                                         .. attribute:: interface_mac_limit_max
                                         
@@ -4514,7 +4135,7 @@ class L2vpn(object):
                                         .. attribute:: interface_mac_limit_notif
                                         
                                         	MAC address limit notification action in a Interface
-                                        	**type**\: :py:class:`MacNotification_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacNotification_Enum>`
+                                        	**type**\: :py:class:`MacNotificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacNotificationEnum>`
                                         
                                         
 
@@ -4543,8 +4164,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_mac_limit_action is not None:
                                                 return True
 
@@ -4556,14 +4175,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit']['meta_info']
 
 
                                     class InterfaceMacSecure(object):
@@ -4573,7 +4188,7 @@ class L2vpn(object):
                                         .. attribute:: action
                                         
                                         	MAC secure enforcement action
-                                        	**type**\: :py:class:`MacSecureAction_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacSecureAction_Enum>`
+                                        	**type**\: :py:class:`MacSecureActionEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacSecureActionEnum>`
                                         
                                         .. attribute:: disable
                                         
@@ -4588,7 +4203,7 @@ class L2vpn(object):
                                         .. attribute:: logging
                                         
                                         	MAC Secure Logging
-                                        	**type**\: :py:class:`L2vpnLogging_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpnLogging_Enum>`
+                                        	**type**\: :py:class:`L2VpnLoggingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
                                         
                                         
 
@@ -4618,8 +4233,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.action is not None:
                                                 return True
 
@@ -4634,14 +4247,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -4657,12 +4266,7 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.interface_mac_aging is not None and self.interface_mac_aging._has_data():
-                                            return True
-
-                                        if self.interface_mac_aging is not None and self.interface_mac_aging.is_presence():
                                             return True
 
                                         if self.interface_mac_learning is not None:
@@ -4671,28 +4275,18 @@ class L2vpn(object):
                                         if self.interface_mac_limit is not None and self.interface_mac_limit._has_data():
                                             return True
 
-                                        if self.interface_mac_limit is not None and self.interface_mac_limit.is_presence():
-                                            return True
-
                                         if self.interface_mac_port_down_flush is not None:
                                             return True
 
                                         if self.interface_mac_secure is not None and self.interface_mac_secure._has_data():
                                             return True
 
-                                        if self.interface_mac_secure is not None and self.interface_mac_secure.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac']['meta_info']
 
 
                                 class InterfaceProfile(object):
@@ -4707,7 +4301,7 @@ class L2vpn(object):
                                     .. attribute:: profile_id
                                     
                                     	Set the snooping profile
-                                    	**type**\: :py:class:`InterfaceProfile_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfile_Enum>`
+                                    	**type**\: :py:class:`InterfaceProfileEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
                                     
                                     
 
@@ -4735,8 +4329,6 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.dhcp_snooping_id is not None:
                                             return True
 
@@ -4745,14 +4337,10 @@ class L2vpn(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile']['meta_info']
 
 
                                 class SplitHorizon(object):
@@ -4762,7 +4350,7 @@ class L2vpn(object):
                                     .. attribute:: split_horizon_group_id
                                     
                                     	Split Horizon Group ID
-                                    	**type**\: :py:class:`SplitHorizonGroupId <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId>`
+                                    	**type**\: :py:class:`SplitHorizonGroupId <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId>`
                                     
                                     
 
@@ -4773,7 +4361,7 @@ class L2vpn(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.split_horizon_group_id = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId()
+                                        self.split_horizon_group_id = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId()
                                         self.split_horizon_group_id.parent = self
 
 
@@ -4811,21 +4399,15 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.enable is not None:
                                                 return True
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -4841,24 +4423,15 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.split_horizon_group_id is not None and self.split_horizon_group_id._has_data():
                                             return True
 
-                                        if self.split_horizon_group_id is not None and self.split_horizon_group_id.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon']['meta_info']
 
 
                                 class StaticMacAddresses(object):
@@ -4868,7 +4441,7 @@ class L2vpn(object):
                                     .. attribute:: static_mac_address
                                     
                                     	Static Mac Address Configuration
-                                    	**type**\: list of :py:class:`StaticMacAddress <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress>`
+                                    	**type**\: list of :py:class:`StaticMacAddress <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress>`
                                     
                                     
 
@@ -4922,21 +4495,15 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.address is not None:
                                                 return True
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -4952,8 +4519,6 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.static_mac_address is not None:
                                             for child_ref in self.static_mac_address:
                                                 if child_ref._has_data():
@@ -4961,14 +4526,10 @@ class L2vpn(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -4986,21 +4547,13 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.name is not None:
                                         return True
 
                                     if self.bdac_storm_control_types is not None and self.bdac_storm_control_types._has_data():
                                         return True
 
-                                    if self.bdac_storm_control_types is not None and self.bdac_storm_control_types.is_presence():
-                                        return True
-
                                     if self.interface_dai is not None and self.interface_dai._has_data():
-                                        return True
-
-                                    if self.interface_dai is not None and self.interface_dai.is_presence():
                                         return True
 
                                     if self.interface_flooding is not None:
@@ -5015,13 +4568,7 @@ class L2vpn(object):
                                     if self.interface_ip_source_guard is not None and self.interface_ip_source_guard._has_data():
                                         return True
 
-                                    if self.interface_ip_source_guard is not None and self.interface_ip_source_guard.is_presence():
-                                        return True
-
                                     if self.interface_mac is not None and self.interface_mac._has_data():
-                                        return True
-
-                                    if self.interface_mac is not None and self.interface_mac.is_presence():
                                         return True
 
                                     if self.interface_mld_snoop is not None:
@@ -5030,31 +4577,18 @@ class L2vpn(object):
                                     if self.interface_profile is not None and self.interface_profile._has_data():
                                         return True
 
-                                    if self.interface_profile is not None and self.interface_profile.is_presence():
-                                        return True
-
                                     if self.split_horizon is not None and self.split_horizon._has_data():
-                                        return True
-
-                                    if self.split_horizon is not None and self.split_horizon.is_presence():
                                         return True
 
                                     if self.static_mac_addresses is not None and self.static_mac_addresses._has_data():
                                         return True
 
-                                    if self.static_mac_addresses is not None and self.static_mac_addresses.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -5070,8 +4604,6 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bd_attachment_circuit is not None:
                                     for child_ref in self.bd_attachment_circuit:
                                         if child_ref._has_data():
@@ -5079,14 +4611,10 @@ class L2vpn(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits']['meta_info']
 
 
                         class BdPseudowires(object):
@@ -5096,7 +4624,7 @@ class L2vpn(object):
                             .. attribute:: bd_pseudowire
                             
                             	Pseudowire configuration
-                            	**type**\: list of :py:class:`BdPseudowire <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire>`
+                            	**type**\: list of :py:class:`BdPseudowire <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire>`
                             
                             
 
@@ -5140,42 +4668,42 @@ class L2vpn(object):
                                 .. attribute:: bd_pw_mpls_static_labels
                                 
                                 	MPLS static labels
-                                	**type**\: :py:class:`BdPwMplsStaticLabels <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels>`
+                                	**type**\: :py:class:`BdPwMplsStaticLabels <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels>`
                                 
                                 .. attribute:: bd_pw_split_horizon
                                 
                                 	Split Horizon
-                                	**type**\: :py:class:`BdPwSplitHorizon <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon>`
+                                	**type**\: :py:class:`BdPwSplitHorizon <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon>`
                                 
                                 .. attribute:: bd_pw_static_mac_addresses
                                 
                                 	Static Mac Address Table
-                                	**type**\: :py:class:`BdPwStaticMacAddresses <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses>`
+                                	**type**\: :py:class:`BdPwStaticMacAddresses <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses>`
                                 
                                 .. attribute:: bdpw_storm_control_types
                                 
                                 	Storm Control
-                                	**type**\: :py:class:`BdpwStormControlTypes <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes>`
+                                	**type**\: :py:class:`BdpwStormControlTypes <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes>`
                                 
                                 .. attribute:: bridge_domain_backup_pseudowires
                                 
                                 	List of pseudowires
-                                	**type**\: :py:class:`BridgeDomainBackupPseudowires <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires>`
+                                	**type**\: :py:class:`BridgeDomainBackupPseudowires <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires>`
                                 
                                 .. attribute:: pseudowire_dai
                                 
                                 	Access Pseudowire Dynamic ARP Inspection
-                                	**type**\: :py:class:`PseudowireDai <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai>`
+                                	**type**\: :py:class:`PseudowireDai <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai>`
                                 
                                 .. attribute:: pseudowire_flooding
                                 
                                 	Bridge\-domain Pseudowire flooding
-                                	**type**\: :py:class:`InterfaceTrafficFlood_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFlood_Enum>`
+                                	**type**\: :py:class:`InterfaceTrafficFloodEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFloodEnum>`
                                 
                                 .. attribute:: pseudowire_flooding_unknown_unicast
                                 
                                 	Bridge\-domain Pseudowire flooding Unknown Unicast
-                                	**type**\: :py:class:`InterfaceTrafficFlood_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFlood_Enum>`
+                                	**type**\: :py:class:`InterfaceTrafficFloodEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFloodEnum>`
                                 
                                 .. attribute:: pseudowire_igmp_snoop
                                 
@@ -5187,12 +4715,12 @@ class L2vpn(object):
                                 .. attribute:: pseudowire_ip_source_guard
                                 
                                 	IP Source Guard
-                                	**type**\: :py:class:`PseudowireIpSourceGuard <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard>`
+                                	**type**\: :py:class:`PseudowireIpSourceGuard <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard>`
                                 
                                 .. attribute:: pseudowire_mac
                                 
                                 	Bridge\-domain Pseudowire MAC configuration commands
-                                	**type**\: :py:class:`PseudowireMac <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac>`
+                                	**type**\: :py:class:`PseudowireMac <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac>`
                                 
                                 .. attribute:: pseudowire_mld_snoop
                                 
@@ -5204,7 +4732,7 @@ class L2vpn(object):
                                 .. attribute:: pseudowire_profile
                                 
                                 	Attach a DHCP profile
-                                	**type**\: :py:class:`PseudowireProfile <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile>`
+                                	**type**\: :py:class:`PseudowireProfile <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile>`
                                 
                                 
 
@@ -5218,27 +4746,27 @@ class L2vpn(object):
                                     self.neighbor = None
                                     self.pseudowire_id = None
                                     self.bd_pw_class = None
-                                    self.bd_pw_mpls_static_labels = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels()
+                                    self.bd_pw_mpls_static_labels = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels()
                                     self.bd_pw_mpls_static_labels.parent = self
-                                    self.bd_pw_split_horizon = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon()
+                                    self.bd_pw_split_horizon = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon()
                                     self.bd_pw_split_horizon.parent = self
-                                    self.bd_pw_static_mac_addresses = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses()
+                                    self.bd_pw_static_mac_addresses = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses()
                                     self.bd_pw_static_mac_addresses.parent = self
-                                    self.bdpw_storm_control_types = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes()
+                                    self.bdpw_storm_control_types = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes()
                                     self.bdpw_storm_control_types.parent = self
-                                    self.bridge_domain_backup_pseudowires = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires()
+                                    self.bridge_domain_backup_pseudowires = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires()
                                     self.bridge_domain_backup_pseudowires.parent = self
-                                    self.pseudowire_dai = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai()
+                                    self.pseudowire_dai = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai()
                                     self.pseudowire_dai.parent = self
                                     self.pseudowire_flooding = None
                                     self.pseudowire_flooding_unknown_unicast = None
                                     self.pseudowire_igmp_snoop = None
-                                    self.pseudowire_ip_source_guard = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard()
+                                    self.pseudowire_ip_source_guard = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard()
                                     self.pseudowire_ip_source_guard.parent = self
-                                    self.pseudowire_mac = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac()
+                                    self.pseudowire_mac = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac()
                                     self.pseudowire_mac.parent = self
                                     self.pseudowire_mld_snoop = None
-                                    self.pseudowire_profile = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile()
+                                    self.pseudowire_profile = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile()
                                     self.pseudowire_profile.parent = self
 
 
@@ -5286,8 +4814,6 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.local_static_label is not None:
                                             return True
 
@@ -5296,14 +4822,10 @@ class L2vpn(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels']['meta_info']
 
 
                                 class BdPwSplitHorizon(object):
@@ -5313,7 +4835,7 @@ class L2vpn(object):
                                     .. attribute:: bd_pw_split_horizon_group
                                     
                                     	Split Horizon Group
-                                    	**type**\: :py:class:`BdPwSplitHorizonGroup <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup>`
+                                    	**type**\: :py:class:`BdPwSplitHorizonGroup <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup>`
                                     
                                     
 
@@ -5324,7 +4846,7 @@ class L2vpn(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.bd_pw_split_horizon_group = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup()
+                                        self.bd_pw_split_horizon_group = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup()
                                         self.bd_pw_split_horizon_group.parent = self
 
 
@@ -5362,21 +4884,15 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.enable is not None:
                                                 return True
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -5392,24 +4908,15 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.bd_pw_split_horizon_group is not None and self.bd_pw_split_horizon_group._has_data():
                                             return True
 
-                                        if self.bd_pw_split_horizon_group is not None and self.bd_pw_split_horizon_group.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon']['meta_info']
 
 
                                 class BdPwStaticMacAddresses(object):
@@ -5419,7 +4926,7 @@ class L2vpn(object):
                                     .. attribute:: bd_pw_static_mac_address
                                     
                                     	Static Mac Address Configuration
-                                    	**type**\: list of :py:class:`BdPwStaticMacAddress <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress>`
+                                    	**type**\: list of :py:class:`BdPwStaticMacAddress <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress>`
                                     
                                     
 
@@ -5473,21 +4980,15 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.address is not None:
                                                 return True
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -5503,8 +5004,6 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.bd_pw_static_mac_address is not None:
                                             for child_ref in self.bd_pw_static_mac_address:
                                                 if child_ref._has_data():
@@ -5512,14 +5011,10 @@ class L2vpn(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses']['meta_info']
 
 
                                 class BdpwStormControlTypes(object):
@@ -5529,7 +5024,7 @@ class L2vpn(object):
                                     .. attribute:: bdpw_storm_control_type
                                     
                                     	Storm Control Type
-                                    	**type**\: list of :py:class:`BdpwStormControlType <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType>`
+                                    	**type**\: list of :py:class:`BdpwStormControlType <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType>`
                                     
                                     
 
@@ -5552,12 +5047,12 @@ class L2vpn(object):
                                         .. attribute:: sctype
                                         
                                         	Storm Control Type
-                                        	**type**\: :py:class:`StormControl_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.StormControl_Enum>`
+                                        	**type**\: :py:class:`StormControlEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.StormControlEnum>`
                                         
                                         .. attribute:: storm_control_unit
                                         
                                         	Specify units for Storm Control Configuration
-                                        	**type**\: :py:class:`StormControlUnit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit>`
+                                        	**type**\: :py:class:`StormControlUnit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit>`
                                         
                                         
 
@@ -5569,7 +5064,7 @@ class L2vpn(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.sctype = None
-                                            self.storm_control_unit = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit()
+                                            self.storm_control_unit = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit()
                                             self.storm_control_unit.parent = self
 
 
@@ -5617,8 +5112,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.kbits_per_sec is not None:
                                                     return True
 
@@ -5627,14 +5120,10 @@ class L2vpn(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -5652,27 +5141,18 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.sctype is not None:
                                                 return True
 
                                             if self.storm_control_unit is not None and self.storm_control_unit._has_data():
                                                 return True
 
-                                            if self.storm_control_unit is not None and self.storm_control_unit.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -5688,8 +5168,6 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.bdpw_storm_control_type is not None:
                                             for child_ref in self.bdpw_storm_control_type:
                                                 if child_ref._has_data():
@@ -5697,14 +5175,10 @@ class L2vpn(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes']['meta_info']
 
 
                                 class BridgeDomainBackupPseudowires(object):
@@ -5714,7 +5188,7 @@ class L2vpn(object):
                                     .. attribute:: bridge_domain_backup_pseudowire
                                     
                                     	Backup pseudowire configuration
-                                    	**type**\: list of :py:class:`BridgeDomainBackupPseudowire <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire>`
+                                    	**type**\: list of :py:class:`BridgeDomainBackupPseudowire <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire>`
                                     
                                     
 
@@ -5786,8 +5260,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.neighbor is not None:
                                                 return True
 
@@ -5799,14 +5271,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -5822,8 +5290,6 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.bridge_domain_backup_pseudowire is not None:
                                             for child_ref in self.bridge_domain_backup_pseudowire:
                                                 if child_ref._has_data():
@@ -5831,14 +5297,10 @@ class L2vpn(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires']['meta_info']
 
 
                                 class PseudowireDai(object):
@@ -5858,12 +5320,12 @@ class L2vpn(object):
                                     .. attribute:: logging
                                     
                                     	Logging Type
-                                    	**type**\: :py:class:`L2vpnLogging_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpnLogging_Enum>`
+                                    	**type**\: :py:class:`L2VpnLoggingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
                                     
                                     .. attribute:: pseudowire_dai_address_validation
                                     
                                     	Address Validation
-                                    	**type**\: :py:class:`PseudowireDaiAddressValidation <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation>`
+                                    	**type**\: :py:class:`PseudowireDaiAddressValidation <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation>`
                                     
                                     
 
@@ -5877,7 +5339,7 @@ class L2vpn(object):
                                         self.disable = None
                                         self.enable = None
                                         self.logging = None
-                                        self.pseudowire_dai_address_validation = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation()
+                                        self.pseudowire_dai_address_validation = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation()
                                         self.pseudowire_dai_address_validation.parent = self
 
 
@@ -5888,17 +5350,17 @@ class L2vpn(object):
                                         .. attribute:: destination_mac_verification
                                         
                                         	Destination MAC Verification
-                                        	**type**\: :py:class:`L2vpnVerification_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpnVerification_Enum>`
+                                        	**type**\: :py:class:`L2VpnVerificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
                                         
                                         .. attribute:: ipv4_verification
                                         
                                         	IPv4 Verification
-                                        	**type**\: :py:class:`L2vpnVerification_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpnVerification_Enum>`
+                                        	**type**\: :py:class:`L2VpnVerificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
                                         
                                         .. attribute:: source_mac_verification
                                         
                                         	Source MAC Verification
-                                        	**type**\: :py:class:`L2vpnVerification_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpnVerification_Enum>`
+                                        	**type**\: :py:class:`L2VpnVerificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
                                         
                                         
 
@@ -5927,8 +5389,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.destination_mac_verification is not None:
                                                 return True
 
@@ -5940,14 +5400,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -5963,8 +5419,6 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.disable is not None:
                                             return True
 
@@ -5977,19 +5431,12 @@ class L2vpn(object):
                                         if self.pseudowire_dai_address_validation is not None and self.pseudowire_dai_address_validation._has_data():
                                             return True
 
-                                        if self.pseudowire_dai_address_validation is not None and self.pseudowire_dai_address_validation.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai']['meta_info']
 
 
                                 class PseudowireIpSourceGuard(object):
@@ -6009,7 +5456,7 @@ class L2vpn(object):
                                     .. attribute:: logging
                                     
                                     	Logging Type
-                                    	**type**\: :py:class:`L2vpnLogging_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpnLogging_Enum>`
+                                    	**type**\: :py:class:`L2VpnLoggingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
                                     
                                     
 
@@ -6038,8 +5485,6 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.disable is not None:
                                             return True
 
@@ -6051,14 +5496,10 @@ class L2vpn(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard']['meta_info']
 
 
                                 class PseudowireMac(object):
@@ -6074,27 +5515,27 @@ class L2vpn(object):
                                     .. attribute:: pseudowire_mac_aging
                                     
                                     	MAC\-Aging configuration commands
-                                    	**type**\: :py:class:`PseudowireMacAging <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging>`
+                                    	**type**\: :py:class:`PseudowireMacAging <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging>`
                                     
                                     .. attribute:: pseudowire_mac_learning
                                     
                                     	Enable MAC Learning
-                                    	**type**\: :py:class:`MacLearn_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLearn_Enum>`
+                                    	**type**\: :py:class:`MacLearnEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
                                     
                                     .. attribute:: pseudowire_mac_limit
                                     
                                     	MAC\-Limit configuration commands
-                                    	**type**\: :py:class:`PseudowireMacLimit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit>`
+                                    	**type**\: :py:class:`PseudowireMacLimit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit>`
                                     
                                     .. attribute:: pseudowire_mac_port_down_flush
                                     
                                     	Enable/Disable MAC Flush When Port goes down
-                                    	**type**\: :py:class:`PortDownFlush_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.PortDownFlush_Enum>`
+                                    	**type**\: :py:class:`PortDownFlushEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.PortDownFlushEnum>`
                                     
                                     .. attribute:: pseudowire_mac_secure
                                     
                                     	MAC Secure
-                                    	**type**\: :py:class:`PseudowireMacSecure <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure>`
+                                    	**type**\: :py:class:`PseudowireMacSecure <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure>`
                                     
                                     
 
@@ -6106,13 +5547,13 @@ class L2vpn(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.enable = None
-                                        self.pseudowire_mac_aging = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging()
+                                        self.pseudowire_mac_aging = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging()
                                         self.pseudowire_mac_aging.parent = self
                                         self.pseudowire_mac_learning = None
-                                        self.pseudowire_mac_limit = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit()
+                                        self.pseudowire_mac_limit = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit()
                                         self.pseudowire_mac_limit.parent = self
                                         self.pseudowire_mac_port_down_flush = None
-                                        self.pseudowire_mac_secure = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure()
+                                        self.pseudowire_mac_secure = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure()
                                         self.pseudowire_mac_secure.parent = self
 
 
@@ -6130,7 +5571,7 @@ class L2vpn(object):
                                         .. attribute:: pseudowire_mac_aging_type
                                         
                                         	MAC address aging type
-                                        	**type**\: :py:class:`MacAging_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacAging_Enum>`
+                                        	**type**\: :py:class:`MacAgingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
                                         
                                         
 
@@ -6158,8 +5599,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.pseudowire_mac_aging_time is not None:
                                                 return True
 
@@ -6168,14 +5607,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging']['meta_info']
 
 
                                     class PseudowireMacLimit(object):
@@ -6185,7 +5620,7 @@ class L2vpn(object):
                                         .. attribute:: pseudowire_mac_limit_action
                                         
                                         	Bridge Access Pseudowire MAC address limit enforcement action
-                                        	**type**\: :py:class:`MacLimitAction_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLimitAction_Enum>`
+                                        	**type**\: :py:class:`MacLimitActionEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLimitActionEnum>`
                                         
                                         .. attribute:: pseudowire_mac_limit_max
                                         
@@ -6197,7 +5632,7 @@ class L2vpn(object):
                                         .. attribute:: pseudowire_mac_limit_notif
                                         
                                         	MAC address limit notification action in a Bridge Access Pseudowire
-                                        	**type**\: :py:class:`MacNotification_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacNotification_Enum>`
+                                        	**type**\: :py:class:`MacNotificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacNotificationEnum>`
                                         
                                         
 
@@ -6226,8 +5661,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.pseudowire_mac_limit_action is not None:
                                                 return True
 
@@ -6239,14 +5672,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit']['meta_info']
 
 
                                     class PseudowireMacSecure(object):
@@ -6256,7 +5685,7 @@ class L2vpn(object):
                                         .. attribute:: action
                                         
                                         	MAC secure enforcement action
-                                        	**type**\: :py:class:`MacSecureAction_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacSecureAction_Enum>`
+                                        	**type**\: :py:class:`MacSecureActionEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacSecureActionEnum>`
                                         
                                         .. attribute:: disable
                                         
@@ -6271,7 +5700,7 @@ class L2vpn(object):
                                         .. attribute:: logging
                                         
                                         	MAC Secure Logging
-                                        	**type**\: :py:class:`L2vpnLogging_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpnLogging_Enum>`
+                                        	**type**\: :py:class:`L2VpnLoggingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
                                         
                                         
 
@@ -6301,8 +5730,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.action is not None:
                                                 return True
 
@@ -6317,14 +5744,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -6340,15 +5763,10 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.enable is not None:
                                             return True
 
                                         if self.pseudowire_mac_aging is not None and self.pseudowire_mac_aging._has_data():
-                                            return True
-
-                                        if self.pseudowire_mac_aging is not None and self.pseudowire_mac_aging.is_presence():
                                             return True
 
                                         if self.pseudowire_mac_learning is not None:
@@ -6357,28 +5775,18 @@ class L2vpn(object):
                                         if self.pseudowire_mac_limit is not None and self.pseudowire_mac_limit._has_data():
                                             return True
 
-                                        if self.pseudowire_mac_limit is not None and self.pseudowire_mac_limit.is_presence():
-                                            return True
-
                                         if self.pseudowire_mac_port_down_flush is not None:
                                             return True
 
                                         if self.pseudowire_mac_secure is not None and self.pseudowire_mac_secure._has_data():
                                             return True
 
-                                        if self.pseudowire_mac_secure is not None and self.pseudowire_mac_secure.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac']['meta_info']
 
 
                                 class PseudowireProfile(object):
@@ -6393,7 +5801,7 @@ class L2vpn(object):
                                     .. attribute:: profile_id
                                     
                                     	Set the snooping profile
-                                    	**type**\: :py:class:`InterfaceProfile_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfile_Enum>`
+                                    	**type**\: :py:class:`InterfaceProfileEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
                                     
                                     
 
@@ -6421,8 +5829,6 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.dhcp_snooping_id is not None:
                                             return True
 
@@ -6431,14 +5837,10 @@ class L2vpn(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -6458,8 +5860,6 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.neighbor is not None:
                                         return True
 
@@ -6472,37 +5872,19 @@ class L2vpn(object):
                                     if self.bd_pw_mpls_static_labels is not None and self.bd_pw_mpls_static_labels._has_data():
                                         return True
 
-                                    if self.bd_pw_mpls_static_labels is not None and self.bd_pw_mpls_static_labels.is_presence():
-                                        return True
-
                                     if self.bd_pw_split_horizon is not None and self.bd_pw_split_horizon._has_data():
-                                        return True
-
-                                    if self.bd_pw_split_horizon is not None and self.bd_pw_split_horizon.is_presence():
                                         return True
 
                                     if self.bd_pw_static_mac_addresses is not None and self.bd_pw_static_mac_addresses._has_data():
                                         return True
 
-                                    if self.bd_pw_static_mac_addresses is not None and self.bd_pw_static_mac_addresses.is_presence():
-                                        return True
-
                                     if self.bdpw_storm_control_types is not None and self.bdpw_storm_control_types._has_data():
-                                        return True
-
-                                    if self.bdpw_storm_control_types is not None and self.bdpw_storm_control_types.is_presence():
                                         return True
 
                                     if self.bridge_domain_backup_pseudowires is not None and self.bridge_domain_backup_pseudowires._has_data():
                                         return True
 
-                                    if self.bridge_domain_backup_pseudowires is not None and self.bridge_domain_backup_pseudowires.is_presence():
-                                        return True
-
                                     if self.pseudowire_dai is not None and self.pseudowire_dai._has_data():
-                                        return True
-
-                                    if self.pseudowire_dai is not None and self.pseudowire_dai.is_presence():
                                         return True
 
                                     if self.pseudowire_flooding is not None:
@@ -6517,13 +5899,7 @@ class L2vpn(object):
                                     if self.pseudowire_ip_source_guard is not None and self.pseudowire_ip_source_guard._has_data():
                                         return True
 
-                                    if self.pseudowire_ip_source_guard is not None and self.pseudowire_ip_source_guard.is_presence():
-                                        return True
-
                                     if self.pseudowire_mac is not None and self.pseudowire_mac._has_data():
-                                        return True
-
-                                    if self.pseudowire_mac is not None and self.pseudowire_mac.is_presence():
                                         return True
 
                                     if self.pseudowire_mld_snoop is not None:
@@ -6532,19 +5908,12 @@ class L2vpn(object):
                                     if self.pseudowire_profile is not None and self.pseudowire_profile._has_data():
                                         return True
 
-                                    if self.pseudowire_profile is not None and self.pseudowire_profile.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -6560,8 +5929,6 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bd_pseudowire is not None:
                                     for child_ref in self.bd_pseudowire:
                                         if child_ref._has_data():
@@ -6569,14 +5936,10 @@ class L2vpn(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires']['meta_info']
 
 
                         class BdStormControls(object):
@@ -6586,7 +5949,7 @@ class L2vpn(object):
                             .. attribute:: bd_storm_control
                             
                             	Storm Control Type
-                            	**type**\: list of :py:class:`BdStormControl <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl>`
+                            	**type**\: list of :py:class:`BdStormControl <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl>`
                             
                             
 
@@ -6609,12 +5972,12 @@ class L2vpn(object):
                                 .. attribute:: sctype
                                 
                                 	Storm Control Type
-                                	**type**\: :py:class:`StormControl_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.StormControl_Enum>`
+                                	**type**\: :py:class:`StormControlEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.StormControlEnum>`
                                 
                                 .. attribute:: storm_control_unit
                                 
                                 	Specify units for Storm Control Configuration
-                                	**type**\: :py:class:`StormControlUnit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit>`
+                                	**type**\: :py:class:`StormControlUnit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit>`
                                 
                                 
 
@@ -6626,7 +5989,7 @@ class L2vpn(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.sctype = None
-                                    self.storm_control_unit = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit()
+                                    self.storm_control_unit = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit()
                                     self.storm_control_unit.parent = self
 
 
@@ -6674,8 +6037,6 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.kbits_per_sec is not None:
                                             return True
 
@@ -6684,14 +6045,10 @@ class L2vpn(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -6709,27 +6066,18 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.sctype is not None:
                                         return True
 
                                     if self.storm_control_unit is not None and self.storm_control_unit._has_data():
                                         return True
 
-                                    if self.storm_control_unit is not None and self.storm_control_unit.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -6745,8 +6093,6 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bd_storm_control is not None:
                                     for child_ref in self.bd_storm_control:
                                         if child_ref._has_data():
@@ -6754,14 +6100,10 @@ class L2vpn(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls']['meta_info']
 
 
                         class BridgeDomainMac(object):
@@ -6771,22 +6113,22 @@ class L2vpn(object):
                             .. attribute:: bd_mac_aging
                             
                             	MAC\-Aging configuration commands
-                            	**type**\: :py:class:`BdMacAging <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging>`
+                            	**type**\: :py:class:`BdMacAging <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging>`
                             
                             .. attribute:: bd_mac_filters
                             
                             	Filter Mac Address
-                            	**type**\: :py:class:`BdMacFilters <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters>`
+                            	**type**\: :py:class:`BdMacFilters <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters>`
                             
                             .. attribute:: bd_mac_learn
                             
                             	Enable Mac Learning
-                            	**type**\: :py:class:`MacLearn_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLearn_Enum>`
+                            	**type**\: :py:class:`MacLearnEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
                             
                             .. attribute:: bd_mac_limit
                             
                             	MAC\-Limit configuration commands
-                            	**type**\: :py:class:`BdMacLimit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit>`
+                            	**type**\: :py:class:`BdMacLimit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit>`
                             
                             .. attribute:: bd_mac_port_down_flush
                             
@@ -6806,7 +6148,7 @@ class L2vpn(object):
                             .. attribute:: bd_mac_withdraw_behavior
                             
                             	MAC withdraw sent on bridge port down
-                            	**type**\: :py:class:`MacWithdrawBehavior_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacWithdrawBehavior_Enum>`
+                            	**type**\: :py:class:`MacWithdrawBehaviorEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacWithdrawBehaviorEnum>`
                             
                             .. attribute:: bd_mac_withdraw_relay
                             
@@ -6816,7 +6158,7 @@ class L2vpn(object):
                             .. attribute:: mac_secure
                             
                             	MAC Secure
-                            	**type**\: :py:class:`MacSecure <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure>`
+                            	**type**\: :py:class:`MacSecure <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure>`
                             
                             
 
@@ -6827,19 +6169,19 @@ class L2vpn(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.bd_mac_aging = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging()
+                                self.bd_mac_aging = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging()
                                 self.bd_mac_aging.parent = self
-                                self.bd_mac_filters = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters()
+                                self.bd_mac_filters = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters()
                                 self.bd_mac_filters.parent = self
                                 self.bd_mac_learn = None
-                                self.bd_mac_limit = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit()
+                                self.bd_mac_limit = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit()
                                 self.bd_mac_limit.parent = self
                                 self.bd_mac_port_down_flush = None
                                 self.bd_mac_withdraw = None
                                 self.bd_mac_withdraw_access_pw_disable = None
                                 self.bd_mac_withdraw_behavior = None
                                 self.bd_mac_withdraw_relay = None
-                                self.mac_secure = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure()
+                                self.mac_secure = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure()
                                 self.mac_secure.parent = self
 
 
@@ -6857,7 +6199,7 @@ class L2vpn(object):
                                 .. attribute:: bd_mac_aging_type
                                 
                                 	MAC address aging type
-                                	**type**\: :py:class:`MacAging_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacAging_Enum>`
+                                	**type**\: :py:class:`MacAgingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
                                 
                                 
 
@@ -6885,8 +6227,6 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.bd_mac_aging_time is not None:
                                         return True
 
@@ -6895,14 +6235,10 @@ class L2vpn(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging']['meta_info']
 
 
                             class BdMacFilters(object):
@@ -6912,7 +6248,7 @@ class L2vpn(object):
                                 .. attribute:: bd_mac_filter
                                 
                                 	Static MAC address
-                                	**type**\: list of :py:class:`BdMacFilter <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter>`
+                                	**type**\: list of :py:class:`BdMacFilter <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter>`
                                 
                                 
 
@@ -6972,8 +6308,6 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
@@ -6982,14 +6316,10 @@ class L2vpn(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -7005,8 +6335,6 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.bd_mac_filter is not None:
                                         for child_ref in self.bd_mac_filter:
                                             if child_ref._has_data():
@@ -7014,14 +6342,10 @@ class L2vpn(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters']['meta_info']
 
 
                             class BdMacLimit(object):
@@ -7031,7 +6355,7 @@ class L2vpn(object):
                                 .. attribute:: bd_mac_limit_action
                                 
                                 	MAC address limit enforcement action
-                                	**type**\: :py:class:`MacLimitAction_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLimitAction_Enum>`
+                                	**type**\: :py:class:`MacLimitActionEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLimitActionEnum>`
                                 
                                 .. attribute:: bd_mac_limit_max
                                 
@@ -7043,7 +6367,7 @@ class L2vpn(object):
                                 .. attribute:: bd_mac_limit_notif
                                 
                                 	Mac Address Limit Notification
-                                	**type**\: :py:class:`MacNotification_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacNotification_Enum>`
+                                	**type**\: :py:class:`MacNotificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacNotificationEnum>`
                                 
                                 
 
@@ -7072,8 +6396,6 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.bd_mac_limit_action is not None:
                                         return True
 
@@ -7085,14 +6407,10 @@ class L2vpn(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit']['meta_info']
 
 
                             class MacSecure(object):
@@ -7102,7 +6420,7 @@ class L2vpn(object):
                                 .. attribute:: action
                                 
                                 	MAC secure enforcement action
-                                	**type**\: :py:class:`MacSecureAction_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacSecureAction_Enum>`
+                                	**type**\: :py:class:`MacSecureActionEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacSecureActionEnum>`
                                 
                                 .. attribute:: enable
                                 
@@ -7141,8 +6459,6 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.action is not None:
                                         return True
 
@@ -7154,14 +6470,10 @@ class L2vpn(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -7177,27 +6489,16 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bd_mac_aging is not None and self.bd_mac_aging._has_data():
                                     return True
 
-                                if self.bd_mac_aging is not None and self.bd_mac_aging.is_presence():
-                                    return True
-
                                 if self.bd_mac_filters is not None and self.bd_mac_filters._has_data():
-                                    return True
-
-                                if self.bd_mac_filters is not None and self.bd_mac_filters.is_presence():
                                     return True
 
                                 if self.bd_mac_learn is not None:
                                     return True
 
                                 if self.bd_mac_limit is not None and self.bd_mac_limit._has_data():
-                                    return True
-
-                                if self.bd_mac_limit is not None and self.bd_mac_limit.is_presence():
                                     return True
 
                                 if self.bd_mac_port_down_flush is not None:
@@ -7218,19 +6519,12 @@ class L2vpn(object):
                                 if self.mac_secure is not None and self.mac_secure._has_data():
                                     return True
 
-                                if self.mac_secure is not None and self.mac_secure.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac']['meta_info']
 
 
                         class BridgeDomainPbb(object):
@@ -7240,12 +6534,12 @@ class L2vpn(object):
                             .. attribute:: pbb_core
                             
                             	PBB Core
-                            	**type**\: :py:class:`PbbCore <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore>`
+                            	**type**\: :py:class:`PbbCore <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore>`
                             
                             .. attribute:: pbb_edges
                             
                             	PBB Edge
-                            	**type**\: :py:class:`PbbEdges <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges>`
+                            	**type**\: :py:class:`PbbEdges <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges>`
                             
                             
 
@@ -7256,9 +6550,9 @@ class L2vpn(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.pbb_core = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore()
+                                self.pbb_core = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore()
                                 self.pbb_core.parent = self
-                                self.pbb_edges = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges()
+                                self.pbb_edges = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges()
                                 self.pbb_edges.parent = self
 
 
@@ -7281,7 +6575,7 @@ class L2vpn(object):
                                 .. attribute:: pbb_core_dhcp_profile
                                 
                                 	Attach a DHCP profile
-                                	**type**\: :py:class:`PbbCoreDhcpProfile <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile>`
+                                	**type**\: :py:class:`PbbCoreDhcpProfile <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile>`
                                 
                                 .. attribute:: pbb_core_igmp_profile
                                 
@@ -7293,7 +6587,7 @@ class L2vpn(object):
                                 .. attribute:: pbb_core_mac
                                 
                                 	MAC configuration commands
-                                	**type**\: :py:class:`PbbCoreMac <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac>`
+                                	**type**\: :py:class:`PbbCoreMac <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac>`
                                 
                                 .. attribute:: pbb_core_mmrp_flood_optimization
                                 
@@ -7318,10 +6612,10 @@ class L2vpn(object):
                                     self.parent = None
                                     self.enable = None
                                     self.evpn_attribute = None
-                                    self.pbb_core_dhcp_profile = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile()
+                                    self.pbb_core_dhcp_profile = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile()
                                     self.pbb_core_dhcp_profile.parent = self
                                     self.pbb_core_igmp_profile = None
-                                    self.pbb_core_mac = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac()
+                                    self.pbb_core_mac = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac()
                                     self.pbb_core_mac.parent = self
                                     self.pbb_core_mmrp_flood_optimization = None
                                     self.vlan_id = None
@@ -7339,7 +6633,7 @@ class L2vpn(object):
                                     .. attribute:: profile_id
                                     
                                     	Set the snooping profile
-                                    	**type**\: :py:class:`InterfaceProfile_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfile_Enum>`
+                                    	**type**\: :py:class:`InterfaceProfileEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
                                     
                                     
 
@@ -7367,8 +6661,6 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.dhcp_snooping_id is not None:
                                             return True
 
@@ -7377,14 +6669,10 @@ class L2vpn(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile']['meta_info']
 
 
                                 class PbbCoreMac(object):
@@ -7394,17 +6682,17 @@ class L2vpn(object):
                                     .. attribute:: pbb_core_mac_aging
                                     
                                     	MAC\-Aging configuration commands
-                                    	**type**\: :py:class:`PbbCoreMacAging <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging>`
+                                    	**type**\: :py:class:`PbbCoreMacAging <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging>`
                                     
                                     .. attribute:: pbb_core_mac_learning
                                     
                                     	Enable Mac Learning
-                                    	**type**\: :py:class:`MacLearn_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLearn_Enum>`
+                                    	**type**\: :py:class:`MacLearnEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
                                     
                                     .. attribute:: pbb_core_mac_limit
                                     
                                     	MAC\-Limit configuration commands
-                                    	**type**\: :py:class:`PbbCoreMacLimit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit>`
+                                    	**type**\: :py:class:`PbbCoreMacLimit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit>`
                                     
                                     
 
@@ -7415,10 +6703,10 @@ class L2vpn(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.pbb_core_mac_aging = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging()
+                                        self.pbb_core_mac_aging = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging()
                                         self.pbb_core_mac_aging.parent = self
                                         self.pbb_core_mac_learning = None
-                                        self.pbb_core_mac_limit = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit()
+                                        self.pbb_core_mac_limit = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit()
                                         self.pbb_core_mac_limit.parent = self
 
 
@@ -7436,7 +6724,7 @@ class L2vpn(object):
                                         .. attribute:: pbb_core_mac_aging_type
                                         
                                         	MAC address aging type
-                                        	**type**\: :py:class:`MacAging_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacAging_Enum>`
+                                        	**type**\: :py:class:`MacAgingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
                                         
                                         
 
@@ -7464,8 +6752,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.pbb_core_mac_aging_time is not None:
                                                 return True
 
@@ -7474,14 +6760,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging']['meta_info']
 
 
                                     class PbbCoreMacLimit(object):
@@ -7491,7 +6773,7 @@ class L2vpn(object):
                                         .. attribute:: pbb_core_mac_limit_action
                                         
                                         	MAC address limit enforcement action
-                                        	**type**\: :py:class:`MacLimitAction_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLimitAction_Enum>`
+                                        	**type**\: :py:class:`MacLimitActionEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLimitActionEnum>`
                                         
                                         .. attribute:: pbb_core_mac_limit_max
                                         
@@ -7503,7 +6785,7 @@ class L2vpn(object):
                                         .. attribute:: pbb_core_mac_limit_notif
                                         
                                         	MAC address limit notification action
-                                        	**type**\: :py:class:`MacNotification_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacNotification_Enum>`
+                                        	**type**\: :py:class:`MacNotificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacNotificationEnum>`
                                         
                                         
 
@@ -7532,8 +6814,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.pbb_core_mac_limit_action is not None:
                                                 return True
 
@@ -7545,14 +6825,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -7568,12 +6844,7 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.pbb_core_mac_aging is not None and self.pbb_core_mac_aging._has_data():
-                                            return True
-
-                                        if self.pbb_core_mac_aging is not None and self.pbb_core_mac_aging.is_presence():
                                             return True
 
                                         if self.pbb_core_mac_learning is not None:
@@ -7582,19 +6853,12 @@ class L2vpn(object):
                                         if self.pbb_core_mac_limit is not None and self.pbb_core_mac_limit._has_data():
                                             return True
 
-                                        if self.pbb_core_mac_limit is not None and self.pbb_core_mac_limit.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -7610,8 +6874,6 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.enable is not None:
                                         return True
 
@@ -7621,16 +6883,10 @@ class L2vpn(object):
                                     if self.pbb_core_dhcp_profile is not None and self.pbb_core_dhcp_profile._has_data():
                                         return True
 
-                                    if self.pbb_core_dhcp_profile is not None and self.pbb_core_dhcp_profile.is_presence():
-                                        return True
-
                                     if self.pbb_core_igmp_profile is not None:
                                         return True
 
                                     if self.pbb_core_mac is not None and self.pbb_core_mac._has_data():
-                                        return True
-
-                                    if self.pbb_core_mac is not None and self.pbb_core_mac.is_presence():
                                         return True
 
                                     if self.pbb_core_mmrp_flood_optimization is not None:
@@ -7641,14 +6897,10 @@ class L2vpn(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore']['meta_info']
 
 
                             class PbbEdges(object):
@@ -7658,7 +6910,7 @@ class L2vpn(object):
                                 .. attribute:: pbb_edge
                                 
                                 	Configure BD as PBB Edge with ISID and associated PBB Core BD
-                                	**type**\: list of :py:class:`PbbEdge <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge>`
+                                	**type**\: list of :py:class:`PbbEdge <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge>`
                                 
                                 
 
@@ -7696,7 +6948,7 @@ class L2vpn(object):
                                     .. attribute:: pbb_edge_dhcp_profile
                                     
                                     	Attach a DHCP profile
-                                    	**type**\: :py:class:`PbbEdgeDhcpProfile <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile>`
+                                    	**type**\: :py:class:`PbbEdgeDhcpProfile <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile>`
                                     
                                     .. attribute:: pbb_edge_igmp_profile
                                     
@@ -7708,12 +6960,12 @@ class L2vpn(object):
                                     .. attribute:: pbb_edge_mac
                                     
                                     	MAC configuration commands
-                                    	**type**\: :py:class:`PbbEdgeMac <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac>`
+                                    	**type**\: :py:class:`PbbEdgeMac <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac>`
                                     
                                     .. attribute:: pbb_static_mac_mappings
                                     
                                     	PBB Static Mac Address Mapping Table
-                                    	**type**\: :py:class:`PbbStaticMacMappings <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings>`
+                                    	**type**\: :py:class:`PbbStaticMacMappings <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings>`
                                     
                                     .. attribute:: unknown_unicast_bmac
                                     
@@ -7733,12 +6985,12 @@ class L2vpn(object):
                                         self.parent = None
                                         self.core_bd_name = None
                                         self.isid = None
-                                        self.pbb_edge_dhcp_profile = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile()
+                                        self.pbb_edge_dhcp_profile = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile()
                                         self.pbb_edge_dhcp_profile.parent = self
                                         self.pbb_edge_igmp_profile = None
-                                        self.pbb_edge_mac = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac()
+                                        self.pbb_edge_mac = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac()
                                         self.pbb_edge_mac.parent = self
-                                        self.pbb_static_mac_mappings = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings()
+                                        self.pbb_static_mac_mappings = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings()
                                         self.pbb_static_mac_mappings.parent = self
                                         self.unknown_unicast_bmac = None
 
@@ -7755,7 +7007,7 @@ class L2vpn(object):
                                         .. attribute:: profile_id
                                         
                                         	Set the snooping profile
-                                        	**type**\: :py:class:`InterfaceProfile_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfile_Enum>`
+                                        	**type**\: :py:class:`InterfaceProfileEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
                                         
                                         
 
@@ -7783,8 +7035,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.dhcp_snooping_id is not None:
                                                 return True
 
@@ -7793,14 +7043,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile']['meta_info']
 
 
                                     class PbbEdgeMac(object):
@@ -7810,22 +7056,22 @@ class L2vpn(object):
                                         .. attribute:: pbb_edge_mac_aging
                                         
                                         	MAC\-Aging configuration commands
-                                        	**type**\: :py:class:`PbbEdgeMacAging <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging>`
+                                        	**type**\: :py:class:`PbbEdgeMacAging <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging>`
                                         
                                         .. attribute:: pbb_edge_mac_learning
                                         
                                         	Enable Mac Learning
-                                        	**type**\: :py:class:`MacLearn_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLearn_Enum>`
+                                        	**type**\: :py:class:`MacLearnEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
                                         
                                         .. attribute:: pbb_edge_mac_limit
                                         
                                         	MAC\-Limit configuration commands
-                                        	**type**\: :py:class:`PbbEdgeMacLimit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit>`
+                                        	**type**\: :py:class:`PbbEdgeMacLimit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit>`
                                         
                                         .. attribute:: pbb_edge_mac_secure
                                         
                                         	MAC Secure
-                                        	**type**\: :py:class:`PbbEdgeMacSecure <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure>`
+                                        	**type**\: :py:class:`PbbEdgeMacSecure <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure>`
                                         
                                         
 
@@ -7836,12 +7082,12 @@ class L2vpn(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.pbb_edge_mac_aging = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging()
+                                            self.pbb_edge_mac_aging = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging()
                                             self.pbb_edge_mac_aging.parent = self
                                             self.pbb_edge_mac_learning = None
-                                            self.pbb_edge_mac_limit = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit()
+                                            self.pbb_edge_mac_limit = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit()
                                             self.pbb_edge_mac_limit.parent = self
-                                            self.pbb_edge_mac_secure = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure()
+                                            self.pbb_edge_mac_secure = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure()
                                             self.pbb_edge_mac_secure.parent = self
 
 
@@ -7859,7 +7105,7 @@ class L2vpn(object):
                                             .. attribute:: pbb_edge_mac_aging_type
                                             
                                             	MAC address aging type
-                                            	**type**\: :py:class:`MacAging_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacAging_Enum>`
+                                            	**type**\: :py:class:`MacAgingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
                                             
                                             
 
@@ -7887,8 +7133,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.pbb_edge_mac_aging_time is not None:
                                                     return True
 
@@ -7897,14 +7141,10 @@ class L2vpn(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging']['meta_info']
 
 
                                         class PbbEdgeMacLimit(object):
@@ -7914,7 +7154,7 @@ class L2vpn(object):
                                             .. attribute:: pbb_edge_mac_limit_action
                                             
                                             	MAC address limit enforcement action
-                                            	**type**\: :py:class:`MacLimitAction_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLimitAction_Enum>`
+                                            	**type**\: :py:class:`MacLimitActionEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacLimitActionEnum>`
                                             
                                             .. attribute:: pbb_edge_mac_limit_max
                                             
@@ -7926,7 +7166,7 @@ class L2vpn(object):
                                             .. attribute:: pbb_edge_mac_limit_notif
                                             
                                             	MAC address limit notification action
-                                            	**type**\: :py:class:`MacNotification_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacNotification_Enum>`
+                                            	**type**\: :py:class:`MacNotificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacNotificationEnum>`
                                             
                                             
 
@@ -7955,8 +7195,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.pbb_edge_mac_limit_action is not None:
                                                     return True
 
@@ -7968,14 +7206,10 @@ class L2vpn(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit']['meta_info']
 
 
                                         class PbbEdgeMacSecure(object):
@@ -7990,7 +7224,7 @@ class L2vpn(object):
                                             .. attribute:: action
                                             
                                             	MAC secure enforcement action
-                                            	**type**\: :py:class:`MacSecureAction_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacSecureAction_Enum>`
+                                            	**type**\: :py:class:`MacSecureActionEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MacSecureActionEnum>`
                                             
                                             .. attribute:: disable
                                             
@@ -8005,7 +7239,7 @@ class L2vpn(object):
                                             .. attribute:: logging
                                             
                                             	MAC Secure Logging
-                                            	**type**\: :py:class:`L2vpnLogging_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpnLogging_Enum>`
+                                            	**type**\: :py:class:`L2VpnLoggingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
                                             
                                             
 
@@ -8036,8 +7270,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.accept_shutdown is not None:
                                                     return True
 
@@ -8055,14 +7287,10 @@ class L2vpn(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -8078,12 +7306,7 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.pbb_edge_mac_aging is not None and self.pbb_edge_mac_aging._has_data():
-                                                return True
-
-                                            if self.pbb_edge_mac_aging is not None and self.pbb_edge_mac_aging.is_presence():
                                                 return True
 
                                             if self.pbb_edge_mac_learning is not None:
@@ -8092,25 +7315,15 @@ class L2vpn(object):
                                             if self.pbb_edge_mac_limit is not None and self.pbb_edge_mac_limit._has_data():
                                                 return True
 
-                                            if self.pbb_edge_mac_limit is not None and self.pbb_edge_mac_limit.is_presence():
-                                                return True
-
                                             if self.pbb_edge_mac_secure is not None and self.pbb_edge_mac_secure._has_data():
                                                 return True
 
-                                            if self.pbb_edge_mac_secure is not None and self.pbb_edge_mac_secure.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac']['meta_info']
 
 
                                     class PbbStaticMacMappings(object):
@@ -8120,7 +7333,7 @@ class L2vpn(object):
                                         .. attribute:: pbb_static_mac_mapping
                                         
                                         	PBB Static Mac Address Mapping Configuration
-                                        	**type**\: list of :py:class:`PbbStaticMacMapping <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping>`
+                                        	**type**\: list of :py:class:`PbbStaticMacMapping <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping>`
                                         
                                         
 
@@ -8183,8 +7396,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.address is not None:
                                                     return True
 
@@ -8193,14 +7404,10 @@ class L2vpn(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -8216,8 +7423,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.pbb_static_mac_mapping is not None:
                                                 for child_ref in self.pbb_static_mac_mapping:
                                                     if child_ref._has_data():
@@ -8225,14 +7430,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -8252,8 +7453,6 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.core_bd_name is not None:
                                             return True
 
@@ -8263,22 +7462,13 @@ class L2vpn(object):
                                         if self.pbb_edge_dhcp_profile is not None and self.pbb_edge_dhcp_profile._has_data():
                                             return True
 
-                                        if self.pbb_edge_dhcp_profile is not None and self.pbb_edge_dhcp_profile.is_presence():
-                                            return True
-
                                         if self.pbb_edge_igmp_profile is not None:
                                             return True
 
                                         if self.pbb_edge_mac is not None and self.pbb_edge_mac._has_data():
                                             return True
 
-                                        if self.pbb_edge_mac is not None and self.pbb_edge_mac.is_presence():
-                                            return True
-
                                         if self.pbb_static_mac_mappings is not None and self.pbb_static_mac_mappings._has_data():
-                                            return True
-
-                                        if self.pbb_static_mac_mappings is not None and self.pbb_static_mac_mappings.is_presence():
                                             return True
 
                                         if self.unknown_unicast_bmac is not None:
@@ -8286,14 +7476,10 @@ class L2vpn(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -8309,8 +7495,6 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.pbb_edge is not None:
                                         for child_ref in self.pbb_edge:
                                             if child_ref._has_data():
@@ -8318,14 +7502,10 @@ class L2vpn(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -8341,30 +7521,18 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.pbb_core is not None and self.pbb_core._has_data():
-                                    return True
-
-                                if self.pbb_core is not None and self.pbb_core.is_presence():
                                     return True
 
                                 if self.pbb_edges is not None and self.pbb_edges._has_data():
                                     return True
 
-                                if self.pbb_edges is not None and self.pbb_edges.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb']['meta_info']
 
 
                         class Dai(object):
@@ -8374,7 +7542,7 @@ class L2vpn(object):
                             .. attribute:: dai_address_validation
                             
                             	Address Validation
-                            	**type**\: :py:class:`DaiAddressValidation <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation>`
+                            	**type**\: :py:class:`DaiAddressValidation <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation>`
                             
                             .. attribute:: enable
                             
@@ -8395,7 +7563,7 @@ class L2vpn(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.dai_address_validation = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation()
+                                self.dai_address_validation = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation()
                                 self.dai_address_validation.parent = self
                                 self.enable = None
                                 self.logging = None
@@ -8453,8 +7621,6 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.destination_mac_verification is not None:
                                         return True
 
@@ -8469,14 +7635,10 @@ class L2vpn(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -8492,12 +7654,7 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.dai_address_validation is not None and self.dai_address_validation._has_data():
-                                    return True
-
-                                if self.dai_address_validation is not None and self.dai_address_validation.is_presence():
                                     return True
 
                                 if self.enable is not None:
@@ -8508,14 +7665,10 @@ class L2vpn(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai']['meta_info']
 
 
                         class IpSourceGuard(object):
@@ -8558,8 +7711,6 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.enable is not None:
                                     return True
 
@@ -8568,14 +7719,10 @@ class L2vpn(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard']['meta_info']
 
 
                         class MemberVnis(object):
@@ -8586,7 +7733,7 @@ class L2vpn(object):
                             .. attribute:: member_vni
                             
                             	Bridge Domain Member VxLAN Network Identifier 
-                            	**type**\: list of :py:class:`MemberVni <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni>`
+                            	**type**\: list of :py:class:`MemberVni <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni>`
                             
                             
 
@@ -8641,21 +7788,15 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.vni is not None:
                                         return True
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -8671,8 +7812,6 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.member_vni is not None:
                                     for child_ref in self.member_vni:
                                         if child_ref._has_data():
@@ -8680,14 +7819,10 @@ class L2vpn(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis']['meta_info']
 
 
                         class NvSatellite(object):
@@ -8730,8 +7865,6 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.enable is not None:
                                     return True
 
@@ -8740,14 +7873,10 @@ class L2vpn(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite']['meta_info']
 
 
                         class RoutedInterfaces(object):
@@ -8757,7 +7886,7 @@ class L2vpn(object):
                             .. attribute:: routed_interface
                             
                             	Bridge Domain Routed Interface
-                            	**type**\: list of :py:class:`RoutedInterface <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface>`
+                            	**type**\: list of :py:class:`RoutedInterface <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface>`
                             
                             
 
@@ -8811,21 +7940,15 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_name is not None:
                                         return True
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -8841,8 +7964,6 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.routed_interface is not None:
                                     for child_ref in self.routed_interface:
                                         if child_ref._has_data():
@@ -8850,14 +7971,10 @@ class L2vpn(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces']['meta_info']
 
 
                         class Vfis(object):
@@ -8868,7 +7985,7 @@ class L2vpn(object):
                             .. attribute:: vfi
                             
                             	Name of the Virtual Forwarding Interface
-                            	**type**\: list of :py:class:`Vfi <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi>`
+                            	**type**\: list of :py:class:`Vfi <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi>`
                             
                             
 
@@ -8898,17 +8015,17 @@ class L2vpn(object):
                                 .. attribute:: bgp_auto_discovery
                                 
                                 	Enable Autodiscovery BGP in this VFI
-                                	**type**\: :py:class:`BgpAutoDiscovery <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery>`
+                                	**type**\: :py:class:`BgpAutoDiscovery <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery>`
                                 
                                 .. attribute:: multicast_p2mp
                                 
                                 	Enable Multicast P2MP in this VFI
-                                	**type**\: :py:class:`MulticastP2mp <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp>`
+                                	**type**\: :py:class:`MulticastP2Mp <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp>`
                                 
                                 .. attribute:: vfi_pseudowires
                                 
                                 	List of pseudowires
-                                	**type**\: :py:class:`VfiPseudowires <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires>`
+                                	**type**\: :py:class:`VfiPseudowires <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires>`
                                 
                                 .. attribute:: vfi_shutdown
                                 
@@ -8932,11 +8049,11 @@ class L2vpn(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.name = None
-                                    self.bgp_auto_discovery = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery()
+                                    self.bgp_auto_discovery = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery()
                                     self.bgp_auto_discovery.parent = self
-                                    self.multicast_p2mp = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp()
+                                    self.multicast_p2mp = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp()
                                     self.multicast_p2mp.parent = self
-                                    self.vfi_pseudowires = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires()
+                                    self.vfi_pseudowires = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires()
                                     self.vfi_pseudowires.parent = self
                                     self.vfi_shutdown = None
                                     self.vpnid = None
@@ -8954,7 +8071,7 @@ class L2vpn(object):
                                     .. attribute:: bgp_signaling_protocol
                                     
                                     	Enable Signaling Protocol BGP in this VFI
-                                    	**type**\: :py:class:`BgpSignalingProtocol <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol>`
+                                    	**type**\: :py:class:`BgpSignalingProtocol <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol>`
                                     
                                     .. attribute:: enable
                                     
@@ -8964,17 +8081,17 @@ class L2vpn(object):
                                     .. attribute:: ldp_signaling_protocol
                                     
                                     	Signaling Protocol LDP in this VFI configuration
-                                    	**type**\: :py:class:`LdpSignalingProtocol <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol>`
+                                    	**type**\: :py:class:`LdpSignalingProtocol <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol>`
                                     
                                     .. attribute:: route_distinguisher
                                     
                                     	Route Distinguisher
-                                    	**type**\: :py:class:`RouteDistinguisher <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher>`
+                                    	**type**\: :py:class:`RouteDistinguisher <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher>`
                                     
                                     .. attribute:: route_targets
                                     
                                     	Route Target
-                                    	**type**\: :py:class:`RouteTargets <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets>`
+                                    	**type**\: :py:class:`RouteTargets <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets>`
                                     
                                     
 
@@ -8986,14 +8103,14 @@ class L2vpn(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.ad_control_word = None
-                                        self.bgp_signaling_protocol = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol()
+                                        self.bgp_signaling_protocol = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol()
                                         self.bgp_signaling_protocol.parent = self
                                         self.enable = None
-                                        self.ldp_signaling_protocol = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol()
+                                        self.ldp_signaling_protocol = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol()
                                         self.ldp_signaling_protocol.parent = self
-                                        self.route_distinguisher = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher()
+                                        self.route_distinguisher = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher()
                                         self.route_distinguisher.parent = self
-                                        self.route_targets = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets()
+                                        self.route_targets = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets()
                                         self.route_targets.parent = self
 
 
@@ -9010,7 +8127,7 @@ class L2vpn(object):
                                         .. attribute:: flow_label_load_balance
                                         
                                         	Enable Flow Label based load balancing
-                                        	**type**\: :py:class:`FlowLabelLoadBalance <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance>`
+                                        	**type**\: :py:class:`FlowLabelLoadBalance <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance>`
                                         
                                         .. attribute:: ve_range
                                         
@@ -9036,7 +8153,7 @@ class L2vpn(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.enable = None
-                                            self.flow_label_load_balance = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance()
+                                            self.flow_label_load_balance = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance()
                                             self.flow_label_load_balance.parent = self
                                             self.ve_range = None
                                             self.veid = None
@@ -9049,7 +8166,7 @@ class L2vpn(object):
                                             .. attribute:: flow_label
                                             
                                             	Flow Label load balance type
-                                            	**type**\: :py:class:`FlowLabelLoadBalance_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.FlowLabelLoadBalance_Enum>`
+                                            	**type**\: :py:class:`FlowLabelLoadBalanceEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.FlowLabelLoadBalanceEnum>`
                                             
                                             .. attribute:: static
                                             
@@ -9082,8 +8199,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.flow_label is not None:
                                                     return True
 
@@ -9092,14 +8207,10 @@ class L2vpn(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -9115,15 +8226,10 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.enable is not None:
                                                 return True
 
                                             if self.flow_label_load_balance is not None and self.flow_label_load_balance._has_data():
-                                                return True
-
-                                            if self.flow_label_load_balance is not None and self.flow_label_load_balance.is_presence():
                                                 return True
 
                                             if self.ve_range is not None:
@@ -9134,14 +8240,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol']['meta_info']
 
 
                                     class LdpSignalingProtocol(object):
@@ -9157,12 +8259,12 @@ class L2vpn(object):
                                         .. attribute:: flow_label_load_balance
                                         
                                         	Enable Flow Label based load balancing
-                                        	**type**\: :py:class:`FlowLabelLoadBalance <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance>`
+                                        	**type**\: :py:class:`FlowLabelLoadBalance <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance>`
                                         
                                         .. attribute:: vplsid
                                         
                                         	VPLS ID
-                                        	**type**\: :py:class:`Vplsid <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.Vplsid>`
+                                        	**type**\: :py:class:`Vplsid <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.Vplsid>`
                                         
                                         
 
@@ -9174,9 +8276,9 @@ class L2vpn(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.enable = None
-                                            self.flow_label_load_balance = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance()
+                                            self.flow_label_load_balance = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance()
                                             self.flow_label_load_balance.parent = self
-                                            self.vplsid = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.Vplsid()
+                                            self.vplsid = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.Vplsid()
                                             self.vplsid.parent = self
 
 
@@ -9187,7 +8289,7 @@ class L2vpn(object):
                                             .. attribute:: flow_label
                                             
                                             	Flow Label load balance type
-                                            	**type**\: :py:class:`FlowLabelLoadBalance_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.FlowLabelLoadBalance_Enum>`
+                                            	**type**\: :py:class:`FlowLabelLoadBalanceEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.FlowLabelLoadBalanceEnum>`
                                             
                                             .. attribute:: static
                                             
@@ -9220,8 +8322,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.flow_label is not None:
                                                     return True
 
@@ -9230,14 +8330,10 @@ class L2vpn(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance']['meta_info']
 
 
                                         class Vplsid(object):
@@ -9275,7 +8371,7 @@ class L2vpn(object):
                                             .. attribute:: type
                                             
                                             	VPLS\-ID Type
-                                            	**type**\: :py:class:`LdpVplsId_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.LdpVplsId_Enum>`
+                                            	**type**\: :py:class:`LdpVplsIdEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.LdpVplsIdEnum>`
                                             
                                             
 
@@ -9306,8 +8402,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.address is not None:
                                                     return True
 
@@ -9325,14 +8419,10 @@ class L2vpn(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.Vplsid']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.Vplsid']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -9348,33 +8438,21 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.enable is not None:
                                                 return True
 
                                             if self.flow_label_load_balance is not None and self.flow_label_load_balance._has_data():
                                                 return True
 
-                                            if self.flow_label_load_balance is not None and self.flow_label_load_balance.is_presence():
-                                                return True
-
                                             if self.vplsid is not None and self.vplsid._has_data():
                                                 return True
 
-                                            if self.vplsid is not None and self.vplsid.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol']['meta_info']
 
 
                                     class RouteDistinguisher(object):
@@ -9412,7 +8490,7 @@ class L2vpn(object):
                                         .. attribute:: type
                                         
                                         	Router Distinguisher Type
-                                        	**type**\: :py:class:`BgpRouteDistinguisher_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisher_Enum>`
+                                        	**type**\: :py:class:`BgpRouteDistinguisherEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
                                         
                                         
 
@@ -9443,8 +8521,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.addr_index is not None:
                                                 return True
 
@@ -9462,14 +8538,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher']['meta_info']
 
 
                                     class RouteTargets(object):
@@ -9479,7 +8551,7 @@ class L2vpn(object):
                                         .. attribute:: route_target
                                         
                                         	Name of the Route Target
-                                        	**type**\: list of :py:class:`RouteTarget <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget>`
+                                        	**type**\: list of :py:class:`RouteTarget <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget>`
                                         
                                         
 
@@ -9502,22 +8574,22 @@ class L2vpn(object):
                                             .. attribute:: format
                                             
                                             	Format of the route target
-                                            	**type**\: :py:class:`BgpRouteTargetFormat_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormat_Enum>`
+                                            	**type**\: :py:class:`BgpRouteTargetFormatEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormatEnum>`
                                             
                                             .. attribute:: role
                                             
                                             	Role of the router target type
-                                            	**type**\: :py:class:`BgpRouteTargetRole_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRole_Enum>`
+                                            	**type**\: :py:class:`BgpRouteTargetRoleEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRoleEnum>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	ipv4 address
-                                            	**type**\: list of :py:class:`Ipv4Address <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address>`
+                                            	**type**\: list of :py:class:`Ipv4Address <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address>`
                                             
                                             .. attribute:: two_byte_as_or_four_byte_as
                                             
                                             	two byte as or four byte as
-                                            	**type**\: list of :py:class:`TwoByteAsOrFourByteAs <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs>`
+                                            	**type**\: list of :py:class:`TwoByteAsOrFourByteAs <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs>`
                                             
                                             
 
@@ -9586,8 +8658,6 @@ class L2vpn(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.addr_index is not None:
                                                         return True
 
@@ -9596,14 +8666,10 @@ class L2vpn(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address']['meta_info']
+                                                    return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address']['meta_info']
 
 
                                             class TwoByteAsOrFourByteAs(object):
@@ -9654,8 +8720,6 @@ class L2vpn(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.as_ is not None:
                                                         return True
 
@@ -9664,14 +8728,10 @@ class L2vpn(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs']['meta_info']
+                                                    return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs']['meta_info']
 
                                             @property
                                             def _common_path(self):
@@ -9691,8 +8751,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.format is not None:
                                                     return True
 
@@ -9711,14 +8769,10 @@ class L2vpn(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -9734,8 +8788,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.route_target is not None:
                                                 for child_ref in self.route_target:
                                                     if child_ref._has_data():
@@ -9743,14 +8795,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -9766,15 +8814,10 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.ad_control_word is not None:
                                             return True
 
                                         if self.bgp_signaling_protocol is not None and self.bgp_signaling_protocol._has_data():
-                                            return True
-
-                                        if self.bgp_signaling_protocol is not None and self.bgp_signaling_protocol.is_presence():
                                             return True
 
                                         if self.enable is not None:
@@ -9783,34 +8826,21 @@ class L2vpn(object):
                                         if self.ldp_signaling_protocol is not None and self.ldp_signaling_protocol._has_data():
                                             return True
 
-                                        if self.ldp_signaling_protocol is not None and self.ldp_signaling_protocol.is_presence():
-                                            return True
-
                                         if self.route_distinguisher is not None and self.route_distinguisher._has_data():
-                                            return True
-
-                                        if self.route_distinguisher is not None and self.route_distinguisher.is_presence():
                                             return True
 
                                         if self.route_targets is not None and self.route_targets._has_data():
                                             return True
 
-                                        if self.route_targets is not None and self.route_targets.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery']['meta_info']
 
 
-                                class MulticastP2mp(object):
+                                class MulticastP2Mp(object):
                                     """
                                     Enable Multicast P2MP in this VFI
                                     
@@ -9822,12 +8852,12 @@ class L2vpn(object):
                                     .. attribute:: signalings
                                     
                                     	Multicast P2MP Signaling Type
-                                    	**type**\: :py:class:`Signalings <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings>`
+                                    	**type**\: :py:class:`Signalings <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Signalings>`
                                     
                                     .. attribute:: transports
                                     
                                     	Multicast P2MP Transport
-                                    	**type**\: :py:class:`Transports <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports>`
+                                    	**type**\: :py:class:`Transports <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Transports>`
                                     
                                     
 
@@ -9839,9 +8869,9 @@ class L2vpn(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.enable = None
-                                        self.signalings = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings()
+                                        self.signalings = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Signalings()
                                         self.signalings.parent = self
-                                        self.transports = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports()
+                                        self.transports = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Transports()
                                         self.transports.parent = self
 
 
@@ -9852,7 +8882,7 @@ class L2vpn(object):
                                         .. attribute:: signaling
                                         
                                         	Multicast P2MP Signaling Type
-                                        	**type**\: list of :py:class:`Signaling <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling>`
+                                        	**type**\: list of :py:class:`Signaling <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Signalings.Signaling>`
                                         
                                         
 
@@ -9906,21 +8936,15 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.signaling_name is not None:
                                                     return True
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Signalings.Signaling']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -9936,8 +8960,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.signaling is not None:
                                                 for child_ref in self.signaling:
                                                     if child_ref._has_data():
@@ -9945,14 +8967,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Signalings']['meta_info']
 
 
                                     class Transports(object):
@@ -9962,7 +8980,7 @@ class L2vpn(object):
                                         .. attribute:: transport
                                         
                                         	Multicast P2MP Transport Type
-                                        	**type**\: list of :py:class:`Transport <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport>`
+                                        	**type**\: list of :py:class:`Transport <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Transports.Transport>`
                                         
                                         
 
@@ -10024,8 +9042,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.transport_name is not None:
                                                     return True
 
@@ -10034,14 +9050,10 @@ class L2vpn(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Transports.Transport']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -10057,8 +9069,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.transport is not None:
                                                 for child_ref in self.transport:
                                                     if child_ref._has_data():
@@ -10066,14 +9076,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Transports']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -10089,33 +9095,21 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.enable is not None:
                                             return True
 
                                         if self.signalings is not None and self.signalings._has_data():
                                             return True
 
-                                        if self.signalings is not None and self.signalings.is_presence():
-                                            return True
-
                                         if self.transports is not None and self.transports._has_data():
                                             return True
 
-                                        if self.transports is not None and self.transports.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp']['meta_info']
 
 
                                 class VfiPseudowires(object):
@@ -10125,7 +9119,7 @@ class L2vpn(object):
                                     .. attribute:: vfi_pseudowire
                                     
                                     	Pseudowire configuration
-                                    	**type**\: list of :py:class:`VfiPseudowire <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire>`
+                                    	**type**\: list of :py:class:`VfiPseudowire <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire>`
                                     
                                     
 
@@ -10162,7 +9156,7 @@ class L2vpn(object):
                                         .. attribute:: pseudowire_static_mac_addresses
                                         
                                         	Static Mac Address Table
-                                        	**type**\: :py:class:`PseudowireStaticMacAddresses <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses>`
+                                        	**type**\: :py:class:`PseudowireStaticMacAddresses <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses>`
                                         
                                         .. attribute:: vfi_pw_class
                                         
@@ -10174,7 +9168,7 @@ class L2vpn(object):
                                         .. attribute:: vfi_pw_dhcp_snoop
                                         
                                         	Attach a DHCP Snooping profile
-                                        	**type**\: :py:class:`VfiPwDhcpSnoop <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop>`
+                                        	**type**\: :py:class:`VfiPwDhcpSnoop <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop>`
                                         
                                         .. attribute:: vfi_pw_igmp_snoop
                                         
@@ -10193,7 +9187,7 @@ class L2vpn(object):
                                         .. attribute:: vfi_pw_mpls_static_labels
                                         
                                         	MPLS static labels
-                                        	**type**\: :py:class:`VfiPwMplsStaticLabels <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels>`
+                                        	**type**\: :py:class:`VfiPwMplsStaticLabels <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels>`
                                         
                                         
 
@@ -10206,14 +9200,14 @@ class L2vpn(object):
                                             self.parent = None
                                             self.neighbor = None
                                             self.pseudowire_id = None
-                                            self.pseudowire_static_mac_addresses = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses()
+                                            self.pseudowire_static_mac_addresses = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses()
                                             self.pseudowire_static_mac_addresses.parent = self
                                             self.vfi_pw_class = None
-                                            self.vfi_pw_dhcp_snoop = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop()
+                                            self.vfi_pw_dhcp_snoop = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop()
                                             self.vfi_pw_dhcp_snoop.parent = self
                                             self.vfi_pw_igmp_snoop = None
                                             self.vfi_pw_mld_snoop = None
-                                            self.vfi_pw_mpls_static_labels = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels()
+                                            self.vfi_pw_mpls_static_labels = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels()
                                             self.vfi_pw_mpls_static_labels.parent = self
 
 
@@ -10224,7 +9218,7 @@ class L2vpn(object):
                                             .. attribute:: pseudowire_static_mac_address
                                             
                                             	Static Mac Address Configuration
-                                            	**type**\: list of :py:class:`PseudowireStaticMacAddress <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress>`
+                                            	**type**\: list of :py:class:`PseudowireStaticMacAddress <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress>`
                                             
                                             
 
@@ -10278,21 +9272,15 @@ class L2vpn(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.address is not None:
                                                         return True
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress']['meta_info']
+                                                    return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress']['meta_info']
 
                                             @property
                                             def _common_path(self):
@@ -10308,8 +9296,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.pseudowire_static_mac_address is not None:
                                                     for child_ref in self.pseudowire_static_mac_address:
                                                         if child_ref._has_data():
@@ -10317,14 +9303,10 @@ class L2vpn(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses']['meta_info']
 
 
                                         class VfiPwDhcpSnoop(object):
@@ -10339,7 +9321,7 @@ class L2vpn(object):
                                             .. attribute:: profile_id
                                             
                                             	Set the snooping profile
-                                            	**type**\: :py:class:`InterfaceProfile_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfile_Enum>`
+                                            	**type**\: :py:class:`InterfaceProfileEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
                                             
                                             
 
@@ -10367,8 +9349,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.dhcp_snooping_id is not None:
                                                     return True
 
@@ -10377,14 +9357,10 @@ class L2vpn(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop']['meta_info']
 
 
                                         class VfiPwMplsStaticLabels(object):
@@ -10431,8 +9407,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.local_static_label is not None:
                                                     return True
 
@@ -10441,14 +9415,10 @@ class L2vpn(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -10468,8 +9438,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.neighbor is not None:
                                                 return True
 
@@ -10479,16 +9447,10 @@ class L2vpn(object):
                                             if self.pseudowire_static_mac_addresses is not None and self.pseudowire_static_mac_addresses._has_data():
                                                 return True
 
-                                            if self.pseudowire_static_mac_addresses is not None and self.pseudowire_static_mac_addresses.is_presence():
-                                                return True
-
                                             if self.vfi_pw_class is not None:
                                                 return True
 
                                             if self.vfi_pw_dhcp_snoop is not None and self.vfi_pw_dhcp_snoop._has_data():
-                                                return True
-
-                                            if self.vfi_pw_dhcp_snoop is not None and self.vfi_pw_dhcp_snoop.is_presence():
                                                 return True
 
                                             if self.vfi_pw_igmp_snoop is not None:
@@ -10500,19 +9462,12 @@ class L2vpn(object):
                                             if self.vfi_pw_mpls_static_labels is not None and self.vfi_pw_mpls_static_labels._has_data():
                                                 return True
 
-                                            if self.vfi_pw_mpls_static_labels is not None and self.vfi_pw_mpls_static_labels.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -10528,8 +9483,6 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.vfi_pseudowire is not None:
                                             for child_ref in self.vfi_pseudowire:
                                                 if child_ref._has_data():
@@ -10537,14 +9490,10 @@ class L2vpn(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -10562,27 +9511,16 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.name is not None:
                                         return True
 
                                     if self.bgp_auto_discovery is not None and self.bgp_auto_discovery._has_data():
                                         return True
 
-                                    if self.bgp_auto_discovery is not None and self.bgp_auto_discovery.is_presence():
-                                        return True
-
                                     if self.multicast_p2mp is not None and self.multicast_p2mp._has_data():
                                         return True
 
-                                    if self.multicast_p2mp is not None and self.multicast_p2mp.is_presence():
-                                        return True
-
                                     if self.vfi_pseudowires is not None and self.vfi_pseudowires._has_data():
-                                        return True
-
-                                    if self.vfi_pseudowires is not None and self.vfi_pseudowires.is_presence():
                                         return True
 
                                     if self.vfi_shutdown is not None:
@@ -10593,14 +9531,10 @@ class L2vpn(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -10616,8 +9550,6 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.vfi is not None:
                                     for child_ref in self.vfi:
                                         if child_ref._has_data():
@@ -10625,14 +9557,10 @@ class L2vpn(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -10650,33 +9578,19 @@ class L2vpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.name is not None:
                                 return True
 
                             if self.bd_attachment_circuits is not None and self.bd_attachment_circuits._has_data():
                                 return True
 
-                            if self.bd_attachment_circuits is not None and self.bd_attachment_circuits.is_presence():
-                                return True
-
                             if self.bd_pseudowires is not None and self.bd_pseudowires._has_data():
-                                return True
-
-                            if self.bd_pseudowires is not None and self.bd_pseudowires.is_presence():
                                 return True
 
                             if self.bd_storm_controls is not None and self.bd_storm_controls._has_data():
                                 return True
 
-                            if self.bd_storm_controls is not None and self.bd_storm_controls.is_presence():
-                                return True
-
                             if self.bridge_domain_mac is not None and self.bridge_domain_mac._has_data():
-                                return True
-
-                            if self.bridge_domain_mac is not None and self.bridge_domain_mac.is_presence():
                                 return True
 
                             if self.bridge_domain_mtu is not None:
@@ -10685,16 +9599,10 @@ class L2vpn(object):
                             if self.bridge_domain_pbb is not None and self.bridge_domain_pbb._has_data():
                                 return True
 
-                            if self.bridge_domain_pbb is not None and self.bridge_domain_pbb.is_presence():
-                                return True
-
                             if self.coupled_mode is not None:
                                 return True
 
                             if self.dai is not None and self.dai._has_data():
-                                return True
-
-                            if self.dai is not None and self.dai.is_presence():
                                 return True
 
                             if self.dhcp is not None:
@@ -10715,13 +9623,7 @@ class L2vpn(object):
                             if self.ip_source_guard is not None and self.ip_source_guard._has_data():
                                 return True
 
-                            if self.ip_source_guard is not None and self.ip_source_guard.is_presence():
-                                return True
-
                             if self.member_vnis is not None and self.member_vnis._has_data():
-                                return True
-
-                            if self.member_vnis is not None and self.member_vnis.is_presence():
                                 return True
 
                             if self.mld_snooping is not None:
@@ -10730,13 +9632,7 @@ class L2vpn(object):
                             if self.nv_satellite is not None and self.nv_satellite._has_data():
                                 return True
 
-                            if self.nv_satellite is not None and self.nv_satellite.is_presence():
-                                return True
-
                             if self.routed_interfaces is not None and self.routed_interfaces._has_data():
-                                return True
-
-                            if self.routed_interfaces is not None and self.routed_interfaces.is_presence():
                                 return True
 
                             if self.shutdown is not None:
@@ -10748,19 +9644,12 @@ class L2vpn(object):
                             if self.vfis is not None and self.vfis._has_data():
                                 return True
 
-                            if self.vfis is not None and self.vfis.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                            return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain']['meta_info']
+                            return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -10776,8 +9665,6 @@ class L2vpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bridge_domain is not None:
                             for child_ref in self.bridge_domain:
                                 if child_ref._has_data():
@@ -10785,14 +9672,10 @@ class L2vpn(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                        return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains']['meta_info']
+                        return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -10808,27 +9691,18 @@ class L2vpn(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.name is not None:
                         return True
 
                     if self.bridge_domains is not None and self.bridge_domains._has_data():
                         return True
 
-                    if self.bridge_domains is not None and self.bridge_domains.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                    return meta._meta_table['L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup']['meta_info']
+                    return meta._meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup']['meta_info']
 
             @property
             def _common_path(self):
@@ -10842,8 +9716,6 @@ class L2vpn(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.bridge_domain_group is not None:
                     for child_ref in self.bridge_domain_group:
                         if child_ref._has_data():
@@ -10851,14 +9723,10 @@ class L2vpn(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                return meta._meta_table['L2vpn.Database.BridgeDomainGroups']['meta_info']
+                return meta._meta_table['L2Vpn.Database.BridgeDomainGroups']['meta_info']
 
 
         class G8032Rings(object):
@@ -10868,7 +9736,7 @@ class L2vpn(object):
             .. attribute:: g8032_ring
             
             	G8032 Ring
-            	**type**\: list of :py:class:`G8032Ring <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.G8032Rings.G8032Ring>`
+            	**type**\: list of :py:class:`G8032Ring <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring>`
             
             
 
@@ -10898,17 +9766,17 @@ class L2vpn(object):
                 .. attribute:: erp_instances
                 
                 	List of ethernet ring protection instance
-                	**type**\: :py:class:`ErpInstances <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.G8032Rings.G8032Ring.ErpInstances>`
+                	**type**\: :py:class:`ErpInstances <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances>`
                 
                 .. attribute:: erp_port0s
                 
                 	Ethernet ring protection port0
-                	**type**\: :py:class:`ErpPort0s <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s>`
+                	**type**\: :py:class:`ErpPort0S <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort0S>`
                 
                 .. attribute:: erp_port1s
                 
                 	Ethernet ring protection port0
-                	**type**\: :py:class:`ErpPort1s <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s>`
+                	**type**\: :py:class:`ErpPort1S <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S>`
                 
                 .. attribute:: erp_provider_bridge
                 
@@ -10935,11 +9803,11 @@ class L2vpn(object):
                 def __init__(self):
                     self.parent = None
                     self.g8032_ring_name = None
-                    self.erp_instances = L2vpn.Database.G8032Rings.G8032Ring.ErpInstances()
+                    self.erp_instances = L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances()
                     self.erp_instances.parent = self
-                    self.erp_port0s = L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s()
+                    self.erp_port0s = L2Vpn.Database.G8032Rings.G8032Ring.ErpPort0S()
                     self.erp_port0s.parent = self
-                    self.erp_port1s = L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s()
+                    self.erp_port1s = L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S()
                     self.erp_port1s.parent = self
                     self.erp_provider_bridge = None
                     self.exclusion_list = None
@@ -10953,7 +9821,7 @@ class L2vpn(object):
                     .. attribute:: erp_instance
                     
                     	Ethernet ring protection instance
-                    	**type**\: list of :py:class:`ErpInstance <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance>`
+                    	**type**\: list of :py:class:`ErpInstance <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance>`
                     
                     
 
@@ -10983,7 +9851,7 @@ class L2vpn(object):
                         .. attribute:: aps
                         
                         	Automatic protection switching
-                        	**type**\: :py:class:`Aps <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps>`
+                        	**type**\: :py:class:`Aps <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps>`
                         
                         .. attribute:: description
                         
@@ -11007,7 +9875,7 @@ class L2vpn(object):
                         .. attribute:: rpl
                         
                         	Ring protection link
-                        	**type**\: :py:class:`Rpl <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl>`
+                        	**type**\: :py:class:`Rpl <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl>`
                         
                         
 
@@ -11019,12 +9887,12 @@ class L2vpn(object):
                         def __init__(self):
                             self.parent = None
                             self.erp_instance_id = None
-                            self.aps = L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps()
+                            self.aps = L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps()
                             self.aps.parent = self
                             self.description = None
                             self.inclusion_list = None
                             self.profile = None
-                            self.rpl = L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl()
+                            self.rpl = L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl()
                             self.rpl.parent = self
 
 
@@ -11052,7 +9920,7 @@ class L2vpn(object):
                             .. attribute:: port1
                             
                             	APS channel for ERP port1
-                            	**type**\: :py:class:`Port1 <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1>`
+                            	**type**\: :py:class:`Port1 <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1>`
                             
                             
 
@@ -11066,7 +9934,7 @@ class L2vpn(object):
                                 self.enable = None
                                 self.level = None
                                 self.port0 = None
-                                self.port1 = L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1()
+                                self.port1 = L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1()
                                 self.port1.parent = self
 
 
@@ -11082,7 +9950,7 @@ class L2vpn(object):
                                 .. attribute:: aps_type
                                 
                                 	Port1 APS type
-                                	**type**\: :py:class:`Erpaps_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Erpaps_Enum>`
+                                	**type**\: :py:class:`ErpapsEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.ErpapsEnum>`
                                 
                                 
 
@@ -11110,8 +9978,6 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.aps_channel is not None:
                                         return True
 
@@ -11120,14 +9986,10 @@ class L2vpn(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -11143,8 +10005,6 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.enable is not None:
                                     return True
 
@@ -11157,19 +10017,12 @@ class L2vpn(object):
                                 if self.port1 is not None and self.port1._has_data():
                                     return True
 
-                                if self.port1 is not None and self.port1.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps']['meta_info']
 
 
                         class Rpl(object):
@@ -11179,12 +10032,12 @@ class L2vpn(object):
                             .. attribute:: port
                             
                             	ERP main port number
-                            	**type**\: :py:class:`ErpPort1_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.ErpPort1_Enum>`
+                            	**type**\: :py:class:`ErpPort1Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.ErpPort1Enum>`
                             
                             .. attribute:: role
                             
                             	RPL role
-                            	**type**\: :py:class:`RplRole_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.RplRole_Enum>`
+                            	**type**\: :py:class:`RplRoleEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.RplRoleEnum>`
                             
                             
 
@@ -11212,8 +10065,6 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.port is not None:
                                     return True
 
@@ -11222,14 +10073,10 @@ class L2vpn(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -11247,15 +10094,10 @@ class L2vpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.erp_instance_id is not None:
                                 return True
 
                             if self.aps is not None and self.aps._has_data():
-                                return True
-
-                            if self.aps is not None and self.aps.is_presence():
                                 return True
 
                             if self.description is not None:
@@ -11270,19 +10112,12 @@ class L2vpn(object):
                             if self.rpl is not None and self.rpl._has_data():
                                 return True
 
-                            if self.rpl is not None and self.rpl.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                            return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance']['meta_info']
+                            return meta._meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -11298,8 +10133,6 @@ class L2vpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.erp_instance is not None:
                             for child_ref in self.erp_instance:
                                 if child_ref._has_data():
@@ -11307,24 +10140,20 @@ class L2vpn(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                        return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpInstances']['meta_info']
+                        return meta._meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances']['meta_info']
 
 
-                class ErpPort0s(object):
+                class ErpPort0S(object):
                     """
                     Ethernet ring protection port0
                     
                     .. attribute:: erp_port0
                     
                     	Configure ERP main port0
-                    	**type**\: list of :py:class:`ErpPort0 <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s.ErpPort0>`
+                    	**type**\: list of :py:class:`ErpPort0 <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort0S.ErpPort0>`
                     
                     
 
@@ -11386,8 +10215,6 @@ class L2vpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface_name is not None:
                                 return True
 
@@ -11396,14 +10223,10 @@ class L2vpn(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                            return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s.ErpPort0']['meta_info']
+                            return meta._meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort0S.ErpPort0']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -11419,8 +10242,6 @@ class L2vpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.erp_port0 is not None:
                             for child_ref in self.erp_port0:
                                 if child_ref._has_data():
@@ -11428,24 +10249,20 @@ class L2vpn(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                        return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s']['meta_info']
+                        return meta._meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort0S']['meta_info']
 
 
-                class ErpPort1s(object):
+                class ErpPort1S(object):
                     """
                     Ethernet ring protection port0
                     
                     .. attribute:: erp_port1
                     
                     	Ethernet ring protection port1
-                    	**type**\: list of :py:class:`ErpPort1 <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1>`
+                    	**type**\: list of :py:class:`ErpPort1 <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1>`
                     
                     
 
@@ -11468,17 +10285,17 @@ class L2vpn(object):
                         .. attribute:: erp_port_type
                         
                         	Port1 type
-                        	**type**\: :py:class:`ErpPort_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.ErpPort_Enum>`
+                        	**type**\: :py:class:`ErpPortEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.ErpPortEnum>`
                         
                         .. attribute:: none
                         
                         	none
-                        	**type**\: :py:class:`None_ <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.None_>`
+                        	**type**\: :py:class:`None_ <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None_>`
                         
                         .. attribute:: virtual_or_interface
                         
                         	virtual or interface
-                        	**type**\: list of :py:class:`VirtualOrInterface <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.VirtualOrInterface>`
+                        	**type**\: list of :py:class:`VirtualOrInterface <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.VirtualOrInterface>`
                         
                         
 
@@ -11507,6 +10324,11 @@ class L2vpn(object):
                             
                             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             
 
                             This class is a :ref:`presence class<presence-class>`
@@ -11534,21 +10356,15 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.monitor is not None:
                                     return True
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.None_']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None_']['meta_info']
 
 
                         class VirtualOrInterface(object):
@@ -11597,8 +10413,6 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.interface_name is not None:
                                     return True
 
@@ -11607,14 +10421,10 @@ class L2vpn(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.VirtualOrInterface']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.VirtualOrInterface']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -11632,15 +10442,10 @@ class L2vpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.erp_port_type is not None:
                                 return True
 
                             if self.none is not None and self.none._has_data():
-                                return True
-
-                            if self.none is not None and self.none.is_presence():
                                 return True
 
                             if self.virtual_or_interface is not None:
@@ -11650,14 +10455,10 @@ class L2vpn(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                            return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1']['meta_info']
+                            return meta._meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -11673,8 +10474,6 @@ class L2vpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.erp_port1 is not None:
                             for child_ref in self.erp_port1:
                                 if child_ref._has_data():
@@ -11682,14 +10481,10 @@ class L2vpn(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                        return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s']['meta_info']
+                        return meta._meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -11705,27 +10500,16 @@ class L2vpn(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.g8032_ring_name is not None:
                         return True
 
                     if self.erp_instances is not None and self.erp_instances._has_data():
                         return True
 
-                    if self.erp_instances is not None and self.erp_instances.is_presence():
-                        return True
-
                     if self.erp_port0s is not None and self.erp_port0s._has_data():
                         return True
 
-                    if self.erp_port0s is not None and self.erp_port0s.is_presence():
-                        return True
-
                     if self.erp_port1s is not None and self.erp_port1s._has_data():
-                        return True
-
-                    if self.erp_port1s is not None and self.erp_port1s.is_presence():
                         return True
 
                     if self.erp_provider_bridge is not None:
@@ -11739,14 +10523,10 @@ class L2vpn(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                    return meta._meta_table['L2vpn.Database.G8032Rings.G8032Ring']['meta_info']
+                    return meta._meta_table['L2Vpn.Database.G8032Rings.G8032Ring']['meta_info']
 
             @property
             def _common_path(self):
@@ -11760,8 +10540,6 @@ class L2vpn(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.g8032_ring is not None:
                     for child_ref in self.g8032_ring:
                         if child_ref._has_data():
@@ -11769,14 +10547,10 @@ class L2vpn(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                return meta._meta_table['L2vpn.Database.G8032Rings']['meta_info']
+                return meta._meta_table['L2Vpn.Database.G8032Rings']['meta_info']
 
 
         class PseudowireClasses(object):
@@ -11786,7 +10560,7 @@ class L2vpn(object):
             .. attribute:: pseudowire_class
             
             	Pseudowire class
-            	**type**\: list of :py:class:`PseudowireClass <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.PseudowireClasses.PseudowireClass>`
+            	**type**\: list of :py:class:`PseudowireClass <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass>`
             
             
 
@@ -11816,7 +10590,7 @@ class L2vpn(object):
                 .. attribute:: backup_disable_delay
                 
                 	Back Up Pseudowire class
-                	**type**\: :py:class:`BackupDisableDelay <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay>`
+                	**type**\: :py:class:`BackupDisableDelay <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay>`
                 
                 .. attribute:: enable
                 
@@ -11826,7 +10600,7 @@ class L2vpn(object):
                 .. attribute:: l2tpv3_encapsulation
                 
                 	L2TPv3 encapsulation
-                	**type**\: :py:class:`L2tpv3Encapsulation <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation>`
+                	**type**\: :py:class:`L2Tpv3Encapsulation <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation>`
                 
                 .. attribute:: mac_withdraw
                 
@@ -11836,7 +10610,7 @@ class L2vpn(object):
                 .. attribute:: mpls_encapsulation
                 
                 	MPLS encapsulation
-                	**type**\: :py:class:`MplsEncapsulation <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation>`
+                	**type**\: :py:class:`MplsEncapsulation <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation>`
                 
                 
 
@@ -11848,13 +10622,13 @@ class L2vpn(object):
                 def __init__(self):
                     self.parent = None
                     self.name = None
-                    self.backup_disable_delay = L2vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay()
+                    self.backup_disable_delay = L2Vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay()
                     self.backup_disable_delay.parent = self
                     self.enable = None
-                    self.l2tpv3_encapsulation = L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation()
+                    self.l2tpv3_encapsulation = L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation()
                     self.l2tpv3_encapsulation.parent = self
                     self.mac_withdraw = None
-                    self.mpls_encapsulation = L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation()
+                    self.mpls_encapsulation = L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation()
                     self.mpls_encapsulation.parent = self
 
 
@@ -11872,7 +10646,7 @@ class L2vpn(object):
                     .. attribute:: type
                     
                     	Delay or Never
-                    	**type**\: :py:class:`BackupDisable_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BackupDisable_Enum>`
+                    	**type**\: :py:class:`BackupDisableEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BackupDisableEnum>`
                     
                     
 
@@ -11900,8 +10674,6 @@ class L2vpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.disable_backup is not None:
                             return True
 
@@ -11910,24 +10682,20 @@ class L2vpn(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                        return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay']['meta_info']
+                        return meta._meta_table['L2Vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay']['meta_info']
 
 
-                class L2tpv3Encapsulation(object):
+                class L2Tpv3Encapsulation(object):
                     """
                     L2TPv3 encapsulation
                     
                     .. attribute:: cookie_size
                     
                     	Cookie size
-                    	**type**\: :py:class:`L2tpCookieSize_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2tpCookieSize_Enum>`
+                    	**type**\: :py:class:`L2TpCookieSizeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
                     
                     .. attribute:: df_bit_set
                     
@@ -11942,17 +10710,17 @@ class L2vpn(object):
                     .. attribute:: path_mtu
                     
                     	Path maximum transmission unit
-                    	**type**\: :py:class:`PathMtu <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.PathMtu>`
+                    	**type**\: :py:class:`PathMtu <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.PathMtu>`
                     
                     .. attribute:: sequencing
                     
                     	Sequencing
-                    	**type**\: :py:class:`Sequencing <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.Sequencing>`
+                    	**type**\: :py:class:`Sequencing <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.Sequencing>`
                     
                     .. attribute:: signaling_protocol
                     
                     	L2TPv3 signaling protocol
-                    	**type**\: :py:class:`SignalingProtocol <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.SignalingProtocol>`
+                    	**type**\: :py:class:`SignalingProtocol <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.SignalingProtocol>`
                     
                     .. attribute:: source_address
                     
@@ -11971,12 +10739,12 @@ class L2vpn(object):
                     .. attribute:: transport_mode
                     
                     	Transport mode
-                    	**type**\: :py:class:`TransportMode_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.TransportMode_Enum>`
+                    	**type**\: :py:class:`TransportModeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.TransportModeEnum>`
                     
                     .. attribute:: type_of_service
                     
                     	Type of service
-                    	**type**\: :py:class:`TypeOfService <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.TypeOfService>`
+                    	**type**\: :py:class:`TypeOfService <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.TypeOfService>`
                     
                     
 
@@ -11990,16 +10758,16 @@ class L2vpn(object):
                         self.cookie_size = None
                         self.df_bit_set = None
                         self.enable = None
-                        self.path_mtu = L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.PathMtu()
+                        self.path_mtu = L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.PathMtu()
                         self.path_mtu.parent = self
-                        self.sequencing = L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.Sequencing()
+                        self.sequencing = L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.Sequencing()
                         self.sequencing.parent = self
-                        self.signaling_protocol = L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.SignalingProtocol()
+                        self.signaling_protocol = L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.SignalingProtocol()
                         self.signaling_protocol.parent = self
                         self.source_address = None
                         self.time_to_live = None
                         self.transport_mode = None
-                        self.type_of_service = L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.TypeOfService()
+                        self.type_of_service = L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.TypeOfService()
                         self.type_of_service.parent = self
 
 
@@ -12045,8 +10813,6 @@ class L2vpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.enable is not None:
                                 return True
 
@@ -12055,14 +10821,10 @@ class L2vpn(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                            return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.PathMtu']['meta_info']
+                            return meta._meta_table['L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.PathMtu']['meta_info']
 
 
                     class Sequencing(object):
@@ -12079,7 +10841,7 @@ class L2vpn(object):
                         .. attribute:: sequencing
                         
                         	Sequencing
-                        	**type**\: :py:class:`L2tpv3Sequencing_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2tpv3Sequencing_Enum>`
+                        	**type**\: :py:class:`L2Tpv3SequencingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Tpv3SequencingEnum>`
                         
                         
 
@@ -12107,8 +10869,6 @@ class L2vpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.resync_threshold is not None:
                                 return True
 
@@ -12117,14 +10877,10 @@ class L2vpn(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                            return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.Sequencing']['meta_info']
+                            return meta._meta_table['L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.Sequencing']['meta_info']
 
 
                     class SignalingProtocol(object):
@@ -12141,7 +10897,7 @@ class L2vpn(object):
                         .. attribute:: protocol
                         
                         	L2TPv3 signaling protocol
-                        	**type**\: :py:class:`L2tpSignalingProtocol_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2tpSignalingProtocol_Enum>`
+                        	**type**\: :py:class:`L2TpSignalingProtocolEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpSignalingProtocolEnum>`
                         
                         
 
@@ -12169,8 +10925,6 @@ class L2vpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.l2tpv3_class_name is not None:
                                 return True
 
@@ -12179,14 +10933,10 @@ class L2vpn(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                            return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.SignalingProtocol']['meta_info']
+                            return meta._meta_table['L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.SignalingProtocol']['meta_info']
 
 
                     class TypeOfService(object):
@@ -12196,7 +10946,7 @@ class L2vpn(object):
                         .. attribute:: type_of_service_mode
                         
                         	Type of service mode
-                        	**type**\: :py:class:`TypeOfServiceMode_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.TypeOfServiceMode_Enum>`
+                        	**type**\: :py:class:`TypeOfServiceModeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.TypeOfServiceModeEnum>`
                         
                         .. attribute:: type_of_service_value
                         
@@ -12231,8 +10981,6 @@ class L2vpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.type_of_service_mode is not None:
                                 return True
 
@@ -12241,14 +10989,10 @@ class L2vpn(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                            return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.TypeOfService']['meta_info']
+                            return meta._meta_table['L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.TypeOfService']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -12264,8 +11008,6 @@ class L2vpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.cookie_size is not None:
                             return True
 
@@ -12278,19 +11020,10 @@ class L2vpn(object):
                         if self.path_mtu is not None and self.path_mtu._has_data():
                             return True
 
-                        if self.path_mtu is not None and self.path_mtu.is_presence():
-                            return True
-
                         if self.sequencing is not None and self.sequencing._has_data():
                             return True
 
-                        if self.sequencing is not None and self.sequencing.is_presence():
-                            return True
-
                         if self.signaling_protocol is not None and self.signaling_protocol._has_data():
-                            return True
-
-                        if self.signaling_protocol is not None and self.signaling_protocol.is_presence():
                             return True
 
                         if self.source_address is not None:
@@ -12305,19 +11038,12 @@ class L2vpn(object):
                         if self.type_of_service is not None and self.type_of_service._has_data():
                             return True
 
-                        if self.type_of_service is not None and self.type_of_service.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                        return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation']['meta_info']
+                        return meta._meta_table['L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation']['meta_info']
 
 
                 class MplsEncapsulation(object):
@@ -12327,7 +11053,7 @@ class L2vpn(object):
                     .. attribute:: control_word
                     
                     	Enable control word
-                    	**type**\: :py:class:`ControlWord_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.ControlWord_Enum>`
+                    	**type**\: :py:class:`ControlWordEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.ControlWordEnum>`
                     
                     .. attribute:: enable
                     
@@ -12337,32 +11063,32 @@ class L2vpn(object):
                     .. attribute:: load_balance_group
                     
                     	Load Balancing
-                    	**type**\: :py:class:`LoadBalanceGroup <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup>`
+                    	**type**\: :py:class:`LoadBalanceGroup <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup>`
                     
                     .. attribute:: mpls_redundancy
                     
                     	Redundancy options for MPLS encapsulation
-                    	**type**\: :py:class:`MplsRedundancy <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy>`
+                    	**type**\: :py:class:`MplsRedundancy <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy>`
                     
                     .. attribute:: preferred_path
                     
                     	Preferred path
-                    	**type**\: :py:class:`PreferredPath <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath>`
+                    	**type**\: :py:class:`PreferredPath <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath>`
                     
                     .. attribute:: pw_switching_tlv
                     
                     	Pseudowire Switching Point Tlv
-                    	**type**\: :py:class:`PwSwitchingPointTlv_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.PwSwitchingPointTlv_Enum>`
+                    	**type**\: :py:class:`PwSwitchingPointTlvEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.PwSwitchingPointTlvEnum>`
                     
                     .. attribute:: sequencing
                     
                     	Sequencing
-                    	**type**\: :py:class:`Sequencing <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing>`
+                    	**type**\: :py:class:`Sequencing <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing>`
                     
                     .. attribute:: signaling_protocol
                     
                     	MPLS signaling protocol
-                    	**type**\: :py:class:`MplsSignalingProtocol_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MplsSignalingProtocol_Enum>`
+                    	**type**\: :py:class:`MplsSignalingProtocolEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MplsSignalingProtocolEnum>`
                     
                     .. attribute:: source_address
                     
@@ -12381,12 +11107,12 @@ class L2vpn(object):
                     .. attribute:: transport_mode
                     
                     	Transport mode
-                    	**type**\: :py:class:`TransportMode_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.TransportMode_Enum>`
+                    	**type**\: :py:class:`TransportModeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.TransportModeEnum>`
                     
                     .. attribute:: vccv_type
                     
                     	VCCV verification type
-                    	**type**\: :py:class:`VccvVerification_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.VccvVerification_Enum>`
+                    	**type**\: :py:class:`VccvVerificationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.VccvVerificationEnum>`
                     
                     
 
@@ -12399,14 +11125,14 @@ class L2vpn(object):
                         self.parent = None
                         self.control_word = None
                         self.enable = None
-                        self.load_balance_group = L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup()
+                        self.load_balance_group = L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup()
                         self.load_balance_group.parent = self
-                        self.mpls_redundancy = L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy()
+                        self.mpls_redundancy = L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy()
                         self.mpls_redundancy.parent = self
-                        self.preferred_path = L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath()
+                        self.preferred_path = L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath()
                         self.preferred_path.parent = self
                         self.pw_switching_tlv = None
-                        self.sequencing = L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing()
+                        self.sequencing = L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing()
                         self.sequencing.parent = self
                         self.signaling_protocol = None
                         self.source_address = None
@@ -12422,17 +11148,17 @@ class L2vpn(object):
                         .. attribute:: flow_label_load_balance
                         
                         	Enable Flow Label based load balancing
-                        	**type**\: :py:class:`FlowLabelLoadBalance <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance>`
+                        	**type**\: :py:class:`FlowLabelLoadBalance <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance>`
                         
                         .. attribute:: flow_label_load_balance_code
                         
                         	Enable Legacy Flow Label TLV code
-                        	**type**\: :py:class:`FlowLabelTlvCode_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.FlowLabelTlvCode_Enum>`
+                        	**type**\: :py:class:`FlowLabelTlvCodeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.FlowLabelTlvCodeEnum>`
                         
                         .. attribute:: pw_label_load_balance
                         
                         	Enable PW Label based Load Balancing
-                        	**type**\: :py:class:`LoadBalance_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.LoadBalance_Enum>`
+                        	**type**\: :py:class:`LoadBalanceEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.LoadBalanceEnum>`
                         
                         
 
@@ -12443,7 +11169,7 @@ class L2vpn(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.flow_label_load_balance = L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance()
+                            self.flow_label_load_balance = L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance()
                             self.flow_label_load_balance.parent = self
                             self.flow_label_load_balance_code = None
                             self.pw_label_load_balance = None
@@ -12456,7 +11182,7 @@ class L2vpn(object):
                             .. attribute:: flow_label
                             
                             	Flow Label load balance type
-                            	**type**\: :py:class:`FlowLabelLoadBalance_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.FlowLabelLoadBalance_Enum>`
+                            	**type**\: :py:class:`FlowLabelLoadBalanceEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.FlowLabelLoadBalanceEnum>`
                             
                             .. attribute:: static
                             
@@ -12489,8 +11215,6 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.flow_label is not None:
                                     return True
 
@@ -12499,14 +11223,10 @@ class L2vpn(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -12522,12 +11242,7 @@ class L2vpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.flow_label_load_balance is not None and self.flow_label_load_balance._has_data():
-                                return True
-
-                            if self.flow_label_load_balance is not None and self.flow_label_load_balance.is_presence():
                                 return True
 
                             if self.flow_label_load_balance_code is not None:
@@ -12538,14 +11253,10 @@ class L2vpn(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                            return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup']['meta_info']
+                            return meta._meta_table['L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup']['meta_info']
 
 
                     class MplsRedundancy(object):
@@ -12590,8 +11301,6 @@ class L2vpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.redundancy_initial_delay is not None:
                                 return True
 
@@ -12600,14 +11309,10 @@ class L2vpn(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                            return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy']['meta_info']
+                            return meta._meta_table['L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy']['meta_info']
 
 
                     class PreferredPath(object):
@@ -12629,7 +11334,7 @@ class L2vpn(object):
                         .. attribute:: type
                         
                         	Preferred Path Type
-                        	**type**\: :py:class:`PreferredPath_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.PreferredPath_Enum>`
+                        	**type**\: :py:class:`PreferredPathEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.PreferredPathEnum>`
                         
                         
 
@@ -12658,8 +11363,6 @@ class L2vpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.fallback_disable is not None:
                                 return True
 
@@ -12671,14 +11374,10 @@ class L2vpn(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                            return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath']['meta_info']
+                            return meta._meta_table['L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath']['meta_info']
 
 
                     class Sequencing(object):
@@ -12695,7 +11394,7 @@ class L2vpn(object):
                         .. attribute:: sequencing
                         
                         	Sequencing
-                        	**type**\: :py:class:`MplsSequencing_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MplsSequencing_Enum>`
+                        	**type**\: :py:class:`MplsSequencingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.MplsSequencingEnum>`
                         
                         
 
@@ -12723,8 +11422,6 @@ class L2vpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.resync_threshold is not None:
                                 return True
 
@@ -12733,14 +11430,10 @@ class L2vpn(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                            return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing']['meta_info']
+                            return meta._meta_table['L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -12756,8 +11449,6 @@ class L2vpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.control_word is not None:
                             return True
 
@@ -12767,28 +11458,16 @@ class L2vpn(object):
                         if self.load_balance_group is not None and self.load_balance_group._has_data():
                             return True
 
-                        if self.load_balance_group is not None and self.load_balance_group.is_presence():
-                            return True
-
                         if self.mpls_redundancy is not None and self.mpls_redundancy._has_data():
                             return True
 
-                        if self.mpls_redundancy is not None and self.mpls_redundancy.is_presence():
-                            return True
-
                         if self.preferred_path is not None and self.preferred_path._has_data():
-                            return True
-
-                        if self.preferred_path is not None and self.preferred_path.is_presence():
                             return True
 
                         if self.pw_switching_tlv is not None:
                             return True
 
                         if self.sequencing is not None and self.sequencing._has_data():
-                            return True
-
-                        if self.sequencing is not None and self.sequencing.is_presence():
                             return True
 
                         if self.signaling_protocol is not None:
@@ -12808,14 +11487,10 @@ class L2vpn(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                        return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation']['meta_info']
+                        return meta._meta_table['L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -12831,15 +11506,10 @@ class L2vpn(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.name is not None:
                         return True
 
                     if self.backup_disable_delay is not None and self.backup_disable_delay._has_data():
-                        return True
-
-                    if self.backup_disable_delay is not None and self.backup_disable_delay.is_presence():
                         return True
 
                     if self.enable is not None:
@@ -12848,28 +11518,18 @@ class L2vpn(object):
                     if self.l2tpv3_encapsulation is not None and self.l2tpv3_encapsulation._has_data():
                         return True
 
-                    if self.l2tpv3_encapsulation is not None and self.l2tpv3_encapsulation.is_presence():
-                        return True
-
                     if self.mac_withdraw is not None:
                         return True
 
                     if self.mpls_encapsulation is not None and self.mpls_encapsulation._has_data():
                         return True
 
-                    if self.mpls_encapsulation is not None and self.mpls_encapsulation.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                    return meta._meta_table['L2vpn.Database.PseudowireClasses.PseudowireClass']['meta_info']
+                    return meta._meta_table['L2Vpn.Database.PseudowireClasses.PseudowireClass']['meta_info']
 
             @property
             def _common_path(self):
@@ -12883,8 +11543,6 @@ class L2vpn(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.pseudowire_class is not None:
                     for child_ref in self.pseudowire_class:
                         if child_ref._has_data():
@@ -12892,14 +11550,10 @@ class L2vpn(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                return meta._meta_table['L2vpn.Database.PseudowireClasses']['meta_info']
+                return meta._meta_table['L2Vpn.Database.PseudowireClasses']['meta_info']
 
 
         class Redundancy(object):
@@ -12914,7 +11568,7 @@ class L2vpn(object):
             .. attribute:: iccp_redundancy_groups
             
             	List of Inter\-Chassis Communication Protocol redundancy groups
-            	**type**\: :py:class:`IccpRedundancyGroups <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.Redundancy.IccpRedundancyGroups>`
+            	**type**\: :py:class:`IccpRedundancyGroups <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.Redundancy.IccpRedundancyGroups>`
             
             
 
@@ -12926,7 +11580,7 @@ class L2vpn(object):
             def __init__(self):
                 self.parent = None
                 self.enable = None
-                self.iccp_redundancy_groups = L2vpn.Database.Redundancy.IccpRedundancyGroups()
+                self.iccp_redundancy_groups = L2Vpn.Database.Redundancy.IccpRedundancyGroups()
                 self.iccp_redundancy_groups.parent = self
 
 
@@ -12938,7 +11592,7 @@ class L2vpn(object):
                 .. attribute:: iccp_redundancy_group
                 
                 	ICCP Redundancy group
-                	**type**\: list of :py:class:`IccpRedundancyGroup <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup>`
+                	**type**\: list of :py:class:`IccpRedundancyGroup <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup>`
                 
                 
 
@@ -12968,7 +11622,7 @@ class L2vpn(object):
                     .. attribute:: iccp_interfaces
                     
                     	List of interfaces
-                    	**type**\: :py:class:`IccpInterfaces <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces>`
+                    	**type**\: :py:class:`IccpInterfaces <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces>`
                     
                     .. attribute:: multi_homing_node_id
                     
@@ -12987,7 +11641,7 @@ class L2vpn(object):
                     def __init__(self):
                         self.parent = None
                         self.group_id = None
-                        self.iccp_interfaces = L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces()
+                        self.iccp_interfaces = L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces()
                         self.iccp_interfaces.parent = self
                         self.multi_homing_node_id = None
 
@@ -12999,7 +11653,7 @@ class L2vpn(object):
                         .. attribute:: iccp_interface
                         
                         	Interface name
-                        	**type**\: list of :py:class:`IccpInterface <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces.IccpInterface>`
+                        	**type**\: list of :py:class:`IccpInterface <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces.IccpInterface>`
                         
                         
 
@@ -13079,8 +11733,6 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.interface_name is not None:
                                     return True
 
@@ -13098,14 +11750,10 @@ class L2vpn(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces.IccpInterface']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces.IccpInterface']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -13121,8 +11769,6 @@ class L2vpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.iccp_interface is not None:
                                 for child_ref in self.iccp_interface:
                                     if child_ref._has_data():
@@ -13130,14 +11776,10 @@ class L2vpn(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                            return meta._meta_table['L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces']['meta_info']
+                            return meta._meta_table['L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -13153,15 +11795,10 @@ class L2vpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.group_id is not None:
                             return True
 
                         if self.iccp_interfaces is not None and self.iccp_interfaces._has_data():
-                            return True
-
-                        if self.iccp_interfaces is not None and self.iccp_interfaces.is_presence():
                             return True
 
                         if self.multi_homing_node_id is not None:
@@ -13169,14 +11806,10 @@ class L2vpn(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                        return meta._meta_table['L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup']['meta_info']
+                        return meta._meta_table['L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -13190,8 +11823,6 @@ class L2vpn(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.iccp_redundancy_group is not None:
                         for child_ref in self.iccp_redundancy_group:
                             if child_ref._has_data():
@@ -13199,14 +11830,10 @@ class L2vpn(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                    return meta._meta_table['L2vpn.Database.Redundancy.IccpRedundancyGroups']['meta_info']
+                    return meta._meta_table['L2Vpn.Database.Redundancy.IccpRedundancyGroups']['meta_info']
 
             @property
             def _common_path(self):
@@ -13220,27 +11847,18 @@ class L2vpn(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
                 if self.iccp_redundancy_groups is not None and self.iccp_redundancy_groups._has_data():
                     return True
 
-                if self.iccp_redundancy_groups is not None and self.iccp_redundancy_groups.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
             def _meta_info():
                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                return meta._meta_table['L2vpn.Database.Redundancy']['meta_info']
+                return meta._meta_table['L2Vpn.Database.Redundancy']['meta_info']
 
 
         class XconnectGroups(object):
@@ -13250,7 +11868,7 @@ class L2vpn(object):
             .. attribute:: xconnect_group
             
             	Xconnect group
-            	**type**\: list of :py:class:`XconnectGroup <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup>`
+            	**type**\: list of :py:class:`XconnectGroup <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup>`
             
             
 
@@ -13280,12 +11898,12 @@ class L2vpn(object):
                 .. attribute:: mp2mp_xconnects
                 
                 	List of multi point to multi point xconnects
-                	**type**\: :py:class:`Mp2mpXconnects <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects>`
+                	**type**\: :py:class:`Mp2MpXconnects <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects>`
                 
                 .. attribute:: p2p_xconnects
                 
                 	List of point to point xconnects
-                	**type**\: :py:class:`P2pXconnects <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects>`
+                	**type**\: :py:class:`P2PXconnects <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects>`
                 
                 
 
@@ -13297,20 +11915,20 @@ class L2vpn(object):
                 def __init__(self):
                     self.parent = None
                     self.name = None
-                    self.mp2mp_xconnects = L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects()
+                    self.mp2mp_xconnects = L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects()
                     self.mp2mp_xconnects.parent = self
-                    self.p2p_xconnects = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects()
+                    self.p2p_xconnects = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects()
                     self.p2p_xconnects.parent = self
 
 
-                class Mp2mpXconnects(object):
+                class Mp2MpXconnects(object):
                     """
                     List of multi point to multi point xconnects
                     
                     .. attribute:: mp2mp_xconnect
                     
                     	Multi point to multi point xconnect
-                    	**type**\: list of :py:class:`Mp2mpXconnect <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect>`
+                    	**type**\: list of :py:class:`Mp2MpXconnect <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect>`
                     
                     
 
@@ -13326,7 +11944,7 @@ class L2vpn(object):
                         self.mp2mp_xconnect.name = 'mp2mp_xconnect'
 
 
-                    class Mp2mpXconnect(object):
+                    class Mp2MpXconnect(object):
                         """
                         Multi point to multi point xconnect
                         
@@ -13340,7 +11958,7 @@ class L2vpn(object):
                         .. attribute:: mp2mp_auto_discovery
                         
                         	auto\-discovery in this MP2MP
-                        	**type**\: :py:class:`Mp2mpAutoDiscovery <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery>`
+                        	**type**\: :py:class:`Mp2MpAutoDiscovery <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery>`
                         
                         .. attribute:: mp2mp_control_word
                         
@@ -13350,7 +11968,7 @@ class L2vpn(object):
                         .. attribute:: mp2mp_interworking
                         
                         	Interworking
-                        	**type**\: :py:class:`Interworking_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Interworking_Enum>`
+                        	**type**\: :py:class:`InterworkingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterworkingEnum>`
                         
                         .. attribute:: mp2mp_shutdown
                         
@@ -13360,7 +11978,7 @@ class L2vpn(object):
                         .. attribute:: mp2mpl2_encapsulation
                         
                         	Configure Layer 2 Encapsulation
-                        	**type**\: :py:class:`L2Encapsulation_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Encapsulation_Enum>`
+                        	**type**\: :py:class:`L2EncapsulationEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2EncapsulationEnum>`
                         
                         .. attribute:: mp2mpmtu
                         
@@ -13386,7 +12004,7 @@ class L2vpn(object):
                         def __init__(self):
                             self.parent = None
                             self.name = None
-                            self.mp2mp_auto_discovery = L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery()
+                            self.mp2mp_auto_discovery = L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery()
                             self.mp2mp_auto_discovery.parent = self
                             self.mp2mp_control_word = None
                             self.mp2mp_interworking = None
@@ -13396,7 +12014,7 @@ class L2vpn(object):
                             self.mp2mpvpn_id = None
 
 
-                        class Mp2mpAutoDiscovery(object):
+                        class Mp2MpAutoDiscovery(object):
                             """
                             auto\-discovery in this MP2MP
                             
@@ -13408,17 +12026,17 @@ class L2vpn(object):
                             .. attribute:: mp2mp_route_targets
                             
                             	Route Target
-                            	**type**\: :py:class:`Mp2mpRouteTargets <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets>`
+                            	**type**\: :py:class:`Mp2MpRouteTargets <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets>`
                             
                             .. attribute:: mp2mp_signaling_protocol
                             
                             	signaling protocol in this MP2MP
-                            	**type**\: :py:class:`Mp2mpSignalingProtocol <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol>`
+                            	**type**\: :py:class:`Mp2MpSignalingProtocol <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol>`
                             
                             .. attribute:: route_distinguisher
                             
                             	Route Distinguisher
-                            	**type**\: :py:class:`RouteDistinguisher <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.RouteDistinguisher>`
+                            	**type**\: :py:class:`RouteDistinguisher <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.RouteDistinguisher>`
                             
                             
 
@@ -13430,22 +12048,22 @@ class L2vpn(object):
                             def __init__(self):
                                 self.parent = None
                                 self.enable = None
-                                self.mp2mp_route_targets = L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets()
+                                self.mp2mp_route_targets = L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets()
                                 self.mp2mp_route_targets.parent = self
-                                self.mp2mp_signaling_protocol = L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol()
+                                self.mp2mp_signaling_protocol = L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol()
                                 self.mp2mp_signaling_protocol.parent = self
-                                self.route_distinguisher = L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.RouteDistinguisher()
+                                self.route_distinguisher = L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.RouteDistinguisher()
                                 self.route_distinguisher.parent = self
 
 
-                            class Mp2mpRouteTargets(object):
+                            class Mp2MpRouteTargets(object):
                                 """
                                 Route Target
                                 
                                 .. attribute:: mp2mp_route_target
                                 
                                 	Name of the Route Target
-                                	**type**\: list of :py:class:`Mp2mpRouteTarget <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget>`
+                                	**type**\: list of :py:class:`Mp2MpRouteTarget <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget>`
                                 
                                 
 
@@ -13461,29 +12079,29 @@ class L2vpn(object):
                                     self.mp2mp_route_target.name = 'mp2mp_route_target'
 
 
-                                class Mp2mpRouteTarget(object):
+                                class Mp2MpRouteTarget(object):
                                     """
                                     Name of the Route Target
                                     
                                     .. attribute:: format
                                     
                                     	Format of the route target
-                                    	**type**\: :py:class:`BgpRouteTargetFormat_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormat_Enum>`
+                                    	**type**\: :py:class:`BgpRouteTargetFormatEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormatEnum>`
                                     
                                     .. attribute:: role
                                     
                                     	Role of the router target type
-                                    	**type**\: :py:class:`BgpRouteTargetRole_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRole_Enum>`
+                                    	**type**\: :py:class:`BgpRouteTargetRoleEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRoleEnum>`
                                     
                                     .. attribute:: ipv4_address
                                     
                                     	ipv4 address
-                                    	**type**\: list of :py:class:`Ipv4Address <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.Ipv4Address>`
+                                    	**type**\: list of :py:class:`Ipv4Address <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget.Ipv4Address>`
                                     
                                     .. attribute:: two_byte_as_or_four_byte_as
                                     
                                     	two byte as or four byte as
-                                    	**type**\: list of :py:class:`TwoByteAsOrFourByteAs <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.TwoByteAsOrFourByteAs>`
+                                    	**type**\: list of :py:class:`TwoByteAsOrFourByteAs <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget.TwoByteAsOrFourByteAs>`
                                     
                                     
 
@@ -13552,8 +12170,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.addr_index is not None:
                                                 return True
 
@@ -13562,14 +12178,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.Ipv4Address']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget.Ipv4Address']['meta_info']
 
 
                                     class TwoByteAsOrFourByteAs(object):
@@ -13620,8 +12232,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.as_ is not None:
                                                 return True
 
@@ -13630,14 +12240,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.TwoByteAsOrFourByteAs']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget.TwoByteAsOrFourByteAs']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -13657,8 +12263,6 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.format is not None:
                                             return True
 
@@ -13677,14 +12281,10 @@ class L2vpn(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -13700,8 +12300,6 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.mp2mp_route_target is not None:
                                         for child_ref in self.mp2mp_route_target:
                                             if child_ref._has_data():
@@ -13709,17 +12307,13 @@ class L2vpn(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets']['meta_info']
 
 
-                            class Mp2mpSignalingProtocol(object):
+                            class Mp2MpSignalingProtocol(object):
                                 """
                                 signaling protocol in this MP2MP
                                 
@@ -13733,7 +12327,7 @@ class L2vpn(object):
                                 .. attribute:: ceids
                                 
                                 	Local Customer Edge Identifier Table
-                                	**type**\: :py:class:`Ceids <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids>`
+                                	**type**\: :py:class:`Ceids <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids>`
                                 
                                 .. attribute:: enable
                                 
@@ -13743,7 +12337,7 @@ class L2vpn(object):
                                 .. attribute:: flow_label_load_balance
                                 
                                 	Enable Flow Label based load balancing
-                                	**type**\: :py:class:`FlowLabelLoadBalance <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.FlowLabelLoadBalance>`
+                                	**type**\: :py:class:`FlowLabelLoadBalance <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.FlowLabelLoadBalance>`
                                 
                                 
 
@@ -13755,10 +12349,10 @@ class L2vpn(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.ce_range = None
-                                    self.ceids = L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids()
+                                    self.ceids = L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids()
                                     self.ceids.parent = self
                                     self.enable = None
-                                    self.flow_label_load_balance = L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.FlowLabelLoadBalance()
+                                    self.flow_label_load_balance = L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.FlowLabelLoadBalance()
                                     self.flow_label_load_balance.parent = self
 
 
@@ -13769,7 +12363,7 @@ class L2vpn(object):
                                     .. attribute:: ceid
                                     
                                     	Local Customer Edge Identifier 
-                                    	**type**\: list of :py:class:`Ceid <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid>`
+                                    	**type**\: list of :py:class:`Ceid <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid>`
                                     
                                     
 
@@ -13799,7 +12393,7 @@ class L2vpn(object):
                                         .. attribute:: remote_ceid_attachment_circuits
                                         
                                         	AC And Remote Customer Edge Identifier Table
-                                        	**type**\: :py:class:`RemoteCeidAttachmentCircuits <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits>`
+                                        	**type**\: :py:class:`RemoteCeidAttachmentCircuits <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits>`
                                         
                                         
 
@@ -13811,7 +12405,7 @@ class L2vpn(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.ce_id = None
-                                            self.remote_ceid_attachment_circuits = L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits()
+                                            self.remote_ceid_attachment_circuits = L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits()
                                             self.remote_ceid_attachment_circuits.parent = self
 
 
@@ -13823,7 +12417,7 @@ class L2vpn(object):
                                             .. attribute:: remote_ceid_attachment_circuit
                                             
                                             	AC And Remote Customer Edge Identifier
-                                            	**type**\: list of :py:class:`RemoteCeidAttachmentCircuit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits.RemoteCeidAttachmentCircuit>`
+                                            	**type**\: list of :py:class:`RemoteCeidAttachmentCircuit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits.RemoteCeidAttachmentCircuit>`
                                             
                                             
 
@@ -13887,8 +12481,6 @@ class L2vpn(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.name is not None:
                                                         return True
 
@@ -13897,14 +12489,10 @@ class L2vpn(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits.RemoteCeidAttachmentCircuit']['meta_info']
+                                                    return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits.RemoteCeidAttachmentCircuit']['meta_info']
 
                                             @property
                                             def _common_path(self):
@@ -13920,8 +12508,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.remote_ceid_attachment_circuit is not None:
                                                     for child_ref in self.remote_ceid_attachment_circuit:
                                                         if child_ref._has_data():
@@ -13929,14 +12515,10 @@ class L2vpn(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -13954,27 +12536,18 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.ce_id is not None:
                                                 return True
 
                                             if self.remote_ceid_attachment_circuits is not None and self.remote_ceid_attachment_circuits._has_data():
                                                 return True
 
-                                            if self.remote_ceid_attachment_circuits is not None and self.remote_ceid_attachment_circuits.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -13990,8 +12563,6 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.ceid is not None:
                                             for child_ref in self.ceid:
                                                 if child_ref._has_data():
@@ -13999,14 +12570,10 @@ class L2vpn(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids']['meta_info']
 
 
                                 class FlowLabelLoadBalance(object):
@@ -14016,7 +12583,7 @@ class L2vpn(object):
                                     .. attribute:: flow_label
                                     
                                     	Flow Label load balance type
-                                    	**type**\: :py:class:`FlowLabelLoadBalance_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.FlowLabelLoadBalance_Enum>`
+                                    	**type**\: :py:class:`FlowLabelLoadBalanceEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.FlowLabelLoadBalanceEnum>`
                                     
                                     .. attribute:: static
                                     
@@ -14049,8 +12616,6 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.flow_label is not None:
                                             return True
 
@@ -14059,14 +12624,10 @@ class L2vpn(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.FlowLabelLoadBalance']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.FlowLabelLoadBalance']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -14082,15 +12643,10 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ce_range is not None:
                                         return True
 
                                     if self.ceids is not None and self.ceids._has_data():
-                                        return True
-
-                                    if self.ceids is not None and self.ceids.is_presence():
                                         return True
 
                                     if self.enable is not None:
@@ -14099,19 +12655,12 @@ class L2vpn(object):
                                     if self.flow_label_load_balance is not None and self.flow_label_load_balance._has_data():
                                         return True
 
-                                    if self.flow_label_load_balance is not None and self.flow_label_load_balance.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol']['meta_info']
 
 
                             class RouteDistinguisher(object):
@@ -14149,7 +12698,7 @@ class L2vpn(object):
                                 .. attribute:: type
                                 
                                 	Router distinguisher type
-                                	**type**\: :py:class:`BgpRouteDistinguisher_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisher_Enum>`
+                                	**type**\: :py:class:`BgpRouteDistinguisherEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
                                 
                                 
 
@@ -14180,8 +12729,6 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.addr_index is not None:
                                         return True
 
@@ -14199,14 +12746,10 @@ class L2vpn(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.RouteDistinguisher']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.RouteDistinguisher']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -14222,39 +12765,24 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.enable is not None:
                                     return True
 
                                 if self.mp2mp_route_targets is not None and self.mp2mp_route_targets._has_data():
                                     return True
 
-                                if self.mp2mp_route_targets is not None and self.mp2mp_route_targets.is_presence():
-                                    return True
-
                                 if self.mp2mp_signaling_protocol is not None and self.mp2mp_signaling_protocol._has_data():
-                                    return True
-
-                                if self.mp2mp_signaling_protocol is not None and self.mp2mp_signaling_protocol.is_presence():
                                     return True
 
                                 if self.route_distinguisher is not None and self.route_distinguisher._has_data():
                                     return True
 
-                                if self.route_distinguisher is not None and self.route_distinguisher.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -14272,15 +12800,10 @@ class L2vpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.name is not None:
                                 return True
 
                             if self.mp2mp_auto_discovery is not None and self.mp2mp_auto_discovery._has_data():
-                                return True
-
-                            if self.mp2mp_auto_discovery is not None and self.mp2mp_auto_discovery.is_presence():
                                 return True
 
                             if self.mp2mp_control_word is not None:
@@ -14303,14 +12826,10 @@ class L2vpn(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect']['meta_info']
+                            return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -14326,8 +12845,6 @@ class L2vpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.mp2mp_xconnect is not None:
                             for child_ref in self.mp2mp_xconnect:
                                 if child_ref._has_data():
@@ -14335,24 +12852,20 @@ class L2vpn(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                        return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects']['meta_info']
+                        return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects']['meta_info']
 
 
-                class P2pXconnects(object):
+                class P2PXconnects(object):
                     """
                     List of point to point xconnects
                     
                     .. attribute:: p2p_xconnect
                     
                     	Point to point xconnect
-                    	**type**\: list of :py:class:`P2pXconnect <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect>`
+                    	**type**\: list of :py:class:`P2PXconnect <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect>`
                     
                     
 
@@ -14368,7 +12881,7 @@ class L2vpn(object):
                         self.p2p_xconnect.name = 'p2p_xconnect'
 
 
-                    class P2pXconnect(object):
+                    class P2PXconnect(object):
                         """
                         Point to point xconnect
                         
@@ -14382,22 +12895,22 @@ class L2vpn(object):
                         .. attribute:: attachment_circuits
                         
                         	List of attachment circuits
-                        	**type**\: :py:class:`AttachmentCircuits <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits>`
+                        	**type**\: :py:class:`AttachmentCircuits <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.AttachmentCircuits>`
                         
                         .. attribute:: backup_attachment_circuits
                         
                         	List of backup attachment circuits
-                        	**type**\: :py:class:`BackupAttachmentCircuits <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits>`
+                        	**type**\: :py:class:`BackupAttachmentCircuits <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.BackupAttachmentCircuits>`
                         
                         .. attribute:: interworking
                         
                         	Interworking
-                        	**type**\: :py:class:`Interworking_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.Interworking_Enum>`
+                        	**type**\: :py:class:`InterworkingEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.InterworkingEnum>`
                         
                         .. attribute:: monitor_sessions
                         
                         	List of Monitor session segments
-                        	**type**\: :py:class:`MonitorSessions <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions>`
+                        	**type**\: :py:class:`MonitorSessions <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.MonitorSessions>`
                         
                         .. attribute:: p2p_description
                         
@@ -14409,17 +12922,17 @@ class L2vpn(object):
                         .. attribute:: pseudowire_evpns
                         
                         	List of EVPN Services
-                        	**type**\: :py:class:`PseudowireEvpns <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns>`
+                        	**type**\: :py:class:`PseudowireEvpns <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireEvpns>`
                         
                         .. attribute:: pseudowire_routeds
                         
                         	List of pseudowire\-routed
-                        	**type**\: :py:class:`PseudowireRouteds <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds>`
+                        	**type**\: :py:class:`PseudowireRouteds <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireRouteds>`
                         
                         .. attribute:: pseudowires
                         
                         	List of pseudowires
-                        	**type**\: :py:class:`Pseudowires <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires>`
+                        	**type**\: :py:class:`Pseudowires <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires>`
                         
                         
 
@@ -14431,19 +12944,19 @@ class L2vpn(object):
                         def __init__(self):
                             self.parent = None
                             self.name = None
-                            self.attachment_circuits = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits()
+                            self.attachment_circuits = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.AttachmentCircuits()
                             self.attachment_circuits.parent = self
-                            self.backup_attachment_circuits = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits()
+                            self.backup_attachment_circuits = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.BackupAttachmentCircuits()
                             self.backup_attachment_circuits.parent = self
                             self.interworking = None
-                            self.monitor_sessions = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions()
+                            self.monitor_sessions = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.MonitorSessions()
                             self.monitor_sessions.parent = self
                             self.p2p_description = None
-                            self.pseudowire_evpns = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns()
+                            self.pseudowire_evpns = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireEvpns()
                             self.pseudowire_evpns.parent = self
-                            self.pseudowire_routeds = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds()
+                            self.pseudowire_routeds = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireRouteds()
                             self.pseudowire_routeds.parent = self
-                            self.pseudowires = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires()
+                            self.pseudowires = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires()
                             self.pseudowires.parent = self
 
 
@@ -14454,7 +12967,7 @@ class L2vpn(object):
                             .. attribute:: attachment_circuit
                             
                             	Attachment circuit interface
-                            	**type**\: list of :py:class:`AttachmentCircuit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits.AttachmentCircuit>`
+                            	**type**\: list of :py:class:`AttachmentCircuit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.AttachmentCircuits.AttachmentCircuit>`
                             
                             
 
@@ -14514,8 +13027,6 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.name is not None:
                                         return True
 
@@ -14524,14 +13035,10 @@ class L2vpn(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits.AttachmentCircuit']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.AttachmentCircuits.AttachmentCircuit']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -14547,8 +13054,6 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.attachment_circuit is not None:
                                     for child_ref in self.attachment_circuit:
                                         if child_ref._has_data():
@@ -14556,14 +13061,10 @@ class L2vpn(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.AttachmentCircuits']['meta_info']
 
 
                         class BackupAttachmentCircuits(object):
@@ -14573,7 +13074,7 @@ class L2vpn(object):
                             .. attribute:: backup_attachment_circuit
                             
                             	Backup attachment circuit
-                            	**type**\: list of :py:class:`BackupAttachmentCircuit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits.BackupAttachmentCircuit>`
+                            	**type**\: list of :py:class:`BackupAttachmentCircuit <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.BackupAttachmentCircuits.BackupAttachmentCircuit>`
                             
                             
 
@@ -14627,21 +13128,15 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_name is not None:
                                         return True
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits.BackupAttachmentCircuit']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.BackupAttachmentCircuits.BackupAttachmentCircuit']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -14657,8 +13152,6 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.backup_attachment_circuit is not None:
                                     for child_ref in self.backup_attachment_circuit:
                                         if child_ref._has_data():
@@ -14666,14 +13159,10 @@ class L2vpn(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.BackupAttachmentCircuits']['meta_info']
 
 
                         class MonitorSessions(object):
@@ -14683,7 +13172,7 @@ class L2vpn(object):
                             .. attribute:: monitor_session
                             
                             	Monitor session segment
-                            	**type**\: list of :py:class:`MonitorSession <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions.MonitorSession>`
+                            	**type**\: list of :py:class:`MonitorSession <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.MonitorSessions.MonitorSession>`
                             
                             
 
@@ -14743,8 +13232,6 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.name is not None:
                                         return True
 
@@ -14753,14 +13240,10 @@ class L2vpn(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions.MonitorSession']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.MonitorSessions.MonitorSession']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -14776,8 +13259,6 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.monitor_session is not None:
                                     for child_ref in self.monitor_session:
                                         if child_ref._has_data():
@@ -14785,14 +13266,10 @@ class L2vpn(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.MonitorSessions']['meta_info']
 
 
                         class PseudowireEvpns(object):
@@ -14802,7 +13279,7 @@ class L2vpn(object):
                             .. attribute:: pseudowire_evpn
                             
                             	EVPN P2P Service Configuration
-                            	**type**\: list of :py:class:`PseudowireEvpn <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns.PseudowireEvpn>`
+                            	**type**\: list of :py:class:`PseudowireEvpn <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireEvpns.PseudowireEvpn>`
                             
                             
 
@@ -14876,8 +13353,6 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.eviid is not None:
                                         return True
 
@@ -14889,14 +13364,10 @@ class L2vpn(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns.PseudowireEvpn']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireEvpns.PseudowireEvpn']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -14912,8 +13383,6 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.pseudowire_evpn is not None:
                                     for child_ref in self.pseudowire_evpn:
                                         if child_ref._has_data():
@@ -14921,14 +13390,10 @@ class L2vpn(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireEvpns']['meta_info']
 
 
                         class PseudowireRouteds(object):
@@ -14938,7 +13403,7 @@ class L2vpn(object):
                             .. attribute:: pseudowire_routed
                             
                             	Pseudowire configuration
-                            	**type**\: list of :py:class:`PseudowireRouted <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds.PseudowireRouted>`
+                            	**type**\: list of :py:class:`PseudowireRouted <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireRouteds.PseudowireRouted>`
                             
                             
 
@@ -15038,8 +13503,6 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.acid is not None:
                                         return True
 
@@ -15060,14 +13523,10 @@ class L2vpn(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds.PseudowireRouted']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireRouteds.PseudowireRouted']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -15083,8 +13542,6 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.pseudowire_routed is not None:
                                     for child_ref in self.pseudowire_routed:
                                         if child_ref._has_data():
@@ -15092,14 +13549,10 @@ class L2vpn(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireRouteds']['meta_info']
 
 
                         class Pseudowires(object):
@@ -15109,7 +13562,7 @@ class L2vpn(object):
                             .. attribute:: pseudowire
                             
                             	Pseudowire configuration
-                            	**type**\: list of :py:class:`Pseudowire <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire>`
+                            	**type**\: list of :py:class:`Pseudowire <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire>`
                             
                             
 
@@ -15139,12 +13592,12 @@ class L2vpn(object):
                                 .. attribute:: neighbor
                                 
                                 	keys\: neighbor
-                                	**type**\: list of :py:class:`Neighbor <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor>`
+                                	**type**\: list of :py:class:`Neighbor <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor>`
                                 
                                 .. attribute:: pseudowire_address
                                 
                                 	keys\: pseudowire\-address
-                                	**type**\: list of :py:class:`PseudowireAddress <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress>`
+                                	**type**\: list of :py:class:`PseudowireAddress <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress>`
                                 
                                 
 
@@ -15178,7 +13631,7 @@ class L2vpn(object):
                                     .. attribute:: backup_pseudowires
                                     
                                     	List of pseudowires
-                                    	**type**\: :py:class:`BackupPseudowires <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires>`
+                                    	**type**\: :py:class:`BackupPseudowires <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires>`
                                     
                                     .. attribute:: bandwidth
                                     
@@ -15197,17 +13650,17 @@ class L2vpn(object):
                                     .. attribute:: l2tp_static
                                     
                                     	Pseudowire L2TPv3 static configuration
-                                    	**type**\: :py:class:`L2tpStatic <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStatic>`
+                                    	**type**\: :py:class:`L2TpStatic <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStatic>`
                                     
                                     .. attribute:: l2tp_static_attributes
                                     
                                     	L2TP Static Attributes
-                                    	**type**\: :py:class:`L2tpStaticAttributes <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes>`
+                                    	**type**\: :py:class:`L2TpStaticAttributes <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes>`
                                     
                                     .. attribute:: mpls_static_labels
                                     
                                     	MPLS static labels
-                                    	**type**\: :py:class:`MplsStaticLabels <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels>`
+                                    	**type**\: :py:class:`MplsStaticLabels <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels>`
                                     
                                     .. attribute:: source_address
                                     
@@ -15231,15 +13684,15 @@ class L2vpn(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.neighbor = None
-                                        self.backup_pseudowires = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires()
+                                        self.backup_pseudowires = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires()
                                         self.backup_pseudowires.parent = self
                                         self.bandwidth = None
                                         self.class_ = None
-                                        self.l2tp_static = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStatic()
+                                        self.l2tp_static = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStatic()
                                         self.l2tp_static.parent = self
-                                        self.l2tp_static_attributes = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes()
+                                        self.l2tp_static_attributes = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes()
                                         self.l2tp_static_attributes.parent = self
-                                        self.mpls_static_labels = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels()
+                                        self.mpls_static_labels = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels()
                                         self.mpls_static_labels.parent = self
                                         self.source_address = None
                                         self.tag_impose = None
@@ -15252,7 +13705,7 @@ class L2vpn(object):
                                         .. attribute:: backup_pseudowire
                                         
                                         	Backup pseudowire for the cross connect
-                                        	**type**\: list of :py:class:`BackupPseudowire <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire>`
+                                        	**type**\: list of :py:class:`BackupPseudowire <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire>`
                                         
                                         
 
@@ -15289,7 +13742,7 @@ class L2vpn(object):
                                             .. attribute:: backup_mpls_static_labels
                                             
                                             	MPLS static labels
-                                            	**type**\: :py:class:`BackupMplsStaticLabels <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels>`
+                                            	**type**\: :py:class:`BackupMplsStaticLabels <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels>`
                                             
                                             .. attribute:: backup_pw_class
                                             
@@ -15309,7 +13762,7 @@ class L2vpn(object):
                                                 self.parent = None
                                                 self.neighbor = None
                                                 self.pseudowire_id = None
-                                                self.backup_mpls_static_labels = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels()
+                                                self.backup_mpls_static_labels = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels()
                                                 self.backup_mpls_static_labels.parent = self
                                                 self.backup_pw_class = None
 
@@ -15358,8 +13811,6 @@ class L2vpn(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.local_static_label is not None:
                                                         return True
 
@@ -15368,14 +13819,10 @@ class L2vpn(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels']['meta_info']
+                                                    return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels']['meta_info']
 
                                             @property
                                             def _common_path(self):
@@ -15395,8 +13842,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.neighbor is not None:
                                                     return True
 
@@ -15406,22 +13851,15 @@ class L2vpn(object):
                                                 if self.backup_mpls_static_labels is not None and self.backup_mpls_static_labels._has_data():
                                                     return True
 
-                                                if self.backup_mpls_static_labels is not None and self.backup_mpls_static_labels.is_presence():
-                                                    return True
-
                                                 if self.backup_pw_class is not None:
                                                     return True
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -15437,8 +13875,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.backup_pseudowire is not None:
                                                 for child_ref in self.backup_pseudowire:
                                                     if child_ref._has_data():
@@ -15446,17 +13882,13 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires']['meta_info']
 
 
-                                    class L2tpStatic(object):
+                                    class L2TpStatic(object):
                                         """
                                         Pseudowire L2TPv3 static configuration
                                         
@@ -15490,31 +13922,25 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.enable is not None:
                                                 return True
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStatic']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStatic']['meta_info']
 
 
-                                    class L2tpStaticAttributes(object):
+                                    class L2TpStaticAttributes(object):
                                         """
                                         L2TP Static Attributes
                                         
                                         .. attribute:: l2tp_local_cookie
                                         
                                         	L2TP local cookie
-                                        	**type**\: :py:class:`L2tpLocalCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpLocalCookie>`
+                                        	**type**\: :py:class:`L2TpLocalCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpLocalCookie>`
                                         
                                         .. attribute:: l2tp_local_session_id
                                         
@@ -15526,7 +13952,7 @@ class L2vpn(object):
                                         .. attribute:: l2tp_remote_cookie
                                         
                                         	L2TP remote cookie
-                                        	**type**\: :py:class:`L2tpRemoteCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpRemoteCookie>`
+                                        	**type**\: :py:class:`L2TpRemoteCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpRemoteCookie>`
                                         
                                         .. attribute:: l2tp_remote_session_id
                                         
@@ -15538,7 +13964,7 @@ class L2vpn(object):
                                         .. attribute:: l2tp_secondary_local_cookie
                                         
                                         	L2TP secondary local cookie
-                                        	**type**\: :py:class:`L2tpSecondaryLocalCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpSecondaryLocalCookie>`
+                                        	**type**\: :py:class:`L2TpSecondaryLocalCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpSecondaryLocalCookie>`
                                         
                                         
 
@@ -15549,17 +13975,17 @@ class L2vpn(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.l2tp_local_cookie = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpLocalCookie()
+                                            self.l2tp_local_cookie = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpLocalCookie()
                                             self.l2tp_local_cookie.parent = self
                                             self.l2tp_local_session_id = None
-                                            self.l2tp_remote_cookie = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpRemoteCookie()
+                                            self.l2tp_remote_cookie = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpRemoteCookie()
                                             self.l2tp_remote_cookie.parent = self
                                             self.l2tp_remote_session_id = None
-                                            self.l2tp_secondary_local_cookie = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpSecondaryLocalCookie()
+                                            self.l2tp_secondary_local_cookie = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpSecondaryLocalCookie()
                                             self.l2tp_secondary_local_cookie.parent = self
 
 
-                                        class L2tpLocalCookie(object):
+                                        class L2TpLocalCookie(object):
                                             """
                                             L2TP local cookie
                                             
@@ -15580,7 +14006,7 @@ class L2vpn(object):
                                             .. attribute:: size
                                             
                                             	Local cookie size
-                                            	**type**\: :py:class:`L2tpCookieSize_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2tpCookieSize_Enum>`
+                                            	**type**\: :py:class:`L2TpCookieSizeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
                                             
                                             
 
@@ -15609,8 +14035,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.higher_value is not None:
                                                     return True
 
@@ -15622,17 +14046,13 @@ class L2vpn(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpLocalCookie']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpLocalCookie']['meta_info']
 
 
-                                        class L2tpRemoteCookie(object):
+                                        class L2TpRemoteCookie(object):
                                             """
                                             L2TP remote cookie
                                             
@@ -15653,7 +14073,7 @@ class L2vpn(object):
                                             .. attribute:: size
                                             
                                             	Remote cookie size
-                                            	**type**\: :py:class:`L2tpCookieSize_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2tpCookieSize_Enum>`
+                                            	**type**\: :py:class:`L2TpCookieSizeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
                                             
                                             
 
@@ -15682,8 +14102,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.higher_value is not None:
                                                     return True
 
@@ -15695,17 +14113,13 @@ class L2vpn(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpRemoteCookie']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpRemoteCookie']['meta_info']
 
 
-                                        class L2tpSecondaryLocalCookie(object):
+                                        class L2TpSecondaryLocalCookie(object):
                                             """
                                             L2TP secondary local cookie
                                             
@@ -15726,7 +14140,7 @@ class L2vpn(object):
                                             .. attribute:: size
                                             
                                             	Local cookie size
-                                            	**type**\: :py:class:`L2tpCookieSize_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2tpCookieSize_Enum>`
+                                            	**type**\: :py:class:`L2TpCookieSizeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
                                             
                                             
 
@@ -15755,8 +14169,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.higher_value is not None:
                                                     return True
 
@@ -15768,14 +14180,10 @@ class L2vpn(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpSecondaryLocalCookie']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpSecondaryLocalCookie']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -15791,12 +14199,7 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.l2tp_local_cookie is not None and self.l2tp_local_cookie._has_data():
-                                                return True
-
-                                            if self.l2tp_local_cookie is not None and self.l2tp_local_cookie.is_presence():
                                                 return True
 
                                             if self.l2tp_local_session_id is not None:
@@ -15805,28 +14208,18 @@ class L2vpn(object):
                                             if self.l2tp_remote_cookie is not None and self.l2tp_remote_cookie._has_data():
                                                 return True
 
-                                            if self.l2tp_remote_cookie is not None and self.l2tp_remote_cookie.is_presence():
-                                                return True
-
                                             if self.l2tp_remote_session_id is not None:
                                                 return True
 
                                             if self.l2tp_secondary_local_cookie is not None and self.l2tp_secondary_local_cookie._has_data():
                                                 return True
 
-                                            if self.l2tp_secondary_local_cookie is not None and self.l2tp_secondary_local_cookie.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes']['meta_info']
 
 
                                     class MplsStaticLabels(object):
@@ -15873,8 +14266,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.local_static_label is not None:
                                                 return True
 
@@ -15883,14 +14274,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -15908,15 +14295,10 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.neighbor is not None:
                                             return True
 
                                         if self.backup_pseudowires is not None and self.backup_pseudowires._has_data():
-                                            return True
-
-                                        if self.backup_pseudowires is not None and self.backup_pseudowires.is_presence():
                                             return True
 
                                         if self.bandwidth is not None:
@@ -15928,19 +14310,10 @@ class L2vpn(object):
                                         if self.l2tp_static is not None and self.l2tp_static._has_data():
                                             return True
 
-                                        if self.l2tp_static is not None and self.l2tp_static.is_presence():
-                                            return True
-
                                         if self.l2tp_static_attributes is not None and self.l2tp_static_attributes._has_data():
                                             return True
 
-                                        if self.l2tp_static_attributes is not None and self.l2tp_static_attributes.is_presence():
-                                            return True
-
                                         if self.mpls_static_labels is not None and self.mpls_static_labels._has_data():
-                                            return True
-
-                                        if self.mpls_static_labels is not None and self.mpls_static_labels.is_presence():
                                             return True
 
                                         if self.source_address is not None:
@@ -15951,14 +14324,10 @@ class L2vpn(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor']['meta_info']
 
 
                                 class PseudowireAddress(object):
@@ -15975,7 +14344,7 @@ class L2vpn(object):
                                     .. attribute:: backup_pseudowires
                                     
                                     	List of pseudowires
-                                    	**type**\: :py:class:`BackupPseudowires <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires>`
+                                    	**type**\: :py:class:`BackupPseudowires <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires>`
                                     
                                     .. attribute:: bandwidth
                                     
@@ -15994,17 +14363,17 @@ class L2vpn(object):
                                     .. attribute:: l2tp_static
                                     
                                     	Pseudowire L2TPv3 static configuration
-                                    	**type**\: :py:class:`L2tpStatic <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStatic>`
+                                    	**type**\: :py:class:`L2TpStatic <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStatic>`
                                     
                                     .. attribute:: l2tp_static_attributes
                                     
                                     	L2TP Static Attributes
-                                    	**type**\: :py:class:`L2tpStaticAttributes <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes>`
+                                    	**type**\: :py:class:`L2TpStaticAttributes <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes>`
                                     
                                     .. attribute:: mpls_static_labels
                                     
                                     	MPLS static labels
-                                    	**type**\: :py:class:`MplsStaticLabels <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels>`
+                                    	**type**\: :py:class:`MplsStaticLabels <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels>`
                                     
                                     .. attribute:: source_address
                                     
@@ -16028,15 +14397,15 @@ class L2vpn(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.pseudowire_address = None
-                                        self.backup_pseudowires = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires()
+                                        self.backup_pseudowires = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires()
                                         self.backup_pseudowires.parent = self
                                         self.bandwidth = None
                                         self.class_ = None
-                                        self.l2tp_static = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStatic()
+                                        self.l2tp_static = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStatic()
                                         self.l2tp_static.parent = self
-                                        self.l2tp_static_attributes = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes()
+                                        self.l2tp_static_attributes = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes()
                                         self.l2tp_static_attributes.parent = self
-                                        self.mpls_static_labels = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels()
+                                        self.mpls_static_labels = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels()
                                         self.mpls_static_labels.parent = self
                                         self.source_address = None
                                         self.tag_impose = None
@@ -16049,7 +14418,7 @@ class L2vpn(object):
                                         .. attribute:: backup_pseudowire
                                         
                                         	Backup pseudowire for the cross connect
-                                        	**type**\: list of :py:class:`BackupPseudowire <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire>`
+                                        	**type**\: list of :py:class:`BackupPseudowire <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire>`
                                         
                                         
 
@@ -16086,7 +14455,7 @@ class L2vpn(object):
                                             .. attribute:: backup_mpls_static_labels
                                             
                                             	MPLS static labels
-                                            	**type**\: :py:class:`BackupMplsStaticLabels <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels>`
+                                            	**type**\: :py:class:`BackupMplsStaticLabels <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels>`
                                             
                                             .. attribute:: backup_pw_class
                                             
@@ -16106,7 +14475,7 @@ class L2vpn(object):
                                                 self.parent = None
                                                 self.neighbor = None
                                                 self.pseudowire_id = None
-                                                self.backup_mpls_static_labels = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels()
+                                                self.backup_mpls_static_labels = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels()
                                                 self.backup_mpls_static_labels.parent = self
                                                 self.backup_pw_class = None
 
@@ -16155,8 +14524,6 @@ class L2vpn(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.local_static_label is not None:
                                                         return True
 
@@ -16165,14 +14532,10 @@ class L2vpn(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels']['meta_info']
+                                                    return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels']['meta_info']
 
                                             @property
                                             def _common_path(self):
@@ -16192,8 +14555,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.neighbor is not None:
                                                     return True
 
@@ -16203,22 +14564,15 @@ class L2vpn(object):
                                                 if self.backup_mpls_static_labels is not None and self.backup_mpls_static_labels._has_data():
                                                     return True
 
-                                                if self.backup_mpls_static_labels is not None and self.backup_mpls_static_labels.is_presence():
-                                                    return True
-
                                                 if self.backup_pw_class is not None:
                                                     return True
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -16234,8 +14588,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.backup_pseudowire is not None:
                                                 for child_ref in self.backup_pseudowire:
                                                     if child_ref._has_data():
@@ -16243,17 +14595,13 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires']['meta_info']
 
 
-                                    class L2tpStatic(object):
+                                    class L2TpStatic(object):
                                         """
                                         Pseudowire L2TPv3 static configuration
                                         
@@ -16287,31 +14635,25 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.enable is not None:
                                                 return True
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStatic']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStatic']['meta_info']
 
 
-                                    class L2tpStaticAttributes(object):
+                                    class L2TpStaticAttributes(object):
                                         """
                                         L2TP Static Attributes
                                         
                                         .. attribute:: l2tp_local_cookie
                                         
                                         	L2TP local cookie
-                                        	**type**\: :py:class:`L2tpLocalCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpLocalCookie>`
+                                        	**type**\: :py:class:`L2TpLocalCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpLocalCookie>`
                                         
                                         .. attribute:: l2tp_local_session_id
                                         
@@ -16323,7 +14665,7 @@ class L2vpn(object):
                                         .. attribute:: l2tp_remote_cookie
                                         
                                         	L2TP remote cookie
-                                        	**type**\: :py:class:`L2tpRemoteCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpRemoteCookie>`
+                                        	**type**\: :py:class:`L2TpRemoteCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpRemoteCookie>`
                                         
                                         .. attribute:: l2tp_remote_session_id
                                         
@@ -16335,7 +14677,7 @@ class L2vpn(object):
                                         .. attribute:: l2tp_secondary_local_cookie
                                         
                                         	L2TP secondary local cookie
-                                        	**type**\: :py:class:`L2tpSecondaryLocalCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpSecondaryLocalCookie>`
+                                        	**type**\: :py:class:`L2TpSecondaryLocalCookie <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpSecondaryLocalCookie>`
                                         
                                         
 
@@ -16346,17 +14688,17 @@ class L2vpn(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.l2tp_local_cookie = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpLocalCookie()
+                                            self.l2tp_local_cookie = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpLocalCookie()
                                             self.l2tp_local_cookie.parent = self
                                             self.l2tp_local_session_id = None
-                                            self.l2tp_remote_cookie = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpRemoteCookie()
+                                            self.l2tp_remote_cookie = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpRemoteCookie()
                                             self.l2tp_remote_cookie.parent = self
                                             self.l2tp_remote_session_id = None
-                                            self.l2tp_secondary_local_cookie = L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpSecondaryLocalCookie()
+                                            self.l2tp_secondary_local_cookie = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpSecondaryLocalCookie()
                                             self.l2tp_secondary_local_cookie.parent = self
 
 
-                                        class L2tpLocalCookie(object):
+                                        class L2TpLocalCookie(object):
                                             """
                                             L2TP local cookie
                                             
@@ -16377,7 +14719,7 @@ class L2vpn(object):
                                             .. attribute:: size
                                             
                                             	Local cookie size
-                                            	**type**\: :py:class:`L2tpCookieSize_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2tpCookieSize_Enum>`
+                                            	**type**\: :py:class:`L2TpCookieSizeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
                                             
                                             
 
@@ -16406,8 +14748,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.higher_value is not None:
                                                     return True
 
@@ -16419,17 +14759,13 @@ class L2vpn(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpLocalCookie']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpLocalCookie']['meta_info']
 
 
-                                        class L2tpRemoteCookie(object):
+                                        class L2TpRemoteCookie(object):
                                             """
                                             L2TP remote cookie
                                             
@@ -16450,7 +14786,7 @@ class L2vpn(object):
                                             .. attribute:: size
                                             
                                             	Remote cookie size
-                                            	**type**\: :py:class:`L2tpCookieSize_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2tpCookieSize_Enum>`
+                                            	**type**\: :py:class:`L2TpCookieSizeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
                                             
                                             
 
@@ -16479,8 +14815,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.higher_value is not None:
                                                     return True
 
@@ -16492,17 +14826,13 @@ class L2vpn(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpRemoteCookie']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpRemoteCookie']['meta_info']
 
 
-                                        class L2tpSecondaryLocalCookie(object):
+                                        class L2TpSecondaryLocalCookie(object):
                                             """
                                             L2TP secondary local cookie
                                             
@@ -16523,7 +14853,7 @@ class L2vpn(object):
                                             .. attribute:: size
                                             
                                             	Local cookie size
-                                            	**type**\: :py:class:`L2tpCookieSize_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2tpCookieSize_Enum>`
+                                            	**type**\: :py:class:`L2TpCookieSizeEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
                                             
                                             
 
@@ -16552,8 +14882,6 @@ class L2vpn(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.higher_value is not None:
                                                     return True
 
@@ -16565,14 +14893,10 @@ class L2vpn(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpSecondaryLocalCookie']['meta_info']
+                                                return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpSecondaryLocalCookie']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -16588,12 +14912,7 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.l2tp_local_cookie is not None and self.l2tp_local_cookie._has_data():
-                                                return True
-
-                                            if self.l2tp_local_cookie is not None and self.l2tp_local_cookie.is_presence():
                                                 return True
 
                                             if self.l2tp_local_session_id is not None:
@@ -16602,28 +14921,18 @@ class L2vpn(object):
                                             if self.l2tp_remote_cookie is not None and self.l2tp_remote_cookie._has_data():
                                                 return True
 
-                                            if self.l2tp_remote_cookie is not None and self.l2tp_remote_cookie.is_presence():
-                                                return True
-
                                             if self.l2tp_remote_session_id is not None:
                                                 return True
 
                                             if self.l2tp_secondary_local_cookie is not None and self.l2tp_secondary_local_cookie._has_data():
                                                 return True
 
-                                            if self.l2tp_secondary_local_cookie is not None and self.l2tp_secondary_local_cookie.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes']['meta_info']
 
 
                                     class MplsStaticLabels(object):
@@ -16670,8 +14979,6 @@ class L2vpn(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.local_static_label is not None:
                                                 return True
 
@@ -16680,14 +14987,10 @@ class L2vpn(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels']['meta_info']
+                                            return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -16705,15 +15008,10 @@ class L2vpn(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.pseudowire_address is not None:
                                             return True
 
                                         if self.backup_pseudowires is not None and self.backup_pseudowires._has_data():
-                                            return True
-
-                                        if self.backup_pseudowires is not None and self.backup_pseudowires.is_presence():
                                             return True
 
                                         if self.bandwidth is not None:
@@ -16725,19 +15023,10 @@ class L2vpn(object):
                                         if self.l2tp_static is not None and self.l2tp_static._has_data():
                                             return True
 
-                                        if self.l2tp_static is not None and self.l2tp_static.is_presence():
-                                            return True
-
                                         if self.l2tp_static_attributes is not None and self.l2tp_static_attributes._has_data():
                                             return True
 
-                                        if self.l2tp_static_attributes is not None and self.l2tp_static_attributes.is_presence():
-                                            return True
-
                                         if self.mpls_static_labels is not None and self.mpls_static_labels._has_data():
-                                            return True
-
-                                        if self.mpls_static_labels is not None and self.mpls_static_labels.is_presence():
                                             return True
 
                                         if self.source_address is not None:
@@ -16748,14 +15037,10 @@ class L2vpn(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                        return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress']['meta_info']
+                                        return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -16773,8 +15058,6 @@ class L2vpn(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.pseudowire_id is not None:
                                         return True
 
@@ -16790,14 +15073,10 @@ class L2vpn(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire']['meta_info']
+                                    return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -16813,8 +15092,6 @@ class L2vpn(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.pseudowire is not None:
                                     for child_ref in self.pseudowire:
                                         if child_ref._has_data():
@@ -16822,14 +15099,10 @@ class L2vpn(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -16847,21 +15120,13 @@ class L2vpn(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.name is not None:
                                 return True
 
                             if self.attachment_circuits is not None and self.attachment_circuits._has_data():
                                 return True
 
-                            if self.attachment_circuits is not None and self.attachment_circuits.is_presence():
-                                return True
-
                             if self.backup_attachment_circuits is not None and self.backup_attachment_circuits._has_data():
-                                return True
-
-                            if self.backup_attachment_circuits is not None and self.backup_attachment_circuits.is_presence():
                                 return True
 
                             if self.interworking is not None:
@@ -16870,40 +15135,24 @@ class L2vpn(object):
                             if self.monitor_sessions is not None and self.monitor_sessions._has_data():
                                 return True
 
-                            if self.monitor_sessions is not None and self.monitor_sessions.is_presence():
-                                return True
-
                             if self.p2p_description is not None:
                                 return True
 
                             if self.pseudowire_evpns is not None and self.pseudowire_evpns._has_data():
                                 return True
 
-                            if self.pseudowire_evpns is not None and self.pseudowire_evpns.is_presence():
-                                return True
-
                             if self.pseudowire_routeds is not None and self.pseudowire_routeds._has_data():
-                                return True
-
-                            if self.pseudowire_routeds is not None and self.pseudowire_routeds.is_presence():
                                 return True
 
                             if self.pseudowires is not None and self.pseudowires._has_data():
                                 return True
 
-                            if self.pseudowires is not None and self.pseudowires.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                            return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect']['meta_info']
+                            return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -16919,8 +15168,6 @@ class L2vpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.p2p_xconnect is not None:
                             for child_ref in self.p2p_xconnect:
                                 if child_ref._has_data():
@@ -16928,14 +15175,10 @@ class L2vpn(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                        return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects']['meta_info']
+                        return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -16951,33 +15194,21 @@ class L2vpn(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.name is not None:
                         return True
 
                     if self.mp2mp_xconnects is not None and self.mp2mp_xconnects._has_data():
                         return True
 
-                    if self.mp2mp_xconnects is not None and self.mp2mp_xconnects.is_presence():
-                        return True
-
                     if self.p2p_xconnects is not None and self.p2p_xconnects._has_data():
                         return True
 
-                    if self.p2p_xconnects is not None and self.p2p_xconnects.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                    return meta._meta_table['L2vpn.Database.XconnectGroups.XconnectGroup']['meta_info']
+                    return meta._meta_table['L2Vpn.Database.XconnectGroups.XconnectGroup']['meta_info']
 
             @property
             def _common_path(self):
@@ -16991,8 +15222,6 @@ class L2vpn(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.xconnect_group is not None:
                     for child_ref in self.xconnect_group:
                         if child_ref._has_data():
@@ -17000,14 +15229,10 @@ class L2vpn(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                return meta._meta_table['L2vpn.Database.XconnectGroups']['meta_info']
+                return meta._meta_table['L2Vpn.Database.XconnectGroups']['meta_info']
 
         @property
         def _common_path(self):
@@ -17021,48 +15246,27 @@ class L2vpn(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.bridge_domain_groups is not None and self.bridge_domain_groups._has_data():
-                return True
-
-            if self.bridge_domain_groups is not None and self.bridge_domain_groups.is_presence():
                 return True
 
             if self.g8032_rings is not None and self.g8032_rings._has_data():
                 return True
 
-            if self.g8032_rings is not None and self.g8032_rings.is_presence():
-                return True
-
             if self.pseudowire_classes is not None and self.pseudowire_classes._has_data():
-                return True
-
-            if self.pseudowire_classes is not None and self.pseudowire_classes.is_presence():
                 return True
 
             if self.redundancy is not None and self.redundancy._has_data():
                 return True
 
-            if self.redundancy is not None and self.redundancy.is_presence():
-                return True
-
             if self.xconnect_groups is not None and self.xconnect_groups._has_data():
                 return True
 
-            if self.xconnect_groups is not None and self.xconnect_groups.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
         def _meta_info():
             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-            return meta._meta_table['L2vpn.Database']['meta_info']
+            return meta._meta_table['L2Vpn.Database']['meta_info']
 
 
     class Neighbor(object):
@@ -17097,21 +15301,15 @@ class L2vpn(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.ldp_flap is not None:
                 return True
 
             return False
 
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return False
-
         @staticmethod
         def _meta_info():
             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-            return meta._meta_table['L2vpn.Neighbor']['meta_info']
+            return meta._meta_table['L2Vpn.Neighbor']['meta_info']
 
 
     class Pbb(object):
@@ -17148,21 +15346,15 @@ class L2vpn(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.backbone_source_mac is not None:
                 return True
 
             return False
 
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return False
-
         @staticmethod
         def _meta_info():
             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-            return meta._meta_table['L2vpn.Pbb']['meta_info']
+            return meta._meta_table['L2Vpn.Pbb']['meta_info']
 
 
     class PwRouting(object):
@@ -17172,7 +15364,7 @@ class L2vpn(object):
         .. attribute:: pw_routing_bgp
         
         	Enable Autodiscovery BGP Pseudowire\-routing BGP
-        	**type**\: :py:class:`PwRoutingBgp <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.PwRouting.PwRoutingBgp>`
+        	**type**\: :py:class:`PwRoutingBgp <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.PwRouting.PwRoutingBgp>`
         
         .. attribute:: pw_routing_global_id
         
@@ -17190,7 +15382,7 @@ class L2vpn(object):
 
         def __init__(self):
             self.parent = None
-            self.pw_routing_bgp = L2vpn.PwRouting.PwRoutingBgp()
+            self.pw_routing_bgp = L2Vpn.PwRouting.PwRoutingBgp()
             self.pw_routing_bgp.parent = self
             self.pw_routing_global_id = None
 
@@ -17207,7 +15399,7 @@ class L2vpn(object):
             .. attribute:: evpn_route_distinguisher
             
             	Route Distinguisher
-            	**type**\: :py:class:`EvpnRouteDistinguisher <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher>`
+            	**type**\: :py:class:`EvpnRouteDistinguisher <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher>`
             
             
 
@@ -17219,7 +15411,7 @@ class L2vpn(object):
             def __init__(self):
                 self.parent = None
                 self.enable = None
-                self.evpn_route_distinguisher = L2vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher()
+                self.evpn_route_distinguisher = L2Vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher()
                 self.evpn_route_distinguisher.parent = self
 
 
@@ -17258,7 +15450,7 @@ class L2vpn(object):
                 .. attribute:: type
                 
                 	Router Distinguisher Type
-                	**type**\: :py:class:`BgpRouteDistinguisher_Enum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisher_Enum>`
+                	**type**\: :py:class:`BgpRouteDistinguisherEnum <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
                 
                 
 
@@ -17287,8 +15479,6 @@ class L2vpn(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.addr_index is not None:
                         return True
 
@@ -17306,14 +15496,10 @@ class L2vpn(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                    return meta._meta_table['L2vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher']['meta_info']
+                    return meta._meta_table['L2Vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher']['meta_info']
 
             @property
             def _common_path(self):
@@ -17327,27 +15513,18 @@ class L2vpn(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
                 if self.evpn_route_distinguisher is not None and self.evpn_route_distinguisher._has_data():
                     return True
 
-                if self.evpn_route_distinguisher is not None and self.evpn_route_distinguisher.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
             def _meta_info():
                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                return meta._meta_table['L2vpn.PwRouting.PwRoutingBgp']['meta_info']
+                return meta._meta_table['L2Vpn.PwRouting.PwRoutingBgp']['meta_info']
 
         @property
         def _common_path(self):
@@ -17361,12 +15538,7 @@ class L2vpn(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.pw_routing_bgp is not None and self.pw_routing_bgp._has_data():
-                return True
-
-            if self.pw_routing_bgp is not None and self.pw_routing_bgp.is_presence():
                 return True
 
             if self.pw_routing_global_id is not None:
@@ -17374,14 +15546,10 @@ class L2vpn(object):
 
             return False
 
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return False
-
         @staticmethod
         def _meta_info():
             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-            return meta._meta_table['L2vpn.PwRouting']['meta_info']
+            return meta._meta_table['L2Vpn.PwRouting']['meta_info']
 
 
     class Snmp(object):
@@ -17391,7 +15559,7 @@ class L2vpn(object):
         .. attribute:: mib
         
         	MIB related configuration
-        	**type**\: :py:class:`Mib <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Snmp.Mib>`
+        	**type**\: :py:class:`Mib <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Snmp.Mib>`
         
         
 
@@ -17402,7 +15570,7 @@ class L2vpn(object):
 
         def __init__(self):
             self.parent = None
-            self.mib = L2vpn.Snmp.Mib()
+            self.mib = L2Vpn.Snmp.Mib()
             self.mib.parent = self
 
 
@@ -17413,7 +15581,7 @@ class L2vpn(object):
             .. attribute:: mib_interface
             
             	Interface related configuration for MIB
-            	**type**\: :py:class:`MibInterface <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Snmp.Mib.MibInterface>`
+            	**type**\: :py:class:`MibInterface <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Snmp.Mib.MibInterface>`
             
             
 
@@ -17424,7 +15592,7 @@ class L2vpn(object):
 
             def __init__(self):
                 self.parent = None
-                self.mib_interface = L2vpn.Snmp.Mib.MibInterface()
+                self.mib_interface = L2Vpn.Snmp.Mib.MibInterface()
                 self.mib_interface.parent = self
 
 
@@ -17435,7 +15603,7 @@ class L2vpn(object):
                 .. attribute:: format
                 
                 	MIB interface name output format
-                	**type**\: :py:class:`Format <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Snmp.Mib.MibInterface.Format>`
+                	**type**\: :py:class:`Format <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Snmp.Mib.MibInterface.Format>`
                 
                 
 
@@ -17446,7 +15614,7 @@ class L2vpn(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.format = L2vpn.Snmp.Mib.MibInterface.Format()
+                    self.format = L2Vpn.Snmp.Mib.MibInterface.Format()
                     self.format.parent = self
 
 
@@ -17482,21 +15650,15 @@ class L2vpn(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.external_interface_format is not None:
                             return True
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                        return meta._meta_table['L2vpn.Snmp.Mib.MibInterface.Format']['meta_info']
+                        return meta._meta_table['L2Vpn.Snmp.Mib.MibInterface.Format']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -17510,24 +15672,15 @@ class L2vpn(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.format is not None and self.format._has_data():
                         return True
 
-                    if self.format is not None and self.format.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                    return meta._meta_table['L2vpn.Snmp.Mib.MibInterface']['meta_info']
+                    return meta._meta_table['L2Vpn.Snmp.Mib.MibInterface']['meta_info']
 
             @property
             def _common_path(self):
@@ -17541,24 +15694,15 @@ class L2vpn(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.mib_interface is not None and self.mib_interface._has_data():
                     return True
 
-                if self.mib_interface is not None and self.mib_interface.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
             def _meta_info():
                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                return meta._meta_table['L2vpn.Snmp.Mib']['meta_info']
+                return meta._meta_table['L2Vpn.Snmp.Mib']['meta_info']
 
         @property
         def _common_path(self):
@@ -17572,24 +15716,15 @@ class L2vpn(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.mib is not None and self.mib._has_data():
                 return True
 
-            if self.mib is not None and self.mib.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
         def _meta_info():
             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-            return meta._meta_table['L2vpn.Snmp']['meta_info']
+            return meta._meta_table['L2Vpn.Snmp']['meta_info']
 
 
     class Utility(object):
@@ -17599,7 +15734,7 @@ class L2vpn(object):
         .. attribute:: logging
         
         	L2VPN logging utility
-        	**type**\: :py:class:`Logging <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Utility.Logging>`
+        	**type**\: :py:class:`Logging <ydk.models.l2vpn.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Utility.Logging>`
         
         
 
@@ -17610,7 +15745,7 @@ class L2vpn(object):
 
         def __init__(self):
             self.parent = None
-            self.logging = L2vpn.Utility.Logging()
+            self.logging = L2Vpn.Utility.Logging()
             self.logging.parent = self
 
 
@@ -17670,8 +15805,6 @@ class L2vpn(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.bridge_domain_state_change is not None:
                     return True
 
@@ -17689,14 +15822,10 @@ class L2vpn(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                return meta._meta_table['L2vpn.Utility.Logging']['meta_info']
+                return meta._meta_table['L2Vpn.Utility.Logging']['meta_info']
 
         @property
         def _common_path(self):
@@ -17710,24 +15839,15 @@ class L2vpn(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.logging is not None and self.logging._has_data():
                 return True
 
-            if self.logging is not None and self.logging.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
         def _meta_info():
             from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-            return meta._meta_table['L2vpn.Utility']['meta_info']
+            return meta._meta_table['L2Vpn.Utility']['meta_info']
 
     @property
     def _common_path(self):
@@ -17741,21 +15861,13 @@ class L2vpn(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.auto_discovery is not None and self.auto_discovery._has_data():
-            return True
-
-        if self.auto_discovery is not None and self.auto_discovery.is_presence():
             return True
 
         if self.capability is not None:
             return True
 
         if self.database is not None and self.database._has_data():
-            return True
-
-        if self.database is not None and self.database.is_presence():
             return True
 
         if self.enable is not None:
@@ -17776,25 +15888,16 @@ class L2vpn(object):
         if self.neighbor is not None and self.neighbor._has_data():
             return True
 
-        if self.neighbor is not None and self.neighbor.is_presence():
-            return True
-
         if self.nsr is not None:
             return True
 
         if self.pbb is not None and self.pbb._has_data():
             return True
 
-        if self.pbb is not None and self.pbb.is_presence():
-            return True
-
         if self.pw_grouping is not None:
             return True
 
         if self.pw_routing is not None and self.pw_routing._has_data():
-            return True
-
-        if self.pw_routing is not None and self.pw_routing.is_presence():
             return True
 
         if self.pw_status_disable is not None:
@@ -17806,27 +15909,17 @@ class L2vpn(object):
         if self.snmp is not None and self.snmp._has_data():
             return True
 
-        if self.snmp is not None and self.snmp.is_presence():
-            return True
-
         if self.tcn_propagation is not None:
             return True
 
         if self.utility is not None and self.utility._has_data():
             return True
 
-        if self.utility is not None and self.utility.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2vpn._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-        return meta._meta_table['L2vpn']['meta_info']
+        return meta._meta_table['L2Vpn']['meta_info']
 
 

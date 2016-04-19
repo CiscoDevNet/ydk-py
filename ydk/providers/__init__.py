@@ -22,6 +22,7 @@
 import logging
 from .provider import ServiceProvider
 from .netconf_provider import NetconfServiceProvider
+from .codec_provider import CodecServiceProvider
 
 
 logging.getLogger('ydk').addHandler(logging.NullHandler())

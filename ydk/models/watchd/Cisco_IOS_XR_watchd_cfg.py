@@ -64,15 +64,9 @@ class Watchd(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.timeout is not None:
             return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -178,8 +172,6 @@ class Watchdog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.critical is not None:
                 return True
 
@@ -189,10 +181,6 @@ class Watchdog(object):
             if self.severe is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -212,8 +200,6 @@ class Watchdog(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.overload_notification is not None:
             return True
 
@@ -229,13 +215,6 @@ class Watchdog(object):
         if self.threshold_memory is not None and self.threshold_memory._has_data():
             return True
 
-        if self.threshold_memory is not None and self.threshold_memory.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

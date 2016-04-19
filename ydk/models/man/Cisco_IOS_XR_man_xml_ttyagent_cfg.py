@@ -186,15 +186,9 @@ class XrXml(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.timeout is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -245,18 +239,12 @@ class XrXml(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.memory is not None:
                         return True
 
                     if self.process_rate is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -354,8 +342,6 @@ class XrXml(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.vrf_name is not None:
                             return True
 
@@ -371,10 +357,6 @@ class XrXml(object):
                         if self.shutdown is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -394,17 +376,11 @@ class XrXml(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.vrf is not None:
                         for child_ref in self.vrf:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -424,8 +400,6 @@ class XrXml(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
@@ -441,28 +415,15 @@ class XrXml(object):
                 if self.session is not None and self.session._has_data():
                     return True
 
-                if self.session is not None and self.session.is_presence():
-                    return True
-
                 if self.streaming_size is not None:
                     return True
 
                 if self.throttle is not None and self.throttle._has_data():
                     return True
 
-                if self.throttle is not None and self.throttle.is_presence():
-                    return True
-
                 if self.vrfs is not None and self.vrfs._has_data():
                     return True
 
-                if self.vrfs is not None and self.vrfs.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -563,15 +524,9 @@ class XrXml(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.timeout is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -622,18 +577,12 @@ class XrXml(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.memory is not None:
                         return True
 
                     if self.process_rate is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -731,8 +680,6 @@ class XrXml(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.vrf_name is not None:
                             return True
 
@@ -748,10 +695,6 @@ class XrXml(object):
                         if self.shutdown is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -771,17 +714,11 @@ class XrXml(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.vrf is not None:
                         for child_ref in self.vrf:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -801,8 +738,6 @@ class XrXml(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
@@ -812,28 +747,15 @@ class XrXml(object):
                 if self.session is not None and self.session._has_data():
                     return True
 
-                if self.session is not None and self.session.is_presence():
-                    return True
-
                 if self.streaming_size is not None:
                     return True
 
                 if self.throttle is not None and self.throttle._has_data():
                     return True
 
-                if self.throttle is not None and self.throttle.is_presence():
-                    return True
-
                 if self.vrfs is not None and self.vrfs._has_data():
                     return True
 
-                if self.vrfs is not None and self.vrfs.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -927,15 +849,9 @@ class XrXml(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.timeout is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -986,18 +902,12 @@ class XrXml(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.memory is not None:
                         return True
 
                     if self.process_rate is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1017,8 +927,6 @@ class XrXml(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
@@ -1028,22 +936,12 @@ class XrXml(object):
                 if self.session is not None and self.session._has_data():
                     return True
 
-                if self.session is not None and self.session.is_presence():
-                    return True
-
                 if self.streaming_size is not None:
                     return True
 
                 if self.throttle is not None and self.throttle._has_data():
                     return True
 
-                if self.throttle is not None and self.throttle.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1063,30 +961,15 @@ class XrXml(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.default is not None and self.default._has_data():
-                return True
-
-            if self.default is not None and self.default.is_presence():
                 return True
 
             if self.ssl is not None and self.ssl._has_data():
                 return True
 
-            if self.ssl is not None and self.ssl.is_presence():
-                return True
-
             if self.tty is not None and self.tty._has_data():
                 return True
 
-            if self.tty is not None and self.tty.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1106,18 +989,9 @@ class XrXml(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.agent is not None and self.agent._has_data():
             return True
 
-        if self.agent is not None and self.agent.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

@@ -68,36 +68,35 @@ from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYDataValidationError
 
 
-from ydk.models.policy.policy_types import MatchSetOptionsRestrictedType_Enum
+from ydk.models.policy.policy_types import MatchSetOptionsRestrictedTypeEnum
 
-class DefaultPolicyType_Enum(Enum):
+class DefaultPolicyTypeEnum(Enum):
     """
-    DefaultPolicyType_Enum
+    DefaultPolicyTypeEnum
 
     type used to specify default route disposition in
+
     a policy chain
 
-    """
+    .. data:: ACCEPT_ROUTE = 0
+
+    	default policy to accept the route
+
+    .. data:: REJECT_ROUTE = 1
+
+    	default policy to reject the route
 
     """
 
-    default policy to accept the route
-
-    """
     ACCEPT_ROUTE = 0
 
-    """
-
-    default policy to reject the route
-
-    """
     REJECT_ROUTE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.routing._meta import _routing_policy as meta
-        return meta._meta_table['DefaultPolicyType_Enum']
+        return meta._meta_table['DefaultPolicyTypeEnum']
 
 
 
@@ -254,15 +253,9 @@ class RoutingPolicy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -284,8 +277,6 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.neighbor_set_name is not None:
                         return True
 
@@ -294,10 +285,6 @@ class RoutingPolicy(object):
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -317,17 +304,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.neighbor_set is not None:
                     for child_ref in self.neighbor_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -434,18 +415,12 @@ class RoutingPolicy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ip_prefix is not None:
                             return True
 
                         if self.masklength_range is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -467,8 +442,6 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.prefix_set_name is not None:
                         return True
 
@@ -477,10 +450,6 @@ class RoutingPolicy(object):
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -500,17 +469,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.prefix_set is not None:
                     for child_ref in self.prefix_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -607,15 +570,9 @@ class RoutingPolicy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.value is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -637,8 +594,6 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.tag_set_name is not None:
                         return True
 
@@ -647,10 +602,6 @@ class RoutingPolicy(object):
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -670,17 +621,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.tag_set is not None:
                     for child_ref in self.tag_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -700,30 +645,15 @@ class RoutingPolicy(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.neighbor_sets is not None and self.neighbor_sets._has_data():
-                return True
-
-            if self.neighbor_sets is not None and self.neighbor_sets.is_presence():
                 return True
 
             if self.prefix_sets is not None and self.prefix_sets._has_data():
                 return True
 
-            if self.prefix_sets is not None and self.prefix_sets.is_presence():
-                return True
-
             if self.tag_sets is not None and self.tag_sets._has_data():
                 return True
 
-            if self.tag_sets is not None and self.tag_sets.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -918,15 +848,9 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.set_tag is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -948,24 +872,15 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.accept_route is not None:
                                 return True
 
                             if self.igp_actions is not None and self.igp_actions._has_data():
                                 return True
 
-                            if self.igp_actions is not None and self.igp_actions.is_presence():
-                                return True
-
                             if self.reject_route is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1040,7 +955,6 @@ class RoutingPolicy(object):
 
                             def __init__(self):
                                 self.parent = None
-                                pass
 
                             @property
                             def _common_path(self):
@@ -1056,12 +970,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1078,12 +986,22 @@ class RoutingPolicy(object):
                             .. attribute:: match_set_options
                             
                             	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
-                            	**type**\: :py:class:`MatchSetOptionsRestrictedType_Enum <ydk.models.policy.policy_types.MatchSetOptionsRestrictedType_Enum>`
+                            	**type**\: :py:class:`MatchSetOptionsRestrictedTypeEnum <ydk.models.policy.policy_types.MatchSetOptionsRestrictedTypeEnum>`
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             .. attribute:: neighbor_set
                             
                             	References a defined neighbor set
                             	**type**\: str
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -1113,8 +1031,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.match_set_options is not None:
                                     return True
 
@@ -1122,10 +1038,6 @@ class RoutingPolicy(object):
                                     return True
 
                                 return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
 
                             @staticmethod
                             def _meta_info():
@@ -1141,12 +1053,22 @@ class RoutingPolicy(object):
                             .. attribute:: match_set_options
                             
                             	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
-                            	**type**\: :py:class:`MatchSetOptionsRestrictedType_Enum <ydk.models.policy.policy_types.MatchSetOptionsRestrictedType_Enum>`
+                            	**type**\: :py:class:`MatchSetOptionsRestrictedTypeEnum <ydk.models.policy.policy_types.MatchSetOptionsRestrictedTypeEnum>`
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             .. attribute:: prefix_set
                             
                             	References a defined prefix set
                             	**type**\: str
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -1176,8 +1098,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.match_set_options is not None:
                                     return True
 
@@ -1185,10 +1105,6 @@ class RoutingPolicy(object):
                                     return True
 
                                 return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
 
                             @staticmethod
                             def _meta_info():
@@ -1204,12 +1120,22 @@ class RoutingPolicy(object):
                             .. attribute:: match_set_options
                             
                             	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
-                            	**type**\: :py:class:`MatchSetOptionsRestrictedType_Enum <ydk.models.policy.policy_types.MatchSetOptionsRestrictedType_Enum>`
+                            	**type**\: :py:class:`MatchSetOptionsRestrictedTypeEnum <ydk.models.policy.policy_types.MatchSetOptionsRestrictedTypeEnum>`
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             .. attribute:: tag_set
                             
                             	References a defined tag set
                             	**type**\: str
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -1239,8 +1165,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.match_set_options is not None:
                                     return True
 
@@ -1248,10 +1172,6 @@ class RoutingPolicy(object):
                                     return True
 
                                 return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
 
                             @staticmethod
                             def _meta_info():
@@ -1272,15 +1192,10 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.call_policy is not None:
                                 return True
 
                             if self.igp_conditions is not None and self.igp_conditions._has_data():
-                                return True
-
-                            if self.igp_conditions is not None and self.igp_conditions.is_presence():
                                 return True
 
                             if self.install_protocol_eq is not None:
@@ -1289,25 +1204,12 @@ class RoutingPolicy(object):
                             if self.match_neighbor_set is not None and self.match_neighbor_set._has_data():
                                 return True
 
-                            if self.match_neighbor_set is not None and self.match_neighbor_set.is_presence():
-                                return True
-
                             if self.match_prefix_set is not None and self.match_prefix_set._has_data():
-                                return True
-
-                            if self.match_prefix_set is not None and self.match_prefix_set.is_presence():
                                 return True
 
                             if self.match_tag_set is not None and self.match_tag_set._has_data():
                                 return True
 
-                            if self.match_tag_set is not None and self.match_tag_set.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1331,27 +1233,15 @@ class RoutingPolicy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.name is not None:
                             return True
 
                         if self.actions is not None and self.actions._has_data():
                             return True
 
-                        if self.actions is not None and self.actions.is_presence():
-                            return True
-
                         if self.conditions is not None and self.conditions._has_data():
                             return True
 
-                        if self.conditions is not None and self.conditions.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1373,17 +1263,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.statement is not None:
                         for child_ref in self.statement:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1405,21 +1289,12 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
                 if self.statements is not None and self.statements._has_data():
                     return True
 
-                if self.statements is not None and self.statements.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1439,17 +1314,11 @@ class RoutingPolicy(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.policy_definition is not None:
                 for child_ref in self.policy_definition:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1469,24 +1338,12 @@ class RoutingPolicy(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.defined_sets is not None and self.defined_sets._has_data():
-            return True
-
-        if self.defined_sets is not None and self.defined_sets.is_presence():
             return True
 
         if self.policy_definitions is not None and self.policy_definitions._has_data():
             return True
 
-        if self.policy_definitions is not None and self.policy_definitions.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

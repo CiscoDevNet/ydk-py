@@ -55,7 +55,6 @@ class IanaInterfaceType_Identity(InterfaceType_Identity):
 
     def __init__(self):
         InterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -63,7 +62,7 @@ class IanaInterfaceType_Identity(InterfaceType_Identity):
         return meta._meta_table['IanaInterfaceType_Identity']['meta_info']
 
 
-class A12MppSwitch_Identity(IanaInterfaceType_Identity):
+class A12Mppswitch_Identity(IanaInterfaceType_Identity):
     """
     Avalon Parallel Processor.
     
@@ -76,12 +75,11 @@ class A12MppSwitch_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['A12MppSwitch_Identity']['meta_info']
+        return meta._meta_table['A12Mppswitch_Identity']['meta_info']
 
 
 class Aal2_Identity(IanaInterfaceType_Identity):
@@ -97,7 +95,6 @@ class Aal2_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -118,7 +115,6 @@ class Aal5_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -126,7 +122,7 @@ class Aal5_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Aal5_Identity']['meta_info']
 
 
-class ActelisMetaLOOP_Identity(IanaInterfaceType_Identity):
+class Actelismetaloop_Identity(IanaInterfaceType_Identity):
     """
     Acteleis proprietary MetaLOOP High Speed Link.
     
@@ -139,12 +135,32 @@ class ActelisMetaLOOP_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['ActelisMetaLOOP_Identity']['meta_info']
+        return meta._meta_table['Actelismetaloop_Identity']['meta_info']
+
+
+class Adsl2Plus_Identity(IanaInterfaceType_Identity):
+    """
+    Asymmetric Digital Subscriber Loop Version 2 \-
+    Version 2 Plus and all variants.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Adsl2Plus_Identity']['meta_info']
 
 
 class Adsl2_Identity(IanaInterfaceType_Identity):
@@ -162,34 +178,11 @@ class Adsl2_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
         return meta._meta_table['Adsl2_Identity']['meta_info']
-
-
-class Adsl2plus_Identity(IanaInterfaceType_Identity):
-    """
-    Asymmetric Digital Subscriber Loop Version 2 \-
-    Version 2 Plus and all variants.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['Adsl2plus_Identity']['meta_info']
 
 
 class Adsl_Identity(IanaInterfaceType_Identity):
@@ -205,7 +198,6 @@ class Adsl_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -226,7 +218,6 @@ class Aflane8023_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -247,7 +238,6 @@ class Aflane8025_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -255,7 +245,7 @@ class Aflane8025_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Aflane8025_Identity']['meta_info']
 
 
-class AluELP_Identity(IanaInterfaceType_Identity):
+class Aluelp_Identity(IanaInterfaceType_Identity):
     """
     Alcatel\-Lucent Ethernet Link Protection.
     
@@ -268,15 +258,34 @@ class AluELP_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['AluELP_Identity']['meta_info']
+        return meta._meta_table['Aluelp_Identity']['meta_info']
 
 
-class AluEponLogicalLink_Identity(IanaInterfaceType_Identity):
+class Aluepon_Identity(IanaInterfaceType_Identity):
+    """
+    Ethernet Passive Optical Networks (E\-PON).
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Aluepon_Identity']['meta_info']
+
+
+class Alueponlogicallink_Identity(IanaInterfaceType_Identity):
     """
     The emulation of a point\-to\-point link over the EPON
     layer.
@@ -290,15 +299,14 @@ class AluEponLogicalLink_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['AluEponLogicalLink_Identity']['meta_info']
+        return meta._meta_table['Alueponlogicallink_Identity']['meta_info']
 
 
-class AluEponOnu_Identity(IanaInterfaceType_Identity):
+class Aluepononu_Identity(IanaInterfaceType_Identity):
     """
     EPON Optical Network Unit.
     
@@ -311,15 +319,14 @@ class AluEponOnu_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['AluEponOnu_Identity']['meta_info']
+        return meta._meta_table['Aluepononu_Identity']['meta_info']
 
 
-class AluEponPhysicalUni_Identity(IanaInterfaceType_Identity):
+class Alueponphysicaluni_Identity(IanaInterfaceType_Identity):
     """
     EPON physical User to Network interface.
     
@@ -332,36 +339,14 @@ class AluEponPhysicalUni_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['AluEponPhysicalUni_Identity']['meta_info']
+        return meta._meta_table['Alueponphysicaluni_Identity']['meta_info']
 
 
-class AluEpon_Identity(IanaInterfaceType_Identity):
-    """
-    Ethernet Passive Optical Networks (E\-PON).
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['AluEpon_Identity']['meta_info']
-
-
-class AluGponOnu_Identity(IanaInterfaceType_Identity):
+class Alugpononu_Identity(IanaInterfaceType_Identity):
     """
     GPON Optical Network Unit.
     
@@ -374,15 +359,14 @@ class AluGponOnu_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['AluGponOnu_Identity']['meta_info']
+        return meta._meta_table['Alugpononu_Identity']['meta_info']
 
 
-class AluGponPhysicalUni_Identity(IanaInterfaceType_Identity):
+class Alugponphysicaluni_Identity(IanaInterfaceType_Identity):
     """
     GPON physical User to Network interface.
     
@@ -395,12 +379,11 @@ class AluGponPhysicalUni_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['AluGponPhysicalUni_Identity']['meta_info']
+        return meta._meta_table['Alugponphysicaluni_Identity']['meta_info']
 
 
 class Arap_Identity(IanaInterfaceType_Identity):
@@ -416,33 +399,11 @@ class Arap_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
         return meta._meta_table['Arap_Identity']['meta_info']
-
-
-class ArcnetPlus_Identity(IanaInterfaceType_Identity):
-    """
-    ARCnet Plus.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['ArcnetPlus_Identity']['meta_info']
 
 
 class Arcnet_Identity(IanaInterfaceType_Identity):
@@ -458,12 +419,31 @@ class Arcnet_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
         return meta._meta_table['Arcnet_Identity']['meta_info']
+
+
+class Arcnetplus_Identity(IanaInterfaceType_Identity):
+    """
+    ARCnet Plus.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Arcnetplus_Identity']['meta_info']
 
 
 class Async_Identity(IanaInterfaceType_Identity):
@@ -479,180 +459,11 @@ class Async_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
         return meta._meta_table['Async_Identity']['meta_info']
-
-
-class AtmDxi_Identity(IanaInterfaceType_Identity):
-    """
-    ATM DXI.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['AtmDxi_Identity']['meta_info']
-
-
-class AtmFuni_Identity(IanaInterfaceType_Identity):
-    """
-    ATM FUNI.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['AtmFuni_Identity']['meta_info']
-
-
-class AtmIma_Identity(IanaInterfaceType_Identity):
-    """
-    ATM IMA.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['AtmIma_Identity']['meta_info']
-
-
-class AtmLogical_Identity(IanaInterfaceType_Identity):
-    """
-    ATM Logical Port.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['AtmLogical_Identity']['meta_info']
-
-
-class AtmRadio_Identity(IanaInterfaceType_Identity):
-    """
-    ATM over radio links.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['AtmRadio_Identity']['meta_info']
-
-
-class AtmSubInterface_Identity(IanaInterfaceType_Identity):
-    """
-    ATM Sub Interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['AtmSubInterface_Identity']['meta_info']
-
-
-class AtmVciEndPt_Identity(IanaInterfaceType_Identity):
-    """
-    ATM VCI End Point.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['AtmVciEndPt_Identity']['meta_info']
-
-
-class AtmVirtual_Identity(IanaInterfaceType_Identity):
-    """
-    ATM Virtual Interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['AtmVirtual_Identity']['meta_info']
 
 
 class Atm_Identity(IanaInterfaceType_Identity):
@@ -668,7 +479,6 @@ class Atm_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -689,7 +499,6 @@ class Atmbond_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -697,7 +506,167 @@ class Atmbond_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Atmbond_Identity']['meta_info']
 
 
-class AviciOpticalEther_Identity(IanaInterfaceType_Identity):
+class Atmdxi_Identity(IanaInterfaceType_Identity):
+    """
+    ATM DXI.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Atmdxi_Identity']['meta_info']
+
+
+class Atmfuni_Identity(IanaInterfaceType_Identity):
+    """
+    ATM FUNI.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Atmfuni_Identity']['meta_info']
+
+
+class Atmima_Identity(IanaInterfaceType_Identity):
+    """
+    ATM IMA.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Atmima_Identity']['meta_info']
+
+
+class Atmlogical_Identity(IanaInterfaceType_Identity):
+    """
+    ATM Logical Port.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Atmlogical_Identity']['meta_info']
+
+
+class Atmradio_Identity(IanaInterfaceType_Identity):
+    """
+    ATM over radio links.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Atmradio_Identity']['meta_info']
+
+
+class Atmsubinterface_Identity(IanaInterfaceType_Identity):
+    """
+    ATM Sub Interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Atmsubinterface_Identity']['meta_info']
+
+
+class Atmvciendpt_Identity(IanaInterfaceType_Identity):
+    """
+    ATM VCI End Point.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Atmvciendpt_Identity']['meta_info']
+
+
+class Atmvirtual_Identity(IanaInterfaceType_Identity):
+    """
+    ATM Virtual Interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Atmvirtual_Identity']['meta_info']
+
+
+class Aviciopticalether_Identity(IanaInterfaceType_Identity):
     """
     Avici Optical Ethernet Aggregate.
     
@@ -710,15 +679,14 @@ class AviciOpticalEther_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['AviciOpticalEther_Identity']['meta_info']
+        return meta._meta_table['Aviciopticalether_Identity']['meta_info']
 
 
-class BasicISDN_Identity(IanaInterfaceType_Identity):
+class Basicisdn_Identity(IanaInterfaceType_Identity):
     """
     No longer used.  See also RFC 2127.
     
@@ -731,12 +699,11 @@ class BasicISDN_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['BasicISDN_Identity']['meta_info']
+        return meta._meta_table['Basicisdn_Identity']['meta_info']
 
 
 class Bgppolicyaccounting_Identity(IanaInterfaceType_Identity):
@@ -752,7 +719,6 @@ class Bgppolicyaccounting_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -773,7 +739,6 @@ class Bits_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -794,7 +759,6 @@ class Bridge_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -815,7 +779,6 @@ class Bsc_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -823,7 +786,7 @@ class Bsc_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Bsc_Identity']['meta_info']
 
 
-class CableDownstreamRfPort_Identity(IanaInterfaceType_Identity):
+class Cabledownstreamrfport_Identity(IanaInterfaceType_Identity):
     """
     CATV downstream RF Port.
     
@@ -836,15 +799,14 @@ class CableDownstreamRfPort_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['CableDownstreamRfPort_Identity']['meta_info']
+        return meta._meta_table['Cabledownstreamrfport_Identity']['meta_info']
 
 
-class CapwapDot11Bss_Identity(IanaInterfaceType_Identity):
+class Capwapdot11Bss_Identity(IanaInterfaceType_Identity):
     """
     WLAN BSS Interface.
     
@@ -857,15 +819,14 @@ class CapwapDot11Bss_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['CapwapDot11Bss_Identity']['meta_info']
+        return meta._meta_table['Capwapdot11Bss_Identity']['meta_info']
 
 
-class CapwapDot11Profile_Identity(IanaInterfaceType_Identity):
+class Capwapdot11Profile_Identity(IanaInterfaceType_Identity):
     """
     WLAN Profile Interface.
     
@@ -878,15 +839,14 @@ class CapwapDot11Profile_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['CapwapDot11Profile_Identity']['meta_info']
+        return meta._meta_table['Capwapdot11Profile_Identity']['meta_info']
 
 
-class CapwapWtpVirtualRadio_Identity(IanaInterfaceType_Identity):
+class Capwapwtpvirtualradio_Identity(IanaInterfaceType_Identity):
     """
     WTP Virtual Radio Interface.
     
@@ -899,15 +859,14 @@ class CapwapWtpVirtualRadio_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['CapwapWtpVirtualRadio_Identity']['meta_info']
+        return meta._meta_table['Capwapwtpvirtualradio_Identity']['meta_info']
 
 
-class CblVectaStar_Identity(IanaInterfaceType_Identity):
+class Cblvectastar_Identity(IanaInterfaceType_Identity):
     """
     Cambridge Broadband Networks Limited VectaStar.
     
@@ -920,15 +879,14 @@ class CblVectaStar_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['CblVectaStar_Identity']['meta_info']
+        return meta._meta_table['Cblvectastar_Identity']['meta_info']
 
 
-class CctEmul_Identity(IanaInterfaceType_Identity):
+class Cctemul_Identity(IanaInterfaceType_Identity):
     """
     ATM Emulated circuit.
     
@@ -941,12 +899,11 @@ class CctEmul_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['CctEmul_Identity']['meta_info']
+        return meta._meta_table['Cctemul_Identity']['meta_info']
 
 
 class Ces_Identity(IanaInterfaceType_Identity):
@@ -962,7 +919,6 @@ class Ces_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -983,7 +939,6 @@ class Channel_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -991,7 +946,7 @@ class Channel_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Channel_Identity']['meta_info']
 
 
-class CiscoISLvlan_Identity(IanaInterfaceType_Identity):
+class Ciscoislvlan_Identity(IanaInterfaceType_Identity):
     """
     Layer 2 Virtual LAN using Cisco ISL.
     
@@ -1004,12 +959,11 @@ class CiscoISLvlan_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['CiscoISLvlan_Identity']['meta_info']
+        return meta._meta_table['Ciscoislvlan_Identity']['meta_info']
 
 
 class Cnr_Identity(IanaInterfaceType_Identity):
@@ -1025,7 +979,6 @@ class Cnr_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -1046,7 +999,6 @@ class Coffee_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -1054,7 +1006,7 @@ class Coffee_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Coffee_Identity']['meta_info']
 
 
-class CompositeLink_Identity(IanaInterfaceType_Identity):
+class Compositelink_Identity(IanaInterfaceType_Identity):
     """
     Avici Composite Link Interface.
     
@@ -1067,12 +1019,11 @@ class CompositeLink_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['CompositeLink_Identity']['meta_info']
+        return meta._meta_table['Compositelink_Identity']['meta_info']
 
 
 class Dcn_Identity(IanaInterfaceType_Identity):
@@ -1088,7 +1039,6 @@ class Dcn_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -1096,7 +1046,7 @@ class Dcn_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Dcn_Identity']['meta_info']
 
 
-class DdnX25_Identity(IanaInterfaceType_Identity):
+class Ddnx25_Identity(IanaInterfaceType_Identity):
     """
     
     
@@ -1109,15 +1059,14 @@ class DdnX25_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['DdnX25_Identity']['meta_info']
+        return meta._meta_table['Ddnx25_Identity']['meta_info']
 
 
-class DigitalPowerline_Identity(IanaInterfaceType_Identity):
+class Digitalpowerline_Identity(IanaInterfaceType_Identity):
     """
     IP over Power Lines.
     
@@ -1130,15 +1079,14 @@ class DigitalPowerline_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['DigitalPowerline_Identity']['meta_info']
+        return meta._meta_table['Digitalpowerline_Identity']['meta_info']
 
 
-class DigitalWrapperOverheadChannel_Identity(IanaInterfaceType_Identity):
+class Digitalwrapperoverheadchannel_Identity(IanaInterfaceType_Identity):
     """
     Digital Wrapper.
     
@@ -1151,12 +1099,11 @@ class DigitalWrapperOverheadChannel_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['DigitalWrapperOverheadChannel_Identity']['meta_info']
+        return meta._meta_table['Digitalwrapperoverheadchannel_Identity']['meta_info']
 
 
 class Dlsw_Identity(IanaInterfaceType_Identity):
@@ -1172,7 +1119,6 @@ class Dlsw_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -1180,7 +1126,7 @@ class Dlsw_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Dlsw_Identity']['meta_info']
 
 
-class DocsCableDownstream_Identity(IanaInterfaceType_Identity):
+class Docscabledownstream_Identity(IanaInterfaceType_Identity):
     """
     CATV Downstream interface.
     
@@ -1193,36 +1139,14 @@ class DocsCableDownstream_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['DocsCableDownstream_Identity']['meta_info']
+        return meta._meta_table['Docscabledownstream_Identity']['meta_info']
 
 
-class DocsCableMCmtsDownstream_Identity(IanaInterfaceType_Identity):
-    """
-    CATV Modular CMTS Downstream Interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['DocsCableMCmtsDownstream_Identity']['meta_info']
-
-
-class DocsCableMaclayer_Identity(IanaInterfaceType_Identity):
+class Docscablemaclayer_Identity(IanaInterfaceType_Identity):
     """
     CATV Mac Layer.
     
@@ -1235,17 +1159,16 @@ class DocsCableMaclayer_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['DocsCableMaclayer_Identity']['meta_info']
+        return meta._meta_table['Docscablemaclayer_Identity']['meta_info']
 
 
-class DocsCableUpstreamChannel_Identity(IanaInterfaceType_Identity):
+class Docscablemcmtsdownstream_Identity(IanaInterfaceType_Identity):
     """
-    CATV Upstream Channel.
+    CATV Modular CMTS Downstream Interface.
     
     
 
@@ -1256,36 +1179,14 @@ class DocsCableUpstreamChannel_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['DocsCableUpstreamChannel_Identity']['meta_info']
+        return meta._meta_table['Docscablemcmtsdownstream_Identity']['meta_info']
 
 
-class DocsCableUpstreamRfPort_Identity(IanaInterfaceType_Identity):
-    """
-    DOCSIS CATV Upstream RF Port.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['DocsCableUpstreamRfPort_Identity']['meta_info']
-
-
-class DocsCableUpstream_Identity(IanaInterfaceType_Identity):
+class Docscableupstream_Identity(IanaInterfaceType_Identity):
     """
     CATV Upstream interface.
     
@@ -1298,12 +1199,51 @@ class DocsCableUpstream_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['DocsCableUpstream_Identity']['meta_info']
+        return meta._meta_table['Docscableupstream_Identity']['meta_info']
+
+
+class Docscableupstreamchannel_Identity(IanaInterfaceType_Identity):
+    """
+    CATV Upstream Channel.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Docscableupstreamchannel_Identity']['meta_info']
+
+
+class Docscableupstreamrfport_Identity(IanaInterfaceType_Identity):
+    """
+    DOCSIS CATV Upstream RF Port.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Docscableupstreamrfport_Identity']['meta_info']
 
 
 class Ds0Bundle_Identity(IanaInterfaceType_Identity):
@@ -1319,7 +1259,6 @@ class Ds0Bundle_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -1340,7 +1279,6 @@ class Ds0_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -1348,7 +1286,7 @@ class Ds0_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Ds0_Identity']['meta_info']
 
 
-class Ds1FDL_Identity(IanaInterfaceType_Identity):
+class Ds1Fdl_Identity(IanaInterfaceType_Identity):
     """
     Facility Data Link (4Kbps) on a DS1.
     
@@ -1361,12 +1299,11 @@ class Ds1FDL_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['Ds1FDL_Identity']['meta_info']
+        return meta._meta_table['Ds1Fdl_Identity']['meta_info']
 
 
 class Ds1_Identity(IanaInterfaceType_Identity):
@@ -1382,7 +1319,6 @@ class Ds1_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -1403,7 +1339,6 @@ class Ds3_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -1424,7 +1359,6 @@ class Dtm_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -1432,7 +1366,7 @@ class Dtm_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Dtm_Identity']['meta_info']
 
 
-class DvbAsiIn_Identity(IanaInterfaceType_Identity):
+class Dvbasiin_Identity(IanaInterfaceType_Identity):
     """
     DVB\-ASI Input.
     
@@ -1445,15 +1379,14 @@ class DvbAsiIn_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['DvbAsiIn_Identity']['meta_info']
+        return meta._meta_table['Dvbasiin_Identity']['meta_info']
 
 
-class DvbAsiOut_Identity(IanaInterfaceType_Identity):
+class Dvbasiout_Identity(IanaInterfaceType_Identity):
     """
     DVB\-ASI Output.
     
@@ -1466,15 +1399,14 @@ class DvbAsiOut_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['DvbAsiOut_Identity']['meta_info']
+        return meta._meta_table['Dvbasiout_Identity']['meta_info']
 
 
-class DvbRccDownstream_Identity(IanaInterfaceType_Identity):
+class Dvbrccdownstream_Identity(IanaInterfaceType_Identity):
     """
     DVB\-RCC Downstream Channel.
     
@@ -1487,15 +1419,14 @@ class DvbRccDownstream_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['DvbRccDownstream_Identity']['meta_info']
+        return meta._meta_table['Dvbrccdownstream_Identity']['meta_info']
 
 
-class DvbRccMacLayer_Identity(IanaInterfaceType_Identity):
+class Dvbrccmaclayer_Identity(IanaInterfaceType_Identity):
     """
     DVB\-RCC MAC Layer.
     
@@ -1508,15 +1439,14 @@ class DvbRccMacLayer_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['DvbRccMacLayer_Identity']['meta_info']
+        return meta._meta_table['Dvbrccmaclayer_Identity']['meta_info']
 
 
-class DvbRccUpstream_Identity(IanaInterfaceType_Identity):
+class Dvbrccupstream_Identity(IanaInterfaceType_Identity):
     """
     DVB\-RCC Upstream Channel.
     
@@ -1529,15 +1459,14 @@ class DvbRccUpstream_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['DvbRccUpstream_Identity']['meta_info']
+        return meta._meta_table['Dvbrccupstream_Identity']['meta_info']
 
 
-class DvbRcsMacLayer_Identity(IanaInterfaceType_Identity):
+class Dvbrcsmaclayer_Identity(IanaInterfaceType_Identity):
     """
     DVB\-RCS MAC Layer.
     
@@ -1550,15 +1479,14 @@ class DvbRcsMacLayer_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['DvbRcsMacLayer_Identity']['meta_info']
+        return meta._meta_table['Dvbrcsmaclayer_Identity']['meta_info']
 
 
-class DvbRcsTdma_Identity(IanaInterfaceType_Identity):
+class Dvbrcstdma_Identity(IanaInterfaceType_Identity):
     """
     DVB\-RCS TDMA.
     
@@ -1571,15 +1499,14 @@ class DvbRcsTdma_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['DvbRcsTdma_Identity']['meta_info']
+        return meta._meta_table['Dvbrcstdma_Identity']['meta_info']
 
 
-class DvbTdm_Identity(IanaInterfaceType_Identity):
+class Dvbtdm_Identity(IanaInterfaceType_Identity):
     """
     DVB Satellite TDM.
     
@@ -1592,12 +1519,11 @@ class DvbTdm_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['DvbTdm_Identity']['meta_info']
+        return meta._meta_table['Dvbtdm_Identity']['meta_info']
 
 
 class E1_Identity(IanaInterfaceType_Identity):
@@ -1613,7 +1539,6 @@ class E1_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -1634,7 +1559,6 @@ class Econet_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -1655,7 +1579,6 @@ class Eon_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -1676,7 +1599,6 @@ class Eplrs_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -1697,7 +1619,6 @@ class Escon_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -1718,7 +1639,6 @@ class Ethernet3Mbit_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -1726,7 +1646,7 @@ class Ethernet3Mbit_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Ethernet3Mbit_Identity']['meta_info']
 
 
-class EthernetCsmacd_Identity(IanaInterfaceType_Identity):
+class Ethernetcsmacd_Identity(IanaInterfaceType_Identity):
     """
     For all Ethernet\-like interfaces, regardless of speed,
     as per RFC 3635.
@@ -1740,56 +1660,11 @@ class EthernetCsmacd_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['EthernetCsmacd_Identity']['meta_info']
-
-
-class FastEtherFX_Identity(IanaInterfaceType_Identity):
-    """
-    Obsoleted via RFC 3635.
-    ethernetCsmacd(6) should be used instead.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['FastEtherFX_Identity']['meta_info']
-
-
-class FastEther_Identity(IanaInterfaceType_Identity):
-    """
-    Obsoleted via RFC 3635.
-    ethernetCsmacd(6) should be used instead.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['FastEther_Identity']['meta_info']
+        return meta._meta_table['Ethernetcsmacd_Identity']['meta_info']
 
 
 class Fast_Identity(IanaInterfaceType_Identity):
@@ -1805,7 +1680,6 @@ class Fast_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -1813,7 +1687,49 @@ class Fast_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Fast_Identity']['meta_info']
 
 
-class FcipLink_Identity(IanaInterfaceType_Identity):
+class Fastether_Identity(IanaInterfaceType_Identity):
+    """
+    Obsoleted via RFC 3635.
+    ethernetCsmacd(6) should be used instead.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Fastether_Identity']['meta_info']
+
+
+class Fastetherfx_Identity(IanaInterfaceType_Identity):
+    """
+    Obsoleted via RFC 3635.
+    ethernetCsmacd(6) should be used instead.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Fastetherfx_Identity']['meta_info']
+
+
+class Fciplink_Identity(IanaInterfaceType_Identity):
     """
     FCIP Link.
     
@@ -1826,12 +1742,11 @@ class FcipLink_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['FcipLink_Identity']['meta_info']
+        return meta._meta_table['Fciplink_Identity']['meta_info']
 
 
 class Fddi_Identity(IanaInterfaceType_Identity):
@@ -1847,7 +1762,6 @@ class Fddi_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -1855,7 +1769,7 @@ class Fddi_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Fddi_Identity']['meta_info']
 
 
-class FibreChannel_Identity(IanaInterfaceType_Identity):
+class Fibrechannel_Identity(IanaInterfaceType_Identity):
     """
     Fibre Channel.
     
@@ -1868,17 +1782,16 @@ class FibreChannel_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['FibreChannel_Identity']['meta_info']
+        return meta._meta_table['Fibrechannel_Identity']['meta_info']
 
 
-class FrDlciEndPt_Identity(IanaInterfaceType_Identity):
+class Framerelay_Identity(IanaInterfaceType_Identity):
     """
-    Frame Relay DLCI End Point.
+    DTE only.
     
     
 
@@ -1889,36 +1802,14 @@ class FrDlciEndPt_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['FrDlciEndPt_Identity']['meta_info']
+        return meta._meta_table['Framerelay_Identity']['meta_info']
 
 
-class FrForward_Identity(IanaInterfaceType_Identity):
-    """
-    Frame Forward Interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['FrForward_Identity']['meta_info']
-
-
-class FrameRelayInterconnect_Identity(IanaInterfaceType_Identity):
+class Framerelayinterconnect_Identity(IanaInterfaceType_Identity):
     """
     Obsolete; use either
     frameRelay(32) or frameRelayService(44).
@@ -1932,15 +1823,14 @@ class FrameRelayInterconnect_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['FrameRelayInterconnect_Identity']['meta_info']
+        return meta._meta_table['Framerelayinterconnect_Identity']['meta_info']
 
 
-class FrameRelayMPI_Identity(IanaInterfaceType_Identity):
+class Framerelaympi_Identity(IanaInterfaceType_Identity):
     """
     Multiproto Interconnect over FR.
     
@@ -1953,15 +1843,14 @@ class FrameRelayMPI_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['FrameRelayMPI_Identity']['meta_info']
+        return meta._meta_table['Framerelaympi_Identity']['meta_info']
 
 
-class FrameRelayService_Identity(IanaInterfaceType_Identity):
+class Framerelayservice_Identity(IanaInterfaceType_Identity):
     """
     FRNETSERV\-MIB.
     
@@ -1974,17 +1863,16 @@ class FrameRelayService_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['FrameRelayService_Identity']['meta_info']
+        return meta._meta_table['Framerelayservice_Identity']['meta_info']
 
 
-class FrameRelay_Identity(IanaInterfaceType_Identity):
+class Frdlciendpt_Identity(IanaInterfaceType_Identity):
     """
-    DTE only.
+    Frame Relay DLCI End Point.
     
     
 
@@ -1995,15 +1883,14 @@ class FrameRelay_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['FrameRelay_Identity']['meta_info']
+        return meta._meta_table['Frdlciendpt_Identity']['meta_info']
 
 
-class Frf16MfrBundle_Identity(IanaInterfaceType_Identity):
+class Frf16Mfrbundle_Identity(IanaInterfaceType_Identity):
     """
     FRF.16 Multilink Frame Relay.
     
@@ -2016,15 +1903,34 @@ class Frf16MfrBundle_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['Frf16MfrBundle_Identity']['meta_info']
+        return meta._meta_table['Frf16Mfrbundle_Identity']['meta_info']
 
 
-class G703at2mb_Identity(IanaInterfaceType_Identity):
+class Frforward_Identity(IanaInterfaceType_Identity):
+    """
+    Frame Forward Interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Frforward_Identity']['meta_info']
+
+
+class G703At2Mb_Identity(IanaInterfaceType_Identity):
     """
     Obsolete; see DS1\-MIB.
     
@@ -2037,15 +1943,14 @@ class G703at2mb_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['G703at2mb_Identity']['meta_info']
+        return meta._meta_table['G703At2Mb_Identity']['meta_info']
 
 
-class G703at64k_Identity(IanaInterfaceType_Identity):
+class G703At64K_Identity(IanaInterfaceType_Identity):
     """
     CCITT G703 at 64Kbps.
     
@@ -2058,12 +1963,11 @@ class G703at64k_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['G703at64k_Identity']['meta_info']
+        return meta._meta_table['G703At64K_Identity']['meta_info']
 
 
 class G9981_Identity(IanaInterfaceType_Identity):
@@ -2079,7 +1983,6 @@ class G9981_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2100,7 +2003,6 @@ class G9982_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2121,7 +2023,6 @@ class G9983_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2142,7 +2043,6 @@ class Gfp_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2150,7 +2050,7 @@ class Gfp_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Gfp_Identity']['meta_info']
 
 
-class GigabitEthernet_Identity(IanaInterfaceType_Identity):
+class Gigabitethernet_Identity(IanaInterfaceType_Identity):
     """
     Obsoleted via RFC 3635.
     ethernetCsmacd(6) should be used instead.
@@ -2164,12 +2064,11 @@ class GigabitEthernet_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['GigabitEthernet_Identity']['meta_info']
+        return meta._meta_table['Gigabitethernet_Identity']['meta_info']
 
 
 class Gpon_Identity(IanaInterfaceType_Identity):
@@ -2186,7 +2085,6 @@ class Gpon_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2194,7 +2092,7 @@ class Gpon_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Gpon_Identity']['meta_info']
 
 
-class Gr303IDT_Identity(IanaInterfaceType_Identity):
+class Gr303Idt_Identity(IanaInterfaceType_Identity):
     """
     Integrated Digital Terminal.
     
@@ -2207,15 +2105,14 @@ class Gr303IDT_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['Gr303IDT_Identity']['meta_info']
+        return meta._meta_table['Gr303Idt_Identity']['meta_info']
 
 
-class Gr303RDT_Identity(IanaInterfaceType_Identity):
+class Gr303Rdt_Identity(IanaInterfaceType_Identity):
     """
     Remote Digital Terminal.
     
@@ -2228,12 +2125,11 @@ class Gr303RDT_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['Gr303RDT_Identity']['meta_info']
+        return meta._meta_table['Gr303Rdt_Identity']['meta_info']
 
 
 class Gtp_Identity(IanaInterfaceType_Identity):
@@ -2249,7 +2145,6 @@ class Gtp_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2270,7 +2165,6 @@ class H323Gatekeeper_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2291,7 +2185,6 @@ class H323Proxy_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2312,7 +2205,6 @@ class Hdh1822_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2333,7 +2225,6 @@ class Hdlc_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2354,7 +2245,6 @@ class Hdsl2_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2375,33 +2265,11 @@ class Hiperlan2_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
         return meta._meta_table['Hiperlan2_Identity']['meta_info']
-
-
-class HippiInterface_Identity(IanaInterfaceType_Identity):
-    """
-    HIPPI interfaces.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['HippiInterface_Identity']['meta_info']
 
 
 class Hippi_Identity(IanaInterfaceType_Identity):
@@ -2417,12 +2285,31 @@ class Hippi_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
         return meta._meta_table['Hippi_Identity']['meta_info']
+
+
+class Hippiinterface_Identity(IanaInterfaceType_Identity):
+    """
+    HIPPI interfaces.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Hippiinterface_Identity']['meta_info']
 
 
 class Homepna_Identity(IanaInterfaceType_Identity):
@@ -2438,7 +2325,6 @@ class Homepna_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2446,7 +2332,7 @@ class Homepna_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Homepna_Identity']['meta_info']
 
 
-class HostPad_Identity(IanaInterfaceType_Identity):
+class Hostpad_Identity(IanaInterfaceType_Identity):
     """
     CCITT\-ITU X.29 PAD Protocol.
     
@@ -2459,12 +2345,11 @@ class HostPad_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['HostPad_Identity']['meta_info']
+        return meta._meta_table['Hostpad_Identity']['meta_info']
 
 
 class Hssi_Identity(IanaInterfaceType_Identity):
@@ -2480,7 +2365,6 @@ class Hssi_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2501,7 +2385,6 @@ class Hyperchannel_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2509,7 +2392,7 @@ class Hyperchannel_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Hyperchannel_Identity']['meta_info']
 
 
-class Ibm370parChan_Identity(IanaInterfaceType_Identity):
+class Ibm370Parchan_Identity(IanaInterfaceType_Identity):
     """
     IBM System 360/370 OEMI Channel.
     
@@ -2522,12 +2405,11 @@ class Ibm370parChan_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['Ibm370parChan_Identity']['meta_info']
+        return meta._meta_table['Ibm370Parchan_Identity']['meta_info']
 
 
 class Idsl_Identity(IanaInterfaceType_Identity):
@@ -2543,7 +2425,6 @@ class Idsl_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2564,7 +2445,6 @@ class Ieee1394_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2585,7 +2465,6 @@ class Ieee80211_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2606,7 +2485,6 @@ class Ieee80212_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2627,7 +2505,6 @@ class Ieee802154_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2635,7 +2512,7 @@ class Ieee802154_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Ieee802154_Identity']['meta_info']
 
 
-class Ieee80216WMAN_Identity(IanaInterfaceType_Identity):
+class Ieee80216Wman_Identity(IanaInterfaceType_Identity):
     """
     IEEE 802.16 WMAN interface.
     
@@ -2648,15 +2525,14 @@ class Ieee80216WMAN_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['Ieee80216WMAN_Identity']['meta_info']
+        return meta._meta_table['Ieee80216Wman_Identity']['meta_info']
 
 
-class Ieee8023adLag_Identity(IanaInterfaceType_Identity):
+class Ieee8023Adlag_Identity(IanaInterfaceType_Identity):
     """
     IEEE 802.3ad Link Aggregate.
     
@@ -2669,12 +2545,11 @@ class Ieee8023adLag_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['Ieee8023adLag_Identity']['meta_info']
+        return meta._meta_table['Ieee8023Adlag_Identity']['meta_info']
 
 
 class IfGsn_Identity(IanaInterfaceType_Identity):
@@ -2690,7 +2565,6 @@ class IfGsn_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2698,7 +2572,7 @@ class IfGsn_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['IfGsn_Identity']['meta_info']
 
 
-class IfPwType_Identity(IanaInterfaceType_Identity):
+class Ifpwtype_Identity(IanaInterfaceType_Identity):
     """
     Pseudowire interface type.
     
@@ -2711,15 +2585,14 @@ class IfPwType_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['IfPwType_Identity']['meta_info']
+        return meta._meta_table['Ifpwtype_Identity']['meta_info']
 
 
-class IfVfiType_Identity(IanaInterfaceType_Identity):
+class Ifvfitype_Identity(IanaInterfaceType_Identity):
     """
     VPLS Forwarding Instance Interface Type.
     
@@ -2732,12 +2605,11 @@ class IfVfiType_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['IfVfiType_Identity']['meta_info']
+        return meta._meta_table['Ifvfitype_Identity']['meta_info']
 
 
 class Ilan_Identity(IanaInterfaceType_Identity):
@@ -2753,7 +2625,6 @@ class Ilan_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2774,7 +2645,6 @@ class Imt_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2795,7 +2665,6 @@ class Infiniband_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2816,117 +2685,11 @@ class Interleave_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
         return meta._meta_table['Interleave_Identity']['meta_info']
-
-
-class IpForward_Identity(IanaInterfaceType_Identity):
-    """
-    IP Forwarding Interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['IpForward_Identity']['meta_info']
-
-
-class IpOverAtm_Identity(IanaInterfaceType_Identity):
-    """
-    IBM ipOverAtm.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['IpOverAtm_Identity']['meta_info']
-
-
-class IpOverCdlc_Identity(IanaInterfaceType_Identity):
-    """
-    IBM ipOverCdlc.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['IpOverCdlc_Identity']['meta_info']
-
-
-class IpOverClaw_Identity(IanaInterfaceType_Identity):
-    """
-    IBM Common Link Access to Workstn.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['IpOverClaw_Identity']['meta_info']
-
-
-class IpSwitch_Identity(IanaInterfaceType_Identity):
-    """
-    IP Switching Objects.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['IpSwitch_Identity']['meta_info']
 
 
 class Ip_Identity(IanaInterfaceType_Identity):
@@ -2942,12 +2705,111 @@ class Ip_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
         return meta._meta_table['Ip_Identity']['meta_info']
+
+
+class Ipforward_Identity(IanaInterfaceType_Identity):
+    """
+    IP Forwarding Interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Ipforward_Identity']['meta_info']
+
+
+class Ipoveratm_Identity(IanaInterfaceType_Identity):
+    """
+    IBM ipOverAtm.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Ipoveratm_Identity']['meta_info']
+
+
+class Ipovercdlc_Identity(IanaInterfaceType_Identity):
+    """
+    IBM ipOverCdlc.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Ipovercdlc_Identity']['meta_info']
+
+
+class Ipoverclaw_Identity(IanaInterfaceType_Identity):
+    """
+    IBM Common Link Access to Workstn.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Ipoverclaw_Identity']['meta_info']
+
+
+class Ipswitch_Identity(IanaInterfaceType_Identity):
+    """
+    IP Switching Objects.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Ipswitch_Identity']['meta_info']
 
 
 class Isdn_Identity(IanaInterfaceType_Identity):
@@ -2963,7 +2825,6 @@ class Isdn_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -2984,7 +2845,6 @@ class Isdns_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3005,7 +2865,6 @@ class Isdnu_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3013,7 +2872,7 @@ class Isdnu_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Isdnu_Identity']['meta_info']
 
 
-class Iso88022llc_Identity(IanaInterfaceType_Identity):
+class Iso88022Llc_Identity(IanaInterfaceType_Identity):
     """
     
     
@@ -3026,12 +2885,11 @@ class Iso88022llc_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['Iso88022llc_Identity']['meta_info']
+        return meta._meta_table['Iso88022Llc_Identity']['meta_info']
 
 
 class Iso88023Csmacd_Identity(IanaInterfaceType_Identity):
@@ -3048,7 +2906,6 @@ class Iso88023Csmacd_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3056,7 +2913,7 @@ class Iso88023Csmacd_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Iso88023Csmacd_Identity']['meta_info']
 
 
-class Iso88024TokenBus_Identity(IanaInterfaceType_Identity):
+class Iso88024Tokenbus_Identity(IanaInterfaceType_Identity):
     """
     
     
@@ -3069,15 +2926,14 @@ class Iso88024TokenBus_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['Iso88024TokenBus_Identity']['meta_info']
+        return meta._meta_table['Iso88024Tokenbus_Identity']['meta_info']
 
 
-class Iso88025CRFPInt_Identity(IanaInterfaceType_Identity):
+class Iso88025Crfpint_Identity(IanaInterfaceType_Identity):
     """
     ISO 802.5 CRFP.
     
@@ -3090,12 +2946,11 @@ class Iso88025CRFPInt_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['Iso88025CRFPInt_Identity']['meta_info']
+        return meta._meta_table['Iso88025Crfpint_Identity']['meta_info']
 
 
 class Iso88025Dtr_Identity(IanaInterfaceType_Identity):
@@ -3111,7 +2966,6 @@ class Iso88025Dtr_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3132,7 +2986,6 @@ class Iso88025Fiber_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3140,7 +2993,7 @@ class Iso88025Fiber_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Iso88025Fiber_Identity']['meta_info']
 
 
-class Iso88025TokenRing_Identity(IanaInterfaceType_Identity):
+class Iso88025Tokenring_Identity(IanaInterfaceType_Identity):
     """
     
     
@@ -3153,12 +3006,11 @@ class Iso88025TokenRing_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['Iso88025TokenRing_Identity']['meta_info']
+        return meta._meta_table['Iso88025Tokenring_Identity']['meta_info']
 
 
 class Iso88026Man_Identity(IanaInterfaceType_Identity):
@@ -3174,7 +3026,6 @@ class Iso88026Man_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3195,7 +3046,6 @@ class Isup_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3203,7 +3053,7 @@ class Isup_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Isup_Identity']['meta_info']
 
 
-class L2vlan_Identity(IanaInterfaceType_Identity):
+class L2Vlan_Identity(IanaInterfaceType_Identity):
     """
     Layer 2 Virtual LAN using 802.1Q.
     
@@ -3216,15 +3066,14 @@ class L2vlan_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['L2vlan_Identity']['meta_info']
+        return meta._meta_table['L2Vlan_Identity']['meta_info']
 
 
-class L3ipvlan_Identity(IanaInterfaceType_Identity):
+class L3Ipvlan_Identity(IanaInterfaceType_Identity):
     """
     Layer 3 Virtual LAN using IP.
     
@@ -3237,15 +3086,14 @@ class L3ipvlan_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['L3ipvlan_Identity']['meta_info']
+        return meta._meta_table['L3Ipvlan_Identity']['meta_info']
 
 
-class L3ipxvlan_Identity(IanaInterfaceType_Identity):
+class L3Ipxvlan_Identity(IanaInterfaceType_Identity):
     """
     Layer 3 Virtual LAN using IPX.
     
@@ -3258,12 +3106,11 @@ class L3ipxvlan_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['L3ipxvlan_Identity']['meta_info']
+        return meta._meta_table['L3Ipxvlan_Identity']['meta_info']
 
 
 class Lapb_Identity(IanaInterfaceType_Identity):
@@ -3279,7 +3126,6 @@ class Lapb_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3300,7 +3146,6 @@ class Lapd_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3321,7 +3166,6 @@ class Lapf_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3342,7 +3186,6 @@ class Linegroup_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3363,7 +3206,6 @@ class Lmp_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3371,7 +3213,7 @@ class Lmp_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Lmp_Identity']['meta_info']
 
 
-class LocalTalk_Identity(IanaInterfaceType_Identity):
+class Localtalk_Identity(IanaInterfaceType_Identity):
     """
     
     
@@ -3384,15 +3226,14 @@ class LocalTalk_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['LocalTalk_Identity']['meta_info']
+        return meta._meta_table['Localtalk_Identity']['meta_info']
 
 
-class MacSecControlledIF_Identity(IanaInterfaceType_Identity):
+class Macseccontrolledif_Identity(IanaInterfaceType_Identity):
     """
     MACSecControlled.
     
@@ -3405,15 +3246,14 @@ class MacSecControlledIF_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['MacSecControlledIF_Identity']['meta_info']
+        return meta._meta_table['Macseccontrolledif_Identity']['meta_info']
 
 
-class MacSecUncontrolledIF_Identity(IanaInterfaceType_Identity):
+class Macsecuncontrolledif_Identity(IanaInterfaceType_Identity):
     """
     MACSecUncontrolled.
     
@@ -3426,15 +3266,14 @@ class MacSecUncontrolledIF_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['MacSecUncontrolledIF_Identity']['meta_info']
+        return meta._meta_table['Macsecuncontrolledif_Identity']['meta_info']
 
 
-class MediaMailOverIp_Identity(IanaInterfaceType_Identity):
+class Mediamailoverip_Identity(IanaInterfaceType_Identity):
     """
     Multimedia Mail over IP.
     
@@ -3447,15 +3286,14 @@ class MediaMailOverIp_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['MediaMailOverIp_Identity']['meta_info']
+        return meta._meta_table['Mediamailoverip_Identity']['meta_info']
 
 
-class MfSigLink_Identity(IanaInterfaceType_Identity):
+class Mfsiglink_Identity(IanaInterfaceType_Identity):
     """
     Multi\-frequency signaling link.
     
@@ -3468,12 +3306,11 @@ class MfSigLink_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['MfSigLink_Identity']['meta_info']
+        return meta._meta_table['Mfsiglink_Identity']['meta_info']
 
 
 class Miox25_Identity(IanaInterfaceType_Identity):
@@ -3489,7 +3326,6 @@ class Miox25_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3497,7 +3333,7 @@ class Miox25_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Miox25_Identity']['meta_info']
 
 
-class MocaVersion1_Identity(IanaInterfaceType_Identity):
+class Mocaversion1_Identity(IanaInterfaceType_Identity):
     """
     MultiMedia over Coax Alliance (MoCA) Interface
     as documented in information provided privately to IANA.
@@ -3511,12 +3347,11 @@ class MocaVersion1_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['MocaVersion1_Identity']['meta_info']
+        return meta._meta_table['Mocaversion1_Identity']['meta_info']
 
 
 class Modem_Identity(IanaInterfaceType_Identity):
@@ -3532,7 +3367,6 @@ class Modem_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3553,7 +3387,6 @@ class Mpc_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3561,7 +3394,7 @@ class Mpc_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Mpc_Identity']['meta_info']
 
 
-class MpegTransport_Identity(IanaInterfaceType_Identity):
+class Mpegtransport_Identity(IanaInterfaceType_Identity):
     """
     MPEG transport interface.
     
@@ -3574,33 +3407,11 @@ class MpegTransport_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['MpegTransport_Identity']['meta_info']
-
-
-class MplsTunnel_Identity(IanaInterfaceType_Identity):
-    """
-    MPLS Tunnel Virtual Interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['MplsTunnel_Identity']['meta_info']
+        return meta._meta_table['Mpegtransport_Identity']['meta_info']
 
 
 class Mpls_Identity(IanaInterfaceType_Identity):
@@ -3616,12 +3427,31 @@ class Mpls_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
         return meta._meta_table['Mpls_Identity']['meta_info']
+
+
+class Mplstunnel_Identity(IanaInterfaceType_Identity):
+    """
+    MPLS Tunnel Virtual Interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Mplstunnel_Identity']['meta_info']
 
 
 class Msdsl_Identity(IanaInterfaceType_Identity):
@@ -3637,7 +3467,6 @@ class Msdsl_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3658,7 +3487,6 @@ class Mvl_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3679,7 +3507,6 @@ class Myrinet_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3700,7 +3527,6 @@ class Nfas_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3721,7 +3547,6 @@ class Nsip_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3729,28 +3554,7 @@ class Nsip_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Nsip_Identity']['meta_info']
 
 
-class OpticalChannelGroup_Identity(IanaInterfaceType_Identity):
-    """
-    Optical Channel Group.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['OpticalChannelGroup_Identity']['meta_info']
-
-
-class OpticalChannel_Identity(IanaInterfaceType_Identity):
+class Opticalchannel_Identity(IanaInterfaceType_Identity):
     """
     Optical Channel.
     
@@ -3763,15 +3567,34 @@ class OpticalChannel_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['OpticalChannel_Identity']['meta_info']
+        return meta._meta_table['Opticalchannel_Identity']['meta_info']
 
 
-class OpticalTransport_Identity(IanaInterfaceType_Identity):
+class Opticalchannelgroup_Identity(IanaInterfaceType_Identity):
+    """
+    Optical Channel Group.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Opticalchannelgroup_Identity']['meta_info']
+
+
+class Opticaltransport_Identity(IanaInterfaceType_Identity):
     """
     Optical Transport.
     
@@ -3784,12 +3607,11 @@ class OpticalTransport_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['OpticalTransport_Identity']['meta_info']
+        return meta._meta_table['Opticaltransport_Identity']['meta_info']
 
 
 class Other_Identity(IanaInterfaceType_Identity):
@@ -3805,7 +3627,6 @@ class Other_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3813,7 +3634,7 @@ class Other_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Other_Identity']['meta_info']
 
 
-class OtnOdu_Identity(IanaInterfaceType_Identity):
+class Otnodu_Identity(IanaInterfaceType_Identity):
     """
     OTN Optical Data Unit.
     
@@ -3826,15 +3647,14 @@ class OtnOdu_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['OtnOdu_Identity']['meta_info']
+        return meta._meta_table['Otnodu_Identity']['meta_info']
 
 
-class OtnOtu_Identity(IanaInterfaceType_Identity):
+class Otnotu_Identity(IanaInterfaceType_Identity):
     """
     OTN Optical channel Transport Unit.
     
@@ -3847,12 +3667,11 @@ class OtnOtu_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['OtnOtu_Identity']['meta_info']
+        return meta._meta_table['Otnotu_Identity']['meta_info']
 
 
 class Para_Identity(IanaInterfaceType_Identity):
@@ -3868,7 +3687,6 @@ class Para_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3876,7 +3694,7 @@ class Para_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Para_Identity']['meta_info']
 
 
-class PdnEtherLoop1_Identity(IanaInterfaceType_Identity):
+class Pdnetherloop1_Identity(IanaInterfaceType_Identity):
     """
     Paradyne EtherLoop 1.
     
@@ -3889,15 +3707,14 @@ class PdnEtherLoop1_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['PdnEtherLoop1_Identity']['meta_info']
+        return meta._meta_table['Pdnetherloop1_Identity']['meta_info']
 
 
-class PdnEtherLoop2_Identity(IanaInterfaceType_Identity):
+class Pdnetherloop2_Identity(IanaInterfaceType_Identity):
     """
     Paradyne EtherLoop 2.
     
@@ -3910,12 +3727,11 @@ class PdnEtherLoop2_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['PdnEtherLoop2_Identity']['meta_info']
+        return meta._meta_table['Pdnetherloop2_Identity']['meta_info']
 
 
 class Pip_Identity(IanaInterfaceType_Identity):
@@ -3931,7 +3747,6 @@ class Pip_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3952,7 +3767,6 @@ class Plc_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3973,7 +3787,6 @@ class Pon155_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -3994,7 +3807,6 @@ class Pon622_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -4015,33 +3827,11 @@ class Pos_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
         return meta._meta_table['Pos_Identity']['meta_info']
-
-
-class PppMultilinkBundle_Identity(IanaInterfaceType_Identity):
-    """
-    PPP Multilink Bundle.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['PppMultilinkBundle_Identity']['meta_info']
 
 
 class Ppp_Identity(IanaInterfaceType_Identity):
@@ -4057,7 +3847,6 @@ class Ppp_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -4065,7 +3854,27 @@ class Ppp_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Ppp_Identity']['meta_info']
 
 
-class PrimaryISDN_Identity(IanaInterfaceType_Identity):
+class Pppmultilinkbundle_Identity(IanaInterfaceType_Identity):
+    """
+    PPP Multilink Bundle.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Pppmultilinkbundle_Identity']['meta_info']
+
+
+class Primaryisdn_Identity(IanaInterfaceType_Identity):
     """
     No longer used.  See also RFC 2127.
     
@@ -4078,15 +3887,14 @@ class PrimaryISDN_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['PrimaryISDN_Identity']['meta_info']
+        return meta._meta_table['Primaryisdn_Identity']['meta_info']
 
 
-class PropAtm_Identity(IanaInterfaceType_Identity):
+class Propatm_Identity(IanaInterfaceType_Identity):
     """
     Proprietary ATM.
     
@@ -4099,15 +3907,14 @@ class PropAtm_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['PropAtm_Identity']['meta_info']
+        return meta._meta_table['Propatm_Identity']['meta_info']
 
 
-class PropBWAp2Mp_Identity(IanaInterfaceType_Identity):
+class Propbwap2Mp_Identity(IanaInterfaceType_Identity):
     """
     PropBroadbandWirelessAccesspt2Multipt (use of this value
     for IEEE 802.16 WMAN interfaces as per IEEE Std 802.16f
@@ -4123,15 +3930,14 @@ class PropBWAp2Mp_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['PropBWAp2Mp_Identity']['meta_info']
+        return meta._meta_table['Propbwap2Mp_Identity']['meta_info']
 
 
-class PropCnls_Identity(IanaInterfaceType_Identity):
+class Propcnls_Identity(IanaInterfaceType_Identity):
     """
     Proprietary Connectionless Protocol.
     
@@ -4144,15 +3950,14 @@ class PropCnls_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['PropCnls_Identity']['meta_info']
+        return meta._meta_table['Propcnls_Identity']['meta_info']
 
 
-class PropDocsWirelessDownstream_Identity(IanaInterfaceType_Identity):
+class Propdocswirelessdownstream_Identity(IanaInterfaceType_Identity):
     """
     Cisco proprietary Downstream.
     
@@ -4165,15 +3970,14 @@ class PropDocsWirelessDownstream_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['PropDocsWirelessDownstream_Identity']['meta_info']
+        return meta._meta_table['Propdocswirelessdownstream_Identity']['meta_info']
 
 
-class PropDocsWirelessMaclayer_Identity(IanaInterfaceType_Identity):
+class Propdocswirelessmaclayer_Identity(IanaInterfaceType_Identity):
     """
     Cisco proprietary Maclayer.
     
@@ -4186,15 +3990,14 @@ class PropDocsWirelessMaclayer_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['PropDocsWirelessMaclayer_Identity']['meta_info']
+        return meta._meta_table['Propdocswirelessmaclayer_Identity']['meta_info']
 
 
-class PropDocsWirelessUpstream_Identity(IanaInterfaceType_Identity):
+class Propdocswirelessupstream_Identity(IanaInterfaceType_Identity):
     """
     Cisco proprietary Upstream.
     
@@ -4207,15 +4010,14 @@ class PropDocsWirelessUpstream_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['PropDocsWirelessUpstream_Identity']['meta_info']
+        return meta._meta_table['Propdocswirelessupstream_Identity']['meta_info']
 
 
-class PropMultiplexor_Identity(IanaInterfaceType_Identity):
+class Propmultiplexor_Identity(IanaInterfaceType_Identity):
     """
     Proprietary multiplexing.
     
@@ -4228,15 +4030,14 @@ class PropMultiplexor_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['PropMultiplexor_Identity']['meta_info']
+        return meta._meta_table['Propmultiplexor_Identity']['meta_info']
 
 
-class PropPointToPointSerial_Identity(IanaInterfaceType_Identity):
+class Proppointtopointserial_Identity(IanaInterfaceType_Identity):
     """
     Proprietary serial.
     
@@ -4249,15 +4050,14 @@ class PropPointToPointSerial_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['PropPointToPointSerial_Identity']['meta_info']
+        return meta._meta_table['Proppointtopointserial_Identity']['meta_info']
 
 
-class PropVirtual_Identity(IanaInterfaceType_Identity):
+class Propvirtual_Identity(IanaInterfaceType_Identity):
     """
     Proprietary virtual/internal.
     
@@ -4270,15 +4070,14 @@ class PropVirtual_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['PropVirtual_Identity']['meta_info']
+        return meta._meta_table['Propvirtual_Identity']['meta_info']
 
 
-class PropWirelessP2P_Identity(IanaInterfaceType_Identity):
+class Propwirelessp2P_Identity(IanaInterfaceType_Identity):
     """
     Prop. P2P wireless interface.
     
@@ -4291,12 +4090,11 @@ class PropWirelessP2P_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['PropWirelessP2P_Identity']['meta_info']
+        return meta._meta_table['Propwirelessp2P_Identity']['meta_info']
 
 
 class Proteon10Mbit_Identity(IanaInterfaceType_Identity):
@@ -4312,7 +4110,6 @@ class Proteon10Mbit_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -4333,7 +4130,6 @@ class Proteon80Mbit_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -4354,7 +4150,6 @@ class Q2931_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -4375,7 +4170,6 @@ class Qam_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -4396,7 +4190,6 @@ class Qllc_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -4404,7 +4197,7 @@ class Qllc_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Qllc_Identity']['meta_info']
 
 
-class RadioMAC_Identity(IanaInterfaceType_Identity):
+class Radiomac_Identity(IanaInterfaceType_Identity):
     """
     MAC layer over radio links.
     
@@ -4417,12 +4210,11 @@ class RadioMAC_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['RadioMAC_Identity']['meta_info']
+        return meta._meta_table['Radiomac_Identity']['meta_info']
 
 
 class Radsl_Identity(IanaInterfaceType_Identity):
@@ -4438,7 +4230,6 @@ class Radsl_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -4446,7 +4237,7 @@ class Radsl_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Radsl_Identity']['meta_info']
 
 
-class ReachDSL_Identity(IanaInterfaceType_Identity):
+class Reachdsl_Identity(IanaInterfaceType_Identity):
     """
     Long Reach DSL.
     
@@ -4459,12 +4250,11 @@ class ReachDSL_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['ReachDSL_Identity']['meta_info']
+        return meta._meta_table['Reachdsl_Identity']['meta_info']
 
 
 class Regular1822_Identity(IanaInterfaceType_Identity):
@@ -4480,7 +4270,6 @@ class Regular1822_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -4501,7 +4290,6 @@ class Rfc1483_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -4509,7 +4297,7 @@ class Rfc1483_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Rfc1483_Identity']['meta_info']
 
 
-class Rfc877x25_Identity(IanaInterfaceType_Identity):
+class Rfc877X25_Identity(IanaInterfaceType_Identity):
     """
     
     
@@ -4522,12 +4310,11 @@ class Rfc877x25_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['Rfc877x25_Identity']['meta_info']
+        return meta._meta_table['Rfc877X25_Identity']['meta_info']
 
 
 class Rpr_Identity(IanaInterfaceType_Identity):
@@ -4543,7 +4330,6 @@ class Rpr_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -4564,7 +4350,6 @@ class Rs232_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -4585,7 +4370,6 @@ class Rsrb_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -4606,7 +4390,6 @@ class Sdlc_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -4627,7 +4410,6 @@ class Sdsl_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -4648,54 +4430,11 @@ class Shdsl_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
         return meta._meta_table['Shdsl_Identity']['meta_info']
-
-
-class SipSig_Identity(IanaInterfaceType_Identity):
-    """
-    SIP Signaling.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['SipSig_Identity']['meta_info']
-
-
-class SipTg_Identity(IanaInterfaceType_Identity):
-    """
-    SIP Trunk Group.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['SipTg_Identity']['meta_info']
 
 
 class Sip_Identity(IanaInterfaceType_Identity):
@@ -4711,7 +4450,6 @@ class Sip_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -4719,7 +4457,47 @@ class Sip_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Sip_Identity']['meta_info']
 
 
-class SixToFour_Identity(IanaInterfaceType_Identity):
+class Sipsig_Identity(IanaInterfaceType_Identity):
+    """
+    SIP Signaling.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Sipsig_Identity']['meta_info']
+
+
+class Siptg_Identity(IanaInterfaceType_Identity):
+    """
+    SIP Trunk Group.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Siptg_Identity']['meta_info']
+
+
+class Sixtofour_Identity(IanaInterfaceType_Identity):
     """
     6to4 interface (DEPRECATED).
     
@@ -4732,12 +4510,11 @@ class SixToFour_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['SixToFour_Identity']['meta_info']
+        return meta._meta_table['Sixtofour_Identity']['meta_info']
 
 
 class Slip_Identity(IanaInterfaceType_Identity):
@@ -4753,7 +4530,6 @@ class Slip_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -4761,7 +4537,7 @@ class Slip_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Slip_Identity']['meta_info']
 
 
-class SmdsDxi_Identity(IanaInterfaceType_Identity):
+class Smdsdxi_Identity(IanaInterfaceType_Identity):
     """
     
     
@@ -4774,15 +4550,14 @@ class SmdsDxi_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['SmdsDxi_Identity']['meta_info']
+        return meta._meta_table['Smdsdxi_Identity']['meta_info']
 
 
-class SmdsIcip_Identity(IanaInterfaceType_Identity):
+class Smdsicip_Identity(IanaInterfaceType_Identity):
     """
     SMDS InterCarrier Interface.
     
@@ -4795,15 +4570,14 @@ class SmdsIcip_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['SmdsIcip_Identity']['meta_info']
+        return meta._meta_table['Smdsicip_Identity']['meta_info']
 
 
-class SoftwareLoopback_Identity(IanaInterfaceType_Identity):
+class Softwareloopback_Identity(IanaInterfaceType_Identity):
     """
     
     
@@ -4816,75 +4590,11 @@ class SoftwareLoopback_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['SoftwareLoopback_Identity']['meta_info']
-
-
-class SonetOverheadChannel_Identity(IanaInterfaceType_Identity):
-    """
-    SONET Overhead Channel.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['SonetOverheadChannel_Identity']['meta_info']
-
-
-class SonetPath_Identity(IanaInterfaceType_Identity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['SonetPath_Identity']['meta_info']
-
-
-class SonetVT_Identity(IanaInterfaceType_Identity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['SonetVT_Identity']['meta_info']
+        return meta._meta_table['Softwareloopback_Identity']['meta_info']
 
 
 class Sonet_Identity(IanaInterfaceType_Identity):
@@ -4900,12 +4610,71 @@ class Sonet_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
         return meta._meta_table['Sonet_Identity']['meta_info']
+
+
+class Sonetoverheadchannel_Identity(IanaInterfaceType_Identity):
+    """
+    SONET Overhead Channel.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Sonetoverheadchannel_Identity']['meta_info']
+
+
+class Sonetpath_Identity(IanaInterfaceType_Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Sonetpath_Identity']['meta_info']
+
+
+class Sonetvt_Identity(IanaInterfaceType_Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Sonetvt_Identity']['meta_info']
 
 
 class Srp_Identity(IanaInterfaceType_Identity):
@@ -4921,7 +4690,6 @@ class Srp_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -4929,7 +4697,7 @@ class Srp_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Srp_Identity']['meta_info']
 
 
-class Ss7SigLink_Identity(IanaInterfaceType_Identity):
+class Ss7Siglink_Identity(IanaInterfaceType_Identity):
     """
     SS7 Signaling Link.
     
@@ -4942,15 +4710,14 @@ class Ss7SigLink_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['Ss7SigLink_Identity']['meta_info']
+        return meta._meta_table['Ss7Siglink_Identity']['meta_info']
 
 
-class StackToStack_Identity(IanaInterfaceType_Identity):
+class Stacktostack_Identity(IanaInterfaceType_Identity):
     """
     IBM stackToStack.
     
@@ -4963,15 +4730,14 @@ class StackToStack_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['StackToStack_Identity']['meta_info']
+        return meta._meta_table['Stacktostack_Identity']['meta_info']
 
 
-class StarLan_Identity(IanaInterfaceType_Identity):
+class Starlan_Identity(IanaInterfaceType_Identity):
     """
     Deprecated via RFC 3635.
     Use ethernetCsmacd(6) instead.
@@ -4985,12 +4751,11 @@ class StarLan_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['StarLan_Identity']['meta_info']
+        return meta._meta_table['Starlan_Identity']['meta_info']
 
 
 class Tdlc_Identity(IanaInterfaceType_Identity):
@@ -5006,7 +4771,6 @@ class Tdlc_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -5014,7 +4778,7 @@ class Tdlc_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Tdlc_Identity']['meta_info']
 
 
-class TeLink_Identity(IanaInterfaceType_Identity):
+class Telink_Identity(IanaInterfaceType_Identity):
     """
     TE Link.
     
@@ -5027,15 +4791,14 @@ class TeLink_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['TeLink_Identity']['meta_info']
+        return meta._meta_table['Telink_Identity']['meta_info']
 
 
-class TermPad_Identity(IanaInterfaceType_Identity):
+class Termpad_Identity(IanaInterfaceType_Identity):
     """
     CCITT\-ITU X.3 PAD Facility.
     
@@ -5048,12 +4811,11 @@ class TermPad_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['TermPad_Identity']['meta_info']
+        return meta._meta_table['Termpad_Identity']['meta_info']
 
 
 class Tr008_Identity(IanaInterfaceType_Identity):
@@ -5069,7 +4831,6 @@ class Tr008_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -5077,7 +4838,7 @@ class Tr008_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Tr008_Identity']['meta_info']
 
 
-class TranspHdlc_Identity(IanaInterfaceType_Identity):
+class Transphdlc_Identity(IanaInterfaceType_Identity):
     """
     Transp HDLC.
     
@@ -5090,12 +4851,11 @@ class TranspHdlc_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['TranspHdlc_Identity']['meta_info']
+        return meta._meta_table['Transphdlc_Identity']['meta_info']
 
 
 class Tunnel_Identity(IanaInterfaceType_Identity):
@@ -5111,7 +4871,6 @@ class Tunnel_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -5132,7 +4891,6 @@ class Ultra_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -5153,7 +4911,6 @@ class Usb_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -5174,7 +4931,6 @@ class V11_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -5195,7 +4951,6 @@ class V35_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -5216,7 +4971,6 @@ class V36_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -5237,7 +4991,6 @@ class V37_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -5259,7 +5012,6 @@ class Vdsl2_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -5280,7 +5032,6 @@ class Vdsl_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -5288,7 +5039,7 @@ class Vdsl_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['Vdsl_Identity']['meta_info']
 
 
-class VirtualIpAddress_Identity(IanaInterfaceType_Identity):
+class Virtualipaddress_Identity(IanaInterfaceType_Identity):
     """
     IBM VIPA.
     
@@ -5301,15 +5052,14 @@ class VirtualIpAddress_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['VirtualIpAddress_Identity']['meta_info']
+        return meta._meta_table['Virtualipaddress_Identity']['meta_info']
 
 
-class VirtualTg_Identity(IanaInterfaceType_Identity):
+class Virtualtg_Identity(IanaInterfaceType_Identity):
     """
     Virtual Trunk Group.
     
@@ -5322,15 +5072,14 @@ class VirtualTg_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['VirtualTg_Identity']['meta_info']
+        return meta._meta_table['Virtualtg_Identity']['meta_info']
 
 
-class VmwareNicTeam_Identity(IanaInterfaceType_Identity):
+class Vmwarenicteam_Identity(IanaInterfaceType_Identity):
     """
     VMware NIC Team.
     
@@ -5343,15 +5092,14 @@ class VmwareNicTeam_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['VmwareNicTeam_Identity']['meta_info']
+        return meta._meta_table['Vmwarenicteam_Identity']['meta_info']
 
 
-class VmwareVirtualNic_Identity(IanaInterfaceType_Identity):
+class Vmwarevirtualnic_Identity(IanaInterfaceType_Identity):
     """
     VMware Virtual Network Interface.
     
@@ -5364,15 +5112,14 @@ class VmwareVirtualNic_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['VmwareVirtualNic_Identity']['meta_info']
+        return meta._meta_table['Vmwarevirtualnic_Identity']['meta_info']
 
 
-class VoiceDID_Identity(IanaInterfaceType_Identity):
+class Voicedid_Identity(IanaInterfaceType_Identity):
     """
     Voice Direct Inward Dialing.
     
@@ -5385,15 +5132,14 @@ class VoiceDID_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['VoiceDID_Identity']['meta_info']
+        return meta._meta_table['Voicedid_Identity']['meta_info']
 
 
-class VoiceEBS_Identity(IanaInterfaceType_Identity):
+class Voiceebs_Identity(IanaInterfaceType_Identity):
     """
     Voice P\-phone EBS physical interface.
     
@@ -5406,36 +5152,14 @@ class VoiceEBS_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['VoiceEBS_Identity']['meta_info']
+        return meta._meta_table['Voiceebs_Identity']['meta_info']
 
 
-class VoiceEMFGD_Identity(IanaInterfaceType_Identity):
-    """
-    Voice E&M Feature Group D.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceType_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['VoiceEMFGD_Identity']['meta_info']
-
-
-class VoiceEM_Identity(IanaInterfaceType_Identity):
+class Voiceem_Identity(IanaInterfaceType_Identity):
     """
     Voice recEive and transMit.
     
@@ -5448,15 +5172,34 @@ class VoiceEM_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['VoiceEM_Identity']['meta_info']
+        return meta._meta_table['Voiceem_Identity']['meta_info']
 
 
-class VoiceEncap_Identity(IanaInterfaceType_Identity):
+class Voiceemfgd_Identity(IanaInterfaceType_Identity):
+    """
+    Voice E&M Feature Group D.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        IanaInterfaceType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.iana._meta import _iana_if_type as meta
+        return meta._meta_table['Voiceemfgd_Identity']['meta_info']
+
+
+class Voiceencap_Identity(IanaInterfaceType_Identity):
     """
     Voice encapsulation.
     
@@ -5469,15 +5212,14 @@ class VoiceEncap_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['VoiceEncap_Identity']['meta_info']
+        return meta._meta_table['Voiceencap_Identity']['meta_info']
 
 
-class VoiceFGDEANA_Identity(IanaInterfaceType_Identity):
+class Voicefgdeana_Identity(IanaInterfaceType_Identity):
     """
     Voice FGD Exchange Access North American.
     
@@ -5490,15 +5232,14 @@ class VoiceFGDEANA_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['VoiceFGDEANA_Identity']['meta_info']
+        return meta._meta_table['Voicefgdeana_Identity']['meta_info']
 
 
-class VoiceFGDOS_Identity(IanaInterfaceType_Identity):
+class Voicefgdos_Identity(IanaInterfaceType_Identity):
     """
     Voice FGD Operator Services.
     
@@ -5511,15 +5252,14 @@ class VoiceFGDOS_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['VoiceFGDOS_Identity']['meta_info']
+        return meta._meta_table['Voicefgdos_Identity']['meta_info']
 
 
-class VoiceFXO_Identity(IanaInterfaceType_Identity):
+class Voicefxo_Identity(IanaInterfaceType_Identity):
     """
     Voice Foreign Exchange Office.
     
@@ -5532,15 +5272,14 @@ class VoiceFXO_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['VoiceFXO_Identity']['meta_info']
+        return meta._meta_table['Voicefxo_Identity']['meta_info']
 
 
-class VoiceFXS_Identity(IanaInterfaceType_Identity):
+class Voicefxs_Identity(IanaInterfaceType_Identity):
     """
     Voice Foreign Exchange Station.
     
@@ -5553,15 +5292,14 @@ class VoiceFXS_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['VoiceFXS_Identity']['meta_info']
+        return meta._meta_table['Voicefxs_Identity']['meta_info']
 
 
-class VoiceOverAtm_Identity(IanaInterfaceType_Identity):
+class Voiceoveratm_Identity(IanaInterfaceType_Identity):
     """
     Voice over ATM.
     
@@ -5574,15 +5312,14 @@ class VoiceOverAtm_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['VoiceOverAtm_Identity']['meta_info']
+        return meta._meta_table['Voiceoveratm_Identity']['meta_info']
 
 
-class VoiceOverCable_Identity(IanaInterfaceType_Identity):
+class Voiceovercable_Identity(IanaInterfaceType_Identity):
     """
     Voice Over Cable Interface.
     
@@ -5595,15 +5332,14 @@ class VoiceOverCable_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['VoiceOverCable_Identity']['meta_info']
+        return meta._meta_table['Voiceovercable_Identity']['meta_info']
 
 
-class VoiceOverFrameRelay_Identity(IanaInterfaceType_Identity):
+class Voiceoverframerelay_Identity(IanaInterfaceType_Identity):
     """
     Voice Over Frame Relay.
     
@@ -5616,15 +5352,14 @@ class VoiceOverFrameRelay_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['VoiceOverFrameRelay_Identity']['meta_info']
+        return meta._meta_table['Voiceoverframerelay_Identity']['meta_info']
 
 
-class VoiceOverIp_Identity(IanaInterfaceType_Identity):
+class Voiceoverip_Identity(IanaInterfaceType_Identity):
     """
     Voice over IP encapsulation.
     
@@ -5637,15 +5372,14 @@ class VoiceOverIp_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['VoiceOverIp_Identity']['meta_info']
+        return meta._meta_table['Voiceoverip_Identity']['meta_info']
 
 
-class WwanPP2_Identity(IanaInterfaceType_Identity):
+class Wwanpp2_Identity(IanaInterfaceType_Identity):
     """
     3GPP2 WWAN.
     
@@ -5658,15 +5392,14 @@ class WwanPP2_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['WwanPP2_Identity']['meta_info']
+        return meta._meta_table['Wwanpp2_Identity']['meta_info']
 
 
-class WwanPP_Identity(IanaInterfaceType_Identity):
+class Wwanpp_Identity(IanaInterfaceType_Identity):
     """
     3GPP WWAN.
     
@@ -5679,12 +5412,11 @@ class WwanPP_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['WwanPP_Identity']['meta_info']
+        return meta._meta_table['Wwanpp_Identity']['meta_info']
 
 
 class X213_Identity(IanaInterfaceType_Identity):
@@ -5700,7 +5432,6 @@ class X213_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -5708,7 +5439,7 @@ class X213_Identity(IanaInterfaceType_Identity):
         return meta._meta_table['X213_Identity']['meta_info']
 
 
-class X25huntGroup_Identity(IanaInterfaceType_Identity):
+class X25Huntgroup_Identity(IanaInterfaceType_Identity):
     """
     X25 Hunt Group.
     
@@ -5721,15 +5452,14 @@ class X25huntGroup_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['X25huntGroup_Identity']['meta_info']
+        return meta._meta_table['X25Huntgroup_Identity']['meta_info']
 
 
-class X25mlp_Identity(IanaInterfaceType_Identity):
+class X25Mlp_Identity(IanaInterfaceType_Identity):
     """
     Multi\-Link Protocol.
     
@@ -5742,15 +5472,14 @@ class X25mlp_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['X25mlp_Identity']['meta_info']
+        return meta._meta_table['X25Mlp_Identity']['meta_info']
 
 
-class X25ple_Identity(IanaInterfaceType_Identity):
+class X25Ple_Identity(IanaInterfaceType_Identity):
     """
     
     
@@ -5763,12 +5492,11 @@ class X25ple_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.iana._meta import _iana_if_type as meta
-        return meta._meta_table['X25ple_Identity']['meta_info']
+        return meta._meta_table['X25Ple_Identity']['meta_info']
 
 
 class X86Laps_Identity(IanaInterfaceType_Identity):
@@ -5784,7 +5512,6 @@ class X86Laps_Identity(IanaInterfaceType_Identity):
 
     def __init__(self):
         IanaInterfaceType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():

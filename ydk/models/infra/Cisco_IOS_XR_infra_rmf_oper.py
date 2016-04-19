@@ -229,8 +229,6 @@ class Redundancy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.active is not None:
                             return True
 
@@ -243,10 +241,6 @@ class Redundancy(object):
                         if self.standby is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -268,8 +262,6 @@ class Redundancy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.active is not None:
                         return True
 
@@ -287,10 +279,6 @@ class Redundancy(object):
                     if self.standby is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -312,8 +300,6 @@ class Redundancy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_id is not None:
                     return True
 
@@ -329,16 +315,9 @@ class Redundancy(object):
                 if self.redundancy is not None and self.redundancy._has_data():
                     return True
 
-                if self.redundancy is not None and self.redundancy.is_presence():
-                    return True
-
                 if self.standby_reboot_reason is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -358,17 +337,11 @@ class Redundancy(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -503,8 +476,6 @@ class Redundancy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.active is not None:
                         return True
 
@@ -517,10 +488,6 @@ class Redundancy(object):
                     if self.standby is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -540,8 +507,6 @@ class Redundancy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.active is not None:
                     return True
 
@@ -561,10 +526,6 @@ class Redundancy(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rmf_oper as meta
@@ -582,8 +543,6 @@ class Redundancy(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.err_log is not None:
                 return True
 
@@ -592,10 +551,6 @@ class Redundancy(object):
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -615,24 +570,12 @@ class Redundancy(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
-            return True
-
-        if self.nodes is not None and self.nodes.is_presence():
             return True
 
         if self.summary is not None and self.summary._has_data():
             return True
 
-        if self.summary is not None and self.summary.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

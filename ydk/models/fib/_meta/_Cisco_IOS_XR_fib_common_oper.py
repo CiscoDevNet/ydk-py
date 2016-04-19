@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'MgmtFibMplsFrrState_Enum' : _MetaInfoEnum('MgmtFibMplsFrrState_Enum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
+    'MgmtFibMplsFrrStateEnum' : _MetaInfoEnum('MgmtFibMplsFrrStateEnum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
         {
             'partial':'PARTIAL',
             'active':'ACTIVE',
@@ -22,7 +22,7 @@ _meta_table = {
             'complete':'COMPLETE',
             'any':'ANY',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibShIpencapHdr_Enum' : _MetaInfoEnum('FibShIpencapHdr_Enum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
+    'FibShIpencapHdrEnum' : _MetaInfoEnum('FibShIpencapHdrEnum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
         {
             'fib-sh-ip-encap-none':'FIB_SH_IP_ENCAP_NONE',
             'fib-sh-ip-encap-ip4':'FIB_SH_IP_ENCAP_IP4',
@@ -30,36 +30,36 @@ _meta_table = {
             'fib-sh-ip-encap-udp':'FIB_SH_IP_ENCAP_UDP',
             'fib-sh-ip-encap-lisp':'FIB_SH_IP_ENCAP_LISP',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibProtocol_Enum' : _MetaInfoEnum('FibProtocol_Enum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
+    'FibProtocolEnum' : _MetaInfoEnum('FibProtocolEnum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
         {
             'ipv4':'IPV4',
             'ipv6':'IPV6',
             'mpls':'MPLS',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'SsLbaState_Enum' : _MetaInfoEnum('SsLbaState_Enum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
+    'SsLbaStateEnum' : _MetaInfoEnum('SsLbaStateEnum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
         {
             'l3':'L3',
             'l4':'L4',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibFrrProtocolShow_Enum' : _MetaInfoEnum('FibFrrProtocolShow_Enum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
+    'FibFrrProtocolShowEnum' : _MetaInfoEnum('FibFrrProtocolShowEnum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
         {
             'frr-protocol-ipv4':'FRR_PROTOCOL_IPV4',
             'frr-protocol-ipv6':'FRR_PROTOCOL_IPV6',
             'frr-protocol-mpls':'FRR_PROTOCOL_MPLS',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'Proto_Enum' : _MetaInfoEnum('Proto_Enum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
+    'ProtoEnum' : _MetaInfoEnum('ProtoEnum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
         {
             'ipv4':'IPV4',
             'ipv6':'IPV6',
             'mpls':'MPLS',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibLink_Enum' : _MetaInfoEnum('FibLink_Enum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
+    'FibLinkEnum' : _MetaInfoEnum('FibLinkEnum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
         {
             'link-ipv4':'LINK_IPV4',
             'link-ipv6':'LINK_IPV6',
             'link-mpls':'LINK_MPLS',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibAdjacencyShow_Enum' : _MetaInfoEnum('FibAdjacencyShow_Enum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
+    'FibAdjacencyShowEnum' : _MetaInfoEnum('FibAdjacencyShowEnum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
         {
             'fib-adjacency-normal':'FIB_ADJACENCY_NORMAL',
             'fib-adjacency-null':'FIB_ADJACENCY_NULL',
@@ -72,29 +72,29 @@ _meta_table = {
             'fib-adjacency-lisp':'FIB_ADJACENCY_LISP',
             'fib-adjacency-unknown':'FIB_ADJACENCY_UNKNOWN',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibLoadshareShow_Enum' : _MetaInfoEnum('FibLoadshareShow_Enum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
+    'FibLoadshareShowEnum' : _MetaInfoEnum('FibLoadshareShowEnum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
         {
             'fib-load-share-none':'FIB_LOAD_SHARE_NONE',
             'fib-load-share-per-packet':'FIB_LOAD_SHARE_PER_PACKET',
             'fib-load-share-dest-sharing':'FIB_LOAD_SHARE_DEST_SHARING',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'Eos_Enum' : _MetaInfoEnum('Eos_Enum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
+    'EosEnum' : _MetaInfoEnum('EosEnum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
         {
             'eos0':'EOS0',
             'eos1':'EOS1',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibllcEntry_Enum' : _MetaInfoEnum('FibllcEntry_Enum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
+    'FibllcEntryEnum' : _MetaInfoEnum('FibllcEntryEnum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
         {
             'xc':'XC',
             'pfx':'PFX',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibRpfMode_Enum' : _MetaInfoEnum('FibRpfMode_Enum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
+    'FibRpfModeEnum' : _MetaInfoEnum('FibRpfModeEnum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
         {
             'fib-rpf-mode-strict':'FIB_RPF_MODE_STRICT',
             'fib-rpf-mode-loose':'FIB_RPF_MODE_LOOSE',
             'fib-rpf-mode-unknown':'FIB_RPF_MODE_UNKNOWN',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibidbOper_Enum' : _MetaInfoEnum('FibidbOper_Enum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
+    'FibidbOperEnum' : _MetaInfoEnum('FibidbOperEnum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
         {
             'fibidb-none':'FIBIDB_NONE',
             'fibidb-create':'FIBIDB_CREATE',
@@ -102,35 +102,35 @@ _meta_table = {
             'fibidb-modify':'FIBIDB_MODIFY',
             'fibidb-max':'FIBIDB_MAX',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibNeh_Enum' : _MetaInfoEnum('FibNeh_Enum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
+    'FibNehEnum' : _MetaInfoEnum('FibNehEnum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
         {
             'nh-local':'NH_LOCAL',
             'nh-remote':'NH_REMOTE',
             'nh-special':'NH_SPECIAL',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'NextHop_Enum' : _MetaInfoEnum('NextHop_Enum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
+    'NextHopEnum' : _MetaInfoEnum('NextHopEnum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
         {
             'tx':'TX',
             'rx':'RX',
             'special':'SPECIAL',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibRouteSource_Enum' : _MetaInfoEnum('FibRouteSource_Enum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
+    'FibRouteSourceEnum' : _MetaInfoEnum('FibRouteSourceEnum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
         {
             'lsd':'LSD',
             'rib':'RIB',
             'mrib':'MRIB',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'Mplseos_Enum' : _MetaInfoEnum('Mplseos_Enum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
+    'MplseosEnum' : _MetaInfoEnum('MplseosEnum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
         {
             'eos0':'EOS0',
             'eos1':'EOS1',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'MgmtFibMplsLspRole_Enum' : _MetaInfoEnum('MgmtFibMplsLspRole_Enum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
+    'MgmtFibMplsLspRoleEnum' : _MetaInfoEnum('MgmtFibMplsLspRoleEnum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
         {
             'head':'HEAD',
             'midpoint':'MIDPOINT',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibNehSpecial_Enum' : _MetaInfoEnum('FibNehSpecial_Enum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
+    'FibNehSpecialEnum' : _MetaInfoEnum('FibNehSpecialEnum', 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper',
         {
             'nh-not-found':'NH_NOT_FOUND',
             'nh-null0':'NH_NULL0',
@@ -195,7 +195,7 @@ _meta_table = {
                 ''',
                 'frr_prefix',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('frr-protocol-type', REFERENCE_ENUM_CLASS, 'FibFrrProtocolShow_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibFrrProtocolShow_Enum', 
+            _MetaInfoClassMember('frr-protocol-type', REFERENCE_ENUM_CLASS, 'FibFrrProtocolShowEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibFrrProtocolShowEnum', 
                 [], [], 
                 '''                FIB Protocol Type
                 ''',
@@ -482,7 +482,7 @@ _meta_table = {
                 ''',
                 'label',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ll-ctype', REFERENCE_ENUM_CLASS, 'FibllcEntry_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibllcEntry_Enum', 
+            _MetaInfoClassMember('ll-ctype', REFERENCE_ENUM_CLASS, 'FibllcEntryEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibllcEntryEnum', 
                 [], [], 
                 '''                Type of entry
                 ''',
@@ -536,7 +536,7 @@ _meta_table = {
                 ''',
                 'retry_ts',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('source', REFERENCE_ENUM_CLASS, 'FibRouteSource_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibRouteSource_Enum', 
+            _MetaInfoClassMember('source', REFERENCE_ENUM_CLASS, 'FibRouteSourceEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibRouteSourceEnum', 
                 [], [], 
                 '''                Route source
                 ''',
@@ -1941,7 +1941,7 @@ _meta_table = {
                 ''',
                 'rpf_configured_flag',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-mode', REFERENCE_ENUM_CLASS, 'FibRpfMode_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibRpfMode_Enum', 
+            _MetaInfoClassMember('rpf-mode', REFERENCE_ENUM_CLASS, 'FibRpfModeEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibRpfModeEnum', 
                 [], [], 
                 '''                RPF mode
                 ''',
@@ -2205,7 +2205,7 @@ _meta_table = {
                 ''',
                 'last_modified_time',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('last-operation', REFERENCE_ENUM_CLASS, 'FibidbOper_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibidbOper_Enum', 
+            _MetaInfoClassMember('last-operation', REFERENCE_ENUM_CLASS, 'FibidbOperEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibidbOperEnum', 
                 [], [], 
                 '''                Last Oper
                 ''',
@@ -2359,7 +2359,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo',
             False, 
             [
-            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'FibLink_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibLink_Enum', 
+            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'FibLinkEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibLinkEnum', 
                 [], [], 
                 '''                Link type
                 ''',
@@ -2789,7 +2789,7 @@ _meta_table = {
                 ''',
                 'fib_entry_adjacency_interface',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('fib-entry-adjacency-type', REFERENCE_ENUM_CLASS, 'FibAdjacencyShow_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibAdjacencyShow_Enum', 
+            _MetaInfoClassMember('fib-entry-adjacency-type', REFERENCE_ENUM_CLASS, 'FibAdjacencyShowEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibAdjacencyShowEnum', 
                 [], [], 
                 '''                FIB entry adjacency type
                 ''',
@@ -2837,7 +2837,7 @@ _meta_table = {
                 ''',
                 'ldi_time_of_last_update_in_msec',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('load-sharing-type', REFERENCE_ENUM_CLASS, 'FibLoadshareShow_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibLoadshareShow_Enum', 
+            _MetaInfoClassMember('load-sharing-type', REFERENCE_ENUM_CLASS, 'FibLoadshareShowEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibLoadshareShowEnum', 
                 [], [], 
                 '''                Load sharing type
                 ''',
@@ -2950,7 +2950,7 @@ _meta_table = {
                 ''',
                 'ip_encap_hdr_dyn',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ip-encap-hdr-type', REFERENCE_ENUM_CLASS, 'FibShIpencapHdr_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibShIpencapHdr_Enum', 
+            _MetaInfoClassMember('ip-encap-hdr-type', REFERENCE_ENUM_CLASS, 'FibShIpencapHdrEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibShIpencapHdrEnum', 
                 [], [], 
                 '''                Header Type
                 ''',
@@ -3050,7 +3050,7 @@ _meta_table = {
                 ''',
                 'current_path_flag',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('detail-fib-adjacency-type', REFERENCE_ENUM_CLASS, 'FibAdjacencyShow_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibAdjacencyShow_Enum', 
+            _MetaInfoClassMember('detail-fib-adjacency-type', REFERENCE_ENUM_CLASS, 'FibAdjacencyShowEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibAdjacencyShowEnum', 
                 [], [], 
                 '''                FIB entry adjacency type
                 ''',
@@ -3068,13 +3068,13 @@ _meta_table = {
                 ''',
                 'external_adjacency',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('fib-path-nh-information-type', REFERENCE_ENUM_CLASS, 'FibNeh_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibNeh_Enum', 
+            _MetaInfoClassMember('fib-path-nh-information-type', REFERENCE_ENUM_CLASS, 'FibNehEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibNehEnum', 
                 [], [], 
                 '''                FIB Nhinfo type
                 ''',
                 'fib_path_nh_information_type',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('fib-path-nh-information-type-special', REFERENCE_ENUM_CLASS, 'FibNehSpecial_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibNehSpecial_Enum', 
+            _MetaInfoClassMember('fib-path-nh-information-type-special', REFERENCE_ENUM_CLASS, 'FibNehSpecialEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibNehSpecialEnum', 
                 [], [], 
                 '''                FIB Nhinfo type special
                 ''',
@@ -4119,7 +4119,7 @@ _meta_table = {
                 ''',
                 'fib_entry_adjacency_interface',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('fib-entry-adjacency-type', REFERENCE_ENUM_CLASS, 'FibAdjacencyShow_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibAdjacencyShow_Enum', 
+            _MetaInfoClassMember('fib-entry-adjacency-type', REFERENCE_ENUM_CLASS, 'FibAdjacencyShowEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibAdjacencyShowEnum', 
                 [], [], 
                 '''                FIB entry adjacency type
                 ''',
@@ -4167,7 +4167,7 @@ _meta_table = {
                 ''',
                 'ldi_time_of_last_update_in_msec',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('load-sharing-type', REFERENCE_ENUM_CLASS, 'FibLoadshareShow_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibLoadshareShow_Enum', 
+            _MetaInfoClassMember('load-sharing-type', REFERENCE_ENUM_CLASS, 'FibLoadshareShowEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibLoadshareShowEnum', 
                 [], [], 
                 '''                Load sharing type
                 ''',
@@ -4280,7 +4280,7 @@ _meta_table = {
                 ''',
                 'ip_encap_hdr_dyn',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ip-encap-hdr-type', REFERENCE_ENUM_CLASS, 'FibShIpencapHdr_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibShIpencapHdr_Enum', 
+            _MetaInfoClassMember('ip-encap-hdr-type', REFERENCE_ENUM_CLASS, 'FibShIpencapHdrEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibShIpencapHdrEnum', 
                 [], [], 
                 '''                Header Type
                 ''',
@@ -4380,7 +4380,7 @@ _meta_table = {
                 ''',
                 'current_path_flag',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('detail-fib-adjacency-type', REFERENCE_ENUM_CLASS, 'FibAdjacencyShow_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibAdjacencyShow_Enum', 
+            _MetaInfoClassMember('detail-fib-adjacency-type', REFERENCE_ENUM_CLASS, 'FibAdjacencyShowEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibAdjacencyShowEnum', 
                 [], [], 
                 '''                FIB entry adjacency type
                 ''',
@@ -4398,13 +4398,13 @@ _meta_table = {
                 ''',
                 'external_adjacency',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('fib-path-nh-information-type', REFERENCE_ENUM_CLASS, 'FibNeh_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibNeh_Enum', 
+            _MetaInfoClassMember('fib-path-nh-information-type', REFERENCE_ENUM_CLASS, 'FibNehEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibNehEnum', 
                 [], [], 
                 '''                FIB Nhinfo type
                 ''',
                 'fib_path_nh_information_type',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('fib-path-nh-information-type-special', REFERENCE_ENUM_CLASS, 'FibNehSpecial_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibNehSpecial_Enum', 
+            _MetaInfoClassMember('fib-path-nh-information-type-special', REFERENCE_ENUM_CLASS, 'FibNehSpecialEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibNehSpecialEnum', 
                 [], [], 
                 '''                FIB Nhinfo type special
                 ''',
@@ -5173,7 +5173,7 @@ _meta_table = {
                 ''',
                 'lisp_rloc_objects',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('load-balancing', REFERENCE_ENUM_CLASS, 'SsLbaState_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'SsLbaState_Enum', 
+            _MetaInfoClassMember('load-balancing', REFERENCE_ENUM_CLASS, 'SsLbaStateEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'SsLbaStateEnum', 
                 [], [], 
                 '''                LBA configuration state
                 ''',
@@ -5386,7 +5386,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol',
             False, 
             [
-            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'FibProtocol_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibProtocol_Enum', 
+            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'FibProtocolEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'FibProtocolEnum', 
                 [], [], 
                 '''                Protocol Name 
                 ''',
@@ -5944,7 +5944,7 @@ _meta_table = {
                 ''',
                 'midpoint',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'MgmtFibMplsLspRole_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'MgmtFibMplsLspRole_Enum', 
+            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'MgmtFibMplsLspRoleEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'MgmtFibMplsLspRoleEnum', 
                 [], [], 
                 '''                Role
                 ''',
@@ -6025,7 +6025,7 @@ _meta_table = {
                 ''',
                 'midpoint',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'MgmtFibMplsLspRole_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'MgmtFibMplsLspRole_Enum', 
+            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'MgmtFibMplsLspRoleEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'MgmtFibMplsLspRoleEnum', 
                 [], [], 
                 '''                Role
                 ''',
@@ -6042,7 +6042,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg',
             False, 
             [
-            _MetaInfoClassMember('entry-frr-state', REFERENCE_ENUM_CLASS, 'MgmtFibMplsFrrState_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'MgmtFibMplsFrrState_Enum', 
+            _MetaInfoClassMember('entry-frr-state', REFERENCE_ENUM_CLASS, 'MgmtFibMplsFrrStateEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'MgmtFibMplsFrrStateEnum', 
                 [], [], 
                 '''                MPLS FRR entry state
                 ''',
@@ -6119,7 +6119,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-fib-common-oper', True),
-            _MetaInfoClassMember('entry-frr-state', REFERENCE_ENUM_CLASS, 'MgmtFibMplsFrrState_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'MgmtFibMplsFrrState_Enum', 
+            _MetaInfoClassMember('entry-frr-state', REFERENCE_ENUM_CLASS, 'MgmtFibMplsFrrStateEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'MgmtFibMplsFrrStateEnum', 
                 [], [], 
                 '''                MPLS FRR entry state
                 ''',
@@ -6324,7 +6324,7 @@ _meta_table = {
                 ''',
                 'midpoint',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'MgmtFibMplsLspRole_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'MgmtFibMplsLspRole_Enum', 
+            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'MgmtFibMplsLspRoleEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'MgmtFibMplsLspRoleEnum', 
                 [], [], 
                 '''                Role
                 ''',
@@ -6405,7 +6405,7 @@ _meta_table = {
                 ''',
                 'midpoint',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'MgmtFibMplsLspRole_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'MgmtFibMplsLspRole_Enum', 
+            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'MgmtFibMplsLspRoleEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'MgmtFibMplsLspRoleEnum', 
                 [], [], 
                 '''                Role
                 ''',
@@ -6422,7 +6422,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg',
             False, 
             [
-            _MetaInfoClassMember('entry-frr-state', REFERENCE_ENUM_CLASS, 'MgmtFibMplsFrrState_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'MgmtFibMplsFrrState_Enum', 
+            _MetaInfoClassMember('entry-frr-state', REFERENCE_ENUM_CLASS, 'MgmtFibMplsFrrStateEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'MgmtFibMplsFrrStateEnum', 
                 [], [], 
                 '''                MPLS FRR entry state
                 ''',
@@ -6499,7 +6499,7 @@ _meta_table = {
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-fib-common-oper', True),
-            _MetaInfoClassMember('entry-frr-state', REFERENCE_ENUM_CLASS, 'MgmtFibMplsFrrState_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'MgmtFibMplsFrrState_Enum', 
+            _MetaInfoClassMember('entry-frr-state', REFERENCE_ENUM_CLASS, 'MgmtFibMplsFrrStateEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'MgmtFibMplsFrrStateEnum', 
                 [], [], 
                 '''                MPLS FRR entry state
                 ''',
@@ -7532,7 +7532,7 @@ _meta_table = {
                 ''',
                 'afi_table_id',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('eos', REFERENCE_ENUM_CLASS, 'Eos_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'Eos_Enum', 
+            _MetaInfoClassMember('eos', REFERENCE_ENUM_CLASS, 'EosEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'EosEnum', 
                 [], [], 
                 '''                End of stack flag
                 ''',
@@ -8531,7 +8531,7 @@ _meta_table = {
                 ''',
                 'afi_table_id',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('eos', REFERENCE_ENUM_CLASS, 'Eos_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'Eos_Enum', 
+            _MetaInfoClassMember('eos', REFERENCE_ENUM_CLASS, 'EosEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'EosEnum', 
                 [], [], 
                 '''                End of stack flag
                 ''',
@@ -10411,7 +10411,7 @@ _meta_table = {
                 ''',
                 'next_hop_interface',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('next-hop-protocol', REFERENCE_ENUM_CLASS, 'Proto_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'Proto_Enum', 
+            _MetaInfoClassMember('next-hop-protocol', REFERENCE_ENUM_CLASS, 'ProtoEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'ProtoEnum', 
                 [], [], 
                 '''                The address family (V4/V6) 
                 ''',
@@ -10464,7 +10464,7 @@ _meta_table = {
                 ''',
                 'label_information_detail',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-next-hop-protocol', REFERENCE_ENUM_CLASS, 'Proto_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'Proto_Enum', 
+            _MetaInfoClassMember('label-information-next-hop-protocol', REFERENCE_ENUM_CLASS, 'ProtoEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'ProtoEnum', 
                 [], [], 
                 '''                The address family (v4/v6) 
                 ''',
@@ -10476,7 +10476,7 @@ _meta_table = {
                 ''',
                 'label_information_next_hop_string',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-next-hop-type', REFERENCE_ENUM_CLASS, 'NextHop_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'NextHop_Enum', 
+            _MetaInfoClassMember('label-information-next-hop-type', REFERENCE_ENUM_CLASS, 'NextHopEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'NextHopEnum', 
                 [], [], 
                 '''                NHinfo Type
                 ''',
@@ -10725,7 +10725,7 @@ _meta_table = {
                 ''',
                 'afi_table_id',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('eos', REFERENCE_ENUM_CLASS, 'Mplseos_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'Mplseos_Enum', 
+            _MetaInfoClassMember('eos', REFERENCE_ENUM_CLASS, 'MplseosEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'MplseosEnum', 
                 [], [], 
                 '''                End of stack flag
                 ''',
@@ -10915,7 +10915,7 @@ _meta_table = {
                 ''',
                 'next_hop_interface',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('next-hop-protocol', REFERENCE_ENUM_CLASS, 'Proto_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'Proto_Enum', 
+            _MetaInfoClassMember('next-hop-protocol', REFERENCE_ENUM_CLASS, 'ProtoEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'ProtoEnum', 
                 [], [], 
                 '''                The address family (V4/V6) 
                 ''',
@@ -10968,7 +10968,7 @@ _meta_table = {
                 ''',
                 'label_information_detail',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-next-hop-protocol', REFERENCE_ENUM_CLASS, 'Proto_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'Proto_Enum', 
+            _MetaInfoClassMember('label-information-next-hop-protocol', REFERENCE_ENUM_CLASS, 'ProtoEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'ProtoEnum', 
                 [], [], 
                 '''                The address family (v4/v6) 
                 ''',
@@ -10980,7 +10980,7 @@ _meta_table = {
                 ''',
                 'label_information_next_hop_string',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-next-hop-type', REFERENCE_ENUM_CLASS, 'NextHop_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'NextHop_Enum', 
+            _MetaInfoClassMember('label-information-next-hop-type', REFERENCE_ENUM_CLASS, 'NextHopEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'NextHopEnum', 
                 [], [], 
                 '''                NHinfo Type
                 ''',
@@ -11229,7 +11229,7 @@ _meta_table = {
                 ''',
                 'afi_table_id',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('eos', REFERENCE_ENUM_CLASS, 'Mplseos_Enum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'Mplseos_Enum', 
+            _MetaInfoClassMember('eos', REFERENCE_ENUM_CLASS, 'MplseosEnum' , 'ydk.models.fib.Cisco_IOS_XR_fib_common_oper', 'MplseosEnum', 
                 [], [], 
                 '''                End of stack flag
                 ''',

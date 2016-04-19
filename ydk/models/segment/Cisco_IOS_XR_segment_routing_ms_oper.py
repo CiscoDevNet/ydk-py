@@ -24,105 +24,97 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class SrmsMiActionEB_Enum(Enum):
+class SrmsMiActionEBEnum(Enum):
     """
-    SrmsMiActionEB_Enum
+    SrmsMiActionEBEnum
 
     Srms mi action e b
 
-    """
+    .. data:: NONE = 0
+
+    	None
+
+    .. data:: ADD = 1
+
+    	Add
 
     """
 
-    None
-
-    """
     NONE = 0
 
-    """
-
-    Add
-
-    """
     ADD = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.segment._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
-        return meta._meta_table['SrmsMiActionEB_Enum']
+        return meta._meta_table['SrmsMiActionEBEnum']
 
 
-class SrmsMiAfEB_Enum(Enum):
+class SrmsMiAfEBEnum(Enum):
     """
-    SrmsMiAfEB_Enum
+    SrmsMiAfEBEnum
 
     Srms mi af e b
 
-    """
+    .. data:: NONE = 0
+
+    	None
+
+    .. data:: IPV4 = 1
+
+    	IPv4
+
+    .. data:: IPV6 = 2
+
+    	IPv6
 
     """
 
-    None
-
-    """
     NONE = 0
 
-    """
-
-    IPv4
-
-    """
     IPV4 = 1
 
-    """
-
-    IPv6
-
-    """
     IPV6 = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.segment._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
-        return meta._meta_table['SrmsMiAfEB_Enum']
+        return meta._meta_table['SrmsMiAfEBEnum']
 
 
-class SrmsMiSrcEB_Enum(Enum):
+class SrmsMiSrcEBEnum(Enum):
     """
-    SrmsMiSrcEB_Enum
+    SrmsMiSrcEBEnum
 
     Srms mi src e b
 
-    """
+    .. data:: NONE = 0
+
+    	None
+
+    .. data:: LOCAL = 1
+
+    	Local
+
+    .. data:: REMOTE = 2
+
+    	Remote
 
     """
 
-    None
-
-    """
     NONE = 0
 
-    """
-
-    Local
-
-    """
     LOCAL = 1
 
-    """
-
-    Remote
-
-    """
     REMOTE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.segment._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
-        return meta._meta_table['SrmsMiSrcEB_Enum']
+        return meta._meta_table['SrmsMiSrcEBEnum']
 
 
 
@@ -217,7 +209,7 @@ class Srms(object):
                 .. attribute:: action
                 
                 	action
-                	**type**\: :py:class:`SrmsMiActionEB_Enum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEB_Enum>`
+                	**type**\: :py:class:`SrmsMiActionEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEBEnum>`
                 
                 .. attribute:: addr
                 
@@ -283,7 +275,7 @@ class Srms(object):
                 .. attribute:: src
                 
                 	src
-                	**type**\: :py:class:`SrmsMiSrcEB_Enum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB_Enum>`
+                	**type**\: :py:class:`SrmsMiSrcEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
                 
                 
 
@@ -315,7 +307,7 @@ class Srms(object):
                     .. attribute:: af
                     
                     	AF
-                    	**type**\: :py:class:`SrmsMiAfEB_Enum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEB_Enum>`
+                    	**type**\: :py:class:`SrmsMiAfEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEBEnum>`
                     
                     .. attribute:: ipv4
                     
@@ -356,8 +348,6 @@ class Srms(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.af is not None:
                             return True
 
@@ -367,10 +357,6 @@ class Srms(object):
                         if self.ipv6 is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -390,15 +376,10 @@ class Srms(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.action is not None:
                         return True
 
                     if self.addr is not None and self.addr._has_data():
-                        return True
-
-                    if self.addr is not None and self.addr.is_presence():
                         return True
 
                     if self.area is not None:
@@ -430,10 +411,6 @@ class Srms(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.segment._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
@@ -451,17 +428,11 @@ class Srms(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.mapping_mi is not None:
                     for child_ref in self.mapping_mi:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -504,7 +475,7 @@ class Srms(object):
                 .. attribute:: action
                 
                 	action
-                	**type**\: :py:class:`SrmsMiActionEB_Enum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEB_Enum>`
+                	**type**\: :py:class:`SrmsMiActionEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEBEnum>`
                 
                 .. attribute:: addr
                 
@@ -570,7 +541,7 @@ class Srms(object):
                 .. attribute:: src
                 
                 	src
-                	**type**\: :py:class:`SrmsMiSrcEB_Enum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB_Enum>`
+                	**type**\: :py:class:`SrmsMiSrcEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
                 
                 
 
@@ -602,7 +573,7 @@ class Srms(object):
                     .. attribute:: af
                     
                     	AF
-                    	**type**\: :py:class:`SrmsMiAfEB_Enum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEB_Enum>`
+                    	**type**\: :py:class:`SrmsMiAfEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEBEnum>`
                     
                     .. attribute:: ipv4
                     
@@ -643,8 +614,6 @@ class Srms(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.af is not None:
                             return True
 
@@ -654,10 +623,6 @@ class Srms(object):
                         if self.ipv6 is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -677,15 +642,10 @@ class Srms(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.action is not None:
                         return True
 
                     if self.addr is not None and self.addr._has_data():
-                        return True
-
-                    if self.addr is not None and self.addr.is_presence():
                         return True
 
                     if self.area is not None:
@@ -717,10 +677,6 @@ class Srms(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.segment._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
@@ -738,17 +694,11 @@ class Srms(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.mapping_mi is not None:
                     for child_ref in self.mapping_mi:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -768,24 +718,12 @@ class Srms(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.mapping_ipv4 is not None and self.mapping_ipv4._has_data():
-                return True
-
-            if self.mapping_ipv4 is not None and self.mapping_ipv4.is_presence():
                 return True
 
             if self.mapping_ipv6 is not None and self.mapping_ipv6._has_data():
                 return True
 
-            if self.mapping_ipv6 is not None and self.mapping_ipv6.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -889,7 +827,7 @@ class Srms(object):
                     .. attribute:: action
                     
                     	action
-                    	**type**\: :py:class:`SrmsMiActionEB_Enum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEB_Enum>`
+                    	**type**\: :py:class:`SrmsMiActionEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEBEnum>`
                     
                     .. attribute:: addr
                     
@@ -941,7 +879,7 @@ class Srms(object):
                     .. attribute:: src
                     
                     	src
-                    	**type**\: :py:class:`SrmsMiSrcEB_Enum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB_Enum>`
+                    	**type**\: :py:class:`SrmsMiSrcEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
                     
                     
 
@@ -972,7 +910,7 @@ class Srms(object):
                         .. attribute:: af
                         
                         	AF
-                        	**type**\: :py:class:`SrmsMiAfEB_Enum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEB_Enum>`
+                        	**type**\: :py:class:`SrmsMiAfEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEBEnum>`
                         
                         .. attribute:: ipv4
                         
@@ -1015,8 +953,6 @@ class Srms(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.af is not None:
                                 return True
 
@@ -1026,10 +962,6 @@ class Srms(object):
                             if self.ipv6 is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1051,8 +983,6 @@ class Srms(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.mi_id is not None:
                             return True
 
@@ -1060,9 +990,6 @@ class Srms(object):
                             return True
 
                         if self.addr is not None and self.addr._has_data():
-                            return True
-
-                        if self.addr is not None and self.addr.is_presence():
                             return True
 
                         if self.area is not None:
@@ -1088,10 +1015,6 @@ class Srms(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.segment._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
@@ -1109,17 +1032,11 @@ class Srms(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.policy_mi is not None:
                         for child_ref in self.policy_mi:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1165,7 +1082,7 @@ class Srms(object):
                     .. attribute:: action
                     
                     	action
-                    	**type**\: :py:class:`SrmsMiActionEB_Enum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEB_Enum>`
+                    	**type**\: :py:class:`SrmsMiActionEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEBEnum>`
                     
                     .. attribute:: addr
                     
@@ -1217,7 +1134,7 @@ class Srms(object):
                     .. attribute:: src
                     
                     	src
-                    	**type**\: :py:class:`SrmsMiSrcEB_Enum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB_Enum>`
+                    	**type**\: :py:class:`SrmsMiSrcEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
                     
                     
 
@@ -1248,7 +1165,7 @@ class Srms(object):
                         .. attribute:: af
                         
                         	AF
-                        	**type**\: :py:class:`SrmsMiAfEB_Enum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEB_Enum>`
+                        	**type**\: :py:class:`SrmsMiAfEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEBEnum>`
                         
                         .. attribute:: ipv4
                         
@@ -1291,8 +1208,6 @@ class Srms(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.af is not None:
                                 return True
 
@@ -1302,10 +1217,6 @@ class Srms(object):
                             if self.ipv6 is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1327,8 +1238,6 @@ class Srms(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.mi_id is not None:
                             return True
 
@@ -1336,9 +1245,6 @@ class Srms(object):
                             return True
 
                         if self.addr is not None and self.addr._has_data():
-                            return True
-
-                        if self.addr is not None and self.addr.is_presence():
                             return True
 
                         if self.area is not None:
@@ -1364,10 +1270,6 @@ class Srms(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.segment._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
@@ -1385,17 +1287,11 @@ class Srms(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.policy_mi is not None:
                         for child_ref in self.policy_mi:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1415,24 +1311,12 @@ class Srms(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.policy_ipv4_active is not None and self.policy_ipv4_active._has_data():
-                    return True
-
-                if self.policy_ipv4_active is not None and self.policy_ipv4_active.is_presence():
                     return True
 
                 if self.policy_ipv4_backup is not None and self.policy_ipv4_backup._has_data():
                     return True
 
-                if self.policy_ipv4_backup is not None and self.policy_ipv4_backup.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1507,7 +1391,7 @@ class Srms(object):
                     .. attribute:: action
                     
                     	action
-                    	**type**\: :py:class:`SrmsMiActionEB_Enum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEB_Enum>`
+                    	**type**\: :py:class:`SrmsMiActionEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEBEnum>`
                     
                     .. attribute:: addr
                     
@@ -1559,7 +1443,7 @@ class Srms(object):
                     .. attribute:: src
                     
                     	src
-                    	**type**\: :py:class:`SrmsMiSrcEB_Enum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB_Enum>`
+                    	**type**\: :py:class:`SrmsMiSrcEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
                     
                     
 
@@ -1590,7 +1474,7 @@ class Srms(object):
                         .. attribute:: af
                         
                         	AF
-                        	**type**\: :py:class:`SrmsMiAfEB_Enum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEB_Enum>`
+                        	**type**\: :py:class:`SrmsMiAfEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEBEnum>`
                         
                         .. attribute:: ipv4
                         
@@ -1633,8 +1517,6 @@ class Srms(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.af is not None:
                                 return True
 
@@ -1644,10 +1526,6 @@ class Srms(object):
                             if self.ipv6 is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1669,8 +1547,6 @@ class Srms(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.mi_id is not None:
                             return True
 
@@ -1678,9 +1554,6 @@ class Srms(object):
                             return True
 
                         if self.addr is not None and self.addr._has_data():
-                            return True
-
-                        if self.addr is not None and self.addr.is_presence():
                             return True
 
                         if self.area is not None:
@@ -1706,10 +1579,6 @@ class Srms(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.segment._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
@@ -1727,17 +1596,11 @@ class Srms(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.policy_mi is not None:
                         for child_ref in self.policy_mi:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1783,7 +1646,7 @@ class Srms(object):
                     .. attribute:: action
                     
                     	action
-                    	**type**\: :py:class:`SrmsMiActionEB_Enum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEB_Enum>`
+                    	**type**\: :py:class:`SrmsMiActionEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEBEnum>`
                     
                     .. attribute:: addr
                     
@@ -1835,7 +1698,7 @@ class Srms(object):
                     .. attribute:: src
                     
                     	src
-                    	**type**\: :py:class:`SrmsMiSrcEB_Enum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB_Enum>`
+                    	**type**\: :py:class:`SrmsMiSrcEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
                     
                     
 
@@ -1866,7 +1729,7 @@ class Srms(object):
                         .. attribute:: af
                         
                         	AF
-                        	**type**\: :py:class:`SrmsMiAfEB_Enum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEB_Enum>`
+                        	**type**\: :py:class:`SrmsMiAfEBEnum <ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEBEnum>`
                         
                         .. attribute:: ipv4
                         
@@ -1909,8 +1772,6 @@ class Srms(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.af is not None:
                                 return True
 
@@ -1920,10 +1781,6 @@ class Srms(object):
                             if self.ipv6 is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1945,8 +1802,6 @@ class Srms(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.mi_id is not None:
                             return True
 
@@ -1954,9 +1809,6 @@ class Srms(object):
                             return True
 
                         if self.addr is not None and self.addr._has_data():
-                            return True
-
-                        if self.addr is not None and self.addr.is_presence():
                             return True
 
                         if self.area is not None:
@@ -1982,10 +1834,6 @@ class Srms(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.segment._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
@@ -2003,17 +1851,11 @@ class Srms(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.policy_mi is not None:
                         for child_ref in self.policy_mi:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2033,24 +1875,12 @@ class Srms(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.policy_ipv6_active is not None and self.policy_ipv6_active._has_data():
-                    return True
-
-                if self.policy_ipv6_active is not None and self.policy_ipv6_active.is_presence():
                     return True
 
                 if self.policy_ipv6_backup is not None and self.policy_ipv6_backup._has_data():
                     return True
 
-                if self.policy_ipv6_backup is not None and self.policy_ipv6_backup.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2070,24 +1900,12 @@ class Srms(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.policy_ipv4 is not None and self.policy_ipv4._has_data():
-                return True
-
-            if self.policy_ipv4 is not None and self.policy_ipv4.is_presence():
                 return True
 
             if self.policy_ipv6 is not None and self.policy_ipv6._has_data():
                 return True
 
-            if self.policy_ipv6 is not None and self.policy_ipv6.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2107,24 +1925,12 @@ class Srms(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.mapping is not None and self.mapping._has_data():
-            return True
-
-        if self.mapping is not None and self.mapping.is_presence():
             return True
 
         if self.policy is not None and self.policy._has_data():
             return True
 
-        if self.policy is not None and self.policy.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

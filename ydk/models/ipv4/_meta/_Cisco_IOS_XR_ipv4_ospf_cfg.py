@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'OspfFastRerouteTiebreakers_Enum' : _MetaInfoEnum('OspfFastRerouteTiebreakers_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfFastRerouteTiebreakersEnum' : _MetaInfoEnum('OspfFastRerouteTiebreakersEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'downstream':'DOWNSTREAM',
             'line-card-disjoint':'LINE_CARD_DISJOINT',
@@ -24,40 +24,40 @@ _meta_table = {
             'secondary-path':'SECONDARY_PATH',
             'srlg-disjoint':'SRLG_DISJOINT',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfFastReroute_Enum' : _MetaInfoEnum('OspfFastReroute_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfFastRerouteEnum' : _MetaInfoEnum('OspfFastRerouteEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'none':'NONE',
             'per-link':'PER_LINK',
             'per-prefix':'PER_PREFIX',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfRedistLsa_Enum' : _MetaInfoEnum('OspfRedistLsa_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfRedistLsaEnum' : _MetaInfoEnum('OspfRedistLsaEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'summary':'SUMMARY',
             'external':'EXTERNAL',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfIetfNsf_Enum' : _MetaInfoEnum('OspfIetfNsf_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfIetfNsfEnum' : _MetaInfoEnum('OspfIetfNsfEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'all':'ALL',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'BfdEnableMode_Enum' : _MetaInfoEnum('BfdEnableMode_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'BfdEnableModeEnum' : _MetaInfoEnum('BfdEnableModeEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'disable':'DISABLE',
             'default':'DEFAULT',
             'strict':'STRICT',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfFastReroutePriority_Enum' : _MetaInfoEnum('OspfFastReroutePriority_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfFastReroutePriorityEnum' : _MetaInfoEnum('OspfFastReroutePriorityEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'critical':'CRITICAL',
             'high':'HIGH',
             'medium':'MEDIUM',
             'low':'LOW',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfCiscoNsf_Enum' : _MetaInfoEnum('OspfCiscoNsf_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfCiscoNsfEnum' : _MetaInfoEnum('OspfCiscoNsfEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'always':'ALWAYS',
             'require-nsf-neighbors':'REQUIRE_NSF_NEIGHBORS',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfRedistProtocol_Enum' : _MetaInfoEnum('OspfRedistProtocol_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfRedistProtocolEnum' : _MetaInfoEnum('OspfRedistProtocolEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'all':'ALL',
             'connected':'CONNECTED',
@@ -72,73 +72,73 @@ _meta_table = {
             'application':'APPLICATION',
             'mobile':'MOBILE',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfSegmentRouting_Enum' : _MetaInfoEnum('OspfSegmentRouting_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfSegmentRoutingEnum' : _MetaInfoEnum('OspfSegmentRoutingEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'disable':'DISABLE',
             'mpls':'MPLS',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfUloopAvoidance_Enum' : _MetaInfoEnum('OspfUloopAvoidance_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfUloopAvoidanceEnum' : _MetaInfoEnum('OspfUloopAvoidanceEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'protected':'PROTECTED',
             'all':'ALL',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfSegmentRoutingForwarding_Enum' : _MetaInfoEnum('OspfSegmentRoutingForwarding_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfSegmentRoutingForwardingEnum' : _MetaInfoEnum('OspfSegmentRoutingForwardingEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'disable':'DISABLE',
             'mpls':'MPLS',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfAddressFamily_Enum' : _MetaInfoEnum('OspfAddressFamily_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfAddressFamilyEnum' : _MetaInfoEnum('OspfAddressFamilyEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'ipv4':'IPV4',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfIetfNsfSupport_Enum' : _MetaInfoEnum('OspfIetfNsfSupport_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfIetfNsfSupportEnum' : _MetaInfoEnum('OspfIetfNsfSupportEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'never':'NEVER',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfAuthentication_Enum' : _MetaInfoEnum('OspfAuthentication_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfAuthenticationEnum' : _MetaInfoEnum('OspfAuthenticationEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'none':'NONE',
             'plain':'PLAIN',
             'md5':'MD5',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfLogAdj_Enum' : _MetaInfoEnum('OspfLogAdj_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfLogAdjEnum' : _MetaInfoEnum('OspfLogAdjEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'brief':'BRIEF',
             'detail':'DETAIL',
             'suppress':'SUPPRESS',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfSubAddressFamily_Enum' : _MetaInfoEnum('OspfSubAddressFamily_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfSubAddressFamilyEnum' : _MetaInfoEnum('OspfSubAddressFamilyEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'unicast':'UNICAST',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfDomainId_Enum' : _MetaInfoEnum('OspfDomainId_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfDomainIdEnum' : _MetaInfoEnum('OspfDomainIdEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'type0005':'TYPE0005',
             'type0105':'TYPE0105',
             'type0205':'TYPE0205',
             'type8005':'TYPE8005',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfEigrpRoute_Enum' : _MetaInfoEnum('OspfEigrpRoute_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfEigrpRouteEnum' : _MetaInfoEnum('OspfEigrpRouteEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'internal':'INTERNAL',
             'external':'EXTERNAL',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfSid_Enum' : _MetaInfoEnum('OspfSid_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfSidEnum' : _MetaInfoEnum('OspfSidEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'index':'INDEX',
             'absolute':'ABSOLUTE',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'Nsr_Enum' : _MetaInfoEnum('Nsr_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'NsrEnum' : _MetaInfoEnum('NsrEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'true':'TRUE',
             'false':'FALSE',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfLinkStateMetric_Enum' : _MetaInfoEnum('OspfLinkStateMetric_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfLinkStateMetricEnum' : _MetaInfoEnum('OspfLinkStateMetricEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'type1':'TYPE1',
             'type2':'TYPE2',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfDistListProtocol_Enum' : _MetaInfoEnum('OspfDistListProtocol_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfDistListProtocolEnum' : _MetaInfoEnum('OspfDistListProtocolEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'all':'ALL',
             'connected':'CONNECTED',
@@ -147,13 +147,13 @@ _meta_table = {
             'ospf':'OSPF',
             'dagr':'DAGR',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfRouteLevel_Enum' : _MetaInfoEnum('OspfRouteLevel_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfRouteLevelEnum' : _MetaInfoEnum('OspfRouteLevelEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'type1':'TYPE1',
             'type2':'TYPE2',
             'type1-and2':'TYPE1_AND2',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfNetwork_Enum' : _MetaInfoEnum('OspfNetwork_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfNetworkEnum' : _MetaInfoEnum('OspfNetworkEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'broadcast':'BROADCAST',
             'non-broadcast':'NON_BROADCAST',
@@ -161,18 +161,18 @@ _meta_table = {
             'point-to-multipoint':'POINT_TO_MULTIPOINT',
             'non-broadcast-point-to-multipoint':'NON_BROADCAST_POINT_TO_MULTIPOINT',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfFrrRlfaTunnel_Enum' : _MetaInfoEnum('OspfFrrRlfaTunnel_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfFrrRlfaTunnelEnum' : _MetaInfoEnum('OspfFrrRlfaTunnelEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'none':'NONE',
             'mpls-ldp':'MPLS_LDP',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfShutdown_Enum' : _MetaInfoEnum('OspfShutdown_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfShutdownEnum' : _MetaInfoEnum('OspfShutdownEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'full':'FULL',
             'hostmode':'HOSTMODE',
             'onreload':'ONRELOAD',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
-    'OspfKeychainAuth_Enum' : _MetaInfoEnum('OspfKeychainAuth_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
+    'OspfKeychainAuthEnum' : _MetaInfoEnum('OspfKeychainAuthEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
             'none':'NONE',
             'keychain':'KEYCHAIN',
@@ -229,13 +229,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Af',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'OspfAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'OspfAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'OspfSubAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSubAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'OspfSubAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSubAddressFamilyEnum', 
                 [], [], 
                 '''                Sub-Address family
                 ''',
@@ -339,13 +339,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -405,7 +405,7 @@ _meta_table = {
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'BfdEnableMode_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'BfdEnableMode_Enum', 
+            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'BfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'BfdEnableModeEnum', 
                 [], [], 
                 '''                 use of Bidirectional Forwarding Detection
                 ''',
@@ -674,7 +674,7 @@ _meta_table = {
                 ''',
                 'maximum_cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnel_Enum', 
+            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
                 [], [], 
                 '''                Enable/Disable remote LFA computation
                 ''',
@@ -735,7 +735,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute',
             False, 
             [
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastReroute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastReroute_Enum', 
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
                 [], [], 
                 '''                Enable/Disable Fast-reroute per-link or
                 per-prefix
@@ -911,7 +911,7 @@ _meta_table = {
                 ''',
                 'mtu_ignore',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetwork_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetwork_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
                 [], [], 
                 '''                Type of attached network
                 ''',
@@ -957,7 +957,7 @@ _meta_table = {
                 ''',
                 'security',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwarding_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwarding_Enum', 
+            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
                 [], [], 
                 '''                segment-routing forwarding configuration
                 Applicableonly in Default VRF
@@ -1022,13 +1022,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -1375,13 +1375,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -1441,7 +1441,7 @@ _meta_table = {
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'BfdEnableMode_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'BfdEnableMode_Enum', 
+            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'BfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'BfdEnableModeEnum', 
                 [], [], 
                 '''                 use of Bidirectional Forwarding Detection
                 ''',
@@ -1710,7 +1710,7 @@ _meta_table = {
                 ''',
                 'maximum_cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnel_Enum', 
+            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
                 [], [], 
                 '''                Enable/Disable remote LFA computation
                 ''',
@@ -1771,7 +1771,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute',
             False, 
             [
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastReroute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastReroute_Enum', 
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
                 [], [], 
                 '''                Enable/Disable Fast-reroute per-link or
                 per-prefix
@@ -1875,7 +1875,7 @@ _meta_table = {
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'OspfSid_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSid_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'OspfSidEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSidEnum', 
                 [], [], 
                 '''                OSPF SID Type
                 ''',
@@ -2050,7 +2050,7 @@ _meta_table = {
                 ''',
                 'neighbors',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetwork_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetwork_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
                 [], [], 
                 '''                Type of attached network
                 ''',
@@ -2108,7 +2108,7 @@ _meta_table = {
                 ''',
                 'security',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwarding_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwarding_Enum', 
+            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
                 [], [], 
                 '''                segment-routing forwarding configuration
                 Applicableonly in Default VRF
@@ -2155,7 +2155,7 @@ _meta_table = {
                 ''',
                 'default_info_originate',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetric_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
                 '''                OSPF External metric type
                 ''',
@@ -2231,13 +2231,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -2445,13 +2445,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -2677,7 +2677,7 @@ _meta_table = {
                 ''',
                 'running',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'OspfSegmentRouting_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRouting_Enum', 
+            _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingEnum', 
                 [], [], 
                 '''                segment-routing configuration Applicable only in
                 Default VRF
@@ -2808,13 +2808,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -2874,7 +2874,7 @@ _meta_table = {
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'BfdEnableMode_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'BfdEnableMode_Enum', 
+            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'BfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'BfdEnableModeEnum', 
                 [], [], 
                 '''                 use of Bidirectional Forwarding Detection
                 ''',
@@ -3143,7 +3143,7 @@ _meta_table = {
                 ''',
                 'maximum_cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnel_Enum', 
+            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
                 [], [], 
                 '''                Enable/Disable remote LFA computation
                 ''',
@@ -3204,7 +3204,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute',
             False, 
             [
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastReroute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastReroute_Enum', 
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
                 [], [], 
                 '''                Enable/Disable Fast-reroute per-link or
                 per-prefix
@@ -3380,7 +3380,7 @@ _meta_table = {
                 ''',
                 'mtu_ignore',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetwork_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetwork_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
                 [], [], 
                 '''                Type of attached network
                 ''',
@@ -3426,7 +3426,7 @@ _meta_table = {
                 ''',
                 'security',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwarding_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwarding_Enum', 
+            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
                 [], [], 
                 '''                segment-routing forwarding configuration
                 Applicableonly in Default VRF
@@ -3491,13 +3491,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -3844,13 +3844,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -3910,7 +3910,7 @@ _meta_table = {
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'BfdEnableMode_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'BfdEnableMode_Enum', 
+            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'BfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'BfdEnableModeEnum', 
                 [], [], 
                 '''                 use of Bidirectional Forwarding Detection
                 ''',
@@ -4179,7 +4179,7 @@ _meta_table = {
                 ''',
                 'maximum_cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnel_Enum', 
+            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
                 [], [], 
                 '''                Enable/Disable remote LFA computation
                 ''',
@@ -4240,7 +4240,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute',
             False, 
             [
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastReroute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastReroute_Enum', 
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
                 [], [], 
                 '''                Enable/Disable Fast-reroute per-link or
                 per-prefix
@@ -4344,7 +4344,7 @@ _meta_table = {
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'OspfSid_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSid_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'OspfSidEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSidEnum', 
                 [], [], 
                 '''                OSPF SID Type
                 ''',
@@ -4519,7 +4519,7 @@ _meta_table = {
                 ''',
                 'neighbors',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetwork_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetwork_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
                 [], [], 
                 '''                Type of attached network
                 ''',
@@ -4577,7 +4577,7 @@ _meta_table = {
                 ''',
                 'security',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwarding_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwarding_Enum', 
+            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
                 [], [], 
                 '''                segment-routing forwarding configuration
                 Applicableonly in Default VRF
@@ -4624,7 +4624,7 @@ _meta_table = {
                 ''',
                 'default_info_originate',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetric_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
                 '''                OSPF External metric type
                 ''',
@@ -4700,13 +4700,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -4914,13 +4914,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -5146,7 +5146,7 @@ _meta_table = {
                 ''',
                 'running',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'OspfSegmentRouting_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRouting_Enum', 
+            _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingEnum', 
                 [], [], 
                 '''                segment-routing configuration Applicable only in
                 Default VRF
@@ -5249,7 +5249,7 @@ _meta_table = {
                 ''',
                 'metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetric_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
                 '''                OSPF External metric type
                 ''',
@@ -5384,7 +5384,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.FastReroute.PerLink',
             False, 
             [
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'OspfFastReroutePriority_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastReroutePriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'OspfFastReroutePriorityEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastReroutePriorityEnum', 
                 [], [], 
                 '''                Fast-reroute per-link/per-prefix priority-limit
                 command
@@ -5402,7 +5402,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker',
             False, 
             [
-            _MetaInfoClassMember('tiebreaker-type', REFERENCE_ENUM_CLASS, 'OspfFastRerouteTiebreakers_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteTiebreakers_Enum', 
+            _MetaInfoClassMember('tiebreaker-type', REFERENCE_ENUM_CLASS, 'OspfFastRerouteTiebreakersEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteTiebreakersEnum', 
                 [], [], 
                 '''                Tiebreaker type
                 ''',
@@ -5448,7 +5448,7 @@ _meta_table = {
                 ''',
                 'load_sharing_disable',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'OspfFastReroutePriority_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastReroutePriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'OspfFastReroutePriorityEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastReroutePriorityEnum', 
                 [], [], 
                 '''                Fast-reroute per-link/per-prefix priority-limit
                 command
@@ -5914,7 +5914,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Microloop.Avoidance',
             False, 
             [
-            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'OspfUloopAvoidance_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfUloopAvoidance_Enum', 
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'OspfUloopAvoidanceEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfUloopAvoidanceEnum', 
                 [], [], 
                 '''                MicroLoop avoidance feature enable
                 configuration
@@ -6068,7 +6068,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Nsf',
             False, 
             [
-            _MetaInfoClassMember('cisco', REFERENCE_ENUM_CLASS, 'OspfCiscoNsf_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfCiscoNsf_Enum', 
+            _MetaInfoClassMember('cisco', REFERENCE_ENUM_CLASS, 'OspfCiscoNsfEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfCiscoNsfEnum', 
                 [], [], 
                 '''                Enable Cisco Non Stop Forwarding
                 ''',
@@ -6081,7 +6081,7 @@ _meta_table = {
                 ''',
                 'flush_delay_time',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ietf', REFERENCE_ENUM_CLASS, 'OspfIetfNsf_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfIetfNsf_Enum', 
+            _MetaInfoClassMember('ietf', REFERENCE_ENUM_CLASS, 'OspfIetfNsfEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfIetfNsfEnum', 
                 [], [], 
                 '''                Enable IETF Non Stop Forwarding
                 ''',
@@ -6093,7 +6093,7 @@ _meta_table = {
                 ''',
                 'ietf_strict_lsa_checking',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ietf-support-role', REFERENCE_ENUM_CLASS, 'OspfIetfNsfSupport_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfIetfNsfSupport_Enum', 
+            _MetaInfoClassMember('ietf-support-role', REFERENCE_ENUM_CLASS, 'OspfIetfNsfSupportEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfIetfNsfSupportEnum', 
                 [], [], 
                 '''                Disable helper support role for IETF Non Stop
                 Forwarding
@@ -6125,7 +6125,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.OutgoingRouteUpdates.OutgoingRouteUpdate',
             False, 
             [
-            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'OspfDistListProtocol_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfDistListProtocol_Enum', 
+            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'OspfDistListProtocolEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfDistListProtocolEnum', 
                 [], [], 
                 '''                Distribute list protocol type
                 ''',
@@ -6231,13 +6231,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -6297,7 +6297,7 @@ _meta_table = {
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'BfdEnableMode_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'BfdEnableMode_Enum', 
+            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'BfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'BfdEnableModeEnum', 
                 [], [], 
                 '''                 use of Bidirectional Forwarding Detection
                 ''',
@@ -6566,7 +6566,7 @@ _meta_table = {
                 ''',
                 'maximum_cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnel_Enum', 
+            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
                 [], [], 
                 '''                Enable/Disable remote LFA computation
                 ''',
@@ -6627,7 +6627,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute',
             False, 
             [
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastReroute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastReroute_Enum', 
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
                 [], [], 
                 '''                Enable/Disable Fast-reroute per-link or
                 per-prefix
@@ -6833,7 +6833,7 @@ _meta_table = {
                 ''',
                 'mtu_ignore',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetwork_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetwork_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
                 [], [], 
                 '''                Type of attached network
                 ''',
@@ -6879,14 +6879,14 @@ _meta_table = {
                 ''',
                 'security',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'OspfSegmentRouting_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRouting_Enum', 
+            _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingEnum', 
                 [], [], 
                 '''                segment-routing configuration Applicable only in
                 Default VRF
                 ''',
                 'segment_routing',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwarding_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwarding_Enum', 
+            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
                 [], [], 
                 '''                segment-routing forwarding configuration
                 Applicableonly in Default VRF
@@ -7016,25 +7016,25 @@ _meta_table = {
                 ''',
                 'default_redistributed_route_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRoute_Enum', 
+            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
                 ''',
                 'eigrp_route_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('isis-levels', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('isis-levels', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                Levels of ISIS routes
                 ''',
                 'isis_levels',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetric_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
                 '''                Set OSPF External metric type
                 ''',
                 'metric_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF external route types
                 ''',
@@ -7046,13 +7046,13 @@ _meta_table = {
                 ''',
                 'ospf_internal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF NSSA external route types
                 ''',
                 'ospf_nssa_level',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsa_Enum', 
+            _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsaEnum', 
                 [], [], 
                 '''                LSA type for redistributed routes
                 ''',
@@ -7138,25 +7138,25 @@ _meta_table = {
                 ''',
                 'default_redistributed_route_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRoute_Enum', 
+            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
                 ''',
                 'eigrp_route_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('isis-levels', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('isis-levels', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                Levels of ISIS routes
                 ''',
                 'isis_levels',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetric_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
                 '''                Set OSPF External metric type
                 ''',
                 'metric_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF external route types
                 ''',
@@ -7168,13 +7168,13 @@ _meta_table = {
                 ''',
                 'ospf_internal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF NSSA external route types
                 ''',
                 'ospf_nssa_level',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsa_Enum', 
+            _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsaEnum', 
                 [], [], 
                 '''                LSA type for redistributed routes
                 ''',
@@ -7235,25 +7235,25 @@ _meta_table = {
                 ''',
                 'default_redistributed_route_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRoute_Enum', 
+            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
                 ''',
                 'eigrp_route_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('isis-levels', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('isis-levels', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                Levels of ISIS routes
                 ''',
                 'isis_levels',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetric_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
                 '''                Set OSPF External metric type
                 ''',
                 'metric_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF external route types
                 ''',
@@ -7265,13 +7265,13 @@ _meta_table = {
                 ''',
                 'ospf_internal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF NSSA external route types
                 ''',
                 'ospf_nssa_level',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsa_Enum', 
+            _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsaEnum', 
                 [], [], 
                 '''                LSA type for redistributed routes
                 ''',
@@ -7348,25 +7348,25 @@ _meta_table = {
                 ''',
                 'default_redistributed_route_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRoute_Enum', 
+            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
                 ''',
                 'eigrp_route_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('isis-levels', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('isis-levels', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                Levels of ISIS routes
                 ''',
                 'isis_levels',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetric_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
                 '''                Set OSPF External metric type
                 ''',
                 'metric_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF external route types
                 ''',
@@ -7378,13 +7378,13 @@ _meta_table = {
                 ''',
                 'ospf_internal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF NSSA external route types
                 ''',
                 'ospf_nssa_level',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsa_Enum', 
+            _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsaEnum', 
                 [], [], 
                 '''                LSA type for redistributed routes
                 ''',
@@ -7419,7 +7419,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute',
             False, 
             [
-            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'OspfRedistProtocol_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistProtocol_Enum', 
+            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'OspfRedistProtocolEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistProtocolEnum', 
                 [], [], 
                 '''                Distribute list protocol type
                 ''',
@@ -7916,7 +7916,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf',
             False, 
             [
-            _MetaInfoClassMember('adjacency-changes', REFERENCE_ENUM_CLASS, 'OspfLogAdj_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLogAdj_Enum', 
+            _MetaInfoClassMember('adjacency-changes', REFERENCE_ENUM_CLASS, 'OspfLogAdjEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLogAdjEnum', 
                 [], [], 
                 '''                Log changes in adjacency state
                 ''',
@@ -8219,13 +8219,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Af',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'OspfAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'OspfAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'OspfSubAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSubAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'OspfSubAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSubAddressFamilyEnum', 
                 [], [], 
                 '''                Sub-Address family
                 ''',
@@ -8329,13 +8329,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -8395,7 +8395,7 @@ _meta_table = {
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'BfdEnableMode_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'BfdEnableMode_Enum', 
+            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'BfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'BfdEnableModeEnum', 
                 [], [], 
                 '''                 use of Bidirectional Forwarding Detection
                 ''',
@@ -8664,7 +8664,7 @@ _meta_table = {
                 ''',
                 'maximum_cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnel_Enum', 
+            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
                 [], [], 
                 '''                Enable/Disable remote LFA computation
                 ''',
@@ -8725,7 +8725,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute',
             False, 
             [
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastReroute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastReroute_Enum', 
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
                 [], [], 
                 '''                Enable/Disable Fast-reroute per-link or
                 per-prefix
@@ -8901,7 +8901,7 @@ _meta_table = {
                 ''',
                 'mtu_ignore',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetwork_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetwork_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
                 [], [], 
                 '''                Type of attached network
                 ''',
@@ -8947,7 +8947,7 @@ _meta_table = {
                 ''',
                 'security',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwarding_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwarding_Enum', 
+            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
                 [], [], 
                 '''                segment-routing forwarding configuration
                 Applicableonly in Default VRF
@@ -9012,13 +9012,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -9365,13 +9365,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -9431,7 +9431,7 @@ _meta_table = {
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'BfdEnableMode_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'BfdEnableMode_Enum', 
+            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'BfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'BfdEnableModeEnum', 
                 [], [], 
                 '''                 use of Bidirectional Forwarding Detection
                 ''',
@@ -9700,7 +9700,7 @@ _meta_table = {
                 ''',
                 'maximum_cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnel_Enum', 
+            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
                 [], [], 
                 '''                Enable/Disable remote LFA computation
                 ''',
@@ -9761,7 +9761,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute',
             False, 
             [
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastReroute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastReroute_Enum', 
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
                 [], [], 
                 '''                Enable/Disable Fast-reroute per-link or
                 per-prefix
@@ -9865,7 +9865,7 @@ _meta_table = {
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'OspfSid_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSid_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'OspfSidEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSidEnum', 
                 [], [], 
                 '''                OSPF SID Type
                 ''',
@@ -10040,7 +10040,7 @@ _meta_table = {
                 ''',
                 'neighbors',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetwork_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetwork_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
                 [], [], 
                 '''                Type of attached network
                 ''',
@@ -10098,7 +10098,7 @@ _meta_table = {
                 ''',
                 'security',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwarding_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwarding_Enum', 
+            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
                 [], [], 
                 '''                segment-routing forwarding configuration
                 Applicableonly in Default VRF
@@ -10145,7 +10145,7 @@ _meta_table = {
                 ''',
                 'default_info_originate',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetric_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
                 '''                OSPF External metric type
                 ''',
@@ -10221,13 +10221,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -10435,13 +10435,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -10667,7 +10667,7 @@ _meta_table = {
                 ''',
                 'running',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'OspfSegmentRouting_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRouting_Enum', 
+            _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingEnum', 
                 [], [], 
                 '''                segment-routing configuration Applicable only in
                 Default VRF
@@ -10798,13 +10798,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -10864,7 +10864,7 @@ _meta_table = {
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'BfdEnableMode_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'BfdEnableMode_Enum', 
+            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'BfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'BfdEnableModeEnum', 
                 [], [], 
                 '''                 use of Bidirectional Forwarding Detection
                 ''',
@@ -11133,7 +11133,7 @@ _meta_table = {
                 ''',
                 'maximum_cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnel_Enum', 
+            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
                 [], [], 
                 '''                Enable/Disable remote LFA computation
                 ''',
@@ -11194,7 +11194,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute',
             False, 
             [
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastReroute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastReroute_Enum', 
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
                 [], [], 
                 '''                Enable/Disable Fast-reroute per-link or
                 per-prefix
@@ -11370,7 +11370,7 @@ _meta_table = {
                 ''',
                 'mtu_ignore',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetwork_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetwork_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
                 [], [], 
                 '''                Type of attached network
                 ''',
@@ -11416,7 +11416,7 @@ _meta_table = {
                 ''',
                 'security',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwarding_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwarding_Enum', 
+            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
                 [], [], 
                 '''                segment-routing forwarding configuration
                 Applicableonly in Default VRF
@@ -11481,13 +11481,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -11834,13 +11834,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -11900,7 +11900,7 @@ _meta_table = {
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'BfdEnableMode_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'BfdEnableMode_Enum', 
+            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'BfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'BfdEnableModeEnum', 
                 [], [], 
                 '''                 use of Bidirectional Forwarding Detection
                 ''',
@@ -12169,7 +12169,7 @@ _meta_table = {
                 ''',
                 'maximum_cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnel_Enum', 
+            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
                 [], [], 
                 '''                Enable/Disable remote LFA computation
                 ''',
@@ -12230,7 +12230,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute',
             False, 
             [
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastReroute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastReroute_Enum', 
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
                 [], [], 
                 '''                Enable/Disable Fast-reroute per-link or
                 per-prefix
@@ -12334,7 +12334,7 @@ _meta_table = {
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'OspfSid_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSid_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'OspfSidEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSidEnum', 
                 [], [], 
                 '''                OSPF SID Type
                 ''',
@@ -12509,7 +12509,7 @@ _meta_table = {
                 ''',
                 'neighbors',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetwork_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetwork_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
                 [], [], 
                 '''                Type of attached network
                 ''',
@@ -12567,7 +12567,7 @@ _meta_table = {
                 ''',
                 'security',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwarding_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwarding_Enum', 
+            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
                 [], [], 
                 '''                segment-routing forwarding configuration
                 Applicableonly in Default VRF
@@ -12614,7 +12614,7 @@ _meta_table = {
                 ''',
                 'default_info_originate',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetric_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
                 '''                OSPF External metric type
                 ''',
@@ -12690,13 +12690,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -12904,13 +12904,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -13136,7 +13136,7 @@ _meta_table = {
                 ''',
                 'running',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'OspfSegmentRouting_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRouting_Enum', 
+            _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingEnum', 
                 [], [], 
                 '''                segment-routing configuration Applicable only in
                 Default VRF
@@ -13239,7 +13239,7 @@ _meta_table = {
                 ''',
                 'metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetric_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
                 '''                OSPF External metric type
                 ''',
@@ -13380,7 +13380,7 @@ _meta_table = {
                 ''',
                 'domain_id_name',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('domain-id-type', REFERENCE_ENUM_CLASS, 'OspfDomainId_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfDomainId_Enum', 
+            _MetaInfoClassMember('domain-id-type', REFERENCE_ENUM_CLASS, 'OspfDomainIdEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfDomainIdEnum', 
                 [], [], 
                 '''                Primary domain ID type
                 ''',
@@ -13403,7 +13403,7 @@ _meta_table = {
                 ''',
                 'domain_id_name',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('domain-id-type', REFERENCE_ENUM_CLASS, 'OspfDomainId_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfDomainId_Enum', 
+            _MetaInfoClassMember('domain-id-type', REFERENCE_ENUM_CLASS, 'OspfDomainIdEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfDomainIdEnum', 
                 [], [], 
                 '''                Secondary domain ID type
                 ''',
@@ -13460,7 +13460,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerLink',
             False, 
             [
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'OspfFastReroutePriority_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastReroutePriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'OspfFastReroutePriorityEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastReroutePriorityEnum', 
                 [], [], 
                 '''                Fast-reroute per-link/per-prefix priority-limit
                 command
@@ -13478,7 +13478,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker',
             False, 
             [
-            _MetaInfoClassMember('tiebreaker-type', REFERENCE_ENUM_CLASS, 'OspfFastRerouteTiebreakers_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteTiebreakers_Enum', 
+            _MetaInfoClassMember('tiebreaker-type', REFERENCE_ENUM_CLASS, 'OspfFastRerouteTiebreakersEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteTiebreakersEnum', 
                 [], [], 
                 '''                Tiebreaker type
                 ''',
@@ -13524,7 +13524,7 @@ _meta_table = {
                 ''',
                 'load_sharing_disable',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'OspfFastReroutePriority_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastReroutePriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'OspfFastReroutePriorityEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastReroutePriorityEnum', 
                 [], [], 
                 '''                Fast-reroute per-link/per-prefix priority-limit
                 command
@@ -13990,7 +13990,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Microloop.Avoidance',
             False, 
             [
-            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'OspfUloopAvoidance_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfUloopAvoidance_Enum', 
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'OspfUloopAvoidanceEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfUloopAvoidanceEnum', 
                 [], [], 
                 '''                MicroLoop avoidance feature enable
                 configuration
@@ -14032,7 +14032,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Nsf',
             False, 
             [
-            _MetaInfoClassMember('cisco', REFERENCE_ENUM_CLASS, 'OspfCiscoNsf_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfCiscoNsf_Enum', 
+            _MetaInfoClassMember('cisco', REFERENCE_ENUM_CLASS, 'OspfCiscoNsfEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfCiscoNsfEnum', 
                 [], [], 
                 '''                Enable Cisco Non Stop Forwarding
                 ''',
@@ -14045,7 +14045,7 @@ _meta_table = {
                 ''',
                 'flush_delay_time',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ietf', REFERENCE_ENUM_CLASS, 'OspfIetfNsf_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfIetfNsf_Enum', 
+            _MetaInfoClassMember('ietf', REFERENCE_ENUM_CLASS, 'OspfIetfNsfEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfIetfNsfEnum', 
                 [], [], 
                 '''                Enable IETF Non Stop Forwarding
                 ''',
@@ -14057,7 +14057,7 @@ _meta_table = {
                 ''',
                 'ietf_strict_lsa_checking',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ietf-support-role', REFERENCE_ENUM_CLASS, 'OspfIetfNsfSupport_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfIetfNsfSupport_Enum', 
+            _MetaInfoClassMember('ietf-support-role', REFERENCE_ENUM_CLASS, 'OspfIetfNsfSupportEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfIetfNsfSupportEnum', 
                 [], [], 
                 '''                Disable helper support role for IETF Non Stop
                 Forwarding
@@ -14089,7 +14089,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.OutgoingRouteUpdates.OutgoingRouteUpdate',
             False, 
             [
-            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'OspfDistListProtocol_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfDistListProtocol_Enum', 
+            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'OspfDistListProtocolEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfDistListProtocolEnum', 
                 [], [], 
                 '''                Distribute list protocol type
                 ''',
@@ -14195,13 +14195,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication.Type',
             False, 
             [
-            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthentication_Enum', 
+            _MetaInfoClassMember('authen-type', REFERENCE_ENUM_CLASS, 'OspfAuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfAuthenticationEnum', 
                 [], [], 
                 '''                Authentication type code 
                 ''',
                 'authen_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuth_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuth_Enum', 
+            _MetaInfoClassMember('keychain-authen-type', REFERENCE_ENUM_CLASS, 'OspfKeychainAuthEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfKeychainAuthEnum', 
                 [], [], 
                 '''                Keychain authentication type
                 ''',
@@ -14261,7 +14261,7 @@ _meta_table = {
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'BfdEnableMode_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'BfdEnableMode_Enum', 
+            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'BfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'BfdEnableModeEnum', 
                 [], [], 
                 '''                 use of Bidirectional Forwarding Detection
                 ''',
@@ -14530,7 +14530,7 @@ _meta_table = {
                 ''',
                 'maximum_cost',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnel_Enum', 
+            _MetaInfoClassMember('tunnel', REFERENCE_ENUM_CLASS, 'OspfFrrRlfaTunnelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFrrRlfaTunnelEnum', 
                 [], [], 
                 '''                Enable/Disable remote LFA computation
                 ''',
@@ -14591,7 +14591,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute',
             False, 
             [
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastReroute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastReroute_Enum', 
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'OspfFastRerouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfFastRerouteEnum', 
                 [], [], 
                 '''                Enable/Disable Fast-reroute per-link or
                 per-prefix
@@ -14797,7 +14797,7 @@ _meta_table = {
                 ''',
                 'mtu_ignore',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetwork_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetwork_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'OspfNetworkEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfNetworkEnum', 
                 [], [], 
                 '''                Type of attached network
                 ''',
@@ -14843,14 +14843,14 @@ _meta_table = {
                 ''',
                 'security',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'OspfSegmentRouting_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRouting_Enum', 
+            _MetaInfoClassMember('segment-routing', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingEnum', 
                 [], [], 
                 '''                segment-routing configuration Applicable only in
                 Default VRF
                 ''',
                 'segment_routing',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwarding_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwarding_Enum', 
+            _MetaInfoClassMember('segment-routing-forwarding', REFERENCE_ENUM_CLASS, 'OspfSegmentRoutingForwardingEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfSegmentRoutingForwardingEnum', 
                 [], [], 
                 '''                segment-routing forwarding configuration
                 Applicableonly in Default VRF
@@ -14980,25 +14980,25 @@ _meta_table = {
                 ''',
                 'default_redistributed_route_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRoute_Enum', 
+            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
                 ''',
                 'eigrp_route_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('isis-levels', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('isis-levels', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                Levels of ISIS routes
                 ''',
                 'isis_levels',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetric_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
                 '''                Set OSPF External metric type
                 ''',
                 'metric_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF external route types
                 ''',
@@ -15010,13 +15010,13 @@ _meta_table = {
                 ''',
                 'ospf_internal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF NSSA external route types
                 ''',
                 'ospf_nssa_level',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsa_Enum', 
+            _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsaEnum', 
                 [], [], 
                 '''                LSA type for redistributed routes
                 ''',
@@ -15102,25 +15102,25 @@ _meta_table = {
                 ''',
                 'default_redistributed_route_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRoute_Enum', 
+            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
                 ''',
                 'eigrp_route_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('isis-levels', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('isis-levels', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                Levels of ISIS routes
                 ''',
                 'isis_levels',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetric_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
                 '''                Set OSPF External metric type
                 ''',
                 'metric_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF external route types
                 ''',
@@ -15132,13 +15132,13 @@ _meta_table = {
                 ''',
                 'ospf_internal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF NSSA external route types
                 ''',
                 'ospf_nssa_level',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsa_Enum', 
+            _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsaEnum', 
                 [], [], 
                 '''                LSA type for redistributed routes
                 ''',
@@ -15199,25 +15199,25 @@ _meta_table = {
                 ''',
                 'default_redistributed_route_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRoute_Enum', 
+            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
                 ''',
                 'eigrp_route_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('isis-levels', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('isis-levels', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                Levels of ISIS routes
                 ''',
                 'isis_levels',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetric_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
                 '''                Set OSPF External metric type
                 ''',
                 'metric_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF external route types
                 ''',
@@ -15229,13 +15229,13 @@ _meta_table = {
                 ''',
                 'ospf_internal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF NSSA external route types
                 ''',
                 'ospf_nssa_level',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsa_Enum', 
+            _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsaEnum', 
                 [], [], 
                 '''                LSA type for redistributed routes
                 ''',
@@ -15312,25 +15312,25 @@ _meta_table = {
                 ''',
                 'default_redistributed_route_metric',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRoute_Enum', 
+            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'OspfEigrpRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfEigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
                 ''',
                 'eigrp_route_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('isis-levels', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('isis-levels', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                Levels of ISIS routes
                 ''',
                 'isis_levels',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetric_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'OspfLinkStateMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLinkStateMetricEnum', 
                 [], [], 
                 '''                Set OSPF External metric type
                 ''',
                 'metric_type',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('ospf-external', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF external route types
                 ''',
@@ -15342,13 +15342,13 @@ _meta_table = {
                 ''',
                 'ospf_internal',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevel_Enum', 
+            _MetaInfoClassMember('ospf-nssa-level', REFERENCE_ENUM_CLASS, 'OspfRouteLevelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRouteLevelEnum', 
                 [], [], 
                 '''                OSPF NSSA external route types
                 ''',
                 'ospf_nssa_level',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsa_Enum', 
+            _MetaInfoClassMember('ospf-redist-lsa-type', REFERENCE_ENUM_CLASS, 'OspfRedistLsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistLsaEnum', 
                 [], [], 
                 '''                LSA type for redistributed routes
                 ''',
@@ -15383,7 +15383,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute',
             False, 
             [
-            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'OspfRedistProtocol_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistProtocol_Enum', 
+            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'OspfRedistProtocolEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfRedistProtocolEnum', 
                 [], [], 
                 '''                Distribute list protocol type
                 ''',
@@ -15832,7 +15832,7 @@ _meta_table = {
                 ''',
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', True),
-            _MetaInfoClassMember('adjacency-changes', REFERENCE_ENUM_CLASS, 'OspfLogAdj_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLogAdj_Enum', 
+            _MetaInfoClassMember('adjacency-changes', REFERENCE_ENUM_CLASS, 'OspfLogAdjEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfLogAdjEnum', 
                 [], [], 
                 '''                Log changes in adjacency state
                 ''',
@@ -16094,13 +16094,13 @@ _meta_table = {
                 ''',
                 'distribute',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('nsr', REFERENCE_ENUM_CLASS, 'Nsr_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'Nsr_Enum', 
+            _MetaInfoClassMember('nsr', REFERENCE_ENUM_CLASS, 'NsrEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'NsrEnum', 
                 [], [], 
                 '''                Enable non-stop routing
                 ''',
                 'nsr',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
-            _MetaInfoClassMember('protocol-shutdown', REFERENCE_ENUM_CLASS, 'OspfShutdown_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfShutdown_Enum', 
+            _MetaInfoClassMember('protocol-shutdown', REFERENCE_ENUM_CLASS, 'OspfShutdownEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_cfg', 'OspfShutdownEnum', 
                 [], [], 
                 '''                Type of protocol shutdown
                 ''',

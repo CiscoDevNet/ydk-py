@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,12 +14,12 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'VlanModeType_Enum' : _MetaInfoEnum('VlanModeType_Enum', 'ydk.models.openconfig.openconfig_vlan',
+    'VlanModeTypeEnum' : _MetaInfoEnum('VlanModeTypeEnum', 'ydk.models.openconfig.openconfig_vlan',
         {
             'ACCESS':'ACCESS',
             'TRUNK':'TRUNK',
         }, 'openconfig-vlan', _yang_ns._namespaces['openconfig-vlan']),
-    'Vlans.Vlan.Config.Status_Enum' : _MetaInfoEnum('Status_Enum', 'ydk.models.openconfig.openconfig_vlan',
+    'Vlans.Vlan.Config.StatusEnum' : _MetaInfoEnum('StatusEnum', 'ydk.models.openconfig.openconfig_vlan',
         {
             'ACTIVE':'ACTIVE',
             'SUSPENDED':'SUSPENDED',
@@ -34,7 +34,7 @@ _meta_table = {
                 ''',
                 'name',
                 'openconfig-vlan', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'Status_Enum' , 'ydk.models.openconfig.openconfig_vlan', 'Vlans.Vlan.Config.Status_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'StatusEnum' , 'ydk.models.openconfig.openconfig_vlan', 'Vlans.Vlan.Config.StatusEnum', 
                 [], [], 
                 '''                Admin state of the VLAN
                 ''',
@@ -53,7 +53,7 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_vlan'
         ),
     },
-    'Vlans.Vlan.State.Status_Enum' : _MetaInfoEnum('Status_Enum', 'ydk.models.openconfig.openconfig_vlan',
+    'Vlans.Vlan.State.StatusEnum' : _MetaInfoEnum('StatusEnum', 'ydk.models.openconfig.openconfig_vlan',
         {
             'ACTIVE':'ACTIVE',
             'SUSPENDED':'SUSPENDED',
@@ -75,7 +75,7 @@ _meta_table = {
                 ''',
                 'name',
                 'openconfig-vlan', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'Status_Enum' , 'ydk.models.openconfig.openconfig_vlan', 'Vlans.Vlan.State.Status_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'StatusEnum' , 'ydk.models.openconfig.openconfig_vlan', 'Vlans.Vlan.State.StatusEnum', 
                 [], [], 
                 '''                Admin state of the VLAN
                 ''',

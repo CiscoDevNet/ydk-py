@@ -24,810 +24,708 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class EndPort_Enum(Enum):
+class EndPortEnum(Enum):
     """
-    EndPort_Enum
+    EndPortEnum
 
     End port
 
-    """
+    .. data:: ECHO = 7
+
+    	Echo (7)
+
+    .. data:: DISCARD = 9
+
+    	Discard (9)
+
+    .. data:: DAYTIME = 13
+
+    	Daytime (13)
+
+    .. data:: CHARGEN = 19
+
+    	Character generator (19)
+
+    .. data:: FTP_DATA = 20
+
+    	FTP data connections (used infrequently, 20)
+
+    .. data:: FTP = 21
+
+    	File Transfer Protocol (21)
+
+    .. data:: SSH = 22
+
+    	Secure Shell (22)
+
+    .. data:: TELNET = 23
+
+    	Telnet (23)
+
+    .. data:: SMTP = 25
+
+    	Simple Mail Transport Protocol (25)
+
+    .. data:: TIME = 37
+
+    	Time (37)
+
+    .. data:: NICNAME = 43
+
+    	Nicname (43)
+
+    .. data:: TACACS = 49
+
+    	TAC Access Control System (49)
+
+    .. data:: DOMAIN = 53
+
+    	Domain Name Service (53)
+
+    .. data:: GOPHER = 70
+
+    	Gopher (70)
+
+    .. data:: FINGER = 79
+
+    	Finger (79)
+
+    .. data:: WWW = 80
+
+    	World Wide Web (HTTP, 80)
+
+    .. data:: HOST_NAME = 101
+
+    	NIC hostname server (101)
+
+    .. data:: POP2 = 109
+
+    	Post Office Protocol v2 (109)
+
+    .. data:: POP3 = 110
+
+    	Post Office Protocol v3 (110)
+
+    .. data:: SUN_RPC = 111
+
+    	Sun Remote Procedure Call (111)
+
+    .. data:: IDENT = 113
+
+    	Ident Protocol (113)
+
+    .. data:: NNTP = 119
+
+    	Network News Transport Protocol (119)
+
+    .. data:: BGP = 179
+
+    	Border Gateway Protocol (179)
+
+    .. data:: IRC = 194
+
+    	Internet Relay Chat (194)
+
+    .. data:: PIM_AUTO_RP = 496
+
+    	PIM Auto-RP (496)
+
+    .. data:: EXEC = 512
+
+    	Exec (rsh, 512)
+
+    .. data:: LOGIN = 513
+
+    	Login (rlogin, 513)
+
+    .. data:: CMD = 514
+
+    	Remote commands (rcmd, 514)
+
+    .. data:: LPD = 515
+
+    	Printer service (515)
+
+    .. data:: UUCP = 540
+
+    	Unix-to-Unix Copy Program (540)
+
+    .. data:: KLOGIN = 543
+
+    	Kerberos login (543)
+
+    .. data:: KSHELL = 544
+
+    	Kerberos shell (544)
+
+    .. data:: TALK = 517
+
+    	Talk (517)
+
+    .. data:: LDP = 646
+
+    	LDP session connection attempts (MPLS, 646)
 
     """
 
-    Echo (7)
-
-    """
     ECHO = 7
 
-    """
-
-    Discard (9)
-
-    """
     DISCARD = 9
 
-    """
-
-    Daytime (13)
-
-    """
     DAYTIME = 13
 
-    """
-
-    Character generator (19)
-
-    """
     CHARGEN = 19
 
-    """
-
-    FTP data connections (used infrequently, 20)
-
-    """
     FTP_DATA = 20
 
-    """
-
-    File Transfer Protocol (21)
-
-    """
     FTP = 21
 
-    """
-
-    Secure Shell (22)
-
-    """
     SSH = 22
 
-    """
-
-    Telnet (23)
-
-    """
     TELNET = 23
 
-    """
-
-    Simple Mail Transport Protocol (25)
-
-    """
     SMTP = 25
 
-    """
-
-    Time (37)
-
-    """
     TIME = 37
 
-    """
-
-    Nicname (43)
-
-    """
     NICNAME = 43
 
-    """
-
-    TAC Access Control System (49)
-
-    """
     TACACS = 49
 
-    """
-
-    Domain Name Service (53)
-
-    """
     DOMAIN = 53
 
-    """
-
-    Gopher (70)
-
-    """
     GOPHER = 70
 
-    """
-
-    Finger (79)
-
-    """
     FINGER = 79
 
-    """
-
-    World Wide Web (HTTP, 80)
-
-    """
     WWW = 80
 
-    """
-
-    NIC hostname server (101)
-
-    """
     HOST_NAME = 101
 
-    """
-
-    Post Office Protocol v2 (109)
-
-    """
     POP2 = 109
 
-    """
-
-    Post Office Protocol v3 (110)
-
-    """
     POP3 = 110
 
-    """
-
-    Sun Remote Procedure Call (111)
-
-    """
     SUN_RPC = 111
 
-    """
-
-    Ident Protocol (113)
-
-    """
     IDENT = 113
 
-    """
-
-    Network News Transport Protocol (119)
-
-    """
     NNTP = 119
 
-    """
-
-    Border Gateway Protocol (179)
-
-    """
     BGP = 179
 
-    """
-
-    Internet Relay Chat (194)
-
-    """
     IRC = 194
 
-    """
-
-    PIM Auto\-RP (496)
-
-    """
     PIM_AUTO_RP = 496
 
-    """
-
-    Exec (rsh, 512)
-
-    """
     EXEC = 512
 
-    """
-
-    Login (rlogin, 513)
-
-    """
     LOGIN = 513
 
-    """
-
-    Remote commands (rcmd, 514)
-
-    """
     CMD = 514
 
-    """
-
-    Printer service (515)
-
-    """
     LPD = 515
 
-    """
-
-    Unix\-to\-Unix Copy Program (540)
-
-    """
     UUCP = 540
 
-    """
-
-    Kerberos login (543)
-
-    """
     KLOGIN = 543
 
-    """
-
-    Kerberos shell (544)
-
-    """
     KSHELL = 544
 
-    """
-
-    Talk (517)
-
-    """
     TALK = 517
 
-    """
-
-    LDP session connection attempts (MPLS, 646)
-
-    """
     LDP = 646
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-        return meta._meta_table['EndPort_Enum']
+        return meta._meta_table['EndPortEnum']
 
 
-class PortOperator_Enum(Enum):
+class PortEnum(Enum):
     """
-    PortOperator_Enum
+    PortEnum
+
+    Port
+
+    .. data:: ECHO = 7
+
+    	Echo (7)
+
+    .. data:: DISCARD = 9
+
+    	Discard (9)
+
+    .. data:: DAYTIME = 13
+
+    	Daytime (13)
+
+    .. data:: CHARGEN = 19
+
+    	Character generator (19)
+
+    .. data:: FTP_DATA = 20
+
+    	FTP data connections (used infrequently, 20)
+
+    .. data:: FTP = 21
+
+    	File Transfer Protocol (21)
+
+    .. data:: SSH = 22
+
+    	Secure Shell (22)
+
+    .. data:: TELNET = 23
+
+    	Telnet (23)
+
+    .. data:: SMTP = 25
+
+    	Simple Mail Transport Protocol (25)
+
+    .. data:: TIME = 37
+
+    	Time (37)
+
+    .. data:: NICNAME = 43
+
+    	Nicname (43)
+
+    .. data:: TACACS = 49
+
+    	TAC Access Control System (49)
+
+    .. data:: DOMAIN = 53
+
+    	Domain Name Service (53)
+
+    .. data:: GOPHER = 70
+
+    	Gopher (70)
+
+    .. data:: FINGER = 79
+
+    	Finger (79)
+
+    .. data:: WWW = 80
+
+    	World Wide Web (HTTP, 80)
+
+    .. data:: HOST_NAME = 101
+
+    	NIC hostname server (101)
+
+    .. data:: POP2 = 109
+
+    	Post Office Protocol v2 (109)
+
+    .. data:: POP3 = 110
+
+    	Post Office Protocol v3 (110)
+
+    .. data:: SUN_RPC = 111
+
+    	Sun Remote Procedure Call (111)
+
+    .. data:: IDENT = 113
+
+    	Ident Protocol (113)
+
+    .. data:: NNTP = 119
+
+    	Network News Transport Protocol (119)
+
+    .. data:: BGP = 179
+
+    	Border Gateway Protocol (179)
+
+    .. data:: IRC = 194
+
+    	Internet Relay Chat (194)
+
+    .. data:: PIM_AUTO_RP = 496
+
+    	PIM Auto-RP (496)
+
+    .. data:: EXEC = 512
+
+    	Exec (rsh, 512)
+
+    .. data:: LOGIN = 513
+
+    	Login (rlogin, 513)
+
+    .. data:: CMD = 514
+
+    	Remote commands (rcmd, 514)
+
+    .. data:: LPD = 515
+
+    	Printer service (515)
+
+    .. data:: UUCP = 540
+
+    	Unix-to-Unix Copy Program (540)
+
+    .. data:: KLOGIN = 543
+
+    	Kerberos login (543)
+
+    .. data:: KSHELL = 544
+
+    	Kerberos shell (544)
+
+    .. data:: TALK = 517
+
+    	Talk (517)
+
+    .. data:: LDP = 646
+
+    	LDP session connection attempts (MPLS, 646)
+
+    """
+
+    ECHO = 7
+
+    DISCARD = 9
+
+    DAYTIME = 13
+
+    CHARGEN = 19
+
+    FTP_DATA = 20
+
+    FTP = 21
+
+    SSH = 22
+
+    TELNET = 23
+
+    SMTP = 25
+
+    TIME = 37
+
+    NICNAME = 43
+
+    TACACS = 49
+
+    DOMAIN = 53
+
+    GOPHER = 70
+
+    FINGER = 79
+
+    WWW = 80
+
+    HOST_NAME = 101
+
+    POP2 = 109
+
+    POP3 = 110
+
+    SUN_RPC = 111
+
+    IDENT = 113
+
+    NNTP = 119
+
+    BGP = 179
+
+    IRC = 194
+
+    PIM_AUTO_RP = 496
+
+    EXEC = 512
+
+    LOGIN = 513
+
+    CMD = 514
+
+    LPD = 515
+
+    UUCP = 540
+
+    KLOGIN = 543
+
+    KSHELL = 544
+
+    TALK = 517
+
+    LDP = 646
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
+        return meta._meta_table['PortEnum']
+
+
+class PortOperatorEnum(Enum):
+    """
+    PortOperatorEnum
 
     Port operator
 
-    """
+    .. data:: EQUAL = 0
+
+    	Match packets on ports equal to entered port
+
+    	number
+
+    .. data:: NOT_EQUAL = 1
+
+    	Match packets on ports not equal to entered
+
+    	port number
+
+    .. data:: GREATER_THAN = 2
+
+    	Match packets on ports greater than entered
+
+    	port number
+
+    .. data:: LESS_THAN = 3
+
+    	Match packets on ports less than entered port
+
+    	number
 
     """
 
-    Match packets on ports equal to entered port
-    number
-
-    """
     EQUAL = 0
 
-    """
-
-    Match packets on ports not equal to entered
-    port number
-
-    """
     NOT_EQUAL = 1
 
-    """
-
-    Match packets on ports greater than entered
-    port number
-
-    """
     GREATER_THAN = 2
 
-    """
-
-    Match packets on ports less than entered port
-    number
-
-    """
     LESS_THAN = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-        return meta._meta_table['PortOperator_Enum']
+        return meta._meta_table['PortOperatorEnum']
 
 
-class Port_Enum(Enum):
+class StartPortEnum(Enum):
     """
-    Port_Enum
-
-    Port
-
-    """
-
-    """
-
-    Echo (7)
-
-    """
-    ECHO = 7
-
-    """
-
-    Discard (9)
-
-    """
-    DISCARD = 9
-
-    """
-
-    Daytime (13)
-
-    """
-    DAYTIME = 13
-
-    """
-
-    Character generator (19)
-
-    """
-    CHARGEN = 19
-
-    """
-
-    FTP data connections (used infrequently, 20)
-
-    """
-    FTP_DATA = 20
-
-    """
-
-    File Transfer Protocol (21)
-
-    """
-    FTP = 21
-
-    """
-
-    Secure Shell (22)
-
-    """
-    SSH = 22
-
-    """
-
-    Telnet (23)
-
-    """
-    TELNET = 23
-
-    """
-
-    Simple Mail Transport Protocol (25)
-
-    """
-    SMTP = 25
-
-    """
-
-    Time (37)
-
-    """
-    TIME = 37
-
-    """
-
-    Nicname (43)
-
-    """
-    NICNAME = 43
-
-    """
-
-    TAC Access Control System (49)
-
-    """
-    TACACS = 49
-
-    """
-
-    Domain Name Service (53)
-
-    """
-    DOMAIN = 53
-
-    """
-
-    Gopher (70)
-
-    """
-    GOPHER = 70
-
-    """
-
-    Finger (79)
-
-    """
-    FINGER = 79
-
-    """
-
-    World Wide Web (HTTP, 80)
-
-    """
-    WWW = 80
-
-    """
-
-    NIC hostname server (101)
-
-    """
-    HOST_NAME = 101
-
-    """
-
-    Post Office Protocol v2 (109)
-
-    """
-    POP2 = 109
-
-    """
-
-    Post Office Protocol v3 (110)
-
-    """
-    POP3 = 110
-
-    """
-
-    Sun Remote Procedure Call (111)
-
-    """
-    SUN_RPC = 111
-
-    """
-
-    Ident Protocol (113)
-
-    """
-    IDENT = 113
-
-    """
-
-    Network News Transport Protocol (119)
-
-    """
-    NNTP = 119
-
-    """
-
-    Border Gateway Protocol (179)
-
-    """
-    BGP = 179
-
-    """
-
-    Internet Relay Chat (194)
-
-    """
-    IRC = 194
-
-    """
-
-    PIM Auto\-RP (496)
-
-    """
-    PIM_AUTO_RP = 496
-
-    """
-
-    Exec (rsh, 512)
-
-    """
-    EXEC = 512
-
-    """
-
-    Login (rlogin, 513)
-
-    """
-    LOGIN = 513
-
-    """
-
-    Remote commands (rcmd, 514)
-
-    """
-    CMD = 514
-
-    """
-
-    Printer service (515)
-
-    """
-    LPD = 515
-
-    """
-
-    Unix\-to\-Unix Copy Program (540)
-
-    """
-    UUCP = 540
-
-    """
-
-    Kerberos login (543)
-
-    """
-    KLOGIN = 543
-
-    """
-
-    Kerberos shell (544)
-
-    """
-    KSHELL = 544
-
-    """
-
-    Talk (517)
-
-    """
-    TALK = 517
-
-    """
-
-    LDP session connection attempts (MPLS, 646)
-
-    """
-    LDP = 646
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-        return meta._meta_table['Port_Enum']
-
-
-class StartPort_Enum(Enum):
-    """
-    StartPort_Enum
+    StartPortEnum
 
     Start port
 
-    """
+    .. data:: ECHO = 7
+
+    	Echo (7)
+
+    .. data:: DISCARD = 9
+
+    	Discard (9)
+
+    .. data:: DAYTIME = 13
+
+    	Daytime (13)
+
+    .. data:: CHARGEN = 19
+
+    	Character generator (19)
+
+    .. data:: FTP_DATA = 20
+
+    	FTP data connections (used infrequently, 20)
+
+    .. data:: FTP = 21
+
+    	File Transfer Protocol (21)
+
+    .. data:: SSH = 22
+
+    	Secure Shell (22)
+
+    .. data:: TELNET = 23
+
+    	Telnet (23)
+
+    .. data:: SMTP = 25
+
+    	Simple Mail Transport Protocol (25)
+
+    .. data:: TIME = 37
+
+    	Time (37)
+
+    .. data:: NICNAME = 43
+
+    	Nicname (43)
+
+    .. data:: TACACS = 49
+
+    	TAC Access Control System (49)
+
+    .. data:: DOMAIN = 53
+
+    	Domain Name Service (53)
+
+    .. data:: GOPHER = 70
+
+    	Gopher (70)
+
+    .. data:: FINGER = 79
+
+    	Finger (79)
+
+    .. data:: WWW = 80
+
+    	World Wide Web (HTTP, 80)
+
+    .. data:: HOST_NAME = 101
+
+    	NIC hostname server (101)
+
+    .. data:: POP2 = 109
+
+    	Post Office Protocol v2 (109)
+
+    .. data:: POP3 = 110
+
+    	Post Office Protocol v3 (110)
+
+    .. data:: SUN_RPC = 111
+
+    	Sun Remote Procedure Call (111)
+
+    .. data:: IDENT = 113
+
+    	Ident Protocol (113)
+
+    .. data:: NNTP = 119
+
+    	Network News Transport Protocol (119)
+
+    .. data:: BGP = 179
+
+    	Border Gateway Protocol (179)
+
+    .. data:: IRC = 194
+
+    	Internet Relay Chat (194)
+
+    .. data:: PIM_AUTO_RP = 496
+
+    	PIM Auto-RP (496)
+
+    .. data:: EXEC = 512
+
+    	Exec (rsh, 512)
+
+    .. data:: LOGIN = 513
+
+    	Login (rlogin, 513)
+
+    .. data:: CMD = 514
+
+    	Remote commands (rcmd, 514)
+
+    .. data:: LPD = 515
+
+    	Printer service (515)
+
+    .. data:: UUCP = 540
+
+    	Unix-to-Unix Copy Program (540)
+
+    .. data:: KLOGIN = 543
+
+    	Kerberos login (543)
+
+    .. data:: KSHELL = 544
+
+    	Kerberos shell (544)
+
+    .. data:: TALK = 517
+
+    	Talk (517)
+
+    .. data:: LDP = 646
+
+    	LDP session connection attempts (MPLS, 646)
 
     """
 
-    Echo (7)
-
-    """
     ECHO = 7
 
-    """
-
-    Discard (9)
-
-    """
     DISCARD = 9
 
-    """
-
-    Daytime (13)
-
-    """
     DAYTIME = 13
 
-    """
-
-    Character generator (19)
-
-    """
     CHARGEN = 19
 
-    """
-
-    FTP data connections (used infrequently, 20)
-
-    """
     FTP_DATA = 20
 
-    """
-
-    File Transfer Protocol (21)
-
-    """
     FTP = 21
 
-    """
-
-    Secure Shell (22)
-
-    """
     SSH = 22
 
-    """
-
-    Telnet (23)
-
-    """
     TELNET = 23
 
-    """
-
-    Simple Mail Transport Protocol (25)
-
-    """
     SMTP = 25
 
-    """
-
-    Time (37)
-
-    """
     TIME = 37
 
-    """
-
-    Nicname (43)
-
-    """
     NICNAME = 43
 
-    """
-
-    TAC Access Control System (49)
-
-    """
     TACACS = 49
 
-    """
-
-    Domain Name Service (53)
-
-    """
     DOMAIN = 53
 
-    """
-
-    Gopher (70)
-
-    """
     GOPHER = 70
 
-    """
-
-    Finger (79)
-
-    """
     FINGER = 79
 
-    """
-
-    World Wide Web (HTTP, 80)
-
-    """
     WWW = 80
 
-    """
-
-    NIC hostname server (101)
-
-    """
     HOST_NAME = 101
 
-    """
-
-    Post Office Protocol v2 (109)
-
-    """
     POP2 = 109
 
-    """
-
-    Post Office Protocol v3 (110)
-
-    """
     POP3 = 110
 
-    """
-
-    Sun Remote Procedure Call (111)
-
-    """
     SUN_RPC = 111
 
-    """
-
-    Ident Protocol (113)
-
-    """
     IDENT = 113
 
-    """
-
-    Network News Transport Protocol (119)
-
-    """
     NNTP = 119
 
-    """
-
-    Border Gateway Protocol (179)
-
-    """
     BGP = 179
 
-    """
-
-    Internet Relay Chat (194)
-
-    """
     IRC = 194
 
-    """
-
-    PIM Auto\-RP (496)
-
-    """
     PIM_AUTO_RP = 496
 
-    """
-
-    Exec (rsh, 512)
-
-    """
     EXEC = 512
 
-    """
-
-    Login (rlogin, 513)
-
-    """
     LOGIN = 513
 
-    """
-
-    Remote commands (rcmd, 514)
-
-    """
     CMD = 514
 
-    """
-
-    Printer service (515)
-
-    """
     LPD = 515
 
-    """
-
-    Unix\-to\-Unix Copy Program (540)
-
-    """
     UUCP = 540
 
-    """
-
-    Kerberos login (543)
-
-    """
     KLOGIN = 543
 
-    """
-
-    Kerberos shell (544)
-
-    """
     KSHELL = 544
 
-    """
-
-    Talk (517)
-
-    """
     TALK = 517
 
-    """
-
-    LDP session connection attempts (MPLS, 646)
-
-    """
     LDP = 646
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-        return meta._meta_table['StartPort_Enum']
+        return meta._meta_table['StartPortEnum']
 
 
 
@@ -1059,18 +957,12 @@ class ObjectGroup(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.end_address is not None:
                                     return True
 
                                 if self.start_address is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1092,17 +984,11 @@ class ObjectGroup(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address_range is not None:
                                 for child_ref in self.address_range:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1180,18 +1066,12 @@ class ObjectGroup(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.prefix is not None:
                                     return True
 
                                 if self.prefix_length is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1213,17 +1093,11 @@ class ObjectGroup(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 for child_ref in self.address:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1291,15 +1165,9 @@ class ObjectGroup(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.host_address is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1321,17 +1189,11 @@ class ObjectGroup(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.host is not None:
                                 for child_ref in self.host:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1401,15 +1263,9 @@ class ObjectGroup(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.nested_group_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1431,17 +1287,11 @@ class ObjectGroup(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.nested_group is not None:
                                 for child_ref in self.nested_group:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1463,21 +1313,13 @@ class ObjectGroup(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.object_name is not None:
                             return True
 
                         if self.address_ranges is not None and self.address_ranges._has_data():
                             return True
 
-                        if self.address_ranges is not None and self.address_ranges.is_presence():
-                            return True
-
                         if self.addresses is not None and self.addresses._has_data():
-                            return True
-
-                        if self.addresses is not None and self.addresses.is_presence():
                             return True
 
                         if self.description is not None:
@@ -1486,19 +1328,9 @@ class ObjectGroup(object):
                         if self.hosts is not None and self.hosts._has_data():
                             return True
 
-                        if self.hosts is not None and self.hosts.is_presence():
-                            return True
-
                         if self.nested_groups is not None and self.nested_groups._has_data():
                             return True
 
-                        if self.nested_groups is not None and self.nested_groups.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1518,17 +1350,11 @@ class ObjectGroup(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child_ref in self.object:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1548,18 +1374,9 @@ class ObjectGroup(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.objects is not None and self.objects._has_data():
                     return True
 
-                if self.objects is not None and self.objects.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1739,18 +1556,12 @@ class ObjectGroup(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.end_address is not None:
                                     return True
 
                                 if self.start_address is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1772,17 +1583,11 @@ class ObjectGroup(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address_range is not None:
                                 for child_ref in self.address_range:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1860,18 +1665,12 @@ class ObjectGroup(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.prefix is not None:
                                     return True
 
                                 if self.prefix_length is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1893,17 +1692,11 @@ class ObjectGroup(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 for child_ref in self.address:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1971,15 +1764,9 @@ class ObjectGroup(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.host_address is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2001,17 +1788,11 @@ class ObjectGroup(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.host is not None:
                                 for child_ref in self.host:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2081,15 +1862,9 @@ class ObjectGroup(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.nested_group_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2111,17 +1886,11 @@ class ObjectGroup(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.nested_group is not None:
                                 for child_ref in self.nested_group:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2143,21 +1912,13 @@ class ObjectGroup(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.object_name is not None:
                             return True
 
                         if self.address_ranges is not None and self.address_ranges._has_data():
                             return True
 
-                        if self.address_ranges is not None and self.address_ranges.is_presence():
-                            return True
-
                         if self.addresses is not None and self.addresses._has_data():
-                            return True
-
-                        if self.addresses is not None and self.addresses.is_presence():
                             return True
 
                         if self.description is not None:
@@ -2166,19 +1927,9 @@ class ObjectGroup(object):
                         if self.hosts is not None and self.hosts._has_data():
                             return True
 
-                        if self.hosts is not None and self.hosts.is_presence():
-                            return True
-
                         if self.nested_groups is not None and self.nested_groups._has_data():
                             return True
 
-                        if self.nested_groups is not None and self.nested_groups.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2198,17 +1949,11 @@ class ObjectGroup(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child_ref in self.object:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2228,18 +1973,9 @@ class ObjectGroup(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.objects is not None and self.objects._has_data():
                     return True
 
-                if self.objects is not None and self.objects.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2259,24 +1995,12 @@ class ObjectGroup(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.ipv4 is not None and self.ipv4._has_data():
-                return True
-
-            if self.ipv4 is not None and self.ipv4.is_presence():
                 return True
 
             if self.ipv6 is not None and self.ipv6._has_data():
                 return True
 
-            if self.ipv6 is not None and self.ipv6.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2443,15 +2167,9 @@ class ObjectGroup(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.nested_group_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2473,17 +2191,11 @@ class ObjectGroup(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.nested_group is not None:
                             for child_ref in self.nested_group:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2522,12 +2234,12 @@ class ObjectGroup(object):
                         .. attribute:: operator_type
                         
                         	operation for ports
-                        	**type**\: :py:class:`PortOperator_Enum <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.PortOperator_Enum>`
+                        	**type**\: :py:class:`PortOperatorEnum <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.PortOperatorEnum>`
                         
                         .. attribute:: port
                         
                         	Port number
-                        	**type**\: one of { :py:class:`Port_Enum <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.Port_Enum>` | int }
+                        	**type**\: one of { :py:class:`PortEnum <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.PortEnum>` | int }
                         
                         
 
@@ -2559,18 +2271,12 @@ class ObjectGroup(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.operator_type is not None:
                                 return True
 
                             if self.port is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2592,17 +2298,11 @@ class ObjectGroup(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.operator is not None:
                             for child_ref in self.operator:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2641,12 +2341,12 @@ class ObjectGroup(object):
                         .. attribute:: end_port
                         
                         	Port number
-                        	**type**\: one of { :py:class:`EndPort_Enum <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.EndPort_Enum>` | int }
+                        	**type**\: one of { :py:class:`EndPortEnum <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.EndPortEnum>` | int }
                         
                         .. attribute:: start_port
                         
                         	Port number
-                        	**type**\: one of { :py:class:`StartPort_Enum <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.StartPort_Enum>` | int }
+                        	**type**\: one of { :py:class:`StartPortEnum <ydk.models.infra.Cisco_IOS_XR_infra_objmgr_cfg.StartPortEnum>` | int }
                         
                         
 
@@ -2678,18 +2378,12 @@ class ObjectGroup(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.end_port is not None:
                                 return True
 
                             if self.start_port is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2711,17 +2405,11 @@ class ObjectGroup(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.port_range is not None:
                             for child_ref in self.port_range:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2743,8 +2431,6 @@ class ObjectGroup(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object_name is not None:
                         return True
 
@@ -2754,25 +2440,12 @@ class ObjectGroup(object):
                     if self.nested_groups is not None and self.nested_groups._has_data():
                         return True
 
-                    if self.nested_groups is not None and self.nested_groups.is_presence():
-                        return True
-
                     if self.operators is not None and self.operators._has_data():
-                        return True
-
-                    if self.operators is not None and self.operators.is_presence():
                         return True
 
                     if self.port_ranges is not None and self.port_ranges._has_data():
                         return True
 
-                    if self.port_ranges is not None and self.port_ranges.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2792,17 +2465,11 @@ class ObjectGroup(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.object is not None:
                     for child_ref in self.object:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2822,18 +2489,9 @@ class ObjectGroup(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.objects is not None and self.objects._has_data():
                 return True
 
-            if self.objects is not None and self.objects.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2853,24 +2511,12 @@ class ObjectGroup(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.network is not None and self.network._has_data():
-            return True
-
-        if self.network is not None and self.network.is_presence():
             return True
 
         if self.port is not None and self.port._has_data():
             return True
 
-        if self.port is not None and self.port.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

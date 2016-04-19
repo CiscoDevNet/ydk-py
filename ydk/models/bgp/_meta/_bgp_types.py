@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,29 +14,29 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'RemovePrivateAsOption_Enum' : _MetaInfoEnum('RemovePrivateAsOption_Enum', 'ydk.models.bgp.bgp_types',
+    'RemovePrivateAsOptionEnum' : _MetaInfoEnum('RemovePrivateAsOptionEnum', 'ydk.models.bgp.bgp_types',
         {
             'ALL':'ALL',
             'REPLACE':'REPLACE',
         }, 'bgp-types', _yang_ns._namespaces['bgp-types']),
-    'CommunityType_Enum' : _MetaInfoEnum('CommunityType_Enum', 'ydk.models.bgp.bgp_types',
+    'CommunityTypeEnum' : _MetaInfoEnum('CommunityTypeEnum', 'ydk.models.bgp.bgp_types',
         {
             'STANDARD':'STANDARD',
             'EXTENDED':'EXTENDED',
             'BOTH':'BOTH',
             'NONE':'NONE',
         }, 'bgp-types', _yang_ns._namespaces['bgp-types']),
-    'PeerType_Enum' : _MetaInfoEnum('PeerType_Enum', 'ydk.models.bgp.bgp_types',
+    'PeerTypeEnum' : _MetaInfoEnum('PeerTypeEnum', 'ydk.models.bgp.bgp_types',
         {
             'INTERNAL':'INTERNAL',
             'EXTERNAL':'EXTERNAL',
         }, 'bgp-types', _yang_ns._namespaces['bgp-types']),
-    'BgpSessionDirection_Enum' : _MetaInfoEnum('BgpSessionDirection_Enum', 'ydk.models.bgp.bgp_types',
+    'BgpSessionDirectionEnum' : _MetaInfoEnum('BgpSessionDirectionEnum', 'ydk.models.bgp.bgp_types',
         {
             'INBOUND':'INBOUND',
             'OUTBOUND':'OUTBOUND',
         }, 'bgp-types', _yang_ns._namespaces['bgp-types']),
-    'BgpOriginAttrType_Enum' : _MetaInfoEnum('BgpOriginAttrType_Enum', 'ydk.models.bgp.bgp_types',
+    'BgpOriginAttrTypeEnum' : _MetaInfoEnum('BgpOriginAttrTypeEnum', 'ydk.models.bgp.bgp_types',
         {
             'IGP':'IGP',
             'EGP':'EGP',
@@ -75,8 +75,8 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'ADDPATHS_Identity' : {
-        'meta_info' : _MetaInfoClass('ADDPATHS_Identity',
+    'AddPaths_Identity' : {
+        'meta_info' : _MetaInfoClass('AddPaths_Identity',
             False, 
             [
             ],
@@ -86,8 +86,8 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'ASN32_Identity' : {
-        'meta_info' : _MetaInfoClass('ASN32_Identity',
+    'Asn32_Identity' : {
+        'meta_info' : _MetaInfoClass('Asn32_Identity',
             False, 
             [
             ],
@@ -97,8 +97,8 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'GRACEFULRESTART_Identity' : {
-        'meta_info' : _MetaInfoClass('GRACEFULRESTART_Identity',
+    'GracefulRestart_Identity' : {
+        'meta_info' : _MetaInfoClass('GracefulRestart_Identity',
             False, 
             [
             ],
@@ -108,8 +108,8 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'INTERNET_Identity' : {
-        'meta_info' : _MetaInfoClass('INTERNET_Identity',
+    'Internet_Identity' : {
+        'meta_info' : _MetaInfoClass('Internet_Identity',
             False, 
             [
             ],
@@ -163,8 +163,8 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'L2vpnEvpn_Identity' : {
-        'meta_info' : _MetaInfoClass('L2vpnEvpn_Identity',
+    'L2VpnEvpn_Identity' : {
+        'meta_info' : _MetaInfoClass('L2VpnEvpn_Identity',
             False, 
             [
             ],
@@ -174,8 +174,8 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'L2vpnVpls_Identity' : {
-        'meta_info' : _MetaInfoClass('L2vpnVpls_Identity',
+    'L2VpnVpls_Identity' : {
+        'meta_info' : _MetaInfoClass('L2VpnVpls_Identity',
             False, 
             [
             ],
@@ -185,8 +185,8 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'L3vpnIpv4Multicast_Identity' : {
-        'meta_info' : _MetaInfoClass('L3vpnIpv4Multicast_Identity',
+    'L3VpnIpv4Multicast_Identity' : {
+        'meta_info' : _MetaInfoClass('L3VpnIpv4Multicast_Identity',
             False, 
             [
             ],
@@ -196,8 +196,8 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'L3vpnIpv4Unicast_Identity' : {
-        'meta_info' : _MetaInfoClass('L3vpnIpv4Unicast_Identity',
+    'L3VpnIpv4Unicast_Identity' : {
+        'meta_info' : _MetaInfoClass('L3VpnIpv4Unicast_Identity',
             False, 
             [
             ],
@@ -207,8 +207,8 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'L3vpnIpv6Multicast_Identity' : {
-        'meta_info' : _MetaInfoClass('L3vpnIpv6Multicast_Identity',
+    'L3VpnIpv6Multicast_Identity' : {
+        'meta_info' : _MetaInfoClass('L3VpnIpv6Multicast_Identity',
             False, 
             [
             ],
@@ -218,8 +218,8 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'L3vpnIpv6Unicast_Identity' : {
-        'meta_info' : _MetaInfoClass('L3vpnIpv6Unicast_Identity',
+    'L3VpnIpv6Unicast_Identity' : {
+        'meta_info' : _MetaInfoClass('L3VpnIpv6Unicast_Identity',
             False, 
             [
             ],
@@ -229,8 +229,8 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'MPBGP_Identity' : {
-        'meta_info' : _MetaInfoClass('MPBGP_Identity',
+    'Mpbgp_Identity' : {
+        'meta_info' : _MetaInfoClass('Mpbgp_Identity',
             False, 
             [
             ],
@@ -240,19 +240,8 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'NOPEER_Identity' : {
-        'meta_info' : _MetaInfoClass('NOPEER_Identity',
-            False, 
-            [
-            ],
-            'bgp-types',
-            'NOPEER',
-            _yang_ns._namespaces['bgp-types'],
-        'ydk.models.bgp.bgp_types'
-        ),
-    },
-    'NO_ADVERTISE_Identity' : {
-        'meta_info' : _MetaInfoClass('NO_ADVERTISE_Identity',
+    'No_Advertise_Identity' : {
+        'meta_info' : _MetaInfoClass('No_Advertise_Identity',
             False, 
             [
             ],
@@ -262,8 +251,8 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'NO_EXPORT_Identity' : {
-        'meta_info' : _MetaInfoClass('NO_EXPORT_Identity',
+    'No_Export_Identity' : {
+        'meta_info' : _MetaInfoClass('No_Export_Identity',
             False, 
             [
             ],
@@ -273,8 +262,8 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'NO_EXPORT_SUBCONFED_Identity' : {
-        'meta_info' : _MetaInfoClass('NO_EXPORT_SUBCONFED_Identity',
+    'No_Export_Subconfed_Identity' : {
+        'meta_info' : _MetaInfoClass('No_Export_Subconfed_Identity',
             False, 
             [
             ],
@@ -284,8 +273,19 @@ _meta_table = {
         'ydk.models.bgp.bgp_types'
         ),
     },
-    'ROUTEREFRESH_Identity' : {
-        'meta_info' : _MetaInfoClass('ROUTEREFRESH_Identity',
+    'Nopeer_Identity' : {
+        'meta_info' : _MetaInfoClass('Nopeer_Identity',
+            False, 
+            [
+            ],
+            'bgp-types',
+            'NOPEER',
+            _yang_ns._namespaces['bgp-types'],
+        'ydk.models.bgp.bgp_types'
+        ),
+    },
+    'RouteRefresh_Identity' : {
+        'meta_info' : _MetaInfoClass('RouteRefresh_Identity',
             False, 
             [
             ],

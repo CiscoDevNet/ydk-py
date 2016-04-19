@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,8 +14,8 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold.MemoryThreshold' : {
-        'meta_info' : _MetaInfoClass('ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold.MemoryThreshold',
+    'ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold' : {
+        'meta_info' : _MetaInfoClass('ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold',
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
@@ -43,11 +43,11 @@ _meta_table = {
         'ydk.models.config.Cisco_IOS_XR_config_mda_cfg'
         ),
     },
-    'ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold' : {
-        'meta_info' : _MetaInfoClass('ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold',
+    'ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold' : {
+        'meta_info' : _MetaInfoClass('ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold',
             False, 
             [
-            _MetaInfoClassMember('memory-threshold', REFERENCE_CLASS, 'MemoryThreshold' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold.MemoryThreshold', 
+            _MetaInfoClassMember('memory-threshold', REFERENCE_CLASS, 'MemoryThreshold' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold', 
                 [], [], 
                 '''                Memory thresholds
                 ''',
@@ -60,8 +60,8 @@ _meta_table = {
         'ydk.models.config.Cisco_IOS_XR_config_mda_cfg'
         ),
     },
-    'ActiveNodes.ActiveNode.CiscoIOSXRWdCfg_watchdogNodeThreshold.MemoryThreshold' : {
-        'meta_info' : _MetaInfoClass('ActiveNodes.ActiveNode.CiscoIOSXRWdCfg_watchdogNodeThreshold.MemoryThreshold',
+    'ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold' : {
+        'meta_info' : _MetaInfoClass('ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold',
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
@@ -89,11 +89,11 @@ _meta_table = {
         'ydk.models.config.Cisco_IOS_XR_config_mda_cfg'
         ),
     },
-    'ActiveNodes.ActiveNode.CiscoIOSXRWdCfg_watchdogNodeThreshold' : {
-        'meta_info' : _MetaInfoClass('ActiveNodes.ActiveNode.CiscoIOSXRWdCfg_watchdogNodeThreshold',
+    'ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold' : {
+        'meta_info' : _MetaInfoClass('ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold',
             False, 
             [
-            _MetaInfoClassMember('memory-threshold', REFERENCE_CLASS, 'MemoryThreshold' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'ActiveNodes.ActiveNode.CiscoIOSXRWdCfg_watchdogNodeThreshold.MemoryThreshold', 
+            _MetaInfoClassMember('memory-threshold', REFERENCE_CLASS, 'MemoryThreshold' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold', 
                 [], [], 
                 '''                Memory thresholds
                 ''',
@@ -116,7 +116,7 @@ _meta_table = {
                 ''',
                 'precedence',
                 'Cisco-IOS-XR-lpts-pre-ifib-cfg', False, [
-                    _MetaInfoClassMember('precedence', REFERENCE_LEAFLIST, 'LptsPreIFibPrecedenceNumber_Enum' , 'ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg', 'LptsPreIFibPrecedenceNumber_Enum', 
+                    _MetaInfoClassMember('precedence', REFERENCE_LEAFLIST, 'LptsPreIFibPrecedenceNumberEnum' , 'ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg', 'LptsPreIFibPrecedenceNumberEnum', 
                         [], [], 
                         '''                        Precedence values
                         ''',
@@ -140,7 +140,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow',
             False, 
             [
-            _MetaInfoClassMember('flow-type', REFERENCE_ENUM_CLASS, 'LptsFlow_Enum' , 'ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg', 'LptsFlow_Enum', 
+            _MetaInfoClassMember('flow-type', REFERENCE_ENUM_CLASS, 'LptsFlowEnum' , 'ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg', 'LptsFlowEnum', 
                 [], [], 
                 '''                LPTS Flow Type
                 ''',
@@ -321,13 +321,13 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-config-mda-cfg', True),
-            _MetaInfoClassMember('Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold', REFERENCE_CLASS, 'CiscoIOSXRWatchdCfg_watchdogNodeThreshold' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold', 
+            _MetaInfoClassMember('Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold', REFERENCE_CLASS, 'CiscoIosXrWatchdCfg_WatchdogNodeThreshold' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold', 
                 [], [], 
                 '''                watchdog node threshold
                 ''',
                 'cisco_ios_xr_watchd_cfg_watchdog_node_threshold',
                 'Cisco-IOS-XR-watchd-cfg', False),
-            _MetaInfoClassMember('Cisco-IOS-XR-wd-cfg_watchdog-node-threshold', REFERENCE_CLASS, 'CiscoIOSXRWdCfg_watchdogNodeThreshold' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'ActiveNodes.ActiveNode.CiscoIOSXRWdCfg_watchdogNodeThreshold', 
+            _MetaInfoClassMember('Cisco-IOS-XR-wd-cfg_watchdog-node-threshold', REFERENCE_CLASS, 'CiscoIosXrWdCfg_WatchdogNodeThreshold' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold', 
                 [], [], 
                 '''                Watchdog threshold configuration
                 ''',
@@ -363,8 +363,8 @@ _meta_table = {
         'ydk.models.config.Cisco_IOS_XR_config_mda_cfg'
         ),
     },
-    'PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold.MemoryThreshold' : {
-        'meta_info' : _MetaInfoClass('PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold.MemoryThreshold',
+    'PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold' : {
+        'meta_info' : _MetaInfoClass('PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold',
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
@@ -392,11 +392,11 @@ _meta_table = {
         'ydk.models.config.Cisco_IOS_XR_config_mda_cfg'
         ),
     },
-    'PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold' : {
-        'meta_info' : _MetaInfoClass('PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold',
+    'PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold' : {
+        'meta_info' : _MetaInfoClass('PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold',
             False, 
             [
-            _MetaInfoClassMember('memory-threshold', REFERENCE_CLASS, 'MemoryThreshold' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold.MemoryThreshold', 
+            _MetaInfoClassMember('memory-threshold', REFERENCE_CLASS, 'MemoryThreshold' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold', 
                 [], [], 
                 '''                Memory thresholds
                 ''',
@@ -409,8 +409,8 @@ _meta_table = {
         'ydk.models.config.Cisco_IOS_XR_config_mda_cfg'
         ),
     },
-    'PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfg_watchdogNodeThreshold.MemoryThreshold' : {
-        'meta_info' : _MetaInfoClass('PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfg_watchdogNodeThreshold.MemoryThreshold',
+    'PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold' : {
+        'meta_info' : _MetaInfoClass('PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold',
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
@@ -438,11 +438,11 @@ _meta_table = {
         'ydk.models.config.Cisco_IOS_XR_config_mda_cfg'
         ),
     },
-    'PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfg_watchdogNodeThreshold' : {
-        'meta_info' : _MetaInfoClass('PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfg_watchdogNodeThreshold',
+    'PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold' : {
+        'meta_info' : _MetaInfoClass('PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold',
             False, 
             [
-            _MetaInfoClassMember('memory-threshold', REFERENCE_CLASS, 'MemoryThreshold' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfg_watchdogNodeThreshold.MemoryThreshold', 
+            _MetaInfoClassMember('memory-threshold', REFERENCE_CLASS, 'MemoryThreshold' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold', 
                 [], [], 
                 '''                Memory thresholds
                 ''',
@@ -465,7 +465,7 @@ _meta_table = {
                 ''',
                 'precedence',
                 'Cisco-IOS-XR-lpts-pre-ifib-cfg', False, [
-                    _MetaInfoClassMember('precedence', REFERENCE_LEAFLIST, 'LptsPreIFibPrecedenceNumber_Enum' , 'ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg', 'LptsPreIFibPrecedenceNumber_Enum', 
+                    _MetaInfoClassMember('precedence', REFERENCE_LEAFLIST, 'LptsPreIFibPrecedenceNumberEnum' , 'ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg', 'LptsPreIFibPrecedenceNumberEnum', 
                         [], [], 
                         '''                        Precedence values
                         ''',
@@ -489,7 +489,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow',
             False, 
             [
-            _MetaInfoClassMember('flow-type', REFERENCE_ENUM_CLASS, 'LptsFlow_Enum' , 'ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg', 'LptsFlow_Enum', 
+            _MetaInfoClassMember('flow-type', REFERENCE_ENUM_CLASS, 'LptsFlowEnum' , 'ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg', 'LptsFlowEnum', 
                 [], [], 
                 '''                LPTS Flow Type
                 ''',
@@ -670,13 +670,13 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-config-mda-cfg', True),
-            _MetaInfoClassMember('Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold', REFERENCE_CLASS, 'CiscoIOSXRWatchdCfg_watchdogNodeThreshold' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold', 
+            _MetaInfoClassMember('Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold', REFERENCE_CLASS, 'CiscoIosXrWatchdCfg_WatchdogNodeThreshold' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold', 
                 [], [], 
                 '''                watchdog node threshold
                 ''',
                 'cisco_ios_xr_watchd_cfg_watchdog_node_threshold',
                 'Cisco-IOS-XR-watchd-cfg', False),
-            _MetaInfoClassMember('Cisco-IOS-XR-wd-cfg_watchdog-node-threshold', REFERENCE_CLASS, 'CiscoIOSXRWdCfg_watchdogNodeThreshold' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfg_watchdogNodeThreshold', 
+            _MetaInfoClassMember('Cisco-IOS-XR-wd-cfg_watchdog-node-threshold', REFERENCE_CLASS, 'CiscoIosXrWdCfg_WatchdogNodeThreshold' , 'ydk.models.config.Cisco_IOS_XR_config_mda_cfg', 'PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold', 
                 [], [], 
                 '''                Watchdog threshold configuration
                 ''',
@@ -713,8 +713,8 @@ _meta_table = {
         ),
     },
 }
-_meta_table['ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold.MemoryThreshold']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold']['meta_info']
-_meta_table['ActiveNodes.ActiveNode.CiscoIOSXRWdCfg_watchdogNodeThreshold.MemoryThreshold']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode.CiscoIOSXRWdCfg_watchdogNodeThreshold']['meta_info']
+_meta_table['ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold']['meta_info']
+_meta_table['ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold']['meta_info']
 _meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow']['meta_info']
 _meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows']['meta_info']
 _meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal']['meta_info']
@@ -723,12 +723,12 @@ _meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalT
 _meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables']['meta_info']
 _meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode.LptsLocal']['meta_info']
 _meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode.LptsLocal']['meta_info']
-_meta_table['ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode']['meta_info']
-_meta_table['ActiveNodes.ActiveNode.CiscoIOSXRWdCfg_watchdogNodeThreshold']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode']['meta_info']
+_meta_table['ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode']['meta_info']
+_meta_table['ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode']['meta_info']
 _meta_table['ActiveNodes.ActiveNode.LptsLocal']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode']['meta_info']
 _meta_table['ActiveNodes.ActiveNode']['meta_info'].parent =_meta_table['ActiveNodes']['meta_info']
-_meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold.MemoryThreshold']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold']['meta_info']
-_meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfg_watchdogNodeThreshold.MemoryThreshold']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfg_watchdogNodeThreshold']['meta_info']
+_meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold']['meta_info']
+_meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold']['meta_info']
 _meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow']['meta_info']
 _meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows']['meta_info']
 _meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal']['meta_info']
@@ -737,7 +737,7 @@ _meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.
 _meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables']['meta_info']
 _meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal']['meta_info']
 _meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal']['meta_info']
-_meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode']['meta_info']
-_meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfg_watchdogNodeThreshold']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode']['meta_info']
+_meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode']['meta_info']
+_meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode']['meta_info']
 _meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode']['meta_info']
 _meta_table['PreconfiguredNodes.PreconfiguredNode']['meta_info'].parent =_meta_table['PreconfiguredNodes']['meta_info']

@@ -24,155 +24,140 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class BagDhcpv6dFsmState_Enum(Enum):
+class BagDhcpv6DFsmStateEnum(Enum):
     """
-    BagDhcpv6dFsmState_Enum
+    BagDhcpv6DFsmStateEnum
 
     Bag dhcpv6d fsm state
 
-    """
+    .. data:: SERVER_INITIALIZING = 0
+
+    	Server initializing state for client binding
+
+    .. data:: SERVER_WAITING_DPM = 1
+
+    	Server waiting on DPM to validate subscriber
+
+    .. data:: SERVER_WAITING_DAPS = 2
+
+    	Server waiting on DAPS to assign/free
+
+    	addr/prefix
+
+    .. data:: SERVER_WAITING_CLIENT = 3
+
+    	Server waiting for a request from the client
+
+    .. data:: SERVER_WAITING_SUBSCRIBER = 4
+
+    	Server waiting for iedge response for the
+
+    	session
+
+    .. data:: SERVER_WAITING_RIB = 5
+
+    	Server waiting for RIB response for route add
+
+    .. data:: SERVER_BOUND_CLIENT = 6
+
+    	Server bound state to the client
+
+    .. data:: PROXY_INITIALIZING = 10
+
+    	Proxy initializing state for client binding
+
+    .. data:: PROXY_WAITING_DPM = 11
+
+    	Proxy waiting on DPM to validate subscriber
+
+    .. data:: PROXY_WAITING_DAPS = 12
+
+    	Proxy waiting on DAPS to assign/free prefix(ND)
+
+    .. data:: PROXY_WAITING_CLIENT_SERVER = 13
+
+    	Proxy waiting for a msg from the client/srv
+
+    .. data:: PROXY_WAITING_SUBSCRIBER = 14
+
+    	Proxy waiting on iedge to sub session resp
+
+    .. data:: PROXY_WAITING_RIB = 15
+
+    	Proxy waiting on RIB response
+
+    .. data:: PROXY_BOUND_CLIENT = 16
+
+    	Proxy bound state to the client
 
     """
 
-    Server initializing state for client binding
-
-    """
     SERVER_INITIALIZING = 0
 
-    """
-
-    Server waiting on DPM to validate subscriber
-
-    """
     SERVER_WAITING_DPM = 1
 
-    """
-
-    Server waiting on DAPS to assign/free
-    addr/prefix
-
-    """
     SERVER_WAITING_DAPS = 2
 
-    """
-
-    Server waiting for a request from the client
-
-    """
     SERVER_WAITING_CLIENT = 3
 
-    """
-
-    Server waiting for iedge response for the
-    session
-
-    """
     SERVER_WAITING_SUBSCRIBER = 4
 
-    """
-
-    Server waiting for RIB response for route add
-
-    """
     SERVER_WAITING_RIB = 5
 
-    """
-
-    Server bound state to the client
-
-    """
     SERVER_BOUND_CLIENT = 6
 
-    """
-
-    Proxy initializing state for client binding
-
-    """
     PROXY_INITIALIZING = 10
 
-    """
-
-    Proxy waiting on DPM to validate subscriber
-
-    """
     PROXY_WAITING_DPM = 11
 
-    """
-
-    Proxy waiting on DAPS to assign/free prefix(ND)
-
-    """
     PROXY_WAITING_DAPS = 12
 
-    """
-
-    Proxy waiting for a msg from the client/srv
-
-    """
     PROXY_WAITING_CLIENT_SERVER = 13
 
-    """
-
-    Proxy waiting on iedge to sub session resp
-
-    """
     PROXY_WAITING_SUBSCRIBER = 14
 
-    """
-
-    Proxy waiting on RIB response
-
-    """
     PROXY_WAITING_RIB = 15
 
-    """
-
-    Proxy bound state to the client
-
-    """
     PROXY_BOUND_CLIENT = 16
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
-        return meta._meta_table['BagDhcpv6dFsmState_Enum']
+        return meta._meta_table['BagDhcpv6DFsmStateEnum']
 
 
-class BagDhcpv6dIaId_Enum(Enum):
+class BagDhcpv6DIaIdEnum(Enum):
     """
-    BagDhcpv6dIaId_Enum
+    BagDhcpv6DIaIdEnum
 
     Bag dhcpv6d ia id
 
-    """
+    .. data:: IANA = 0
+
+    	Non-temporary Addresses assigned 
+
+    .. data:: IAPD = 1
+
+    	Prefix delegeated to client      
+
+    .. data:: IATA = 2
+
+    	Temporary Addresses - not supported 
 
     """
 
-    Non\-temporary Addresses assigned 
-
-    """
     IANA = 0
 
-    """
-
-    Prefix delegeated to client      
-
-    """
     IAPD = 1
 
-    """
-
-    Temporary Addresses \- not supported 
-
-    """
     IATA = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
-        return meta._meta_table['BagDhcpv6dIaId_Enum']
+        return meta._meta_table['BagDhcpv6DIaIdEnum']
 
 
 
@@ -356,8 +341,6 @@ class Dhcpv6(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.configured is not None:
                 return True
 
@@ -406,10 +389,6 @@ class Dhcpv6(object):
             if self.version is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -803,7 +782,7 @@ class Dhcpv6(object):
                                 .. attribute:: bag_dhcpv6d_ia_id_pd_info
                                 
                                 	bag dhcpv6d ia id pd info
-                                	**type**\: list of :py:class:`BagDhcpv6dIaIdPdInfo <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo>`
+                                	**type**\: list of :py:class:`BagDhcpv6DIaIdPdInfo <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo>`
                                 
                                 
 
@@ -819,14 +798,14 @@ class Dhcpv6(object):
                                     self.bag_dhcpv6d_ia_id_pd_info.name = 'bag_dhcpv6d_ia_id_pd_info'
 
 
-                                class BagDhcpv6dIaIdPdInfo(object):
+                                class BagDhcpv6DIaIdPdInfo(object):
                                     """
                                     bag dhcpv6d ia id pd info
                                     
                                     .. attribute:: addresses
                                     
                                     	List of addresses in this IA
-                                    	**type**\: :py:class:`Addresses <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses>`
+                                    	**type**\: :py:class:`Addresses <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses>`
                                     
                                     .. attribute:: flags
                                     
@@ -845,12 +824,12 @@ class Dhcpv6(object):
                                     .. attribute:: ia_type
                                     
                                     	IA type
-                                    	**type**\: :py:class:`BagDhcpv6dIaId_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6dIaId_Enum>`
+                                    	**type**\: :py:class:`BagDhcpv6DIaIdEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6DIaIdEnum>`
                                     
                                     .. attribute:: state
                                     
                                     	State
-                                    	**type**\: :py:class:`BagDhcpv6dFsmState_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6dFsmState_Enum>`
+                                    	**type**\: :py:class:`BagDhcpv6DFsmStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6DFsmStateEnum>`
                                     
                                     .. attribute:: total_address
                                     
@@ -868,7 +847,7 @@ class Dhcpv6(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.addresses = Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses()
+                                        self.addresses = Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses()
                                         self.addresses.parent = self
                                         self.flags = None
                                         self.ia_id = None
@@ -884,7 +863,7 @@ class Dhcpv6(object):
                                         .. attribute:: bag_dhcpv6d_addr_attrb
                                         
                                         	bag dhcpv6d addr attrb
-                                        	**type**\: list of :py:class:`BagDhcpv6dAddrAttrb <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb>`
+                                        	**type**\: list of :py:class:`BagDhcpv6DAddrAttrb <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb>`
                                         
                                         
 
@@ -900,7 +879,7 @@ class Dhcpv6(object):
                                             self.bag_dhcpv6d_addr_attrb.name = 'bag_dhcpv6d_addr_attrb'
 
 
-                                        class BagDhcpv6dAddrAttrb(object):
+                                        class BagDhcpv6DAddrAttrb(object):
                                             """
                                             bag dhcpv6d addr attrb
                                             
@@ -960,8 +939,6 @@ class Dhcpv6(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.lease_time is not None:
                                                     return True
 
@@ -976,14 +953,10 @@ class Dhcpv6(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
-                                                return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb']['meta_info']
+                                                return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -999,8 +972,6 @@ class Dhcpv6(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.bag_dhcpv6d_addr_attrb is not None:
                                                 for child_ref in self.bag_dhcpv6d_addr_attrb:
                                                     if child_ref._has_data():
@@ -1008,14 +979,10 @@ class Dhcpv6(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
-                                            return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses']['meta_info']
+                                            return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -1031,12 +998,7 @@ class Dhcpv6(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.addresses is not None and self.addresses._has_data():
-                                            return True
-
-                                        if self.addresses is not None and self.addresses.is_presence():
                                             return True
 
                                         if self.flags is not None:
@@ -1056,14 +1018,10 @@ class Dhcpv6(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
-                                        return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo']['meta_info']
+                                        return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -1079,17 +1037,11 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.bag_dhcpv6d_ia_id_pd_info is not None:
                                         for child_ref in self.bag_dhcpv6d_ia_id_pd_info:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1113,8 +1065,6 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.client_id is not None:
                                     return True
 
@@ -1140,9 +1090,6 @@ class Dhcpv6(object):
                                     return True
 
                                 if self.ia_id_pd is not None and self.ia_id_pd._has_data():
-                                    return True
-
-                                if self.ia_id_pd is not None and self.ia_id_pd.is_presence():
                                     return True
 
                                 if self.interface_name is not None:
@@ -1198,10 +1145,6 @@ class Dhcpv6(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
@@ -1221,17 +1164,11 @@ class Dhcpv6(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.client is not None:
                                 for child_ref in self.client:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1361,8 +1298,6 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bound_clients is not None:
                                     return True
 
@@ -1384,10 +1319,6 @@ class Dhcpv6(object):
                                 if self.rib_waiting_clients is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1480,8 +1411,6 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bound_clients is not None:
                                     return True
 
@@ -1505,10 +1434,6 @@ class Dhcpv6(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
@@ -1528,27 +1453,15 @@ class Dhcpv6(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.clients is not None:
                                 return True
 
                             if self.iana is not None and self.iana._has_data():
                                 return True
 
-                            if self.iana is not None and self.iana.is_presence():
-                                return True
-
                             if self.iapd is not None and self.iapd._has_data():
                                 return True
 
-                            if self.iapd is not None and self.iapd.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1570,24 +1483,12 @@ class Dhcpv6(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.clients is not None and self.clients._has_data():
-                            return True
-
-                        if self.clients is not None and self.clients.is_presence():
                             return True
 
                         if self.summary is not None and self.summary._has_data():
                             return True
 
-                        if self.summary is not None and self.summary.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1747,7 +1648,7 @@ class Dhcpv6(object):
                                 .. attribute:: ipv6_dhcpv6d_proxy_iid_reference
                                 
                                 	ipv6 dhcpv6d proxy iid reference
-                                	**type**\: list of :py:class:`Ipv6Dhcpv6dProxyIidReference <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference>`
+                                	**type**\: list of :py:class:`Ipv6Dhcpv6DProxyIidReference <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6DProxyIidReference>`
                                 
                                 
 
@@ -1763,7 +1664,7 @@ class Dhcpv6(object):
                                     self.ipv6_dhcpv6d_proxy_iid_reference.name = 'ipv6_dhcpv6d_proxy_iid_reference'
 
 
-                                class Ipv6Dhcpv6dProxyIidReference(object):
+                                class Ipv6Dhcpv6DProxyIidReference(object):
                                     """
                                     ipv6 dhcpv6d proxy iid reference
                                     
@@ -1807,8 +1708,6 @@ class Dhcpv6(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.proxy_iid_interface_name is not None:
                                             return True
 
@@ -1817,14 +1716,10 @@ class Dhcpv6(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
-                                        return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference']['meta_info']
+                                        return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6DProxyIidReference']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -1840,17 +1735,11 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ipv6_dhcpv6d_proxy_iid_reference is not None:
                                         for child_ref in self.ipv6_dhcpv6d_proxy_iid_reference:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1866,7 +1755,7 @@ class Dhcpv6(object):
                                 .. attribute:: ipv6_dhcpv6d_proxy_interface_reference
                                 
                                 	ipv6 dhcpv6d proxy interface reference
-                                	**type**\: list of :py:class:`Ipv6Dhcpv6dProxyInterfaceReference <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference>`
+                                	**type**\: list of :py:class:`Ipv6Dhcpv6DProxyInterfaceReference <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference>`
                                 
                                 
 
@@ -1882,7 +1771,7 @@ class Dhcpv6(object):
                                     self.ipv6_dhcpv6d_proxy_interface_reference.name = 'ipv6_dhcpv6d_proxy_interface_reference'
 
 
-                                class Ipv6Dhcpv6dProxyInterfaceReference(object):
+                                class Ipv6Dhcpv6DProxyInterfaceReference(object):
                                     """
                                     ipv6 dhcpv6d proxy interface reference
                                     
@@ -1918,21 +1807,15 @@ class Dhcpv6(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.proxy_reference_interface_name is not None:
                                             return True
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
-                                        return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference']['meta_info']
+                                        return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -1948,17 +1831,11 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ipv6_dhcpv6d_proxy_interface_reference is not None:
                                         for child_ref in self.ipv6_dhcpv6d_proxy_interface_reference:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1974,7 +1851,7 @@ class Dhcpv6(object):
                                 .. attribute:: ipv6_dhcpv6d_proxy_vrf_reference
                                 
                                 	ipv6 dhcpv6d proxy vrf reference
-                                	**type**\: list of :py:class:`Ipv6Dhcpv6dProxyVrfReference <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference>`
+                                	**type**\: list of :py:class:`Ipv6Dhcpv6DProxyVrfReference <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6DProxyVrfReference>`
                                 
                                 
 
@@ -1990,7 +1867,7 @@ class Dhcpv6(object):
                                     self.ipv6_dhcpv6d_proxy_vrf_reference.name = 'ipv6_dhcpv6d_proxy_vrf_reference'
 
 
-                                class Ipv6Dhcpv6dProxyVrfReference(object):
+                                class Ipv6Dhcpv6DProxyVrfReference(object):
                                     """
                                     ipv6 dhcpv6d proxy vrf reference
                                     
@@ -2026,21 +1903,15 @@ class Dhcpv6(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.proxy_reference_vrf_name is not None:
                                             return True
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
-                                        return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference']['meta_info']
+                                        return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6DProxyVrfReference']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -2056,17 +1927,11 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ipv6_dhcpv6d_proxy_vrf_reference is not None:
                                         for child_ref in self.ipv6_dhcpv6d_proxy_vrf_reference:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2088,12 +1953,7 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.interface_id_references is not None and self.interface_id_references._has_data():
-                                    return True
-
-                                if self.interface_id_references is not None and self.interface_id_references.is_presence():
                                     return True
 
                                 if self.interface_name is not None:
@@ -2102,9 +1962,6 @@ class Dhcpv6(object):
                                             return True
 
                                 if self.interface_references is not None and self.interface_references._has_data():
-                                    return True
-
-                                if self.interface_references is not None and self.interface_references.is_presence():
                                     return True
 
                                 if self.profile_helper_address is not None:
@@ -2129,13 +1986,6 @@ class Dhcpv6(object):
                                 if self.vrf_references is not None and self.vrf_references._has_data():
                                     return True
 
-                                if self.vrf_references is not None and self.vrf_references.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2237,8 +2087,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.mac_address is not None:
                                         return True
 
@@ -2254,10 +2102,6 @@ class Dhcpv6(object):
                                     if self.time_left is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2279,17 +2123,11 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.throttle_info is not None:
                                     for child_ref in self.throttle_info:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2313,27 +2151,15 @@ class Dhcpv6(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.profile_name is not None:
                                 return True
 
                             if self.info is not None and self.info._has_data():
                                 return True
 
-                            if self.info is not None and self.info.is_presence():
-                                return True
-
                             if self.throttle_infos is not None and self.throttle_infos._has_data():
                                 return True
 
-                            if self.throttle_infos is not None and self.throttle_infos.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2355,17 +2181,11 @@ class Dhcpv6(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.profile is not None:
                             for child_ref in self.profile:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2381,7 +2201,7 @@ class Dhcpv6(object):
                     .. attribute:: ipv6_dhcpv6d_proxy_stat
                     
                     	ipv6 dhcpv6d proxy stat
-                    	**type**\: list of :py:class:`Ipv6Dhcpv6dProxyStat <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat>`
+                    	**type**\: list of :py:class:`Ipv6Dhcpv6DProxyStat <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat>`
                     
                     
 
@@ -2397,14 +2217,14 @@ class Dhcpv6(object):
                         self.ipv6_dhcpv6d_proxy_stat.name = 'ipv6_dhcpv6d_proxy_stat'
 
 
-                    class Ipv6Dhcpv6dProxyStat(object):
+                    class Ipv6Dhcpv6DProxyStat(object):
                         """
                         ipv6 dhcpv6d proxy stat
                         
                         .. attribute:: statistics
                         
                         	Proxy statistics
-                        	**type**\: :py:class:`Statistics <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat.Statistics>`
+                        	**type**\: :py:class:`Statistics <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics>`
                         
                         .. attribute:: vrf_name
                         
@@ -2422,7 +2242,7 @@ class Dhcpv6(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.statistics = Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat.Statistics()
+                            self.statistics = Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics()
                             self.statistics.parent = self
                             self.vrf_name = None
 
@@ -2479,8 +2299,6 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.dropped_packets is not None:
                                     return True
 
@@ -2492,14 +2310,10 @@ class Dhcpv6(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
-                                return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat.Statistics']['meta_info']
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -2515,12 +2329,7 @@ class Dhcpv6(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.statistics is not None and self.statistics._has_data():
-                                return True
-
-                            if self.statistics is not None and self.statistics.is_presence():
                                 return True
 
                             if self.vrf_name is not None:
@@ -2528,14 +2337,10 @@ class Dhcpv6(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
-                            return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat']['meta_info']
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -2551,17 +2356,11 @@ class Dhcpv6(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ipv6_dhcpv6d_proxy_stat is not None:
                             for child_ref in self.ipv6_dhcpv6d_proxy_stat:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2809,8 +2608,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -2820,10 +2617,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2884,8 +2677,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -2895,10 +2686,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2959,8 +2746,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -2970,10 +2755,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3034,8 +2815,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3045,10 +2824,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3109,8 +2884,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3120,10 +2893,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3184,8 +2953,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3195,10 +2962,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3259,8 +3022,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3270,10 +3031,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3334,8 +3091,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3345,10 +3100,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3409,8 +3160,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3420,10 +3169,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3484,8 +3229,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3495,10 +3238,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3559,8 +3298,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3570,10 +3307,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3634,8 +3367,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3645,10 +3376,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3709,8 +3436,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3720,10 +3445,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3784,8 +3505,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3795,10 +3514,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3859,8 +3574,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3870,10 +3583,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3934,8 +3643,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3945,10 +3652,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -4009,8 +3712,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -4020,10 +3721,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -4045,114 +3742,57 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.advertise is not None and self.advertise._has_data():
-                                    return True
-
-                                if self.advertise is not None and self.advertise.is_presence():
                                     return True
 
                                 if self.confirm is not None and self.confirm._has_data():
                                     return True
 
-                                if self.confirm is not None and self.confirm.is_presence():
-                                    return True
-
                                 if self.decline is not None and self.decline._has_data():
-                                    return True
-
-                                if self.decline is not None and self.decline.is_presence():
                                     return True
 
                                 if self.inform is not None and self.inform._has_data():
                                     return True
 
-                                if self.inform is not None and self.inform.is_presence():
-                                    return True
-
                                 if self.lease_query is not None and self.lease_query._has_data():
-                                    return True
-
-                                if self.lease_query is not None and self.lease_query.is_presence():
                                     return True
 
                                 if self.lease_query_data is not None and self.lease_query_data._has_data():
                                     return True
 
-                                if self.lease_query_data is not None and self.lease_query_data.is_presence():
-                                    return True
-
                                 if self.lease_query_done is not None and self.lease_query_done._has_data():
-                                    return True
-
-                                if self.lease_query_done is not None and self.lease_query_done.is_presence():
                                     return True
 
                                 if self.lease_query_reply is not None and self.lease_query_reply._has_data():
                                     return True
 
-                                if self.lease_query_reply is not None and self.lease_query_reply.is_presence():
-                                    return True
-
                                 if self.rebind is not None and self.rebind._has_data():
-                                    return True
-
-                                if self.rebind is not None and self.rebind.is_presence():
                                     return True
 
                                 if self.reconfig is not None and self.reconfig._has_data():
                                     return True
 
-                                if self.reconfig is not None and self.reconfig.is_presence():
-                                    return True
-
                                 if self.relay_forward is not None and self.relay_forward._has_data():
-                                    return True
-
-                                if self.relay_forward is not None and self.relay_forward.is_presence():
                                     return True
 
                                 if self.relay_reply is not None and self.relay_reply._has_data():
                                     return True
 
-                                if self.relay_reply is not None and self.relay_reply.is_presence():
-                                    return True
-
                                 if self.release is not None and self.release._has_data():
-                                    return True
-
-                                if self.release is not None and self.release.is_presence():
                                     return True
 
                                 if self.renew is not None and self.renew._has_data():
                                     return True
 
-                                if self.renew is not None and self.renew.is_presence():
-                                    return True
-
                                 if self.reply is not None and self.reply._has_data():
-                                    return True
-
-                                if self.reply is not None and self.reply.is_presence():
                                     return True
 
                                 if self.request is not None and self.request._has_data():
                                     return True
 
-                                if self.request is not None and self.request.is_presence():
-                                    return True
-
                                 if self.solicit is not None and self.solicit._has_data():
                                     return True
 
-                                if self.solicit is not None and self.solicit.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4176,21 +3816,12 @@ class Dhcpv6(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.vrf_name is not None:
                                 return True
 
                             if self.statistics is not None and self.statistics._has_data():
                                 return True
 
-                            if self.statistics is not None and self.statistics.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4212,17 +3843,11 @@ class Dhcpv6(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.vrf is not None:
                             for child_ref in self.vrf:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4244,36 +3869,18 @@ class Dhcpv6(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.binding is not None and self.binding._has_data():
-                        return True
-
-                    if self.binding is not None and self.binding.is_presence():
                         return True
 
                     if self.profiles is not None and self.profiles._has_data():
                         return True
 
-                    if self.profiles is not None and self.profiles.is_presence():
-                        return True
-
                     if self.statistics is not None and self.statistics._has_data():
-                        return True
-
-                    if self.statistics is not None and self.statistics.is_presence():
                         return True
 
                     if self.vrfs is not None and self.vrfs._has_data():
                         return True
 
-                    if self.vrfs is not None and self.vrfs.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4494,8 +4101,6 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.client_id is not None:
                                     return True
 
@@ -4534,10 +4139,6 @@ class Dhcpv6(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
@@ -4557,17 +4158,11 @@ class Dhcpv6(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.client is not None:
                                 for child_ref in self.client:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4612,15 +4207,9 @@ class Dhcpv6(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.clients is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4642,24 +4231,12 @@ class Dhcpv6(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.clients is not None and self.clients._has_data():
-                            return True
-
-                        if self.clients is not None and self.clients.is_presence():
                             return True
 
                         if self.summary is not None and self.summary._has_data():
                             return True
 
-                        if self.summary is not None and self.summary.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4675,7 +4252,7 @@ class Dhcpv6(object):
                     .. attribute:: ipv6_dhcpv6d_relay_stat
                     
                     	ipv6 dhcpv6d relay stat
-                    	**type**\: list of :py:class:`Ipv6Dhcpv6dRelayStat <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat>`
+                    	**type**\: list of :py:class:`Ipv6Dhcpv6DRelayStat <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat>`
                     
                     
 
@@ -4691,14 +4268,14 @@ class Dhcpv6(object):
                         self.ipv6_dhcpv6d_relay_stat.name = 'ipv6_dhcpv6d_relay_stat'
 
 
-                    class Ipv6Dhcpv6dRelayStat(object):
+                    class Ipv6Dhcpv6DRelayStat(object):
                         """
                         ipv6 dhcpv6d relay stat
                         
                         .. attribute:: statistics
                         
                         	Relay statistics
-                        	**type**\: :py:class:`Statistics <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat.Statistics>`
+                        	**type**\: :py:class:`Statistics <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics>`
                         
                         .. attribute:: vrf_name
                         
@@ -4716,7 +4293,7 @@ class Dhcpv6(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.statistics = Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat.Statistics()
+                            self.statistics = Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics()
                             self.statistics.parent = self
                             self.vrf_name = None
 
@@ -4773,8 +4350,6 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.dropped_packets is not None:
                                     return True
 
@@ -4786,14 +4361,10 @@ class Dhcpv6(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
-                                return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat.Statistics']['meta_info']
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -4809,12 +4380,7 @@ class Dhcpv6(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.statistics is not None and self.statistics._has_data():
-                                return True
-
-                            if self.statistics is not None and self.statistics.is_presence():
                                 return True
 
                             if self.vrf_name is not None:
@@ -4822,14 +4388,10 @@ class Dhcpv6(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
-                            return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat']['meta_info']
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -4845,17 +4407,11 @@ class Dhcpv6(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ipv6_dhcpv6d_relay_stat is not None:
                             for child_ref in self.ipv6_dhcpv6d_relay_stat:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5103,8 +4659,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -5114,10 +4668,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5178,8 +4728,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -5189,10 +4737,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5253,8 +4797,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -5264,10 +4806,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5328,8 +4866,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -5339,10 +4875,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5403,8 +4935,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -5414,10 +4944,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5478,8 +5004,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -5489,10 +5013,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5553,8 +5073,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -5564,10 +5082,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5628,8 +5142,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -5639,10 +5151,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5703,8 +5211,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -5714,10 +5220,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5778,8 +5280,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -5789,10 +5289,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5853,8 +5349,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -5864,10 +5358,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5928,8 +5418,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -5939,10 +5427,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6003,8 +5487,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6014,10 +5496,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6078,8 +5556,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6089,10 +5565,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6153,8 +5625,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6164,10 +5634,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6228,8 +5694,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6239,10 +5703,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6303,8 +5763,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6314,10 +5772,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6339,114 +5793,57 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.advertise is not None and self.advertise._has_data():
-                                    return True
-
-                                if self.advertise is not None and self.advertise.is_presence():
                                     return True
 
                                 if self.confirm is not None and self.confirm._has_data():
                                     return True
 
-                                if self.confirm is not None and self.confirm.is_presence():
-                                    return True
-
                                 if self.decline is not None and self.decline._has_data():
-                                    return True
-
-                                if self.decline is not None and self.decline.is_presence():
                                     return True
 
                                 if self.inform is not None and self.inform._has_data():
                                     return True
 
-                                if self.inform is not None and self.inform.is_presence():
-                                    return True
-
                                 if self.lease_query is not None and self.lease_query._has_data():
-                                    return True
-
-                                if self.lease_query is not None and self.lease_query.is_presence():
                                     return True
 
                                 if self.lease_query_data is not None and self.lease_query_data._has_data():
                                     return True
 
-                                if self.lease_query_data is not None and self.lease_query_data.is_presence():
-                                    return True
-
                                 if self.lease_query_done is not None and self.lease_query_done._has_data():
-                                    return True
-
-                                if self.lease_query_done is not None and self.lease_query_done.is_presence():
                                     return True
 
                                 if self.lease_query_reply is not None and self.lease_query_reply._has_data():
                                     return True
 
-                                if self.lease_query_reply is not None and self.lease_query_reply.is_presence():
-                                    return True
-
                                 if self.rebind is not None and self.rebind._has_data():
-                                    return True
-
-                                if self.rebind is not None and self.rebind.is_presence():
                                     return True
 
                                 if self.reconfig is not None and self.reconfig._has_data():
                                     return True
 
-                                if self.reconfig is not None and self.reconfig.is_presence():
-                                    return True
-
                                 if self.relay_forward is not None and self.relay_forward._has_data():
-                                    return True
-
-                                if self.relay_forward is not None and self.relay_forward.is_presence():
                                     return True
 
                                 if self.relay_reply is not None and self.relay_reply._has_data():
                                     return True
 
-                                if self.relay_reply is not None and self.relay_reply.is_presence():
-                                    return True
-
                                 if self.release is not None and self.release._has_data():
-                                    return True
-
-                                if self.release is not None and self.release.is_presence():
                                     return True
 
                                 if self.renew is not None and self.renew._has_data():
                                     return True
 
-                                if self.renew is not None and self.renew.is_presence():
-                                    return True
-
                                 if self.reply is not None and self.reply._has_data():
-                                    return True
-
-                                if self.reply is not None and self.reply.is_presence():
                                     return True
 
                                 if self.request is not None and self.request._has_data():
                                     return True
 
-                                if self.request is not None and self.request.is_presence():
-                                    return True
-
                                 if self.solicit is not None and self.solicit._has_data():
                                     return True
 
-                                if self.solicit is not None and self.solicit.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6470,21 +5867,12 @@ class Dhcpv6(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.vrf_name is not None:
                                 return True
 
                             if self.statistics is not None and self.statistics._has_data():
                                 return True
 
-                            if self.statistics is not None and self.statistics.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6506,17 +5894,11 @@ class Dhcpv6(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.vrf is not None:
                             for child_ref in self.vrf:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -6538,30 +5920,15 @@ class Dhcpv6(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.binding is not None and self.binding._has_data():
-                        return True
-
-                    if self.binding is not None and self.binding.is_presence():
                         return True
 
                     if self.statistics is not None and self.statistics._has_data():
                         return True
 
-                    if self.statistics is not None and self.statistics.is_presence():
-                        return True
-
                     if self.vrfs is not None and self.vrfs._has_data():
                         return True
 
-                    if self.vrfs is not None and self.vrfs.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6904,7 +6271,7 @@ class Dhcpv6(object):
                                 .. attribute:: bag_dhcpv6d_ia_id_pd_info
                                 
                                 	bag dhcpv6d ia id pd info
-                                	**type**\: list of :py:class:`BagDhcpv6dIaIdPdInfo <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo>`
+                                	**type**\: list of :py:class:`BagDhcpv6DIaIdPdInfo <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo>`
                                 
                                 
 
@@ -6920,14 +6287,14 @@ class Dhcpv6(object):
                                     self.bag_dhcpv6d_ia_id_pd_info.name = 'bag_dhcpv6d_ia_id_pd_info'
 
 
-                                class BagDhcpv6dIaIdPdInfo(object):
+                                class BagDhcpv6DIaIdPdInfo(object):
                                     """
                                     bag dhcpv6d ia id pd info
                                     
                                     .. attribute:: addresses
                                     
                                     	List of addresses in this IA
-                                    	**type**\: :py:class:`Addresses <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses>`
+                                    	**type**\: :py:class:`Addresses <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses>`
                                     
                                     .. attribute:: flags
                                     
@@ -6946,12 +6313,12 @@ class Dhcpv6(object):
                                     .. attribute:: ia_type
                                     
                                     	IA type
-                                    	**type**\: :py:class:`BagDhcpv6dIaId_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6dIaId_Enum>`
+                                    	**type**\: :py:class:`BagDhcpv6DIaIdEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6DIaIdEnum>`
                                     
                                     .. attribute:: state
                                     
                                     	State
-                                    	**type**\: :py:class:`BagDhcpv6dFsmState_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6dFsmState_Enum>`
+                                    	**type**\: :py:class:`BagDhcpv6DFsmStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6DFsmStateEnum>`
                                     
                                     .. attribute:: total_address
                                     
@@ -6969,7 +6336,7 @@ class Dhcpv6(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.addresses = Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses()
+                                        self.addresses = Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses()
                                         self.addresses.parent = self
                                         self.flags = None
                                         self.ia_id = None
@@ -6985,7 +6352,7 @@ class Dhcpv6(object):
                                         .. attribute:: bag_dhcpv6d_addr_attrb
                                         
                                         	bag dhcpv6d addr attrb
-                                        	**type**\: list of :py:class:`BagDhcpv6dAddrAttrb <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb>`
+                                        	**type**\: list of :py:class:`BagDhcpv6DAddrAttrb <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb>`
                                         
                                         
 
@@ -7001,7 +6368,7 @@ class Dhcpv6(object):
                                             self.bag_dhcpv6d_addr_attrb.name = 'bag_dhcpv6d_addr_attrb'
 
 
-                                        class BagDhcpv6dAddrAttrb(object):
+                                        class BagDhcpv6DAddrAttrb(object):
                                             """
                                             bag dhcpv6d addr attrb
                                             
@@ -7061,8 +6428,6 @@ class Dhcpv6(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.lease_time is not None:
                                                     return True
 
@@ -7077,14 +6442,10 @@ class Dhcpv6(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
-                                                return meta._meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb']['meta_info']
+                                                return meta._meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -7100,8 +6461,6 @@ class Dhcpv6(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.bag_dhcpv6d_addr_attrb is not None:
                                                 for child_ref in self.bag_dhcpv6d_addr_attrb:
                                                     if child_ref._has_data():
@@ -7109,14 +6468,10 @@ class Dhcpv6(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
-                                            return meta._meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses']['meta_info']
+                                            return meta._meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -7132,12 +6487,7 @@ class Dhcpv6(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.addresses is not None and self.addresses._has_data():
-                                            return True
-
-                                        if self.addresses is not None and self.addresses.is_presence():
                                             return True
 
                                         if self.flags is not None:
@@ -7157,14 +6507,10 @@ class Dhcpv6(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
-                                        return meta._meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo']['meta_info']
+                                        return meta._meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -7180,17 +6526,11 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.bag_dhcpv6d_ia_id_pd_info is not None:
                                         for child_ref in self.bag_dhcpv6d_ia_id_pd_info:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -7214,8 +6554,6 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.client_id is not None:
                                     return True
 
@@ -7250,9 +6588,6 @@ class Dhcpv6(object):
                                     return True
 
                                 if self.ia_id_pd is not None and self.ia_id_pd._has_data():
-                                    return True
-
-                                if self.ia_id_pd is not None and self.ia_id_pd.is_presence():
                                     return True
 
                                 if self.interface_name is not None:
@@ -7305,10 +6640,6 @@ class Dhcpv6(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
@@ -7328,17 +6659,11 @@ class Dhcpv6(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.client is not None:
                                 for child_ref in self.client:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7468,8 +6793,6 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bound_clients is not None:
                                     return True
 
@@ -7491,10 +6814,6 @@ class Dhcpv6(object):
                                 if self.rib_waiting_clients is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7587,8 +6906,6 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bound_clients is not None:
                                     return True
 
@@ -7612,10 +6929,6 @@ class Dhcpv6(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
@@ -7635,27 +6948,15 @@ class Dhcpv6(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.clients is not None:
                                 return True
 
                             if self.iana is not None and self.iana._has_data():
                                 return True
 
-                            if self.iana is not None and self.iana.is_presence():
-                                return True
-
                             if self.iapd is not None and self.iapd._has_data():
                                 return True
 
-                            if self.iapd is not None and self.iapd.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7677,24 +6978,12 @@ class Dhcpv6(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.clients is not None and self.clients._has_data():
-                            return True
-
-                        if self.clients is not None and self.clients.is_presence():
                             return True
 
                         if self.summary is not None and self.summary._has_data():
                             return True
 
-                        if self.summary is not None and self.summary.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -7861,7 +7150,7 @@ class Dhcpv6(object):
                                 .. attribute:: ipv6_dhcpv6d_server_interface_reference
                                 
                                 	ipv6 dhcpv6d server interface reference
-                                	**type**\: list of :py:class:`Ipv6Dhcpv6dServerInterfaceReference <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference>`
+                                	**type**\: list of :py:class:`Ipv6Dhcpv6DServerInterfaceReference <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DServerInterfaceReference>`
                                 
                                 
 
@@ -7877,7 +7166,7 @@ class Dhcpv6(object):
                                     self.ipv6_dhcpv6d_server_interface_reference.name = 'ipv6_dhcpv6d_server_interface_reference'
 
 
-                                class Ipv6Dhcpv6dServerInterfaceReference(object):
+                                class Ipv6Dhcpv6DServerInterfaceReference(object):
                                     """
                                     ipv6 dhcpv6d server interface reference
                                     
@@ -7913,21 +7202,15 @@ class Dhcpv6(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.server_reference_interface_name is not None:
                                             return True
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
-                                        return meta._meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference']['meta_info']
+                                        return meta._meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DServerInterfaceReference']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -7943,17 +7226,11 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ipv6_dhcpv6d_server_interface_reference is not None:
                                         for child_ref in self.ipv6_dhcpv6d_server_interface_reference:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8006,18 +7283,12 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.seconds is not None:
                                         return True
 
                                     if self.time is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8039,8 +7310,6 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.aftr_name is not None:
                                     return True
 
@@ -8056,13 +7325,7 @@ class Dhcpv6(object):
                                 if self.interface_references is not None and self.interface_references._has_data():
                                     return True
 
-                                if self.interface_references is not None and self.interface_references.is_presence():
-                                    return True
-
                                 if self.lease is not None and self.lease._has_data():
-                                    return True
-
-                                if self.lease is not None and self.lease.is_presence():
                                     return True
 
                                 if self.profile_dns is not None:
@@ -8079,10 +7342,6 @@ class Dhcpv6(object):
                                 if self.rapid_commit is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8184,8 +7443,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.mac_address is not None:
                                         return True
 
@@ -8201,10 +7458,6 @@ class Dhcpv6(object):
                                     if self.time_left is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8226,17 +7479,11 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.throttle_info is not None:
                                     for child_ref in self.throttle_info:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8260,27 +7507,15 @@ class Dhcpv6(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.profile_name is not None:
                                 return True
 
                             if self.info is not None and self.info._has_data():
                                 return True
 
-                            if self.info is not None and self.info.is_presence():
-                                return True
-
                             if self.throttle_infos is not None and self.throttle_infos._has_data():
                                 return True
 
-                            if self.throttle_infos is not None and self.throttle_infos.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8302,17 +7537,11 @@ class Dhcpv6(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.profile is not None:
                             for child_ref in self.profile:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8328,7 +7557,7 @@ class Dhcpv6(object):
                     .. attribute:: ipv6_dhcpv6d_server_stat
                     
                     	ipv6 dhcpv6d server stat
-                    	**type**\: list of :py:class:`Ipv6Dhcpv6dServerStat <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat>`
+                    	**type**\: list of :py:class:`Ipv6Dhcpv6DServerStat <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat>`
                     
                     
 
@@ -8344,14 +7573,14 @@ class Dhcpv6(object):
                         self.ipv6_dhcpv6d_server_stat.name = 'ipv6_dhcpv6d_server_stat'
 
 
-                    class Ipv6Dhcpv6dServerStat(object):
+                    class Ipv6Dhcpv6DServerStat(object):
                         """
                         ipv6 dhcpv6d server stat
                         
                         .. attribute:: statistics
                         
                         	Server statistics
-                        	**type**\: :py:class:`Statistics <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat.Statistics>`
+                        	**type**\: :py:class:`Statistics <ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics>`
                         
                         .. attribute:: vrf_name
                         
@@ -8369,7 +7598,7 @@ class Dhcpv6(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.statistics = Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat.Statistics()
+                            self.statistics = Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics()
                             self.statistics.parent = self
                             self.vrf_name = None
 
@@ -8426,8 +7655,6 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.dropped_packets is not None:
                                     return True
 
@@ -8439,14 +7666,10 @@ class Dhcpv6(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
-                                return meta._meta_table['Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat.Statistics']['meta_info']
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -8462,12 +7685,7 @@ class Dhcpv6(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.statistics is not None and self.statistics._has_data():
-                                return True
-
-                            if self.statistics is not None and self.statistics.is_presence():
                                 return True
 
                             if self.vrf_name is not None:
@@ -8475,14 +7693,10 @@ class Dhcpv6(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
-                            return meta._meta_table['Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat']['meta_info']
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -8498,17 +7712,11 @@ class Dhcpv6(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ipv6_dhcpv6d_server_stat is not None:
                             for child_ref in self.ipv6_dhcpv6d_server_stat:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8756,8 +7964,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -8767,10 +7973,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8831,8 +8033,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -8842,10 +8042,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8906,8 +8102,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -8917,10 +8111,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8981,8 +8171,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -8992,10 +8180,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9056,8 +8240,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9067,10 +8249,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9131,8 +8309,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9142,10 +8318,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9206,8 +8378,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9217,10 +8387,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9281,8 +8447,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9292,10 +8456,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9356,8 +8516,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9367,10 +8525,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9431,8 +8585,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9442,10 +8594,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9506,8 +8654,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9517,10 +8663,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9581,8 +8723,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9592,10 +8732,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9656,8 +8792,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9667,10 +8801,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9731,8 +8861,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9742,10 +8870,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9806,8 +8930,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9817,10 +8939,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9881,8 +8999,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9892,10 +9008,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9956,8 +9068,6 @@ class Dhcpv6(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9967,10 +9077,6 @@ class Dhcpv6(object):
                                     if self.transmitted_packets is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9992,114 +9098,57 @@ class Dhcpv6(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.advertise is not None and self.advertise._has_data():
-                                    return True
-
-                                if self.advertise is not None and self.advertise.is_presence():
                                     return True
 
                                 if self.confirm is not None and self.confirm._has_data():
                                     return True
 
-                                if self.confirm is not None and self.confirm.is_presence():
-                                    return True
-
                                 if self.decline is not None and self.decline._has_data():
-                                    return True
-
-                                if self.decline is not None and self.decline.is_presence():
                                     return True
 
                                 if self.inform is not None and self.inform._has_data():
                                     return True
 
-                                if self.inform is not None and self.inform.is_presence():
-                                    return True
-
                                 if self.lease_query is not None and self.lease_query._has_data():
-                                    return True
-
-                                if self.lease_query is not None and self.lease_query.is_presence():
                                     return True
 
                                 if self.lease_query_data is not None and self.lease_query_data._has_data():
                                     return True
 
-                                if self.lease_query_data is not None and self.lease_query_data.is_presence():
-                                    return True
-
                                 if self.lease_query_done is not None and self.lease_query_done._has_data():
-                                    return True
-
-                                if self.lease_query_done is not None and self.lease_query_done.is_presence():
                                     return True
 
                                 if self.lease_query_reply is not None and self.lease_query_reply._has_data():
                                     return True
 
-                                if self.lease_query_reply is not None and self.lease_query_reply.is_presence():
-                                    return True
-
                                 if self.rebind is not None and self.rebind._has_data():
-                                    return True
-
-                                if self.rebind is not None and self.rebind.is_presence():
                                     return True
 
                                 if self.reconfig is not None and self.reconfig._has_data():
                                     return True
 
-                                if self.reconfig is not None and self.reconfig.is_presence():
-                                    return True
-
                                 if self.relay_forward is not None and self.relay_forward._has_data():
-                                    return True
-
-                                if self.relay_forward is not None and self.relay_forward.is_presence():
                                     return True
 
                                 if self.relay_reply is not None and self.relay_reply._has_data():
                                     return True
 
-                                if self.relay_reply is not None and self.relay_reply.is_presence():
-                                    return True
-
                                 if self.release is not None and self.release._has_data():
-                                    return True
-
-                                if self.release is not None and self.release.is_presence():
                                     return True
 
                                 if self.renew is not None and self.renew._has_data():
                                     return True
 
-                                if self.renew is not None and self.renew.is_presence():
-                                    return True
-
                                 if self.reply is not None and self.reply._has_data():
-                                    return True
-
-                                if self.reply is not None and self.reply.is_presence():
                                     return True
 
                                 if self.request is not None and self.request._has_data():
                                     return True
 
-                                if self.request is not None and self.request.is_presence():
-                                    return True
-
                                 if self.solicit is not None and self.solicit._has_data():
                                     return True
 
-                                if self.solicit is not None and self.solicit.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10123,21 +9172,12 @@ class Dhcpv6(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.vrf_name is not None:
                                 return True
 
                             if self.statistics is not None and self.statistics._has_data():
                                 return True
 
-                            if self.statistics is not None and self.statistics.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -10159,17 +9199,11 @@ class Dhcpv6(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.vrf is not None:
                             for child_ref in self.vrf:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -10191,36 +9225,18 @@ class Dhcpv6(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.binding is not None and self.binding._has_data():
-                        return True
-
-                    if self.binding is not None and self.binding.is_presence():
                         return True
 
                     if self.profiles is not None and self.profiles._has_data():
                         return True
 
-                    if self.profiles is not None and self.profiles.is_presence():
-                        return True
-
                     if self.statistics is not None and self.statistics._has_data():
-                        return True
-
-                    if self.statistics is not None and self.statistics.is_presence():
                         return True
 
                     if self.vrfs is not None and self.vrfs._has_data():
                         return True
 
-                    if self.vrfs is not None and self.vrfs.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -10242,33 +9258,18 @@ class Dhcpv6(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.proxy is not None and self.proxy._has_data():
                     return True
 
-                if self.proxy is not None and self.proxy.is_presence():
-                    return True
-
                 if self.relay is not None and self.relay._has_data():
-                    return True
-
-                if self.relay is not None and self.relay.is_presence():
                     return True
 
                 if self.server is not None and self.server._has_data():
                     return True
 
-                if self.server is not None and self.server.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -10288,17 +9289,11 @@ class Dhcpv6(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -10318,24 +9313,12 @@ class Dhcpv6(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.database is not None and self.database._has_data():
-            return True
-
-        if self.database is not None and self.database.is_presence():
             return True
 
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

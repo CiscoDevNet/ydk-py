@@ -23,15 +23,15 @@ from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYDataValidationError
 
 
-from ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes import SpanSessionClass_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg import SpanMirrorInterval_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg import SpanTrafficDirection_Enum
-from ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_subscriber_cfg import Ipv6ReachableVia_Enum
-from ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg import Ipv6NdHopLimit_Enum
-from ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg import Ipv6NdRouterPrefTemplate_Enum
-from ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg import QosPolicyAccount_Enum
-from ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg import Qosl2DataLink_Enum
-from ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg import Qosl2Encap_Enum
+from ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes import SpanSessionClassEnum
+from ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg import SpanMirrorIntervalEnum
+from ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg import SpanTrafficDirectionEnum
+from ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_subscriber_cfg import Ipv6ReachableViaEnum
+from ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg import Ipv6NdHopLimitEnum
+from ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg import Ipv6NdRouterPrefTemplateEnum
+from ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg import QosPolicyAccountEnum
+from ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg import Qosl2DataLinkEnum
+from ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg import Qosl2EncapEnum
 
 
 class DynamicTemplate(object):
@@ -252,12 +252,22 @@ class DynamicTemplate(object):
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: prefix_length
                     
                     	PD Prefix Length
                     	**type**\: int
                     
                     	**range:** 0..128
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -287,8 +297,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.prefix is not None:
                             return True
 
@@ -296,10 +304,6 @@ class DynamicTemplate(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -320,8 +324,6 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.address_pool is not None:
                         return True
 
@@ -329,9 +331,6 @@ class DynamicTemplate(object):
                         return True
 
                     if self.delegated_prefix is not None and self.delegated_prefix._has_data():
-                        return True
-
-                    if self.delegated_prefix is not None and self.delegated_prefix.is_presence():
                         return True
 
                     if self.delegated_prefix_pool is not None:
@@ -343,10 +342,6 @@ class DynamicTemplate(object):
                     if self.stateful_address is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -409,8 +404,6 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.mtu is not None:
                         return True
 
@@ -423,10 +416,6 @@ class DynamicTemplate(object):
                     if self.unreachables is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -519,8 +508,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.common_acl_name is not None:
                             return True
 
@@ -533,10 +520,6 @@ class DynamicTemplate(object):
                         if self.name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -555,15 +538,30 @@ class DynamicTemplate(object):
                     	Not supported (Leave unspecified)
                     	**type**\: str
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: hardware_count
                     
                     	Not supported (Leave unspecified)
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: interface_statistics
                     
                     	Not supported (Leave unspecified)
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: name
                     
@@ -571,6 +569,11 @@ class DynamicTemplate(object):
                     	**type**\: str
                     
                     	**range:** 0..65
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -602,8 +605,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.common_acl_name is not None:
                             return True
 
@@ -617,10 +618,6 @@ class DynamicTemplate(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -641,24 +638,12 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.inbound is not None and self.inbound._has_data():
-                        return True
-
-                    if self.inbound is not None and self.inbound.is_presence():
                         return True
 
                     if self.outbound is not None and self.outbound._has_data():
                         return True
 
-                    if self.outbound is not None and self.outbound.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -711,7 +696,7 @@ class DynamicTemplate(object):
                 .. attribute:: ra_hop_limit
                 
                 	IPv6 ND RA HopLimit
-                	**type**\: :py:class:`Ipv6NdHopLimit_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdHopLimit_Enum>`
+                	**type**\: :py:class:`Ipv6NdHopLimitEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdHopLimitEnum>`
                 
                 .. attribute:: ra_initial
                 
@@ -757,7 +742,7 @@ class DynamicTemplate(object):
                 .. attribute:: router_preference
                 
                 	RA Router Preference
-                	**type**\: :py:class:`Ipv6NdRouterPrefTemplate_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplate_Enum>`
+                	**type**\: :py:class:`Ipv6NdRouterPrefTemplateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplateEnum>`
                 
                 .. attribute:: start_ra_on_ipv6_enable
                 
@@ -835,15 +820,9 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.attempts is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -862,12 +841,22 @@ class DynamicTemplate(object):
                     	IPV6 framed prefix address
                     	**type**\: str
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: prefix_length
                     
                     	IPv6 framed prefix length
                     	**type**\: int
                     
                     	**range:** 0..128
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -897,8 +886,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.prefix is not None:
                             return True
 
@@ -906,10 +893,6 @@ class DynamicTemplate(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -928,12 +911,22 @@ class DynamicTemplate(object):
                     
                     	**range:** 0..32
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: interval
                     
                     	Initial RA interval in seconds
                     	**type**\: int
                     
                     	**range:** 4..1800
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -963,8 +956,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.count is not None:
                             return True
 
@@ -972,10 +963,6 @@ class DynamicTemplate(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -996,18 +983,10 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.duplicate_address_detection is not None and self.duplicate_address_detection._has_data():
                         return True
 
-                    if self.duplicate_address_detection is not None and self.duplicate_address_detection.is_presence():
-                        return True
-
                     if self.framed_prefix is not None and self.framed_prefix._has_data():
-                        return True
-
-                    if self.framed_prefix is not None and self.framed_prefix.is_presence():
                         return True
 
                     if self.framed_prefix_pool is not None:
@@ -1029,9 +1008,6 @@ class DynamicTemplate(object):
                         return True
 
                     if self.ra_initial is not None and self.ra_initial._has_data():
-                        return True
-
-                    if self.ra_initial is not None and self.ra_initial.is_presence():
                         return True
 
                     if self.ra_interval is not None:
@@ -1061,10 +1037,6 @@ class DynamicTemplate(object):
                     if self.suppress_cache_learning is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1097,7 +1069,7 @@ class DynamicTemplate(object):
                 .. attribute:: verify
                 
                 	IPv6 Verify Unicast Souce Reachable
-                	**type**\: :py:class:`Ipv6ReachableVia_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_subscriber_cfg.Ipv6ReachableVia_Enum>`
+                	**type**\: :py:class:`Ipv6ReachableViaEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_subscriber_cfg.Ipv6ReachableViaEnum>`
                 
                 
 
@@ -1171,15 +1143,9 @@ class DynamicTemplate(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.enable is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1201,18 +1167,9 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.auto_configuration is not None and self.auto_configuration._has_data():
                             return True
 
-                        if self.auto_configuration is not None and self.auto_configuration.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1234,12 +1191,7 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.addresses is not None and self.addresses._has_data():
-                        return True
-
-                    if self.addresses is not None and self.addresses.is_presence():
                         return True
 
                     if self.mtu is not None:
@@ -1251,10 +1203,6 @@ class DynamicTemplate(object):
                     if self.verify is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1341,8 +1289,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.common_acl_name is not None:
                             return True
 
@@ -1352,10 +1298,6 @@ class DynamicTemplate(object):
                         if self.name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1374,10 +1316,20 @@ class DynamicTemplate(object):
                     	Not supported (Leave unspecified)
                     	**type**\: str
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: interface_statistics
                     
                     	Not supported (Leave unspecified)
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: name
                     
@@ -1385,6 +1337,11 @@ class DynamicTemplate(object):
                     	**type**\: str
                     
                     	**range:** 0..65
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -1415,8 +1372,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.common_acl_name is not None:
                             return True
 
@@ -1427,10 +1382,6 @@ class DynamicTemplate(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -1451,24 +1402,12 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.inbound is not None and self.inbound._has_data():
-                        return True
-
-                    if self.inbound is not None and self.inbound.is_presence():
                         return True
 
                     if self.outbound is not None and self.outbound._has_data():
                         return True
 
-                    if self.outbound is not None and self.outbound.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1539,15 +1478,9 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.input is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1569,21 +1502,12 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.service_policy is not None and self.service_policy._has_data():
-                        return True
-
-                    if self.service_policy is not None and self.service_policy.is_presence():
                         return True
 
                     if self.service_policy_in is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1635,7 +1559,7 @@ class DynamicTemplate(object):
                     .. attribute:: aal
                     
                     	ATM adaptation layer AAL
-                    	**type**\: :py:class:`Qosl2DataLink_Enum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.Qosl2DataLink_Enum>`
+                    	**type**\: :py:class:`Qosl2DataLinkEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.Qosl2DataLinkEnum>`
                     
                     .. attribute:: atm_cell_tax
                     
@@ -1645,7 +1569,7 @@ class DynamicTemplate(object):
                     .. attribute:: encapsulation
                     
                     	Specify encapsulation type
-                    	**type**\: :py:class:`Qosl2Encap_Enum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.Qosl2Encap_Enum>`
+                    	**type**\: :py:class:`Qosl2EncapEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.Qosl2EncapEnum>`
                     
                     .. attribute:: user_defined
                     
@@ -1682,8 +1606,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.aal is not None:
                             return True
 
@@ -1696,10 +1618,6 @@ class DynamicTemplate(object):
                         if self.user_defined is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1744,15 +1662,9 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.minimum_bandwidth is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1798,14 +1710,29 @@ class DynamicTemplate(object):
                         	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
                         	**type**\: bool
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: account_type
                         
                         	Turn off L2 or L3 accounting
-                        	**type**\: :py:class:`QosPolicyAccount_Enum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccount_Enum>`
+                        	**type**\: :py:class:`QosPolicyAccountEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: merge
                         
                         	TRUE for merge enabled for service\-policy applied on dynamic template
+                        	**type**\: bool
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
                         .. attribute:: merge_id
@@ -1815,15 +1742,30 @@ class DynamicTemplate(object):
                         
                         	**range:** 0..255
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: policy_name
                         
                         	Name of policy\-map
                         	**type**\: str
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: spi_name
                         
                         	Name of the SPI
                         	**type**\: str
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -1857,8 +1799,6 @@ class DynamicTemplate(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.account_stats is not None:
                                 return True
 
@@ -1879,10 +1819,6 @@ class DynamicTemplate(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.subscriber._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
@@ -1898,14 +1834,29 @@ class DynamicTemplate(object):
                         	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
                         	**type**\: bool
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: account_type
                         
                         	Turn off L2 or L3 accounting
-                        	**type**\: :py:class:`QosPolicyAccount_Enum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccount_Enum>`
+                        	**type**\: :py:class:`QosPolicyAccountEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: merge
                         
                         	TRUE for merge enabled for service\-policy applied on dynamic template
+                        	**type**\: bool
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
                         .. attribute:: merge_id
@@ -1915,15 +1866,30 @@ class DynamicTemplate(object):
                         
                         	**range:** 0..255
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: policy_name
                         
                         	Name of policy\-map
                         	**type**\: str
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: spi_name
                         
                         	Name of the SPI
                         	**type**\: str
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -1957,8 +1923,6 @@ class DynamicTemplate(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.account_stats is not None:
                                 return True
 
@@ -1979,10 +1943,6 @@ class DynamicTemplate(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.subscriber._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
@@ -2002,24 +1962,12 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.input is not None and self.input._has_data():
-                            return True
-
-                        if self.input is not None and self.input.is_presence():
                             return True
 
                         if self.output is not None and self.output._has_data():
                             return True
 
-                        if self.output is not None and self.output.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2041,30 +1989,15 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.account is not None and self.account._has_data():
-                        return True
-
-                    if self.account is not None and self.account.is_presence():
                         return True
 
                     if self.output is not None and self.output._has_data():
                         return True
 
-                    if self.output is not None and self.output.is_presence():
-                        return True
-
                     if self.service_policy is not None and self.service_policy._has_data():
                         return True
 
-                    if self.service_policy is not None and self.service_policy.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2104,7 +2037,7 @@ class DynamicTemplate(object):
                     .. attribute:: session_class
                     
                     	Session Class
-                    	**type**\: :py:class:`SpanSessionClass_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass_Enum>`
+                    	**type**\: :py:class:`SpanSessionClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
                     
                     .. attribute:: acl
                     
@@ -2126,7 +2059,7 @@ class DynamicTemplate(object):
                     .. attribute:: mirror_interval
                     
                     	Specify the mirror interval
-                    	**type**\: :py:class:`SpanMirrorInterval_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorInterval_Enum>`
+                    	**type**\: :py:class:`SpanMirrorIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorIntervalEnum>`
                     
                     
 
@@ -2151,12 +2084,22 @@ class DynamicTemplate(object):
                         .. attribute:: direction
                         
                         	Specify the direction of traffic to replicate (optional)
-                        	**type**\: :py:class:`SpanTrafficDirection_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirection_Enum>`
+                        	**type**\: :py:class:`SpanTrafficDirectionEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirectionEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: port_level_enable
                         
                         	Enable port level traffic mirroring
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: session_name
                         
@@ -2164,6 +2107,11 @@ class DynamicTemplate(object):
                         	**type**\: str
                         
                         	**range:** 0..79
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -2194,8 +2142,6 @@ class DynamicTemplate(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.direction is not None:
                                 return True
 
@@ -2206,10 +2152,6 @@ class DynamicTemplate(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -2232,8 +2174,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.session_class is not None:
                             return True
 
@@ -2243,19 +2183,12 @@ class DynamicTemplate(object):
                         if self.attachment is not None and self.attachment._has_data():
                             return True
 
-                        if self.attachment is not None and self.attachment.is_presence():
-                            return True
-
                         if self.mirror_first is not None:
                             return True
 
                         if self.mirror_interval is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2277,17 +2210,11 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.span_monitor_session is not None:
                         for child_ref in self.span_monitor_session:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2309,72 +2236,39 @@ class DynamicTemplate(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.template_name is not None:
                     return True
 
                 if self.dhcpv6 is not None and self.dhcpv6._has_data():
                     return True
 
-                if self.dhcpv6 is not None and self.dhcpv6.is_presence():
-                    return True
-
                 if self.ipv4_network is not None and self.ipv4_network._has_data():
-                    return True
-
-                if self.ipv4_network is not None and self.ipv4_network.is_presence():
                     return True
 
                 if self.ipv4_packet_filter is not None and self.ipv4_packet_filter._has_data():
                     return True
 
-                if self.ipv4_packet_filter is not None and self.ipv4_packet_filter.is_presence():
-                    return True
-
                 if self.ipv6_neighbor is not None and self.ipv6_neighbor._has_data():
-                    return True
-
-                if self.ipv6_neighbor is not None and self.ipv6_neighbor.is_presence():
                     return True
 
                 if self.ipv6_network is not None and self.ipv6_network._has_data():
                     return True
 
-                if self.ipv6_network is not None and self.ipv6_network.is_presence():
-                    return True
-
                 if self.ipv6_packet_filter is not None and self.ipv6_packet_filter._has_data():
-                    return True
-
-                if self.ipv6_packet_filter is not None and self.ipv6_packet_filter.is_presence():
                     return True
 
                 if self.pbr is not None and self.pbr._has_data():
                     return True
 
-                if self.pbr is not None and self.pbr.is_presence():
-                    return True
-
                 if self.qos is not None and self.qos._has_data():
-                    return True
-
-                if self.qos is not None and self.qos.is_presence():
                     return True
 
                 if self.span_monitor_sessions is not None and self.span_monitor_sessions._has_data():
                     return True
 
-                if self.span_monitor_sessions is not None and self.span_monitor_sessions.is_presence():
-                    return True
-
                 if self.vrf is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2394,17 +2288,11 @@ class DynamicTemplate(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.ip_subscriber is not None:
                 for child_ref in self.ip_subscriber:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2596,12 +2484,22 @@ class DynamicTemplate(object):
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: prefix_length
                     
                     	PD Prefix Length
                     	**type**\: int
                     
                     	**range:** 0..128
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -2631,8 +2529,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.prefix is not None:
                             return True
 
@@ -2640,10 +2536,6 @@ class DynamicTemplate(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -2664,8 +2556,6 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.address_pool is not None:
                         return True
 
@@ -2673,9 +2563,6 @@ class DynamicTemplate(object):
                         return True
 
                     if self.delegated_prefix is not None and self.delegated_prefix._has_data():
-                        return True
-
-                    if self.delegated_prefix is not None and self.delegated_prefix.is_presence():
                         return True
 
                     if self.delegated_prefix_pool is not None:
@@ -2687,10 +2574,6 @@ class DynamicTemplate(object):
                     if self.stateful_address is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2753,8 +2636,6 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.mtu is not None:
                         return True
 
@@ -2767,10 +2648,6 @@ class DynamicTemplate(object):
                     if self.unreachables is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2863,8 +2740,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.common_acl_name is not None:
                             return True
 
@@ -2877,10 +2752,6 @@ class DynamicTemplate(object):
                         if self.name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2899,15 +2770,30 @@ class DynamicTemplate(object):
                     	Not supported (Leave unspecified)
                     	**type**\: str
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: hardware_count
                     
                     	Not supported (Leave unspecified)
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: interface_statistics
                     
                     	Not supported (Leave unspecified)
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: name
                     
@@ -2915,6 +2801,11 @@ class DynamicTemplate(object):
                     	**type**\: str
                     
                     	**range:** 0..65
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -2946,8 +2837,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.common_acl_name is not None:
                             return True
 
@@ -2961,10 +2850,6 @@ class DynamicTemplate(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -2985,24 +2870,12 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.inbound is not None and self.inbound._has_data():
-                        return True
-
-                    if self.inbound is not None and self.inbound.is_presence():
                         return True
 
                     if self.outbound is not None and self.outbound._has_data():
                         return True
 
-                    if self.outbound is not None and self.outbound.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3055,7 +2928,7 @@ class DynamicTemplate(object):
                 .. attribute:: ra_hop_limit
                 
                 	IPv6 ND RA HopLimit
-                	**type**\: :py:class:`Ipv6NdHopLimit_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdHopLimit_Enum>`
+                	**type**\: :py:class:`Ipv6NdHopLimitEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdHopLimitEnum>`
                 
                 .. attribute:: ra_initial
                 
@@ -3101,7 +2974,7 @@ class DynamicTemplate(object):
                 .. attribute:: router_preference
                 
                 	RA Router Preference
-                	**type**\: :py:class:`Ipv6NdRouterPrefTemplate_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplate_Enum>`
+                	**type**\: :py:class:`Ipv6NdRouterPrefTemplateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplateEnum>`
                 
                 .. attribute:: start_ra_on_ipv6_enable
                 
@@ -3179,15 +3052,9 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.attempts is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3206,12 +3073,22 @@ class DynamicTemplate(object):
                     	IPV6 framed prefix address
                     	**type**\: str
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: prefix_length
                     
                     	IPv6 framed prefix length
                     	**type**\: int
                     
                     	**range:** 0..128
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -3241,8 +3118,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.prefix is not None:
                             return True
 
@@ -3250,10 +3125,6 @@ class DynamicTemplate(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -3272,12 +3143,22 @@ class DynamicTemplate(object):
                     
                     	**range:** 0..32
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: interval
                     
                     	Initial RA interval in seconds
                     	**type**\: int
                     
                     	**range:** 4..1800
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -3307,8 +3188,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.count is not None:
                             return True
 
@@ -3316,10 +3195,6 @@ class DynamicTemplate(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -3340,18 +3215,10 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.duplicate_address_detection is not None and self.duplicate_address_detection._has_data():
                         return True
 
-                    if self.duplicate_address_detection is not None and self.duplicate_address_detection.is_presence():
-                        return True
-
                     if self.framed_prefix is not None and self.framed_prefix._has_data():
-                        return True
-
-                    if self.framed_prefix is not None and self.framed_prefix.is_presence():
                         return True
 
                     if self.framed_prefix_pool is not None:
@@ -3373,9 +3240,6 @@ class DynamicTemplate(object):
                         return True
 
                     if self.ra_initial is not None and self.ra_initial._has_data():
-                        return True
-
-                    if self.ra_initial is not None and self.ra_initial.is_presence():
                         return True
 
                     if self.ra_interval is not None:
@@ -3405,10 +3269,6 @@ class DynamicTemplate(object):
                     if self.suppress_cache_learning is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3441,7 +3301,7 @@ class DynamicTemplate(object):
                 .. attribute:: verify
                 
                 	IPv6 Verify Unicast Souce Reachable
-                	**type**\: :py:class:`Ipv6ReachableVia_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_subscriber_cfg.Ipv6ReachableVia_Enum>`
+                	**type**\: :py:class:`Ipv6ReachableViaEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_subscriber_cfg.Ipv6ReachableViaEnum>`
                 
                 
 
@@ -3515,15 +3375,9 @@ class DynamicTemplate(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.enable is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3545,18 +3399,9 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.auto_configuration is not None and self.auto_configuration._has_data():
                             return True
 
-                        if self.auto_configuration is not None and self.auto_configuration.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3578,12 +3423,7 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.addresses is not None and self.addresses._has_data():
-                        return True
-
-                    if self.addresses is not None and self.addresses.is_presence():
                         return True
 
                     if self.mtu is not None:
@@ -3595,10 +3435,6 @@ class DynamicTemplate(object):
                     if self.verify is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3685,8 +3521,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.common_acl_name is not None:
                             return True
 
@@ -3696,10 +3530,6 @@ class DynamicTemplate(object):
                         if self.name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3718,10 +3548,20 @@ class DynamicTemplate(object):
                     	Not supported (Leave unspecified)
                     	**type**\: str
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: interface_statistics
                     
                     	Not supported (Leave unspecified)
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: name
                     
@@ -3729,6 +3569,11 @@ class DynamicTemplate(object):
                     	**type**\: str
                     
                     	**range:** 0..65
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -3759,8 +3604,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.common_acl_name is not None:
                             return True
 
@@ -3771,10 +3614,6 @@ class DynamicTemplate(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -3795,24 +3634,12 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.inbound is not None and self.inbound._has_data():
-                        return True
-
-                    if self.inbound is not None and self.inbound.is_presence():
                         return True
 
                     if self.outbound is not None and self.outbound._has_data():
                         return True
 
-                    if self.outbound is not None and self.outbound.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3883,15 +3710,9 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.input is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3913,21 +3734,12 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.service_policy is not None and self.service_policy._has_data():
-                        return True
-
-                    if self.service_policy is not None and self.service_policy.is_presence():
                         return True
 
                     if self.service_policy_in is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3979,7 +3791,7 @@ class DynamicTemplate(object):
                     .. attribute:: aal
                     
                     	ATM adaptation layer AAL
-                    	**type**\: :py:class:`Qosl2DataLink_Enum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.Qosl2DataLink_Enum>`
+                    	**type**\: :py:class:`Qosl2DataLinkEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.Qosl2DataLinkEnum>`
                     
                     .. attribute:: atm_cell_tax
                     
@@ -3989,7 +3801,7 @@ class DynamicTemplate(object):
                     .. attribute:: encapsulation
                     
                     	Specify encapsulation type
-                    	**type**\: :py:class:`Qosl2Encap_Enum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.Qosl2Encap_Enum>`
+                    	**type**\: :py:class:`Qosl2EncapEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.Qosl2EncapEnum>`
                     
                     .. attribute:: user_defined
                     
@@ -4026,8 +3838,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.aal is not None:
                             return True
 
@@ -4040,10 +3850,6 @@ class DynamicTemplate(object):
                         if self.user_defined is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4088,15 +3894,9 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.minimum_bandwidth is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4142,14 +3942,29 @@ class DynamicTemplate(object):
                         	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
                         	**type**\: bool
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: account_type
                         
                         	Turn off L2 or L3 accounting
-                        	**type**\: :py:class:`QosPolicyAccount_Enum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccount_Enum>`
+                        	**type**\: :py:class:`QosPolicyAccountEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: merge
                         
                         	TRUE for merge enabled for service\-policy applied on dynamic template
+                        	**type**\: bool
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
                         .. attribute:: merge_id
@@ -4159,15 +3974,30 @@ class DynamicTemplate(object):
                         
                         	**range:** 0..255
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: policy_name
                         
                         	Name of policy\-map
                         	**type**\: str
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: spi_name
                         
                         	Name of the SPI
                         	**type**\: str
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -4201,8 +4031,6 @@ class DynamicTemplate(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.account_stats is not None:
                                 return True
 
@@ -4223,10 +4051,6 @@ class DynamicTemplate(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.subscriber._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
@@ -4242,14 +4066,29 @@ class DynamicTemplate(object):
                         	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
                         	**type**\: bool
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: account_type
                         
                         	Turn off L2 or L3 accounting
-                        	**type**\: :py:class:`QosPolicyAccount_Enum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccount_Enum>`
+                        	**type**\: :py:class:`QosPolicyAccountEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: merge
                         
                         	TRUE for merge enabled for service\-policy applied on dynamic template
+                        	**type**\: bool
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
                         .. attribute:: merge_id
@@ -4259,15 +4098,30 @@ class DynamicTemplate(object):
                         
                         	**range:** 0..255
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: policy_name
                         
                         	Name of policy\-map
                         	**type**\: str
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: spi_name
                         
                         	Name of the SPI
                         	**type**\: str
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -4301,8 +4155,6 @@ class DynamicTemplate(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.account_stats is not None:
                                 return True
 
@@ -4323,10 +4175,6 @@ class DynamicTemplate(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.subscriber._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
@@ -4346,24 +4194,12 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.input is not None and self.input._has_data():
-                            return True
-
-                        if self.input is not None and self.input.is_presence():
                             return True
 
                         if self.output is not None and self.output._has_data():
                             return True
 
-                        if self.output is not None and self.output.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4385,30 +4221,15 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.account is not None and self.account._has_data():
-                        return True
-
-                    if self.account is not None and self.account.is_presence():
                         return True
 
                     if self.output is not None and self.output._has_data():
                         return True
 
-                    if self.output is not None and self.output.is_presence():
-                        return True
-
                     if self.service_policy is not None and self.service_policy._has_data():
                         return True
 
-                    if self.service_policy is not None and self.service_policy.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4448,7 +4269,7 @@ class DynamicTemplate(object):
                     .. attribute:: session_class
                     
                     	Session Class
-                    	**type**\: :py:class:`SpanSessionClass_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass_Enum>`
+                    	**type**\: :py:class:`SpanSessionClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
                     
                     .. attribute:: acl
                     
@@ -4470,7 +4291,7 @@ class DynamicTemplate(object):
                     .. attribute:: mirror_interval
                     
                     	Specify the mirror interval
-                    	**type**\: :py:class:`SpanMirrorInterval_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorInterval_Enum>`
+                    	**type**\: :py:class:`SpanMirrorIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorIntervalEnum>`
                     
                     
 
@@ -4495,12 +4316,22 @@ class DynamicTemplate(object):
                         .. attribute:: direction
                         
                         	Specify the direction of traffic to replicate (optional)
-                        	**type**\: :py:class:`SpanTrafficDirection_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirection_Enum>`
+                        	**type**\: :py:class:`SpanTrafficDirectionEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirectionEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: port_level_enable
                         
                         	Enable port level traffic mirroring
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: session_name
                         
@@ -4508,6 +4339,11 @@ class DynamicTemplate(object):
                         	**type**\: str
                         
                         	**range:** 0..79
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -4538,8 +4374,6 @@ class DynamicTemplate(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.direction is not None:
                                 return True
 
@@ -4550,10 +4384,6 @@ class DynamicTemplate(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -4576,8 +4406,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.session_class is not None:
                             return True
 
@@ -4587,19 +4415,12 @@ class DynamicTemplate(object):
                         if self.attachment is not None and self.attachment._has_data():
                             return True
 
-                        if self.attachment is not None and self.attachment.is_presence():
-                            return True
-
                         if self.mirror_first is not None:
                             return True
 
                         if self.mirror_interval is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4621,17 +4442,11 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.span_monitor_session is not None:
                         for child_ref in self.span_monitor_session:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4653,72 +4468,39 @@ class DynamicTemplate(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.template_name is not None:
                     return True
 
                 if self.dhcpv6 is not None and self.dhcpv6._has_data():
                     return True
 
-                if self.dhcpv6 is not None and self.dhcpv6.is_presence():
-                    return True
-
                 if self.ipv4_network is not None and self.ipv4_network._has_data():
-                    return True
-
-                if self.ipv4_network is not None and self.ipv4_network.is_presence():
                     return True
 
                 if self.ipv4_packet_filter is not None and self.ipv4_packet_filter._has_data():
                     return True
 
-                if self.ipv4_packet_filter is not None and self.ipv4_packet_filter.is_presence():
-                    return True
-
                 if self.ipv6_neighbor is not None and self.ipv6_neighbor._has_data():
-                    return True
-
-                if self.ipv6_neighbor is not None and self.ipv6_neighbor.is_presence():
                     return True
 
                 if self.ipv6_network is not None and self.ipv6_network._has_data():
                     return True
 
-                if self.ipv6_network is not None and self.ipv6_network.is_presence():
-                    return True
-
                 if self.ipv6_packet_filter is not None and self.ipv6_packet_filter._has_data():
-                    return True
-
-                if self.ipv6_packet_filter is not None and self.ipv6_packet_filter.is_presence():
                     return True
 
                 if self.pbr is not None and self.pbr._has_data():
                     return True
 
-                if self.pbr is not None and self.pbr.is_presence():
-                    return True
-
                 if self.qos is not None and self.qos._has_data():
-                    return True
-
-                if self.qos is not None and self.qos.is_presence():
                     return True
 
                 if self.span_monitor_sessions is not None and self.span_monitor_sessions._has_data():
                     return True
 
-                if self.span_monitor_sessions is not None and self.span_monitor_sessions.is_presence():
-                    return True
-
                 if self.vrf is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4738,17 +4520,11 @@ class DynamicTemplate(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.ppp is not None:
                 for child_ref in self.ppp:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -4921,8 +4697,6 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.mtu is not None:
                         return True
 
@@ -4935,10 +4709,6 @@ class DynamicTemplate(object):
                     if self.unreachables is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5031,8 +4801,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.common_acl_name is not None:
                             return True
 
@@ -5045,10 +4813,6 @@ class DynamicTemplate(object):
                         if self.name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5067,15 +4831,30 @@ class DynamicTemplate(object):
                     	Not supported (Leave unspecified)
                     	**type**\: str
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: hardware_count
                     
                     	Not supported (Leave unspecified)
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: interface_statistics
                     
                     	Not supported (Leave unspecified)
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: name
                     
@@ -5083,6 +4862,11 @@ class DynamicTemplate(object):
                     	**type**\: str
                     
                     	**range:** 0..65
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -5114,8 +4898,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.common_acl_name is not None:
                             return True
 
@@ -5129,10 +4911,6 @@ class DynamicTemplate(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -5153,24 +4931,12 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.inbound is not None and self.inbound._has_data():
-                        return True
-
-                    if self.inbound is not None and self.inbound.is_presence():
                         return True
 
                     if self.outbound is not None and self.outbound._has_data():
                         return True
 
-                    if self.outbound is not None and self.outbound.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5223,7 +4989,7 @@ class DynamicTemplate(object):
                 .. attribute:: ra_hop_limit
                 
                 	IPv6 ND RA HopLimit
-                	**type**\: :py:class:`Ipv6NdHopLimit_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdHopLimit_Enum>`
+                	**type**\: :py:class:`Ipv6NdHopLimitEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdHopLimitEnum>`
                 
                 .. attribute:: ra_initial
                 
@@ -5269,7 +5035,7 @@ class DynamicTemplate(object):
                 .. attribute:: router_preference
                 
                 	RA Router Preference
-                	**type**\: :py:class:`Ipv6NdRouterPrefTemplate_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplate_Enum>`
+                	**type**\: :py:class:`Ipv6NdRouterPrefTemplateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplateEnum>`
                 
                 .. attribute:: start_ra_on_ipv6_enable
                 
@@ -5347,15 +5113,9 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.attempts is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5374,12 +5134,22 @@ class DynamicTemplate(object):
                     	IPV6 framed prefix address
                     	**type**\: str
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: prefix_length
                     
                     	IPv6 framed prefix length
                     	**type**\: int
                     
                     	**range:** 0..128
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -5409,8 +5179,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.prefix is not None:
                             return True
 
@@ -5418,10 +5186,6 @@ class DynamicTemplate(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -5440,12 +5204,22 @@ class DynamicTemplate(object):
                     
                     	**range:** 0..32
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: interval
                     
                     	Initial RA interval in seconds
                     	**type**\: int
                     
                     	**range:** 4..1800
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -5475,8 +5249,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.count is not None:
                             return True
 
@@ -5484,10 +5256,6 @@ class DynamicTemplate(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -5508,18 +5276,10 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.duplicate_address_detection is not None and self.duplicate_address_detection._has_data():
                         return True
 
-                    if self.duplicate_address_detection is not None and self.duplicate_address_detection.is_presence():
-                        return True
-
                     if self.framed_prefix is not None and self.framed_prefix._has_data():
-                        return True
-
-                    if self.framed_prefix is not None and self.framed_prefix.is_presence():
                         return True
 
                     if self.framed_prefix_pool is not None:
@@ -5541,9 +5301,6 @@ class DynamicTemplate(object):
                         return True
 
                     if self.ra_initial is not None and self.ra_initial._has_data():
-                        return True
-
-                    if self.ra_initial is not None and self.ra_initial.is_presence():
                         return True
 
                     if self.ra_interval is not None:
@@ -5573,10 +5330,6 @@ class DynamicTemplate(object):
                     if self.suppress_cache_learning is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5609,7 +5362,7 @@ class DynamicTemplate(object):
                 .. attribute:: verify
                 
                 	IPv6 Verify Unicast Souce Reachable
-                	**type**\: :py:class:`Ipv6ReachableVia_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_subscriber_cfg.Ipv6ReachableVia_Enum>`
+                	**type**\: :py:class:`Ipv6ReachableViaEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_subscriber_cfg.Ipv6ReachableViaEnum>`
                 
                 
 
@@ -5683,15 +5436,9 @@ class DynamicTemplate(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.enable is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5713,18 +5460,9 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.auto_configuration is not None and self.auto_configuration._has_data():
                             return True
 
-                        if self.auto_configuration is not None and self.auto_configuration.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5746,12 +5484,7 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.addresses is not None and self.addresses._has_data():
-                        return True
-
-                    if self.addresses is not None and self.addresses.is_presence():
                         return True
 
                     if self.mtu is not None:
@@ -5763,10 +5496,6 @@ class DynamicTemplate(object):
                     if self.verify is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5853,8 +5582,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.common_acl_name is not None:
                             return True
 
@@ -5864,10 +5591,6 @@ class DynamicTemplate(object):
                         if self.name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5886,10 +5609,20 @@ class DynamicTemplate(object):
                     	Not supported (Leave unspecified)
                     	**type**\: str
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: interface_statistics
                     
                     	Not supported (Leave unspecified)
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: name
                     
@@ -5897,6 +5630,11 @@ class DynamicTemplate(object):
                     	**type**\: str
                     
                     	**range:** 0..65
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -5927,8 +5665,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.common_acl_name is not None:
                             return True
 
@@ -5939,10 +5675,6 @@ class DynamicTemplate(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -5963,24 +5695,12 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.inbound is not None and self.inbound._has_data():
-                        return True
-
-                    if self.inbound is not None and self.inbound.is_presence():
                         return True
 
                     if self.outbound is not None and self.outbound._has_data():
                         return True
 
-                    if self.outbound is not None and self.outbound.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6051,15 +5771,9 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.input is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -6081,21 +5795,12 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.service_policy is not None and self.service_policy._has_data():
-                        return True
-
-                    if self.service_policy is not None and self.service_policy.is_presence():
                         return True
 
                     if self.service_policy_in is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6147,7 +5852,7 @@ class DynamicTemplate(object):
                     .. attribute:: aal
                     
                     	ATM adaptation layer AAL
-                    	**type**\: :py:class:`Qosl2DataLink_Enum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.Qosl2DataLink_Enum>`
+                    	**type**\: :py:class:`Qosl2DataLinkEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.Qosl2DataLinkEnum>`
                     
                     .. attribute:: atm_cell_tax
                     
@@ -6157,7 +5862,7 @@ class DynamicTemplate(object):
                     .. attribute:: encapsulation
                     
                     	Specify encapsulation type
-                    	**type**\: :py:class:`Qosl2Encap_Enum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.Qosl2Encap_Enum>`
+                    	**type**\: :py:class:`Qosl2EncapEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.Qosl2EncapEnum>`
                     
                     .. attribute:: user_defined
                     
@@ -6194,8 +5899,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.aal is not None:
                             return True
 
@@ -6208,10 +5911,6 @@ class DynamicTemplate(object):
                         if self.user_defined is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -6256,15 +5955,9 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.minimum_bandwidth is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -6310,14 +6003,29 @@ class DynamicTemplate(object):
                         	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
                         	**type**\: bool
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: account_type
                         
                         	Turn off L2 or L3 accounting
-                        	**type**\: :py:class:`QosPolicyAccount_Enum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccount_Enum>`
+                        	**type**\: :py:class:`QosPolicyAccountEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: merge
                         
                         	TRUE for merge enabled for service\-policy applied on dynamic template
+                        	**type**\: bool
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
                         .. attribute:: merge_id
@@ -6327,15 +6035,30 @@ class DynamicTemplate(object):
                         
                         	**range:** 0..255
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: policy_name
                         
                         	Name of policy\-map
                         	**type**\: str
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: spi_name
                         
                         	Name of the SPI
                         	**type**\: str
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -6369,8 +6092,6 @@ class DynamicTemplate(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.account_stats is not None:
                                 return True
 
@@ -6391,10 +6112,6 @@ class DynamicTemplate(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.subscriber._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
@@ -6410,14 +6127,29 @@ class DynamicTemplate(object):
                         	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
                         	**type**\: bool
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: account_type
                         
                         	Turn off L2 or L3 accounting
-                        	**type**\: :py:class:`QosPolicyAccount_Enum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccount_Enum>`
+                        	**type**\: :py:class:`QosPolicyAccountEnum <ydk.models.qos.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: merge
                         
                         	TRUE for merge enabled for service\-policy applied on dynamic template
+                        	**type**\: bool
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
                         	**type**\: bool
                         
                         .. attribute:: merge_id
@@ -6427,15 +6159,30 @@ class DynamicTemplate(object):
                         
                         	**range:** 0..255
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: policy_name
                         
                         	Name of policy\-map
                         	**type**\: str
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: spi_name
                         
                         	Name of the SPI
                         	**type**\: str
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -6469,8 +6216,6 @@ class DynamicTemplate(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.account_stats is not None:
                                 return True
 
@@ -6491,10 +6236,6 @@ class DynamicTemplate(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.subscriber._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
@@ -6514,24 +6255,12 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.input is not None and self.input._has_data():
-                            return True
-
-                        if self.input is not None and self.input.is_presence():
                             return True
 
                         if self.output is not None and self.output._has_data():
                             return True
 
-                        if self.output is not None and self.output.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -6553,30 +6282,15 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.account is not None and self.account._has_data():
-                        return True
-
-                    if self.account is not None and self.account.is_presence():
                         return True
 
                     if self.output is not None and self.output._has_data():
                         return True
 
-                    if self.output is not None and self.output.is_presence():
-                        return True
-
                     if self.service_policy is not None and self.service_policy._has_data():
                         return True
 
-                    if self.service_policy is not None and self.service_policy.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6616,7 +6330,7 @@ class DynamicTemplate(object):
                     .. attribute:: session_class
                     
                     	Session Class
-                    	**type**\: :py:class:`SpanSessionClass_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass_Enum>`
+                    	**type**\: :py:class:`SpanSessionClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
                     
                     .. attribute:: acl
                     
@@ -6638,7 +6352,7 @@ class DynamicTemplate(object):
                     .. attribute:: mirror_interval
                     
                     	Specify the mirror interval
-                    	**type**\: :py:class:`SpanMirrorInterval_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorInterval_Enum>`
+                    	**type**\: :py:class:`SpanMirrorIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorIntervalEnum>`
                     
                     
 
@@ -6663,12 +6377,22 @@ class DynamicTemplate(object):
                         .. attribute:: direction
                         
                         	Specify the direction of traffic to replicate (optional)
-                        	**type**\: :py:class:`SpanTrafficDirection_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirection_Enum>`
+                        	**type**\: :py:class:`SpanTrafficDirectionEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirectionEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: port_level_enable
                         
                         	Enable port level traffic mirroring
                         	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: session_name
                         
@@ -6676,6 +6400,11 @@ class DynamicTemplate(object):
                         	**type**\: str
                         
                         	**range:** 0..79
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -6706,8 +6435,6 @@ class DynamicTemplate(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.direction is not None:
                                 return True
 
@@ -6718,10 +6445,6 @@ class DynamicTemplate(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -6744,8 +6467,6 @@ class DynamicTemplate(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.session_class is not None:
                             return True
 
@@ -6755,19 +6476,12 @@ class DynamicTemplate(object):
                         if self.attachment is not None and self.attachment._has_data():
                             return True
 
-                        if self.attachment is not None and self.attachment.is_presence():
-                            return True
-
                         if self.mirror_first is not None:
                             return True
 
                         if self.mirror_interval is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -6789,17 +6503,11 @@ class DynamicTemplate(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.span_monitor_session is not None:
                         for child_ref in self.span_monitor_session:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6821,66 +6529,36 @@ class DynamicTemplate(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.template_name is not None:
                     return True
 
                 if self.ipv4_network is not None and self.ipv4_network._has_data():
                     return True
 
-                if self.ipv4_network is not None and self.ipv4_network.is_presence():
-                    return True
-
                 if self.ipv4_packet_filter is not None and self.ipv4_packet_filter._has_data():
-                    return True
-
-                if self.ipv4_packet_filter is not None and self.ipv4_packet_filter.is_presence():
                     return True
 
                 if self.ipv6_neighbor is not None and self.ipv6_neighbor._has_data():
                     return True
 
-                if self.ipv6_neighbor is not None and self.ipv6_neighbor.is_presence():
-                    return True
-
                 if self.ipv6_network is not None and self.ipv6_network._has_data():
-                    return True
-
-                if self.ipv6_network is not None and self.ipv6_network.is_presence():
                     return True
 
                 if self.ipv6_packet_filter is not None and self.ipv6_packet_filter._has_data():
                     return True
 
-                if self.ipv6_packet_filter is not None and self.ipv6_packet_filter.is_presence():
-                    return True
-
                 if self.pbr is not None and self.pbr._has_data():
-                    return True
-
-                if self.pbr is not None and self.pbr.is_presence():
                     return True
 
                 if self.qos is not None and self.qos._has_data():
                     return True
 
-                if self.qos is not None and self.qos.is_presence():
-                    return True
-
                 if self.span_monitor_sessions is not None and self.span_monitor_sessions._has_data():
-                    return True
-
-                if self.span_monitor_sessions is not None and self.span_monitor_sessions.is_presence():
                     return True
 
                 if self.vrf is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -6900,17 +6578,11 @@ class DynamicTemplate(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.subscriber_service is not None:
                 for child_ref in self.subscriber_service:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -6930,30 +6602,15 @@ class DynamicTemplate(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.ip_subscribers is not None and self.ip_subscribers._has_data():
-            return True
-
-        if self.ip_subscribers is not None and self.ip_subscribers.is_presence():
             return True
 
         if self.ppps is not None and self.ppps._has_data():
             return True
 
-        if self.ppps is not None and self.ppps.is_presence():
-            return True
-
         if self.subscriber_services is not None and self.subscriber_services._has_data():
             return True
 
-        if self.subscriber_services is not None and self.subscriber_services.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

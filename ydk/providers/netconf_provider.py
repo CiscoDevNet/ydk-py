@@ -66,15 +66,19 @@ class NetconfServiceProvider(ServiceProvider):
                                   self._session_config,
                                   _ServiceProtocolName.NETCONF)
 
-        netconf_sp_logger = logging.getLogger('ydk.providers.NetconfServiceProvider')
+        self.netconf_sp_logger = logging.getLogger('ydk.providers.NetconfServiceProvider')
         self.ne.connect()
-        netconf_sp_logger.info('NetconfServiceProvider connected to %s:%s using %s'
+        self.netconf_sp_logger.info('NetconfServiceProvider connected to %s:%s using %s'
                                % (self.address, self.port, self.protocol))
 
         self.sp_instance = self.ne.sp_instance
-        self.payload_log = self.ne.payload_log
         self.encode_format = self.ne.encode_format
 
     def close(self):
         """ Closes the netconf session """
         self.ne.disconnect()
+        self.netconf_sp_logger.info('\nNetconfServiceProvider disconnected from %s:%s using %s'
+                               % (self.address, self.port, self.protocol))
+
+    def get_capabilities(self):
+        return self.sp_instance._nc_manager.server_capabilities

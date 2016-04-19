@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,29 +14,29 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'KexName_Enum' : _MetaInfoEnum('KexName_Enum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper',
+    'KexNameEnum' : _MetaInfoEnum('KexNameEnum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper',
         {
             'diffie-hellman':'DIFFIE_HELLMAN',
             'password-authenticated':'PASSWORD_AUTHENTICATED',
         }, 'Cisco-IOS-XR-crypto-ssh-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper']),
-    'Cipher_Enum' : _MetaInfoEnum('Cipher_Enum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper',
+    'CipherEnum' : _MetaInfoEnum('CipherEnum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper',
         {
             'aes128-cbc':'AES128_CBC',
             'aes192-cbc':'AES192_CBC',
             'aes256-cbc':'AES256_CBC',
             'triple-des-cbc':'TRIPLE_DES_CBC',
         }, 'Cisco-IOS-XR-crypto-ssh-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper']),
-    'Hostkey_Enum' : _MetaInfoEnum('Hostkey_Enum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper',
+    'HostkeyEnum' : _MetaInfoEnum('HostkeyEnum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper',
         {
             'ssh-dss':'SSH_DSS',
             'ssh-rsa':'SSH_RSA',
         }, 'Cisco-IOS-XR-crypto-ssh-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper']),
-    'Mac_Enum' : _MetaInfoEnum('Mac_Enum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper',
+    'MacEnum' : _MetaInfoEnum('MacEnum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper',
         {
             'hmac-md5':'HMAC_MD5',
             'hmac-sha1':'HMAC_SHA1',
         }, 'Cisco-IOS-XR-crypto-ssh-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper']),
-    'States_Enum' : _MetaInfoEnum('States_Enum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper',
+    'StatesEnum' : _MetaInfoEnum('StatesEnum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper',
         {
             'open':'OPEN',
             'version-ok':'VERSION_OK',
@@ -52,7 +52,7 @@ _meta_table = {
             'suspended':'SUSPENDED',
             'session-closed':'SESSION_CLOSED',
         }, 'Cisco-IOS-XR-crypto-ssh-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper']),
-    'Connection_Enum' : _MetaInfoEnum('Connection_Enum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper',
+    'ConnectionEnum' : _MetaInfoEnum('ConnectionEnum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper',
         {
             'undefined':'UNDEFINED',
             'shell':'SHELL',
@@ -61,12 +61,12 @@ _meta_table = {
             'sftp-subsystem':'SFTP_SUBSYSTEM',
             'netconf-subsystem':'NETCONF_SUBSYSTEM',
         }, 'Cisco-IOS-XR-crypto-ssh-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper']),
-    'Version_Enum' : _MetaInfoEnum('Version_Enum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper',
+    'VersionEnum' : _MetaInfoEnum('VersionEnum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper',
         {
             'v2':'V2',
             'v1':'V1',
         }, 'Cisco-IOS-XR-crypto-ssh-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper']),
-    'Authen_Enum' : _MetaInfoEnum('Authen_Enum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper',
+    'AuthenEnum' : _MetaInfoEnum('AuthenEnum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper',
         {
             'password':'PASSWORD',
             'rsa-public-key':'RSA_PUBLIC_KEY',
@@ -76,7 +76,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ssh.Session.Brief.IncomingSessions.SessionBriefInfo',
             False, 
             [
-            _MetaInfoClassMember('authentication-type', REFERENCE_ENUM_CLASS, 'Authen_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'Authen_Enum', 
+            _MetaInfoClassMember('authentication-type', REFERENCE_ENUM_CLASS, 'AuthenEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'AuthenEnum', 
                 [], [], 
                 '''                Authentication method
                 ''',
@@ -88,7 +88,7 @@ _meta_table = {
                 ''',
                 'channel_id',
                 'Cisco-IOS-XR-crypto-ssh-oper', False),
-            _MetaInfoClassMember('connection-type', REFERENCE_ENUM_CLASS, 'Connection_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'Connection_Enum', 
+            _MetaInfoClassMember('connection-type', REFERENCE_ENUM_CLASS, 'ConnectionEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'ConnectionEnum', 
                 [], [], 
                 '''                Channel Connection Type
                 ''',
@@ -112,7 +112,7 @@ _meta_table = {
                 ''',
                 'session_id',
                 'Cisco-IOS-XR-crypto-ssh-oper', False),
-            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'States_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'States_Enum', 
+            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'StatesEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'StatesEnum', 
                 [], [], 
                 '''                SSH session state
                 ''',
@@ -124,7 +124,7 @@ _meta_table = {
                 ''',
                 'user_id',
                 'Cisco-IOS-XR-crypto-ssh-oper', False),
-            _MetaInfoClassMember('version', REFERENCE_ENUM_CLASS, 'Version_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'Version_Enum', 
+            _MetaInfoClassMember('version', REFERENCE_ENUM_CLASS, 'VersionEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'VersionEnum', 
                 [], [], 
                 '''                SSH state version
                 ''',
@@ -171,7 +171,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo',
             False, 
             [
-            _MetaInfoClassMember('authentication-type', REFERENCE_ENUM_CLASS, 'Authen_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'Authen_Enum', 
+            _MetaInfoClassMember('authentication-type', REFERENCE_ENUM_CLASS, 'AuthenEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'AuthenEnum', 
                 [], [], 
                 '''                Authentication method
                 ''',
@@ -183,7 +183,7 @@ _meta_table = {
                 ''',
                 'channel_id',
                 'Cisco-IOS-XR-crypto-ssh-oper', False),
-            _MetaInfoClassMember('connection-type', REFERENCE_ENUM_CLASS, 'Connection_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'Connection_Enum', 
+            _MetaInfoClassMember('connection-type', REFERENCE_ENUM_CLASS, 'ConnectionEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'ConnectionEnum', 
                 [], [], 
                 '''                Channel Connection Type
                 ''',
@@ -207,7 +207,7 @@ _meta_table = {
                 ''',
                 'session_id',
                 'Cisco-IOS-XR-crypto-ssh-oper', False),
-            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'States_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'States_Enum', 
+            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'StatesEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'StatesEnum', 
                 [], [], 
                 '''                SSH session state
                 ''',
@@ -219,7 +219,7 @@ _meta_table = {
                 ''',
                 'user_id',
                 'Cisco-IOS-XR-crypto-ssh-oper', False),
-            _MetaInfoClassMember('version', REFERENCE_ENUM_CLASS, 'Version_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'Version_Enum', 
+            _MetaInfoClassMember('version', REFERENCE_ENUM_CLASS, 'VersionEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'VersionEnum', 
                 [], [], 
                 '''                SSH state version
                 ''',
@@ -289,37 +289,37 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ssh.Session.Detail.IncomingSessions.SessionDetailInfo',
             False, 
             [
-            _MetaInfoClassMember('in-cipher', REFERENCE_ENUM_CLASS, 'Cipher_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'Cipher_Enum', 
+            _MetaInfoClassMember('in-cipher', REFERENCE_ENUM_CLASS, 'CipherEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'CipherEnum', 
                 [], [], 
                 '''                In cipher algorithm
                 ''',
                 'in_cipher',
                 'Cisco-IOS-XR-crypto-ssh-oper', False),
-            _MetaInfoClassMember('in-mac', REFERENCE_ENUM_CLASS, 'Mac_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'Mac_Enum', 
+            _MetaInfoClassMember('in-mac', REFERENCE_ENUM_CLASS, 'MacEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'MacEnum', 
                 [], [], 
                 '''                In MAC
                 ''',
                 'in_mac',
                 'Cisco-IOS-XR-crypto-ssh-oper', False),
-            _MetaInfoClassMember('key-exchange', REFERENCE_ENUM_CLASS, 'KexName_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'KexName_Enum', 
+            _MetaInfoClassMember('key-exchange', REFERENCE_ENUM_CLASS, 'KexNameEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'KexNameEnum', 
                 [], [], 
                 '''                Key exchange name
                 ''',
                 'key_exchange',
                 'Cisco-IOS-XR-crypto-ssh-oper', False),
-            _MetaInfoClassMember('out-cipher', REFERENCE_ENUM_CLASS, 'Cipher_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'Cipher_Enum', 
+            _MetaInfoClassMember('out-cipher', REFERENCE_ENUM_CLASS, 'CipherEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'CipherEnum', 
                 [], [], 
                 '''                Out cipher algorithm
                 ''',
                 'out_cipher',
                 'Cisco-IOS-XR-crypto-ssh-oper', False),
-            _MetaInfoClassMember('out-mac', REFERENCE_ENUM_CLASS, 'Mac_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'Mac_Enum', 
+            _MetaInfoClassMember('out-mac', REFERENCE_ENUM_CLASS, 'MacEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'MacEnum', 
                 [], [], 
                 '''                Out MAC
                 ''',
                 'out_mac',
                 'Cisco-IOS-XR-crypto-ssh-oper', False),
-            _MetaInfoClassMember('public-key', REFERENCE_ENUM_CLASS, 'Hostkey_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'Hostkey_Enum', 
+            _MetaInfoClassMember('public-key', REFERENCE_ENUM_CLASS, 'HostkeyEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'HostkeyEnum', 
                 [], [], 
                 '''                Host key algorithm
                 ''',
@@ -359,37 +359,37 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo',
             False, 
             [
-            _MetaInfoClassMember('in-cipher', REFERENCE_ENUM_CLASS, 'Cipher_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'Cipher_Enum', 
+            _MetaInfoClassMember('in-cipher', REFERENCE_ENUM_CLASS, 'CipherEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'CipherEnum', 
                 [], [], 
                 '''                In cipher algorithm
                 ''',
                 'in_cipher',
                 'Cisco-IOS-XR-crypto-ssh-oper', False),
-            _MetaInfoClassMember('in-mac', REFERENCE_ENUM_CLASS, 'Mac_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'Mac_Enum', 
+            _MetaInfoClassMember('in-mac', REFERENCE_ENUM_CLASS, 'MacEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'MacEnum', 
                 [], [], 
                 '''                In MAC
                 ''',
                 'in_mac',
                 'Cisco-IOS-XR-crypto-ssh-oper', False),
-            _MetaInfoClassMember('key-exchange', REFERENCE_ENUM_CLASS, 'KexName_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'KexName_Enum', 
+            _MetaInfoClassMember('key-exchange', REFERENCE_ENUM_CLASS, 'KexNameEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'KexNameEnum', 
                 [], [], 
                 '''                Key exchange name
                 ''',
                 'key_exchange',
                 'Cisco-IOS-XR-crypto-ssh-oper', False),
-            _MetaInfoClassMember('out-cipher', REFERENCE_ENUM_CLASS, 'Cipher_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'Cipher_Enum', 
+            _MetaInfoClassMember('out-cipher', REFERENCE_ENUM_CLASS, 'CipherEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'CipherEnum', 
                 [], [], 
                 '''                Out cipher algorithm
                 ''',
                 'out_cipher',
                 'Cisco-IOS-XR-crypto-ssh-oper', False),
-            _MetaInfoClassMember('out-mac', REFERENCE_ENUM_CLASS, 'Mac_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'Mac_Enum', 
+            _MetaInfoClassMember('out-mac', REFERENCE_ENUM_CLASS, 'MacEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'MacEnum', 
                 [], [], 
                 '''                Out MAC
                 ''',
                 'out_mac',
                 'Cisco-IOS-XR-crypto-ssh-oper', False),
-            _MetaInfoClassMember('public-key', REFERENCE_ENUM_CLASS, 'Hostkey_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'Hostkey_Enum', 
+            _MetaInfoClassMember('public-key', REFERENCE_ENUM_CLASS, 'HostkeyEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper', 'HostkeyEnum', 
                 [], [], 
                 '''                Host key algorithm
                 ''',

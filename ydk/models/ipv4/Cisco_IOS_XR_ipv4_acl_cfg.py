@@ -23,46 +23,43 @@ from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYDataValidationError
 
 
-from ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes import Ipv4AclGrantEnum_Enum
-from ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes import Ipv4AclIcmpTypeCodeEnum_Enum
-from ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes import Ipv4AclLoggingEnum_Enum
-from ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes import Ipv4AclOperatorEnum_Enum
-from ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes import Ipv4AclTcpMatchOperatorEnum_Enum
+from ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes import Ipv4AclGrantEnumEnum
+from ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes import Ipv4AclIcmpTypeCodeEnumEnum
+from ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes import Ipv4AclLoggingEnumEnum
+from ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes import Ipv4AclOperatorEnumEnum
+from ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes import Ipv4AclTcpMatchOperatorEnumEnum
 
-class NextHopType_Enum(Enum):
+class NextHopTypeEnum(Enum):
     """
-    NextHopType_Enum
+    NextHopTypeEnum
 
     Next\-hop type.
 
-    """
+    .. data:: NONE_NEXT_HOP = 0
+
+    	None next-hop.
+
+    .. data:: REGULAR_NEXT_HOP = 1
+
+    	Regular next-hop.
+
+    .. data:: DEFAULT_NEXT_HOP = 2
+
+    	Default next-hop.
 
     """
 
-    None next\-hop.
-
-    """
     NONE_NEXT_HOP = 0
 
-    """
-
-    Regular next\-hop.
-
-    """
     REGULAR_NEXT_HOP = 1
 
-    """
-
-    Default next\-hop.
-
-    """
     DEFAULT_NEXT_HOP = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
-        return meta._meta_table['NextHopType_Enum']
+        return meta._meta_table['NextHopTypeEnum']
 
 
 
@@ -236,7 +233,7 @@ class Ipv4AclAndPrefixList(object):
                     .. attribute:: grant
                     
                     	Whether to forward or drop packets matching the  ACE
-                    	**type**\: :py:class:`Ipv4AclGrantEnum_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclGrantEnum_Enum>`
+                    	**type**\: :py:class:`Ipv4AclGrantEnumEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclGrantEnumEnum>`
                     
                     .. attribute:: icmp
                     
@@ -251,12 +248,12 @@ class Ipv4AclAndPrefixList(object):
                     .. attribute:: igmp_message_type
                     
                     	IGMP message type to match. Leave unspecified if  no message type comparison is to be done
-                    	**type**\: one of { :py:class:`Ipv4AclIgmpNumber_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclIgmpNumber_Enum>` | int }
+                    	**type**\: one of { :py:class:`Ipv4AclIgmpNumberEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclIgmpNumberEnum>` | int }
                     
                     .. attribute:: log_option
                     
                     	Whether and how to log matches against this  entry
-                    	**type**\: :py:class:`Ipv4AclLoggingEnum_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclLoggingEnum_Enum>`
+                    	**type**\: :py:class:`Ipv4AclLoggingEnumEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclLoggingEnumEnum>`
                     
                     .. attribute:: next_hop
                     
@@ -271,12 +268,12 @@ class Ipv4AclAndPrefixList(object):
                     .. attribute:: precedence
                     
                     	Precedence value to match (if a protocol was  specified), leave unspecified if precedence  comparion is not to be performed
-                    	**type**\: one of { :py:class:`Ipv4AclPrecedenceNumber_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclPrecedenceNumber_Enum>` | int }
+                    	**type**\: one of { :py:class:`Ipv4AclPrecedenceNumberEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclPrecedenceNumberEnum>` | int }
                     
                     .. attribute:: protocol
                     
                     	Protocol to match
-                    	**type**\: one of { :py:class:`Ipv4AclProtocolNumber_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclProtocolNumber_Enum>` | int }
+                    	**type**\: one of { :py:class:`Ipv4AclProtocolNumberEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclProtocolNumberEnum>` | int }
                     
                     .. attribute:: remark
                     
@@ -407,18 +404,12 @@ class Ipv4AclAndPrefixList(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.destination_address is not None:
                                 return True
 
                             if self.destination_wild_card_bits is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -434,17 +425,17 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: destination_operator
                         
                         	Destination comparison operator. Leave  unspecified if no destination port comparison is to be done
-                        	**type**\: :py:class:`Ipv4AclOperatorEnum_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclOperatorEnum_Enum>`
+                        	**type**\: :py:class:`Ipv4AclOperatorEnumEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclOperatorEnumEnum>`
                         
                         .. attribute:: first_destination_port
                         
                         	First destination port for comparison, leave unspecified if destination port comparison is not to be performed
-                        	**type**\: one of { :py:class:`Ipv4AclPortNumber_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclPortNumber_Enum>` | int }
+                        	**type**\: one of { :py:class:`Ipv4AclPortNumberEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclPortNumberEnum>` | int }
                         
                         .. attribute:: second_destination_port
                         
                         	Second destination port for comparion, leave unspecified if destination port comparison is not to be performed
-                        	**type**\: one of { :py:class:`Ipv4AclPortNumber_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclPortNumber_Enum>` | int }
+                        	**type**\: one of { :py:class:`Ipv4AclPortNumberEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclPortNumberEnum>` | int }
                         
                         
 
@@ -473,8 +464,6 @@ class Ipv4AclAndPrefixList(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.destination_operator is not None:
                                 return True
 
@@ -484,10 +473,6 @@ class Ipv4AclAndPrefixList(object):
                             if self.second_destination_port is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -503,17 +488,17 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: dscp_max
                         
                         	Maximum DSCP value for comparion, leave  unspecified if DSCP comparison is not to  be performed or if only the minimum DSCP should be considered
-                        	**type**\: one of { :py:class:`Ipv4AclDscpNumber_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclDscpNumber_Enum>` | int }
+                        	**type**\: one of { :py:class:`Ipv4AclDscpNumberEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclDscpNumberEnum>` | int }
                         
                         .. attribute:: dscp_min
                         
                         	DSCP value to match or minimum DSCP value  for DSCP range comparison, leave unspecified  if DSCP comparion is not to be performed
-                        	**type**\: one of { :py:class:`Ipv4AclDscpNumber_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclDscpNumber_Enum>` | int }
+                        	**type**\: one of { :py:class:`Ipv4AclDscpNumberEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclDscpNumberEnum>` | int }
                         
                         .. attribute:: dscp_operator
                         
                         	DSCP operator is applicable only when DSCP  range is configured. Leave unspecified if  DSCP range is not required
-                        	**type**\: :py:class:`Ipv4AclOperatorEnum_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclOperatorEnum_Enum>`
+                        	**type**\: :py:class:`Ipv4AclOperatorEnumEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclOperatorEnumEnum>`
                         
                         
 
@@ -542,8 +527,6 @@ class Ipv4AclAndPrefixList(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.dscp_max is not None:
                                 return True
 
@@ -553,10 +536,6 @@ class Ipv4AclAndPrefixList(object):
                             if self.dscp_operator is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -572,7 +551,7 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: icmp_type_code
                         
                         	Well known ICMP message code types to match,  leave unspecified if ICMP message code type  comparion is not to be performed
-                        	**type**\: :py:class:`Ipv4AclIcmpTypeCodeEnum_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclIcmpTypeCodeEnum_Enum>`
+                        	**type**\: :py:class:`Ipv4AclIcmpTypeCodeEnumEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclIcmpTypeCodeEnumEnum>`
                         
                         
 
@@ -599,15 +578,9 @@ class Ipv4AclAndPrefixList(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.icmp_type_code is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -638,7 +611,7 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: next_hop_type
                         
                         	The nexthop type
-                        	**type**\: :py:class:`NextHopType_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg.NextHopType_Enum>`
+                        	**type**\: :py:class:`NextHopTypeEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg.NextHopTypeEnum>`
                         
                         
 
@@ -706,8 +679,6 @@ class Ipv4AclAndPrefixList(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.next_hop is not None:
                                     return True
 
@@ -717,10 +688,6 @@ class Ipv4AclAndPrefixList(object):
                                 if self.vrf_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -777,8 +744,6 @@ class Ipv4AclAndPrefixList(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.next_hop is not None:
                                     return True
 
@@ -788,10 +753,6 @@ class Ipv4AclAndPrefixList(object):
                                 if self.vrf_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -848,8 +809,6 @@ class Ipv4AclAndPrefixList(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.next_hop is not None:
                                     return True
 
@@ -859,10 +818,6 @@ class Ipv4AclAndPrefixList(object):
                                 if self.vrf_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -884,33 +839,18 @@ class Ipv4AclAndPrefixList(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.next_hop_1 is not None and self.next_hop_1._has_data():
-                                return True
-
-                            if self.next_hop_1 is not None and self.next_hop_1.is_presence():
                                 return True
 
                             if self.next_hop_2 is not None and self.next_hop_2._has_data():
                                 return True
 
-                            if self.next_hop_2 is not None and self.next_hop_2.is_presence():
-                                return True
-
                             if self.next_hop_3 is not None and self.next_hop_3._has_data():
-                                return True
-
-                            if self.next_hop_3 is not None and self.next_hop_3.is_presence():
                                 return True
 
                             if self.next_hop_type is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -940,7 +880,7 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: packet_length_operator
                         
                         	Packet length operator applicable if Packet  length is to be compared. Leave unspecified if  no packet length comparison is to be done
-                        	**type**\: :py:class:`Ipv4AclOperatorEnum_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclOperatorEnum_Enum>`
+                        	**type**\: :py:class:`Ipv4AclOperatorEnumEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclOperatorEnumEnum>`
                         
                         
 
@@ -969,8 +909,6 @@ class Ipv4AclAndPrefixList(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.packet_length_max is not None:
                                 return True
 
@@ -980,10 +918,6 @@ class Ipv4AclAndPrefixList(object):
                             if self.packet_length_operator is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1036,18 +970,12 @@ class Ipv4AclAndPrefixList(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.source_address is not None:
                                 return True
 
                             if self.source_wild_card_bits is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1063,17 +991,17 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: first_source_port
                         
                         	First source port for comparison, leave  unspecified if source port comparison is not to be performed
-                        	**type**\: one of { :py:class:`Ipv4AclPortNumber_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclPortNumber_Enum>` | int }
+                        	**type**\: one of { :py:class:`Ipv4AclPortNumberEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclPortNumberEnum>` | int }
                         
                         .. attribute:: second_source_port
                         
                         	Second source port for comparion, leave  unspecified if source port comparison is not to be performed
-                        	**type**\: one of { :py:class:`Ipv4AclPortNumber_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclPortNumber_Enum>` | int }
+                        	**type**\: one of { :py:class:`Ipv4AclPortNumberEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclPortNumberEnum>` | int }
                         
                         .. attribute:: source_operator
                         
                         	Source comparison operator . Leave unspecified  if no source port comparison is to be done
-                        	**type**\: :py:class:`Ipv4AclOperatorEnum_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclOperatorEnum_Enum>`
+                        	**type**\: :py:class:`Ipv4AclOperatorEnumEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclOperatorEnumEnum>`
                         
                         
 
@@ -1102,8 +1030,6 @@ class Ipv4AclAndPrefixList(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.first_source_port is not None:
                                 return True
 
@@ -1113,10 +1039,6 @@ class Ipv4AclAndPrefixList(object):
                             if self.source_operator is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1132,17 +1054,17 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: tcp_bits
                         
                         	TCP bits to match. Leave unspecified if comparison of TCP bits is not required
-                        	**type**\: one of { :py:class:`Ipv4AclTcpBitsNumber_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclTcpBitsNumber_Enum>` | int }
+                        	**type**\: one of { :py:class:`Ipv4AclTcpBitsNumberEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclTcpBitsNumberEnum>` | int }
                         
                         .. attribute:: tcp_bits_mask
                         
                         	TCP bits mask to use for flexible TCP matching. Leave unspecified if tcp\-bits\-match\-operator is  unspecified
-                        	**type**\: one of { :py:class:`Ipv4AclTcpBitsNumber_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclTcpBitsNumber_Enum>` | int }
+                        	**type**\: one of { :py:class:`Ipv4AclTcpBitsNumberEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclTcpBitsNumberEnum>` | int }
                         
                         .. attribute:: tcp_bits_match_operator
                         
                         	TCP Bits match operator. Leave unspecified if  flexible comparison of TCP bits is not  required
-                        	**type**\: :py:class:`Ipv4AclTcpMatchOperatorEnum_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclTcpMatchOperatorEnum_Enum>`
+                        	**type**\: :py:class:`Ipv4AclTcpMatchOperatorEnumEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclTcpMatchOperatorEnumEnum>`
                         
                         
 
@@ -1171,8 +1093,6 @@ class Ipv4AclAndPrefixList(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.tcp_bits is not None:
                                 return True
 
@@ -1182,10 +1102,6 @@ class Ipv4AclAndPrefixList(object):
                             if self.tcp_bits_match_operator is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1215,7 +1131,7 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: time_to_live_operator
                         
                         	TTL operator is applicable if TTL is to be  compared. Leave unspecified if TTL  classification is not required
-                        	**type**\: :py:class:`Ipv4AclOperatorEnum_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclOperatorEnum_Enum>`
+                        	**type**\: :py:class:`Ipv4AclOperatorEnumEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclOperatorEnumEnum>`
                         
                         
 
@@ -1244,8 +1160,6 @@ class Ipv4AclAndPrefixList(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.time_to_live_max is not None:
                                 return True
 
@@ -1255,10 +1169,6 @@ class Ipv4AclAndPrefixList(object):
                             if self.time_to_live_operator is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1282,8 +1192,6 @@ class Ipv4AclAndPrefixList(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.sequence_number is not None:
                             return True
 
@@ -1296,13 +1204,7 @@ class Ipv4AclAndPrefixList(object):
                         if self.destination_network is not None and self.destination_network._has_data():
                             return True
 
-                        if self.destination_network is not None and self.destination_network.is_presence():
-                            return True
-
                         if self.destination_port is not None and self.destination_port._has_data():
-                            return True
-
-                        if self.destination_port is not None and self.destination_port.is_presence():
                             return True
 
                         if self.destination_port_group is not None:
@@ -1314,9 +1216,6 @@ class Ipv4AclAndPrefixList(object):
                         if self.dscp is not None and self.dscp._has_data():
                             return True
 
-                        if self.dscp is not None and self.dscp.is_presence():
-                            return True
-
                         if self.fragments is not None:
                             return True
 
@@ -1324,9 +1223,6 @@ class Ipv4AclAndPrefixList(object):
                             return True
 
                         if self.icmp is not None and self.icmp._has_data():
-                            return True
-
-                        if self.icmp is not None and self.icmp.is_presence():
                             return True
 
                         if self.icmp_off is not None:
@@ -1341,13 +1237,7 @@ class Ipv4AclAndPrefixList(object):
                         if self.next_hop is not None and self.next_hop._has_data():
                             return True
 
-                        if self.next_hop is not None and self.next_hop.is_presence():
-                            return True
-
                         if self.packet_length is not None and self.packet_length._has_data():
-                            return True
-
-                        if self.packet_length is not None and self.packet_length.is_presence():
                             return True
 
                         if self.precedence is not None:
@@ -1362,13 +1252,7 @@ class Ipv4AclAndPrefixList(object):
                         if self.source_network is not None and self.source_network._has_data():
                             return True
 
-                        if self.source_network is not None and self.source_network.is_presence():
-                            return True
-
                         if self.source_port is not None and self.source_port._has_data():
-                            return True
-
-                        if self.source_port is not None and self.source_port.is_presence():
                             return True
 
                         if self.source_port_group is not None:
@@ -1380,19 +1264,9 @@ class Ipv4AclAndPrefixList(object):
                         if self.tcp is not None and self.tcp._has_data():
                             return True
 
-                        if self.tcp is not None and self.tcp.is_presence():
-                            return True
-
                         if self.time_to_live is not None and self.time_to_live._has_data():
                             return True
 
-                        if self.time_to_live is not None and self.time_to_live.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1414,17 +1288,11 @@ class Ipv4AclAndPrefixList(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.access_list_entry is not None:
                         for child_ref in self.access_list_entry:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1446,21 +1314,12 @@ class Ipv4AclAndPrefixList(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.access_list_name is not None:
                     return True
 
                 if self.access_list_entries is not None and self.access_list_entries._has_data():
                     return True
 
-                if self.access_list_entries is not None and self.access_list_entries.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1480,17 +1339,11 @@ class Ipv4AclAndPrefixList(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.access is not None:
                 for child_ref in self.access:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1541,18 +1394,12 @@ class Ipv4AclAndPrefixList(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.rate is not None:
                 return True
 
             if self.threshold is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1622,6 +1469,11 @@ class Ipv4AclAndPrefixList(object):
                 	A prefix list entry; either a description (remark) or a prefix to match against
                 	**type**\: list of :py:class:`PrefixListEntry <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg.Ipv4AclAndPrefixList.Prefixes.Prefix.PrefixListEntries.PrefixListEntry>`
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 
 
                 This class is a :ref:`presence class<presence-class>`
@@ -1660,7 +1512,7 @@ class Ipv4AclAndPrefixList(object):
                     .. attribute:: grant
                     
                     	Whether to forward or drop packets matching the prefix list
-                    	**type**\: :py:class:`Ipv4AclGrantEnum_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclGrantEnum_Enum>`
+                    	**type**\: :py:class:`Ipv4AclGrantEnumEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclGrantEnumEnum>`
                     
                     .. attribute:: match_exact_length
                     
@@ -1747,8 +1599,6 @@ class Ipv4AclAndPrefixList(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.sequence_number is not None:
                             return True
 
@@ -1784,10 +1634,6 @@ class Ipv4AclAndPrefixList(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
@@ -1807,18 +1653,12 @@ class Ipv4AclAndPrefixList(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.prefix_list_entry is not None:
                         for child_ref in self.prefix_list_entry:
                             if child_ref._has_data():
                                 return True
 
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -1839,21 +1679,12 @@ class Ipv4AclAndPrefixList(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.prefix_list_name is not None:
                     return True
 
                 if self.prefix_list_entries is not None and self.prefix_list_entries._has_data():
                     return True
 
-                if self.prefix_list_entries is not None and self.prefix_list_entries.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1873,17 +1704,11 @@ class Ipv4AclAndPrefixList(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.prefix is not None:
                 for child_ref in self.prefix:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1903,30 +1728,15 @@ class Ipv4AclAndPrefixList(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.accesses is not None and self.accesses._has_data():
-            return True
-
-        if self.accesses is not None and self.accesses.is_presence():
             return True
 
         if self.log_update is not None and self.log_update._has_data():
             return True
 
-        if self.log_update is not None and self.log_update.is_presence():
-            return True
-
         if self.prefixes is not None and self.prefixes._has_data():
             return True
 
-        if self.prefixes is not None and self.prefixes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

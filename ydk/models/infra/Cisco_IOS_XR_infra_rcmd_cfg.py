@@ -24,76 +24,70 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class ProtocolName_Enum(Enum):
+class ProtocolNameEnum(Enum):
     """
-    ProtocolName_Enum
+    ProtocolNameEnum
 
     Protocol name
 
-    """
+    .. data:: OSPF = 0
+
+    	Configure parameters related to OSPF
+
+    .. data:: ISIS = 1
+
+    	Configure parameters related to ISIS
 
     """
 
-    Configure parameters related to OSPF
-
-    """
     OSPF = 0
 
-    """
-
-    Configure parameters related to ISIS
-
-    """
     ISIS = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_cfg as meta
-        return meta._meta_table['ProtocolName_Enum']
+        return meta._meta_table['ProtocolNameEnum']
 
 
-class RcmdPriority_Enum(Enum):
+class RcmdPriorityEnum(Enum):
     """
-    RcmdPriority_Enum
+    RcmdPriorityEnum
 
     Rcmd priority
 
-    """
+    .. data:: CRITICAL = 0
+
+    	Critical routes
+
+    .. data:: HIGH = 1
+
+    	High priority routes
+
+    .. data:: MEDIUM = 2
+
+    	Medium priority routes
+
+    .. data:: LOW = 3
+
+    	Low priority routes
 
     """
 
-    Critical routes
-
-    """
     CRITICAL = 0
 
-    """
-
-    High priority routes
-
-    """
     HIGH = 1
 
-    """
-
-    Medium priority routes
-
-    """
     MEDIUM = 2
 
-    """
-
-    Low priority routes
-
-    """
     LOW = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_cfg as meta
-        return meta._meta_table['RcmdPriority_Enum']
+        return meta._meta_table['RcmdPriorityEnum']
 
 
 
@@ -253,18 +247,12 @@ class RouterConvergence(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.enable is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -284,17 +272,11 @@ class RouterConvergence(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.collect_diagnostic is not None:
                 for child_ref in self.collect_diagnostic:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -312,10 +294,20 @@ class RouterConvergence(object):
         	Enable RCMD related configuration for MPLS\-LDP. Deletion of this object also causes deletion of all associated objects under MPLS\-LDP
         	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: remote_lfa
         
         	Monitoring configuration for Remote LFA
         	**type**\: :py:class:`RemoteLfa <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.MplsLdp.RemoteLfa>`
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         
 
@@ -341,12 +333,22 @@ class RouterConvergence(object):
             	Enable Monitoring configuration for Remote LFA . Deletion of this object also causes deletion of all associated objects under RemoteLFA
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
+            
             .. attribute:: threshold
             
             	Threshold value for label coverage (in percentage)
             	**type**\: int
             
             	**range:** 1..100
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
             
             
 
@@ -374,8 +376,6 @@ class RouterConvergence(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
@@ -383,10 +383,6 @@ class RouterConvergence(object):
                     return True
 
                 return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return True
 
             @staticmethod
             def _meta_info():
@@ -405,22 +401,13 @@ class RouterConvergence(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.enable is not None:
                 return True
 
             if self.remote_lfa is not None and self.remote_lfa._has_data():
                 return True
 
-            if self.remote_lfa is not None and self.remote_lfa.is_presence():
-                return True
-
             return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return True
 
         @staticmethod
         def _meta_info():
@@ -500,8 +487,6 @@ class RouterConvergence(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
@@ -511,10 +496,6 @@ class RouterConvergence(object):
                 if self.enable is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -534,17 +515,11 @@ class RouterConvergence(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -583,7 +558,7 @@ class RouterConvergence(object):
             .. attribute:: protocol_name
             
             	Specify the protocol
-            	**type**\: :py:class:`ProtocolName_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg.ProtocolName_Enum>`
+            	**type**\: :py:class:`ProtocolNameEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg.ProtocolNameEnum>`
             
             .. attribute:: enable
             
@@ -640,7 +615,7 @@ class RouterConvergence(object):
                     .. attribute:: rcmd_priority
                     
                     	Specify the priority
-                    	**type**\: :py:class:`RcmdPriority_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg.RcmdPriority_Enum>`
+                    	**type**\: :py:class:`RcmdPriorityEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_cfg.RcmdPriorityEnum>`
                     
                     .. attribute:: disable
                     
@@ -705,8 +680,6 @@ class RouterConvergence(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.rcmd_priority is not None:
                             return True
 
@@ -725,10 +698,6 @@ class RouterConvergence(object):
                         if self.threshold is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -750,17 +719,11 @@ class RouterConvergence(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.priority is not None:
                         for child_ref in self.priority:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -782,8 +745,6 @@ class RouterConvergence(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.protocol_name is not None:
                     return True
 
@@ -793,13 +754,6 @@ class RouterConvergence(object):
                 if self.priorities is not None and self.priorities._has_data():
                     return True
 
-                if self.priorities is not None and self.priorities.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -819,17 +773,11 @@ class RouterConvergence(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.protocol is not None:
                 for child_ref in self.protocol:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -849,6 +797,11 @@ class RouterConvergence(object):
         	Absolute directory path for storing diagnostic reports. Example /disk0\:/rcmd/ or <tftp\-location>/rcmd/
         	**type**\: str
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: diagnostics_size
         
         	Maximum size of diagnostics dir (5% \- 80%) for local storage
@@ -856,15 +809,30 @@ class RouterConvergence(object):
         
         	**range:** 5..80
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: enable
         
         	Enable Absolute directory path for saving the archive files. Example /disk0\:/rcmd/ or <tftp\-location>/rcmd/. Deletion of this object also causes deletion of all associated objects under StorageLocation
         	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: reports
         
         	Absolute directory path for storing reports. Example /disk0\:/rcmd/ or <tftp\-location>/rcmd/
         	**type**\: str
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         .. attribute:: reports_size
         
@@ -872,6 +840,11 @@ class RouterConvergence(object):
         	**type**\: int
         
         	**range:** 5..80
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         
 
@@ -902,8 +875,6 @@ class RouterConvergence(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.diagnostics is not None:
                 return True
 
@@ -920,10 +891,6 @@ class RouterConvergence(object):
                 return True
 
             return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return True
 
         @staticmethod
         def _meta_info():
@@ -942,12 +909,7 @@ class RouterConvergence(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.collect_diagnostics is not None and self.collect_diagnostics._has_data():
-            return True
-
-        if self.collect_diagnostics is not None and self.collect_diagnostics.is_presence():
             return True
 
         if self.disable is not None:
@@ -968,13 +930,7 @@ class RouterConvergence(object):
         if self.mpls_ldp is not None and self.mpls_ldp._has_data():
             return True
 
-        if self.mpls_ldp is not None and self.mpls_ldp.is_presence():
-            return True
-
         if self.nodes is not None and self.nodes._has_data():
-            return True
-
-        if self.nodes is not None and self.nodes.is_presence():
             return True
 
         if self.prefix_monitor_limit is not None:
@@ -983,19 +939,9 @@ class RouterConvergence(object):
         if self.protocols is not None and self.protocols._has_data():
             return True
 
-        if self.protocols is not None and self.protocols.is_presence():
-            return True
-
         if self.storage_location is not None and self.storage_location._has_data():
             return True
 
-        if self.storage_location is not None and self.storage_location.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

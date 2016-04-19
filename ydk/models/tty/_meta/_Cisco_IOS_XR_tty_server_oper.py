@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,13 +14,13 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'LineState_Enum' : _MetaInfoEnum('LineState_Enum', 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper',
+    'LineStateEnum' : _MetaInfoEnum('LineStateEnum', 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper',
         {
             'none':'NONE',
             'registered':'REGISTERED',
             'in-use':'IN_USE',
         }, 'Cisco-IOS-XR-tty-server-oper', _yang_ns._namespaces['Cisco-IOS-XR-tty-server-oper']),
-    'SessionOperation_Enum' : _MetaInfoEnum('SessionOperation_Enum', 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper',
+    'SessionOperationEnum' : _MetaInfoEnum('SessionOperationEnum', 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper',
         {
             'none':'NONE',
             'setup':'SETUP',
@@ -249,19 +249,19 @@ _meta_table = {
                 ''',
                 'none',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('protocol1', REFERENCE_ENUM_CLASS, 'TtyTransportProtocol_Enum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocol_Enum', 
+            _MetaInfoClassMember('protocol1', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolEnum', 
                 [], [], 
                 '''                Transport protocol1
                 ''',
                 'protocol1',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('protocol2', REFERENCE_ENUM_CLASS, 'TtyTransportProtocol_Enum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocol_Enum', 
+            _MetaInfoClassMember('protocol2', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolEnum', 
                 [], [], 
                 '''                Transport protocol2
                 ''',
                 'protocol2',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('select', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolSelect_Enum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolSelect_Enum', 
+            _MetaInfoClassMember('select', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolSelectEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolSelectEnum', 
                 [], [], 
                 '''                Choose transport protocols
                 ''',
@@ -325,13 +325,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General',
             False, 
             [
-            _MetaInfoClassMember('general-state', REFERENCE_ENUM_CLASS, 'LineState_Enum' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'LineState_Enum', 
+            _MetaInfoClassMember('general-state', REFERENCE_ENUM_CLASS, 'LineStateEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'LineStateEnum', 
                 [], [], 
                 '''                State of the line
                 ''',
                 'general_state',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('operation', REFERENCE_ENUM_CLASS, 'SessionOperation_Enum' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'SessionOperation_Enum', 
+            _MetaInfoClassMember('operation', REFERENCE_ENUM_CLASS, 'SessionOperationEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'SessionOperationEnum', 
                 [], [], 
                 '''                application running of on the tty line
                 ''',
@@ -464,19 +464,19 @@ _meta_table = {
                 ''',
                 'none',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('protocol1', REFERENCE_ENUM_CLASS, 'TtyTransportProtocol_Enum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocol_Enum', 
+            _MetaInfoClassMember('protocol1', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolEnum', 
                 [], [], 
                 '''                Transport protocol1
                 ''',
                 'protocol1',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('protocol2', REFERENCE_ENUM_CLASS, 'TtyTransportProtocol_Enum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocol_Enum', 
+            _MetaInfoClassMember('protocol2', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolEnum', 
                 [], [], 
                 '''                Transport protocol2
                 ''',
                 'protocol2',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('select', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolSelect_Enum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolSelect_Enum', 
+            _MetaInfoClassMember('select', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolSelectEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolSelectEnum', 
                 [], [], 
                 '''                Choose transport protocols
                 ''',
@@ -751,13 +751,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General',
             False, 
             [
-            _MetaInfoClassMember('general-state', REFERENCE_ENUM_CLASS, 'LineState_Enum' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'LineState_Enum', 
+            _MetaInfoClassMember('general-state', REFERENCE_ENUM_CLASS, 'LineStateEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'LineStateEnum', 
                 [], [], 
                 '''                State of the line
                 ''',
                 'general_state',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('operation', REFERENCE_ENUM_CLASS, 'SessionOperation_Enum' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'SessionOperation_Enum', 
+            _MetaInfoClassMember('operation', REFERENCE_ENUM_CLASS, 'SessionOperationEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'SessionOperationEnum', 
                 [], [], 
                 '''                application running of on the tty line
                 ''',
@@ -890,19 +890,19 @@ _meta_table = {
                 ''',
                 'none',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('protocol1', REFERENCE_ENUM_CLASS, 'TtyTransportProtocol_Enum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocol_Enum', 
+            _MetaInfoClassMember('protocol1', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolEnum', 
                 [], [], 
                 '''                Transport protocol1
                 ''',
                 'protocol1',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('protocol2', REFERENCE_ENUM_CLASS, 'TtyTransportProtocol_Enum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocol_Enum', 
+            _MetaInfoClassMember('protocol2', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolEnum', 
                 [], [], 
                 '''                Transport protocol2
                 ''',
                 'protocol2',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('select', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolSelect_Enum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolSelect_Enum', 
+            _MetaInfoClassMember('select', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolSelectEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolSelectEnum', 
                 [], [], 
                 '''                Choose transport protocols
                 ''',
@@ -1026,7 +1026,7 @@ _meta_table = {
                 ''',
                 'is_last_active_session',
                 'Cisco-IOS-XR-tty-management-oper', False),
-            _MetaInfoClassMember('transport-protocol', REFERENCE_ENUM_CLASS, 'TransportService_Enum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_oper', 'TransportService_Enum', 
+            _MetaInfoClassMember('transport-protocol', REFERENCE_ENUM_CLASS, 'TransportServiceEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_oper', 'TransportServiceEnum', 
                 [], [], 
                 '''                Session transport protocol
                 ''',
@@ -1060,13 +1060,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.VtyLines.VtyLine.State.General',
             False, 
             [
-            _MetaInfoClassMember('general-state', REFERENCE_ENUM_CLASS, 'LineState_Enum' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'LineState_Enum', 
+            _MetaInfoClassMember('general-state', REFERENCE_ENUM_CLASS, 'LineStateEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'LineStateEnum', 
                 [], [], 
                 '''                State of the line
                 ''',
                 'general_state',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('operation', REFERENCE_ENUM_CLASS, 'SessionOperation_Enum' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'SessionOperation_Enum', 
+            _MetaInfoClassMember('operation', REFERENCE_ENUM_CLASS, 'SessionOperationEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_oper', 'SessionOperationEnum', 
                 [], [], 
                 '''                application running of on the tty line
                 ''',

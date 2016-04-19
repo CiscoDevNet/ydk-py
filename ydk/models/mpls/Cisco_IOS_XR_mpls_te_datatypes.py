@@ -20,1115 +20,1023 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class Ctype_Enum(Enum):
+class CtypeEnum(Enum):
     """
-    Ctype_Enum
+    CtypeEnum
 
     Ctype
 
-    """
+    .. data:: CTYPE_NULL = 0
+
+    	CTYPE NULL
+
+    .. data:: CTYPE_IPV4 = 1
+
+    	CTYPE IPV4
+
+    .. data:: CTYPE_IPV4_P2P_TUNNEL = 7
+
+    	CTYPE IPV4 P2P TUNNEL
+
+    .. data:: CTYPE_IPV6_P2P_TUNNEL = 8
+
+    	CTYPE IPV6 P2P TUNNEL
+
+    .. data:: CTYPE_IPV4_UNI = 9
+
+    	CTYPE IPV4 UNI
+
+    .. data:: CTYPE_IPV4_P2MP_TUNNEL = 13
+
+    	CTYPE IPV4 P2MP TUNNEL
+
+    .. data:: CTYPE_IPV6_P2MP_TUNNEL = 14
+
+    	CTYPE IPV6 P2MP TUNNEL
 
     """
 
-    CTYPE NULL
-
-    """
     CTYPE_NULL = 0
 
-    """
-
-    CTYPE IPV4
-
-    """
     CTYPE_IPV4 = 1
 
-    """
-
-    CTYPE IPV4 P2P TUNNEL
-
-    """
     CTYPE_IPV4_P2P_TUNNEL = 7
 
-    """
-
-    CTYPE IPV6 P2P TUNNEL
-
-    """
     CTYPE_IPV6_P2P_TUNNEL = 8
 
-    """
-
-    CTYPE IPV4 UNI
-
-    """
     CTYPE_IPV4_UNI = 9
 
-    """
-
-    CTYPE IPV4 P2MP TUNNEL
-
-    """
     CTYPE_IPV4_P2MP_TUNNEL = 13
 
-    """
-
-    CTYPE IPV6 P2MP TUNNEL
-
-    """
     CTYPE_IPV6_P2MP_TUNNEL = 14
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['Ctype_Enum']
+        return meta._meta_table['CtypeEnum']
 
 
-class MplsTeAffinityValue_Enum(Enum):
+class MplsTeAffinityValueEnum(Enum):
     """
-    MplsTeAffinityValue_Enum
+    MplsTeAffinityValueEnum
 
     Mpls te affinity value
 
-    """
+    .. data:: HEX_VALUE = 1
+
+    	Affinity value in Hex number
+
+    .. data:: BIT_POSITION = 2
+
+    	Affinity value by Bit-Position
 
     """
 
-    Affinity value in Hex number
-
-    """
     HEX_VALUE = 1
 
-    """
-
-    Affinity value by Bit\-Position
-
-    """
     BIT_POSITION = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeAffinityValue_Enum']
+        return meta._meta_table['MplsTeAffinityValueEnum']
 
 
-class MplsTeAttrSet_Enum(Enum):
+class MplsTeAttrSetEnum(Enum):
     """
-    MplsTeAttrSet_Enum
+    MplsTeAttrSetEnum
 
     Mpls te attr set
 
-    """
+    .. data:: NOT_USED = 0
+
+    	Not used
+
+    .. data:: STATIC = 1
+
+    	Static
+
+    .. data:: LSP = 2
+
+    	LSP
+
+    .. data:: UNASSIGNED = 3
+
+    	Unassigned
+
+    .. data:: AUTO_BACKUP = 4
+
+    	Auto backup
+
+    .. data:: AUTO_MESH = 5
+
+    	Auto mesh
+
+    .. data:: XRO = 6
+
+    	XRO
+
+    .. data:: P2MP_TE = 7
+
+    	P2MP TE
+
+    .. data:: OTN_PP = 8
+
+    	OTN Path Protection
+
+    .. data:: P2P_TE = 9
+
+    	P2P TE
 
     """
 
-    Not used
-
-    """
     NOT_USED = 0
 
-    """
-
-    Static
-
-    """
     STATIC = 1
 
-    """
-
-    LSP
-
-    """
     LSP = 2
 
-    """
-
-    Unassigned
-
-    """
     UNASSIGNED = 3
 
-    """
-
-    Auto backup
-
-    """
     AUTO_BACKUP = 4
 
-    """
-
-    Auto mesh
-
-    """
     AUTO_MESH = 5
 
-    """
-
-    XRO
-
-    """
     XRO = 6
 
-    """
-
-    P2MP TE
-
-    """
     P2MP_TE = 7
 
-    """
-
-    OTN Path Protection
-
-    """
     OTN_PP = 8
 
-    """
-
-    P2P TE
-
-    """
     P2P_TE = 9
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeAttrSet_Enum']
+        return meta._meta_table['MplsTeAttrSetEnum']
 
 
-class MplsTeAutorouteMetric_Enum(Enum):
+class MplsTeAutorouteMetricEnum(Enum):
     """
-    MplsTeAutorouteMetric_Enum
+    MplsTeAutorouteMetricEnum
 
     Mpls te autoroute metric
 
-    """
+    .. data:: RELATIVE = 1
+
+    	Relative
+
+    .. data:: ABSOLUTE = 2
+
+    	Absolute
+
+    .. data:: CONSTANT = 3
+
+    	Constant
 
     """
 
-    Relative
-
-    """
     RELATIVE = 1
 
-    """
-
-    Absolute
-
-    """
     ABSOLUTE = 2
 
-    """
-
-    Constant
-
-    """
     CONSTANT = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeAutorouteMetric_Enum']
+        return meta._meta_table['MplsTeAutorouteMetricEnum']
 
 
-class MplsTeBackupBandwidthClass_Enum(Enum):
+class MplsTeBackupBandwidthClassEnum(Enum):
     """
-    MplsTeBackupBandwidthClass_Enum
+    MplsTeBackupBandwidthClassEnum
 
     Mpls te backup bandwidth class
 
-    """
+    .. data:: CLASS0 = 0
+
+    	Class 0
+
+    .. data:: CLASS1 = 1
+
+    	Class 1
+
+    .. data:: ANY_CLASS = 9
+
+    	Any Class
 
     """
 
-    Class 0
-
-    """
     CLASS0 = 0
 
-    """
-
-    Class 1
-
-    """
     CLASS1 = 1
 
-    """
-
-    Any Class
-
-    """
     ANY_CLASS = 9
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeBackupBandwidthClass_Enum']
+        return meta._meta_table['MplsTeBackupBandwidthClassEnum']
 
 
-class MplsTeBackupBandwidthPool_Enum(Enum):
+class MplsTeBackupBandwidthPoolEnum(Enum):
     """
-    MplsTeBackupBandwidthPool_Enum
+    MplsTeBackupBandwidthPoolEnum
 
     Mpls te backup bandwidth pool
 
-    """
+    .. data:: ANY_POOL = 1
+
+    	Any Pool
+
+    .. data:: GLOBAL_POOL = 2
+
+    	Global Pool
+
+    .. data:: SUB_POOL = 4
+
+    	Sub Pool
 
     """
 
-    Any Pool
-
-    """
     ANY_POOL = 1
 
-    """
-
-    Global Pool
-
-    """
     GLOBAL_POOL = 2
 
-    """
-
-    Sub Pool
-
-    """
     SUB_POOL = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeBackupBandwidthPool_Enum']
+        return meta._meta_table['MplsTeBackupBandwidthPoolEnum']
 
 
-class MplsTeBandwidthDste_Enum(Enum):
+class MplsTeBandwidthDsteEnum(Enum):
     """
-    MplsTeBandwidthDste_Enum
+    MplsTeBandwidthDsteEnum
 
     Mpls te bandwidth dste
 
-    """
+    .. data:: STANDARD_DSTE = 0
+
+    	IETF-Standard DSTE
+
+    .. data:: PRE_STANDARD_DSTE = 1
+
+    	Pre-Standard DSTE
 
     """
 
-    IETF\-Standard DSTE
-
-    """
     STANDARD_DSTE = 0
 
-    """
-
-    Pre\-Standard DSTE
-
-    """
     PRE_STANDARD_DSTE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeBandwidthDste_Enum']
+        return meta._meta_table['MplsTeBandwidthDsteEnum']
 
 
-class MplsTeBandwidthLimit_Enum(Enum):
+class MplsTeBandwidthLimitEnum(Enum):
     """
-    MplsTeBandwidthLimit_Enum
+    MplsTeBandwidthLimitEnum
 
     Mpls te bandwidth limit
 
-    """
+    .. data:: UNLIMITED = 64
+
+    	Unlimited
+
+    .. data:: LIMITED = 128
+
+    	Limited
 
     """
 
-    Unlimited
-
-    """
     UNLIMITED = 64
 
-    """
-
-    Limited
-
-    """
     LIMITED = 128
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeBandwidthLimit_Enum']
+        return meta._meta_table['MplsTeBandwidthLimitEnum']
 
 
-class MplsTeBandwidthPool_Enum(Enum):
+class MplsTeBandwidthPoolEnum(Enum):
     """
-    MplsTeBandwidthPool_Enum
+    MplsTeBandwidthPoolEnum
 
     Mpls te bandwidth pool
 
-    """
+    .. data:: ANY_POOL = 0
+
+    	Any Pool
+
+    .. data:: SUB_POOL = 1
+
+    	Sub Pool
 
     """
 
-    Any Pool
-
-    """
     ANY_POOL = 0
 
-    """
-
-    Sub Pool
-
-    """
     SUB_POOL = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeBandwidthPool_Enum']
+        return meta._meta_table['MplsTeBandwidthPoolEnum']
 
 
-class MplsTeBfdSessionDownAction_Enum(Enum):
+class MplsTeBfdSessionDownActionEnum(Enum):
     """
-    MplsTeBfdSessionDownAction_Enum
+    MplsTeBfdSessionDownActionEnum
 
     Mpls te bfd session down action
 
-    """
+    .. data:: RE_SETUP = 1
+
+    	Tear down and resetup
 
     """
 
-    Tear down and resetup
-
-    """
     RE_SETUP = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeBfdSessionDownAction_Enum']
+        return meta._meta_table['MplsTeBfdSessionDownActionEnum']
 
 
-class MplsTeIgpProtocol_Enum(Enum):
+class MplsTeIgpProtocolEnum(Enum):
     """
-    MplsTeIgpProtocol_Enum
+    MplsTeIgpProtocolEnum
 
     Mpls te igp protocol
 
-    """
+    .. data:: NONE = 0
+
+    	Not set
+
+    .. data:: ISIS = 1
+
+    	IS IS
+
+    .. data:: OSPF = 2
+
+    	OSPF
 
     """
 
-    Not set
-
-    """
     NONE = 0
 
-    """
-
-    IS IS
-
-    """
     ISIS = 1
 
-    """
-
-    OSPF
-
-    """
     OSPF = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeIgpProtocol_Enum']
+        return meta._meta_table['MplsTeIgpProtocolEnum']
 
 
-class MplsTeLogFrrProtection_Enum(Enum):
+class MplsTeLogFrrProtectionEnum(Enum):
     """
-    MplsTeLogFrrProtection_Enum
+    MplsTeLogFrrProtectionEnum
 
     Mpls te log frr protection
 
-    """
+    .. data:: FRR_ACTIVE_PRIMARY = 1
+
+    	Track only FRR active on primary LSP
+
+    .. data:: BACKUP = 256
+
+    	backup tunnel
+
+    .. data:: FRR_READY_PRIMARY = 512
+
+    	Track only FRR ready on primary LSP
+
+    .. data:: PRIMARY = 513
+
+    	primary LSP
+
+    .. data:: ALL = 769
+
+    	all
 
     """
 
-    Track only FRR active on primary LSP
-
-    """
     FRR_ACTIVE_PRIMARY = 1
 
-    """
-
-    backup tunnel
-
-    """
     BACKUP = 256
 
-    """
-
-    Track only FRR ready on primary LSP
-
-    """
     FRR_READY_PRIMARY = 512
 
-    """
-
-    primary LSP
-
-    """
     PRIMARY = 513
 
-    """
-
-    all
-
-    """
     ALL = 769
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeLogFrrProtection_Enum']
+        return meta._meta_table['MplsTeLogFrrProtectionEnum']
 
 
-class MplsTeOtnApsProtectionMode_Enum(Enum):
+class MplsTeOtnApsProtectionEnum(Enum):
     """
-    MplsTeOtnApsProtectionMode_Enum
-
-    Mpls te otn aps protection mode
-
-    """
-
-    """
-
-    Revertive
-
-    """
-    REVERTIVE = 1
-
-    """
-
-    Non Revertive
-
-    """
-    NON_REVERTIVE = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeOtnApsProtectionMode_Enum']
-
-
-class MplsTeOtnApsProtection_Enum(Enum):
-    """
-    MplsTeOtnApsProtection_Enum
+    MplsTeOtnApsProtectionEnum
 
     Mpls te otn aps protection
 
-    """
+    .. data:: Y_1PLUS1_UNIDIR_NO_APS = 4
+
+    	1PLUS1 UNIDIR NO APS
+
+    .. data:: Y_1PLUS1_UNIDIR_APS = 8
+
+    	1PLUS1 UNIDIR APS
+
+    .. data:: Y_1PLUS1_BDIR_APS = 16
+
+    	1PLUS1 BIDIR APS
+
+    .. data:: Y_1PLUS1PLUS_R_BIDIR_APS = 32
+
+    	1PLUS1PLUS R BIDIR APS
 
     """
 
-    1PLUS1 UNIDIR NO APS
-
-    """
     Y_1PLUS1_UNIDIR_NO_APS = 4
 
-    """
-
-    1PLUS1 UNIDIR APS
-
-    """
     Y_1PLUS1_UNIDIR_APS = 8
 
-    """
-
-    1PLUS1 BIDIR APS
-
-    """
     Y_1PLUS1_BDIR_APS = 16
 
-    """
-
-    1PLUS1PLUS R BIDIR APS
-
-    """
     Y_1PLUS1PLUS_R_BIDIR_APS = 32
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeOtnApsProtection_Enum']
+        return meta._meta_table['MplsTeOtnApsProtectionEnum']
 
 
-class MplsTeOtnSncMode_Enum(Enum):
+class MplsTeOtnApsProtectionModeEnum(Enum):
     """
-    MplsTeOtnSncMode_Enum
+    MplsTeOtnApsProtectionModeEnum
+
+    Mpls te otn aps protection mode
+
+    .. data:: REVERTIVE = 1
+
+    	Revertive
+
+    .. data:: NON_REVERTIVE = 2
+
+    	Non Revertive
+
+    """
+
+    REVERTIVE = 1
+
+    NON_REVERTIVE = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
+        return meta._meta_table['MplsTeOtnApsProtectionModeEnum']
+
+
+class MplsTeOtnSncModeEnum(Enum):
+    """
+    MplsTeOtnSncModeEnum
 
     Mpls te otn snc mode
 
-    """
+    .. data:: SNC_N = 1
+
+    	SNC N
+
+    .. data:: SNC_I = 2
+
+    	SNC I
+
+    .. data:: SNC_S = 3
+
+    	SNC S
 
     """
 
-    SNC N
-
-    """
     SNC_N = 1
 
-    """
-
-    SNC I
-
-    """
     SNC_I = 2
 
-    """
-
-    SNC S
-
-    """
     SNC_S = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeOtnSncMode_Enum']
+        return meta._meta_table['MplsTeOtnSncModeEnum']
 
 
-class MplsTePathDiversityConformance_Enum(Enum):
+class MplsTePathDiversityConformanceEnum(Enum):
     """
-    MplsTePathDiversityConformance_Enum
+    MplsTePathDiversityConformanceEnum
 
     Mpls te path diversity conformance
 
-    """
+    .. data:: STRICT = 0
+
+    	Strict
+
+    .. data:: BEST_EFFORT = 1
+
+    	Best effort
 
     """
 
-    Strict
-
-    """
     STRICT = 0
 
-    """
-
-    Best effort
-
-    """
     BEST_EFFORT = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTePathDiversityConformance_Enum']
+        return meta._meta_table['MplsTePathDiversityConformanceEnum']
 
 
-class MplsTePathOptionProperty_Enum(Enum):
+class MplsTePathOptionEnum(Enum):
     """
-    MplsTePathOptionProperty_Enum
-
-    Mpls te path option property
-
-    """
-
-    """
-
-    No property
-
-    """
-    NONE = 0
-
-    """
-
-    Path is not a canditate forreoptimization
-
-    """
-    LOCKDOWN = 1
-
-    """
-
-    Explicit path does not require topology
-    database
-
-    """
-    VERBATIM = 4
-
-    """
-
-    Dynamic path found by PCE server
-
-    """
-    PCE = 8
-
-    """
-
-    Segment Routing path
-
-    """
-    SEGMENT_ROUTING = 16
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTePathOptionProperty_Enum']
-
-
-class MplsTePathOptionProtection_Enum(Enum):
-    """
-    MplsTePathOptionProtection_Enum
-
-    Mpls te path option protection
-
-    """
-
-    """
-
-    Active path
-
-    """
-    ACTIVE = 0
-
-    """
-
-    Protecting Path
-
-    """
-    PROTECTING = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTePathOptionProtection_Enum']
-
-
-class MplsTePathOption_Enum(Enum):
-    """
-    MplsTePathOption_Enum
+    MplsTePathOptionEnum
 
     Mpls te path option
 
-    """
+    .. data:: NOT_SET = 0
+
+    	Not Set
+
+    .. data:: DYNAMIC = 1
+
+    	Dynamic
+
+    .. data:: EXPLICIT_NAME = 3
+
+    	Explicit, identified by name
+
+    .. data:: EXPLICIT_NUMBER = 4
+
+    	Explicit, identified by number
+
+    .. data:: NO_ERO = 5
+
+    	No ERO
+
+    .. data:: SR = 6
+
+    	Segment routing
 
     """
 
-    Not Set
-
-    """
     NOT_SET = 0
 
-    """
-
-    Dynamic
-
-    """
     DYNAMIC = 1
 
-    """
-
-    Explicit, identified by name
-
-    """
     EXPLICIT_NAME = 3
 
-    """
-
-    Explicit, identified by number
-
-    """
     EXPLICIT_NUMBER = 4
 
-    """
-
-    No ERO
-
-    """
     NO_ERO = 5
 
-    """
-
-    Segment routing
-
-    """
     SR = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTePathOption_Enum']
+        return meta._meta_table['MplsTePathOptionEnum']
 
 
-class MplsTePathSelectionInvalidationTimerExpire_Enum(Enum):
+class MplsTePathOptionPropertyEnum(Enum):
     """
-    MplsTePathSelectionInvalidationTimerExpire_Enum
+    MplsTePathOptionPropertyEnum
+
+    Mpls te path option property
+
+    .. data:: NONE = 0
+
+    	No property
+
+    .. data:: LOCKDOWN = 1
+
+    	Path is not a canditate forreoptimization
+
+    .. data:: VERBATIM = 4
+
+    	Explicit path does not require topology
+
+    	database
+
+    .. data:: PCE = 8
+
+    	Dynamic path found by PCE server
+
+    .. data:: SEGMENT_ROUTING = 16
+
+    	Segment Routing path
+
+    """
+
+    NONE = 0
+
+    LOCKDOWN = 1
+
+    VERBATIM = 4
+
+    PCE = 8
+
+    SEGMENT_ROUTING = 16
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
+        return meta._meta_table['MplsTePathOptionPropertyEnum']
+
+
+class MplsTePathOptionProtectionEnum(Enum):
+    """
+    MplsTePathOptionProtectionEnum
+
+    Mpls te path option protection
+
+    .. data:: ACTIVE = 0
+
+    	Active path
+
+    .. data:: PROTECTING = 1
+
+    	Protecting Path
+
+    """
+
+    ACTIVE = 0
+
+    PROTECTING = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
+        return meta._meta_table['MplsTePathOptionProtectionEnum']
+
+
+class MplsTePathSelectionInvalidationTimerExpireEnum(Enum):
+    """
+    MplsTePathSelectionInvalidationTimerExpireEnum
 
     Mpls te path selection invalidation timer expire
 
-    """
+    .. data:: TUNNEL_ACTION_TEAR = 1
+
+    	Tear down tunnel.
+
+    .. data:: TUNNEL_ACTION_DROP = 2
+
+    	Drop tunnel traffic.
 
     """
 
-    Tear down tunnel.
-
-    """
     TUNNEL_ACTION_TEAR = 1
 
-    """
-
-    Drop tunnel traffic.
-
-    """
     TUNNEL_ACTION_DROP = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTePathSelectionInvalidationTimerExpire_Enum']
+        return meta._meta_table['MplsTePathSelectionInvalidationTimerExpireEnum']
 
 
-class MplsTePathSelectionMetric_Enum(Enum):
+class MplsTePathSelectionMetricEnum(Enum):
     """
-    MplsTePathSelectionMetric_Enum
+    MplsTePathSelectionMetricEnum
 
     Mpls te path selection metric
 
-    """
+    .. data:: IGP = 1
+
+    	IGP Metric
+
+    .. data:: TE = 2
+
+    	TE Metric
 
     """
 
-    IGP Metric
-
-    """
     IGP = 1
 
-    """
-
-    TE Metric
-
-    """
     TE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTePathSelectionMetric_Enum']
+        return meta._meta_table['MplsTePathSelectionMetricEnum']
 
 
-class MplsTePathSelectionSegmentRoutingAdjacencyProtection_Enum(Enum):
+class MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum(Enum):
     """
-    MplsTePathSelectionSegmentRoutingAdjacencyProtection_Enum
+    MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum
 
     Mpls te path selection segment routing adjacency
+
     protection
 
-    """
+    .. data:: NOT_SET = 0
+
+    	Any segment can be used in a path.
+
+    .. data:: ADJ_UNPROTECTED = 1
+
+    	Only unprotected adjacency segments can be used
+
+    	in a path.
+
+    .. data:: ADJ_PROTECTED = 2
+
+    	Only protected adjacency segments can be used
+
+    	in a path.
 
     """
 
-    Any segment can be used in a path.
-
-    """
     NOT_SET = 0
 
-    """
-
-    Only unprotected adjacency segments can be used
-    in a path.
-
-    """
     ADJ_UNPROTECTED = 1
 
-    """
-
-    Only protected adjacency segments can be used
-    in a path.
-
-    """
     ADJ_PROTECTED = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTePathSelectionSegmentRoutingAdjacencyProtection_Enum']
+        return meta._meta_table['MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum']
 
 
-class MplsTePathSelectionTiebreaker_Enum(Enum):
+class MplsTePathSelectionTiebreakerEnum(Enum):
     """
-    MplsTePathSelectionTiebreaker_Enum
+    MplsTePathSelectionTiebreakerEnum
 
     Mpls te path selection tiebreaker
 
-    """
+    .. data:: MIN_FILL = 1
+
+    	Prefer the path with the least-utilized links
+
+    .. data:: MAX_FILL = 2
+
+    	Prefer the path with the most-utilized links
+
+    .. data:: RANDOM = 3
+
+    	Prefer a path with links utilized randomly
 
     """
 
-    Prefer the path with the least\-utilized links
-
-    """
     MIN_FILL = 1
 
-    """
-
-    Prefer the path with the most\-utilized links
-
-    """
     MAX_FILL = 2
 
-    """
-
-    Prefer a path with links utilized randomly
-
-    """
     RANDOM = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTePathSelectionTiebreaker_Enum']
+        return meta._meta_table['MplsTePathSelectionTiebreakerEnum']
 
 
-class MplsTeSigNameOption_Enum(Enum):
+class MplsTeSigNameOptionEnum(Enum):
     """
-    MplsTeSigNameOption_Enum
+    MplsTeSigNameOptionEnum
 
     Mpls te sig name option
 
-    """
+    .. data:: NONE = 0
+
+    	None
+
+    .. data:: ADDRESS = 1
+
+    	Address
+
+    .. data:: NAME = 2
+
+    	Name
 
     """
 
-    None
-
-    """
     NONE = 0
 
-    """
-
-    Address
-
-    """
     ADDRESS = 1
 
-    """
-
-    Name
-
-    """
     NAME = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeSigNameOption_Enum']
+        return meta._meta_table['MplsTeSigNameOptionEnum']
 
 
-class MplsTeSwitchingCap_Enum(Enum):
+class MplsTeSwitchingCapEnum(Enum):
     """
-    MplsTeSwitchingCap_Enum
+    MplsTeSwitchingCapEnum
 
     Mpls te switching cap
 
-    """
+    .. data:: PSC1 = 1
+
+    	PSC1
+
+    .. data:: LSC = 150
+
+    	LSC
+
+    .. data:: FSC = 200
+
+    	FSC
 
     """
 
-    PSC1
-
-    """
     PSC1 = 1
 
-    """
-
-    LSC
-
-    """
     LSC = 150
 
-    """
-
-    FSC
-
-    """
     FSC = 200
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeSwitchingCap_Enum']
+        return meta._meta_table['MplsTeSwitchingCapEnum']
 
 
-class MplsTeTunnelAffinity_Enum(Enum):
+class MplsTeTunnelAffinityEnum(Enum):
     """
-    MplsTeTunnelAffinity_Enum
+    MplsTeTunnelAffinityEnum
 
     Mpls te tunnel affinity
 
-    """
+    .. data:: INCLUDE = 1
+
+    	Include Affinity
+
+    .. data:: INCLUDE_STRICT = 2
+
+    	Strictly Include Affinity
+
+    .. data:: EXCLUDE = 3
+
+    	Exclude Affinity
+
+    .. data:: EXCLUDE_ALL = 4
+
+    	Exclude All Affinities
+
+    .. data:: IGNORE = 5
+
+    	Ignore Affinity
 
     """
 
-    Include Affinity
-
-    """
     INCLUDE = 1
 
-    """
-
-    Strictly Include Affinity
-
-    """
     INCLUDE_STRICT = 2
 
-    """
-
-    Exclude Affinity
-
-    """
     EXCLUDE = 3
 
-    """
-
-    Exclude All Affinities
-
-    """
     EXCLUDE_ALL = 4
 
-    """
-
-    Ignore Affinity
-
-    """
     IGNORE = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeTunnelAffinity_Enum']
+        return meta._meta_table['MplsTeTunnelAffinityEnum']
 
 
-class MplsTesrlgExclude_Enum(Enum):
+class MplsTesrlgExcludeEnum(Enum):
     """
-    MplsTesrlgExclude_Enum
+    MplsTesrlgExcludeEnum
 
     Mpls tesrlg exclude
 
-    """
+    .. data:: MANDATORY = 1
+
+    	SRLG Mandatory Exclude
+
+    .. data:: PREFERRED = 2
+
+    	SRLG Preferred Exclude
+
+    .. data:: WEIGHTED = 3
+
+    	SRLG Weighted Exclude
 
     """
 
-    SRLG Mandatory Exclude
-
-    """
     MANDATORY = 1
 
-    """
-
-    SRLG Preferred Exclude
-
-    """
     PREFERRED = 2
 
-    """
-
-    SRLG Weighted Exclude
-
-    """
     WEIGHTED = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTesrlgExclude_Enum']
+        return meta._meta_table['MplsTesrlgExcludeEnum']
 
 
-class PathInvalidationAction_Enum(Enum):
+class PathInvalidationActionEnum(Enum):
     """
-    PathInvalidationAction_Enum
+    PathInvalidationActionEnum
 
     Path invalidation action
 
-    """
+    .. data:: TEAR = 1
+
+    	Tear
+
+    .. data:: DROP = 2
+
+    	Drop
 
     """
 
-    Tear
-
-    """
     TEAR = 1
 
-    """
-
-    Drop
-
-    """
     DROP = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['PathInvalidationAction_Enum']
+        return meta._meta_table['PathInvalidationActionEnum']
 
 
-class SrPrepend_Enum(Enum):
+class SrPrependEnum(Enum):
     """
-    SrPrepend_Enum
+    SrPrependEnum
 
     Sr prepend
 
-    """
+    .. data:: NONE_TYPE = 0
+
+    	NoneType
+
+    .. data:: NEXT_LABEL = 1
+
+    	Next Label
+
+    .. data:: BGP_N_HOP = 2
+
+    	BGP NHOP
 
     """
 
-    NoneType
-
-    """
     NONE_TYPE = 0
 
-    """
-
-    Next Label
-
-    """
     NEXT_LABEL = 1
 
-    """
-
-    BGP NHOP
-
-    """
     BGP_N_HOP = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['SrPrepend_Enum']
+        return meta._meta_table['SrPrependEnum']
 
 
 

@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'ServerDomainLkup_Enum' : _MetaInfoEnum('ServerDomainLkup_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_domain_oper',
+    'ServerDomainLkupEnum' : _MetaInfoEnum('ServerDomainLkupEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_domain_oper',
         {
             'static-mapping':'STATIC_MAPPING',
             'domain-service':'DOMAIN_SERVICE',
@@ -174,7 +174,7 @@ _meta_table = {
                 ''',
                 'domain',
                 'Cisco-IOS-XR-ip-domain-oper', False),
-            _MetaInfoClassMember('domain-lookup', REFERENCE_ENUM_CLASS, 'ServerDomainLkup_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_oper', 'ServerDomainLkup_Enum', 
+            _MetaInfoClassMember('domain-lookup', REFERENCE_ENUM_CLASS, 'ServerDomainLkupEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_domain_oper', 'ServerDomainLkupEnum', 
                 [], [], 
                 '''                Domain lookup
                 ''',

@@ -24,62 +24,58 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class XrXmlSessionAlarmRegister_Enum(Enum):
+class XrXmlSessionAlarmRegisterEnum(Enum):
     """
-    XrXmlSessionAlarmRegister_Enum
+    XrXmlSessionAlarmRegisterEnum
 
     AlarmNotify
 
-    """
+    .. data:: REGISTERED = 1
+
+    	Registered
+
+    .. data:: NOT_REGISTERED = 2
+
+    	NotRegistered
 
     """
 
-    Registered
-
-    """
     REGISTERED = 1
 
-    """
-
-    NotRegistered
-
-    """
     NOT_REGISTERED = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.man._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
-        return meta._meta_table['XrXmlSessionAlarmRegister_Enum']
+        return meta._meta_table['XrXmlSessionAlarmRegisterEnum']
 
 
-class XrXmlSessionState_Enum(Enum):
+class XrXmlSessionStateEnum(Enum):
     """
-    XrXmlSessionState_Enum
+    XrXmlSessionStateEnum
 
     SessionState
 
-    """
+    .. data:: IDLE = 1
+
+    	Idle
+
+    .. data:: BUSY = 2
+
+    	Busy
 
     """
 
-    Idle
-
-    """
     IDLE = 1
 
-    """
-
-    Busy
-
-    """
     BUSY = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.man._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
-        return meta._meta_table['XrXmlSessionState_Enum']
+        return meta._meta_table['XrXmlSessionStateEnum']
 
 
 
@@ -204,7 +200,7 @@ class XrXml(object):
                     .. attribute:: alarm_notification
                     
                     	is the session registered for alarm notifications
-                    	**type**\: :py:class:`XrXmlSessionAlarmRegister_Enum <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegister_Enum>`
+                    	**type**\: :py:class:`XrXmlSessionAlarmRegisterEnum <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegisterEnum>`
                     
                     .. attribute:: client_address
                     
@@ -247,7 +243,7 @@ class XrXml(object):
                     .. attribute:: state
                     
                     	state of the session idle/busy
-                    	**type**\: :py:class:`XrXmlSessionState_Enum <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionState_Enum>`
+                    	**type**\: :py:class:`XrXmlSessionStateEnum <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionStateEnum>`
                     
                     .. attribute:: username
                     
@@ -295,8 +291,6 @@ class XrXml(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.session_id is not None:
                             return True
 
@@ -335,10 +329,6 @@ class XrXml(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.man._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
@@ -356,17 +346,11 @@ class XrXml(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.session is not None:
                         for child_ref in self.session:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -386,18 +370,9 @@ class XrXml(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.sessions is not None and self.sessions._has_data():
                     return True
 
-                if self.sessions is not None and self.sessions.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -470,7 +445,7 @@ class XrXml(object):
                     .. attribute:: alarm_notification
                     
                     	is the session registered for alarm notifications
-                    	**type**\: :py:class:`XrXmlSessionAlarmRegister_Enum <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegister_Enum>`
+                    	**type**\: :py:class:`XrXmlSessionAlarmRegisterEnum <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegisterEnum>`
                     
                     .. attribute:: client_address
                     
@@ -513,7 +488,7 @@ class XrXml(object):
                     .. attribute:: state
                     
                     	state of the session idle/busy
-                    	**type**\: :py:class:`XrXmlSessionState_Enum <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionState_Enum>`
+                    	**type**\: :py:class:`XrXmlSessionStateEnum <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionStateEnum>`
                     
                     .. attribute:: username
                     
@@ -561,8 +536,6 @@ class XrXml(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.session_id is not None:
                             return True
 
@@ -601,10 +574,6 @@ class XrXml(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.man._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
@@ -622,17 +591,11 @@ class XrXml(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.session is not None:
                         for child_ref in self.session:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -652,18 +615,9 @@ class XrXml(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.sessions is not None and self.sessions._has_data():
                     return True
 
-                if self.sessions is not None and self.sessions.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -736,7 +690,7 @@ class XrXml(object):
                     .. attribute:: alarm_notification
                     
                     	is the session registered for alarm notifications
-                    	**type**\: :py:class:`XrXmlSessionAlarmRegister_Enum <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegister_Enum>`
+                    	**type**\: :py:class:`XrXmlSessionAlarmRegisterEnum <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegisterEnum>`
                     
                     .. attribute:: client_address
                     
@@ -779,7 +733,7 @@ class XrXml(object):
                     .. attribute:: state
                     
                     	state of the session idle/busy
-                    	**type**\: :py:class:`XrXmlSessionState_Enum <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionState_Enum>`
+                    	**type**\: :py:class:`XrXmlSessionStateEnum <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionStateEnum>`
                     
                     .. attribute:: username
                     
@@ -827,8 +781,6 @@ class XrXml(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.session_id is not None:
                             return True
 
@@ -867,10 +819,6 @@ class XrXml(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.man._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
@@ -888,17 +836,11 @@ class XrXml(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.session is not None:
                         for child_ref in self.session:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -918,18 +860,9 @@ class XrXml(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.sessions is not None and self.sessions._has_data():
                     return True
 
-                if self.sessions is not None and self.sessions.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -949,30 +882,15 @@ class XrXml(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.default is not None and self.default._has_data():
-                return True
-
-            if self.default is not None and self.default.is_presence():
                 return True
 
             if self.ssl is not None and self.ssl._has_data():
                 return True
 
-            if self.ssl is not None and self.ssl.is_presence():
-                return True
-
             if self.tty is not None and self.tty._has_data():
                 return True
 
-            if self.tty is not None and self.tty.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -992,18 +910,9 @@ class XrXml(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.agent is not None and self.agent._has_data():
             return True
 
-        if self.agent is not None and self.agent.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

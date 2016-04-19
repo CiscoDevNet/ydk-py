@@ -181,15 +181,9 @@ class Rib(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bcdl is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -209,24 +203,15 @@ class Rib(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bcdl_client is not None:
                         return True
 
                     if self.keep is not None and self.keep._has_data():
                         return True
 
-                    if self.keep is not None and self.keep.is_presence():
-                        return True
-
                     if self.protocol_client is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -246,21 +231,12 @@ class Rib(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.next_hop_dampening_disable is not None:
                     return True
 
                 if self.redistribution_history is not None and self.redistribution_history._has_data():
                     return True
 
-                if self.redistribution_history is not None and self.redistribution_history.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -367,15 +343,9 @@ class Rib(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bcdl is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -395,24 +365,15 @@ class Rib(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bcdl_client is not None:
                         return True
 
                     if self.keep is not None and self.keep._has_data():
                         return True
 
-                    if self.keep is not None and self.keep.is_presence():
-                        return True
-
                     if self.protocol_client is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -432,21 +393,12 @@ class Rib(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.next_hop_dampening_disable is not None:
                     return True
 
                 if self.redistribution_history is not None and self.redistribution_history._has_data():
                     return True
 
-                if self.redistribution_history is not None and self.redistribution_history.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -466,24 +418,12 @@ class Rib(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.ipv4 is not None and self.ipv4._has_data():
-                return True
-
-            if self.ipv4 is not None and self.ipv4.is_presence():
                 return True
 
             if self.ipv6 is not None and self.ipv6._has_data():
                 return True
 
-            if self.ipv6 is not None and self.ipv6.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -503,21 +443,12 @@ class Rib(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.af is not None and self.af._has_data():
-            return True
-
-        if self.af is not None and self.af.is_presence():
             return True
 
         if self.max_recursion_depth is not None:
             return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
